@@ -1,8 +1,10 @@
-package com.extraction.pdf.parse;
+package com.extraction.pdf.components;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
+import com.extraction.pdf.sort.Sort;
 
 import lombok.Data;
 

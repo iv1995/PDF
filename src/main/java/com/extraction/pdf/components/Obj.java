@@ -1,7 +1,8 @@
-package com.extraction.pdf.parse;
+package com.extraction.pdf.components;
 
 import java.util.Comparator;
 
+import com.extraction.pdf.parse.Point;
 import com.itextpdf.kernel.pdf.canvas.parser.data.IEventData;
 
 import lombok.Data;

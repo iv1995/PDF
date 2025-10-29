@@ -1,6 +1,8 @@
-package com.extraction.pdf.parse;
+package com.extraction.pdf.sort;
 
 import java.util.Comparator;
+
+import com.extraction.pdf.components.Obj;
 import com.google.common.collect.ComparisonChain;
 
 public class Sort implements Comparator<Obj>{

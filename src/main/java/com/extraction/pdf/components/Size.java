@@ -1,4 +1,4 @@
-package com.extraction.pdf.parse;
+package com.extraction.pdf.components;
 
 import lombok.Data;
 import lombok.Getter;

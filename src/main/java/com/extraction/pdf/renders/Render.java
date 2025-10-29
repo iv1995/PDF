@@ -3,9 +3,9 @@ package com.extraction.pdf.renders;
 import java.util.ArrayList;
 import java.util.Set;
 
-import com.extraction.pdf.parse.Img;
-import com.extraction.pdf.parse.Obj;
-import com.extraction.pdf.parse.Text;
+import com.extraction.pdf.components.Img;
+import com.extraction.pdf.components.Obj;
+import com.extraction.pdf.components.Text;
 import com.itextpdf.kernel.pdf.canvas.parser.EventType;
 import com.itextpdf.kernel.pdf.canvas.parser.data.IEventData;
 import com.itextpdf.kernel.pdf.canvas.parser.listener.IEventListener;
