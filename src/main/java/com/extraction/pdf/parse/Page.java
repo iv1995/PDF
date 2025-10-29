@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 public class Page {
 	
 	private ArrayList<Obj> objects = new ArrayList<>();

@@ -1,0 +1,9 @@
+com\extraction\pdf\parse\Obj.class
+com\extraction\pdf\PdfApplication.class
+com\extraction\pdf\parse\Page.class
+com\extraction\pdf\parse\Book.class
+com\extraction\pdf\parse\Img.class
+com\extraction\pdf\parse\Point.class
+com\extraction\pdf\parse\Text.class
+com\extraction\pdf\parse\Size.class
+com\extraction\pdf\renders\Render.class

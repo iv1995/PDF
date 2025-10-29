@@ -98,11 +98,6 @@
 		</dependency>
 		
 		<dependency>
-    		<groupId>org.springframework.boot</groupId>
-    		<artifactId>spring-boot-starter-test</artifactId>
-		</dependency>
-		
-		<dependency>
     		<groupId>org.assertj</groupId>
    			<artifactId>assertj-core</artifactId>
     		<scope>test</scope>
@@ -133,8 +128,10 @@
 		</dependency>
 		
 		<dependency>
-    		<groupId>org.projectlombok</groupId>
-    		<artifactId>lombok</artifactId>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.42</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
@@ -173,6 +170,19 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>1.18.42</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
