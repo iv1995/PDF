@@ -2,11 +2,9 @@ package com.extraction.pdf.components;
 
 import java.awt.image.BufferedImage;
 
-import com.extraction.pdf.parse.Point;
 import com.itextpdf.kernel.geom.Matrix;
 import com.itextpdf.kernel.pdf.canvas.parser.data.IEventData;
 import com.itextpdf.kernel.pdf.canvas.parser.data.ImageRenderInfo;
-import com.itextpdf.kernel.pdf.canvas.parser.listener.IEventListener;
 import com.itextpdf.kernel.pdf.xobject.PdfImageXObject;
 
 import lombok.Data;
@@ -29,6 +27,11 @@ public class Img extends Obj {
 		
 	}
 	
+	/**
+	 * 
+	 * @param ctm Current Transformation Matrix
+	 * @return
+	 */
 	public Size getSize(Matrix ctm) {
 		float a = ctm.get(Matrix.I11);
 		float b = ctm.get(Matrix.I12);

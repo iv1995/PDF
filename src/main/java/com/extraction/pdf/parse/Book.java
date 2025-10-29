@@ -37,16 +37,27 @@ public class Book {
 		pages.add(page);
 		return true;
 	}
-
+	
+	/**
+	 * 
+	 * @param number it is the number of the extracted Page(starts with 0)
+	 * @return
+	 */
 	public Page getPage(int number) {
 		return pages.get(number);
 	}
 	
 	/**
+	 * It processes the entire PDF file
+	 * 
+	 * @param src The name of the PDF file (stored inside the
+	 * 			  ./Storage/Input/PDF/
+	 * 			  folder)
+	 * 
 	 * @return
 	 * @throws IOException
 	 */
-	public boolean processPdf() throws IOException {
+	public boolean processPdf(String src) throws IOException {
 		
 		PdfReader reader = new PdfReader(src);
 		PdfDocument pdf = new PdfDocument(reader);
@@ -66,10 +77,11 @@ public class Book {
 	 * @param reader a PdfReader instance
 	 * @param pdf a PdfDocument instance
 	 * @param page the number of the page
+	 * 
 	 * @return
 	 * @throws IOException
 	 */
-	public ArrayList<Obj> processPage(PdfReader reader, PdfDocument pdf, int page) throws IOException {
+	private ArrayList<Obj> processPage(PdfReader reader, PdfDocument pdf, int page) throws IOException {
 
 		Render render = new Render();
 		PdfCanvasProcessor pcp = new PdfCanvasProcessor(render);
