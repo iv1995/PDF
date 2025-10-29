@@ -3,14 +3,14 @@ package com.extraction.pdf.parse;
 import java.awt.image.BufferedImage;
 
 import com.itextpdf.kernel.geom.Matrix;
+import com.itextpdf.kernel.pdf.canvas.parser.data.IEventData;
 import com.itextpdf.kernel.pdf.canvas.parser.data.ImageRenderInfo;
+import com.itextpdf.kernel.pdf.canvas.parser.listener.IEventListener;
 import com.itextpdf.kernel.pdf.xobject.PdfImageXObject;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class Img extends Obj {
 	
 	private ImageRenderInfo ri;
@@ -18,22 +18,45 @@ public class Img extends Obj {
 	private Matrix ctm;
 	private PdfImageXObject imageMask;
 	
+	public Img(IEventData data) {
+		super.setData(data);
+		ri = (ImageRenderInfo) data;
+		ctm = ri.getImageCtm();
+		super.setCoordinate(new Point(ctm.get(Matrix.I31), ctm.get(Matrix.I32)));
+		super.setSize(getSize(ctm));
+		XObjectImage = ri.getImage();
+		
+	}
+	
+	public Size getSize(Matrix ctm) {
+		float a = ctm.get(Matrix.I11);
+		float b = ctm.get(Matrix.I12);
+		
+		float c = ctm.get(Matrix.I21);
+		float d = ctm.get(Matrix.I22);
+		
+		float width = (float)Math.sqrt(a*a + b*b);
+		float height = (float)Math.sqrt(c*c + d*d);
+		
+		return new Size(height, width);
+	}
+	
 	public BufferedImage mask(BufferedImage image, BufferedImage mask) {
 		
 		int width = image.getWidth();
 		
 		int[] img = new int[width];
-		int[] m = new int[width];
+		int[] msk = new int[width];
 
 		for (int j = 0; j < image.getHeight(); j++) {
 			
 		    image.getRGB(0, j, width, 1, img, 0, 1);
-		    mask.getRGB(0, j, width, 1, m, 0, 1);
+		    mask.getRGB(0, j, width, 1, msk, 0, 1);
 		    
 		    
 		    for (int i = 0; i < width; i++) {
 		        int color = ~img[i];
-		        int maskColor = m[i];
+		        int maskColor = msk[i];
 		        
 		        color &= maskColor;
 		         

@@ -71,11 +71,9 @@ public class Book {
 			tagged = true;
 		}
 		
-		for(int i = 32; i < 33; i++) {
+		for(int i = 1; i < pdf.getNumberOfPages(); i++) {
 			pages.add(new Page(processPage(reader, pdf, i)));
 		}
-		
-		printPageObjects();
 		
 		return true;
 	}
@@ -96,13 +94,5 @@ public class Book {
 		pcp.processPageContent(pdf.getPage(page));
 		
 		return render.getObjects();
-	}
-	
-	public void printPageObjects() {
-		
-		ArrayList<Obj> target = pages.get(0).getObjects(); 
-		
-		Comparator<Obj> comparator = new Sort();
-		Collections.sort(target, comparator);
 	}
 }

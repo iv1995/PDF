@@ -2,13 +2,19 @@ package com.extraction.pdf.Utilities;
 
 public class Utilities {
 	
+	/**
+	 * Use it when you want to process a different file
+	 * The new file should be located in the same folder as the new file
+	 * 
+	 * @param old the path to the old file
+	 * @param name the name of the
+	 * @return
+	 */
 	public static String changeSrcPdf(String old, String name){
 
 		if (old == null || name == null || old.isBlank() || name.isBlank()) {
 			return "";
-		}
-
-		if (!old.contains("/")) {
+		} else if (!old.contains("/")) {
 			return name;
 		}
 
