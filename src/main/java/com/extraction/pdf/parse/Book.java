@@ -2,12 +2,17 @@ package com.extraction.pdf.parse;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+import org.springframework.stereotype.Service;
 
 import com.extraction.pdf.renders.Render;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.canvas.parser.PdfCanvasProcessor;
 import com.itextpdf.kernel.pdf.tagging.PdfStructTreeRoot;
+import com.itextpdf.layout.element.Image;
 import com.extraction.pdf.Utilities.Utilities;
 
 import lombok.Getter;
@@ -15,13 +20,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@Service
 public class Book {
 	
 	private ArrayList<Page> pages = new ArrayList<>();
 
 	private int imageCount = 0;
 
-	private String img = "./Storage/Tagged/Output/Images";
+	private String img = "./Storage/Tagged/Output/Images/";
 	private boolean tagged = false;
 	private String language = "italian";
 
@@ -38,7 +44,7 @@ public class Book {
 	 * Required source file. The second one is not required although if not
 	 * available the images might not have as their name the associated caption
 	 */
-	private String src = "./Storage/pdf/src/";
+	private String src = "./Storage/pdf/src/PDF20.pdf";
 	private String destCaptions = "./Storage/Tagged/Output/Figures/";
 
 	/* Processed data can be found inside these folders */
@@ -65,9 +71,11 @@ public class Book {
 			tagged = true;
 		}
 		
-		for(int i = 1; i < pdf.getNumberOfPages(); i++) {
+		for(int i = 32; i < 33; i++) {
 			pages.add(new Page(processPage(reader, pdf, i)));
 		}
+		
+		printPageObjects();
 		
 		return true;
 	}
@@ -88,5 +96,13 @@ public class Book {
 		pcp.processPageContent(pdf.getPage(page));
 		
 		return render.getObjects();
+	}
+	
+	public void printPageObjects() {
+		
+		ArrayList<Obj> target = pages.get(0).getObjects(); 
+		
+		Comparator<Obj> comparator = new Sort();
+		Collections.sort(target, comparator);
 	}
 }

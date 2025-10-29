@@ -3,11 +3,9 @@ package com.extraction.pdf.parse;
 import com.itextpdf.kernel.pdf.canvas.parser.data.TextRenderInfo;
 import com.itextpdf.kernel.pdf.canvas.parser.listener.CharacterRenderInfo;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class Text extends Obj{
 	
 	private TextRenderInfo ri;

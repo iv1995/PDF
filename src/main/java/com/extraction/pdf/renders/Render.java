@@ -10,7 +10,11 @@ import java.util.Set;
 
 import javax.imageio.ImageIO;
 
+import com.extraction.pdf.parse.Img;
 import com.extraction.pdf.parse.Obj;
+import com.extraction.pdf.parse.Point;
+import com.extraction.pdf.parse.Size;
+import com.extraction.pdf.parse.Text;
 import com.itextpdf.io.exceptions.IOException;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -56,19 +60,24 @@ public class Render implements IEventListener {
 			
 			/*We use CharacterRenderInfo because it makes one step easy for us :
 			 * returns a Bounding Box*/
-//			TextRenderInfo ri = (TextRenderInfo) data;
-//			CharacterRenderInfo cr = new CharacterRenderInfo(ri);
+			TextRenderInfo ri = (TextRenderInfo) data;
+			CharacterRenderInfo cr = new CharacterRenderInfo(ri);
 			
+			Rectangle r = cr.getBoundingBox();
 			
-			
-//			Rectangle r = cr.getBoundingBox();
-			
-			/*In case of the y coordinate I need to add the height as well since it might decide if
-			 * it comes first or not*/
+//			/*In case of the y coordinate I need to add the height as well since it might decide if
+//			 * it comes first or not*/
 //			String y = String.format(Locale.US ,"%.7f", r.getY() + r.getHeight());
-//			String x = String.format(Locale.US, "%.7f", r.getX());		
-		} else if (type.equals(EventType.RENDER_IMAGE)) {
+//			String x = String.format(Locale.US, "%.7f", r.getX());
 			
+			Text text = new Text();
+			text.setChunk(cr.getText());
+			text.setCoordinate(new Point(r.getX(), r.getY()));
+			text.setSize(new Size(r.getHeight(), r.getWidth()));
+			
+			objects.add(text);
+			
+		} else if (type.equals(EventType.RENDER_IMAGE)) {
 			ImageRenderInfo ri = (ImageRenderInfo) data;
 			
 			/*This matrix contains the x,y,width,height values*/
@@ -85,62 +94,62 @@ public class Render implements IEventListener {
 			String extension = XObjectImage.identifyImageFileExtension();
 			String imageName = "";
 			String imageDest = "";
-			
-			try {
-				
-				imageName = count + "." + extension;
-				imageDest = dest + imageName;
-				
-				file = new File(imageDest);
-				
-				FileOutputStream fos = new FileOutputStream(file);
-				fos.write(i);
-				fos.flush();
-				fos.close();
-			} catch(Exception e) {}
-			
-			try {
-				PdfStream object = XObjectImage.getPdfObject();
-				PdfStream mask = null;
-				mask = (PdfStream)object.getAsStream(PdfName.SMask);
-	            if (mask != null)
-	            {
-	            	PdfImageXObject imageMask = new PdfImageXObject(mask);
-	            	ImageData maskData = ImageDataFactory.create(imageMask.getImageBytes());
-	            	maskData.makeMask();
-	            	
-	            	
-	            	
-	                String name = count + "-mask." +  imageMask.identifyImageFileExtension();
-	                
-	                FileOutputStream fos1 = new FileOutputStream(dest + name);
-	                
-	                fos1.write(imageMask.getImageBytes());
-	                fos1.flush();
-	                fos1.close();
-	                
-	                BufferedImage biImage = ImageIO.read(new File(imageDest)); 
-	                BufferedImage biMask = ImageIO.read(new File(dest + name));
-	                
-	                BufferedImage result = mask(biImage, biMask);
-	                
-	                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-	                ImageIO.write(result, "png", baos);
-	                byte[] imageBytes = baos.toByteArray();
-	                
-	                Files.delete(Path.of(dest+name));
-	                
-	                
-	                FileOutputStream fos2 = new FileOutputStream(imageDest);
-	                fos2.write(imageBytes);
-	                fos2.flush();
-	                fos2.close();
-	            }
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			
+//			
+//			try {
+//				
+//				imageName = count + "." + extension;
+//				imageDest = dest + imageName;
+//				
+//				file = new File(imageDest);
+//				
+//				FileOutputStream fos = new FileOutputStream(file);
+//				fos.write(i);
+//				fos.flush();
+//				fos.close();
+//			} catch(Exception e) {}
+//			
+//			try {
+//				PdfStream object = XObjectImage.getPdfObject();
+//				PdfStream mask = null;
+//				mask = (PdfStream)object.getAsStream(PdfName.SMask);
+//	            if (mask != null)
+//	            {
+//	            	PdfImageXObject imageMask = new PdfImageXObject(mask);
+//	            	ImageData maskData = ImageDataFactory.create(imageMask.getImageBytes());
+//	            	maskData.makeMask();
+//	            	
+//	            	
+//	            	
+//	                String name = count + "-mask." +  imageMask.identifyImageFileExtension();
+//	                
+//	                FileOutputStream fos1 = new FileOutputStream(dest + name);
+//	                
+//	                fos1.write(imageMask.getImageBytes());
+//	                fos1.flush();
+//	                fos1.close();
+//	                
+//	                BufferedImage biImage = ImageIO.read(new File(imageDest)); 
+//	                BufferedImage biMask = ImageIO.read(new File(dest + name));
+//	                
+//	                BufferedImage result = mask(biImage, biMask);
+//	                
+//	                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//	                ImageIO.write(result, "png", baos);
+//	                byte[] imageBytes = baos.toByteArray();
+//	                
+//	                Files.delete(Path.of(dest+name));
+//	                
+//	                
+//	                FileOutputStream fos2 = new FileOutputStream(imageDest);
+//	                fos2.write(imageBytes);
+//	                fos2.flush();
+//	                fos2.close();
+//	            }
+//			}catch(Exception e) {
+//				e.printStackTrace();
+//			}
+//			
+//			
 			x = m.get(Matrix.I31);
 			y = m.get(Matrix.I32);
 			
@@ -153,15 +162,21 @@ public class Render implements IEventListener {
 			
 			width = (float)Math.sqrt(a*a + b*b);
 			height = (float)Math.sqrt(c*c + d*d);
-
+//
 			Rectangle r = new Rectangle(x, y, width, height);
+//			
+//			/*In case of the y coordinate I need to add the height as well since it might decide if
+//			 * it comes first or not*/
+//			String yString = String.format(Locale.US ,"%.7f", y + height);
+//			String xString = String.format(Locale.US, "%.7f", x);
+//			
+//			count++;
 			
-			/*In case of the y coordinate I need to add the height as well since it might decide if
-			 * it comes first or not*/
-			String yString = String.format(Locale.US ,"%.7f", y + height);
-			String xString = String.format(Locale.US, "%.7f", x);
+			Img img = new Img();
+			img.setCoordinate(new Point(x, y));
+			img.setSize(new Size(height, width));
 			
-			count++;
+			objects.add(img);
 		}
 	}
 
