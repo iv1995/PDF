@@ -9,33 +9,28 @@ import com.extraction.pdf.renders.Render;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.canvas.parser.PdfCanvasProcessor;
-import com.itextpdf.kernel.pdf.tagging.PdfStructTreeRoot;
 import com.extraction.pdf.components.Obj;
 import com.extraction.pdf.components.Page;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 @Service
 public class Book {
 	
 	private ArrayList<Page> pages = new ArrayList<>();
-
 	private boolean tagged = false;
 	private String language = "italian";
 
-	private String img = "./Storage/Tagged/Output/Images/";
-	private String src = "./Storage/pdf/src/PDF20.pdf";
-	private String destCaptions = "./Storage/Tagged/Output/Figures/";
-	private String dest = "./Storage/Untagged/Output/Text/";
-	private String folder = "./Storage/Untagged/Output/Images/";
-	private String taggedDest = "./Storage/Tagged/Output/Text/";
-	private String taggedFolder = "./Storage/Tagged/Output/Images/";
-	private String taggedTitles = "./Storage/Tagged/Output/Titles/";
-	private String chapters = "./Storage/Tagged/Output/Chapters/";
-	private String listing = "./Storage/Tagged/Output/Listing/";
+	private String src = "./Storage/Input/pdf/PDF20.pdf";
+	
+	private String text = "./Storage/Output/Text/";
+	private String titles = "./Storage/Output/Titles/";
+	private String chapters = "./Storage/Output/Chapters/";
+	private String listing = "./Storage/Output/Listing/";
+	
+	private String captions = "./Storage/Output/Figures/";
+	private String images = "./Storage/Output/Images/";
 	
 	
 	public boolean addPage(Page page) {
@@ -56,9 +51,7 @@ public class Book {
 		PdfReader reader = new PdfReader(src);
 		PdfDocument pdf = new PdfDocument(reader);
 		
-		PdfStructTreeRoot tree = pdf.getStructTreeRoot();
-		
-		if (tree != null) {
+		if (pdf.getStructTreeRoot() != null) {
 			tagged = true;
 		}
 		
