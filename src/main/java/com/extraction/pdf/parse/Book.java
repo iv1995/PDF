@@ -2,6 +2,9 @@ package com.extraction.pdf.parse;
 
 import java.util.ArrayList;
 
+import lombok.Data;
+
+@Data
 public class Book {
 	
 	private ArrayList<Page> pages = new ArrayList<>();
@@ -12,5 +15,9 @@ public class Book {
 	public boolean addPage(Page page) {
 		pages.add(page);
 		return true;
+	}
+	
+	public Page getPage(int number) {
+		return pages.get(number);
 	}
 }
