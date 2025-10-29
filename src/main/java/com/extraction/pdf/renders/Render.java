@@ -38,7 +38,7 @@ import java.awt.image.BufferedImage;
 @Setter
 public class Render implements IEventListener {
 
-	private Obj object;
+	private ArrayList<Obj> objects = new ArrayList<>();
 	private int count = 0;
 	private String dest;
 	private File file;
