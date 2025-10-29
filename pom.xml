@@ -14,9 +14,6 @@
 	<name>PDF</name>
 	<description>It helps you to extract data from a PDF file</description>
 	<url/>
-	<licenses>
-		<license/>
-	</licenses>
 	<developers>
 		<developer/>
 	</developers>
@@ -29,10 +26,45 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+	
+	<dependencyManagement>
+   		<dependencies>
+        	<dependency>
+            	<groupId>org.springframework.ai</groupId>
+            	<artifactId>spring-ai-bom</artifactId>
+            	<version>1.0.0-SNAPSHOT</version>
+            	<type>pom</type>
+            	<scope>import</scope>
+        	</dependency>
+   		</dependencies>
+	</dependencyManagement>
+	
+	<repositories>
+  		<repository>
+    		<id>spring-snapshots</id>
+    		<name>Spring Snapshots</name>
+   		 	<url>https://repo.spring.io/snapshot</url>
+    		<releases>
+      			<enabled>false</enabled>
+    		</releases>
+  		</repository>
+  		<repository>
+    		<name>Central Portal Snapshots</name>
+    		<id>central-portal-snapshots</id>
+    		<url>https://central.sonatype.com/repository/maven-snapshots/</url>
+    		<releases>
+      			<enabled>false</enabled>
+    		</releases>
+    		<snapshots>
+      			<enabled>true</enabled>
+    		</snapshots>
+  		</repository>
+	</repositories>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
 		<dependency>
@@ -40,15 +72,108 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+	    	<groupId>com.itextpdf</groupId>
+	    	<artifactId>itext-core</artifactId>
+	   		<version>9.1.0</version>
+	   		<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<dependency>
+   			<groupId>org.springframework.ai</groupId>
+   			<artifactId>spring-ai-starter-model-ollama</artifactId>
+   			<version>1.0.2</version>
+		</dependency>
+	
+		<dependency>
+    		<groupId>commons-io</groupId>
+    		<artifactId>commons-io</artifactId>
+    		<version>2.15.1</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.assertj</groupId>
+   			<artifactId>assertj-core</artifactId>
+    		<scope>test</scope>
+		</dependency>
+		<dependency>
+    		<groupId>org.pitest</groupId>
+    		<artifactId>pitest-parent</artifactId>
+    		<version>1.21.0</version>
+    		<type>pom</type>
+		</dependency>
+		<dependency>
+    		<groupId>edu.stanford.nlp</groupId>
+    		<artifactId>stanford-parser</artifactId>
+    		<version>3.9.2</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>edu.stanford.nlp</groupId>
+    		<artifactId>stanford-parser</artifactId>
+    		<version>3.9.2</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>edu.stanford.nlp</groupId>
+    		<artifactId>stanford-corenlp</artifactId>
+    		<version>3.9.2</version>
+    		<classifier>models</classifier>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.projectlombok</groupId>
+    		<artifactId>lombok</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+			
+			<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-surefire-plugin</artifactId>
+        		<configuration>
+                    	<testFailureIgnore>true</testFailureIgnore>
+       			</configuration>
+      		</plugin>
+			
+			<plugin>
+    			 <groupId>org.pitest</groupId>
+    			 <artifactId>pitest-maven</artifactId>
+   				 <version>1.21.0</version>
+   				 <dependencies>
+	   				 <dependency>
+	   				 	<groupId>org.pitest</groupId>
+	   				 	<artifactId>pitest-junit5-plugin</artifactId>
+	   				 	<version>1.2.3</version>
+	   				 </dependency>
+	   			 </dependencies>
+   				 <configuration>
+        		 	<targetClasses>
+            			<param>com.extraction.pdf.parse.UntaggedPdf</param>
+        			</targetClasses>
+        			<targetTests>
+            			<param>com.extraction.pdf.parse.UntaggedPdfTest</param>
+					</targetTests>
+     			</configuration>
+			</plugin>
+			
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
