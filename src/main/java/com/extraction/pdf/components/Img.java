@@ -14,9 +14,12 @@ public class Img extends Obj {
 	
 	private ImageRenderInfo ri;
 	private PdfImageXObject XObjectImage;
+	private String extension;
 	private Matrix ctm;
 	private PdfImageXObject imageMask;
 	private String path;
+	
+	private Surrounding text;
 	
 	public Img(IEventData data) {
 		if(data != null) {
@@ -31,6 +34,7 @@ public class Img extends Obj {
 		super.setCoordinate(new Point(ctm.get(Matrix.I31), ctm.get(Matrix.I32)));
 		super.setSize(getSize(ctm));
 		XObjectImage = ri.getImage();
+		extension = XObjectImage.identifyImageFileExtension();
 		path = new String();
 	}
 	
