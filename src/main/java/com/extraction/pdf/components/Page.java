@@ -3,14 +3,11 @@ package com.extraction.pdf.components;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 import com.extraction.pdf.sort.Sort;
+import com.itextpdf.kernel.pdf.PdfName;
+import com.itextpdf.kernel.pdf.canvas.CanvasTag;
 
 import lombok.Data;
 
@@ -84,33 +81,58 @@ public class Page {
 	 * @param tagged Informs the method if it is dealing with a tagged PDF
 	 * @return
 	 */
-	public String getCaption(Img img, boolean tagged) {
-		String caption = new String();
+	public StringBuilder getCaption(Img img, boolean tagged) {
+		ArrayList<StringBuilder> caption = new ArrayList<>();
+		float[] start = borderingRows(new ArrayList<>(getShelves()), img);
 		
+		StringBuilder above = aboveRows(img, start[1]);
+		StringBuilder below = belowRows(img, start[0]);
 		
+		boolean activated = false;
+		float y = 0;
 		
-		return caption;
+		caption.add(new StringBuilder());
+		StringBuilder h1 = new StringBuilder();
+		
+		int tag = 0;
+		
+		for(int i = 0;  i < objects.size() && tagged; i++) {
+			if(objects.get(i) instanceof Text) {
+				Text text = (Text)objects.get(i);
+				if(text.getRi().getCanvasTagHierarchy().get(0).equals(new CanvasTag(PdfName.H1))){
+					activated = true;
+					h1.append(text.getChunk());
+				} else if(activated){
+					caption.add(h1);
+					h1 = new StringBuilder();
+				}
+			}
+		}
+		
+		for(StringBuilder h : caption) {
+			if(above.indexOf(h.toString()) >= 0 || below.indexOf(h.toString()) >= 0) {
+				return h;
+			}
+		}
+		
+		return new StringBuilder();
 	}
 	
 	private StringBuilder aboveRows(Img img, float start){
-		
+		Collections.reverse(objects);
 		StringBuilder piledup = new StringBuilder();
 		
 		boolean activated = false;
 		float acceptable = 0;
 		
-		for (int i = 0; i < objects.size(); i++) {
+		for (int i = 0; i >= objects.size(); i++) {
 			
 			if(objects.get(i) instanceof Text) {
 				Text now = (Text)objects.get(i);
 				
 				if(now.getCoordinate().getY() < start) {
 					continue;
-				} else if(now.getCoordinate().getY() - start <= acceptable) {
-					piledup.append(now.getChunk());
-				}
-				
-				if(i < objects.size() - 1) {
+				} else if(i < objects.size() - 1) {
 					if(objects.get(i + 1) instanceof Text) {
 						Text next = (Text)objects.get(i + 1);
 						
@@ -118,6 +140,49 @@ public class Page {
 							acceptable = next.getCoordinate().getY() - start;
 							activated = true;
 						}
+						
+						if(!(next.getCoordinate().getY() - now.getCoordinate().getY() <= acceptable)) {
+							break;
+						}
+						
+						piledup.append(next.getChunk());
+					}
+				}
+			}
+		}
+		
+		Collections.reverse(objects);
+		
+		return piledup;
+	}
+	
+	private StringBuilder belowRows(Img img, float start){
+		StringBuilder piledup = new StringBuilder();
+		
+		boolean activated = false;
+		float acceptable = 0;
+		
+		for (int i = 0; i >= objects.size(); i++) {
+			
+			if(objects.get(i) instanceof Text) {
+				Text now = (Text)objects.get(i);
+				
+				if(now.getCoordinate().getY() > start) {
+					continue;
+				} else if(i < objects.size() - 1) {
+					if(objects.get(i + 1) instanceof Text) {
+						Text next = (Text)objects.get(i + 1);
+						
+						if(next.getCoordinate().getY() < start && !activated){
+							acceptable = next.getCoordinate().getY() - start;
+							activated = true;
+						}
+						
+						if(!(now.getCoordinate().getY() - next.getCoordinate().getY()  <= acceptable)) {
+							break;
+						}
+						
+						piledup.append(next.getChunk());
 					}
 				}
 			}

@@ -18,6 +18,7 @@ public class Img extends Obj {
 	private Matrix ctm;
 	private PdfImageXObject imageMask;
 	private String path;
+	private StringBuilder caption;
 	
 	private Surrounding text;
 	

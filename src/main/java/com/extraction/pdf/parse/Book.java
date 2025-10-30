@@ -9,6 +9,7 @@ import com.extraction.pdf.renders.Render;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.canvas.parser.PdfCanvasProcessor;
+import com.extraction.pdf.components.Img;
 import com.extraction.pdf.components.Obj;
 import com.extraction.pdf.components.Page;
 
@@ -67,7 +68,17 @@ public class Book {
 		}
 		
 		for(int i = 1; i < pdf.getNumberOfPages(); i++) {
-			pages.add(new Page(processPage(reader, pdf, i, tagged)));
+			Page page = new Page(processPage(reader, pdf, i, tagged));
+			
+			for(Obj obj : page.getObjects()) {
+				if(obj instanceof Img) {
+					StringBuilder caption = page.getCaption((Img)obj, tagged);
+					((Img) obj).setCaption(caption);
+					
+					System.out.println(caption);
+				}
+			}
+			
 		}
 		
 		return true;
