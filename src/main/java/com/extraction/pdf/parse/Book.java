@@ -67,7 +67,7 @@ public class Book {
 		}
 		
 		for(int i = 1; i < pdf.getNumberOfPages(); i++) {
-			pages.add(new Page(processPage(reader, pdf, i)));
+			pages.add(new Page(processPage(reader, pdf, i, tagged)));
 		}
 		
 		return true;
@@ -81,7 +81,7 @@ public class Book {
 	 * @return
 	 * @throws IOException
 	 */
-	private ArrayList<Obj> processPage(PdfReader reader, PdfDocument pdf, int page) throws IOException {
+	private ArrayList<Obj> processPage(PdfReader reader, PdfDocument pdf, int page, boolean tagged) throws IOException {
 
 		Render render = new Render();
 		PdfCanvasProcessor pcp = new PdfCanvasProcessor(render);

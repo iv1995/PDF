@@ -14,7 +14,15 @@ public class Page {
 	private ArrayList<Obj> objects = new ArrayList<>();
 	
 	public Page(ArrayList<Obj> objects) {
-		this.objects.addAll(objects);
+		populate(objects);
+	}
+	
+	private boolean populate(ArrayList<Obj> objects) {
+		if(objects != null) {
+			objects.addAll(sort(objects));
+		}
+		
+		return true;
 	}
 	
 	/**
@@ -40,10 +48,35 @@ public class Page {
 	 * It sorts the objects based on their x and y coordinates
 	 * @return
 	 */
-	public boolean sort() {
+	private ArrayList<Obj> sort(ArrayList<Obj> objects) {
 		Comparator<Obj> comparator = new Sort();
 		Collections.sort(objects, comparator);
 		
-		return true;
+		return objects;
+	}
+	
+	/**
+	 * 
+	 * @param img The image of which you want to find the caption
+	 * @param tagged Informs the method if it is dealing with a tagged PDF
+	 * @return
+	 */
+	public String getCaption(Img img, boolean tagged) {
+		String caption = new String();
+		
+		return caption;
+	}
+	
+	public String getText() {
+		String text = new String();
+		
+		for(int i = 0; i < objects.size(); i++) {
+			if(objects.get(i) instanceof Text) {
+				Text obj = (Text)objects.get(i);
+				text += obj.getChunk();
+			}
+		}
+		
+		return text;
 	}
 }

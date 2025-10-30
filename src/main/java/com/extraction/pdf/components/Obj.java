@@ -1,13 +1,8 @@
 package com.extraction.pdf.components;
 
-import java.util.Comparator;
-
-import com.extraction.pdf.components.Point;
 import com.itextpdf.kernel.pdf.canvas.parser.data.IEventData;
-
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
 
 @Data
 public class Obj{
