@@ -3,6 +3,7 @@ package com.extraction.pdf.components;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.TreeSet;
 
 import com.extraction.pdf.sort.Sort;
 
@@ -67,6 +68,10 @@ public class Page {
 		return caption;
 	}
 	
+	/**
+	 * 
+	 * @return All the text contained in this page
+	 */
 	public String getText() {
 		String text = new String();
 		
@@ -78,5 +83,22 @@ public class Page {
 		}
 		
 		return text;
+	}
+	
+	/**
+	 * 
+	 * @return It returns the y coordinates of all the lines of text
+	 */
+	private TreeSet<Float> getBases() {
+		TreeSet<Float> bases = new TreeSet<>();
+		
+		for(int i = 0; i < objects.size(); i++) {
+			if(objects.get(i) instanceof Text) {
+				float y = ((Text)objects.get(i)).getCoordinate().getY();
+				bases.add(y);
+			}
+		}
+		
+		return bases;
 	}
 }

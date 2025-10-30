@@ -16,15 +16,22 @@ public class Img extends Obj {
 	private PdfImageXObject XObjectImage;
 	private Matrix ctm;
 	private PdfImageXObject imageMask;
+	private String path;
 	
 	public Img(IEventData data) {
+		if(data != null) {
+			populate(data);
+		}
+	}
+	
+	private void populate(IEventData data) {
 		super.setData(data);
 		ri = (ImageRenderInfo) data;
 		ctm = ri.getImageCtm();
 		super.setCoordinate(new Point(ctm.get(Matrix.I31), ctm.get(Matrix.I32)));
 		super.setSize(getSize(ctm));
 		XObjectImage = ri.getImage();
-		
+		path = new String();
 	}
 	
 	/**
