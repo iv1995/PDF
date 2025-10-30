@@ -63,18 +63,6 @@ public class Page {
 	
 	/**
 	 * 
-	 * @param img The image of which you want to find the caption
-	 * @param tagged Informs the method if it is dealing with a tagged PDF
-	 * @return
-	 */
-	public String getCaption(Img img, boolean tagged) {
-		String caption = new String();
-		
-		return caption;
-	}
-	
-	/**
-	 * 
 	 * @return All the text contained in this page
 	 */
 	public String getText() {
@@ -90,17 +78,52 @@ public class Page {
 		return text;
 	}
 	
-	private ArrayList<String> getPiledup(Img img){
-		ArrayList<String> closest = new ArrayList<String>();
-		SortedMap<Float, Float> rows = getRows();
-		ArrayList<Float> y = new ArrayList<Float>(rows.keySet());
+	/**
+	 * 
+	 * @param img The image of which you want to find the caption
+	 * @param tagged Informs the method if it is dealing with a tagged PDF
+	 * @return
+	 */
+	public String getCaption(Img img, boolean tagged) {
+		String caption = new String();
 		
-		for (int i = 0; i < rows.size() - 1; i++) {
-			Float first = rows.get(y.get(i));
-			Float second = rows.get(y.get(i + 1));
+		
+		
+		return caption;
+	}
+	
+	private StringBuilder aboveRows(Img img, float start){
+		
+		StringBuilder piledup = new StringBuilder();
+		
+		boolean activated = false;
+		float acceptable = 0;
+		
+		for (int i = 0; i < objects.size(); i++) {
+			
+			if(objects.get(i) instanceof Text) {
+				Text now = (Text)objects.get(i);
+				
+				if(now.getCoordinate().getY() < start) {
+					continue;
+				} else if(now.getCoordinate().getY() - start <= acceptable) {
+					piledup.append(now.getChunk());
+				}
+				
+				if(i < objects.size() - 1) {
+					if(objects.get(i + 1) instanceof Text) {
+						Text next = (Text)objects.get(i + 1);
+						
+						if(next.getCoordinate().getY() > start && !activated){
+							acceptable = next.getCoordinate().getY() - start;
+							activated = true;
+						}
+					}
+				}
+			}
 		}
 		
-		return closest;
+		return piledup;
 	}
 	
 	/**
@@ -112,16 +135,19 @@ public class Page {
 	 * 			float[1] closest row from above
 	 * 
 	 */
-	private float[] getBeginnings(ArrayList<Float> bases, Img img) {
-		float[] start = {0, 0};
+	private float[] borderingRows(ArrayList<Float> bases, Img img) {
+		float[] start = {0, Float.MAX_VALUE};
 		
 		for (int i = 0; i < bases.size(); i++) {
-			if (isAbove(bases.get(i), img)) {
-				start[0] = bases.get(i - 1);
-				start[1] = bases.get(i);
+			float y = bases.get(i);
+			
+			if (isBelow(y, img) && y > start[0]) {
+					start[0] = y;
+			} else if (isAbove(y, img) && y < start[1]) {
+					start[1] = y;
+					break;
 			}
 		}
-		
 		return start;
 	}
 	
@@ -129,26 +155,24 @@ public class Page {
 		return img.getCoordinate().getY() < y;
 	}
 	
+	private boolean isBelow(float y, Img img){
+		return img.getCoordinate().getY() > y;
+	}
+	
 	/**
 	 * 
-	 * @return It returns the y coordinates of all the lines of text
+	 * @return It returns the y coordinates of all the lines
 	 */
-	private SortedMap<Float, Float> getRows() {
-		SortedMap<Float, Float> bases = new TreeMap<>();
+	private TreeSet<Float> getShelves() {
+		TreeSet<Float> shelves = new TreeSet<>();
 		
 		for(int i = 0; i < objects.size(); i++) {
 			if(objects.get(i) instanceof Text) {
 				float y = ((Text)objects.get(i)).getCoordinate().getY();
-				float font = ((Text)objects.get(i)).getFont();
-				
-				if(!bases.containsKey(y)) {
-					bases.put(y, font);
-				} else if(bases.get(y) < font){
-					bases.replace(y, font);
-				}
+				shelves.add(y);
 			}
 		}
 		
-		return bases;
+		return shelves;
 	}
 }
