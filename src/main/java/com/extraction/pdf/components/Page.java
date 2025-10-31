@@ -160,7 +160,7 @@ public class Page {
 					if(objects.get(i + 1) instanceof Text) {
 						Text next = (Text)objects.get(i + 1);
 						
-						if(now.getCoordinate().getY() > start && !activated){
+						if(now.getCoordinate().getY() >= start && !activated){
 							acceptable = next.getCoordinate().getY() - start;
 							activated = true;
 						}
@@ -199,16 +199,16 @@ public class Page {
 					if(objects.get(i + 1) instanceof Text) {
 						Text next = (Text)objects.get(i + 1);
 						
-						if(next.getCoordinate().getY() < start && !activated){
+						if(next.getCoordinate().getY() <= start && !activated){
 							acceptable = next.getCoordinate().getY() - start;
 							activated = true;
 						}
 						
-						if(!(now.getCoordinate().getY() - next.getCoordinate().getY()  <= acceptable)) {
+						if(!(next.getCoordinate().getY() - now.getCoordinate().getY()  <= acceptable)) {
 							break;
 						}
 						
-						piledup.append(next.getChunk());
+						piledup.append(now.getChunk());
 					}
 				}
 			}
