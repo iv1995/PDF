@@ -160,12 +160,12 @@ public class Page {
 					if(objects.get(i + 1) instanceof Text) {
 						Text next = (Text)objects.get(i + 1);
 						
-						if(now.getCoordinate().getY() >= start && !activated){
-							acceptable = now.getCoordinate().getY() - start;
+						if(now.getCoordinate().getY() > start && !activated){
+							acceptable = next.getCoordinate().getY() - start;
 							activated = true;
 						}
 						
-						piledup.append(now.getChunk());
+						piledup.append(new StringBuilder(now.getChunk()).reverse());
 						
 						if(!(next.getCoordinate().getY() - now.getCoordinate().getY() <= acceptable)) {
 							break;
