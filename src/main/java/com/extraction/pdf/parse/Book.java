@@ -74,12 +74,8 @@ public class Book {
 		for(int i = 32; i <= 32; i++) {
 			Page page = new Page(processPage(reader, pdf, i, tagged));
 			pages.add(page);
-			for(Obj obj : page.getObjects()) {
-				if(obj instanceof Img) {
-					StringBuilder caption = page.getCaption((Img)obj, tagged);
-					System.out.println(caption);
-				}
-			}
+			
+			getCaptions(page);
 		}
 		
 		return true;
@@ -102,5 +98,18 @@ public class Book {
 		pcp.processPageContent(pdf.getPage(page));
 		
 		return render.getObjects();
+	}
+	
+	private void getCaptions(Page page) throws IOException {
+		for(Obj obj : page.getObjects()) {
+			if(obj instanceof Img) {
+				String caption = page.getCaption((Img)obj, tagged);
+				
+				if(!caption.isEmpty()) {
+					Img img = (Img)obj;
+					img.getCaption().setCaption(caption);
+				}
+			}
+		}
 	}
 }

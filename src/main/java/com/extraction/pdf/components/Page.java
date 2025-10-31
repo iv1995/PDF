@@ -8,9 +8,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.TreeSet;
 
+import com.extraction.pdf.Utilities.Utilities;
 import com.extraction.pdf.sort.Sort;
 import com.itextpdf.kernel.pdf.PdfName;
-import com.itextpdf.kernel.pdf.canvas.CanvasTag;
 
 import lombok.Data;
 
@@ -86,8 +86,8 @@ public class Page {
 	 * @return
 	 * @throws IOException 
 	 */
-	public StringBuilder getCaption(Img img, boolean tagged) throws IOException {
-		StringBuilder caption = new StringBuilder();
+	public String getCaption(Img img, boolean tagged) throws IOException {
+		String caption = new String();
 		float[] start = borderingRows(new ArrayList<>(getShelves()), img);
 		
 		StringBuilder above = aboveRows(img, start[1]);
@@ -95,7 +95,17 @@ public class Page {
 		
 		PdfName tag = PdfName.H1;
 		
-		caption = getCaption(tag);
+		caption = getCaption(tag).toString();
+		
+		int[] indexes = Utilities.indexesOf(below.toString(), caption);
+		
+		if(indexes[0] < 0 || indexes[1] < 0) {
+			indexes = Utilities.indexesOf(above.toString(), caption);
+			
+			if(indexes[0] < 0 || indexes[1] < 0) {
+				caption = new String();
+			}
+		}
 		
 		return caption;
 	}

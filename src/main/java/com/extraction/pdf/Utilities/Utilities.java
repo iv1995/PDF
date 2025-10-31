@@ -25,18 +25,21 @@ public class Utilities {
 		return folder + name;
 	}
 	
-	/*It returns the beginning and the end of the first match of title inside book.
-	 * It avoids the whitespace characters and the "\n" character.
-	 * The reason why I do not use indexOf is because sometimes (if it is a title) the library instead of 
-	 * returning "1 This is the First Title" it returns "1This it the First Title".
-	 * */
-	public static int[] indexesOf(String book, String title) {
+	/**
+	 * 
+	 * It avoids whitespace characters and \n characters
+	 * 
+	 * @param box The string that may contain the code string
+	 * @param obj The string we are looking for inside the box
+	 * @return
+	 */
+	public static int[] indexesOf(String box, String obj) {
 		
-		if(book == null || title == null) {
+		if(box == null || obj == null) {
 			return new int[]{-1,-1};
-		} else if(book.isEmpty() && !title.isEmpty()) {
+		} else if(box.isEmpty() && !obj.isEmpty()) {
 			return new int[]{-1,-1};
-		} else if(!book.isEmpty() && title.isEmpty()) {
+		} else if(!box.isEmpty() && obj.isEmpty()) {
 			return new int[]{0, 0};
 		}
 		
@@ -44,28 +47,45 @@ public class Utilities {
 		location[0] = -1;
 		location[1] = -1;
 		
-		for(int i = 0; i < book.length(); i++) {
+		for(int i = 0; i < box.length(); i++) {
 			
-			if(Character.toLowerCase(book.charAt(i)) != Character.toLowerCase(title.charAt(0))) {
+			if(Character.toLowerCase(box.charAt(i)) != Character.toLowerCase(obj.charAt(0))) {
 				continue;
 			}
 			
 			location[0] = i;
 			int count = 0;
 			
-			for(int j = 0; j < title.length(); j++) {
+			for(int j = 0; j < obj.length(); j++) {
 				
-				while((book.charAt(i) == ' ' || book.charAt(i) == '\n') && i < book.length() - 1) {	
+				while((box.charAt(i) == ' ' || box.charAt(i) == '\n') && i < box.length() - 1) {	
 					i++;
 					count++;
+					
+					if(i == box.length()) {
+						break;
+					}
 				}
 				
-				while(title.charAt(j) == ' ' || title.charAt(j) == '\n') {
+				while(obj.charAt(j) == ' ' || obj.charAt(j) == '\n') {
 					j++;
+					
+					if(j == obj.length()) {
+						if(i < box.length()) {
+							location[1] = i;
+						} else {
+							location[1] = box.length() - 1;
+						}
+						break;
+					}
 				}
 				
-				char b = Character.toLowerCase(book.charAt(i));
-				char t = Character.toLowerCase(title.charAt(j));
+				if(i == box.length() || j == obj.length()) {
+					break;
+				}
+				
+				char b = Character.toLowerCase(box.charAt(i));
+				char t = Character.toLowerCase(obj.charAt(j));
 				
 				if(b != t) {
 					count = 0;
@@ -73,9 +93,9 @@ public class Utilities {
 					break;
 				}
 				
-				if(j == title.length() - 1) {
+				if(j == obj.length() - 1) {
 					location[1] = location[0] + count;
-					i = book.length();
+					i = box.length();
 					break;
 				}
 				
