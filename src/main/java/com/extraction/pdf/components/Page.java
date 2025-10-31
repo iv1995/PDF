@@ -87,7 +87,7 @@ public class Page {
 	 * @throws IOException 
 	 */
 	public StringBuilder getCaption(Img img, boolean tagged) throws IOException {
-		ArrayList<StringBuilder> caption = new ArrayList<>();
+		StringBuilder caption = new StringBuilder();
 		float[] start = borderingRows(new ArrayList<>(getShelves()), img);
 		
 		StringBuilder above = aboveRows(img, start[1]);
@@ -95,19 +95,9 @@ public class Page {
 		
 		PdfName tag = PdfName.H1;
 		
-		if(h1.size() == 0) {
-			caption.addAll(getContent(tag));
-		}
+		caption = getCaption(tag);
 		
-		System.out.println(above + "\n" + below + "\n");
-		
-		for(StringBuilder h : caption) {
-			if(above.indexOf(h.toString()) >= 0 || below.indexOf(h.toString()) >= 0) {
-				return h;
-			}
-		}
-		
-		return new StringBuilder();
+		return caption;
 	}
 	
 	/**
@@ -115,31 +105,32 @@ public class Page {
 	 * @param tag It is the name of the tag which surrounds the text
 	 * @return
 	 */
-	private ArrayList<StringBuilder> getContent(PdfName tag){
-		ArrayList<StringBuilder> text = new ArrayList<>();
-		
-		boolean activated = false;
-		float y = 0;
-		
-		StringBuilder h1 = new StringBuilder();
+	private StringBuilder getCaption(PdfName tag){
+		StringBuilder caption = new StringBuilder();
 		
 		for(int i = 0;  i < objects.size(); i++) {
-			if(objects.get(i) instanceof Text) {
-				Text txt = (Text)objects.get(i);
-				if(txt.getRi().getCanvasTagHierarchy().size() > 0) {
-					if(txt.getRi().getCanvasTagHierarchy().get(0).getRole().equals(PdfName.H1)){
-						activated = true;
-						h1.append(txt.getChunk());
-					} else if(activated){
-						text.add(h1);
-						h1 = new StringBuilder();
-						activated = false;
+			
+			if(objects.get(i) instanceof Img && i < objects.size() -1) {
+				if(objects.get(i + 1) instanceof Text) {
+					Text enclosed = (Text)objects.get(i + 1);
+					
+					int cont = 0;
+					
+					while(enclosed.getRi().getCanvasTagHierarchy().get(0).getRole().equals(PdfName.H1)
+							&& (i + 1 + cont < objects.size() - 1)) {
+						
+						if(objects.get(i + 1 + cont) instanceof Text) {
+							enclosed = (Text)objects.get(i + 1 + cont);
+						}
+						
+						caption.append(enclosed.getChunk());
+						cont++;
 					}
 				}
 			}
 		}
 		
-		return text;
+		return caption;
 	}
 	
 	private StringBuilder aboveRows(Img img, float start){
@@ -160,14 +151,14 @@ public class Page {
 					if(objects.get(i + 1) instanceof Text) {
 						Text next = (Text)objects.get(i + 1);
 						
-						if(now.getCoordinate().getY() >= start && !activated){
+						if(next.getCoordinate().getY() > start && !activated){
 							acceptable = next.getCoordinate().getY() - start;
 							activated = true;
 						}
 						
 						piledup.append(new StringBuilder(now.getChunk()).reverse());
 						
-						if(!(next.getCoordinate().getY() - now.getCoordinate().getY() <= acceptable)) {
+						if(!(next.getCoordinate().getY() - now.getCoordinate().getY() <= acceptable) && activated) {
 							break;
 						}
 					}
@@ -199,12 +190,12 @@ public class Page {
 					if(objects.get(i + 1) instanceof Text) {
 						Text next = (Text)objects.get(i + 1);
 						
-						if(next.getCoordinate().getY() <= start && !activated){
+						if(next.getCoordinate().getY() < start && !activated){
 							acceptable = next.getCoordinate().getY() - start;
 							activated = true;
 						}
 						
-						if(!(next.getCoordinate().getY() - now.getCoordinate().getY()  <= acceptable)) {
+						if(!(next.getCoordinate().getY() - now.getCoordinate().getY()  <= acceptable) && activated) {
 							break;
 						}
 						
@@ -236,18 +227,17 @@ public class Page {
 					start[0] = y;
 			} else if (isAbove(y, img) && y < start[1]) {
 					start[1] = y;
-					break;
 			}
 		}
 		return start;
 	}
 	
 	private boolean isAbove(float y, Img img){
-		return img.getCoordinate().getY() < y;
+		return y > img.getAbsoluteHeight();
 	}
 	
 	private boolean isBelow(float y, Img img){
-		return img.getCoordinate().getY() > y;
+		return y < img.getCoordinate().getY();
 	}
 	
 	/**

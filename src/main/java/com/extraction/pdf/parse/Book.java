@@ -71,12 +71,13 @@ public class Book {
 			tagged = true;
 		}
 		
-		for(int i = 1; i < pdf.getNumberOfPages(); i++) {
+		for(int i = 32; i <= 32; i++) {
 			Page page = new Page(processPage(reader, pdf, i, tagged));
 			pages.add(page);
 			for(Obj obj : page.getObjects()) {
 				if(obj instanceof Img) {
 					StringBuilder caption = page.getCaption((Img)obj, tagged);
+					System.out.println(caption);
 				}
 			}
 		}
