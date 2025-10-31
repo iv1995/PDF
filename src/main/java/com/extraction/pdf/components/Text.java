@@ -30,6 +30,7 @@ public class Text extends Obj{
 		super.setSize(new Size(cri.getBoundingBox().getHeight(), cri.getBoundingBox().getWidth()));
 		leading = ri.getLeading();
 		font = ri.getFontSize();
+		chunk = ri.getText();
 		
 		return true;
 	}

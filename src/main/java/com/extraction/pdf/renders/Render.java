@@ -17,6 +17,7 @@ import lombok.Data;
 public class Render implements IEventListener {
 
 	private ArrayList<Obj> objects = new ArrayList<>();
+	private int images;
 
 	public Render() {}
 
@@ -25,7 +26,8 @@ public class Render implements IEventListener {
 		if (type.equals(EventType.RENDER_TEXT)) {
 			objects.add(new Text(data));
 		} else if (type.equals(EventType.RENDER_IMAGE)) {
-			objects.add(new Img(data));
+			objects.add(new Img(data, images));
+			images++;
 		}
 	}
 

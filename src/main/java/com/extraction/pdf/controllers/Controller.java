@@ -27,7 +27,7 @@ public class Controller {
 	 * @throws URISyntaxException
 	 * @throws IOException
 	 */
-	@GetMapping(path = "/process/{pdfSrc}")
+	@GetMapping(path = "/process/{src}")
 	public void process(@PathVariable String src) throws URISyntaxException, IOException {
 		book.processPdf(src);
 	}

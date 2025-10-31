@@ -18,17 +18,17 @@ public class Img extends Obj {
 	private Matrix ctm;
 	private PdfImageXObject imageMask;
 	private String path;
-	private StringBuilder caption;
+	private Caption caption = new Caption();
 	
 	private Surrounding text;
 	
-	public Img(IEventData data) {
+	public Img(IEventData data, int images) {
 		if(data != null) {
-			populate(data);
+			populate(data, images);
 		}
 	}
 	
-	private void populate(IEventData data) {
+	private void populate(IEventData data, int images) {
 		super.setData(data);
 		ri = (ImageRenderInfo) data;
 		ctm = ri.getImageCtm();
@@ -37,6 +37,7 @@ public class Img extends Obj {
 		XObjectImage = ri.getImage();
 		extension = XObjectImage.identifyImageFileExtension();
 		path = new String();
+		caption.setNumber(images);
 	}
 	
 	/**

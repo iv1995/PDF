@@ -1,5 +1,8 @@
 package com.extraction.pdf.components;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -15,6 +18,7 @@ import lombok.Data;
 public class Page {
 	
 	private ArrayList<Obj> objects = new ArrayList<>();
+	private ArrayList<String> h1 = new ArrayList<>();
 	
 	public Page(ArrayList<Obj> objects) {
 		populate(objects);
@@ -22,7 +26,7 @@ public class Page {
 	
 	private boolean populate(ArrayList<Obj> objects) {
 		if(objects != null) {
-			objects.addAll(sort(objects));
+			this.objects.addAll(sort(objects));
 		}
 		
 		return true;
@@ -80,34 +84,22 @@ public class Page {
 	 * @param img The image of which you want to find the caption
 	 * @param tagged Informs the method if it is dealing with a tagged PDF
 	 * @return
+	 * @throws IOException 
 	 */
-	public StringBuilder getCaption(Img img, boolean tagged) {
+	public StringBuilder getCaption(Img img, boolean tagged) throws IOException {
 		ArrayList<StringBuilder> caption = new ArrayList<>();
 		float[] start = borderingRows(new ArrayList<>(getShelves()), img);
 		
 		StringBuilder above = aboveRows(img, start[1]);
 		StringBuilder below = belowRows(img, start[0]);
 		
-		boolean activated = false;
-		float y = 0;
+		PdfName tag = PdfName.H1;
 		
-		caption.add(new StringBuilder());
-		StringBuilder h1 = new StringBuilder();
-		
-		int tag = 0;
-		
-		for(int i = 0;  i < objects.size() && tagged; i++) {
-			if(objects.get(i) instanceof Text) {
-				Text text = (Text)objects.get(i);
-				if(text.getRi().getCanvasTagHierarchy().get(0).equals(new CanvasTag(PdfName.H1))){
-					activated = true;
-					h1.append(text.getChunk());
-				} else if(activated){
-					caption.add(h1);
-					h1 = new StringBuilder();
-				}
-			}
+		if(h1.size() == 0) {
+			caption.addAll(getContent(tag));
 		}
+		
+		System.out.println(above + "\n" + below + "\n");
 		
 		for(StringBuilder h : caption) {
 			if(above.indexOf(h.toString()) >= 0 || below.indexOf(h.toString()) >= 0) {
@@ -118,6 +110,38 @@ public class Page {
 		return new StringBuilder();
 	}
 	
+	/**
+	 * 
+	 * @param tag It is the name of the tag which surrounds the text
+	 * @return
+	 */
+	private ArrayList<StringBuilder> getContent(PdfName tag){
+		ArrayList<StringBuilder> text = new ArrayList<>();
+		
+		boolean activated = false;
+		float y = 0;
+		
+		StringBuilder h1 = new StringBuilder();
+		
+		for(int i = 0;  i < objects.size(); i++) {
+			if(objects.get(i) instanceof Text) {
+				Text txt = (Text)objects.get(i);
+				if(txt.getRi().getCanvasTagHierarchy().size() > 0) {
+					if(txt.getRi().getCanvasTagHierarchy().get(0).getRole().equals(PdfName.H1)){
+						activated = true;
+						h1.append(txt.getChunk());
+					} else if(activated){
+						text.add(h1);
+						h1 = new StringBuilder();
+						activated = false;
+					}
+				}
+			}
+		}
+		
+		return text;
+	}
+	
 	private StringBuilder aboveRows(Img img, float start){
 		Collections.reverse(objects);
 		StringBuilder piledup = new StringBuilder();
@@ -125,7 +149,7 @@ public class Page {
 		boolean activated = false;
 		float acceptable = 0;
 		
-		for (int i = 0; i >= objects.size(); i++) {
+		for (int i = 0; i < objects.size(); i++) {
 			
 			if(objects.get(i) instanceof Text) {
 				Text now = (Text)objects.get(i);
@@ -136,20 +160,22 @@ public class Page {
 					if(objects.get(i + 1) instanceof Text) {
 						Text next = (Text)objects.get(i + 1);
 						
-						if(next.getCoordinate().getY() > start && !activated){
-							acceptable = next.getCoordinate().getY() - start;
+						if(now.getCoordinate().getY() >= start && !activated){
+							acceptable = now.getCoordinate().getY() - start;
 							activated = true;
 						}
+						
+						piledup.append(now.getChunk());
 						
 						if(!(next.getCoordinate().getY() - now.getCoordinate().getY() <= acceptable)) {
 							break;
 						}
-						
-						piledup.append(next.getChunk());
 					}
 				}
 			}
 		}
+		
+		piledup.reverse();
 		
 		Collections.reverse(objects);
 		
@@ -162,7 +188,7 @@ public class Page {
 		boolean activated = false;
 		float acceptable = 0;
 		
-		for (int i = 0; i >= objects.size(); i++) {
+		for (int i = 0; i < objects.size(); i++) {
 			
 			if(objects.get(i) instanceof Text) {
 				Text now = (Text)objects.get(i);

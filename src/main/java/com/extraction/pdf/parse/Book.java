@@ -1,5 +1,7 @@
 package com.extraction.pdf.parse;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -23,7 +25,7 @@ public class Book {
 	private boolean tagged = false;
 	private String language = "italian";
 
-	private String src = "./Storage/Input/pdf/PDF20.pdf";
+	private String src = "./Storage/Input/PDF/";
 	
 	private String text = "./Storage/Output/Text/";
 	private String titles = "./Storage/Output/Titles/";
@@ -60,6 +62,8 @@ public class Book {
 	 */
 	public boolean processPdf(String src) throws IOException {
 		
+		src = this.src + src;
+		
 		PdfReader reader = new PdfReader(src);
 		PdfDocument pdf = new PdfDocument(reader);
 		
@@ -69,16 +73,12 @@ public class Book {
 		
 		for(int i = 1; i < pdf.getNumberOfPages(); i++) {
 			Page page = new Page(processPage(reader, pdf, i, tagged));
-			
+			pages.add(page);
 			for(Obj obj : page.getObjects()) {
 				if(obj instanceof Img) {
 					StringBuilder caption = page.getCaption((Img)obj, tagged);
-					((Img) obj).setCaption(caption);
-					
-					System.out.println(caption);
 				}
 			}
-			
 		}
 		
 		return true;
