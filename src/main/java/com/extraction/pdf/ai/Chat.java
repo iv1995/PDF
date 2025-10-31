@@ -62,11 +62,9 @@ public class Chat {
 
 	}
 
-	public ChatResponse translate(String request, File src) throws IOException {
+	public ChatResponse translate(String request, String src) throws IOException {
 
-		String text = Files.readString(Path.of(src.getPath()));
-
-		Prompt prompt = new Prompt(new UserMessage(request + " : " + text));
+		Prompt prompt = new Prompt(new UserMessage(request + " : " + src));
 		return this.chatModel.call(prompt);
 	}
 }

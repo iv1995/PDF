@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.TreeSet;
 
-import com.extraction.pdf.Utilities.Utilities;
+import com.extraction.pdf.components.utilities.Utilities;
 import com.extraction.pdf.sort.Sort;
 import com.itextpdf.kernel.pdf.PdfName;
 
