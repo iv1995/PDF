@@ -9,11 +9,13 @@ import org.springframework.stereotype.Service;
 
 import com.extraction.pdf.renders.Render;
 import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfName;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.canvas.parser.PdfCanvasProcessor;
 import com.extraction.pdf.components.Img;
 import com.extraction.pdf.components.Obj;
 import com.extraction.pdf.components.Page;
+import com.extraction.pdf.components.Text;
 
 import lombok.Data;
 
@@ -27,12 +29,8 @@ public class Book {
 
 	private String src = "./Storage/Input/PDF/";
 	
-	private String text = "./Storage/Output/Text/";
-	private String titles = "./Storage/Output/Titles/";
 	private String chapters = "./Storage/Output/Chapters/";
 	private String listing = "./Storage/Output/Listing/";
-	
-	private String captions = "./Storage/Output/Figures/";
 	private String images = "./Storage/Output/Images/";
 	
 	
@@ -71,12 +69,14 @@ public class Book {
 			tagged = true;
 		}
 		
-		for(int i = 32; i <= 32; i++) {
+		for(int i = 1; i <= pdf.getNumberOfPages(); i++) {
 			Page page = new Page(processPage(reader, pdf, i, tagged));
 			pages.add(page);
 			
-			getCaptions(page);
+			addCaptions(page);
 		}
+		
+		getTitles(pages);
 		
 		return true;
 	}
@@ -100,7 +100,7 @@ public class Book {
 		return render.getObjects();
 	}
 	
-	private void getCaptions(Page page) throws IOException {
+	private void addCaptions(Page page) throws IOException {
 		for(Obj obj : page.getObjects()) {
 			if(obj instanceof Img) {
 				String caption = page.getCaption((Img)obj, tagged);
@@ -111,5 +111,54 @@ public class Book {
 				}
 			}
 		}
+	}
+	
+	private ArrayList<String> getTitles(ArrayList<Page> pages){
+		ArrayList<String> titles = new ArrayList<String>();
+		StringBuilder title = new StringBuilder();
+		PdfName searched = PdfName.H1;
+		ArrayList<Obj> objects = new ArrayList<Obj>();
+		
+		for(int i = 0; i < pages.size(); i++) {
+			
+			objects = pages.get(i).getObjects();
+			
+			for(int j = 0; j < objects.size(); j++) {
+				if(objects.get(j) instanceof Text) {
+					Text chunk = (Text)objects.get(j);
+					PdfName tag = null;
+					
+					if(chunk.getRi().getCanvasTagHierarchy().size() > 0) {
+						tag = chunk.getRi().getCanvasTagHierarchy().get(0).getRole();
+					} else {
+						continue;
+					}			
+					
+					if(tag.equals(searched)) {
+						while(tag.equals(searched)) {
+							if(j < objects.size()) {
+								if(objects.get(j) instanceof Text) {
+									chunk = (Text)objects.get(j);
+									tag = chunk.getRi().getCanvasTagHierarchy().get(0).getRole();
+									title.append(chunk.getChunk());
+									j++;
+								} else {
+									j++;
+								}
+							} else {
+								break;
+							}
+						}
+						
+						titles.add(title.toString());
+						title = new StringBuilder();
+					}
+				}
+			}
+		}
+		
+		System.out.println(titles.size());
+		
+		return titles;
 	}
 }
