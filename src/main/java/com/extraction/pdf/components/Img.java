@@ -1,8 +1,15 @@
 package com.extraction.pdf.components;
 
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+
+import com.itextpdf.io.source.ByteArrayOutputStream;
 import com.itextpdf.kernel.geom.Matrix;
+import com.itextpdf.kernel.pdf.PdfName;
+import com.itextpdf.kernel.pdf.PdfStream;
 import com.itextpdf.kernel.pdf.canvas.parser.data.IEventData;
 import com.itextpdf.kernel.pdf.canvas.parser.data.ImageRenderInfo;
 import com.itextpdf.kernel.pdf.xobject.PdfImageXObject;
@@ -13,52 +20,92 @@ import lombok.Data;
 public class Img extends Obj {
 	
 	private ImageRenderInfo ri;
-	private PdfImageXObject XObjectImage;
+	private PdfImageXObject image;
 	private String extension;
 	private Matrix ctm;
-	private PdfImageXObject imageMask;
+	private PdfImageXObject mask;
 	private String path;
 	private Caption caption = new Caption();
+	private byte[] masked = null;
 	
-	private Surrounding text;
+	private boolean saved = false;
 	
-	public Img(IEventData data, int images) {
+	public Img(IEventData data, int images) throws IOException {
 		if(data != null) {
 			populate(data, images);
 		}
 	}
 	
-	private void populate(IEventData data, int images) {
+	private void populate(IEventData data, int images) throws IOException {
 		super.setData(data);
 		ri = (ImageRenderInfo) data;
 		ctm = ri.getImageCtm();
 		super.setCoordinate(new Point(ctm.get(Matrix.I31), ctm.get(Matrix.I32)));
 		super.setSize(getSize(ctm));
-		XObjectImage = ri.getImage();
-		extension = XObjectImage.identifyImageFileExtension();
+		
+		image = ri.getImage();
+		mask = getMask(image.getPdfObject());
+		
+		extension = image.identifyImageFileExtension();
 		path = new String();
 		caption.setNumber(images);
+		caption.setCaption(String.valueOf(images));
+		
 	}
 	
 	/**
 	 * 
 	 * @param ctm Current Transformation Matrix
-	 * @return
+	 * @return A new Size instance containing the height and width of the image
 	 */
 	public Size getSize(Matrix ctm) {
 		float a = ctm.get(Matrix.I11);
 		float b = ctm.get(Matrix.I12);
-		
 		float c = ctm.get(Matrix.I21);
 		float d = ctm.get(Matrix.I22);
 		
-		float width = (float)Math.sqrt(a*a + b*b);
-		float height = (float)Math.sqrt(c*c + d*d);
-		
-		return new Size(height, width);
+		return new Size((float)Math.sqrt(c*c + d*d), 
+						(float)Math.sqrt(a*a + b*b));
 	}
 	
-	public BufferedImage mask(BufferedImage image, BufferedImage mask) {
+	/**
+	 * 
+	 * @param object The PdfStream from which we are going to extract the mask
+	 * @return
+	 */
+	public PdfImageXObject getMask(PdfStream object) {
+		PdfStream mask = object.getAsStream(PdfName.SMask);
+		return new PdfImageXObject(mask);
+	}
+	
+	public byte[] masked() throws IOException {
+		if(masked != null) {
+			return masked;
+		} else {
+			return mask();
+		}
+	}
+	
+	private byte[] mask() throws IOException {
+		
+		BufferedImage image = this.image.getBufferedImage(); 
+        BufferedImage mask = this.mask.getBufferedImage();
+        BufferedImage result = mask(image, mask);
+		
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(result, "png", baos);
+        masked = baos.toByteArray();
+		
+		return masked;
+	}
+	
+	/**
+	 * 
+	 * @param image The image which is going to be merged with its mask
+	 * @param mask The mask of the image
+	 * @return The combination of the two things
+	 */
+	private BufferedImage mask(BufferedImage image, BufferedImage mask) {
 		
 		int width = image.getWidth();
 		
@@ -70,17 +117,18 @@ public class Img extends Obj {
 		    image.getRGB(0, j, width, 1, img, 0, 1);
 		    mask.getRGB(0, j, width, 1, msk, 0, 1);
 		    
-		    
 		    for (int i = 0; i < width; i++) {
 		        int color = ~img[i];
 		        int maskColor = msk[i];
 		        
 		        color &= maskColor;
 		         
-		        /*Getting the negation of the non alpha bits of the masked image color*/
+		        /*Getting the negation of the non alpha bits
+		         *of the masked image color*/
 		        int colorBody = ~(color & 0x00ffffff);
 		        
-		        /*Getting the alpha bits of the masked image color and mixing them with the remaining ones*/
+		        /*Getting the alpha bits of the masked image color
+		         *and mixing them with the remaining ones*/
 		        color = color & 0xff000000 | colorBody;
 		        
 		        img[i] = color;
@@ -90,5 +138,14 @@ public class Img extends Obj {
 		}
 		
 		return image;
+	}
+	
+	public static BufferedImage getBufferedImage(java.awt.Image img) {
+	     BufferedImage bi = new BufferedImage(img.getWidth(null),img.getHeight(null),BufferedImage.TYPE_INT_RGB);
+	     Graphics graphics = bi.getGraphics();
+	     graphics.drawImage(img, 0, 0, null);
+	     graphics.dispose();
+	     
+	     return bi;
 	}
 }

@@ -67,7 +67,7 @@ public class Strings {
 			
 			for(int j = 0; j < obj.length(); j++) {
 				
-				while(String.valueOf( box.charAt(i) ).isBlank() && i < box.length() - 1) {	
+				while(String.valueOf( box.charAt(i) ).isBlank()) {	
 					i++;
 					count++;
 					
@@ -110,6 +110,10 @@ public class Strings {
 				
 				i++;
 				count++;
+				
+				if(i == box.length()) {
+					break;
+				}
 			}
 		}
 		

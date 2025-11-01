@@ -6,6 +6,7 @@ import java.util.Set;
 import com.extraction.pdf.components.Img;
 import com.extraction.pdf.components.Obj;
 import com.extraction.pdf.components.Text;
+import com.itextpdf.io.exceptions.IOException;
 import com.itextpdf.kernel.pdf.canvas.parser.EventType;
 import com.itextpdf.kernel.pdf.canvas.parser.data.IEventData;
 import com.itextpdf.kernel.pdf.canvas.parser.listener.IEventListener;
@@ -22,11 +23,16 @@ public class Render implements IEventListener {
 	public Render() {}
 
 	@Override
-	public void eventOccurred(IEventData data, EventType type) {
+	public void eventOccurred(IEventData data, EventType type) throws IOException {
 		if (type.equals(EventType.RENDER_TEXT)) {
 			objects.add(new Text(data));
 		} else if (type.equals(EventType.RENDER_IMAGE)) {
-			objects.add(new Img(data, images));
+			try {
+				objects.add(new Img(data, images));
+			} catch (java.io.IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			images++;
 		}
 	}

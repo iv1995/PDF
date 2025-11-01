@@ -1,15 +1,11 @@
 package com.extraction.pdf.components;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.TreeSet;
 
 import com.extraction.pdf.components.utilities.Strings;
-import com.extraction.pdf.components.utilities.Paths;
+import com.extraction.pdf.components.utilities.Array;
 import com.extraction.pdf.sort.Sort;
 import com.itextpdf.kernel.pdf.PdfName;
 
@@ -84,28 +80,32 @@ public class Page {
 	 * 
 	 * @param img The image of which you want to find the caption
 	 * @param tagged Informs the method if it is dealing with a tagged PDF
-	 * @return
-	 * @throws IOException 
+	 * @return The caption if a match has been found an empty string otherwise
 	 */
-	public String getCaption(Img img, boolean tagged) throws IOException {
+	public String getCaption(Img img, boolean tagged) {
 		String caption = new String();
-		float[] start = borderingRows(new ArrayList<>(getShelves()), img);
 		
-		StringBuilder above = aboveRows(img, start[1]);
-		StringBuilder below = belowRows(img, start[0]);
+		StringBuilder above = piledupRows(img, true);
+		StringBuilder below = piledupRows(img, false);
+		
+		System.out.println(above + "\n" + below);
 		
 		PdfName tag = PdfName.H1;
 		
-		caption = getCaption(tag).toString();
-		
-		int[] indexes = Strings.indexesOf(below.toString(), caption);
-		
-		if(indexes[0] < 0 || indexes[1] < 0) {
-			indexes = Strings.indexesOf(above.toString(), caption);
+		if(tagged) {
+			caption = getCaption(tag, img).toString();
 			
-			if(indexes[0] < 0 || indexes[1] < 0) {
-				caption = new String();
+			int[] indexes = Strings.indexesOf(below.toString(), caption);
+			
+			if(Array.containsNegative(indexes)) {
+				indexes = Strings.indexesOf(above.toString(), caption);
+				
+				if(Array.containsNegative(indexes)) {
+					return new String();
+				}
 			}
+		} else {
+			//Use AI
 		}
 		
 		return caption;
@@ -113,15 +113,92 @@ public class Page {
 	
 	/**
 	 * 
-	 * @param tag It is the name of the tag which surrounds the text
-	 * @return
+	 * @param img The image whose surrounding text we want to find
+	 * @param above If true returns the text immediately above otherwise the one below
+	 * @return The rows that are piled up one next to the other and immediately above the image
 	 */
-	private StringBuilder getCaption(PdfName tag){
+	private StringBuilder piledupRows(Img img, boolean above){
+		
+		float start = 0;
+		
+		/*
+	 	* The objects have been ordered from top to bottom
+	 	* By reading them from below it is easier to know which row is immediately above
+	 	* */
+		if(above) {
+			Collections.reverse(objects);
+			start = img.getAbsoluteHeight();
+		} else {
+			start = img.getCoordinate().getY();
+		}
+		
+		
+		StringBuilder piledup = new StringBuilder();
+		
+		boolean activated = false;
+		float acceptable = 0;
+		
+		for (int i = 0; i < objects.size(); i++) {
+			
+			if(objects.get(i) instanceof Text) {
+				Text now = (Text)objects.get(i);
+				
+				//We are not interested in the rows above/below the image
+				if(now.getCoordinate().getY() < start == above) {
+					continue;
+				} else if(i < objects.size() - 1) {
+					if(objects.get(i + 1) instanceof Text) {
+						Text next = (Text)objects.get(i + 1);
+						
+						if(next.getCoordinate().getY() > start == above && !activated){
+							/* Once we find another row we can set a limit
+							 * to the distance that can exist between two consecutive the rows
+							 */
+							acceptable = Math.abs(next.getCoordinate().getY() - start);
+							activated = true;
+						}
+						
+						if(above) {
+							piledup.append(new StringBuilder(now.getChunk()).reverse());
+						} else {
+							piledup.append(new StringBuilder(now.getChunk()));
+						}
+						
+						if(!(Math.abs(next.getCoordinate().getY() - now.getCoordinate().getY()) <= acceptable) && activated) {
+							break;
+						}
+					}
+				}
+			}
+		}
+		
+		if(above) {
+			piledup.reverse();
+			Collections.reverse(objects);
+		}
+		
+		return piledup;
+	}
+	
+	/**
+	 * 
+	 * It works in a Tagged PDF
+	 * 
+	 * @param tag It is the name of the tag which surrounds the text
+	 * @return The caption if found and an empty string otherwise
+	 */
+	private StringBuilder getCaption(PdfName tag, Img img){
 		StringBuilder caption = new StringBuilder();
 		
 		for(int i = 0;  i < objects.size(); i++) {
 			
 			if(objects.get(i) instanceof Img && i < objects.size() -1) {
+				
+				//There might be more than one image
+				if(!((Img)objects.get(i)).equals(img)) {
+					continue;
+				}
+				
 				if(objects.get(i + 1) instanceof Text) {
 					Text enclosed = (Text)objects.get(i + 1);
 					
@@ -142,129 +219,5 @@ public class Page {
 		}
 		
 		return caption;
-	}
-	
-	private StringBuilder aboveRows(Img img, float start){
-		Collections.reverse(objects);
-		StringBuilder piledup = new StringBuilder();
-		
-		boolean activated = false;
-		float acceptable = 0;
-		
-		for (int i = 0; i < objects.size(); i++) {
-			
-			if(objects.get(i) instanceof Text) {
-				Text now = (Text)objects.get(i);
-				
-				if(now.getCoordinate().getY() < start) {
-					continue;
-				} else if(i < objects.size() - 1) {
-					if(objects.get(i + 1) instanceof Text) {
-						Text next = (Text)objects.get(i + 1);
-						
-						if(next.getCoordinate().getY() > start && !activated){
-							acceptable = next.getCoordinate().getY() - start;
-							activated = true;
-						}
-						
-						piledup.append(new StringBuilder(now.getChunk()).reverse());
-						
-						if(!(next.getCoordinate().getY() - now.getCoordinate().getY() <= acceptable) && activated) {
-							break;
-						}
-					}
-				}
-			}
-		}
-		
-		piledup.reverse();
-		
-		Collections.reverse(objects);
-		
-		return piledup;
-	}
-	
-	private StringBuilder belowRows(Img img, float start){
-		StringBuilder piledup = new StringBuilder();
-		
-		boolean activated = false;
-		float acceptable = 0;
-		
-		for (int i = 0; i < objects.size(); i++) {
-			
-			if(objects.get(i) instanceof Text) {
-				Text now = (Text)objects.get(i);
-				
-				if(now.getCoordinate().getY() > start) {
-					continue;
-				} else if(i < objects.size() - 1) {
-					if(objects.get(i + 1) instanceof Text) {
-						Text next = (Text)objects.get(i + 1);
-						
-						if(next.getCoordinate().getY() < start && !activated){
-							acceptable = next.getCoordinate().getY() - start;
-							activated = true;
-						}
-						
-						if(!(next.getCoordinate().getY() - now.getCoordinate().getY()  <= acceptable) && activated) {
-							break;
-						}
-						
-						piledup.append(now.getChunk());
-					}
-				}
-			}
-		}
-		
-		return piledup;
-	}
-	
-	/**
-	 * 
-	 * @param bases The y coordinates of the rows on this page
-	 * @param img The image of which we want to find the surrounding text
-	 * @return The y coordinates of three rows:
-	 * 			float[0] closest row from below 
-	 * 			float[1] closest row from above
-	 * 
-	 */
-	private float[] borderingRows(ArrayList<Float> bases, Img img) {
-		float[] start = {0, Float.MAX_VALUE};
-		
-		for (int i = 0; i < bases.size(); i++) {
-			float y = bases.get(i);
-			
-			if (isBelow(y, img) && y > start[0]) {
-					start[0] = y;
-			} else if (isAbove(y, img) && y < start[1]) {
-					start[1] = y;
-			}
-		}
-		return start;
-	}
-	
-	private boolean isAbove(float y, Img img){
-		return y > img.getAbsoluteHeight();
-	}
-	
-	private boolean isBelow(float y, Img img){
-		return y < img.getCoordinate().getY();
-	}
-	
-	/**
-	 * 
-	 * @return It returns the y coordinates of all the lines
-	 */
-	private TreeSet<Float> getShelves() {
-		TreeSet<Float> shelves = new TreeSet<>();
-		
-		for(int i = 0; i < objects.size(); i++) {
-			if(objects.get(i) instanceof Text) {
-				float y = ((Text)objects.get(i)).getCoordinate().getY();
-				shelves.add(y);
-			}
-		}
-		
-		return shelves;
 	}
 }

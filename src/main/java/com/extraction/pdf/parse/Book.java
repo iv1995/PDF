@@ -1,7 +1,6 @@
 package com.extraction.pdf.parse;
 
-import java.io.File;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -69,11 +68,23 @@ public class Book {
 			tagged = true;
 		}
 		
-		for(int i = 1; i <= pdf.getNumberOfPages(); i++) {
+		for(int i = 64; i <= 64; i++) {
 			Page page = new Page(processPage(reader, pdf, i, tagged));
 			pages.add(page);
 			
 			addCaptions(page);
+		}
+		
+		for(Page page : pages) {
+			for(Obj obj : page.getObjects()) {
+				if(obj instanceof Img) {
+					Img img = (Img)obj;
+					FileOutputStream fos = new FileOutputStream("./Storage/Output/Images/" + img.getCaption().getCaption().replaceAll(":", "") + "." + img.getExtension());
+					fos.write(img.masked());
+					fos.flush();
+					fos.close();
+				}
+			}
 		}
 		
 		getTitles(pages);
@@ -156,8 +167,6 @@ public class Book {
 				}
 			}
 		}
-		
-		System.out.println(titles.size());
 		
 		return titles;
 	}
