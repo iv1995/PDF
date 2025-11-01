@@ -6,42 +6,42 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Chapters {
 	
-	public static boolean isolateChapters(String src, ArrayList<String> titles) throws IOException{
-		if(StringUtils.isEmpty(src)) {
-			return false;
+	public static ArrayList<String> isolateChapters(String book, ArrayList<String> titles) throws IOException{
+		if(StringUtils.isEmpty(book)) {
+			return new ArrayList<String>();
 		}
 		
 		ArrayList<String> chapters = new ArrayList<>();
 		
 		for (int i = 0; i < titles.size(); i++) {
-			int[] first = Strings.indexesOf(src, titles.get(i));
+			int[] first = Strings.indexesOf(book, titles.get(i));
 			
 			if(!Array.containsNegative(first)) {
 				int[] next = new int[2];
 				
 				/*If there is only one title left copy until the text*/
 				if(titles.size() > i + 2){
-					next = Strings.indexesOf(src, titles.get(i + 1));
+					next = Strings.indexesOf(book, titles.get(i + 1));
 				} else if(titles.size() == 1 || titles.size() < i + 2) {
-					next = Strings.lastIndex(src);
+					next = Strings.lastIndex(book);
 				}
 				
 				if(!Array.containsNegative(next) && !Strings.isPreceding(first, next)) {
-					chapters.add(Strings.getBetween(src, first, next));
-					src = Strings.unused(src, next);
+					chapters.add(Strings.getBetween(book, first, next));
+					book = Strings.unused(book, next);
 					continue;
 					
 				} else if(titles.size() > i + 2){
-					src = Strings.unused(src, first);
+					book = Strings.unused(book, first);
 					titles.remove(i + 1);
 					i--;
 				} else {
-					src = Strings.unused(src, first);
-					chapters.add(src);
+					book = Strings.unused(book, first);
+					chapters.add(book);
 				}
 			}
 		}
 		
-		return true;
+		return chapters;
 	}
 }

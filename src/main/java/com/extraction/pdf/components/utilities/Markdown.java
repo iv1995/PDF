@@ -62,7 +62,7 @@ public class Markdown {
 				}
 			}
 			
-			missing += (Array.relativeDistance(index) + added + 1);
+			missing += (Array.absoluteDistance(index) + added + 1);
 			target = Strings.unused(target, index);
 			index = Strings.indexesOf(target, str);
 		} while(index != null && !Array.containsNegative(index));
