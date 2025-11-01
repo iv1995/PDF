@@ -18,7 +18,6 @@ import lombok.Data;
 public class Render implements IEventListener {
 
 	private ArrayList<Obj> objects = new ArrayList<>();
-	private int images;
 
 	public Render() {}
 
@@ -28,12 +27,8 @@ public class Render implements IEventListener {
 			objects.add(new Text(data));
 		} else if (type.equals(EventType.RENDER_IMAGE)) {
 			try {
-				objects.add(new Img(data, images));
-			} catch (java.io.IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			images++;
+				objects.add(new Img(data));
+			} catch (java.io.IOException e) {}
 		}
 	}
 

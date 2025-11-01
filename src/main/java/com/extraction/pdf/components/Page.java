@@ -88,8 +88,6 @@ public class Page {
 		StringBuilder above = piledupRows(img, true);
 		StringBuilder below = piledupRows(img, false);
 		
-		System.out.println(above + "\n" + below);
-		
 		PdfName tag = PdfName.H1;
 		
 		if(tagged) {
@@ -107,6 +105,9 @@ public class Page {
 		} else {
 			//Use AI
 		}
+		
+		caption.replaceAll(":", "");
+		caption.replaceAll(".", "");
 		
 		return caption;
 	}

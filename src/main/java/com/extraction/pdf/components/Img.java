@@ -30,13 +30,13 @@ public class Img extends Obj {
 	
 	private boolean saved = false;
 	
-	public Img(IEventData data, int images) throws IOException {
+	public Img(IEventData data) throws IOException {
 		if(data != null) {
-			populate(data, images);
+			populate(data);
 		}
 	}
 	
-	private void populate(IEventData data, int images) throws IOException {
+	private void populate(IEventData data) throws IOException {
 		super.setData(data);
 		ri = (ImageRenderInfo) data;
 		ctm = ri.getImageCtm();
@@ -46,11 +46,11 @@ public class Img extends Obj {
 		image = ri.getImage();
 		mask = getMask(image.getPdfObject());
 		
-		extension = image.identifyImageFileExtension();
 		path = new String();
-		caption.setNumber(images);
-		caption.setCaption(String.valueOf(images));
 		
+		extension = image.identifyImageFileExtension();
+		caption.setNumber(hashCode());
+		caption.setCaption(String.valueOf(hashCode()));
 	}
 	
 	/**
@@ -75,6 +75,11 @@ public class Img extends Obj {
 	 */
 	public PdfImageXObject getMask(PdfStream object) {
 		PdfStream mask = object.getAsStream(PdfName.SMask);
+		
+		if(mask == null) {
+			return null;
+		}
+		
 		return new PdfImageXObject(mask);
 	}
 	
@@ -87,15 +92,20 @@ public class Img extends Obj {
 	}
 	
 	private byte[] mask() throws IOException {
-		
-		BufferedImage image = this.image.getBufferedImage(); 
-        BufferedImage mask = this.mask.getBufferedImage();
-        BufferedImage result = mask(image, mask);
-		
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(result, "png", baos);
-        masked = baos.toByteArray();
-		
+		if(mask != null) {
+			BufferedImage image = this.image.getBufferedImage(); 
+	        BufferedImage mask = this.mask.getBufferedImage();
+	        BufferedImage result = mask(image, mask);
+			
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	        ImageIO.write(result, extension, baos);
+	        masked = baos.toByteArray();
+		} else {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	        ImageIO.write(image.getBufferedImage(), extension, baos);
+	        masked = baos.toByteArray();
+		}
+        
 		return masked;
 	}
 	

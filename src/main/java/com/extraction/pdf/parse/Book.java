@@ -1,5 +1,6 @@
 package com.extraction.pdf.parse;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import com.extraction.pdf.components.Img;
 import com.extraction.pdf.components.Obj;
 import com.extraction.pdf.components.Page;
 import com.extraction.pdf.components.Text;
+import com.extraction.pdf.components.utilities.Strings;
 
 import lombok.Data;
 
@@ -68,18 +70,24 @@ public class Book {
 			tagged = true;
 		}
 		
-		for(int i = 64; i <= 64; i++) {
+		
+		int images = 0;
+		
+		for(int i = 1; i <= pdf.getNumberOfPages(); i++) {
 			Page page = new Page(processPage(reader, pdf, i, tagged));
 			pages.add(page);
 			
-			addCaptions(page);
+			images = addCaptions(page, images);
 		}
 		
 		for(Page page : pages) {
 			for(Obj obj : page.getObjects()) {
 				if(obj instanceof Img) {
 					Img img = (Img)obj;
-					FileOutputStream fos = new FileOutputStream("./Storage/Output/Images/" + img.getCaption().getCaption().replaceAll(":", "") + "." + img.getExtension());
+					
+					File file = new File("./Storage/Output/Images/" + Strings.remove(img.getCaption().getCaption(), ".:;\"") + "." + img.getExtension());
+					file.createNewFile();
+					FileOutputStream fos = new FileOutputStream(file);
 					fos.write(img.masked());
 					fos.flush();
 					fos.close();
@@ -111,7 +119,8 @@ public class Book {
 		return render.getObjects();
 	}
 	
-	private void addCaptions(Page page) throws IOException {
+	private int addCaptions(Page page, int images) throws IOException {
+		
 		for(Obj obj : page.getObjects()) {
 			if(obj instanceof Img) {
 				String caption = page.getCaption((Img)obj, tagged);
@@ -119,9 +128,14 @@ public class Book {
 				if(!caption.isEmpty()) {
 					Img img = (Img)obj;
 					img.getCaption().setCaption(caption);
+				} else {
+					Img img = (Img)obj;
+					img.getCaption().setCaption(String.valueOf(images++));
 				}
 			}
 		}
+		
+		return images;
 	}
 	
 	private ArrayList<String> getTitles(ArrayList<Page> pages){

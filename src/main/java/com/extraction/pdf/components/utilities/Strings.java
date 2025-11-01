@@ -63,13 +63,11 @@ public class Strings {
 			}
 			
 			location[0] = i;
-			int count = 0;
 			
 			for(int j = 0; j < obj.length(); j++) {
 				
 				while(String.valueOf( box.charAt(i) ).isBlank()) {	
-					i++;
-					count++;
+					++i;
 					
 					if(i == box.length()) {
 						break;
@@ -77,7 +75,7 @@ public class Strings {
 				}
 				
 				while(String.valueOf( obj.charAt(j) ).isBlank()) {
-					j++;
+					++j;
 					
 					if(j == obj.length()) {
 						if(i < box.length()) {
@@ -89,7 +87,10 @@ public class Strings {
 					}
 				}
 				
-				if(i == box.length() || j == obj.length()) {
+				if(i == box.length()) {
+					break;
+				} else if(j == obj.length()){
+					i = box.length();
 					break;
 				}
 				
@@ -97,23 +98,10 @@ public class Strings {
 				char t = Character.toLowerCase(obj.charAt(j));
 				
 				if(b != t) {
-					count = 0;
-					i++;
 					break;
 				}
 				
-				if(j == obj.length() - 1) {
-					location[1] = location[0] + count;
-					i = box.length();
-					break;
-				}
-				
-				i++;
-				count++;
-				
-				if(i == box.length()) {
-					break;
-				}
+				++i;
 			}
 		}
 		
@@ -221,5 +209,18 @@ public class Strings {
 		}
 		
 		return positive;
+	}
+	
+	public static String remove(String str, String characters) {
+		String cleaned = new String();
+		
+		for(int i = 0; i < str.length(); i++) {
+			if(characters.contains(String.valueOf(str.charAt(i)))){
+				continue;
+			}
+			cleaned += String.valueOf(str.charAt(i));
+		}
+		
+		return cleaned;
 	}
 }
