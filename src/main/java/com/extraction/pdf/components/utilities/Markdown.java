@@ -1,6 +1,6 @@
 package com.extraction.pdf.components.utilities;
 
-import com.extraction.pdf.components.utilities.Utilities;
+import com.extraction.pdf.components.utilities.Paths;
 import java.io.IOException;
 import org.apache.commons.lang3.StringUtils;
 
@@ -32,9 +32,9 @@ public class Markdown {
 		
 		String target = src;
 		
-		int[] index = Utilities.indexesOf(target, str);
+		int[] index = Strings.indexesOf(target, str);
 		
-		if(index == null || Utilities.containsNegative(index)) {
+		if(index == null || Array.containsNegative(index)) {
 			return new String();
 		}
 		
@@ -44,13 +44,12 @@ public class Markdown {
 		int added = 0;
 		
 		do {
-			
-			if(Utilities.containsNegative(index)) {
+			if(Array.containsNegative(index)) {
 				break;
 			}
 			
 			if(!after) {
-				if(!(tmp = mark(src, Utilities.slide(index, missing), str, String.valueOf( symbol[0] ))).isEmpty()){
+				if(!(tmp = mark(src, Array.slide(index, missing), str, String.valueOf( symbol[0] ))).isEmpty()){
 					src = tmp;
 					tmp = new String();
 					added++;
@@ -63,10 +62,10 @@ public class Markdown {
 				}
 			}
 			
-			missing += (Utilities.relativeDistance(index) + added + 1);
-			target = Utilities.unused(target, index);
-			index = Utilities.indexesOf(target, str);
-		} while(index != null && !Utilities.containsNegative(index));
+			missing += (Array.relativeDistance(index) + added + 1);
+			target = Strings.unused(target, index);
+			index = Strings.indexesOf(target, str);
+		} while(index != null && !Array.containsNegative(index));
 		
 		return src;
 	}

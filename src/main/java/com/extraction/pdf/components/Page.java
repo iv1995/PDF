@@ -8,7 +8,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.TreeSet;
 
-import com.extraction.pdf.components.utilities.Utilities;
+import com.extraction.pdf.components.utilities.Strings;
+import com.extraction.pdf.components.utilities.Paths;
 import com.extraction.pdf.sort.Sort;
 import com.itextpdf.kernel.pdf.PdfName;
 
@@ -97,10 +98,10 @@ public class Page {
 		
 		caption = getCaption(tag).toString();
 		
-		int[] indexes = Utilities.indexesOf(below.toString(), caption);
+		int[] indexes = Strings.indexesOf(below.toString(), caption);
 		
 		if(indexes[0] < 0 || indexes[1] < 0) {
-			indexes = Utilities.indexesOf(above.toString(), caption);
+			indexes = Strings.indexesOf(above.toString(), caption);
 			
 			if(indexes[0] < 0 || indexes[1] < 0) {
 				caption = new String();
