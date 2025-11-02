@@ -120,16 +120,15 @@ public class Strings {
 	 * 			     that needs to be removed from {@code str}
 	 * @return 
 	 */
-	public static String unused(String str, int[] middle) {
+	public static String unused(String str, int[] start) {
 		
-		if(middle == null || StringUtils.isEmpty(str)) {
+		if(start == null || StringUtils.isEmpty(str)) {
 			new String();
-		} else if(middle.length != 2 || Array.containsNegative(middle)) {
+		} else if(start.length != 2 || Array.containsNegative(start)) {
 			new String();
 		}
 		
-		return str.substring(0, middle[0]) 
-			 + str.substring(middle[1] + 1, str.length());
+		return str.substring(start[1], str.length());
 	}
 	
 	/**

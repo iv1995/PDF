@@ -8,6 +8,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,10 @@ import com.extraction.pdf.components.Img;
 import com.extraction.pdf.components.Obj;
 import com.extraction.pdf.components.Page;
 import com.extraction.pdf.components.Text;
+import com.extraction.pdf.components.utilities.Markdown;
 import com.extraction.pdf.components.utilities.Strings;
+import com.extraction.pdf.components.utilities.Type;
+
 import java.nio.channels.FileChannel;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
@@ -96,12 +100,7 @@ public class Book {
 			images = addCaptions(page, images);
 		}
 		
-		save(pages);
-		ArrayList<String> titles = getBookTitles(pages);
-		
-		for(int i = 0; i < titles.size(); i++) {
-			System.out.println(titles.get(i));
-		}
+		save(pages, getBookTitles(pages));
 	}
 	
 	/**
@@ -112,7 +111,7 @@ public class Book {
 	 * @param pages The pages making up the PDF file
 	 * @throws IOException
 	 */
-	public void save(ArrayList<Page> pages) throws IOException {
+	public void save(ArrayList<Page> pages, ArrayList<String> titles) throws IOException {
 		StringBuilder all = new StringBuilder();
 		
 		for(Page page : pages) {
@@ -138,13 +137,48 @@ public class Book {
 			all.append("\n");
 		}
 		
+		String txt = markdown(all.toString(), getBookTitles(pages));
+		
 		File text = new File("./Storage/Output/Chapters/Book.txt");
 		text.createNewFile();
 		
 		FileWriter writer = new FileWriter(text);
-		writer.write(all.toString());
+		writer.write(txt);
 		writer.flush();
 		writer.close();
+	}
+	
+	/**
+	 * 
+	 * For each title adds the # markdown symbol
+	 * 
+	 * @param all All the text contained in the PDF file
+	 * @param titles The titles contained in the PDF file 
+	 * @throws IOException 
+	 */
+	public String markdown(String all, ArrayList<String> titles) throws IOException {
+		
+		String book = new String();
+		Scanner input = new Scanner(all);
+		
+		while(input.hasNextLine()) {
+			
+			String line = input.nextLine();
+			
+			for(String title : titles) {
+				if(title.isBlank()){
+					continue;
+				}
+				
+				line = Markdown.markdown(line, title, "#");
+			}
+			
+			book += (line + "\n");
+		}
+		
+		input.close();
+		
+		return book;
 	}
 	
 	/**

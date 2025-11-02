@@ -6,12 +6,17 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.MimeTypeUtils;
 
 import com.extraction.pdf.components.utilities.Strings;
+import com.extraction.pdf.components.utilities.Type;
 import com.extraction.pdf.ai.Chat;
 import com.extraction.pdf.components.utilities.Array;
+import com.extraction.pdf.components.utilities.Markdown;
 import com.extraction.pdf.sort.Sort;
 import com.itextpdf.kernel.pdf.PdfName;
 
@@ -23,6 +28,12 @@ public class Page {
 	private ArrayList<Obj> objects = new ArrayList<>();
 	private ArrayList<String> h1 = new ArrayList<>();
 	
+//	private String before = new String();
+//	private String after = new String();
+//	
+//	ArrayList<Integer> bef = new ArrayList<>();
+//	ArrayList<Integer> aft = new ArrayList<>();
+	
 	public Page(ArrayList<Obj> objects) {
 		populate(objects);
 	}
@@ -31,6 +42,8 @@ public class Page {
 		if(objects != null) {
 			this.objects.addAll(sort(objects));
 		}
+		
+		
 		
 		return true;
 	}
@@ -226,4 +239,43 @@ public class Page {
 		
 		return caption;
 	}
+	
+//	/**
+//	 * 
+//	 * For each title adds the # markdown symbol
+//	 * 
+//	 * @param all All the text contained in the PDF file
+//	 * @param titles The titles contained in the PDF file 
+//	 * @throws IOException 
+//	 */
+//	public void markdown(ArrayList<String> phrases, String symbol) throws IOException {
+//		
+//		if(StringUtils.isEmpty(before) || StringUtils.isEmpty(after)) {
+//			getText();
+//		}
+//		
+//		int[] indexes = {0, 0};
+//			
+//		for(String phrase: phrases) {
+//			indexes = Strings.indexesOf(before, phrase);
+//			
+//			if(!Array.containsNegative(indexes)) {
+//				String before = this.before.substring(0, indexes[0]);
+//				String middle = symbol + this.before.substring(indexes[0], indexes[1] + 1);
+//				String after = this.before.substring(indexes[1] + 1, this.before.length());
+//				
+//				this.before = before + middle + after;
+//			}
+//			
+//			indexes = Strings.indexesOf(after, phrase);
+//			
+//			if(!Array.containsNegative(indexes)) {
+//				String before = this.after.substring(0, indexes[0]);
+//				String middle = symbol + this.after.substring(indexes[0], indexes[1] + 1);
+//				String after = this.after.substring(indexes[1] + 1, this.after.length());
+//				
+//				this.after = before + middle + after;
+//			}
+//		}
+//	}
 }
