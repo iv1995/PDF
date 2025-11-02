@@ -150,29 +150,27 @@ public class Book {
 	
 	/**
 	 * 
-	 * For each title adds the # markdown symbol
+	 * For each match add the symbol
 	 * 
 	 * @param all All the text contained in the PDF file
-	 * @param titles The titles contained in the PDF file 
+	 * @param phrases The phrases that need to be matched
+	 * @return The string that contains the markdown symbols
 	 * @throws IOException 
 	 */
-	public String markdown(String all, ArrayList<String> titles) throws IOException {
+	public String markdown(String all, ArrayList<String> phrases) throws IOException {
 		
 		String book = new String();
 		Scanner input = new Scanner(all);
 		
 		while(input.hasNextLine()) {
-			
 			String line = input.nextLine();
 			
-			for(String title : titles) {
-				if(title.isBlank()){
+			for(String phrase : phrases) {
+				if(phrase.isBlank()){
 					continue;
 				}
-				
-				line = Markdown.markdown(line, title, "#");
+				line = Markdown.markdown(line, phrase, "#", true);
 			}
-			
 			book += (line + "\n");
 		}
 		
