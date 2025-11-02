@@ -127,7 +127,11 @@ public class Book {
 		writer.flush();
 		writer.close();
 		
-		getTitles(pages);
+		ArrayList<String> titles = getTitles(pages);
+		
+		for(int i = 0; i < titles.size(); i++) {
+			System.out.println(titles.get(i));
+		}
 		
 		return true;
 	}
@@ -192,20 +196,26 @@ public class Book {
 					}			
 					
 					if(tag.equals(searched)) {
-						while(tag.equals(searched)) {
+						do {
 							if(j < objects.size()) {
-								if(objects.get(j) instanceof Text) {
-									chunk = (Text)objects.get(j);
-									tag = chunk.getRi().getCanvasTagHierarchy().get(0).getRole();
-									title.append(chunk.getChunk());
-									j++;
+								title.append(chunk.getChunk());
+								++j;
+								
+								if(j < objects.size()) {
+									if(objects.get(j) instanceof Text) {
+										chunk = (Text)objects.get(j);
+										tag = chunk.getRi().getCanvasTagHierarchy().get(0).getRole();
+											if(!tag.equals(searched)) {
+											break;
+										} 
+									}
 								} else {
-									j++;
+									break;
 								}
 							} else {
 								break;
 							}
-						}
+						}while(tag.equals(searched));
 						
 						titles.add(title.toString());
 						title = new StringBuilder();
