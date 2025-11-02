@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -127,7 +129,7 @@ public class Book {
 		writer.flush();
 		writer.close();
 		
-		ArrayList<String> titles = getTitles(pages);
+		ArrayList<String> titles = getBookTitles(pages);
 		
 		for(int i = 0; i < titles.size(); i++) {
 			System.out.println(titles.get(i));
@@ -174,56 +176,76 @@ public class Book {
 		return images;
 	}
 	
-	private ArrayList<String> getTitles(ArrayList<Page> pages){
+	private ArrayList<String> getBookTitles(ArrayList<Page> pages){
 		ArrayList<String> titles = new ArrayList<String>();
-		StringBuilder title = new StringBuilder();
-		PdfName searched = PdfName.H1;
 		ArrayList<Obj> objects = new ArrayList<Obj>();
 		
 		for(int i = 0; i < pages.size(); i++) {
-			
 			objects = pages.get(i).getObjects();
 			
-			for(int j = 0; j < objects.size(); j++) {
-				if(objects.get(j) instanceof Text) {
-					Text chunk = (Text)objects.get(j);
-					PdfName tag = null;
+			titles.addAll(getPageTitles(objects));
+		}
+		
+		return titles;
+	}
+	
+	private ArrayList<String> getPageTitles(ArrayList<Obj> objects){
+		ArrayList<String> titles = new ArrayList<String>();
+		PdfName searched = PdfName.H1;
+		
+		for(int j = 0; j < objects.size(); j++) {
+			if(objects.get(j) instanceof Text) {
+				Text chunk = (Text)objects.get(j);
+				PdfName tag = null;
+				
+				if(chunk.getRi().getCanvasTagHierarchy().size() > 0) {
+					tag = chunk.getRi().getCanvasTagHierarchy().get(0).getRole();
+				} else {
+					continue;
+				}			
+				
+				if(tag.equals(searched)) {
+					Map<Integer, StringBuilder> chunks = getTitleChunks(objects, j, chunk);
 					
-					if(chunk.getRi().getCanvasTagHierarchy().size() > 0) {
-						tag = chunk.getRi().getCanvasTagHierarchy().get(0).getRole();
-					} else {
-						continue;
-					}			
-					
-					if(tag.equals(searched)) {
-						do {
-							if(j < objects.size()) {
-								title.append(chunk.getChunk());
-								++j;
-								
-								if(j < objects.size()) {
-									if(objects.get(j) instanceof Text) {
-										chunk = (Text)objects.get(j);
-										tag = chunk.getRi().getCanvasTagHierarchy().get(0).getRole();
-											if(!tag.equals(searched)) {
-											break;
-										} 
-									}
-								} else {
-									break;
-								}
-							} else {
-								break;
-							}
-						}while(tag.equals(searched));
-						
-						titles.add(title.toString());
-						title = new StringBuilder();
-					}
+					j = chunks.keySet().stream().findFirst().orElse(0);
+					titles.add(chunks.get(j).toString());
 				}
 			}
 		}
 		
 		return titles;
+	}
+	
+	private Map<Integer, StringBuilder> getTitleChunks(ArrayList<Obj> objects, int j, Text chunk){
+		PdfName tag = PdfName.H1;
+		PdfName searched = PdfName.H1;
+		
+		StringBuilder title = new StringBuilder();
+		
+		do {
+			if(j < objects.size()) {
+				title.append(chunk.getChunk());
+				++j;
+				
+				if(j < objects.size()) {
+					if(objects.get(j) instanceof Text) {
+						chunk = (Text)objects.get(j);
+						tag = chunk.getRi().getCanvasTagHierarchy().get(0).getRole();
+							if(!tag.equals(searched)) {
+							break;
+						} 
+					}
+				} else {
+					break;
+				}
+			} else {
+				break;
+			}
+		}while(tag.equals(searched));
+		
+		Map<Integer, StringBuilder> chunks = new HashMap<>();
+		chunks.put(j, title);
+		
+		return chunks;
 	}
 }
