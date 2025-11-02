@@ -1,0 +1,35 @@
+ASN.1 type of adbe's Revocation Information attribute value is RevocationInfoArchival defined as 
+follows using ASN.1 notation: 
+  RevocationInfoArchival::= SEQUENCE { 
+   crl  [0] EXPLICIT SEQUENCE of CRLs, OPTIONAL 
+   ocsp [1] EXPLICIT SEQUENCE of OCSPResponse, OPTIONAL 
+   otherRevInfo [2] EXPLICIT SEQUENCE of OtherRevInfo, OPTIONAL 
+  } 
+  OtherRevInfo::= SEQUENCE {Type OBJECT IDENTIFIER 
+  Value OCTET STRING 
+  } 
+ 
+12.8.3.4CAdES signatures as used in PDF 
+ 
+12.8.3.4.1General 
+ 
+Internet RFC 5652
+ETSI.CAdES.detachedPAdES signatures
+Subfilter
+The Cryptographic Message Syntax (CMS)(see ) is used by CAdES signatures. The PDF 
+CAdES profiles
+signatures using the  value  are referred to as  and they 
+follow one of two CMS profiles created to be compatible with the corresponding  defined 
+in ETSI EN 319 122. Combined with 12.8.4, "Long term validation of signatures" and 12.8.5, "Document 
+timestamp (DTS) dictionary" as described in ETSI EN 319 142-1 (PAdES), compatibility with additional 
+CAdES profiles can be achieved. 
+© ISO 2017 – All rights reserved 561 
+
+ISO/DIS 32000-2
+ 
+12.8.3.4.2Signature dictionary for PAdES signatures 
+ 
+ETSI.CAdES.detached
+SubfilterContents
+When the  value is , the value of  shall be a DER-encoded CMS 
+SignedData 

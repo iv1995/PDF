@@ -1,0 +1,20 @@
+ISO 32000 and PDF 
+electronic forms to gather and/or represent data within business systems. 
+PDF was developed and specified by Adobe Systems Incorporated beginning in 1993 and continuing 
+until 2007 when Part 1 of this ISO standard was first prepared. The Adobe Systems version PDF 1.7 was 
+the basis for ISO 32000 Part 1. ISO 32000 has been created as a multi-part document, of which this is 
+Part 2. This allows future parts to be created without rendering ISO 32000, or applications based on it, 
+obsolete. See clause 5, "Version designations" for how the version numbers of PDF (1.0, 1.1, 1.2, […] 2.0) 
+relate to one another. 
+The primary purpose of this document is to define well-formed PDF documents (conforming PDF files). 
+In carefully specifying what constitutes a well-defined PDF document, it is natural to describe why a 
+particular feature is to be included in the file and what effect it is designed to have on PDF processing 
+software. So, although the primary objective of this document is to describe the content of conforming 
+PDF documents, it also serves secondary purposes of defining exactly how a PDF component is 
+constructed, suggesting why a producer might choose to use the various PDF constructs, as well as what 
+behaviour is elicited from software consuming that PDF file. The choice of which specific set of features 
+a particular PDF processor supports is not specified. 
+PDF files represent electronic documents. Over time, it was natural to add features that take advantage 
+of PDF’s nature, and the power of computer viewing devices. The size of the PDF documentation has 
+more than quadrupled since its first introduction, and the number of features that a PDF processor is 
+expected to support has grown to be large. 

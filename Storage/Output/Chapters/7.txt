@@ -1,0 +1,794 @@
+approval signature shall be 
+NOTE 2 A signature dictionary for a certification or approval signature may also have a signature 
+the value of a signature field and shall contain a  entry. 
+reference dictionary with atransform method; see 12.8.2.4, "FieldMDP". 
+ FieldMDP 
+• 
+Any number of document timestamp signatures, see 12.8.5, "Document timestamp (DTS) 
+ByteRange
+dictionary". The timestamp signature dictionary of a document timestamp signature shall be the 
+value of a signature field and shall contain a  entry. 
+A signature dictionary is used by all of these types of signatures. 
+© ISO 2017 – All rights reserved 550 
+
+ISO/DIS 32000-2
+ 
+Table 255: Entries in a signature dictionary 
+Key Type Value 
+(Optional if Sig; Required if DocTimeStamp) 
+Type 
+Sig
+   
+name The type of PDF object that this 
+DocTimeStamp
+ 
+dictionary describes; if present, shall befor a signature dictionary or
+Sig
+ 
+for a timestamp signature dictionary. 
+The default value is: .
+(Required; inheritable) 
+Filter 
+ Prop_Build 
+name The name of the preferred signature handler to use when 
+ Prop_Build 
+validating this signature. If theentry is not present, it shall be also the 
+name of the signature handler that was used to create the signature. If
+Filter
+is present, it may be used to determine the name of the handler that created the 
+signature (which is typically the same as  but is not needed to be). A PDF 
+ SubFilter 
+processor may substitute a different handler when verifying the signature, as long 
+Adobe.PPKLiteEntrust.PPKEFCICI.SignItVeriSign.PPKVS
+, , ,  
+as it supports the specifiedformat. Example signature handlers are 
+and. The name of the 
+filter (i.e. signature handler) shall be identified in accordance with the rules 
+defined in Annex E, "PDF Name Registry". 
+Optional
+SubFilter 
+name () A name that describes the encoding of the signature value and key 
+information in the signature dictionary. A PDF processor may use any handler that 
+PDF 1.6
+supports this format to validate the signature. 
+() The following values for public-key cryptographic signatures should be 
+used: adbe.x509.rsa_sha1, adbe.pkcs7.detached, adbe.pkcs7.sha1, 
+PDF 2.0S
+ETSI.CAdES.detached (PDF 2.0) and ETSI.RFC3161 (PDF 2.0).  
+() When the Type of this dictionary is DocTimetamp, the SubFilter value 
+should be ETSI.RFC3161 and when the Type of this dictionary is Sig (possibly by 
+default) any of the values may be used except ETSI.RFC3161 (see 12.8.3, 
+"Signature interoperability"). Other values may be defined by developers, and 
+when used, shall be prefixed with the registered developer identification. All prefix 
+names shall be registered (see Annex E, "PDF Name Registry"). The prefix "adbe" 
+and the prefix "ETSI" have been registered by Adobe Systems and ETSI, 
+respectively, and the subfilter names listed above and defined in 12.8.3, "Signature 
+interoperability" and 12.8.5, "Document timestamp (DTS) dictionary" may be used 
+adbe.x509.rsa_sha1adbe.pkcs7.sha1
+by any developer. 
+The values  and  have been deprecated with 
+ 
+PDF 2.0. To support backward compatibility, PDF readers should process this 
+value for this key, but PDF writers shall not use this value for this key.
+(Required) 
+Contents  ByteRange 
+byte string The signature value. Whenis present, the value shall be a 
+hexadecimal string (see 7.3.4.3, "Hexadecimal strings") representing the value of 
+Contents
+the byte range digest. 
+For public-key signatures,  should be either a DER-encoded PKCS#1 
+binary data object, a DER-encoded CMS binary data object or a DER-encoded CMS 
+Contents
+SignedData binary data object. 
+Internet RFC 3161Internet RFC 5816
+ 
+For document timestamp signatures,  shall be the TimeStampToken as 
+messageImprint 
+specified in  as updated by . The value of the
+ ByteRange  ByteRange 
+field within the TimeStampToken shall be a hash of the bytes of 
+Contents
+the document indicated by theand theshall specify the 
+complete PDF file contents (excepting the  value). 
+ 
+Space for the Contents value shall be allocated before the message digest is 
+computed (see 7.3.4, "String objects").
+© ISO 2017 – All rights reserved 551 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Required whenis adbe.x509.rsa_sha1) 
+Cert  SubFilter 
+array or An array of byte strings that shall 
+byte string represent the X.509 certificate chain used when signing and verifying signatures 
+that use public-key cryptography, or a byte string if the chain has only one entry. 
+Contents
+The signing certificate shall appear first in the array; it shall be used to verify the 
+signature value in , and the other certificates shall be used to verify the 
+adbe.pkcs7.detachedadbe.pkcs7.sha1
+ SubFilter   
+authenticity of the signing certificate. 
+Contents
+Ifisor , this entry shall not be used, 
+ETSI.CAdES.detached ETSI.RFC3161
+ SubFilter 
+and the certificate chain shall be put in the CMS envelope in . 
+Ifis or , this entry shall not be used, 
+Contents
+ 
+and the certificate chain shall be put in the DER-encoded CMS SignedData object in 
+.
+Required for all signatures that are part of a signature field and usage rights 
+ ByteRange 
+signatures referenced from theentry in the permissions dictionary
+ UR3 
+array (
+) An array of 
+pairs of integers (starting byte offset, length in bytes) that shall describe the exact 
+Contents
+byte range for the digest calculation. Multiple discontiguous byte ranges shall be 
+used to describe a digest that does not include the signature value (the  
+ETSI.CAdES.detached ETSI.RFC3161
+ SubFilter  ByteRange 
+entry) itself. 
+Contents
+ 
+Ifis or , theshall cover 
+the entire file, including the signature dictionary but excluding the  value.
+(Optional; PDF 1.5) 
+Reference 
+ETSI.RFC3161
+ SubFilter 
+array An array of signature reference dictionaries (see "Table 256: 
+Entries in a signature reference dictionary"). Ifis , this 
+entry shall not be used. 
+(Optional) 
+Changes 
+array An array of three integers that shall specify changes to the document 
+that have been made between the previous signature and this signature: in this 
+order, the number of pages altered, the number of fields altered, and the number 
+ByteRange
+of fields filled in. 
+The ordering of signatures shall be determined by the value of . Since 
+each signature results in an incremental save, later signatures have a greater 
+ETSI.RFC3161
+ SubFilter 
+ 
+length value. 
+Ifis , this entry shall not be used.
+(Optional) 
+Name 
+text string The name of the person or authority signing the document. This value 
+should be used only when it is not possible to extract the name from the signature. 
+EXAMPLE 1 From the certificate of the signer. 
+ETSI.RFC3161
+ SubFilter 
+ 
+Ifis , this entry should not be used and should be ignored 
+by a PDF processor.
+(Optional) 
+M 
+date The time of signing. Depending on the signature handler, this may be a 
+normal unverified computer time or a time generated in a verifiable way from a 
+secure time server. 
+ETSI.RFC3161
+ SubFilter 
+This value should be used only when the time of signing is not available in the 
+signature. Ifis , this entry should not be used and should 
+be ignored by a PDF processor. 
+ 
+EXAMPLE 2 A timestamp can be embedded in a CMS binary data object (see 
+12.8.3.3, "CMS (PKCS#7) signatures").
+(Optional) 
+Location  SubFilter 
+ETSI.RFC3161
+text string The CPU host name or physical location of the signing. Ifis 
+, this entry should not be used and should be ignored by a PDF 
+processor. 
+© ISO 2017 – All rights reserved 552 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) 
+Reason  SubFilter 
+ETSI.RFC3161
+text string The reason for the signing, such as ( I agree…). Ifis 
+, this entry should not be used and should be ignored by a PDF 
+processor. 
+(Optional) 
+ContactInfo 
+ETSI.RFC3161
+ SubFilter 
+text string Information provided by the signer to enable a recipient to contact the 
+signer to verify the signature. Ifis , this entry should not 
+be used and should be ignored by a PDF processor. 
+ 
+EXAMPLE 3 A phone number.
+(Optional; deprecated in PDF 2.0) 
+R 
+(PDF 1.5) 
+integer The version of the signature handler that was 
+ Prop_Build 
+used to create the signature. This entry shall not be used, and the 
+information shall be stored in thedictionary. 
+(Optional; PDF 1.5) 
+V 
+SubFilter
+integer The version of the signature dictionary format. It corresponds 
+Reference
+to the usage of the signature dictionary in the context of the value of . 
+The value is 1 if the  dictionary shall be considered critical to the 
+ETSI.RFC3161
+ SubFilter V
+validation of the signature. 
+ 
+Ifis , this  value shall be 0 (possibly by default). 
+Default value: 0.
+(Optional; PDF 1.5) 
+Prop_Build 
+dictionary A dictionary that may be used by a signature handler to record 
+information that captures the state of the computer environment used for signing, 
+such as the name of the handler used to create the signature, software build date, 
+PDF Signature Build Dictionary Specification
+version, and operating system. 
+ 
+The , provides implementation 
+guidelines for the use of this dictionary.
+(Optional; PDF 1.5) 
+Prop_AuthTime 
+integer The number of seconds since the signer was last authenticated, 
+ETSI.RFC3161
+ SubFilter 
+used in claims of signature repudiation. It should be omitted if the value is 
+unknown. Ifis , this entry shall not be used. 
+(Optional; PDF 1.5) 
+Prop_AuthType 
+PINPassword
+name The method that shall be used to authenticate the signer, used 
+FingerprintETSI.RFC3161
+ SubFilter 
+in claims of signature repudiation. Valid values shall be , , and 
+. Ifis , this entry shall not be used. 
+NOTE 3 The entries in the signature dictionary can be conceptualized as being in different dictionaries; 
+they are in one dictionary for historical and cryptographic reasons. The categories are signature 
+properties ( and ); 
+R, M, Name, Reason, Location, Prop_Build, Prop_AuthTime,Prop_AuthType
+key information ( and portions of  when the signature value is a CMS object, CMS 
+CertContents
+object, or a document timestamp token); reference ( and ); and signature 
+ReferenceByteRange
+value ( when the signature value is a PKCS#1 object). 
+Contents
+Table 256: Entries in a signature reference dictionary 
+Key Type Value 
+(Optional) 
+Type 
+SigRef
+  
+name The type of PDF object that this dictionary describes; 
+if present, shall befor a signature reference dictionary. 
+© ISO 2017 – All rights reserved 553 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Required) 
+TransformMethod 
+name The name of the transform method (see 12.8.2, 
+"Transform methods") that shall guide the modification analysis 
+that takes place when the signature is validated. Valid values 
+DocMDP
+shall be: 
+ Used to detect modifications to a document 
+relative to a signature field that is signed by the 
+URDeprecated
+originator of a document; see 12.8.2.2, "DocMDP" 
+ () Used to detect modifications to a 
+document that would invalidate a signature in a 
+FieldMDP
+rights-enabled document; see 12.8.2.3, "UR" 
+TransformParams
+ Used to detect modifications to a list of form fields 
+specified in ; see 12.8.2.4, 
+"FieldMDP" 
+(Optional) 
+TransformParams 
+dictionary A dictionary specifying transform parameters 
+TransformMethod
+(variable data) for the transform method specified by 
+. Each method takes its own set of 
+parameters. See each of the subclauses specified previously for 
+details on the individual transform parameter dictionaries.  
+(Required whenis FieldMDP) 
+Data  TransformMethod 
+(various) An indirect 
+reference to the object in the document upon which the object 
+FieldMDP
+modification analysis should be performed. For transform 
+methods other than , this object is implicitly defined. 
+(Optional for PDF 1.5-1.7; Required for PDF 2.0) 
+DigestMethod 
+name A name 
+MD5, SHA1 SHA256, SHA384, SHA512  
+identifying the algorithm that shall be used when computing the 
+RIPEMD160
+digest. Valid values are and
+NOTE The use of  and  is deprecated with PDF 2.0. 
+. 
+MD5.
+MD5SHA1
+Default value for PDF 1.5-1.7:  
+ 
+12.8.2Transform methods 
+ 
+12.8.2.1General 
+ 
+Transform methods, along with transform parameters, shall determine which objects are included and 
+excluded in revision comparison. The following subclauses discuss the types of transform methods, 
+their transform parameters, and when they shall be used. 
+12.8.2.2DocMDP 
+ 
+12.8.2.2.1General 
+ 
+ DocMDP 
+Thetransform method shall be used to detect modifications relative to a signature field that is 
+ DocMDP 
+signed by the author of a document (the person applying a certification signature). A document can 
+contain only one signature field that contains atransform method. It enables the author to 
+specify what changes shall be permitted to be made to the document and what changes invalidate the 
+author’s signature. 
+© ISO 2017 – All rights reserved 554 
+
+ISO/DIS 32000-2
+ 
+NOTE As discussed earlier, "MDP" stands for Modification Detection and Prevention. Certification 
+signatures that use thetransform method enable detection of disallowed changes 
+ DocMDP 
+specified by the author. In addition, disallowed changes can also be prevented when the signature 
+dictionary is referred to by theentry in the permissions dictionary (see "Table 263: 
+ DocMDP 
+Entries in a permissions dictionary"). 
+A certification signature should have a legal attestation dictionary (see 12.8.7, "Legal content 
+attestations") that specifies all content that might result in unexpected rendering of the document 
+contents, along with the author’s attestation to such content. This dictionary may be used to establish 
+an author’s intent if the integrity of the document is questioned. 
+PDocMDP
+The  entry in the  transform parameters dictionary (see "Table 257: Entries in the DocMDP 
+transform parameters dictionary") shall indicate the author’s specification of which changes to the 
+DocMDP
+document will invalidate the signature. (These changes to the document shall also be prevented if the 
+P
+signature dictionary is referred from the  entry in the permissions dictionary.) A value of 1 for 
+ indicates that the document shall be final; that is, any changes shall invalidate the signature with the 
+exception of subsequent DSS (see 12.8.4.3, "Document Security Store (DSS)") and/or document 
+timestamp (see 12.8.5, "Document timestamp (DTS) dictionary") incremental updates. The values 2 and 
+ DSS 
+3 shall permit modifications that are appropriate for form field or comment workflows as well as 
+subsequentand/or document timestamp incremental updates. 
+12.8.2.2.2Validating signatures that use the DocMDP transform method 
+ 
+ DocMDP 
+To validate a signature that uses thetransform method, a PDF processor first shall verify the 
+byte range digest. Next, it shall verify that any modifications that have been made to the document are 
+permitted by the transform parameters. 
+ ByteRange 
+Once the byte range digest is validated, the portion of the document specified by theentry 
+in the signature dictionary (see "Table 255: Entries in a signature dictionary") is known to correspond 
+to the state of the document at the time of signing. Therefore, PDF processors may compare the signed 
+and current versions of the document to see whether there have been modifications to any objects that 
+are not permitted by the transform parameters. 
+Table 257: Entries in the DocMDP transform parameters dictionary 
+Key Type Value 
+(Optional) 
+Type  
+TransformParams
+ 
+name The type of PDF object that this dictionary describes; if present, shall be
+for a transform parameters dictionary. 
+(Optional) 
+P 
+number The access permissions granted for this document. Changes to a PDF 
+that are incremental updates which include only the data necessary to add DSS’s 
+12.8.4.3, "Document Security Store (DSS)" and/or document timestamps 12.8.5, 
+"Document timestamp (DTS) dictionary" to the document shall not be considered 
+as changes to the document as defined in the choices below. 
+Valid values shall be: 
+1 No changes to the document shall be permitted; any change to the document 
+shall invalidate the signature. 
+2 Permitted changes shall be filling in forms, instantiating page templates, and 
+signing; other changes shall invalidate the signature. 
+3 Permitted changes shall be the same as for 2, as well as annotation creation, 
+deletion, and modification; other changes shall invalidate the signature. 
+Default value: 2. 
+© ISO 2017 – All rights reserved 555 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) 
+V  DocMDP 
+name Thetransform parameters dictionary version. The only valid 
+NOTE This value is a name object, not a number. 
+value shall be 1.2. 
+Default value: 1.2. 
+ 
+12.8.2.3UR 
+ 
+The features described in this subclause are deprecated with PDF 2.0. 
+ UR 
+usage rights 
+ UR3 
+Thetransform method (deprecated in PDF 2.0) shall be used to detect changes to a document that 
+shall invalidate a signature, which is referred to from theentry in the permissions 
+dictionary (see "Table 263: Entries in a permissions dictionary"). The transform parameters dictionary 
+(see "Table 258: Entries in the UR transform parameters dictionary") specifies the additional rights that 
+shall be enabled if the signature is valid. If the signature is invalid because the document has been 
+modified in a way that is not permitted or the identity of the signer is not granted the extended 
+permissions, additional rights shall not be granted. 
+A PDF processor that modifies a PDF, with a UR signature in excess of the rights that are granted by that 
+signature, should remove that signature prior to writing the newly modified PDF. 
+PDF 1.6, deprecated in PDF 2.0
+UR3 ByteRange 
+ (): Theentry in the signature dictionary (see "Table 255: 
+ ByteRange 
+Entries in a signature dictionary") shall be present. First, a PDF processor shall verify the byte range 
+digest to determine whether the portion of the document specified bycorresponds to the 
+state of the document at the time of signing. Next, a PDF processor shall examine the current version of 
+the document to see whether there have been modifications to any objects that are not permitted by the 
+transform parameters. 
+Table 258: Entries in the UR transform parameters dictionary 
+Key Type Value 
+(Optional) 
+Type  
+TransformParams
+ 
+name The type of PDF object that this dictionary describes; if present, shall be
+for a transform parameters dictionary. 
+(Optional) 
+Document 
+FullSave
+array An array of names specifying additional document-wide usage rights 
+(PDF 1.5) 
+for the document. The only defined value shall be , which permits a user to 
+save the document along with modified form and/or annotation data. 
+FullSave 
+Any usage right that permits the document to be modified implicitly shall enable 
+ UR3  
+the right. 
+Annots 
+If the PDF document contains adictionary, only rights specified by the
+FullSave FullSave 
+entry that permit the document to be modified shall implicitly enable the 
+right. For all other rights, shall be explicitly enabled in order to 
+save the document. (Signature rights shall permit saving as part of the signing 
+process but not otherwise). 
+(Optional) 
+Msg 
+text string A text string that may be used to specify any arbitrary information, such 
+as the reason for adding usage rights to the document. 
+© ISO 2017 – All rights reserved 556 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) 
+V  UR 
+name Thetransform parameters dictionary version. The value shall be 
+NOTE This value is a name object, not a number. 
+2.2. If an unknown version is present, no rights shall be enabled. 
+Default value: 2.2. 
+(Optional) 
+Annots 
+(PDF 1.5) CreateDeleteModifyCopyImport
+array An array of names specifying additional annotation-related usage rights 
+Export
+for the document. Valid names are , , , , , 
+and , which shall permit the user to perform the named operation on 
+(PDF 1.6) 
+annotations. 
+The following names are also permitted (see "Table 263: Entries in a 
+Online 
+permissions dictionary"): 
+Permits online commenting; that is, the ability to upload or 
+SummaryView 
+download markup annotations from a server. 
+ 
+Permits a user interface to be shown that summarises the 
+comments (markup annotations) in a document.
+Form 
+(Optional) 
+(PDF 1.5) 
+array An array of names specifying additional form-field-related usage rights 
+Add 
+for the document. Valid names are: 
+Delete 
+Permits the user to add form fields to the document. 
+FillIn 
+Permits the user to delete form fields to the document. 
+Permits the user to save a document on which form fill-in 
+Import 
+has been done. 
+Permits the user to import form data files in FDF, XFDF and 
+Export 
+  
+text (CSV/TSV) formats. 
+SubmitStandalone 
+Permits the user to export form data files asFDFor XFDF. 
+Permits the user to submit form data when the document is 
+SpawnTemplate 
+not open in a Web browser. 
+Permits new pages to be instantiated from named page 
+(PDF 1.6) 
+templates. 
+BarcodePlaintext 
+The following names are also valid: 
+Permits text form field data to be encoded as a plaintext 
+Online  
+two-dimensional barcode. 
+ 
+Permitsthe use of forms-specific online mechanisms such 
+as SOAP or Active Data Object.
+(Optional) 
+Signature 
+Modify
+array An array of names specifying additional signature-related usage rights 
+for the document. The only defined value shall be , which permits a user to 
+apply a digital signature to an existing signature form field or clear a signed 
+signature form field. 
+(Optional; PDF 1.6) 
+EF 
+CreateDeleteModify
+array An array of names specifying additional usage rights for named 
+Import
+embedded files in the document. Valid names shall be , , , and 
+, which shall permit the user to perform the named operation on named 
+embedded files. 
+(Optional; PDF 1.6) false
+P 
+false
+boolean If , any possible restriction may be ignored. Default value: 
+. 
+ 
+12.8.2.4FieldMDP 
+ 
+ FieldMDP 
+Thetransform method shall be used to detect changes to the values of a list of form fields. 
+The entries in its transform parameters dictionary are listed in "Table 259: Entries in the FieldMDP 
+transform parameters dictionary". 
+© ISO 2017 – All rights reserved 557 
+
+ISO/DIS 32000-2
+ 
+Table 259: Entries in the FieldMDP transform parameters dictionary 
+Key Type Value 
+(Optional) 
+Type  
+TransformParams
+ 
+name The type of PDF object that this dictionary describes; if present, shall be
+for a transform parameters dictionary. 
+(Required) 
+Action Fields
+name A name that, along with the  array, describes which form fields 
+do not permit changes after the signature is applied. 
+All 
+Valid values shall be: 
+Include 
+Fields
+All form fields. 
+Exclude 
+Fields
+ 
+Only those form fields specified in . 
+Only those form fields not specified in .
+(Required if  is Include or Exclude) 
+Fields Action
+array An array of text strings containing field 
+names. 
+(Optional PDF 1.5 required
+V 
+name :) The transform parameters dictionary version. The 
+NOTE This value is a name object, not a number. 
+value for PDF 1.5 and later shall be 1.2. 
+Default value: 1.2. 
+ 
+On behalf of a document author creating a document containing both form fields and signatures the 
+following shall be supported by PDF writers: 
+• 
+P DocMDP 
+The author specifies that form fields shall be filled in without invalidating the approval or 
+certification signature. The  entry of thetransform parameters dictionary shall be set to 
+• 
+either 2 or 3 (see "Table 257: Entries in the DocMDP transform parameters dictionary"). 
+The author can also specify that after a specific recipient has signed the document, any 
+modifications to specific form fields shall invalidate that recipient’s signature. There shall be a 
+separate signature field for each designated recipient, each having an associated signature field 
+lock dictionary (see "Table 236: Entries in a signature field lock dictionary") specifying the form 
+• 
+fields that shall be locked for that user. 
+ActionFields
+When the recipient signs the field, the signature, signature reference, and transform parameters 
+dictionaries shall be created. The  and  entries in the transform parameters 
+NOTE This copying is done because all objects in a signature dictionary shall be direct objects if the 
+dictionary shall be copied from the corresponding fields in the signature field lock dictionary. 
+dictionary contains a byte range signature. Therefore, the transform parameters dictionary 
+cannot reference the signature field lock dictionary indirectly. 
+FieldMDP DocMDP 
+ signatures shall be validated in a similar manner tosignatures. See 12.8.2.2.2, 
+"Validating signatures that use the DocMDP transform method" for details. 
+12.8.3Signature interoperability 
+ 
+12.8.3.1General 
+ 
+It is intended that PDF processors allow interoperability between signature handlers; that is, a PDF file 
+signed with a handler from one vendor should be able to be validated with a handler from a different 
+vendor when they use the same set of validation parameters. PDF 2.0 defines new signature formats for 
+PAdES signatures (PDF Advanced Electronic Signatures) as defined in ETSI EN 319 142.  
+© ISO 2017 – All rights reserved 558 
+
+ISO/DIS 32000-2
+ 
+ SubFilter 
+Filter
+If present, theentry in the signature dictionary shall specify the encoding of the signature 
+value and key information, while the  entry shall specify the preferred handler that should be 
+ SubFilter 
+used to validate the signature. When handlers are being registered according to Annex E, "PDF Name 
+Registry" they shall specify theencodings they support enabling handlers other than the 
+preferred handler to validate the signatures that the preferred handler creates. 
+ SubFilter 
+There are several defined values for theentry, all based on public-key cryptographic 
+standards published by RSA Security and also as part of the standards issued by the Internet 
+Engineering Task Force (IETF) Public Key Infrastructure (PKIX) working group and the European 
+Telecommunications Standards Institute (ETSI). 
+SubFilter
+"Table 260: SubFilter value algorithm support" shows an overview of the  values along with 
+the algorithms that are supported for each SubFilter. 
+Table 260: SubFilter value algorithm support 
+ca
+SubFilter values adbe.pkcs7.detached, adbe.pkcs7.sha1adbe.x509.rsa_sha1 
+ETSI.CAdES.detached 
+ 
+or ETSI.RFC3161
+PDF 1.3PDF 1.3PDF 1.3
+    
+ 
+b
+Message Digest SHA1 ()SHA1 () SHA1 ()
+SHA256 (PDF 1.6)  SHA256 (PDF 1.6)  
+SHA384 (PDF 1.7)  SHA384 (PDF 1.7)  
+ 1.7
+SHA512 (PDF 1.7)  SHA512 (PDF 1.7)  
+RIPEMD160 (PDF) RIPEMD160 (PDF 1.7) 
+(PDF 1.3)  
+(PDF 1.5)  
+RSA Algorithm Support Up to 1024-bit See adbe.pkcs7.detached See adbe.pkcs7.detached 
+(PDF 1.5)
+Up to 2048-bit 
+Up to 4096-bit  
+(PDF 1.6)
+DSA Algorithm Support Up to 4096-bits  See adbe.pkcs7.detached No 
+ECDSA Algorithm Support ANSI X9.62, Elliptic Curve No No 
+(PDF 2.0
+(see RFC 5480) Digital Signature Algorithm 
+(ECDSA) ) 
+sha1
+ SubFilter   
+a
+  Despite the appearance of  in the name of thisvalue, supported encodings shall not be limited to theSHA1
+  
+algorithm. The PKCS#1 object contains an identifier that indicates which algorithm shall be used. 
+b
+  Other digest algorithms may be used to digest the signed-data field; however,SHA1shall be used to digest the data that is 
+adbe.x509.rsa_sha1adbe.pkcs7.sha1 
+being signed. 
+c
+  The values  and have been deprecated with PDF 2.0. 
+ 
+12.8.3.2PKCS#1 signatures 
+ 
+The PKCS#1 standard supports several public-key cryptographic algorithms and digest methods, 
+adbe.x509.rsa_sha1
+ SubFilter 
+including RSA encryption, DSA signatures, and SHA-1 and MD5 digests. For signing PDF files using 
+ 
+PKCS#1, the only value ofthat should be used is , which uses the RSA 
+Cert 
+encryption algorithm and SHA-1 digest method. The certificate chain of the signer shall be stored in the
+entry. PKCS#1 signatures are deprecated with PDF 2.0. 
+© ISO 2017 – All rights reserved 559 
+
+ISO/DIS 32000-2
+ 
+12.8.3.3CMS (PKCS#7) signatures 
+ 
+12.8.3.3.1General 
+ 
+Contents
+When CMS signatures are used, the value of  shall be a DER-encoded CMS binary data object 
+containing the signature.  
+Contents
+ByteRange
+For byte range signatures,  shall be a hexadecimal string with "<" and ">" delimiters. It shall fit 
+Contents
+precisely in the space between the ranges specified by . Since the length of CMS objects is 
+not entirely predictable, the value of  shall be padded with zeros at the end of the string 
+(before the ">" delimiter) before writing the CMS to the allocated space in the file. 
+Internet RFC 5652, Cryptographic Message Syntax
+ SubFilter 
+The CMS object shall conform to . Different subfilters 
+may be used and shall be registered in accordance with Annex E, "PDF Name Registry".shall 
+take one of the following values: 
+adbe.pkcs7.detached
+• 
+: The original signed message digest over the document’s byte range shall be 
+incorporated as the normal CMS SignedData field. No data shall be encapsulated in the CMS 
+adbe.pkcs7.sha1
+ SHA1 
+• 
+SignedData field. 
+: Thedigest of the document’s byte range shall be encapsulated in the CMS 
+adbe.pkcs7.sha1
+ SubFilter 
+SignedData field with ContentInfo of type Data. The digest of that SignedData shall be incorporated 
+as the normal CMS digest. The value  for thekey has been deprecated 
+with PDF 2.0. To support backward compatibility, PDF readers should process this value for this 
+key, but PDF writers shall not use this value. 
+Contents
+At minimum the CMS object shall include the signer’s X.509 signing certificate. This certificate shall be 
+used to verify the signature value in . 
+If the signature handler has on-line access, it may place into the CMS object time stamping information 
+and/or revocation information.  
+Note: Since PDF 2.0 supports two additional dictionaries, i.e. the DSS and the DTS dictionaries, 
+revocation information can be better placed in a DSS dictionary while time-stamping information 
+can also be placed in a DTS dictionary, in addition to being placed in the CMS object.  
+In such a case, the CMS object should contain the following: 
+PDF 1.6
+• 
+Internet RFC 3161Internet RFC 5816
+Timestamp information as an unsigned attribute (): The timestamp token shall conform to 
+Internet RFC 3161Internet RFC 5816
+ as updated by , and shall be computed and embedded into the 
+CMS object as described in Appendix A of  as updated by . The 
+specific treatment of this timestamp tokens and its processing is left to the particular signature 
+PDF 1.6
+• 
+handlers to define. 
+Revocation information as a signed attribute (): This attribute may include all the 
+revocation information that is necessary to carry out revocation checks for the signer's certificate 
+and its issuer certificates. Since revocation information is a signed attribute, it shall be obtained 
+before the computation of the digital signature. This means that the software used by the signer 
+should be able to construct the certification path and the associated revocation information. If one 
+of the elements cannot be obtained (e.g. no connection is possible), a signature with this attribute 
+• 
+will not be possible. 
+The signature handler should capture the chain of certificates, including the signer certificate, 
+along with the other certificates in the certificate chain, before signing. The signature handler 
+should validate the certificate's chain before signing. However, if this is not possible, the DSS (see 
+© ISO 2017 – All rights reserved 560 
+
+ISO/DIS 32000-2
+ 
+adbe.x509.rsa_sha1
+  
+12.8.4.3, "Document Security Store (DSS)") may be used for adding the information as an 
+ Cert 
+incremental update. This differs from the treatment when usingwhen the 
+certificates shall be placed in thekey of the signature dictionary as defined in "Table 260: 
+Internet RFC 3281PDF 
+• 
+SubFilter value algorithm support". 
+1.7
+One or more  attribute certificates associated with the signer certificate (
+). The specific treatment of attribute certificates and their processing is left to the particular 
+signature handlers to define. 
+The policy of how to establish trusted identity lists to validate embedded certificates is up to the 
+validation signature handler. 
+12.8.3.3.2Revocation of CMS-based signatures 
+ 
+ETSI.CAdES.detached
+Subfilter
+For signatures with a  value other than , the following rules apply. 
+The adbe Revocation Information attribute object identifier is specified as follows using 

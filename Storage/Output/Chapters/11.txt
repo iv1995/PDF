@@ -1,0 +1,12 @@
+byte) 
+comparison. ![87.png](./Storage/Output/Images/87.png)
+ 
+ Figure Annex K.3: Comparing two XObjects 
+J.4Known issues 
+ 
+J.4.1Equal vs. equivalent 
+ 
+One issue with this particular solution for comparison of XObject equality is that it does not provide for 
+the comparison of two functionally equivalent but binary different XObjects. 
+Consider the case where a PDF optimisation process has optimised the data of the stream itself - for 
+example, converting all the end of line 

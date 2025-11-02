@@ -39,6 +39,9 @@ public class Chapters {
 					book = Strings.unused(book, first);
 					chapters.add(book);
 				}
+			} else {
+				titles.remove(i);
+				i--;
 			}
 		}
 		

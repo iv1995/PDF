@@ -28,6 +28,7 @@ import com.extraction.pdf.components.Img;
 import com.extraction.pdf.components.Obj;
 import com.extraction.pdf.components.Page;
 import com.extraction.pdf.components.Text;
+import com.extraction.pdf.components.utilities.Chapters;
 import com.extraction.pdf.components.utilities.Markdown;
 import com.extraction.pdf.components.utilities.Strings;
 import com.extraction.pdf.components.utilities.Type;
@@ -114,11 +115,20 @@ public class Book {
 	public void save(ArrayList<Page> pages, ArrayList<String> titles) throws IOException {
 		StringBuilder all = new StringBuilder();
 		
-		for(Page page : pages) {
+		for(Page page : pages) {	
+			float y = Float.MAX_VALUE;
+			
 			for(Obj obj : page.getObjects()) {
 				if(obj instanceof Text) {
 					Text chunk = (Text)obj;
-					all.append(chunk.getChunk());
+					
+					if(chunk.getCoordinate().getY() < y) {
+						all.append("\n" + chunk.getChunk());
+						y = chunk.getCoordinate().getY();
+					} else {
+						all.append(chunk.getChunk());
+					}
+					
 				} else if(obj instanceof Img) {
 					Img img = (Img)obj;
 					
@@ -135,6 +145,20 @@ public class Book {
 			}
 			
 			all.append("\n");
+		}
+		
+		ArrayList<String> chpt = getBookTitles(pages);
+		
+		ArrayList<String> chapters = Chapters.isolateChapters(all.toString(), chpt);
+		
+		for(int i = 0; i < chapters.size(); i++) {
+			File dest = new File("./Storage/Output/Chapters/" + i + ".txt");
+			dest.createNewFile();
+			
+			FileWriter writer = new FileWriter(dest);
+			writer.write(chapters.get(i));
+			writer.flush();
+			writer.close();
 		}
 		
 		String txt = markdown(all.toString(), getBookTitles(pages));

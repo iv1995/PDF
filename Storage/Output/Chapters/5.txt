@@ -1,0 +1,40 @@
+3Notation 
+ 
+PDF operators, PDF keywords, the names of keys in PDF dictionaries, and other predefined names are 
+written in bold font; words that denote operands of PDF operators or values of dictionary keys are 
+written in italic font. An italic font is also used to introduce key concepts or reference specific terms of 
+importance. 
+NOTE 1 If a word or phrase is used as both a keyword and a value, the notation used in this International 
+Standard will default to italic font unless doing so would cause undue confusion. 
+NOTE 2 For backwards compatibility, words denoting predefined names, operands or values and other 
+specific terms of importance use US English spelling. 
+Token characters used to delimit objects and describe the structure of PDF files, as defined in 7.2, 
+"Lexical conventions", are identified by their ANSI X3.4-1986 (ASCII 7-bit USA codes) character name 
+written in upper case in font followed by a parenthetic two digit hexadecimal character value with the 
+suffix "h". 
+Characters in text streams, as defined by 7.9.2, "String object types", are identified by their Unicode 
+character name written in uppercase in font followed by a parenthetic four digit hexadecimal character 
+code value with the prefix "U+" as shown in the Example in this clause. 
+EXAMPLE EN SPACE (U+2002) 
+3.1Established notations 
+ 
+Due to the historical development of PDF and the requirement to remain backward compatible with 
+existing PDF files, the notations used for keys and numbers in PDF files use United States English 
+Alternate
+conventions, while the rest of the language in this document conforms to recommended ISO Worldwide 
+Color
+English in most cases. For example, within a PDF you will encounter the key  whereas ISO’s 
+standard English would use the term Alternative. Likewise PDF files use the key  rather than ISO’s 
+artifactartefact
+standard English term Colour. Exceptions to this are found where switching between the two spellings 
+could cause confusion, such as with the term  and the word . In cases such as these, this 
+International Standard will use the spelling of the term of art throughout the entirety of the document 
+rather than switching between two spellings. Real numbers that contain a decimal radix separator use 
+the PERIOD (2Eh) character and not the COMMA (2Ch) as used in ISO’s standard English. Numbers do 
+not include spaces. 
+ 
+ 
+© ISO 2017 – All rights reserved 15 
+
+ISO/DIS 32000-2
+ 

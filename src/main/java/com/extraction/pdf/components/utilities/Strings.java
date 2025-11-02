@@ -66,6 +66,10 @@ public class Strings {
 			
 			for(int j = 0; j < obj.length(); j++) {
 				
+				if(i == box.length()) {
+					break;
+				}
+				
 				while(String.valueOf( box.charAt(i) ).isBlank()) {	
 					++i;
 					
