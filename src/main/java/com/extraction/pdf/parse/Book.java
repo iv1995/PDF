@@ -75,7 +75,7 @@ public class Book {
 	 * @throws IOException
 	 * @throws URISyntaxException 
 	 */
-	public boolean processPdf(String src) throws IOException, URISyntaxException {
+	public void processPdf(String src) throws IOException, URISyntaxException {
 		
 		src = this.src + src;
 		
@@ -96,6 +96,23 @@ public class Book {
 			images = addCaptions(page, images);
 		}
 		
+		save(pages);
+		ArrayList<String> titles = getBookTitles(pages);
+		
+		for(int i = 0; i < titles.size(); i++) {
+			System.out.println(titles.get(i));
+		}
+	}
+	
+	/**
+	 * 
+	 * Saves all the text into a file
+	 * Saves each image into a separate file
+	 * 
+	 * @param pages The pages making up the PDF file
+	 * @throws IOException
+	 */
+	public void save(ArrayList<Page> pages) throws IOException {
 		StringBuilder all = new StringBuilder();
 		
 		for(Page page : pages) {
@@ -128,14 +145,6 @@ public class Book {
 		writer.write(all.toString());
 		writer.flush();
 		writer.close();
-		
-		ArrayList<String> titles = getBookTitles(pages);
-		
-		for(int i = 0; i < titles.size(); i++) {
-			System.out.println(titles.get(i));
-		}
-		
-		return true;
 	}
 	
 	/**
@@ -143,7 +152,7 @@ public class Book {
 	 * @param pdf a PdfDocument instance
 	 * @param page the number of the page
 	 * 
-	 * @return
+	 * @return The objects making up this PDF page
 	 * @throws IOException
 	 */
 	private ArrayList<Obj> processPage(PdfReader reader, PdfDocument pdf, int page, boolean tagged) throws IOException {
@@ -157,6 +166,16 @@ public class Book {
 		return render.getObjects();
 	}
 	
+	/**
+	 * 
+	 * For each image tries to find its caption
+	 * 
+	 * @param page The page that is going to be processed
+	 * @param images The image counter
+	 * @return The incremented image counter
+	 * @throws IOException
+	 * @throws URISyntaxException
+	 */
 	private int addCaptions(Page page, int images) throws IOException, URISyntaxException {
 		
 		for(Obj obj : page.getObjects()) {
@@ -176,6 +195,11 @@ public class Book {
 		return images;
 	}
 	
+	/**
+	 * 
+	 * @param pages The pages that make up the PDF file
+	 * @return The titles that are part of the PDF file
+	 */
 	private ArrayList<String> getBookTitles(ArrayList<Page> pages){
 		ArrayList<String> titles = new ArrayList<String>();
 		ArrayList<Obj> objects = new ArrayList<Obj>();
@@ -189,6 +213,11 @@ public class Book {
 		return titles;
 	}
 	
+	/**
+	 * 
+	 * @param objects The objects making a PDF page
+	 * @return The Chapter titles contained in this PDF page
+	 */
 	private ArrayList<String> getPageTitles(ArrayList<Obj> objects){
 		ArrayList<String> titles = new ArrayList<String>();
 		PdfName searched = PdfName.H1;
@@ -216,6 +245,14 @@ public class Book {
 		return titles;
 	}
 	
+	/**
+	 * 
+	 * @param objects The objects making a PDF page
+	 * @param j The index of the last chunk that has been analyzed
+	 * @param chunk The last chunk that has been analyzed
+	 * @return A Map<Integer, StringBuilder> with only one key (which is j) 
+	 * 											   and only one value which is the tile
+	 */
 	private Map<Integer, StringBuilder> getTitleChunks(ArrayList<Obj> objects, int j, Text chunk){
 		PdfName tag = PdfName.H1;
 		PdfName searched = PdfName.H1;
