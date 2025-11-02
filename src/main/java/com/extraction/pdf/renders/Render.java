@@ -26,9 +26,7 @@ public class Render implements IEventListener {
 		if (type.equals(EventType.RENDER_TEXT)) {
 			objects.add(new Text(data));
 		} else if (type.equals(EventType.RENDER_IMAGE)) {
-			try {
 				objects.add(new Img(data));
-			} catch (java.io.IOException e) {}
 		}
 	}
 

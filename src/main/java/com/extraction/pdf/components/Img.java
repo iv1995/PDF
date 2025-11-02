@@ -30,9 +30,11 @@ public class Img extends Obj {
 	
 	private boolean saved = false;
 	
-	public Img(IEventData data) throws IOException {
+	public Img(IEventData data){
 		if(data != null) {
-			populate(data);
+			try {
+				populate(data);
+			} catch (IOException e) {}
 		}
 	}
 	

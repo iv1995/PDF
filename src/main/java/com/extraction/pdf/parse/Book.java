@@ -3,20 +3,32 @@ package com.extraction.pdf.parse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
 import com.extraction.pdf.renders.Render;
+import com.itextpdf.io.source.FileChannelRandomAccessSource;
+import com.itextpdf.io.source.PdfTokenizer;
+import com.itextpdf.io.source.RandomAccessFileOrArray;
+import com.itextpdf.kernel.pdf.PdfDictionary;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfName;
+import com.itextpdf.kernel.pdf.PdfObject;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.canvas.parser.PdfCanvasProcessor;
+import com.itextpdf.kernel.pdf.xobject.PdfImageXObject;
+import com.itextpdf.io.source.PdfTokenizer.TokenType;
 import com.extraction.pdf.components.Img;
 import com.extraction.pdf.components.Obj;
 import com.extraction.pdf.components.Page;
 import com.extraction.pdf.components.Text;
 import com.extraction.pdf.components.utilities.Strings;
+import java.nio.channels.FileChannel;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import com.itextpdf.kernel.pdf.PdfStream;
 
 import lombok.Data;
 
@@ -58,8 +70,9 @@ public class Book {
 	 * 
 	 * @return
 	 * @throws IOException
+	 * @throws URISyntaxException 
 	 */
-	public boolean processPdf(String src) throws IOException {
+	public boolean processPdf(String src) throws IOException, URISyntaxException {
 		
 		src = this.src + src;
 		
@@ -119,7 +132,7 @@ public class Book {
 		return render.getObjects();
 	}
 	
-	private int addCaptions(Page page, int images) throws IOException {
+	private int addCaptions(Page page, int images) throws IOException, URISyntaxException {
 		
 		for(Obj obj : page.getObjects()) {
 			if(obj instanceof Img) {

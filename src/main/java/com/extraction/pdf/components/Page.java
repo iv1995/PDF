@@ -1,10 +1,16 @@
 package com.extraction.pdf.components;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import org.springframework.util.MimeTypeUtils;
+
 import com.extraction.pdf.components.utilities.Strings;
+import com.extraction.pdf.ai.Chat;
 import com.extraction.pdf.components.utilities.Array;
 import com.extraction.pdf.sort.Sort;
 import com.itextpdf.kernel.pdf.PdfName;
@@ -81,8 +87,10 @@ public class Page {
 	 * @param img The image of which you want to find the caption
 	 * @param tagged Informs the method if it is dealing with a tagged PDF
 	 * @return The caption if a match has been found an empty string otherwise
+	 * @throws IOException 
+	 * @throws URISyntaxException 
 	 */
-	public String getCaption(Img img, boolean tagged) {
+	public String getCaption(Img img, boolean tagged) throws URISyntaxException, IOException {
 		String caption = new String();
 		
 		StringBuilder above = piledupRows(img, true);
@@ -103,11 +111,8 @@ public class Page {
 				}
 			}
 		} else {
-			//Use AI
+//			Chat.processImageRequest("Which one of these do you think is the image caption? Return the one you think is correct only" + above.toString() + " OR " + below.toString(), new ByteArrayInputStream(img.masked()), MimeTypeUtils.IMAGE_JPEG);
 		}
-		
-		caption.replaceAll(":", "");
-		caption.replaceAll(".", "");
 		
 		return caption;
 	}

@@ -23,13 +23,13 @@ import java.util.List;
 public class Chat {
 	
 	@Autowired
-	private final OllamaChatModel chatModel;
+	private static OllamaChatModel chatModel;
 	
 	public Chat(OllamaChatModel chatModel) {
 		this.chatModel = chatModel;
 	}
 
-	public Map<String, ChatResponse> processImageRequest(String request, ByteArrayInputStream image, MimeType type)
+	public static Map<String, ChatResponse> processImageRequest(String request, ByteArrayInputStream image, MimeType type)
 			throws URISyntaxException, IOException {
 		
 		Media m = null;
