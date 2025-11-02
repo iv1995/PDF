@@ -151,13 +151,4 @@ public class Img extends Obj {
 		
 		return image;
 	}
-	
-	public static BufferedImage getBufferedImage(java.awt.Image img) {
-	     BufferedImage bi = new BufferedImage(img.getWidth(null),img.getHeight(null),BufferedImage.TYPE_INT_RGB);
-	     Graphics graphics = bi.getGraphics();
-	     graphics.drawImage(img, 0, 0, null);
-	     graphics.dispose();
-	     
-	     return bi;
-	}
 }

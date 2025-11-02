@@ -79,9 +79,9 @@ public class Book {
 		PdfReader reader = new PdfReader(src);
 		PdfDocument pdf = new PdfDocument(reader);
 		
-		if (pdf.getStructTreeRoot() != null) {
-			tagged = true;
-		}
+//		if (pdf.getStructTreeRoot() != null) {
+//			tagged = true;
+//		}
 		
 		
 		int images = 0;

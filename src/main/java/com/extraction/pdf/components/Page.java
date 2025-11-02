@@ -111,7 +111,7 @@ public class Page {
 				}
 			}
 		} else {
-//			Chat.processImageRequest("Which one of these do you think is the image caption? Return the one you think is correct only" + above.toString() + " OR " + below.toString(), new ByteArrayInputStream(img.masked()), MimeTypeUtils.IMAGE_JPEG);
+			System.out.println(Chat.processImageRequest("Which one of these do you think is the image caption? Return the one you think is correct only" + above.toString() + " OR " + below.toString(), new ByteArrayInputStream(img.masked()), MimeTypeUtils.IMAGE_JPEG));
 		}
 		
 		return caption;

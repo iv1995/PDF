@@ -6,10 +6,12 @@ import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.content.Media;
 import org.springframework.ai.ollama.OllamaChatModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MimeType;
 import org.springframework.util.MimeTypeUtils;
+import org.apache.catalina.webresources.AbstractResource;
 import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.model.ChatResponse;
 
@@ -17,6 +19,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -34,10 +37,12 @@ public class Chat {
 		
 		Media m = null;
 		
+		ByteArrayResource is = new ByteArrayResource(image.readAllBytes());
+		
 		if(type.equals(MimeTypeUtils.IMAGE_JPEG)) {
-			m = new Media(MimeTypeUtils.IMAGE_JPEG, (Resource)image);
+			m = new Media(MimeTypeUtils.IMAGE_JPEG, (Resource)is);
 		} else if(type == MimeTypeUtils.IMAGE_PNG){
-			m = new Media(MimeTypeUtils.IMAGE_PNG, (Resource)image);
+			m = new Media(MimeTypeUtils.IMAGE_PNG, (Resource)is);
 		}
 		
 		var userMessage = UserMessage.builder().text(request).media(List.of(m)).build();
