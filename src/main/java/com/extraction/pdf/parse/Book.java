@@ -2,6 +2,7 @@ package com.extraction.pdf.parse;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -79,9 +80,9 @@ public class Book {
 		PdfReader reader = new PdfReader(src);
 		PdfDocument pdf = new PdfDocument(reader);
 		
-//		if (pdf.getStructTreeRoot() != null) {
-//			tagged = true;
-//		}
+		if (pdf.getStructTreeRoot() != null) {
+			tagged = true;
+		}
 		
 		
 		int images = 0;
@@ -93,12 +94,20 @@ public class Book {
 			images = addCaptions(page, images);
 		}
 		
+		StringBuilder all = new StringBuilder();
+		
 		for(Page page : pages) {
 			for(Obj obj : page.getObjects()) {
-				if(obj instanceof Img) {
+				if(obj instanceof Text) {
+					Text chunk = (Text)obj;
+					all.append(chunk.getChunk());
+				} else if(obj instanceof Img) {
 					Img img = (Img)obj;
 					
-					File file = new File("./Storage/Output/Images/" + Strings.remove(img.getCaption().getCaption(), ".:;\"") + "." + img.getExtension());
+					String name = Strings.remove(img.getCaption().getCaption(), ".:;\"") + "." + img.getExtension();
+					all.append("![" + name + "](" + "./Storage/Output/Images/" + name + ")");
+					
+					File file = new File("./Storage/Output/Images/" + name);
 					file.createNewFile();
 					FileOutputStream fos = new FileOutputStream(file);
 					fos.write(img.masked());
@@ -106,7 +115,17 @@ public class Book {
 					fos.close();
 				}
 			}
+			
+			all.append("\n");
 		}
+		
+		File text = new File("./Storage/Output/Chapters/Book.txt");
+		text.createNewFile();
+		
+		FileWriter writer = new FileWriter(text);
+		writer.write(all.toString());
+		writer.flush();
+		writer.close();
 		
 		getTitles(pages);
 		
