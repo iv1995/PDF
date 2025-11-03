@@ -1,0 +1,171 @@
+Layer 1 
+  /OC /L1a BDC          %Sublayer A of layer 1 
+   0 0 100 100 re f 
+  EMC 
+  /OC /L1b BDC          %Sublayer B of layer 1 
+   0 100 100 100 re f 
+  EMC 
+ EMC 
+ … 
+  <</L1 1 0 R           %Resource names 
+  /L1a 2 0 R 
+  /L1b 3 0 R 
+ >> 
+…                %Optional content groups 
+1 0 obj <</Type /OCG /Name (Layer 1)>> endobj 
+2 0 obj <</Type /OCG /Name (Sublayer A)>> endobj 
+3 0 obj <</Type /OCG /Name (Sublayer B)>> endobj 
+… 
+4 0 obj              %Configuration dictionary 
+  <</Order [1 0 R [2 0 R 3 0 R]]>> 
+An interactive PDF processor needs to display the optional content groups as follows: 
+Layer 1 
+ Sublayer A  
+ Sublayer B 
+auto stateusage application dictionaries
+ AS 
+ 
+Theentry is an  array consisting of one or more  that specify 
+how interactive PDF processors shall, and non-interactive PDF processors should, automatically set the 
+state of optional content groups based on external factors, as discussed in the following subclause. 
+8.11.4.4Usage and usage application dictionaries 
+ 
+Optional content groups are typically constructed to control the visibility of graphics objects that are 
+related in some way. Objects can be related in several ways; for example, a group may contain content 
+in a particular language or content suitable for viewing at a particular magnification. 
+usage dictionary
+Usage
+An optional content group’s  (the value of the  entry in an optional content group 
+dictionary; see "
+Table 96: Entries in an optional content group dictionary") shall contain information 
+describing the nature of the content controlled by the group. This dictionary can contain any 
+combination of the entries shown in "Table 100: Entries in an optional content usage dictionary". 
+© ISO 2017 – All rights reserved 281 
+
+ISO/DIS 32000-2
+ 
+Table 100: Entries in an optional content usage dictionary 
+Key Type Value 
+Optional
+CreatorInfo 
+dictionary () A dictionary used by the creating application to store application-specific 
+data associated with this optional content group. It shall contain two required 
+Creator
+entries: 
+Subtype
+ A text string specifying the application that created the group. 
+Artwork
+ A name defining the type of content controlled by the group. 
+Technical
+Suggested values include but shall not be limited to , for 
+graphic-design or publishing applications, and , for technical 
+designs such as building plans or schematics. 
+Additional entries may be included to present information relevant to the creating 
+application or related applications. 
+Design
+IntentCreatorInfo
+Table 96: Entries in an optional 
+If an Optional Content Group Dictionary (see "
+content group dictionary")  entry contains  then a  entry 
+should be included. 
+Optional
+Language 
+dictionary () A dictionary specifying the language of the content controlled by this 
+required
+Lang
+optional content group. It shall contain the following entry: 
+es-MX
+ () A text string that specifies a language and possibly a locale 
+(see 14.9.2, "Natural language specification"). For example,  
+represents Mexican Spanish. 
+optionalONOFF
+Preferred  
+Additionally, it may contain the following entry: 
+OFF
+ () A name whose values shall be eitheror . Default 
+value: . It shall be used by PDF processors when there is a partial 
+match but no exact match between the system language and the 
+language strings in all usage dictionaries. See 8.11.4.3, "Usage and 
+usage application dictionaries" for more information. 
+Optional
+Export ExportState
+ONOFF
+  
+dictionary () A dictionary containing one entry, , a name whose value 
+shall be eitheror . This value indicates the recommended state for content in 
+this group when the document (or part of it) is saved by a PDF processor to a 
+format that does not support optional content (for example, a raster image format). 
+Optional
+Zoom 
+dictionary () A dictionary specifying a range of magnifications at which the content in 
+this optional content group is best viewed. It shall contain one or both of the 
+min
+following entries: 
+ON
+ The minimum recommended magnification factor at which the group shall 
+maxON
+be . Default value: 0. 
+ The magnification factor below which the group shall be . Default 
+value: infinity. 
+Optional
+Print 
+dictionary () A dictionary specifying that the content to be used when printing. It may 
+Subtype
+contain the following optional entries: 
+Trapping, PrintersMarksWatermark
+ A name object specifying the kind of content controlled by the group; 
+ONOFF
+PrintState  
+for example,  or . 
+ A name that shall be eitheror , indicating that the group shall 
+be set to that state when the document is printed. 
+Optional
+View ViewState
+ONOFF
+  
+dictionary () A dictionary that shall have a single entry, , a name that shall 
+have a value of eitheror , indicating the state of the group when the 
+document is first opened by a PDF processor. 
+© ISO 2017 – All rights reserved 282 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional
+User 
+dictionary () A dictionary specifying one or more users for whom this optional content 
+IndTtl
+Type
+group is primarily intended. This dictionary shall have two required entries: 
+Org
+ A name object that shall be either  (individual),  (title or position), or 
+Name
+ (organization). 
+ A text string or array of text strings representing the name(s) of the 
+individual, position or organization. 
+Optional
+PageElement 
+HF
+Subtype
+dictionary () A dictionary declaring that the group contains a pagination artifact. It 
+FGBG
+  
+shall contain one entry, , whose value shall be a name that is either  
+L
+(header/footer),  (foreground image or graphics),(background image or 
+graphics), or  (logo). 
+ 
+While the data in the usage dictionary serves as information for a document user to examine, it may also 
+be used by PDF processors to automatically manipulate the state of optional content groups based on 
+external factors such as current system language settings or zoom level. Document authors may use 
+usage application dictionaries to specify which entries in the usage dictionary shall be consulted to 
+ AS 
+automatically set the state of optional content groups based on such factors. Usage application 
+ AS 
+dictionaries shall be listed in theentry in an optional content configuration dictionary (see "Table 
+99: Entries in an optional content configuration dictionary"). If noentry is present, states shall not 
+be automatically adjusted based on usage information. 
+usage application dictionary
+A  specifies the rules by which usage entries shall be used by interactive 
+PDF processors, and should be used by non-interactive PDF processors, to automatically manipulate the 
+state of optional content groups, which groups shall be affected, and under which circumstances. "

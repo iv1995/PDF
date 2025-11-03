@@ -1,0 +1,11 @@
+name tree 
+similar to a dictionary that associates keys and values but the keys in a name tree are strings and are 
+ordered 
+4.41 
+ 
+null object 
+null
+single object of type null, denoted by the keyword , and having a type and value that are unequal to 
+those of any other object 
+4.42 
+ 

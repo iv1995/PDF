@@ -1,0 +1,402 @@
+Table 109: Entries in a Type 1 font 
+dictionary". 
+© ISO 2017 – All rights reserved 306 
+
+ISO/DIS 32000-2
+ 
+Table 109: Entries in a Type 1 font dictionary 
+Key Type Value 
+Required
+Type  
+Font
+ 
+name  () The type of PDF object that this dictionary describes; shall be
+for a font dictionary. 
+RequiredType1
+Subtype 
+name () The type of font; shall be  for a Type 1 font. 
+Required in PDF 1.0; optional in PDF 1.1 through 1.7, deprecated in PDF 
+Name 
+2.0
+ Font 
+name  (
+) The name by which this font is referenced in thesubdictionary 
+of the current resource dictionary. 
+Required
+BaseFont 
+FontName
+name  () The PostScript language name of the font. For Type 1 fonts, 
+this is always the value of the  entry in the font program; for 
+more information, see Section 5.2 of the PostScript Language Reference, 
+Third Edition. The PostScript language name of the font may be used to 
+find the font program in the PDF processor or its environment. It is also 
+the name that is used when printing to a PostScript language compatible 
+output device. 
+Required; optional in PDF 1.0-1.7 for the standard 14 fonts
+FirstChar 
+Widths
+integer  () The first 
+character code defined in the font’s  array. 
+Required; optional in PDF 1.0-1.7 for the standard 14 fonts
+LastChar 
+Widths
+integer  () The last 
+character code defined in the font’s  array. 
+Required; optional in PDF 1.0-1.7 for the standard 14 fonts; indirect 
+Widths 
+reference preferred
+LastChar FirstChar 
+array  (
+ 
+) An array of ( ++ 1) numbers, 
+FirstChar  
+each element being the glyph width for the character code that equals
+FirstChar LastCharMissingWidth
+plus the array index. For character codes outside the range
+FontDescriptor
+to , the value of  from the 
+ entry for this font shall be used. The glyph widths shall 
+be measured in units in which 1000 units correspond to 1 unit in text 
+space. These widths shall be consistent with the actual widths given in 
+the font program. For more information on glyph widths and other glyph 
+metrics, see 9.2.4, "Glyph positioning and metrics". 
+Required; optional in PDF 1.0-1.7 for the standard 14 fonts; shall be an 
+FontDescriptor 
+indirect reference
+dictionary  (
+) A font descriptor describing the font’s metrics other 
+FirstChar, LastChar, Widths
+than its glyph widths (see 9.8, "Font descriptors"). 
+FontDescriptor
+For the standard 14 fonts, the entries , and 
+ shall either all be present or all be absent. Ordinarily, 
+these dictionary keys may be absent; specifying them enables a standard 
+font to be overridden; see 9.6.2.2, "Standard Type 1 fonts (standard 14 
+fonts) (PDF 1.0-1.7)". 
+Optional
+Encoding 
+name or () A specification of the font’s character encoding if different 
+MacRomanEncoding, MacExpertEncoding
+dictionary from its built-in encoding. The value of Encoding shall be either the name 
+WinAnsiEncoding
+of a predefined encoding (, 
+Annex D, "Character Sets and 
+or , as described in 
+") or an encoding dictionary that shall specify differences from 
+Encodings
+the font’s built-in encoding or from a specified predefined encoding (see 
+9.6.5, "Character encoding"). 
+Optional; PDF 1.2
+ToUnicode 
+stream () A stream containing a CMap file that maps character 
+codes to Unicode values (see 9.10.3, "ToUnicode CMaps"). 
+ 
+FirstCharLastCharWidths
+FontDescriptor
+PDF versions 1.0 to 1.7 did not require Type 1 font dictionaries to include , ,  
+and  entries as described in 9.6.2.2, "Standard Type 1 fonts (standard 14 fonts) (PDF 
+© ISO 2017 – All rights reserved 307 
+
+ISO/DIS 32000-2
+ 
+1.0-1.7)". For compatibility reasons PDF processors shall provide glyph widths and font descriptor data 
+for those standard fonts for use in processing files when the entries are absent. 
+EXAMPLE This example shows the font dictionary for the Adobe Garamond® Semibold font. The font has an encoding 
+dictionary (object 25), although neither the encoding dictionary nor the font descriptor (object 7) is shown in 
+the example. 
+14 0 obj 
+  <</Type /Font 
+   /Subtype /Type1 
+   /BaseFont /AGaramond-Semibold 
+   /FirstChar 0 
+   /LastChar 255 
+   /Widths 21 0 R 
+   /FontDescriptor 7 0 R 
+   /Encoding 25 0 R 
+  >> 
+endobj 
+ 
+21 0 obj 
+  [ 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 
+   255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 
+   255 280 438 510 510 868 834 248 320 320 420 510 255 320 255 347 
+   510 510 510 510 510 510 510 510 510 510 255 255 510 510 510 330 
+   781 627 627 694 784 580 533 743 812 354 354 684 560 921 780 792 
+   588 792 656 504 682 744 650 968 648 590 638 320 329 320 510 500 
+   380 420 510 400 513 409 301 464 522 268 259 484 258 798 533 492 
+   516 503 349 346 321 520 434 684 439 448 390 320 255 320 510 255 
+   627 627 694 580 780 792 744 420 420 420 420 420 420 402 409 409 
+   409 409 268 268 268 268 533 492 492 492 492 492 520 520 520 520 
+   486 400 510 510 506 398 520 555 800 800 1044 360 380 549 846 792 
+   713 510 549 549 510 522 494 713 823 549 274 354 387 768 615 496 
+   330 280 510 549 510 549 612 421 421 1000 255 627 627 792 1016 730 
+   500 1000 438 438 248 248 510 494 448 590 100 510 256 256 539 539 
+   486 255 248 438 1174 627 580 627 580 580 354 354 354 354 792 792 
+   790 792 744 744 744 268 380 380 380 380 380 380 380 380 380 380 
+  ] 
+endobj 
+ 
+9.6.2.2Standard Type 1 fonts (standard 14 fonts) (PDF 1.0-1.7) 
+ 
+The PostScript language names of 14 Type 1 fonts, known as the standard 14 fonts, are as follows: 
+Times-Roman, Helvetica, Courier, Symbol, Times-Bold, Helvetica-Bold, Courier-Bold, ZapfDingbats, 
+Times-Italic, Helvetica-Oblique, Courier-Oblique, Times-BoldItalic, Helvetica-BoldOblique, Courier-
+BoldOblique. 
+FirstCharLastCharWidthsFontDescriptor
+In PDF 1.0 to PDF 1.7, the , ,  and  (see Table 109: Entries in 
+a Type 1 font dictionary") were optional in Type 1 font dictionaries for the standard 14 fonts. PDF 
+processors supporting PDF 1.0 to PDF 1.7 files shall have these fonts, or their font metrics and suitable 
+substitution fonts, available. 
+These fonts, or their font metrics and suitable substitution fonts, shall be available to the PDF processor. 
+9.6.2.3Multiple master fonts 
+ 
+The multiple master font format is an extension of the Type 1 font format that allows the generation of a 
+wide variety of typeface styles from a single font program. This is accomplished through the presence of 
+various design dimensions in the font. 
+© ISO 2017 – All rights reserved 308 
+
+ISO/DIS 32000-2
+ 
+EXAMPLE 1 Examples of design dimensions are weight (light to extra-bold) and width (condensed to expanded). 
+Coordinates along these design dimensions (such as the degree of boldness) are specified by numbers. 
+A particular choice of numbers selects an instance of the multiple master font. PDFs can contain 
+multiple master instances. 
+NOTE 1 , describes multiple master fonts 
+in detail. 
+Adobe Technical Note #5015, Type 1 Font Format Supplement
+The font dictionary for a multiple master font instance contains the same entries as a Type 1 font 
+dictionary (see "Table 109: Entries in a Type 1 font dictionary"), with these differences: 
+MMType1
+Subtype
+• 
+• 
+The value of  shall be . 
+BaseFont
+If the PostScript language name of the instance contains SPACEs (20h), the SPACEs shall be 
+replaced by LOW LINEs (underscores) (5Fh) in the value of . For instance, as illustrated 
+in this example, the name "MinionMM 366 465 11 " (which ends with a SPACE character) becomes 
+/MinionMM_366_465_11_. 
+EXAMPLE 2 
+7 0 obj 
+  <</Type /Font 
+   /Subtype /MMType1 
+   /BaseFont /MinionMM_366_465_11_ 
+   /FirstChar 32 
+   /LastChar 255 
+   /Widths 19 0 R 
+   /FontDescriptor 6 0 R 
+   /Encoding 5 0 R 
+  >> 
+endobj 
+ 
+19 0 obj 
+  [187 235 317 430 427 717 607 168 326 326 421 619 219 317 219 282 427 
+   … Omitted data … 
+   569 0 569 607 607 607 239 400 400 400 400 253 400 400 400 400 400 
+  ] 
+endobj 
+ 
+BaseFont
+This example illustrates a convention for including the numeric values of the design coordinates as part 
+of the instance’s  name.  
+NOTE 2 This convention is commonly used for accessing multiple master font instances from an external 
+source in the PDF processor’s environment; it is documented in 
+. However, this convention is not prescribed as part of this specification. 
+Adobe Technical Note #5088, 
+Font Naming Issues
+If the font program for a multiple master font instance is embedded in the PDF file, it shall be an 
+ordinary Type 1 font program, not a multiple master font program. This font program is called a 
+snapshot of the multiple master font instance that incorporates the chosen values of the design 
+coordinates. 
+9.6.3TrueType fonts 
+ 
+TrueType
+Subtype
+Apple Computer, Inc.,TrueType Reference Manual
+PDF TrueType fonts are those with a  value of  in the font dictionary. PDF fonts of this 
+ISO/IEC 14496-22
+type support both the TrueType font format (see ) as 
+well as the OpenType font format (see ). 
+© ISO 2017 – All rights reserved 309 
+
+ISO/DIS 32000-2
+ 
+A TrueType font dictionary may contain the same entries as a Type 1 font dictionary (see "Table 109: 
+Entries in a Type 1 font dictionary"), with these differences: 
+TrueType
+Subtype
+• 
+Encoding
+• 
+The value of  shall be . 
+The value of  is subject to limitations that are described in 9.6.5.4, "Encodings for 
+BaseFont
+• 
+TrueType fonts". 
+BaseFont
+The value of  is derived differently. 
+The PostScript language name for the value of  should be determined in one of two ways: 
+• 
+If the TrueType or OpenType font program's "name" table contains a PostScript language name, it 
+• 
+should be used. 
+In the absence of a PostScript language name in the "name" table, a PostScript language name 
+NOTE 1 The  font format (also known as OpenFontFormat, or ISO/IEC 14496-22) was 
+  
+should be derived from the name by which the font is known in the host operating system. 
+developed jointly by Microsoft and Adobe. It extends the TrueType font format, developed by 
+OpenType
+Apple, to include more metadata about the glyphs and text layout as well as supporting both the 
+TrueType glyph technology and the CFF glyph technology (see 
+). OpenType is available on most modern operating systems. 
+Adobe Technical Note #5176, The 
+NOTE 2 A TrueType or an OpenType font program can be embedded directly in a PDF file as a stream 
+Compact Font Format Specification
+object. 
+NOTE 3 The Type 42 font format that is defined for the PostScript language does not apply to PDF. 
+NOTE 4 For CJK (Chinese, Japanese, and Korean) fonts, the host font system’s font name is often encoded in 
+the host operating system’s script. For instance, a Japanese font can have a name that is written in 
+Japanese using some (unidentified) Japanese encoding. Thus, TrueType font names can contain 
+multiple-byte character codes, each of which requires multiple characters to represent in a PDF 
+name object (using the # notation to quote special characters as needed). 
+9.6.4Type 3 fonts 
+ 
+Type 3 fonts differ from the other fonts supported by PDF. Font dictionaries for other fonts simply 
+contain information about the font and refer to a separate font program for the actual glyph 
+descriptions; a Type 3 font dictionary contains the glyph descriptions. In Type 3 fonts, glyphs shall be 
+defined by streams of PDF graphics operators. These streams shall be associated with glyph names. A 
+separate encoding entry shall map character codes to the appropriate glyph names for the glyphs. 
+NOTE 1 Type 3 fonts are more flexible than Type 1 fonts because the glyph descriptions can contain 
+arbitrary PDF graphics operators. However, Type 3 fonts have no hinting mechanism for 
+improving output at small sizes or low resolutions. 
+A Type 3 font dictionary may contain the entries listed in "Table 110: Entries in a Type 3 font 
+dictionary". 
+ Table 110: Entries in a Type 3 font dictionary 
+Key Type Value 
+RequiredFont
+Type   
+name  () The type of PDF object that this dictionary describes; shall befor a font 
+dictionary. 
+RequiredType3
+Subtype 
+name () The type of font; shall be  for a Type 3 font. 
+© ISO 2017 – All rights reserved 310 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Required in PDF 1.0; optional otherwise
+Name 
+name () See "Table 109: Entries in a Type 1 font 
+dictionary". 
+Required
+FontBBox 
+font bounding box
+rectangle  () A rectangle (see 7.9.5, "Rectangles") expressed in the glyph coordinate system, 
+specifying the . This is the smallest rectangle enclosing all marks that 
+would result if all of the glyphs of the font were placed with their origins coincident and 
+their descriptions executed. 
+If all four elements of the rectangle are zero, a PDF processor shall make no assumptions 
+about glyph sizes based on the font bounding box. If any element is non-zero, the font 
+bounding box shall be accurate. If any glyph’s marks fall outside this bounding box, 
+behaviour is implementation dependent and may not match the creator’s expectations. 
+Requiredfont matrix
+FontMatrix 
+array  () An array of six numbers specifying the , mapping glyph space to text 
+NOTE A common practice is to define glyphs in terms of a 1000-unit glyph coordinate 
+space (see 9.2.4, "Glyph positioning and metrics"). 
+system, in which case the font matrix is [0.001 0 0 0.001 0 0]. 
+Required
+CharProcs 
+dictionary  () A dictionary in which each key shall be a glyph name and the value associated 
+d0d1
+with that key shall be a content stream that constructs and paints the glyph for that 
+character. The stream shall include as its first operator either  or , followed by 
+operators describing one or more graphics objects. See below for more details about Type 
+3 glyph descriptions. 
+Required
+Encoding  Differences 
+dictionary () An encoding dictionary whosearray shall specify the complete 
+character encoding for this font (see 9.6.5, "Character encoding"). 
+Required
+FirstChar  Widths
+integer  () The first character code defined in the font’s  array. 
+Required
+LastChar  Widths
+integer  () The last character code defined in the font’s  array.  
+Widths  
+Required; should be an indirect reference
+LastChar FirstChar 
+ FirstChar 
+array  
+() An array of ( + 1) 
+ FirstChar LastChar
+-
+numbers, each element being the glyph width for the character code that equals
+plus the array index. For character codes outside the rangeto , the 
+FontMatrix
+width shall be 0. These widths shall be interpreted in glyph space as specified by 
+ (unlike the widths of a Type 1 font, which are in thousandths of a unit of text 
+FontMatrix
+space). 
+If  specifies a rotation, only the horizontal component of the transformed 
+width shall be used. That is, the resulting displacement shall be horizontal in text space, as 
+is the case for all simple fonts. 
+hall be an indirect reference
+FontDescriptor 
+dictionary  (S) A font descriptor describing the font’s default metrics other 
+than its glyph widths (see 9.8, "Font descriptors"). 
+Optional but should be used; PDF 1.2
+Resources 
+dictionary  () A list of the named resources, such as fonts and 
+images, required by the glyph descriptions in this font (see 7.8.3, "Resource dictionaries"). 
+If any glyph descriptions refer to named resources but this dictionary is absent, the names 
+shall be looked up in the resource dictionary of the page on which the font is used. 
+Optional; PDF 1.2
+ToUnicode 
+stream  () A stream containing a CMap file that maps character codes to Unicode 
+values (see 9.10.3, "ToUnicode CMaps"). 
+ 
+For each character code shown by a text-showing operator that uses a Type 3 font, the PDF processor 
+shall: 
+Encoding
+ 
+a)Look up the character code in the font’s  entry, as described in 9.6.5, "Character encoding" to 
+obtain a glyph name. 
+© ISO 2017 – All rights reserved 311 
+
+ISO/DIS 32000-2
+ 
+CharProcs
+ 
+CharProcs
+b)Look up the glyph name in the font’s  dictionary to obtain a stream object containing a glyph 
+ 
+description. If the name is not present as a key in , no glyph shall be painted.  
+c)Invoke the glyph description. The graphics state shall be saved before this invocation and shall be 
+restored afterward; therefore, any changes the glyph description makes to the graphics state do not 
+ Resources 
+ 
+persist after it finishes.  
+d)If any glyph descriptions refer to named resources they shall be looked up in theentry of the 
+Type 3 font dictionary. If any glyph descriptions refer to named resources but this dictionary is absent, 
+the names shall be looked up in the resource dictionary of the page on which the font is used.  
+FontMatrix
+When the glyph description begins execution, the current transformation matrix (CTM) shall be the 
+concatenation of the font matrix ( in the current font dictionary) and the text space that was 
+in effect at the time the text-showing operator was invoked (see 9.4.4, "Text space details"). This means 
+that shapes described in the glyph coordinate system are transformed into the user coordinate system 
+and appear in the appropriate size and orientation on the page. The glyph description shall describe the 
+glyph in terms of absolute coordinates in the glyph coordinate system, placing the glyph origin at (0, 0) 
+in this space. It shall make no assumptions about the initial text position. 
+Aside from the CTM, the graphics state shall be inherited from the environment of the text-showing 
+operator that caused the glyph description to be invoked. To ensure predictable results, the glyph 
+description shall initialise any graphics state parameters on which it depends. In particular, if it invokes 
+TK
+any operator from "Table 59: Path-painting operators" which performs stroking, it shall explicitly set 
+the line width, line join, line cap, and dash pattern to appropriate values. The  flag (see 9.3.8, "Text 
+knockout") of the graphics state controls the behaviour of glyphs obtained from any font type, including 
+Type 3. 
+NOTE 2 Normally, it is unnecessary and undesirable to initialise the current colour parameters because 
+the text-showing operators are designed to paint glyphs with the current colours. 
+The glyph description shall execute one of the operators described in "

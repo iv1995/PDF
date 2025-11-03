@@ -1,0 +1,154 @@
+Table 370: List standard structure types" defines standard 
+structure types for lists. 
+Table 370: List standard structure types 
+Structure Category Description 
+Type 
+L 
+Block or Inline (List) Encloses content consisting of a sequence of items that are semantically 
+CaptionL
+related with each other. 
+If a  is present, it shall be either the first or last child in the  (list) 
+ListNumbering
+structure element. 
+The  attribute (see 14.8.5.5, "List attribute") may be used to 
+ContinuedListContinuedFrom
+indicate the type of ordered or unordered list. 
+L
+The  and  attributes (see 14.8.5.5, "List 
+attributes") may be used to indicate relationships with other  (list) structure 
+elements. 
+EXAMPLE 1 Bulleted lists, numbered lists, tables of contents, indexes, 
+L 
+dictionaries, and lists of key value pairs are all examples of 
+content that would use the structure element. 
+LI L
+Internal to  (List) (List Item) Encloses content for an individual member of a list. Children (see 
+structure elements Annex L, "Parent-child relationships between standard structure elements") 
+of the list item may occur in any order or combination.  
+LBody LI
+Internal to  (List (List Item Body) Encloses the actual content of a list item. 
+item) structure 
+elements 
+EXAMPLE 2 In a dictionary list the list item body contains the translation 
+or definition of the term. 
+ 
+hierarchical lists
+LL
+DivL
+To represent , the child  (list) structure elements shall be a direct child of its parent  
+(list) structure element or contained within a  structure element belonging to the parent  (list). 
+NOTE Lists can occur within the content of an  structure element. Such lists are not considered 
+LBody
+part of the hierarchy. 
+14.8.4.8.3Table structure types 
+ 
+"Table 371: Table standard structure types" defines standard structure types for tables. 
+© ISO 2017 – All rights reserved 738 
+
+ISO/DIS 32000-2
+ 
+Table 371: Table standard structure types  
+Structure Category Description 
+Type 
+Table 
+Block or  A two-dimensional logical structure of cells, possibly including a complex 
+CaptionTable
+Inline substructure.  
+If a  is present, it shall be either the first or last child of the  
+structure element. 
+TR THTD
+Table
+Internal to a A row of table header cells () or table data cells () in a table. 
+  
+structure 
+TH 
+Table
+Internal to a A table header cell containing content describing one or more rows, columns or 
+TH
+  rows and columns of the table. 
+structure 
+RowSpan 
+• 
+The following attributes can be used with the  structure element: 
+ColSpan 
+• 
+Headers 
+• 
+Scope 
+• 
+Short
+• 
+ 
+TD 
+Table
+TD
+Internal to a A table cell containing content that is part of the table’s content. 
+  
+RowSpan 
+• 
+The following attributes can be used with the  structure element: 
+structure 
+ColSpan 
+• 
+Headers
+• 
+ 
+(Optional)
+THead TR
+Table
+THead
+Internal to a  A group of  structure elements that constitute the header of a table.  
+  
+The  structure element is optional insofar as when rows of header cells are 
+structure 
+present they may, but are not required to be, so enclosed. 
+(Optional)
+TBody TR
+Table
+Internal to a  A group of  structure elements that constitute the main body portion 
+TBody
+  of a table. 
+structure 
+The  structure element is optional insofar as when rows of cells are present 
+they may, but are not required to be, so enclosed. 
+(Optional)
+TFoot TR
+Table 
+TFoot
+Internal to a  A group of  structure elements that constitute the footer of a table. 
+The  structure element is optional insofar as when rows of cells belonging to 
+structure 
+footer row(s) are present they may, but are not required to be, so enclosed. 
+ 
+Headers
+If the  attribute (see 14.8.5, "Standard structure attributes") is not specified, any cell in a table 
+Headers 
+may have multiple headers associated with it. These headers are defined either explicitly by the 
+attribute, or implicitly, by the following algorithm: 
+WritingMode
+To find headers for any data or header cell, begin from the current cell position and use the current 
+value of  to search towards the first cell in the appropriate horizontal/vertical direction. 
+The search terminates when any of these conditions is reached: 
+• 
+the edge of the table is reached 
+© ISO 2017 – All rights reserved 739 
+
+ISO/DIS 32000-2
+ 
+• 
+Headers
+• 
+a data cell is found after a header cell 
+a header cell has the  attribute set — the headers that are specified are appended to the 
+Scope
+row/ column list that is being built 
+BothRow/Column
+When a header cell is found in the search and the (implicit or explicit)  attribute of the header cell 
+is either  or , the header cell is appended to the end of the list of row/column headers, 
+resulting in a list of headers ordered from most specific to most general. 
+NOTE This algorithm works for languages with different intrinsic directionality of the script (such as 
+right-to-left) because the structure always reflects the logical content order of the table. 
+14.8.4.8.4Caption structure type 
+ 
+Caption
+The standard structure type , defined in "

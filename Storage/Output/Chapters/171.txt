@@ -1,0 +1,95 @@
+Table 168: Entries in a border style dictionary" summarises 
+the contents of the border style dictionary. If neither thenor theentry is present, the border 
+shall be drawn as a solid line with a width of 1 point. 
+© ISO 2017 – All rights reserved 460 
+
+ISO/DIS 32000-2
+ 
+Table 168: Entries in a border style dictionary 
+Key Type Value 
+(Optional) 
+Type 
+Border
+  
+name The type of PDF object that this dictionary describes; if present, shall 
+befor a border style dictionary. 
+(Optional) 
+W 
+number The border width in points. If this value is 0, no border shall drawn. 
+Default value: 1. 
+(Optional) 
+S 
+S 
+name The border style: 
+D 
+(Solid) A solid rectangle surrounding the annotation. Default value. 
+D
+(Dashed) A dashed rectangle surrounding the annotation. The dash pattern 
+B 
+may be specified by the  entry. 
+(Beveled) A simulated embossed rectangle that appears to be raised above 
+I 
+the surface of the page. 
+(Inset) A simulated engraved rectangle that appears to be recessed below 
+U 
+the surface of the page. 
+(Underline) A single line along the bottom of the annotation rectangle. 
+S
+An interactive PDF processor shall tolerate other border styles that it does not 
+recognise and shall use the default value (which is ). 
+(Optional) dash array 
+D 
+DS
+array A defining a pattern of dashes and gaps that shall be used in 
+drawing a dashed border (border style  in the  entry). The dash array shall be 
+specified in the same format as in the line dash pattern parameter of the graphics 
+8.4.3.6, "Line dash pattern"). The dash phase shall not be specified and 
+state (see 
+shall be assumed to be 0. 
+D
+EXAMPLE A  entry of [3 2] specifies a border drawn with 3-point dashes 
+alternating with 2-point gaps. 
+Default value: [3]. 
+ 
+ BE 
+Beginning with PDF 1.5, some annotations (square, circle, and polygon) may have aentry, which is a 
+ BE 
+border effect dictionary that specifies an effect that shall be applied to the border of the annotations. 
+Beginning with PDF 1.6, free text annotations may also have aentry "Table 169: Entries in a border 
+effect dictionary" that describes the entries in a border effect dictionary. 
+Table 169: Entries in a border effect dictionary 
+Key Type Value 
+(Optional) 
+S 
+C  
+name A name representing the border effect to apply. Possible values are: 
+The border should appear "cloudy"; that is, the border should be drawn as a 
+ BS 
+series of convex curved line segments in a manner that simulates the 
+S
+appearance of a cloud. The width and dash array specified byshall be 
+S 
+ BS 
+honoured. Default value: . 
+No effect: the border shall be as described by the annotation dictionary’s
+entry. 
+(Optional; valid only if the value of  is C) 
+I S
+number A number describing the intensity of the 
+effect, in the range 0 to 2. Default value: 0. 
+ 
+© ISO 2017 – All rights reserved 461 
+
+ISO/DIS 32000-2
+ 
+12.5.5Appearance streams 
+ 
+Beginning with PDF 1.2, an annotation may specify one or more appearance streams as an alternative to 
+the simple border and colour characteristics available in earlier versions. Appearance streams enable 
+the annotation to be presented visually in different ways to reflect its interactions with the user. Each 
+appearance stream is a form XObject (see 8.10, "Form XObjects"): a self-contained content stream that 
+shall be rendered inside the annotation rectangle. 
+Matrix
+The algorithm outlined in this subclause shall be used to map from the coordinate system of the 
+appearance XObject (as defined by its  entry; see "Table 95: Entries in a reference dictionary") to 
+the annotation’s rectangle in default user space: 

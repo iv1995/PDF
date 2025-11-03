@@ -1,0 +1,9 @@
+function 
+special type of object that represents parameterised classes, including mathematical formulas and 
+sampled representations with arbitrary resolution 
+4.29 
+ 
+glyph 
+recognizable abstract graphic symbol that is independent of any specific design [ISO/IEC 9541-1] 
+4.30 
+ 

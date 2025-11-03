@@ -1,0 +1,52 @@
+Table 129: Additional entries specific to a Type 6 halftone dictionary 
+Key Type Value 
+Optional
+Type 
+Halftone
+name () The type of PDF object that this dictionary describes; if present, shall be 
+ for a halftone dictionary. 
+Required
+HalftoneType 
+integer () A code identifying the halftone type that this dictionary describes; shall be 
+6 for this type of halftone. 
+Optional
+HalftoneName 
+byte string () The name of the halftone dictionary. 
+Required
+Width 
+integer () The width of the threshold array, in device pixels. 
+Required
+Height 
+integer () The height of the threshold array, in device pixels. 
+Optional
+TransferFunction 
+Identity
+function or () A transfer function, which overrides the current transfer function in the 
+name graphics state for the same component. The name  may be used to specify the 
+NOTE PDF versions to 1.7 required that this entry be present if the dictionary is a 
+identity function (see 10.5, "Transfer functions").  
+component of a Type 5 halftone (see 10.6.5.6, "Type 5 halftones") and 
+represents either a non-primary or non-standard primary colour component. 
+ 
+10.6.5.4Type 10 halftones 
+ 
+Type 6 halftones specify a threshold array with a zero screen angle; they make no provision for other 
+© ISO 2017 – All rights reserved 367 
+
+ISO/DIS 32000-2
+ 
+angles. The Type 10 halftone removes this restriction and allows the use of threshold arrays for 
+halftones with non-zero screen angles as well. 
+Halftone cells at non-zero angles can be difficult to specify because they may not line up well with scan 
+lines and because it may be difficult to determine where a given sampled point goes. The Type 10 
+halftone addresses these difficulties by dividing the halftone cell into a pair of squares that line up at 
+zero angles with the output device’s pixel grid. The squares contain the same information as the original 
+cell but are much easier to store and manipulate. In addition, they can be mapped easily into the 
+internal representation used for all rendering. 
+NOTE 1 "Figure 65: Halftone cell with a non-zero angle" shows a halftone cell with a frequency of 38.4 
+cells per inch and an angle of 50.2 degrees, represented graphically in device space at a resolution 
+of 300 dots per inch. Each asterisk in the figure represents a location in device space that is 
+mapped to a specific location in the threshold array. ![Figure 65 Halftone cell with a non-zero angle  .png](./Storage/Output/Images/Figure 65 Halftone cell with a non-zero angle  .png)
+Figure 65: Halftone cell with a non-zero angle 
+ 
+NOTE 2 "

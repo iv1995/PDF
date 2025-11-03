@@ -1,0 +1,10 @@
+FDF file 
+File conforming to the Forms Data Format containing form data or annotations that may be imported 
+into a PDF file (see 12.7.8, "Forms data format") 
+4.25 
+ 
+filter 
+optional part of the specification of a stream object, indicating how the data in the stream should be 
+decoded before it is used 
+4.26 
+ 

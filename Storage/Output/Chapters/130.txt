@@ -1,0 +1,231 @@
+Figure 61: Operation of the TJ operator in horizontal writing 
+ 
+A string operand of a text-showing operator shall be interpreted as a sequence of character codes 
+identifying the glyphs to be painted. 
+With a simple font, each byte of the string shall be treated as a separate character code. The character 
+code shall then be looked up in the font’s encoding to select the glyph, as described in 9.6.5, "Character 
+encoding". 
+PDF 1.2
+With a composite font (), multiple-byte codes may be used to select glyphs. In this instance, one 
+CMap
+or more consecutive bytes of the string shall be treated as a single character code. The code lengths and 
+the mappings from codes to glyphs are defined in a data structure called a , described in 9.7, 
+"Composite fonts". 
+The strings shall conform to the syntax for string objects. When a string is written by enclosing the data 
+in parentheses, bytes whose values are equal to those of the ASCII characters LEFT PARENTHESIS 
+(28h), RIGHT PARENTHESIS (29h), and REVERSE SOLIDUS (5Ch) (backslash) shall be preceded by a 
+REVERSE SOLIDUS) character. All other byte values between 0 and 255 may be used in a string object. 
+These rules apply to each individual byte in a string object, whether the string is interpreted by the text-
+showing operators as single-byte or multiple-byte character codes. 
+Strings presented to the text-showing operators may be of any length — even an empty string or a 
+single character code per string — and may be placed on the page in any order. The grouping of glyphs 
+Tj
+into strings has no significance for the display of text. Showing multiple glyphs with one invocation of a 
+text-showing operator such as  shall produce the same results as showing them with a separate 
+invocation for each glyph. 
+NOTE 1 Use of longer text strings is generally more efficient. 
+© ISO 2017 – All rights reserved 303 
+
+ISO/DIS 32000-2
+ 
+NOTE 2 In some cases, the text that is extracted can vary depending on the grouping of glyphs into strings. 
+See, for example, 14.8.2.5.3, "Reverse-order show strings". 
+NOTE 3 Empty strings are valid. 
+9.4.4Text space details 
+ 
+T
+TTT
+As stated in 9.4.2, "Text-positioning operators", text shall be shown in text space, defined by the 
+fs
+mhrise
+combination of the text matrix, 
+, and the text state parameters , , and  . This determines how 
+text coordinates are transformed into user space. Both the glyph’s shape and its displacement 
+(horizontal or vertical) shall be interpreted in text space. 
+NOTE 1 Glyphs are actually defined in glyph space, whose definition varies according to the font type as 
+discussed in 9.2.4, "Glyph positioning and metrics". Glyph coordinates are first transformed from 
+glyph space to text space before being subjected to the transformations described in Note 2. 
+NOTE 2 Conceptually, the entire transformation from text space to device space can be represented by a 
+rm
+ : 
+text rendering matrix, T
+𝑓𝑓𝑓𝑓ℎ
+𝑇𝑇×𝑇𝑇00
+𝑓𝑓𝑓𝑓
+𝑟𝑟𝑚𝑚𝑚𝑚
+0𝑇𝑇
+0
+�×𝑇𝑇
+𝑇𝑇=�×𝐶𝐶𝑇𝑇𝑀𝑀 
+T
+𝑟𝑟𝑚𝑚𝑓𝑓𝑒𝑒
+0𝑇𝑇
+1
+rm
+ is a temporary matrix; conceptually, it is recomputed before each glyph is painted during a text-
+showing operation. 
+x
+t
+After the glyph is painted, the text matrix shall be updated according to the glyph displacement and any 
+t
+spacing parameters that apply. First, a combined displacement shall be computed, denoted by 
+ in 
+y
+horizontal writing mode or 
+ in vertical writing mode (the variable corresponding to the other writing 
+mode shall be set to 0): 
+𝑗𝑗
+𝑇𝑇
+𝑥𝑥𝑓𝑓𝑓𝑓𝑐𝑐𝑤𝑤ℎ
+𝑡𝑡
+=��𝑤𝑤0−�×𝑇𝑇+𝑇𝑇+𝑇𝑇�×𝑇𝑇 
+1000
+𝑗𝑗
+𝑇𝑇
+𝑦𝑦𝑓𝑓𝑓𝑓𝑐𝑐𝑤𝑤
+𝑡𝑡
+=�𝑤𝑤1−�×𝑇𝑇+𝑇𝑇+𝑇𝑇 
+1000
+where 
+w0w1
+T
+ 
+TJ
+ and  denote the glyph’s horizontal and vertical displacements 
+j
+denotes a number in a  array, if any, which specifies a position adjustment 
+T
+fs
+h
+ and T denote the current text font size and horizontal scaling parameters in the graphics state 
+T
+T
+cw
+ and  denote the current character-and word-spacing parameters in the graphics state, if 
+applicable 
+The text matrix then shall be updated as follows: 
+100
+𝑚𝑚𝑚𝑚
+010
+�×𝑇𝑇
+=� 
+𝑇𝑇
+𝑥𝑥𝑦𝑦
+𝑡𝑡1
+𝑡𝑡
+ 
+© ISO 2017 – All rights reserved 304 
+
+ISO/DIS 32000-2
+ 
+9.5Introduction to font data structures 
+ 
+A font shall be represented in PDF as a dictionary specifying the type of font, its PostScript language 
+name, its encoding, and information that can be used to provide a substitute when the font program is 
+not available. Optionally, the font program (more commonly known as font files) may be embedded as a 
+stream object in the PDF file. 
+NOTE 1 See 9.2, "Organization and use of fonts" for more introductory information. 
+SubtypeSubtype
+"Table 108: Font types" lists the types of fonts that are supported in ISO 32000 along with the value that 
+shall be used for the  key in the font dictionary that represents the font. No values for  
+other than those listed in the table are valid. Type 0 fonts are called composite fonts; other types of 
+fonts are called simple fonts. In addition to fonts, PDF supports two classes of font-related objects, 
+called CIDFonts and CMaps, described in 9.7.2, "CID-Keyed fonts overview". CIDFonts are listed in 
+"Table 108: Font types" because, like fonts, they are collections of glyphs; however, a CIDFont shall not 
+be used directly but only as a component of a Type 0 font. 
+Table 108: Font types 
+Type Subtype Value Description 
+Type0  PDF 1.2
+Type 0  
+() A composite font — a font composed of glyphs from a 
+descendant CIDFont (see 9.7, "Composite fonts") 
+Type1 
+Type 1 
+A font that defines glyph shapes using Type 1 font technology 
+(see 9.6.2, "Type 1 fonts"). 
+MMType1 
+A multiple master font — an extension of the Type 1 font that 
+allows the generation of a wide variety of typeface styles from a 
+single font (see 9.6.2.3, "Multiple master fonts") 
+Type3 
+Type 3 
+A font that defines glyphs with streams of PDF graphics 
+operators (see 9.6.4, "Type 3 fonts") 
+TrueType  
+TrueType 
+A font based on the TrueType font format (see 9.6.3, "TrueType 
+fonts") and with glyph descriptions based on TrueType glyph 
+technology. 
+CIDFontType0 PDF 1.2
+CIDFont 
+() A CIDFont whose glyph descriptions are based on CFF 
+font technology (see 9.7.4, "CIDFonts") 
+CIDFontType2 PDF 1.2
+() A CIDFont whose glyph descriptions are based on 
+TrueType glyph technology (see 9.7.4, "CIDFonts") 
+ 
+NOTE 2 Embedding of OpenType font programs (files) in PDF is described in "Table 124: Embedded font 
+organization for various font types" when the value of thekey is . The font 
+ FontFile3 
+dictionary that refers to it can have a  of , , , or 
+Subtype
+OpenType
+, depending upon the glyph technology used in the OpenType font and other details 
+TrueTypeType1CIDFontType0
+provided in that table. 
+CIDFontType2
+For all font types, the term font dictionary refers to a PDF dictionary containing information about the 
+font; likewise, a CIDFont dictionary contains information about a CIDFont. Except for Type 3, this 
+dictionary is distinct from the font program that defines the font’s glyphs. That font program may be 
+embedded in the PDF file as a stream object or be obtained from some external source. 
+© ISO 2017 – All rights reserved 305 
+
+ISO/DIS 32000-2
+ 
+NOTE 3 This terminology differs from that used in the PostScript language. In PostScript, a font dictionary 
+is a PostScript data structure that is created as a direct result of interpreting a font program. In 
+PDF, a font program is always treated as if it were a separate file, even when its content is 
+embedded in the PDF file. The font program is interpreted by a specialised font interpreter when 
+necessary; its contents never materialize as PDF objects. 
+NOTE 4 Most font programs (and related programs, such as CIDFonts and CMaps) conform to external 
+specifications, such as the Adobe Type 1FontFormat. This part of ISO 32000 does not include 
+  
+those specifications. See 2, "Normative references" for more information about the specifications 
+mentioned in this clause. 
+NOTE 5 The most predictable and dependable results are produced when all font programs used to show 
+text are embedded in the PDF file. See 9.9, "Embedded font programs" for the precise description 
+of how to do so. If a PDF file refers to font programs that are not embedded, the results depend on 
+the availability of fonts in the PDF processor’s environment. See 9.8, "Font descriptors" for some 
+conventions for referring to external font programs. However, some details of font naming, font 
+substitution, and glyph selection are implementation-dependent and can vary among different 
+PDF processors and operating system environments. 
+9.6Simple fonts 
+ 
+9.6.1General 
+ 
+There are several types of simple fonts, all of which have these properties: 
+Glyphs in the font shall be selected by single-byte character codes obtained from a string that is shown 
+by the text-showing operators (see 9.4.3, "Text-showing operators"). Logically, these codes index into a 
+table of 256 glyphs; the mapping from codes to glyphs is called the font’s encoding. Under some 
+circumstances, the encoding may be altered by means described in 9.6.5, "Character encoding". 
+Each glyph shall have a single set of metrics, including a horizontal displacement or width, as described 
+in 9.2.4, "Glyph positioning and metrics"; that is, simple fonts support only horizontal writing mode. 
+Except for Type 0 fonts, Type 3 fonts in non-tagged PDF documents, and certain standard Type 1 fonts, 
+every font dictionary shall contain a subsidiary dictionary, the font descriptor, containing font-wide 
+metrics and other attributes of the font; see 9.8, "Font descriptors". Among those attributes is an 
+optional, but strongly recommended, font file stream containing the font program. 
+9.6.2Type 1 fonts 
+ 
+9.6.2.1General 
+ 
+A Type 1 font program is a stylised PostScript language program that describes glyph shapes. It uses a 
+compact encoding for the glyph descriptions, and it includes hint information that enables high-quality 
+rendering even at small sizes and low resolutions. 
+NOTE 1 Details on this format are provided in a separate specification, . An 
+alternative, more compact but functionally equivalent representation of a Type 1 font program is 
+Adobe Type 1 Font Format
+documented in . 
+NOTE 2 Although a Type 1 font program uses PostScript language syntax, using it does not require a full 
+Adobe Technical Note #5176, The Compact Font Format Specification
+PostScript language compatible interpreter; a specialised Type 1 font interpreter suffices. 
+A Type 1 font dictionary may contain the entries listed in "

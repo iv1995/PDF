@@ -1,0 +1,95 @@
+Table 213: 
+Additional entries specific to a movie action". The contents of the activation dictionary associated with 
+the movie annotation provide the default values. Any information specified in the movie action 
+dictionary overrides these values. 
+© ISO 2017 – All rights reserved 505 
+
+ISO/DIS 32000-2
+ 
+Table 213: Additional entries specific to a movie action 
+Key Type Value 
+(Required) Movie
+S   
+name The type of action that this dictionary describes; shall befor a 
+movie action. 
+(Optional) 
+Annotation 
+dictionary An indirect reference to a movie annotation identifying the movie 
+that shall be played. The dictionary shall include either an Annotation or a T 
+entry but not both. 
+(Optional) 
+T 
+text string The title of a movie annotation identifying the movie that shall be 
+ Annotation T
+ 
+played. 
+The dictionary shall include either anor a  entry but not both.
+(Optional) 
+Operation 
+Play
+name The operation that shall be performed on the movie: 
+Mode
+ Start playing the movie, using the play mode specified by the 
+dictionary’s  entry (see "Table 307: Entries in a movie 
+activation dictionary"). If the movie is currently paused, it shall 
+Start
+be repositioned to the beginning before playing (or to the 
+starting point specified by the dictionary’s  entry, if 
+Stop 
+present). 
+Pause 
+Stop playing the movie.  
+Resume 
+Pause a playing movie.  
+Play.
+Resume a paused movie.  
+Default value:  
+ 
+12.6.4.11Hide actions 
+ 
+hide actionPDF 1.2
+A  () hides or shows one or more annotations on the screen by setting or clearing 
+their Hidden flags (see 12.5.3, "Annotation flags"). This type of action can be used in combination with 
+appearance streams and trigger events (see 12.5.5, "Appearance streams" and 12.6.3, "Trigger events") 
+to display popup help information on the screen. 
+NOTE The  (enter) and  (exit) trigger events in an annotation’s additional-actions dictionary can be 
+EX
+used to show and hide the annotation when the user rolls the cursor in and out of its active area 
+on the page. This can be used to pop up a help label, or tool tip, describing the effect of clicking at 
+that location on the page. 
+"Table 214: Additional entries specific to a hide action" shows the action dictionary entries specific to 
+this type of action. 
+Table 214: Additional entries specific to a hide action 
+Key Type Value 
+(Required) Hide
+S 
+name The type of action that this dictionary describes; shall be  for a 
+hide action. 
+© ISO 2017 – All rights reserved 506 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Required) 
+T 
+dictionary, text The annotation or annotations to be hidden or shown, shall be 
+• 
+string, or array specified in any of the following forms: 
+• 
+An indirect reference to an annotation dictionary 
+A text string giving the fully qualified field name of an interactive form 
+field whose associated widget annotation or annotations are to be affected 
+• 
+(see 12.7.4.2, "Field names") 
+An array of such dictionaries or text strings
+ 
+(Optional) true
+H 
+falsetrue
+boolean A flag indicating whether to hide the annotation () or show it 
+(). Default value: . 
+ 
+12.6.4.12Named actions 
+ 
+named actionsPDF 1.2
+"

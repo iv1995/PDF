@@ -1,0 +1,40 @@
+Figure 66: Angled halftone cell divided into two squares" shows how the halftone cell can be 
+divided into two squares. If the squares and the original cell are tiled across device space, the area 
+to the right of the upper square maps exactly into the empty area of the lower square, and vice 
+versa (see "Figure 67: Halftone cell and two squares tiled across device space"). The last row in the 
+first square is immediately adjacent to the first row in the second square and starts in the same 
+column. ![Figure 66 Angled halftone cell divided into two squares  .png](./Storage/Output/Images/Figure 66 Angled halftone cell divided into two squares  .png)
+Figure 66: Angled halftone cell divided into two squares 
+ 
+© ISO 2017 – All rights reserved 368 
+
+ISO/DIS 32000-2
+ ![Figure 67 Halftone cell and two squares tiled across device space  .png](./Storage/Output/Images/Figure 67 Halftone cell and two squares tiled across device space  .png)
+Figure 67: Halftone cell and two squares tiled across device space 
+ 
+NOTE 3 Any halftone cell can be divided in this way. The side of the upper square (X) is equal to the 
+horizontal displacement from a point in one halftone cell to the corresponding point in the 
+adjacent cell, such as those marked by asterisks in "Figure 67: Halftone cell and two squares tiled 
+". The side of the lower square (Y) is the vertical displacement between the 
+across device space
+same two points. The frequency of a halftone screen constructed from squares with sides X and Y is 
+thus given by 
+resolution
+22
+frequency= 
+ and the angle by 
+𝑋𝑋
++𝑌𝑌
+√
+𝑌𝑌
+angle=𝐷𝐷𝑡𝑡𝐷𝐷𝑛𝑛�� 
+𝑋𝑋
+ 
+Like a type 6 halftone, a type 10 halftone shall be represented as a stream containing the threshold 
+values, with the parameters defining the halftone specified by entries in the stream dictionary. This 
+dictionary may contain the entries shown in "Table 130: Additional entries specific to a Type 10 
+XsquareYsquare
+halftone dictionary" in addition to the usual entries common to all streams (see "Table 5: Entries 
+WidthHeight
+common to all stream dictionaries"). The  and  entries replace the Type 6 halftone’s 
+ and  entries. 

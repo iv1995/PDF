@@ -1,0 +1,40 @@
+Figure 51: Glyphs painted in 50% gray". 
+BT 
+  /F13 48 Tf 
+  20 40 Td 
+  0 Tr 
+  0.5 g 
+  (ABC) Tj 
+ET ![Figure 51 Glyphs painted in 50% gray  .png](./Storage/Output/Images/Figure 51 Glyphs painted in 50% gray  .png)
+Figure 51: Glyphs painted in 50% gray 
+ 
+Other graphical effects may be achieved by treating the glyph outline as a path instead of filling it. The 
+text rendering mode parameter in the graphics state specifies whether glyph outlines shall be filled, 
+stroked, used as a clipping boundary, or some combination of these effects. Only a subset of the possible 
+rendering modes applies to Type 3 fonts. 
+Tr
+w
+EXAMPLE 2 This example treats glyph outlines as a path to be stroked. The  operator sets the text rendering mode to 1 
+Tj
+(stroke). The  operator sets the line width to 2 units in user space. Given those graphics state parameters, 
+the  operator strokes the glyph outlines with a line 2 units thick (see "Figure 52: Glyph outlines treated as a 
+stroked path"). 
+BT 
+  /F13 48 Tf 
+  20 38 Td 
+© ISO 2017 – All rights reserved 290 
+
+ISO/DIS 32000-2
+ 
+  1 Tr 
+  2 w 
+  (ABC) Tj 
+ET ![Figure 52 Glyph outlines treated as a stroked path  .png](./Storage/Output/Images/Figure 52 Glyph outlines treated as a stroked path  .png)
+Figure 52: Glyph outlines treated as a stroked path 
+ 
+Tr
+Tj
+EXAMPLE 3 This example illustrates how the glyphs’ outlines can be used as a clipping boundary. The  operator sets the 
+text rendering mode to 7 (clip), causing the subsequent  operator to impose the glyph outlines as the current 
+Q
+clipping path. All subsequent painting operations mark the page only within this path, as illustrated in "

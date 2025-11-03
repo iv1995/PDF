@@ -1,0 +1,680 @@
+Table 384: Standard table attributes", may only be defined in 
+Layout, List, PrintFieldArtifact
+attribute objects whose  (owner) entry has the value  or whose owner is any other owner 
+excluding  and . 
+Table 384: Standard table attributes 
+Key Type Value 
+(Optional; not inheritable)
+RowSpan 
+integer  The number of rows in the enclosing table that shall be spanned 
+by the cell.  
+WritingMode
+The cell shall expand by adding rows in the block-progression direction specified by the 
+table’s  attribute.  
+THTD
+Default value: 1. 
+This entry shall only have an effect for structure elements of type of  or . 
+(Optional; not inheritable)
+ColSpan 
+integer  The number of columns in the enclosing table that shall be 
+spanned by the cell.  
+WritingMode
+The cell shall expand by adding columns in the inline-progression direction specified by the 
+table’s  attribute.  
+THTD.
+Default value: 1. 
+This entry shall only have an effect for structure elements of type of  or  
+(Optional; not inheritable)
+Headers 
+IDTH
+array  An array of byte strings, where each string shall be the element 
+identifier (see the  entry in "Table 355: Entries in a structure element dictionary") for a  
+THTD
+structure element that shall be used as a header associated with this cell. 
+HeadersID
+This entry shall only have an effect for structure elements of type of  or . 
+IDID
+The order in which the entries in the  array are listed shall be row s followed by 
+IDHeaders
+column s. The row and column s shall be ordered from most specific to most general. 
+If the scope for any cells with an  listed in the  attribute of a cell cannot be 
+Scope
+determined by the default algorithm defined in 14.8.4.8.3, "Table structure types", those 
+header cells shall specify a  so that the header can be determined to be either a row 
+THTD
+header, a column header or both. 
+Headers
+This attribute may apply to header cells () as well as data cells (). Therefore, the 
+HeadersTH
+headers associated with any cell shall be those in its  array plus those in the 
+ array of any  cells in that array, and so on recursively. 
+© ISO 2017 – All rights reserved 761 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; not inheritable; PDF 1.5)Row, 
+Scope 
+B
+Column
+name  A name whose value shall be one of the following: 
+TH
+, or oth.  
+ScopeTHScope
+This entry shall only have an effect for structure elements of type of . 
+WritingMode
+If a  is not specified for a  structure element, then the assumed value for the  
+Both
+Scope
+• 
+shall be determined as follows, taking into account the current value for : 
+Column
+Scope
+• 
+if it is in the first row and column, the  is assumed to be ; 
+Row
+Scope
+• 
+otherwise, if it is in the first row, the  is assumed to be . 
+Both
+Scope
+• 
+otherwise, if it is in the first column, the  is assumed to be . 
+otherwise, the  is assumed to be . 
+These assumptions are used by the algorithm following "Table 371: Table standard structure 
+types" for determining which headers are associated with a cell. 
+(Optional; not inheritable; PDF 2.0)
+Short TH
+text  Contains a short form of the content of a  structure 
+TH
+string element’s content. 
+This entry shall only have an effect for structure elements of type of . 
+EXAMPLE When accessed by means of a screen reader, for each table 
+cell the applicable header cells are read to the user in order to allow that 
+TH
+user to understand the content of the table cell. It can become cumbersome 
+TH
+for a user to repeatedly have to listen to the full contents of a  structure 
+element. An option to have the short form of the content of the  structure 
+element read out aloud is sometimes preferred. 
+ 
+14.8.5.8Artifact attributes 
+ 
+Artifact
+O
+The artifact attributes described in "Table 385: Standard artifact attributes" may only be defined in 
+Layout, List, PrintFieldTable
+attribute objects whose  (owner) entry has the value  or whose owner is any other owner 
+excluding  and . 
+Table 385: Standard artifact attributes 
+Key Type Value 
+(Optional)
+Type 
+PaginationLayoutPageInline (PDF 2.0)
+Name  The type of artifact that this attribute describes; if present, shall be one 
+Pagination
+• 
+of the names , ,  or . 
+ artifacts are ancillary page features such as running heads or 
+Layout
+• 
+folios (page numbers) 
+ artifacts are purely cosmetic typographical or design elements such as 
+Page
+• 
+footnote rules or decorative ornaments 
+ artifacts are production aids extraneous to the document itself, such as 
+Inline
+• 
+cut marks and print control patches 
+LineNumRedaction
+ artifacts enclose artifact content that has context in the document’s 
+NOTE Inline artifacts can be used to provide context in the logical structure to 
+logical structure, typically, artifacts of subtype  or  
+any artifact. This is similar to an inline structure element. 
+© ISO 2017 – All rights reserved 762 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional)
+BBox 
+rectangle  An array of four numbers in default user space units giving the 
+coordinates of the left, bottom, right, and top edges, respectively, of the artifact’s 
+bounding box (the rectangle that completely encloses its visible extent). 
+(Optional; PDF 1.7)
+Subtype 
+Pagination  InlineHeader, Footer, 
+Type
+Name  The subtype of the artifact. This entry should appear only when 
+Watermark, PageNum(PDF 2.0), Bates(PDF 2.0), LineNum (PDF 2.0)  Redaction 
+the  entry has a value of or. Valid values are 
+(PDF 2.0)
+  and
+. Additional values may be specified for this entry, provided they comply 
+with the naming conventions described in Annex E, "PDF Name Registry". 
+ 
+14.8.6Standard structure namespaces 
+ 
+14.8.6.1Namespaces for standard structure types and attributes 
+ 
+The namespace mechanism defined as part of logical structure (see 14.7.4, "Namespaces") in PDF 2.0 
+defines a more robust means of interchanging tagsets than was previously possible. The standard 
+structure types and attributes defined within the previous clauses (see 14.8.4, "Standard structure 
+standard structure namespace for PDF 2.0
+types" and 14.8.5, "Standard structure attributes") effectively define a schema for a tagset in PDF. This 
+schema is called the , which shall be defined by the namespace 
+name: 
+ "http://iso.org/pdf2/ssn" 
+ISO 32000-1:2008, Clause 14.8, "Tagged PDF" describes the schema for the standard structure types 
+standard structure namespacefor PDF 1.7, 
+and attributes that were defined prior to PDF 2.0 and the rules for processing documents tagged using 
+them. This schema shall be known as the  and shall be defined 
+by the namespace name: 
+ "http://iso.org/pdf/ssn" 
+default standard structure namespace
+To facilitate conversion of documents created against versions of the PDF standard earlier than PDF 2.0, 
+the  shall be "http://iso.org/pdf/ssn". When a namespace is not 
+explicitly specified for a given structure element or attribute, it shall be assumed to be within this 
+default standard structure namespace. 
+standard structure namespaces
+The term  refers to either of the two namespaces defined above. 
+14.8.6.2Role maps and namespaces 
+ 
+Role maps prior to the introduction of namespaces identify a given structure element and map it to 
+another structure element. This can be applied transitively to allow a structure element to be mapped 
+through multiple steps to a final structure element. Tagged PDF requires that all structure elements be 
+role mapped to a standard structure type except where explicitly stated in this subclause.  
+The introduction of namespaces adds complexity here, since there may be multiple structure element 
+dictionaries specifying the same structure type name (see "Table 355: Entries in a structure element 
+dictionary"), but from a different namespace, which require different mappings. To enable support for 
+this, a namespace dictionary (see 14.7.4.2, "Namespace dictionary") can define a role map specific to it. 
+© ISO 2017 – All rights reserved 763 
+
+ISO/DIS 32000-2
+ 
+NSRoleMap
+When processing a structure element dictionary within a tagged PDF document, if the structure element 
+  
+does not explicitly identify its namespace using an  entry, it should use the  entry in the 
+Structure TreeRootdictionary (see "Table 354: Entries in the structure tree root") to determine its role 
+NamespacesRoleMapNS
+mapping, if any. If the structure element is in an explicit namespace, then that namespace shall be 
+identified in the structure tree root dictionary’s  array entry and the  entry 
+within that namespace dictionary shall provide the role mapping, if any. 
+A tagged PDF shall have, for all namespaces used within it, role maps (see 14.8.6.1, "General"), directly 
+or transitively mapping to one of the standard structure namespaces, with the exception of the 
+namespaces identified in 14.8.6.3, "Other namespaces", which may provide a role map, but are not 
+required to do so. 
+14.8.6.3Other namespaces 
+ 
+The standard structure types (see 14.8.4, "Standard structure types") address many of the structural 
+elements that commonly exist within general documents. However, the ILSEs defined do not provide 
+sufficient structure to support domain specific languages. An example of such a language is 
+mathematics, which is common to many classes of documents. This subclause identifies any domain 
+RoleMapNS
+specific languages that are common within broad ranges of documents types. Namespaces identified in 
+this subclause do not require a  entry in their respective namespace dictionary. 
+NS
+MathML 3.0 defines a domain specific schema for representing mathematics. The namespace name (see 
+14.7.4.2, "Namespace dictionary"), as would be identified by the  entry in a namespace dictionary, 
+shall have the value: 
+ http://www.w3.org/1998/Math/MathML
+ 
+NOTE 1 MathML is the only domain-specific namespace defined in PDF 2.0. 
+math
+When including mathematics structured as MathML, the  structure element type shall be used and 
+shall have its namespace explicitly defined (see 14.7.4.2, "Namespace dictionary"). 
+NOTE 2 The  structure element type is all lowercase to match the MathML 3.0 specification. 
+math
+Any other namespaces can be specified within a PDF document, but shall meet the requirements of role 
+mapping described in 14.8.6.2, "Role maps and namespaces". 
+14.9Repurposing and accessibility support 
+ 
+14.9.1General 
+ 
+PDF includes several facilities in support of accessibility of documents to users with disabilities. In 
+particular, many computer users with visual impairments use screen readers to read documents aloud. 
+To enable proper vocalisation, either through a screen reader or by some more direct invocation of a 
+text-to-speech engine, PDF supports the following features: 
+• 
+Specifying the natural language used for text in a PDF document — for example, as English or 
+• 
+Spanish (see 14.9.2, "Natural language specification") 
+Providing textual descriptions for images or other items that do not translate naturally into text 
+(14.9.3, "Alternate descriptions"), or replacement text for content that does translate into text but 
+is represented in a nonstandard way (such as with a ligature or illuminated character; see 14.9.4, 
+© ISO 2017 – All rights reserved 764 
+
+ISO/DIS 32000-2
+ 
+• 
+"Replacement text") 
+Specifying the expansion of abbreviations or acronyms (14.9.5, "Expansion of abbreviations and 
+• 
+acronyms") 
+14.9.2Natural language specification 
+ 
+Specifying pronunciation (14.9.6, "Pronunciation hints") 
+14.9.2.1General 
+ 
+Natural language may be specified for content in a document. 
+PDF 1.4
+Lang
+The natural language used for content in a document shall be determined in a hierarchical fashion, 
+based on whether an optional  entry () is present in any of several possible locations. At the 
+Lang
+highest level, the document’s default language (which applies to both text strings and text within 
+content streams) may be specified by a  entry in the document catalog dictionary (see 7.7.2, 
+"Document catalog dictionary"). This applies to both content within content streams and any text 
+strings, including text strings not included in the structure hierarchy such as, for example, entries in 
+metadata, outline entries and names for optional content groups. Below this, the language may be 
+specified for the following items: 
+Lang
+• 
+Lang
+Structure elements of any type (see 14.7.2, "Structure hierarchy"), through a  entry in the 
+structure element dictionary. The language specified by a  entry shall apply to any content 
+ActualTextAltE
+within content streams enclosed or referenced by the respective structure elements, to any 
+• 
+, , or  properties of the respective structure elements. 
+LangSpan
+Marked-content sequences that are not in the structure hierarchy (see 14.6, "Marked content"), 
+NOTE 1 Although  is also a standard structure type, as described under 14.8.4.7, "Inline level 
+Span
+through a  entry in a property list attached to the marked-content sequence with a  tag. 
+structure types", a marked-content sequence whose tag is  is entirely independent of logical 
+Span
+structure. 
+• 
+ Lang 
+Text strings encoded in Unicode may include an escape sequence using a language tag indicating 
+the language of the text and overriding the prevailingentry (see  7.9.2.2.1 "Text string 
+NOTE 2 The natural language used for optional content allows content to be hidden or revealed based on 
+language escape sequences"). 
+the  entry () in the  dictionary of an optional content usage dictionary (see 
+LangLanguage
+"Table 100: Entries in an optional content usage dictionary"). 
+PDF 1.5
+14.9.2.2Language identifiers 
+ 
+Lang
+Certain language-related dictionary entries are text strings that specify language identifiers. Such text 
+• 
+strings may appear as  entries in the following structures or dictionaries: 
+Language
+• 
+Document catalog dictionary, structure element dictionary, or property list. 
+In the optional content usage dictionary’s  dictionary, the hierarchical issues described 
+Lang
+• 
+in 14.9.2.3, "Language specification hierarchy" shall not apply to this entry. 
+Font Descriptors for CIDFonts can have a  key (see "Table 122: Additional font descriptor 
+entries for CIDFonts"). 
+UTF16BE or UTF8 text strings can also have language escape sequences (see 7.9.2.2.1 "Text string 
+language escape sequences"). 
+A language identifier shall either be the empty text string, to indicate that the language is unknown, or a 
+© ISO 2017 – All rights reserved 765 
+
+ISO/DIS 32000-2
+ 
+Language-Tag as defined in BCP 47 (2009), Tags for the Identification of Languages. 
+Although language codes are commonly represented using lowercase letters and country codes are 
+commonly represented using uppercase letters, all language tags shall be treated as case-insensitive. 
+Non-linguistic content should be marked with language code "zxx" (see BCP 47). 
+14.9.2.3Language specification hierarchy 
+ 
+Lang
+The  entry in the document catalog dictionary shall specify the default natural language for all text 
+in the document. Language specifications may appear within structure elements, and they may appear 
+within marked-content sequences that are not in the structure hierarchy. If present, such language 
+specifications override the default. 
+Language specifications within the structure hierarchy apply in this order: 
+Lang
+• 
+A structure element’s language specification. If a structure element does not have a  entry, the 
+• 
+element shall inherit its language from any parent element that has one. 
+Within a structure element, a language specification for a nested structure element or marked-
+content sequence 
+If only part of the page content is contained in the structure hierarchy, and the structured content is 
+nested within nonstructured content for which a different language specification applies, the structure 
+element’s language specification shall take precedence. 
+Span
+A language identifier attached to a marked-content sequence with the  tag specifies the language 
+for all text in the sequence except for nested marked content that is contained in the structure hierarchy 
+(in which case the structure element’s language applies) and except where overridden by language 
+specifications for other nested marked content. 
+NOTE Examples in this subclause illustrate the hierarchical manner in which the language for text in a 
+document is determined. 
+EXAMPLE 1 This example shows how a language specified for the document as a whole could be overridden by one 
+Lang
+specified for a marked-content sequence within a page’s content stream, independent of any logical structure. 
+Span
+In this case, the  entry in the document catalog dictionary (not shown) has the value en-US, meaning U.S. 
+English, and it is overridden by the Lang property attached (with the  tag) to the marked-content 
+sequence “Hasta la vista”. The Lang property identifies the language for this marked content sequence with 
+the value es-MX, meaning Mexican Spanish. 
+2 0 obj           %Page object 
+  <</Type /Page 
+   /Contents 3 0 R     %Content stream 
+   … 
+  >> 
+endobj 
+ 
+3 0 obj           %Page's content stream 
+  <</Length …>> 
+stream 
+  BT 
+   (See you later, or as Arnold would say, ) Tj 
+   /Span <</Lang (es-MX)>>   %Start of marked-content sequence 
+    BDC  
+     ("Hasta la vista.") Tj 
+    EMC        %End of marked-content sequence 
+  ET 
+© ISO 2017 – All rights reserved 766 
+
+ISO/DIS 32000-2
+ 
+endstream 
+endobj 
+Lang
+EXAMPLE 2 In the following example, the  entry in the structure element dictionary (specifying English) applies to 
+the marked-content sequence having an MCID (marked-content identifier) value of 0 within the indicated 
+Span
+page’s content stream. However, nested within that marked-content sequence is another one in which the 
+Lang property attached with the  tag (specifying Spanish) overrides the structure element’s language 
+specification. 
+ This example omits required StructParents entries in the objects used as content items (see 14.7.5.4, "Finding 
+structure elements from content items"). 
+1 0 obj             %Structure element 
+  <</Type /StructElem 
+   /S /P           %Structure type 
+   /P …           %Parent in structure hierarchy 
+   /K <</Type /MCR 
+     /Pg 2 0 R       %Page containing marked-content sequence 
+     /MCID 0        %Marked-content identifier 
+    >> 
+   /Lang (en-US)        %Language specification for this element 
+  >> 
+endobj 
+   
+2 0 obj             %Page object 
+  <</Type /Page 
+   /Contents 3 0 R       %Content stream 
+   … 
+  >> 
+endobj 
+ 
+3 0 obj             %Page's content stream 
+   <</Length …>> 
+stream 
+  BT 
+   /P <</MCID 0 …>>       %Start of marked-content sequence 
+    BDC 
+     (See you later, or in Spanish you would say, ) Tj 
+     /Span  <</Lang (es-MX)>>  %Start of nested marked-content sequence 
+      BDC 
+       (Hasta la vista.) Tj 
+      EMC        %End of nested marked-content sequence 
+    EMC          %End of marked-content sequence 
+  ET 
+endstream 
+endobj 
+SpanLang
+EXAMPLE 3 The page’s content stream consists of a marked-content sequence that specifies Spanish as its language by 
+MCID
+means of the  tag with a  property. Nested within it is content that is part of a structure element 
+(indicated by the  entry in that property list), and the language specification that applies to the latter 
+content is that of the structure element, English. 
+StructParents
+ This example omits required  entries in the objects used as content items (see 14.7.5.4, "Finding 
+structure elements from content items"). 
+1 0 obj             %Structure element 
+  <</Type /StructElem 
+   /S /P           %Structure type 
+   /P …           %Parent in structure hierarchy 
+   /K <</Type /MCR 
+     /Pg 2 0 R       %Page containing marked-content sequence 
+     /MCID 0        %Marked-content identifier 
+    >> 
+   /Lang (en-US)        %Language specification for this element 
+  >> 
+endobj 
+© ISO 2017 – All rights reserved 767 
+
+ISO/DIS 32000-2
+ 
+ 
+2 0 obj             %Page object 
+  <</Type /Page 
+   /Contents 3 0 R       %Content stream 
+   … 
+  >> 
+endobj 
+ 
+3 0 obj             %Page's content stream 
+  <</Length …>> 
+stream 
+  /Span  <</Lang (es-MX)>>     %Start of marked-content sequence 
+   BDC 
+    (Hasta la vista, ) Tj 
+    /P <</MCID 0 …>>     %Start of structured marked-content sequence, 
+    BDC          %to which structure element's language applies 
+     (as Arnold would say.) Tj 
+    EMC          %End of structured marked-content sequence 
+   EMC           %End of marked-content sequence 
+endstream 
+endobj 
+ 
+14.9.2.4Multi-language text arrays 
+ 
+PDF 1.5
+Alt
+A multi-language text array () allows multiple text strings to be specified, each in association 
+with a language identifier (see the  entry in "Table 285: Additional entries in a media clip data 
+dictionary" and "Table 288: Additional entries in a media clip section dictionary"). 
+A multi-language text array shall contain pairs of strings. The first string in each pair shall be a language 
+identifier 14.9.2.2, "Language identifiers"). A language identifier shall not appear more than once in the 
+array; any unrecognised language identifier shall be ignored. An empty string specifies default text that 
+may be used when no suitable language identifier is found in the array. The second string is text 
+associated with the language. 
+EXAMPLE [(en-US) (My vacation) (fr) (mes vacances) () (default text)] 
+When a PDF processor searches a multi-language text array to find text for a given language, it shall 
+look for an exact (though case-insensitive) match between the given language’s identifier and the 
+language identifiers in the array. If no exact match is found, prefix matching shall be attempted in 
+increasing array order: a match shall be declared if the given identifier is a leading, case-insensitive, 
+substring of an identifier in the array, and the first post-substring character in the array identifier is a 
+hyphen. For example, given identifier en matches array identifier en-US, but given identifier en-US 
+matches neither en nor en-GB. If no exact or prefix match can be found, the default text (if any) should 
+be used. 
+14.9.3Alternate descriptions 
+ 
+PDF documents may be enhanced by providing alternate descriptions for images, formulas, or other 
+items that do not translate naturally into text. 
+NOTE 1 Alternate descriptions are human-readable text that could, for example, be vocalised by a text-to-
+speech engine for the benefit of users with visual impairments. 
+An alternate description may be specified for the following items: 
+Alt
+• 
+A structure element (see 14.7.2, "Structure hierarchy"), through an  entry in the structure 
+© ISO 2017 – All rights reserved 768 
+
+ISO/DIS 32000-2
+ 
+PDF 1.5
+Alt
+• 
+element dictionary 
+Span
+() A marked-content sequence (see 14.6, "Marked content"), through an  entry in a 
+• 
+property list attached to the marked-content sequence with a  tag. 
+Contents
+Any type of annotation (see 12.5, "Annotations") that does not already have a text representation, 
+Contents
+through a  entry in the annotation dictionary 
+For annotation types that normally display text, the  entry of the annotation dictionary shall 
+Contents
+be used as the source for an alternate description. For annotation types that do not display text, a 
+ entry may be included to specify an alternate description. 
+An alternative name may be specified for an interactive form field (see 12.7, "Forms") which, if present, 
+ TU 
+shall be used in place of the actual field name when an interactive PDF processor identifies the field in a 
+user-interface. This alternative name, if provided, shall be specified using theentry of the field 
+dictionary. 
+When applied to structure elements, the alternate description text (see 7.9.2.2, "Text string type") is a 
+Alt
+complete (or whole) word or phrase substitution for the current element. If each of two (or more) 
+elements in a sequence have an  entry in their dictionaries, they shall be treated as if a word break is 
+present between them. The same applies to consecutive marked-content sequences. 
+Alt
+The  entry in property lists may be combined with other entries. 
+AltLang
+EXAMPLE This example shows the  entry combined with a  entry. 
+/Span  <</Lang (en-us) /Alt (six-point star)>> BDC (A) Tj EMC 
+ 
+14.9.4Replacement text 
+ 
+Replacement text may be specified for the following items: 
+ActualText
+• 
+PDF 1.4
+A structure element (see 14.7.2, "Structure hierarchy"), by means of the optional  entry 
+PDF 1.5
+ActualText
+• 
+() of the structure element dictionary. 
+Span
+ () A marked-content sequence (see 14.6, "Marked content"), through an  entry 
+NOTE 1 Just as alternate descriptions can be provided for images and other items that do not translate 
+in a property list attached to the marked-content sequence with a  tag. 
+naturally into text (as described in the preceding subclause), replacement text can be specified for 
+content that does translate into text but that is represented in a nonstandard way. These 
+nonstandard representations might include, for example, glyphs for ligatures or custom 
+characters, or inline graphics corresponding to letters in an illuminated manuscript or to dropped 
+capitals. 
+ActualText
+ActualText
+The  value shall be used as a replacement, not a description, for the content, providing text 
+that is equivalent to what a person would see when viewing the content. The value of  is a 
+ActualText
+character substitution for the content enclosed by the structure element or marked-content sequence. If 
+each of two (or more) consecutive structure or marked-content sequences has an  entry, 
+they shall be treated as if no word break is present between them. 
+NOTE 2 The treatment of  as a character replacement is different from the treatment of , 
+ActualTextAlt
+which is treated as a whole word or phrase substitution. 
+EXAMPLE This example shows the use of replacement text to indicate the correct character content in a case where 
+hyphenation changes the spelling of a word (in German, up until spelling reforms, the word "Drucker" when 
+© ISO 2017 – All rights reserved 769 
+
+ISO/DIS 32000-2
+ 
+hyphenated was rendered as "Druk-" and "ker"). 
+(Dru) Tj 
+/Span 
+  <</Actual Text (c)>> 
+  BDC 
+   (k-) Tj 
+  EMC 
+(ker) ' 
+ 
+Like alternate descriptions (and other text strings), replacement text, if encoded in Unicode, may 
+ Lang 
+include an escape sequence for indicating the language of the text. Such a sequence shall override the 
+prevailingentry (see 7.9.2.2, "Text string type"). 
+14.9.5Expansion of abbreviations and acronyms 
+ 
+The expansion of an abbreviation or acronym may be specified for the following items: 
+Marked-content sequences
+E
+• 
+Span
+, through an  property in a property list attached to the marked-content 
+Structure elements
+E
+• 
+sequence with a  tag. 
+, through an  entry in the structure element dictionary. (See "Table 355: 
+NOTE 1 Abbreviations and acronyms can pose a problem for text-to-speech engines. Sometimes the full 
+Entries in a structure element dictionary".) 
+pronunciation for an abbreviation can be divined without aid. For example, a dictionary search 
+will probably reveal that "Blvd." is pronounced "boulevard" and that "Ave." is pronounced 
+"avenue." However, some abbreviations are difficult to resolve, as in the sentence "Dr. Healwell 
+works at 123 Industrial Dr.". 
+EXAMPLE BT 
+  /Span <</E (Doctor)>> 
+   BDC 
+    (Dr.) Tj 
+   EMC 
+  (Healwell works at 123 Industrial ) Tj 
+  /Span  <</E (Drive)>> 
+   BDC 
+    (Dr.) Tj 
+   EMC 
+ET 
+ 
+E
+The  value (a text string) is a word or phrase substitution for the tagged text and therefore shall be 
+treated as if a word break separates it from any surrounding text. The expansion text, if encoded in 
+Lang
+Unicode, may include an escape sequence for indicating the language of the text (see 7.9.2.2, "Text 
+string type"). Such a sequence shall override the prevailing  entry. 
+NOTE 2 Some abbreviations or acronyms are conventionally not expanded into words. For the text "XYZ," 
+for example, either no expansion would be supplied (leaving its pronunciation up to the text-to-
+speech engine) or, to be safe, the expansion "X Y Z" would be specified. 
+14.9.6Pronunciation hints 
+ 
+Content in a tagged PDF may be accompanied by hints for its correct pronunciation, for example for use 
+PhoneticAlphabetPhoneme
+by a text to speech function. Such pronunciation hints may be provided through the structure element 
+PronunciationLexicons
+entries  and  (see "Table 355: Entries in a structure element dictionary") 
+and the structure tree root entry  (see "Table 354: Entries in the structure tree 
+© ISO 2017 – All rights reserved 770 
+
+ISO/DIS 32000-2
+ 
+root"). A PDF processor is not required to process pronunciation hints. 
+NOTE Usually text-to-speech functions support pronunciation reasonably well based on text provided in 
+Unicode encoding combined with an indication of the language that applies to that text. For 
+uncommon words or special cases though it can be useful, to provide explicit instructions for the 
+pronunciation of a given text.  
+14.10Web capture 
+ 
+14.10.1General 
+ 
+The features described in this clause are deprecated with PDF 2.0.  
+The information in the Web Capture data structures enables PDF processors to perform the following 
+operations: 
+• 
+• 
+Save locally and preserve the visual appearance of material from the Web 
+• 
+Retrieve additional material from the Web and add it to an existing PDF file 
+  
+• 
+Update or modify existing material previously captured from the Web 
+Find source information for material captured from the Web, such as theURL(if any) from which 
+• 
+it was captured 
+• 
+Find all material in a PDF file that was generated from a given URL 
+Find all material in a PDF file that matches a given digital identifier (MD5 hash) 
+The information needed to perform these operations shall be recorded in two data structures in the 
+PDF file: 
+• 
+The Web Capture information dictionary, which shall hold document-level information related to 
+• 
+Web Capture. 
+The Web Capture content database, which shall hold a complete registry of the source content 
+NOTE 3 The Web Capture content database enables the capturing process to avoid downloading material 
+resources retrieved by Web Capture and where it came from. 
+that is already present in the file. 
+14.10.2Web capture information dictionary 
+ 
+SpiderInfo
+The optional  entry in the document catalog dictionary (see 7.7.2, "Document catalog 
+dictionary"), if present, shall hold Web Capture information dictionary. 

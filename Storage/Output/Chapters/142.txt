@@ -1,0 +1,165 @@
+Table 127: PDF halftone types". 
+Table 127: PDF halftone types 
+Type Meaning 
+1 Defines a single halftone screen by a frequency, angle, and spot function. 
+© ISO 2017 – All rights reserved 364 
+
+ISO/DIS 32000-2
+ 
+Type Meaning 
+5 Defines an arbitrary number of halftone screens, one for each colourant or 
+colour component (including both primary and spot colourants). The keys 
+in this dictionary are names of colourants; the values are halftone 
+dictionaries of other types, each defining the halftone screen for a single 
+colourant. 
+6 Defines a single halftone screen by a threshold array containing 8-bit 
+sample values. 
+10 Defines a single halftone screen by a threshold array containing 8-bit 
+sample values, representing a halftone cell that may have a non-zero screen 
+angle. 
+PDF 1.3
+16 () Defines a single halftone screen by a threshold array containing 
+16-bit sample values, representing a halftone cell that may have a non-zero 
+screen angle. 
+ 
+NOTE 1 The dictionaries representing these halftone types contain the same entries as the corresponding 
+PostScript language halftone dictionaries (as described in clause 7.4 of the PostScript Language 
+Reference, Third Edition), with the following exceptions: 
+ The PDF dictionaries can contain a  entry with the value , identifying the type of PDF 
+Type
+object that the dictionary describes. 
+Halftone
+ Spot functions and transfer functions are represented by function objects instead of PostScript 
+language procedures. Threshold arrays are specified as streams instead of files. 
+In Type 5 halftone dictionaries, the keys for colourants shall be name objects; they cannot be strings as 
+is allowed in PostScript. 
+HalftoneName
+HalftoneType
+Halftone dictionaries have an optional entry, , that identifies the halftone by name. If this 
+entry is present, all other entries, including , are optional. At rendering time, if the output 
+device has a halftone with the specified name, that halftone may be used, overriding any other halftone 
+parameters specified in the dictionary. 
+NOTE 2 This provides a way for PDF files to select the proprietary halftones supplied by some device 
+manufacturers, which would not otherwise be accessible because they are not explicitly defined in 
+PDF. 
+HalftoneName
+If there is no  entry, or if the requested halftone name does not exist on the device, the 
+halftone’s parameters may be defined by the other entries in the dictionary, if any. If no other entries 
+are present, the default halftone may be used. 
+NOTE 3 See 11.7.5, "Rendering parameters and transparency" and, in particular, 11.7.5.2, "Halftone and 
+transfer function" for further discussion of the role of halftones in the transparent imaging model. 
+10.6.5.2Type 1 halftones 
+ 
+"Table 128: Entries in a Type halftone dictionary" describes the contents of a halftone dictionary of 
+Type, which defines a halftone screen in terms of its frequency, angle, and spot function. 
+© ISO 2017 – All rights reserved 365 
+
+ISO/DIS 32000-2
+ 
+Table 128: Entries in a Type 1 halftone dictionary 
+Key Type Value 
+Optional
+Type 
+Halftone
+name () The type of PDF object that this dictionary describes; if present, shall be 
+ for a halftone dictionary. 
+Required
+HalftoneType 
+integer () A code identifying the halftone type that this dictionary describes; shall 
+be 1 for this type of halftone. 
+Optional
+HalftoneName 
+byte string () The name of the halftone dictionary. 
+Required
+Frequency 
+number () The screen frequency, measured in halftone cells per inch in device 
+space. 
+Required
+Angle 
+number () The screen angle, in degrees of rotation counterclockwise with respect 
+NOTE Most output devices have left-handed device spaces. On such devices, a 
+to the device coordinate system. 
+counterclockwise angle in device space corresponds to a clockwise angle 
+in default user space and on the physical medium. 
+Required
+SpotFunction 
+function, name or () A function object defining the order in which device pixels within a 
+array screen cell shall be adjusted for different gray levels, or the name of a spot 
+function, or an array of names of spot functions. A name should be one of the 
+SpotFunction
+Table 126: Predefined spot functions"). If the 
+predefined spot functions (see "
+value of  is an array the PDF processor shall use the first name 
+within the array that it recognizes. If a name is provided that is not defined in 
+"Table 126: Predefined spot functions" and the PDF processor does not 
+Table 
+understand that name, or if none of the names in an array are defined in "
+126: Predefined spot functions" or are understood by the PDF processor, the 
+processor shall use the default halftone. 
+Optional
+AccurateScreens 
+boolean () A flag specifying whether to invoke a special halftone algorithm that is 
+false
+extremely precise but computationally expensive; see Note 1 for further 
+discussion. Default value: . 
+Optional
+TransferFunction 
+function or name () A transfer function, which overrides the current transfer function in the 
+graphics state for the same component. This entry shall be present if the 
+dictionary is a component of a Type 5 halftone (see 10.6.5.6, "Type 5 halftones") 
+Identity
+and represents either a nonprimary or nonstandard primary colour component 
+TransferFunction
+"). The name  may be used to specify the 
+(see 10.5, "Transfer functions
+identity function. The  key should only be used to convey tone 
+reproduction compensation (sometimes called gamma curve correction); it should 
+not be used to specify artistic intent. If the key is required by some other clause in 
+Identity
+this International Standard but no compensation is necessary then the value 
+should be the name . 
+ 
+true
+AccurateScreens
+false
+AccurateScreens
+If the  entry has a value of , a highly precise halftoning algorithm shall be 
+substituted in place of the standard one. If  is  or not present, ordinary halftoning 
+shall be used. 
+NOTE 1 Accurate halftoning achieves the requested screen frequency and angle with very high accuracy, 
+whereas ordinary halftoning adjusts them so that a single screen cell is quantised to device pixels. 
+High accuracy is important mainly for making colour separations on high-resolution devices. 
+However, it might be computationally expensive and therefore is ordinarily disabled. 
+NOTE 2 In principle, PDF permits the use of halftone screens with arbitrarily large cells — in other words, 
+arbitrarily low frequencies. However, cells that are very large relative to the device resolution or 
+that are oriented at unfavourable angles can exceed the capacity of available memory. If this 
+© ISO 2017 – All rights reserved 366 
+
+ISO/DIS 32000-2
+ 
+happens, an error occurs. The AccurateScreens feature often requires very large amounts of 
+memory to achieve the highest accuracy. 
+EXAMPLE The following shows a halftone dictionary for a Type halftone. 
+28 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 1 
+   /Frequency 120 
+   /Angle 30 
+   /SpotFunction /CosineDot 
+   /TransferFunction /Identity 
+  >> 
+endobj 
+ 
+10.6.5.3Type 6 halftones 
+ 
+A Type 6 halftone defines a halftone screen with a threshold array. The halftone shall be represented as 
+a stream containing the threshold values; the parameters defining the halftone shall be specified by 
+entries in the stream dictionary. This dictionary may contain the entries shown in "Table 129: 
+WidthHeight
+Additional entries specific to a Type 6 halftone dictionary" in addition to the usual entries common to 
+all streams (see "Table 5: Entries common to all stream dictionaries"). The  and  entries 
+shall specify the dimensions of the threshold array in device pixels; the stream shall contain 
+𝑙𝑙𝐷𝐷𝐵𝐵𝑡𝑡ℎ × 𝐻𝐻𝑚𝑚𝐷𝐷𝑔𝑔ℎ𝑡𝑡 bytes, each representing a single threshold value. Threshold values are defined in 
+device space in the same order as image samples in image space (see "Figure 49: Source image 
+coordinate system"), with the first value at device coordinates (0, 0) and horizontal coordinates 
+changing faster than vertical coordinates. 

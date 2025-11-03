@@ -1,0 +1,284 @@
+Table 146: Overprinting behaviour in the transparent imaging model 
+Value of blend function  expressed as tint 
+Source colour Affected colour 
+space component of 
+𝒃𝒃𝒔𝒔
+𝑩𝑩(𝑪𝑪,𝑪𝑪)
+group space 
+OP false OP true, OP true, 
+DeviceCMYK
+OPM 0 OPM 1 
+𝑓𝑓𝑓𝑓𝑓𝑓𝑓𝑓
+, C, M, Y, or K 𝐶𝐶 𝐶𝐶 𝐶𝐶 𝐷𝐷𝑓𝑓 𝐶𝐶≠0.0 
+𝑏𝑏𝑓𝑓
+specified directly, not 
+ 𝐶𝐶 𝐷𝐷𝑓𝑓 𝐶𝐶=0.0 
+in a sampled image 
+𝑓𝑓𝑓𝑓𝑓𝑓
+Process colour 𝐶𝐶 𝐶𝐶 𝐶𝐶 
+component other than 
+CMYK 
+𝑓𝑓𝑏𝑏𝑏𝑏
+Spot colourant 𝐶𝐶(=0.0) 𝐶𝐶 𝐶𝐶 
+𝑓𝑓𝑓𝑓𝑓𝑓
+Any process colour Process colour 𝐶𝐶 𝐶𝐶 𝐶𝐶 
+DeviceCMYK
+space (including other component 
+cases of ) 
+𝑓𝑓𝑏𝑏𝑏𝑏
+Spot colourant 𝐶𝐶(=0.0) 𝐶𝐶 𝐶𝐶 
+Separation
+DeviceN
+𝑓𝑓𝑏𝑏𝑏𝑏
+ or Process colour 𝐶𝐶(=0.0) 𝐶𝐶 𝐶𝐶 
+ component 
+𝑓𝑓𝑓𝑓𝑓𝑓
+Spot colourant named in 𝐶𝐶 𝐶𝐶 𝐶𝐶 
+source space 
+© ISO 2017 – All rights reserved 423 
+
+ISO/DIS 32000-2
+ 
+Value of blend function  expressed as tint 
+Source colour Affected colour 
+space component of 
+𝒃𝒃𝒔𝒔
+𝑩𝑩(𝑪𝑪,𝑪𝑪)
+group space 
+OP false OP true, OP true, 
+OPM 0 OPM 1 
+𝑓𝑓𝑏𝑏𝑏𝑏
+Spot colourant not 𝐶𝐶(=0.0) 𝐶𝐶 𝐶𝐶 
+named in source space 
+𝑓𝑓𝑓𝑓𝑓𝑓
+A group (not an All colour components 𝐶𝐶 𝐶𝐶 𝐶𝐶 
+elementary object) 
+ 
+Colour component values are represented in these tables as subtractive tint values because 
+overprinting is typically applied to subtractive colourants such as inks rather than to additive ones such 
+as phosphors on a display screen. The special overprinting blend mode is therefore described as if it 
+took subtractive arguments and returned subtractive results. In reality, however, the special 
+overprinting blend mode (like all blend modes) shall treat colour components as additive values; 
+subtractive components shall be complemented before and after application of the special blend 
+function. 
+NOTE 1 The process colour components are those of the group’s colour space, which is not necessarily the 
+same as that of the output device (and can even be something likeor ). For this 
+ CalRGB ICCBased
+reason, the process colour components of the group colour space cannot be treated as if they were 
+spot colours in aorcolour space (see 11.7.3, "Spot colours and 
+ Separation  DeviceN 
+transparency"). This difference between opaque and transparent overprinting and erasing rules 
+arises only within a transparency group (including the page group, if its colour space is different 
+from the native colour space of the output device). There is no difference in the treatment of spot 
+colour components. 
+NOTE 2 "Table 146: Overprinting behaviour in the transparent imaging model" has one additional row at 
+the bottom. It applies when painting an object that is a transparency group rather than an 
+elementary object (fill, stroke, text, image, or shading). As stated in 11.7.3, "Spot colours and 
+transparency", a group is considered to paint all colour components, both process and spot. Colour 
+components that were not explicitly painted by any object in the group have an additive colour 
+value of 1.0 (subtractive tint 0.0). Since no information is retained about which components were 
+actually painted within the group, compatible overprinting is not possible in this case; the special 
+overprinting blend mode reverts to , with no consideration of the overprint and overprint 
+Normal
+mode parameters. A transparency-aware PDF writer can choose a more suitable blend mode, such 
+as , to produce an effect similar to overprinting. 
+Darken
+11.7.5Rendering parameters and transparency 
+ 
+11.7.5.1General 
+ 
+The opaque imaging model has several graphics state parameters dealing with the rendering of colour: 
+the current halftone (see 10.6.5, "Halftone dictionaries"), transfer functions (10.5, "Transfer functions"), 
+rendering intent (8.6.5.8, "Rendering intents"), black point compensation (8.6.5.9, "Use of black point 
+compensation", and black-generation and undercolour-removal functions (10.4.2.3, "Conversion from 
+DeviceRGB to DeviceCMYK"). All of these rendering parameters may be specified on a per-object basis; 
+they control how a particular object is rendered. When all objects are opaque, it is easy to define what 
+this means. But when they are transparent, more than one object may contribute to the colour at a given 
+point; it is unclear which rendering parameters to apply in an area where transparent objects overlap. 
+At the same time, the transparent imaging model should be consistent with the opaque model when 
+© ISO 2017 – All rights reserved 424 
+
+ISO/DIS 32000-2
+ 
+only opaque objects are painted. 
+There are two categories of rendering parameters that are treated somewhat differently in the presence 
+of transparency. In the first category are halftone and transfer functions, which are applied only when 
+the final colour at a given point on the page is known. In the second category are rendering intent, black 
+generation, and undercolour removal, which are applied whenever colours are converted from one 
+colour space to another. 
+11.7.5.2Halftone and transfer function 
+ 
+When objects are transparent, rendering of an object may not occur when the object is specified but at 
+some later time. Hence, the implementation shall keep track of the halftone and transfer function 
+parameters at each point on the page from the time they are specified until the time rendering actually 
+occurs. This means that these rendering parameters may be associated with regions of the page rather 
+than with individual objects. 
+The halftone and transfer function to be used at any given point on the page shall be those in effect at 
+the time of painting the last (topmost) elementary graphics object enclosing that point, but only if the 
+object is fully opaque. Only elementary objects shall be relevant; the rendering parameters associated 
+f
+with a group object are ignored. The topmost object at any point shall be defined to be the topmost 
+j
+elementary object in the entire page stack that has a nonzero object shape value (
+) at that point (that 
+is, for which the point is inside the object). An object is fully opaque if all of the following conditions 
+hold at the time the object is painted: 
+• 
+The current alpha constant in the graphics state (stroking or nonstroking, depending on the 
+Normal
+• 
+painting operation) is 1.0. 
+None
+• 
+The current blend mode in the graphics state is .  
+SMask
+• 
+The current soft mask in the graphics state is .  
+Do
+• 
+If the object is an image XObject and there is not an  entry in its image dictionary. 
+The foregoing four conditions were also true at the time the  operator was invoked for the 
+• 
+group containing the object, as well as for any direct ancestor groups. 
+If the current colour is a tiling pattern, all objects in the definition of its pattern cell also satisfy the 
+foregoing conditions. 
+Together, these conditions ensure that only the object itself shall contribute to the colour at the given 
+point, completely obscuring the backdrop. For portions of the page whose topmost object is not fully 
+opaque or that are never painted at all, the default halftone and transfer function for the page shall be 
+used (see "Table 52: Device-dependent graphics state parameters"). 
+If a graphics object is painted with overprinting enabled—that is, if the applicable (stroking or 
+nonstroking) overprint parameter in the graphics state is true—the halftone and transfer function to 
+use at a given point shall be determined independently for each colour component. An object is opaque 
+for a given component only if overprinting yields the source colour (not the backdrop colour) for that 
+component. See 11.7.4, "Overprinting and transparency". 
+11.7.5.3Rendering intent, black point compensation and colour conversions 
+ 
+The rendering intent, black-generation, undercolour-removal and black point compensation 
+© ISO 2017 – All rights reserved 425 
+parameters control certain colour conversions. In the presence of transparency, they may need to be 
+
+ISO/DIS 32000-2
+ 
+applied earlier than the actual rendering of colour onto the page. 
+The rendering intent influences the conversion from a CIE-based colour space to a target colour space, 
+taking into account the target space’s colour gamut (the range of colours it can reproduce). Whereas in 
+the opaque imaging model the target space shall always be the native colour space of the output device, 
+in the transparent model it may instead be the group colour space of a transparency group into which 
+an object is being painted. 
+The rendering intent is needed at the moment such a conversion is performed — that is, when painting 
+an elementary or group object specified in a CIE-based colour space into a parent group having a 
+different colour space. 
+NOTE 1 This differs from the current halftone and transfer function, whose values are used only when all 
+colour compositing has been completed and rasterization is being performed. 
+In all cases, the rendering intent to use for converting an object’s colour (whether that of an elementary 
+object or of a transparency group) is determined by the rendering intent parameter associated with the 
+object. In particular: 
+• 
+When painting an elementary object with a CIE-based colour into a transparency group having a 
+different colour space, the rendering intent used shall be the current rendering intent in effect in 
+• 
+the graphics state at the time of the painting operation. 
+When painting a transparency group whose colour space is CIE-based into a parent group having a 
+Do
+different colour space, the rendering intent used shall be the current rendering intent in effect at 
+the time the  operator is applied to the group. 
+Black point compensation is needed during colour conversions in cases where the detail in dark regions 
+or shadow section of an image can otherwise be lost. Black point compensation addresses this 
+conversion problem by adjusting for differences between the darkest level of black achievable in one 
+UseBlackPtComp
+colour space and the darkest level of black achievable on another. The graphics state parameter 
+ ("Table 57: Entries in a graphics state parameter dictionary) enables or disables the 
+use of black point compensation when doing colour conversions. 
+ DeviceRGB  DeviceCMYK 
+A similar approach works for the black-generation and undercolour-removal functions, which shall be 
+applied only during conversion fromtocolour spaces: 
+ DeviceRGB 
+• 
+DeviceCMYK
+When painting an elementary object with acolour directly into a transparency group 
+whose colour space is , the functions used shall be the current black-generation and 
+ DeviceRGB 
+• 
+undercolour-removal functions in effect in the graphics state at the time of the painting operation. 
+DeviceCMYKDo
+When painting a transparency group whose colour space isinto a parent group whose 
+colour space is , the functions used shall be the ones in effect at the time the  
+ DeviceRGB 
+• 
+operator is applied to the group. 
+DeviceCMYK
+When the colour space of the page group isand the native colour space of the output 
+device is , the functions used to convert colours to the device’s colour space shall be 
+the default functions for the page. 
+ 
+ 
+© ISO 2017 – All rights reserved 426 
+
+ISO/DIS 32000-2
+ 
+12Interactive features 
+ 
+12.1General 
+ 
+EXDU
+For purposes of the trigger events  (enter),  (exit),  (down), and  (up), the term mouse denotes a 
+generic pointing device with the following characteristics: 
+pressedheld downreleased
+• 
+A selection button that can be , , and . If there is more than one mouse 
+location 
+• 
+button, the selection button is typically the left button. 
+A notion of — that is, an indication of where on the screen the device is pointing. Location 
+focus 
+• 
+is typically denoted by a screen cursor. 
+A notion of — that is, which element in the document is currently interacting with the with 
+the user. In many systems, this element is denoted by a blinking caret, a focus rectangle, or a colour 
+change. 
+This clause describes the PDF features that allow a user to interact with a document on the screen, 
+using the mouse and keyboard (with the exception of multimedia features, which are described in 13, 
+"Multimedia features"): 
+Preference settings
+• 
+ to control the way the document is presented on the screen (12.2, "Viewer 
+Navigation facilities
+• 
+preferences") 
+ for moving through the document in a variety of ways (subclauses 12.3, 
+Annotations
+• 
+"Document-level navigation" and 12.4, "Page-level navigation") 
+ for adding text notes, links, rich media and other ancillary information to the 
+Actions
+• 
+document (12.5, "Annotations") 
+Interactive forms
+• 
+ that can be triggered by specified events (12.6, "Actions") 
+Digital signatures
+• 
+ for gathering information from the user (12.7, "Forms") 
+ that authenticate the identity of a user and the validity of the document’s 
+Measurement properties
+• 
+contents (12.8, "Digital signatures") 
+ that enable the display of real-world units corresponding to objects on a 
+geospatial coordinate system
+• 
+page (12.9, "Measurement properties") 
+A  is introduced in subclause 12.10, "Geospatial features" along with a 
+• 
+number of PDF constructs to support geospatially registered content. 
+document to function as intended
+Subclause 12.11, "Document requirements" describes how a document may specify requirements 
+that an interactive PDF processor should satisfy in order for the  
+12.2Viewer preferences 
+ 
+by the author. 
+ ViewerPreferences 
+PDF 1.2
+Theentry in a document’s catalog dictionary (see 7.7.2, "Document catalog 
+dictionary") designates a viewer preferences dictionary () controlling the way the document 
+shall be presented on the screen or in print. If no such dictionary is specified, PDF processors should 
+behave in accordance with their own current user preference settings. "

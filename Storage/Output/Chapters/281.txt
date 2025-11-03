@@ -1,0 +1,370 @@
+Table 356: Entries in a namespace dictionary" shows 
+the entries in the namespace dictionary. The  entry shall specify the namespace name, which should 
+take the form of a uniform resource identifier (URI). 
+NOTE 1 It is not generally expected that aURIfor a namespace name will resolve. It is instead used for 
+  
+uniqueness. AURIspecified here might correspond to an existingXMLnamespace (e.g. 
+    
+"http://www.w3.org/1998/Math/MathML" for MathML 3.0). 
+© ISO 2017 – All rights reserved 702 
+
+ISO/DIS 32000-2
+ 
+Schema
+An optional  entry may be provided to identify the schema file for the namespace. 
+NOTE 2 There is no requirement that the schema be provided in any specific format (e.g. RelaxNG or W3C 
+Schema), though the expectation is that the format would be machine readable. 
+RoleMapNS
+A  entry may also be provided to map the entries in the namespace to those of another 
+namespace. For a document that is compliant with tagged PDF (see 14.8, "Tagged PDF"), all structure 
+element types shall be role mapped to one of the standard structure namespaces (see 14.8.6, "Standard 
+structure namespaces"), which can be achieved either directly in the provided role map or transitively 
+through one or more namespaces which eventually provide a role map to one of the standard structure 
+namespaces. 
+Table 356: Entries in a namespace dictionary 
+Key Type Value 
+Optional; PDF 2.0
+Type 
+Namespace
+name () The type of PDF object that this dictionary describes. If present, 
+shall be . 
+Required; PDF 2.0
+NS 
+text string () The string defining the namespace name which this entry 
+identifies (conventionally a uniform resource identifier, or URI). 
+Optional; PDF 2.0
+Schema 
+file () A file specification identifying the schema file, which defines this 
+specification namespace. 
+(Optional; PDF 2.0)
+RoleMapNS 
+dictionary  A dictionary that shall, if present, map the names of structure 
+types used in the namespace to their approximate equivalents in another namespace. 
+The dictionary shall be comprised of a set of keys representing structure element 
+types in the namespace defined within this namespace dictionary. The corresponding 
+value for each of these keys shall either be a single name identifying a structure 
+element type in the default namespace or an array where the first value shall be a 
+structure element type name in a target namespace with the second value being an 
+indirect reference to the target namespace dictionary. 
+ 
+NS
+When the owner is specified by an  entry, the namespace name shall be considered as identifying the 
+owner.  For common namespace names which correspond to the values of owner entries defined in 
+Table 356 "Entries in a namespace dictionary", they shall be considered equivalent. 
+14.7.5Structure content 
+ 
+14.7.5.1General 
+ 
+Any structure element may have associated graphical content, consisting of one or more content items. 
+Content items shall be graphical objects that exist in the document independently of the structure tree 
+but are associated with structure elements as described in the following subclauses.  
+14.7.5.1.1Content items 
+ 
+Content items are of two kinds: 
+• 
+Marked-content sequences within content streams (14.7.5.2, "Marked-content sequences as 
+• 
+content items") 
+Complete PDF objects such as annotations and XObjects (see 14.7.5.3, "PDF objects as content 
+© ISO 2017 – All rights reserved 703 
+
+ISO/DIS 32000-2
+ 
+K
+items")  
+The  entry in a structure element dictionary (see "Table 355: Entries in a structure element 
+dictionary") specifies the children of the structure element, which may include any number of content 
+items, as well as child structure elements that may in turn have content items of their own. 
+Content items shall be leaf nodes of the structure tree; that is, they shall not have other content items 
+K
+nested within them for purposes of logical structure. The hierarchical relationship among structure 
+elements shall be represented entirely by the  entries of the structure element dictionaries, not by 
+nesting of the associated content items. Therefore, the following restrictions shall apply: 
+• 
+A marked-content sequence corresponding to a structure content item shall not have another 
+marked-content sequence for a structure content item nested within it though non-structural 
+Do
+• 
+marked content shall be allowed. 
+A structure content item shall not invoke (with the  operator) an XObject that is itself a 
+structure content item. Logical structure information associated with a page may be ignored when 
+importing that page into another document with a reference XObject (see 8.10.4.3 "Special 
+14.7.5.2Marked-content sequences as content items 
+ 
+considerations").  
+A sequence of graphics operators in a content stream may be specified as a content item of a structure 
+element in the following way: 
+BDCEMC
+• 
+The operators shall be bracketed as a marked-content sequence between  and  operators 
+(see 14.6, "Marked content"). Although the tag associated with a marked-content sequence is not 
+directly related to the document’s logical structure, it should be the same as the structure type of 
+• 
+the associated structure element. 
+marked-content identifier
+MCID
+The marked-content sequence shall contain a property list (see 14.6.2, "Property lists") containing 
+an  entry, which shall be an integer  that uniquely identifies the 
+marked-content sequence within its content stream, as shown in the following example: 
+EXAMPLE 1  
+2 0 obj            %Page object 
+ <</Type /Page 
+  /Contents 3 0 R       %Content stream 
+  … 
+ >> 
+endobj 
+ 
+3 0 obj            %Page's content stream 
+ <</Length …>> 
+stream 
+ … 
+ /P <</MCID 0>>         %Start of marked-content sequence 
+  BDC 
+   … 
+   (Here is some text) Tj 
+   … 
+  EMC           %End of marked-content sequence 
+ … 
+endstream 
+endobj 
+ 
+NOTE This example and the following examples omit required  entries in the objects used 
+StructParents
+14.7.5.4, "Finding structure elements from content items"). 
+as content items (see 
+© ISO 2017 – All rights reserved 704 
+
+ISO/DIS 32000-2
+ 
+K
+A structure element dictionary may include one or more marked-content sequences as content items by 
+referring to them in its  entry (see "Table 355: Entries in a structure element dictionary"). This 
+reference may have two forms: 
+marked-content reference
+• 
+A dictionary object called a . "Table 357: Entries in a marked-content 
+reference dictionary" shows the contents of this type of dictionary, which shall specify the marked-
+content identifier, as well as other information identifying the stream in which the sequence is 
+contained. Example 2 in this subclause illustrates the use of a marked-content reference to the 
+• 
+marked-content sequence shown in Example 1. 
+An integer that specifies the marked-content identifier. This may be done in the common case 
+Pg
+where the marked-content sequence is contained in the content stream of the page that is specified 
+in the  entry of the structure element dictionary. Example 3 shows a structure element that has 
+three children: a marked-content sequence specified by a marked-content identifier, as well as two 
+other structure elements. 
+Table 357: Entries in a marked-content reference dictionary 
+Key Type Value 
+Required
+Type 
+MCR
+name () The type of PDF object that this dictionary describes; shall be 
+ for a marked-content reference. 
+Optional; shall be an indirect reference
+Pg 
+dictionary () The page object representing the 
+Pg
+page on which the graphics objects in the marked-content sequence shall 
+be rendered. This entry overrides any  entry in the structure element 
+containing the marked-content reference; it shall be required if the 
+structure element has no such entry. 
+Optional; shall be an indirect reference
+Stm 
+stream () The content stream containing 
+the marked-content sequence. This entry should be present only if the 
+marked-content sequence resides in a content stream other than the 
+8.10, "Form XObjects" and 12.5.5, 
+content stream for the page (see 
+"Appearance streams"). 
+Pg
+If this entry is absent, the marked-content sequence shall be contained in 
+the content stream of the page identified by  (either in the marked-
+content reference dictionary or in the parent structure element). 
+Optional; shall be an indirect reference
+StmOwn 
+Stm
+(any) () The indirect reference to the PDF 
+NOTE A common use for this would be to identify the annotation 
+object referencing the stream identified by the  key. 
+dictionary owning the appearance stream. 
+Required
+MCID 
+integer () The marked-content identifier of the marked-content 
+sequence within its content stream. 
+ 
+EXAMPLE 2 
+1 0 obj             %Structure element 
+ <</Type /StructElem 
+  /S /P            %Structure type 
+  /P …            %Parent in structure hierarchy 
+  /K <</Type /MCR 
+   /Pg 2 0 R         %Page containing marked-content sequence 
+   /MCID 0          %Marked-content identifier 
+  >> 
+ >> 
+endobj 
+© ISO 2017 – All rights reserved 705 
+
+ISO/DIS 32000-2
+ 
+EXAMPLE 3 
+1 0 obj             %Containing structure element 
+  <</Type /StructElem 
+   /S /MixedContainer      %Structure type 
+   /P …           %Parent in structure hierarchy 
+   /Pg 2 0 R         %Page containing marked-content sequence 
+   /K [4 0 R         %Three children: a structure element 
+    0           %a marked-content identifier 
+    5 0 R          %another structure element 
+    ] 
+  >> 
+endobj 
+ 
+2 0 obj             %Page object 
+  <</Type /Page 
+   /Contents 3 0 R       %Content stream 
+   … 
+  >> 
+endobj 
+ 
+3 0 obj             %Page's content stream 
+  <</Length …>> 
+stream 
+  … 
+  /P <</MCID 0>>         %Start of marked-content sequence 
+   BDC 
+    ( Here is some text ) Tj 
+    … 
+   EMC           %End of marked-content sequence 
+  … 
+endstream 
+endobj 
+ 
+Content streams other than page contents may also contain marked content sequences that are content 
+items of structure elements. The content of form XObjects may be incorporated into structure elements 
+in one of the following ways: 
+Do
+• 
+A  operator that paints a form XObject may be part of a marked-content sequence that is 
+associated with a structure element (see Example 4 in this subclause). In this case, the entire form 
+Do
+XObject is part of the structure element’s content, as if it were inserted into the marked-content 
+sequence at the point of the  operator. The form XObject shall not, in turn, contain any marked-
+• 
+content sequences associated with this or other structure elements. 
+The content stream of a form XObject may contain one or more marked-content sequences that are 
+associated with structure elements (see Example 5 in this subclause). The form XObject may have 
+Do
+arbitrary substructure, containing any number of marked-content sequences associated with 
+logical structure elements. However, any  operator that paints the form XObject shall not be 
+Do
+part of a logical structure content item. 
+Do
+A form XObject that is painted with multiple invocations of the  operator shall be incorporated into 
+the document’s logical structure only by the first method, with each invocation of  individually 
+associated with a structure element. 
+EXAMPLE 4 
+1 0 obj             %Structure element 
+  <</Type /StructElem 
+   /S /P           %Structure type 
+   /P …           %Parent in structure hierarchy 
+   /Pg 2 0 R         %Page containing marked-content sequence 
+   /K 0           %Marked-content identifier 
+© ISO 2017 – All rights reserved 706 
+
+ISO/DIS 32000-2
+ 
+  >> 
+endobj 
+ 
+2 0 obj             %Page object 
+  <</Type /Page 
+   /Resources <</XObject <</Fm4 4 0 R>> %Resource dictionary 
+       >>        %containing form XObject 
+   /Contents 3 0 R       %Content stream 
+   … 
+  >> 
+endobj 
+ 
+3 0 obj             %Page's content stream 
+  <</Length …>> 
+stream 
+  … 
+  /P <</MCID 0>>         %Start of marked-content sequence 
+    BDC 
+     /Fm4 Do        %Paint form XObject 
+    EMC          %End of marked-content sequence 
+  …  
+endstream 
+endobj 
+ 
+4 0 obj             %Form XObject 
+  <</Type /XObject 
+   /Subtype /Form 
+   /Length … 
+  >> 
+stream 
+  … 
+  (Here is some text) Tj 
+  … 
+endstream 
+endobj 
+EXAMPLE 5 
+1 0 obj             %Structure element 
+  <</Type /StructElem 
+   /S /P           %Structure type 
+   /P …           %Parent in structure hierarchy 
+   /K <</Type /MCR 
+     /Pg 2 0 R       %Page containing marked-content sequence 
+     /Stm 4 0 R       %Stream containing marked-content sequence 
+     /MCID 0        %Marked-content identifier 
+    >> 
+  >> 
+endobj 
+ 
+2 0 obj             %Page object 
+  <</Type /Page 
+   /Resources <</XObject  <</Fm4 4 0 R>> %Resource dictionary 
+        >>        %containing form XObject 
+   /Contents 3 0 R       %Content stream 
+   … 
+  >> 
+endobj 
+ 
+3 0 obj             %Page's content stream 
+  <</Length …>> 
+stream 
+  … 
+  /Fm4 Do           %Paint form XObject 
+  … 
+endstream 
+© ISO 2017 – All rights reserved 707 
+
+ISO/DIS 32000-2
+ 
+endobj 
+ 
+4 0 obj             %Form XObject 
+  <</Type /XObject 
+   /Subtype /Form 
+   /Length … 
+  >> 
+stream 
+  … 
+  /P <</MCID 0>>         %Start of marked-content sequence 
+    BDC 
+     … 
+     (Here is some text) Tj 
+     … 
+    EMC          %End of marked-content sequence 
+  … 
+endstream 
+endobj 
+ 
+14.7.5.3PDF objects as content items 
+ 
+When a structure element’s content consists of an entire PDF object, such as an XObject directly or 
+K
+indirectly referenced by a page description or an annotation, the object shall be identified in the 
+structure element’s  entry by an object reference dictionary ("

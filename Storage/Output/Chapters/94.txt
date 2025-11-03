@@ -1,0 +1,186 @@
+Table 78: Additional entries specific to a Type 1 shading dictionary" shows the shading 
+© ISO 2017 – All rights reserved 227 
+
+ISO/DIS 32000-2
+ 
+dictionary entries specific to this type of shading, in addition to those common to all shading 
+dictionaries (see "Table 77: Entries common to all shading dictionaries"). 
+ Indexed 
+This type of shading shall not be used with ancolour space. 
+Table 78: Additional entries specific to a Type 1 shading dictionary 
+Key Type Value 
+Optionalxxyy
+Domain 
+minmaxminmax
+array () An array of four numbers [   ] specifying the rectangular 
+domain of coordinates over which the colour function(s) are defined. Default 
+value: [0 1 0 1]. 
+Optional
+Matrix 
+Domain
+array () An array of six numbers specifying a transformation matrix mapping 
+the coordinate space specified by the  entry into the shading’s target 
+NOTE To map the domain rectangle [0 1 0 1] to a 1-inch square with lower-left 
+coordinate space. 
+corner at coordinates (100, 100) in default user space, the  value 
+Matrix
+would be [72 0 0 72 100 100]. 
+Default value: the identity matrix [1 0 0 1 0 0]. 
+Requirednn
+Function 
+Function or () A 2-in, -out function or an array of  2-in, 1-out functions (where n is 
+array the number of colour components in the shading dictionary’s colour space). Each 
+function’s domain shall be a superset of that of the shading dictionary. If the value 
+returned by the function for a given colour component is out of range, it shall be 
+adjusted to the nearest valid value. 
+ 
+Domain
+The domain rectangle () establishes an internal coordinate space for the shading that is 
+Function
+independent of the target coordinate space in which it shall be painted. The colour function(s) 
+Matrix
+() specify the colour of the shading at each point within this domain rectangle. The 
+BBox
+transformation matrix () then maps the domain rectangle into a corresponding rectangle or 
+parallelogram in the target coordinate space. Points within the shading’s bounding box () that fall 
+BackgroundBackground
+outside this transformed domain rectangle shall be painted with the shading’s background colour 
+(); if the shading dictionary has no  entry, such points shall be left unpainted. 
+If the function is undefined at any point within the declared domain rectangle, an error may occur, even 
+if the corresponding transformed point falls outside the shading’s bounding box. 
+8.7.4.5.3Type 2 (axial) shadings 
+ 
+Type 2 (axial) shadings define a colour blend that varies along a linear axis between two endpoints and 
+extends indefinitely perpendicular to that axis. The shading may optionally be extended beyond either 
+or both endpoints by continuing the boundary colours indefinitely. "Table 79: Additional entries 
+specific to a Type 2 shading dictionary" shows the shading dictionary entries specific to this type of 
+shading, in addition to those common to all shading dictionaries (see "Table 77: Entries common to all 
+shading dictionaries"). 
+ Indexed 
+This type of shading shall not be used with ancolour space. 
+© ISO 2017 – All rights reserved 228 
+
+ISO/DIS 32000-2
+ 
+Table 79: Additional entries specific to a Type 2 shading dictionary 
+Key Type Value 
+Requiredxyxy
+Coords 
+0011
+array () An array of four numbers [   ] specifying the starting and ending 
+coordinates of the axis, expressed in the shading’s target coordinate space. If the 
+0101
+starting and ending coordinates are coincident (x=x and y=y) nothing shall be 
+painted. 
+Optionaltt
+Domain 
+t
+01
+array () An array of two numbers [ ] specifying the limiting values of a 
+parametric variable . The variable is considered to vary linearly between these 
+t
+two values as the colour gradient varies between the starting and ending points of 
+the axis. The variable  becomes the input argument to the colour function(s). 
+Default value: [0.0 1.0]. 
+Requirednnn
+Function 
+Function or () A 1-in, -out function or an array of  1-in, 1-out functions (where  is 
+t
+array the number of colour components in the shading dictionary’s colour space). The 
+Domain
+function(s) shall be called with values of the parametric variable  in the domain 
+defined by the  entry. Each function’s domain shall be a superset of that of 
+the shading dictionary. If the value returned by the function for a given colour 
+component is out of range, it shall be adjusted to the nearest valid value. 
+Optional
+Extend 
+array () An array of two boolean values specifying whether to extend the 
+falsefalse
+ 
+shading beyond the starting and ending points of the axis, respectively. Default 
+value: []. 
+ 
+xy
+x
+yxy
+The colour blend shall be accomplished by linearly mapping each point (, ) along the axis between the 
+x
+y
+Domain
+0011
+endpoints (
+, ) and (, ) to a corresponding point in the domain specified by the shading 
+x
+00
+dictionary’s  entry. The points (0, 0) and (1, 0) in the domain correspond respectively to (
+, ) 
+x
+11
+and (
+, y) on the axis. Since all points along a line in domain space perpendicular to the line from (0, 0) 
+to (1, 0) have the same colour, only the new value of  needs to be computed: 
+100100
+′
+()()()()
+𝑥𝑥×𝑥𝑥−𝑥𝑥+𝑦𝑦×𝑦𝑦−𝑦𝑦
+−𝑥𝑥−𝑦𝑦
+22
+𝑥𝑥
+= 
+1010
+(
+))
+(
+𝑥𝑥
+−𝑥𝑥+𝑦𝑦−𝑦𝑦
+′′
+010
+)
+(
+×𝑥𝑥
+For 0≤𝑥𝑥
+≤1,t=t+t−t. 
+x′ 
+ 
+The value of the parametric variable t is then determined from  as follows:
+• 
+010
+xtruett
+t
+Extend
+• 
+For 0 ≤ x′ ≤ 1, 𝑡𝑡 = 𝑡𝑡
+ + (𝑡𝑡 − 𝑡𝑡 ) × x′. 
+0
+For ′ < 0, if the first element of the  array is , then  = 
+ ; otherwise,  is undefined and 
+t
+xtruett
+Extend
+• 
+the point shall be left unpainted. 
+1
+ ; otherwise,  is undefined 
+For ′> 1, if the second element of the  array is , then  = 
+t
+and the point shall be left unpainted. 
+xy
+Function
+The resulting value of  shall be passed as input to the function(s) defined by the shading dictionary’s 
+ entry, yielding the component values of the colour with which to paint the point (, ). 
+NOTE "Figure 33: Axial shading" shows three examples of the use of an axial shading to fill a rectangle 
+and display text. The area to be filled extends beyond the shading’s bounding box. The shading is 
+the same in all three cases, except for the values of the  and  entries in the 
+BackgroundExtend
+shading dictionary. In the first example, the shading is not extended at either end and no 
+background colour is specified; therefore, the shading is clipped to its bounding box at both ends. 
+The second example still has no background colour specified, but the shading is extended at both 
+ends; the result is to fill the remaining portions of the filled area with the colours defined at the 
+© ISO 2017 – All rights reserved 229 
+
+ISO/DIS 32000-2
+ 
+ends of the shading. In the third example, the shading is not extended at both ends and a 
+background colour is specified; therefore, the background colour is used for the portions of the 
+filled area beyond the ends of the shading. ![26.png](./Storage/Output/Images/26.png)
+ 

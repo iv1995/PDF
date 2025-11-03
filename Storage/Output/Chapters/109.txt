@@ -1,0 +1,212 @@
+ijijij
+Since each point 
+ is actually a pair of coordinates (, ), the surface can also be expressed as 
+33
+ijij
+()()
+()
+u×Bv
+×B 
+𝑥𝑥u,v=��𝑥𝑥
+i=0j=0
+33
+ijij
+()()
+()
+u×Bv
+𝑦𝑦u,v=��𝑦𝑦×B 
+i=0j=0
+ 
+The geometry of the tensor-product patch can be visualized in terms of a cubic Bézier curve moving 
+ppp
+p
+from the bottom boundary of the patch to the top. At the bottom and top, the control points of this curve 
+00300333
+…) and top (…) boundary curves, respectively. As 
+coincide with those of the patch’s bottom (
+the curve moves from the bottom edge of the patch to the top, each of its four control points follows a 
+trajectory that is in turn a cubic Bézier curve defined by the four control points in the corresponding 
+column of the array. That is, the starting point of the moving curve follows the trajectory defined by 
+© ISO 2017 – All rights reserved 246 
+
+ISO/DIS 32000-2
+ 
+ppp
+p
+00033033
+ppp
+p
+…, the trajectory of the ending point is defined by points …, and those of the two 
+control points 
+10132023
+… and …. Equivalently, the patch can be considered to be traced 
+intermediate control points by 
+by a cubic Bézier curve moving from the left edge to the right, with its control points following the 
+trajectories defined by the rows of the coordinate array instead of the columns. 
+p p
+p
+The Coons patch (Type 6) is actually a special case of the tensor-product patch (Type 7) in which the 
+11122122
+, ,p, ) are implicitly defined by the boundary curves. The values 
+four internal control points (
+of the internal control points are given by these equations 
+1
+110001100330311333
+()()())
+(
+𝑝𝑝−4×𝑝𝑝−2×𝑝𝑝+3×𝑝𝑝−1×𝑝𝑝 
+=+6×𝑝𝑝+𝑝𝑝+𝑝𝑝+𝑝𝑝
+9
+1
+120302130033321030
+()()())
+(
+𝑝𝑝
+−4×𝑝𝑝−2×𝑝𝑝+3×𝑝𝑝−1×𝑝𝑝 
+=+6×𝑝𝑝+𝑝𝑝+𝑝𝑝+𝑝𝑝
+9
+1
+213031203300012303
+()()())
+(
+𝑝𝑝
+−4×𝑝𝑝−2×𝑝𝑝+3×𝑝𝑝−1×𝑝𝑝 
+=+6×𝑝𝑝+𝑝𝑝+𝑝𝑝+𝑝𝑝
+9
+1
+223332233003022000
+()()())
+(
+𝑝𝑝
+−4×𝑝𝑝−2×𝑝𝑝+3×𝑝𝑝−1×𝑝𝑝 
+=+6×𝑝𝑝+𝑝𝑝+𝑝𝑝+𝑝𝑝
+9
+ 
+In the more general tensor-product patch, the values of these four points are unrestricted. 
+The coordinates of the control points in a tensor-product patch shall be specified in the shading’s data 
+stream in the following order: 
+4 5 6 7 
+3 14 15 8 
+2 13 16 9 
+1 12 11 10 
+ 
+All control point coordinates shall be expressed in the shading’s target coordinate space. These shall be 
+f
+followed by the colour values for the four corners of the patch, in the same order as the corners 
+f
+themselves. If the patch’s edge flag  is 0, all 16 control points and four corner colours shall be explicitly 
+specified in the data stream. If  is 1, 2, or 3, the control points and colours for the patch’s shared edge 
+are implicitly understood to be the same as those along the specified edge of the previous patch and 
+f
+shall not be repeated in the data stream. "Table 85: Data values in a tensor-product patch mesh" 
+summarises the data values for various values of the edge flag , expressed in terms of the row and 
+column indices used in "Figure 47: Control points in a tensor-product patch". See 8.7.4.5.5, "Type 4 
+(free-form Gouraud-shaded triangle mesh) shadings" for further details on the format of the data. 
+Table 85: Data values in a tensor-product patch mesh 
+Edge Flag Next Set of Data Values 
+00000101020203031313232333333232
+𝑓𝑓=0 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦𝑥𝑥𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
+31313030202010101111121222222121
+𝑥𝑥𝑦𝑦 𝑥𝑥𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
+00033330
+c c c c  
+ 
+New patch; no implicit values 
+© ISO 2017 – All rights reserved 247 
+
+ISO/DIS 32000-2
+ 
+Edge Flag Next Set of Data Values 
+131323 23 3333323231313030
+𝑓𝑓=1 𝑥𝑥 𝑦𝑦 𝑥𝑥𝑦𝑦𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
+202010101111121222222121
+𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
+3330
+c c  
+Implicit values: 
+000003030003
+(
+)()
+𝑥𝑥
+=𝑥𝑥 previous  𝑐𝑐
+,𝑦𝑦,𝑦𝑦=𝑐𝑐 previous 
+010113130333
+()()
+𝑥𝑥=𝑥𝑥 previous  𝑐𝑐
+,𝑦𝑦,𝑦𝑦=𝑐𝑐 previous 
+02022323
+()()
+𝑥𝑥,𝑦𝑦=𝑥𝑥,𝑦𝑦 previous 
+ 
+03033333
+()
+(𝑥𝑥,𝑦𝑦)=𝑥𝑥,𝑦𝑦 previous
+131323233333323231313030
+𝑓𝑓=2 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
+202010101111121222222121
+𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
+3330
+𝑐𝑐 𝑐𝑐 
+Implicit values: 
+000033330033
+)()
+(
+=𝑥𝑥 previous  𝑐𝑐
+𝑥𝑥
+,𝑦𝑦,𝑦𝑦=𝑐𝑐 previous 
+010132320330
+()()
+𝑥𝑥=𝑥𝑥 previous  𝑐𝑐
+,𝑦𝑦,𝑦𝑦=𝑐𝑐 previous 
+02023131
+()
+(𝑥𝑥,𝑦𝑦)=𝑥𝑥,𝑦𝑦 previous 
+03033030
+()
+(𝑥𝑥,𝑦𝑦)=𝑥𝑥,𝑦𝑦 previous 
+131323233333323231313030
+𝑓𝑓=3 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
+202010101111121222222121
+𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
+3330
+𝑐𝑐 𝑐𝑐 
+Implicit values: 
+000030300030
+(
+)()
+𝑥𝑥
+=𝑥𝑥 previous  𝑐𝑐
+,𝑦𝑦,𝑦𝑦=𝑐𝑐 previous 
+010120200300
+()()
+𝑥𝑥=𝑥𝑥 previous  𝑐𝑐
+,𝑦𝑦,𝑦𝑦=𝑐𝑐 previous 
+02021010
+()
+(𝑥𝑥,𝑦𝑦)=𝑥𝑥,𝑦𝑦 previous 
+03030000
+()
+(𝑥𝑥,𝑦𝑦)=𝑥𝑥,𝑦𝑦 previous 
+ 
+8.8External objects 
+ 
+8.8.1General 
+ 
+external objectXObject
+An  (commonly called an ) is a graphics object whose contents are defined by a 
+self-contained stream, separate from the content stream in which it is used. There are two types of 
+external objects: 
+image XObject
+• 
+An  (8.9.5, "Image dictionaries") represents a sampled visual image such as a 
+form XObject
+• 
+photograph. 
+A  (8.10, "Form XObjects") is a self-contained description of an arbitrary sequence of 
+group XObjectsreference XObjects
+graphics objects. 
+Two further categories of external objects,  and  (both PDF 1.4), are 
+actually specialised types of form XObjects with additional properties. See 8.10.3, "Group XObjects" and 
+8.10.4, "Reference XObjects" for additional information. 
+Do
+Any XObject can be painted as part of another content stream by means of the  operator (see "

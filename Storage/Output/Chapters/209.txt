@@ -1,0 +1,239 @@
+Table 239: Additional entries specific to a submit-form action 
+Key Type Value 
+(Required) 
+S 
+SubmitForm
+  
+ 
+name The type of action that this dictionary describes; shall 
+befor a submit-form action.
+(Required) 
+F   
+file specification AURLfile specification (see 7.11.5, "URL 
+specifications") giving the uniform resource locator (URL) of the 
+script at the Web server that will process the submission. 
+(Optional) 
+Fields 
+array An array identifying which fields to include in the 
+ Flags 
+submission or which to exclude, depending on the setting of the 
+Include/Exclude flag in theentry (see "Table 240: Flags for 
+(PDF 1.3) 
+submit-form actions"). Each element of the array shall be either 
+an indirect reference to a field dictionary or a text 
+string representing the fully qualified name of a field. Elements 
+of both kinds may be mixed in the same array. 
+If this entry is omitted, the Include/Exclude flag shall be ignored, 
+and all fields in the document’s interactive form shall be 
+submitted except those whose NoExport flag (see "Table 227: 
+") is set. Fields with no 
+Field flags common to all field types
+values may also excluded, as dictated by the value of the 
+ 
+IncludeNoValueFields flag; see "Table 240: Flags for submit-
+form actions".
+(Optional; inheritable) 
+Flags 
+integer A set of flags specifying various 
+characteristics of the action (see "Table 240: Flags for submit-
+form actions"). Default value: 0. 
+(Optional; inheritable) utf-8utf-16Shift-
+CharSet 
+BigFiveGBKUHC 
+JIS
+string Possible values include: , , 
+, , , or .
+© ISO 2017 – All rights reserved 535 
+
+ISO/DIS 32000-2
+ 
+Table 240: Flags for submit-form actions 
+Bit position Name Meaning 
+Fields
+1 Include/Exclude If clear, the  array (see "Table 239: Additional entries 
+specific to a submit-form action") specifies which fields to 
+include in the submission. (All descendants of the specified fields 
+Fields
+in the field hierarchy shall be submitted as well.) 
+except 
+If set, the  array tells which fields to exclude. All fields in 
+Fields
+the document’s interactive form shall be submitted those 
+listed in the  array and those whose NoExport flag (see 
+ 
+"Table 227: Field flags common to all field types") is set and 
+fields with no values if the IncludeNoValueFields flag is clear.
+Fields
+2 IncludeNoValueFields If set, all fields designated by the  array and the 
+V
+Include/Exclude flag shall be submitted, regardless of whether 
+they have a value ( entry in the field dictionary). For fields 
+ 
+without a value, only the field name shall be transmitted. 
+If clear, fields without a value shall not be submitted.
+3 ExportFormat Meaningful only if the SubmitPDF and XFDF flags are clear. If set, 
+field names and values shall be submitted in HTML Form format. 
+If clear, they shall be submitted in Forms Data Format (FDF); see 
+12.7.8, "Forms data format". 
+4 GetMethod If set, field names and values shall be submitted using an HTTP 
+GET request. If clear, they shall be submitted using a POST 
+request. This flag is meaningful only when the ExportFormat flag 
+is set; if ExportFormat is clear, this flag shall also be clear. 
+5 SubmitCoordinates If set, the coordinates of the mouse click that caused the submit-
+form action shall be transmitted as part of the form data. The 
+coordinate values are relative to the upper-left corner of the 
+xy
+field’s widget annotation rectangle. They shall be represented in 
+name 
+TM
+the data in the format name .  = xval & name .  = yval where 
+name 
+ TM 
+is the field’s mapping name ( in the field dictionary) if 
+present; otherwise, is the field name. If the value of the
+entry is a single ASCII SPACE (20h) character, both the name and 
+xxval yyval
+the ASCII PERIOD (2Eh) following it shall be suppressed, 
+resulting in the format  = &  =  
+ 
+This flag shall be used only when the ExportFormat flag is set. If 
+ExportFormat is clear, this flag shall also be clear.
+(PDF 1.4) 
+6 XFDF shall be used only if the SubmitPDF flags are clear. If 
+set, field names and values shall be submitted as XFDF. 
+(PDF 1.4) 
+7 IncludeAppendSaves shall be used only when the form is being submitted in 
+  
+Forms Data Format (that is, when both the XFDF and 
+ExportFormat flags are clear). If set, the submittedFDFfile shall 
+ Differences   
+include the contents of all incremental updates to the underlying 
+PDF document, as contained in theentry in theFDF
+dictionary (see "Table 246: Entries in the FDF dictionary"). If 
+clear, the incremental updates shall not be included. 
+(PDF 1.4) 
+8 IncludeAnnotations shall be used only when the form is being submitted in 
+  
+Forms Data Format (that is, when both the XFDF and 
+ExportFormat flags are clear). If set, the submittedFDFfile shall 
+include includes all markup annotations in the underlying PDF 
+document (see 12.5.6.2, "Markup annotations"). If clear, markup 
+annotations shall not be included. 
+© ISO 2017 – All rights reserved 536 
+
+ISO/DIS 32000-2
+ 
+Bit position Name Meaning 
+(PDF 1.4) 
+Internet RFC 2045Multipurpose Internet 
+9 SubmitPDF If set, the document shall be submitted as PDF, using 
+Mail Extensions (MIME), Part One: Format of Internet Message 
+the MIME (described in , 
+Bodies
+) content type application/pdf (as defined in RFC XXXX). If 
+set, all other flags shall be ignored except GetMethod. 
+(PDF 1.4) 
+10 CanonicalFormat If set, any submitted field values representing dates 
+shall be converted to the standard format described in 7.9.4, 
+NOTE 1 The interpretation of a form field as a date is not 
+"Dates". 
+specified explicitly in the field itself but only in the
+ 
+ECMAScriptcode that processes it. 
+ 
+(PDF 1.4) 
+11 ExclNonUserAnnots shall be used only when the form is being submitted in 
+Forms Data Format (that is, when both the XFDF and 
+ExportFormat flags are clear) and the IncludeAnnotations flag is 
+T
+set. If set, it shall include only those markup annotations whose 
+Table 172: Additional entries in an annotation 
+ entry (see "
+dictionary specific to markup annotations") matches the name of 
+the current user, as determined by the remote server to which 
+NOTE 2 The  entry for markup annotations specifies the text 
+T
+the form is being submitted. 
+label that is displayed in the title bar of the annotation’s 
+popup window and is assumed to represent the name of 
+the user authoring the annotation. 
+NOTE 3 This allows multiple users to collaborate in annotating 
+a single remote PDF document without affecting one 
+another’s annotations.
+ 
+(PDF 1.4) 
+12 ExclFKey shall be used only when the form is being submitted in 
+  
+Forms Data Format (that is, when both the XFDF and 
+F
+ExportFormat flags are clear). If set, the submittedFDFshall 
+exclude the  entry. 
+(PDF 1.5) 
+14 EmbedForm shall be used only when the form is being submitted in 
+F 
+Forms Data Format (that is, when both the XFDF and 
+ 
+ExportFormat flags are clear). If set, the  entry of the submitted
+  
+FDFshall be a file specification containing an embedded file 
+stream representing the PDF file from which theFDFis being 
+submitted. 
+ 
+Fields
+The set of fields whose names and values are to be submitted shall be defined by the  array in the 
+Flags
+action dictionary ("Table 239: Additional entries specific to a submit-form action") together with the 
+Fields
+Include/Exclude and IncludeNoValueFields flags in the  entry ("Table 240: Flags for submit-form 
+actions"). Each element of the  array shall identify an interactive form field, either by an indirect 
+Fields
+reference to its field dictionary or (PDF 1.3) by its fully qualified field name (see 12.7.4.2, "Field 
+names"). If the Include/Exclude flag is clear, the submission consists of all fields listed in the  
+array, along with any descendants of those fields in the field hierarchy. If the Include/Exclude flag is set, 
+Fields
+the submission shall consist of all fields in the document’s interactive form except those listed in the 
+ array. 
+Ff
+The NoExport flag in the field dictionary’s  entry (see "Table 226: Entries common to all field 
+dictionaries" and "Table 227: Field flags common to all field types") takes precedence over the action’s 
+© ISO 2017 – All rights reserved 537 
+
+ISO/DIS 32000-2
+ 
+Fields
+ array and Include/ Exclude flag. Fields whose NoExport flag is set shall not be included in a 
+submit-form action. 
+Field names and values may be submitted in any of the following formats, depending on the settings of 
+the action’s ExportFormat, SubmitPDF, and XFDF flags: 
+• 
+• 
+HTML Form format (described in the HTML 4.01 Specification). 
+  
+• 
+Forms Data Format (FDF), which is described in 12.7.8, "Forms data format". 
+• 
+XFDF, a version ofFDFbased on XML. 
+PDF (in this case, the entire document shall be submitted rather than individual fields and values). 
+V
+The name submitted for each field shall be its fully qualified name (see 12.7.4.2, "Field names"), and the 
+value shall be specified by the  entry in its field dictionary. 
+ AP 
+Fields
+For push-button fields submitted in FDF, the value submitted shall be that of theentry in the field’s 
+widget annotation dictionary. If the submit-form action dictionary contains no  entry, such push-
+button fields shall not be submitted. 
+V
+Fields with no value (that is, whose field dictionary does not contain a  entry) are ordinarily not 
+included in the submission. The submit-form action’s IncludeNoValueFields flag may override this 
+behaviour. If this flag is set, such valueless fields shall be included in the submission by name only, with 
+no associated value. 
+12.7.6.3Reset-form action 
+ 
+V
+Upon invocation of a reset-form action, an interactive PDF processor shall reset selected interactive 
+ DV 
+form fields to their default values; that is, it shall set the value of the  entry in the field dictionary to 
+V
+that of theentry (see "Table 226: Entries common to all field dictionaries"). If no default value is 
+defined for a field, its  entry shall be removed. For fields that can have no value (such as push-buttons), 
+the action has no effect. "

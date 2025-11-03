@@ -303,3 +303,67 @@ Part 2 defines a newer, substantially revised and extended version of PDF.
 
 ISO/DIS 32000-2
  
+Introduction 
+PDF 
+PDF enables users to exchange and view electronic documents easily and reliably, independent of the 
+environment in which they were created or the environment in which they are viewed or printed.  
+At the core of PDF is an advanced imaging model derived from the PostScript® page description 
+language. This PDF Imaging Model enables the description of text and graphics in a device-independent 
+and resolution-independent manner at a complete, precise and professional level. Unlike PostScript, 
+which is a programming language, PDF is based on a structured binary file format that is optimised for 
+high performance in interactive viewing.  
+PDF includes objects such as annotations and hypertext links that are not part of the page content itself 
+but are useful for interactive viewing and document interchange. PDF also includes data structures such 
+as tagged PDF, XMP and an associated files mechanism, that are useful for document management and 
+content reuse. 
+PDF files can be created natively in PDF form, converted from other electronic formats. Since PDF 
+supports a wide range of image and compression technologies, it is a suitable format for documents 
+digitised from paper, microform, or other hard copy formats. Businesses, governments, libraries, 
+archives and other institutions and individuals around the world use PDF to represent considerable 
+bodies of important information. Since its introduction in 1993, aided by the explosive growth of the 
+Internet, PDF has become widely used for the electronic exchange of documents. 
+There are several specific applications of PDF that have evolved in which limiting the use of some 
+features of PDF while requiring the use of others, enhances the usefulness of PDF. The following ISO 
+standards address specialised uses of PDF: 
+• 
+PDF/X (ISO 15930) is the industry standard for the intermediate representation of printed 
+• 
+material in electronic prepress systems for conventional printing applications. 
+• 
+PDF/A (ISO 19005) is the industry standard for the archiving of digital documents. 
+• 
+PDF/UA (ISO 14289) is the industry standard for accessible PDF documents and processors. 
+PDF/E (ISO 24517) provides a mechanism for representing engineering documents and 
+• 
+exchanging engineering data. 
+PDF/VT (ISO 16612-2) is for high volume printing of personalised documents including variable 
+data. 
+As corporations, government agencies, and educational institutions streamline their operations by 
+replacing paper-based workflows with electronic exchange of information, the impact and opportunity 
+for the application of PDF will continue to grow at a rapid pace. 
+PDF, together with software for creating, viewing, printing and processing PDF files in a variety of ways, 
+fulfils a set of requirements for electronic documents including: 
+• 
+• 
+preservation of document fidelity independent of the device, platform, and software, 
+merging of content from diverse sources — Web sites, word processing and spreadsheet 
+programs, scanned documents, photos, and graphics — into one self-contained document while 
+maintaining the integrity of all original source documents, 
+© ISO 2017 – All rights reserved 2 
+
+ISO/DIS 32000-2
+ 
+• 
+• 
+an extensible metadata model at the document and object level, 
+• 
+collaborative editing of documents from multiple locations or platforms, 
+• 
+digital signatures to certify authenticity, 
+security and permissions to allow the creator to retain control of the document and associated 
+• 
+rights, 
+• 
+accessibility of content to those with disabilities, 
+• 
+extraction and reuse of content for use with other file formats and applications, and 

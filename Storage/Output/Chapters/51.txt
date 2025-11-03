@@ -1,0 +1,240 @@
+Table 24: Public-key security 
+handler user access permissions" in 7.6.5.2, "Public-key encryption dictionary". 
+Public Key Cryptographic Standard Number 7
+Public-key security handlers use the industry standard  
+© ISO 2017 – All rights reserved 89 
+
+ISO/DIS 32000-2
+ 
+Internet RFC 5652Cryptographic Message Syntax
+(CMS) binary encoding syntax to encode recipient list, decryption key, and access permission 
+information. The CMS specification is in , . 
+When encrypting the data, each recipient’s X.509 public key certificate (as described in ITU-T 
+Recommendation X.509) shall be available. When decrypting the data, the PDF reader shall scan the 
+recipient list for which the content is encrypted and shall attempt to find a match with a certificate that 
+belongs to the user. If a match is found, the user requires access to the corresponding private key, which 
+may require authentication, possibly using a password. Once access is obtained, the private key shall be 
+used to decrypt the encrypted data. 
+7.6.5.2Public-key encryption dictionary 
+ 
+Encryption dictionaries for public-key security handlers contain the common entries shown in "Table 
+20: Entries common to all encryption dictionaries", whose values are described above. In addition, they 
+may contain the entry shown in "Table 23: Additional encryption dictionary entries for public-key 
+security handlers" as described below. 
+Filter
+The  entry shall be the name of a public-key security handler. This filter entry shall be the name of 
+the public key handler used to encrypt the document. See "Table 20: Entries common to all encryption 
+dictionaries". 
+NOTE Examples of existing security handlers that support public-key encryption are Entrust.PPKEF, 
+Adobe.PPKLite, and Adobe.PubSec.  
+ SubFilter 
+adbe.pkcs7.s3adbe.pkcs7.s4
+Permitted values of theentry for use with conforming public-key security handlers are 
+adbe.pkcs7.s5
+, , which shall be used when not using crypt filters (see 7.6.6, "Crypt filters") 
+and , which shall be used when using crypt filters. 
+adbe.pkcs7.s5
+CFStmFStrF SubFilter 
+The , , and  entries may be present whenis . 
+Table 23: Additional encryption dictionary entries for public-key security handlers 
+Key Type Value 
+Required whenis adbe.pkcs7.s3 or adbe.pkcs7.s4; PDF 1.3
+Recipients  SubFilter 
+array () An array of 
+byte-strings, where each string is a CMS object listing recipients who have been 
+granted equal access rights to the document. The data contained in the CMS 
+object shall include both a cryptographic key that shall be used to decrypt the 
+Table 24: Public-key security 
+encrypted data and the access permissions (see "
+handler user access permissions") that apply to the recipient list. There shall be 
+only one CMS object per unique set of access permissions; if a recipient appears 
+in more than one list, the permissions used shall be those in the first matching 
+adbe.pkcs7.s5
+ SubFilter 
+list. 
+Whenis , recipient lists shall be specified in the crypt 
+filter dictionary; see "Table 27: Additional crypt filter dictionary entries for 
+public-key security handlers". 
+Required
+P 
+integer () A set of flags specifying which operations shall be permitted when 
+the document is opened with user access. If bit 2 is set to 1, all other bits are 
+ignored and all operations are permitted. If bit 2 is set to 0, permission for 
+operations are based on the values of the remaining flags defined in "Table 24: 
+Public-key security handler user access permissions". 
+ 
+P
+© ISO 2017 – All rights reserved 90 
+The value of the  entry shall be interpreted as an unsigned 32-bit quantity containing a set of flags 
+
+ISO/DIS 32000-2
+ 
+specifying which access permissions shall be granted when the document is opened with user access. 
+"Table 24: Public-key security handler user access permissions" shows the meanings of these flags. Bit 
+positions within the flag word shall be numbered from 1 (low-order) to 32 (high-order). A 1 bit in any 
+position shall enable the corresponding access permission. 
+PDF readers shall ignore all flags other than those at bit positions 2, 3, 4, 5, 6, 9, 10, 11, and 12. 
+Table 24: Public-key security handler user access permissions 
+Bit position Meaning 
+2 When set permits change of encryption and enables all other 
+permissions. 
+3 Print the document (possibly not at the highest quality level, 
+depending on whether bit 12 is also set). 
+4 Modify the contents of the document by operations other than those 
+controlled by bits 6, 9, and 11. 
+5 Copy or otherwise extract text and graphics from the document. 
+However, for the limited purpose of providing this content to assistive 
+NOTE ISO 32000-1 had this option restricted by bit 10, for 
+technology, a PDF reader shall behave as if this bit was set to 1. 
+accessibility, but that exception has been deprecated in PDF 
+2.0. 
+6 Add or modify text annotations, fill in interactive form fields, and, if 
+bit 4 is also set, create or modify interactive form fields (including 
+signature fields). 
+9 Fill in existing interactive form fields (including signature fields), even 
+if bit 6 is clear. 
+10 Not used. This bit was previously used to determine whether content 
+could be extracted for the purposes of accessibility, however, that 
+restriction has been deprecated in PDF 2.0. PDF readers shall ignore 
+this bit and PDF writers shall always set this bit to 1 to ensure 
+compatibility with PDF readers supporting older specifications. 
+11 Assemble the document (insert, rotate, or delete pages and create 
+document outline items or thumbnail images), even if bit 4 is clear. 
+12 Print the document to a representation from which a faithful digital 
+copy of the PDF content could be generated, based on an 
+implementation-dependent algorithm. When this bit is clear (and bit 3 
+is set), printing shall be limited to a low-level representation of the 
+appearance, possibly of degraded quality. 
+ 
+7.6.5.3Public-key encryption algorithms 
+ 
+"Figure 4: Public-key encryption algorithm" illustrates how CMS objects shall be used when encrypting 
+PDF files. A CMS object is designed to encapsulate and encrypt what is referred to as the enveloped 
+data. 
+© ISO 2017 – All rights reserved 91 
+
+ISO/DIS 32000-2
+ ![Figure 4 Public-key encryption algorithm  .png](./Storage/Output/Images/Figure 4 Public-key encryption algorithm  .png)
+Figure 4: Public-key encryption algorithm 
+ 
+The enveloped data in the CMS object contains keying material that shall be used to decrypt the 
+document (or individual strings or streams in the document, when crypt filters are used; see 7.6.6, 
+"Crypt filters"). A key shall be used to encrypt (and decrypt) the enveloped data. This key (the plaintext 
+key in "Figure 4: Public-key encryption algorithm") shall be encrypted for each recipient, using that 
+recipient’s public key, and shall be stored in the CMS object (as the encrypted key for each recipient). To 
+decrypt the document, that key shall be decrypted using the recipient’s private key, which yields a 
+decrypted (plaintext) key. That key, in turn, shall be used to decrypt the enveloped data in the CMS 
+object, resulting in a byte array that includes the following information: 
+• 
+A 20-byte seed that shall be used to create the file encryption key that is used by "Algorithm 1: 
+Encryption of data using the RC4 or AES algorithms" or "Algorithm 1.A: Encryption of data using 
+the AES algorithms". The seed shall be a unique random number generated by the security handler 
+• 
+that encrypted the document. 
+A 4-byte value defining the permissions, least significant byte first. See "Table 24: Public-key 
+adbe.pkcs7.s3
+ SubFilter 
+• 
+security handler user access permissions" for the possible permission values. 
+Whenis , the relevant permissions shall be only those specified for 
+adbe.pkcs7.s4
+• 
+revision 2 of the standard security handler. 
+adbe.pkcs7.s5
+• 
+For , security handlers of revision 3 permissions shall apply. 
+adbe.pkcs7.s4
+StmFStrF
+For , which supports the use of crypt filters, the permissions shall be the same as 
+ Crypt 
+ when the crypt filter is referenced from the  or  entries of the encryption 
+dictionary. When referenced from thefilter decode parameter dictionary of a stream object 
+(see "Table 14: Optional parameters for Crypt filters"), the 4 bytes of permissions shall be absent 
+from the enveloped data. 
+The algorithms that shall be used to encrypt the enveloped data in the CMS object are:  
+• 
+• 
+RC4 with key lengths up to 256-bits (deprecated); 
+• 
+DES, Triple DES, RC2 with key lengths up to 128 bits (deprecated); 
+• 
+128-bit AES in Cipher Block Chaining (CBC) mode (deprecated); 
+192-bit AES in CBC mode (deprecated); 
+© ISO 2017 – All rights reserved 92 
+
+ISO/DIS 32000-2
+ 
+• 
+Internet RFC 5652, Cryptographic Message Syntax
+256-bit AES in CBC mode.  
+The CMS specification is in . 
+The file encryption key used by 7.6.3.1, "Algorithm 1: Encryption of data using the RC4 or AES 
+algorithms" shall be calculated by means of an SHA-1 message digest operation, for a key length of 128 
+bits. For the file encryption key used by  7.6.3.2 "Algorithm 1.A: Encryption of data using the AES 
+algorithms", a SHA-256 digest operation shall be used for a key length of 256 bits. These operations 
+digest the following data, in order: 
+ 
+Recipients
+ 
+a)The 20 bytes of seed. 
+b)The bytes of each item in the  array of CMS objects in the order in which they appear in the 
+ 
+array. 
+c)4 bytes with the value 0xFF if the key being generated is intended for use in document-level encryption 
+n/n
+ 
+and the document metadata is being left as plaintext. 
+d)The first 8 bytes of the resulting digest shall be used as the file encryption key, where  is the bit length 
+ 
+of the file encryption key.  
+crypt filters
+e)Crypt filters. 
+PDF 1.5 introduces , which provide finer granularity control of encryption within a PDF file. 
+The use of crypt filters involves the following structures: 
+• 
+CF
+The encryption dictionary (see "Table 20: Entries common to all encryption dictionaries") contains 
+StmFStrF
+entries that enumerate the crypt filters in the document () and specify which ones are used by 
+V
+default to decrypt all the streams () and strings () in the document. In addition, the value 
+CF
+• 
+of the  entry shall be 4 to use crypt filters. 
+Each crypt filter specified in the  entry of the encryption dictionary shall be represented by a 
+crypt filter dictionary, whose entries are shown in "Table 25: Entries common to all crypt filter 
+ Crypt 
+• 
+dictionaries". 
+A stream filter type, thefilter (see 7.4.10, "Crypt filter") can be specified for any stream in 
+the document to override the default filter for streams. A PDF processor shall provide a standard 
+Identity filter which shall pass the data unchanged (see "Table 26: Standard crypt filter names") to 
+ DecodeParms  Crypt 
+allow specific streams, such as document metadata, to be unencrypted in an otherwise encrypted 
+Name
+document. The stream’sentry shall contain afilter decode parameters 
+Identity
+dictionary (see "Table 14: Optional parameters for Crypt filters") whose  entry specifies the 
+particular crypt filter that shall be used (if missing,  is used). Different streams may 
+specify different crypt filters. 
+AuthEvent
+Authorization to decrypt a stream shall always be obtained before the stream can be accessed. This 
+typically occurs when the document is opened, as specified by a value of DocOpen for the  
+AuthEventEFOpen
+entry in the crypt filter dictionary. PDF readers and security handlers shall treat any attempt to access a 
+stream for which authorization has failed as an error.  can also be , which indicates 
+the presence of an embedded file that is encrypted with a crypt filter that may be different from the 
+crypt filters used by default to encrypt strings and streams in the document. 
+RF
+EF
+In the file specification dictionary (see 7.11.3, "File specification dictionaries"), related files () shall 
+use the same crypt filter as the embedded file (). 
+None
+CFM
+A value of  for the  entry in the crypt filter dictionary allows the security handler to do its own 
+decryption. This allows the handler to tightly control key management and use any preferred 
+symmetric-key cryptographic algorithm. 
+© ISO 2017 – All rights reserved 93 
+
+ISO/DIS 32000-2
+ 

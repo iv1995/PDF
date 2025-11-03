@@ -1,0 +1,322 @@
+Table 307: Entries in a movie 
+activation dictionary") that shall specify how it shall be presented. 
+Table 306: Entries in a movie dictionary 
+Key Type Value 
+Required
+F 
+file specification () A file specification identifying a self-describing movie file. 
+The format of a self-describing movie file shall be left unspecified, and 
+there is no guarantee of portability. 
+Optional
+Aspect 
+array () The width and height of the movie’s bounding box, in pixels, 
+and shall be specified as [width height]. This entry should be omitted for a 
+movie consisting entirely of sound with no visible images. 
+Optional
+Rotate 
+integer () The number of degrees by which the movie shall be rotated 
+clockwise relative to the page. The value shall be a multiple of 90. Default 
+value: 0. 
+Optional
+Poster 
+boolean or stream () A flag or stream specifying whether and how a poster image 
+representing the movie shall be displayed. If this value is a stream, it shall 
+true
+contain an image XObject (see 8.9, "Images") to be displayed as the poster. 
+falsefalse
+If it is the boolean value , the poster image shall be retrieved from the 
+movie file; if it is , no poster shall be displayed. Default value: . 
+Table 307: Entries in a movie activation dictionary 
+Key Type Value 
+Optional
+Start 
+(various) () The starting time shall be nominally a non-negative 64-bit 
+• 
+integer, specified as follows: 
+• 
+If it is representable as a 32 bit integer, it shall be specified as such. 
+If it is not representable as a 32 bit integer, it shall be specified as an 
+8-byte string representing a 64-bit twos-complement integer, most 
+• 
+significant byte first. 
+If it is expressed in a time scale different from that of the movie 
+itself, it shall be represented as an array of two values: an integer or 
+byte string denoting the starting time, followed by an integer 
+specifying the time scale in units per second. 
+If this entry is omitted, the movie shall be played from the beginning. 
+© ISO 2017 – All rights reserved 617 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional
+Duration 
+Start
+(various) () The duration of the movie segment to be played, that shall be 
+specified in the same form as . If this entry is omitted, the movie shall 
+be played to the end. 
+Optional
+Rate 
+number () The initial speed at which to play the movie. If the value of this 
+StartDuration
+entry is negative, the movie shall be played backward with respect to 
+ and . Default value: 1.0. 
+Optional
+Volume 
+number () The initial sound volume at which to play the movie, in the 
+range -1.0 to 1.0. Higher values shall denote greater volume; negative 
+values shall mute the sound. Default value: 1.0. 
+Optional
+ShowControls 
+false
+boolean () A flag specifying whether to display a movie controller bar 
+while playing the movie. Default value: . 
+Optional
+Mode 
+Once
+name () The play mode for playing the movie:  
+Open
+ Play once and stop. 
+Repeat
+ Play and leave the movie controller bar open. 
+Palindrome
+ Play repeatedly from beginning to end until stopped.  
+Once
+ 
+ Play continuously forward and backward until stopped. 
+Default value: .
+Optional
+Synchronous 
+true
+boolean () A flag specifying whether to play the movie synchronously or 
+false
+asynchronously. If this value is , the movie player shall retain control 
+until the movie is completed or dismissed by the user. If the value is , 
+false
+the player shall return control to the interactive PDF processor 
+immediately after starting the movie. Default value: . 
+Optional
+FWScale 
+array () The magnification (zoom) factor at which the movie shall be 
+played. The presence of this entry implies that the movie shall be played 
+in a floating window. If the entry is absent, the movie shall be played in 
+the annotation rectangle. 
+[numerator denominator]
+The value of the entry shall be an array of two positive integers, 
+(numerator ÷ 
+, denoting a rational magnification factor for the 
+denominator)
+ Aspect  Aspect 
+movie. The final window size, in pixels, shall be 
+ 
+ ×where the value ofshall be taken from the 
+movie dictionary (see "Table 306: Entries in a movie dictionary").
+Optional
+FWPosition 
+[horiz vert]
+array () For floating play windows, the relative position of the window 
+on the screen. The value shall be an array of two numbers  
+each in the range 0.0 to 1.0, denoting the relative horizontal and vertical 
+position of the movie window with respect to the screen. 
+EXAMPLE The value [0.5 0.5] centres the window on the screen. 
+Default value: [0.5 0.5]. 
+ 
+13.5Alternate presentations 
+ 
+The features described in this clause are deprecated with PDF 2.0. 
+alternate presentations
+AlternatePresentations
+Beginning with PDF 1.4, a PDF document may contain , which specify alternative 
+ways in which the document may be viewed. The optional  entry (PDF 1.4) in a 
+document’s name dictionary (see "Table 32: Entries in the name dictionary") contains a name tree that 
+© ISO 2017 – All rights reserved 618 
+
+ISO/DIS 32000-2
+ 
+maps name strings to the alternate presentations available for the document. 
+NOTE 1 Since PDF processors are not required to support alternate presentations, authors of documents 
+containing alternate presentations should define the files such that something useful and 
+meaningful can be displayed and printed. For example, if the document contains an alternate 
+presentation slideshow of a sequence of photographs, the photographs should be viewable in a 
+static form by viewers that are not capable of playing the slideshow. 
+As of PDF 1.5, the only type of alternate presentation is a slideshow. Slideshows may be invoked by 
+means of JavaScript actions (see 12.6.4.17, "ECMAScript actions") initiated by user action on an 
+interactive form element (see 12.7, "Forms"). 
+"Table 308: Entries in a slideshow dictionary" shows the entries in a slideshow dictionary. 
+Table 308: Entries in a slideshow dictionary 
+Key Type Value 
+Required; PDF 1.4
+Type 
+SlideShow
+ 
+Name () The type of PDF object that this dictionary describes; shall 
+be  for a slideshow dictionary.
+Required; PDF 1.4
+Subtype 
+Embedded
+Name () The subtype of the PDF object that this dictionary 
+describes; shall be  for a slideshow dictionary. 
+Required; PDF 1.4
+Resources 
+name tree () A name tree that maps name strings to objects referenced 
+by the alternate presentation. Even though PDF treats the strings in the name 
+tree as strings without a specified encoding, the slideshow shall interpret them 
+as UTF-8 encoded Unicode. 
+Required; PDF 1.4
+StartResource  
+Resources 
+byte string () A byte string that shall match one of the strings in the
+entry. It shall define the root object for the slideshow presentation. 
+ 
+NOTE 2 The  name tree represents a virtual file system to the slideshow. It associates strings 
+Resources
+(“file names”) with PDF objects that represent resources used by the slideshow. For example, a 
+root stream may reference a file name, which would be looked up in the  name tree, and 
+Resources
+the corresponding object would be loaded as the file. (This virtual file system is flat; that is, there is 
+no way to reference subfolders.) 
+NOTE 3 Typically, images are stored in the document as image XObjects (see 8.9.5, "Image dictionaries"), 
+thereby allowing them to be shared between the standard PDF representation and the slideshow. 
+Other media objects are stored or embedded file streams (see 7.11.4, "Embedded file streams"). 
+TypeType
+To allow PDF processors to verify content against their own supported features, all referenced objects 
+shall include a  entry in their dictionary, even when the  entry is normally optional for a given 
+object. 
+EXAMPLE The following example illustrates the use of alternate presentation slideshows. 
+1 0 obj 
+  <</Type /Catalog 
+   /Pages 2 0 R 
+   /Names 3 0 R        %Indirect reference to name dictionary 
+   … 
+  >> 
+endobj 
+ 
+3 0 obj             %The name dictionary 
+  <</AlternatePresentations 4 0 R>> 
+© ISO 2017 – All rights reserved 619 
+
+ISO/DIS 32000-2
+ 
+endobj 
+ 
+4 0 obj             %The alternate presentations name tree 
+  <</Names [(MySlideShow) 5 0 R]>> 
+endobj 
+ 
+5 0 obj             %The slideshow definition 
+  <</Type /SlideShow 
+   /Subtype /Embedded 
+   /Resources <</Names [(mysvg.svg) 31 0R  
+          (abc0001.jpg) 35 0 R  
+          (abc0002.jpg) 36 0 R 
+          (mysvg.js) 61 0 R  
+          (mymusic.mp3) 65 0 R 
+         ] 
+       >> 
+   /StartResource (mysvg.svg) 
+  >> 
+endobj 
+ 
+31 0 obj 
+  <</Type /Filespec        %The root object, which 
+   /F (mysvg.svg)        %points to an embedded file stream 
+   /EF <</F 32 0 R>> 
+  >> 
+endobj 
+ 
+32 0 obj             %The embedded file stream 
+  <</Type /EmbeddedFile 
+   /Subtype /image#2Fsvg+xml 
+   /Length 72 
+  >> 
+  stream 
+   <?xml version="1.0" standalone="no"?> 
+   <svg><!- Some SVG goes here -></svg> 
+  endstream 
+endobj 
+ 
+% … other objects not shown … 
+ 
+13.63D Artwork 
+ 
+13.6.1General 
+ 
+3D models
+Starting with PDF 1.6, collections of three-dimensional objects, such as those used by CAD software, 
+3D artwork
+may be embedded in PDF files. Such collections are often called ; in the context of PDF, they 
+shall be referred to as . The PDF constructs for 3D artwork support the following features: 
+• 
+3D artwork may be rendered within a page; that is, not as a separate window or user interface 
+• 
+element. 
+• 
+Multiple instances of 3D artwork may appear within a page or document. 
+Specific views of 3D artwork may be specified, including a default view that shall be displayed 
+initially and other views that may be selected. Views may have names that can be presented in a 
+PDF 1.7
+• 
+user interface. 
+() PDF documents may specify how embedded 3D artwork shall be rendered, coloured, lit, 
+and cross-sectioned, without the use of embedded ECMAScript. They may also specify state 
+information that shall be applied to individual nodes (3D graphics objects or collections thereof) in 
+• 
+the 3D artwork, such as visibility, opacity, position, or orientation. 
+Pages containing 3D artwork may be printed. 
+© ISO 2017 – All rights reserved 620 
+
+ISO/DIS 32000-2
+ 
+• 
+Users may pan, zoom and rotate the artwork, enabling them to examine complex objects from any 
+PDF 1.7
+• 
+angle or orientation. 
+() Keyframe animations contained in 3D artwork may be played in specific styles and 
+• 
+timescales, without programmatic intervention. 
+ECMAScripts and other software may programmatically manipulate objects in the artwork, 
+PDF 1.7
+• 
+creating dynamic presentations in which objects move, spin, appear, and disappear. 
+() The activation of 3D artwork can trigger the display of additional user interface items in 
+• 
+an interactive PDF processor. Such items may include model trees and toolbars. 
+Two-dimensional (2D) content such as labels may be overlaid on 3D artwork. This feature is not 
+PDF 1.7
+ 
+• 
+the same as the ability to apply 2D markup annotations. 
+ExData 
+() 2D markup annotations may be applied to specific views of the 3D artwork, using the
+entry to identify the 3D annotation and the 3D view in that annotation. 
+The following subclauses describe the major PDF objects that relate to 3D artwork, as well as providing 
+background information on 3D graphics: 
+3D annotationsvirtual camera
+• 
+ provide a  through which the artwork shall be viewed. (see 13.6.2, 
+• 
+"3D Annotations"). 
+Universal 3D file format
+3D streams shall contain the actual specification of a piece of 3D artwork (see 13.6.3, "3D 
+Product 
+streams"). This specification supports the Standard ECMA-363,  developed 
+Representation Compact (PRC)
+by the 3D Industry Forum. PDF 2.0 extends PDF to support the ISO 14739-1 
+• 
+ file format. 
+3D views shall specify information about the relationship between the camera and the 3D artwork 
+(see 13.6.4, "3D views"). Beginning with PDF 1.7, views may also describe additional parameters 
+such as render mode, lighting, cross sections, and nodes. Nodes shall be 3D graphic objects or 
+• 
+collections thereof. 
+• 
+3D coordinate systems are described in 13.6.5, "Coordinate systems for 3D" 
+NOTE Many of the concepts and terminology of 3D rendering are beyond the scope of this reference. 
+2D markup annotations applied to 3D artwork views are described in 13.6.6, "3D markup" 
+Readers interested in further information are encouraged to consult outside references. 
+13.6.23D annotations 
+ 
+PDF 1.6
+3D annotations () are the means by which 3D artwork shall be represented in a PDF document. 
+"

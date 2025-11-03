@@ -1,0 +1,327 @@
+Table 18: Entries in a cross-reference stream" describes 
+the types of entries and their fields. For PDF 1.5,  always contains three 
+integers; the value of each integer shall be the number of bytes (in the decoded 
+stream) of the corresponding field. 
+EXAMPLE [1 2 1] means that the fields are one byte, two bytes, and one 
+byte, respectively. 
+W
+A value of zero for an element in the  array indicates that the corresponding 
+field shall not be present in the stream, and the default value shall be used, if 
+there is one. A value of zero shall not be used for the second element of the 
+array. If the first element is zero, the type field shall not be present, and shall 
+default to Type 1. 
+Index
+The sum of the items shall be the total length of each entry; it can be used with 
+W
+the  array to determine the starting position of each subsection. 
+Different cross-reference streams in a PDF file may use different values for . 
+ 
+7.5.8.3Cross-reference stream data 
+ 
+Each entry in a cross-reference stream shall have one or more fields, the first of which designates the 
+entry’s type (see "Table 18: Entries in a cross-reference stream"). In PDF 1.5 through PDF 2.0, only 
+types 0, 1, and 2 are allowed. Any other value shall be interpreted as a reference to the null object, thus 
+permitting new entry types to be defined in the future. 
+W
+The fields are written in increasing order of field number; the length of each field shall be determined 
+by the corresponding value in the  entry (see "Table 17: Additional entries specific to a cross-
+reference stream dictionary"). Fields requiring more than one byte are stored with the high-order byte 
+first. 
+Table 18: Entries in a cross-reference stream 
+Type Field Description 
+0 
+f
+1 The type of this entry, which shall be 0. Type 0 entries define the 
+linked list of free objects (corresponding to  entries in a cross-
+reference table). Default value: 0. 
+ 
+2 The object number of the next free object. 
+ 
+3 The generation number to use if this object number is used again. 
+Default value: 0. 
+1 
+1 The type of this entry, which shall be 1. Type 1 entries define 
+objects that are in use but are not compressed (corresponding to 
+n entries in a cross-reference table). 
+ 
+2 The byte offset of the object, starting from the beginning of the 
+file. Default value: 0. 
+ 
+3 The generation number of the object. Default value: 0. 
+2 
+1 The type of this entry, which shall be 2. Type 2 entries define 
+compressed objects. 
+© ISO 2017 – All rights reserved 71 
+
+ISO/DIS 32000-2
+ 
+Type Field Description 
+ 
+2 The object number of the object stream in which this object is 
+stored. (The generation number of the object stream shall be 
+implicitly 0.) 
+ 
+3 The index of this object within the object stream. 
+ 
+Like any stream, a cross-reference stream shall be an indirect object. Therefore, an entry for it shall 
+exist in either a cross-reference stream (usually itself) or in a cross-reference table (in hybrid-reference 
+files; see 7.5.8.4, "Compatibility with applications that do not support compressed reference streams"). 
+7.5.8.4Compatibility with applications that do not support compressed 
+ 
+reference streams 
+A hybrid-reference file is readable by PDF processors designed only to support versions of PDF before 
+PDF 1.5. Such a file contains objects referenced by standard cross-reference tables in addition to objects 
+in object streams that are referenced by cross-reference streams. 
+In these files, the trailer dictionary may contain, in addition to the entry for trailers shown in "Table 15: 
+Entries in the file trailer dictionary", an entry, as shown in the following table. 
+Table 19: Additional entries in a hybrid-reference file’s trailer dictionary 
+Key Type Value 
+Optional
+XRefStm 
+integer () The byte offset in the decoded stream from the beginning of the file of a 
+cross-reference stream. 
+ 
+When a PDF reader opens a hybrid-reference file, objects with entries in cross-reference streams are 
+ XRefStm 
+not hidden. When the PDF reader searches for an object, if an entry is not found in any given standard 
+ Prev 
+cross-reference section, the search shall proceed to a cross-reference stream specified by the
+entry before looking in the previous cross-reference section (theentry in the trailer). 
+NOTE Hidden objects, therefore, have two cross-reference entries. One is in the cross-reference stream. 
+The other is a free entry in some previous section, typically the section referenced by the
+ Prev 
+entry.  
+A PDF reader shall look in the cross-reference stream first, find the object there, and shall ignore the 
+free entry in the previous section.  
+EXAMPLE In this example, an ASCIIHexDecode filter is specified to make the format and contents of the cross-reference 
+stream readable. This example shows a hybrid-reference file containing a main cross-reference section and 
+an update cross-reference section with an XRefStm entry that points to a cross-reference stream (object 11), 
+which in turn has references to an object stream (object 2). 
+ In this example, the catalog dictionary (object 1) contains an indirect reference (3 0 R) to the root of the 
+structure tree. The search for the object starts at the update cross-reference table, which has no objects in it. 
+The search proceeds depending on the version of the PDF reader. 
+ One choice for a PDF reader designed only to support versions of PDF before PDF 1.5 is to continue the search 
+by following the Prev pointer to the main cross-reference table. That table defines object 3 as a free object, 
+© ISO 2017 – All rights reserved 72 
+
+ISO/DIS 32000-2
+ 
+which is treated as the null object. Therefore, the entry is considered missing, and the document has no 
+structure tree.  
+ Another choice for a PDF reader, is to continue the search by following the XRefStm pointer to the cross-
+reference stream (object 11). It defines object 3 as a compressed object, stored at index 0 in the object stream 
+(2 0 obj). Therefore, the document has a structure tree. 
+1 0 obj          %The document root, at offset 23. 
+   <</Type /Catalog 
+   /StructTreeRoot 3 0 R 
+   … 
+  >> 
+endobj 
+ 
+12 0 obj 
+… 
+endobj 
+… 
+99 0 obj 
+… 
+endobj 
+ 
+%The main xref section, at offset 2664 is next with entries for objects 0-99. 
+%Objects 2 through 11 are marked free and objects 12, 13 and 99 are marked in use. 
+xref 
+0 100 
+0000000002 65535 f 
+0000000023 00000 n 
+0000000003 65535 f 
+0000000004 65535 f 
+0000000005 65535 f 
+0000000006 65535 f 
+0000000007 65535 f 
+0000000008 65535 f 
+0000000009 65535 f 
+0000000010 65535 f 
+0000000011 65535 f 
+0000000000 65535 f 
+0000000045 00000 n 
+0000000179 00000 n 
+… cross-reference entries for objects 14 through 98 … 
+0000002201 00000 n 
+trailer 
+   <</Size 100 
+   /Root 1 0 R 
+   /ID… 
+  >> 
+%The main xref section starts at offset 2664. 
+startxref 
+  2664 
+%%EOF 
+ 
+2 0 obj          %The object stream, at offset 3722 
+   <</Length … 
+   /N 8        %This stream contains 8 objects. 
+   /First 47      %The stream-offset of the first object 
+  >> 
+stream 
+… the numbers and stream-offsets of the remaining 5 objects followed by 
+  3 0 4 50 5 72 
+dictionary objects 3-5 …
+ 
+   <</Type /StructTreeRoot 
+   /K 4 0 R 
+   /RoleMap 5 0 R 
+   /ClassMap 6 0 R 
+   /ParentTree 7 0 R 
+   /ParentTreeNextKey 8 
+© ISO 2017 – All rights reserved 73 
+
+ISO/DIS 32000-2
+ 
+  >> 
+   <</S /Workbook 
+   /P 8 0 R 
+   /K 9 0 R 
+  >> 
+   <</Workbook /Div 
+   /Worksheet /Sect 
+   /TextBox /Figure 
+   /Shape /Figure 
+  >> 
+  … definitions for objects 6 through 10  
+…
+endstream 
+endobj 
+ 
+11 0 obj          %The cross-reference stream, at offset 4899 
+   <</Type /XRef 
+   /Index [2 10]     %This stream contains entries for objects 2 through 11 
+   /Size 100 
+   /W [1 2 1]       %The byte-widths of each field 
+   /Filter /ASCIIHexDecode  %For readability only 
+   … 
+>> 
+stream 
+01 0E8A 0 
+02 0002 00 
+02 0002 01 
+02 0002 02 
+02 0002 03 
+02 0002 04 
+02 0002 05 
+02 0002 06 
+02 0002 07 
+01 1323 0 
+endstream 
+endobj 
+ 
+%The entries above are for: object 2 (0x0E8A = 3722), object 3 (in object stream 2, index 0), 
+%object 4 (in object stream 2, index 1) … object 10 (in object stream 2, index 7), 
+%object 11 (0x1323 = 4899). 
+ 
+%The update xref section starting at offset 5640. There are no entries in this section. 
+xref 
+0 0 
+trailer 
+    <</Size 100 
+    /Prev 2664      %Offset of previous xref section 
+    /XRefStm 4899 
+    /Root 1 0 R 
+    /ID… 
+   >> 
+startxref 
+5640 
+%%EOF 
+ 
+The previous example illustrates several other points: 
+• 
+The object stream is unencoded and the cross-reference stream uses an ASCII hexadecimal 
+encoding for clarity. In practice, both streams should be Flate-encoded. PDF comments shall not be 
+• 
+included in a cross-reference table or in cross-reference streams. 
+The hidden objects, 2 through 11, are numbered consecutively. In practice, hidden objects and 
+• 
+other free items in a cross-reference table need not be linked in ascending order until the end. 
+The update cross-reference table need not contain any entries. A PDF writer that uses the hybrid-
+reference format creates the main cross-reference table, the update cross-reference table, and the 
+© ISO 2017 – All rights reserved 74 
+
+ISO/DIS 32000-2
+ 
+cross-reference stream at the same time. Objects 12 and 13, for example, are not compressed. They 
+might have entries in the update table. Since objects 2 and 11, the object stream and the cross-
+reference stream, are not compressed, they might also be defined in the update table. Since they 
+are part of the hidden section, however, it makes sense to define them in the cross-reference 
+• 
+stream. 
+The update cross-reference section shall appear at the end of the file, but otherwise, there are no 
+ordering restrictions on any of the objects or on the main cross-reference section. However, a file 
+that uses both the hybrid-reference format and the linearized format has ordering requirements 
+7.6Encryption 
+ 
+(see Annex F, "Linearized PDF"). 
+7.6.1General 
+ 
+PDF 1.1
+A PDF document can be encrypted () to protect its contents from unauthorised access. 
+7.6.2Application of encryption 
+ 
+Encryption applies to all strings and streams in the document's PDF file, with the following exceptions: 
+ ID 
+• 
+ Encrypt 
+• 
+The values for theentry in the trailer 
+• 
+Any strings in andictionary 
+Any strings that are inside streams such as content streams and compressed object streams, which 
+Contents
+• 
+themselves are encrypted 
+Any hexadecimal strings representing the value of the  key in a Signature dictionary 
+Encryption is not applied to other object types such as integers and boolean values, which are used 
+primarily to convey information about the document's structure rather than its contents. Leaving these 
+values unencrypted allows random access to the objects within a document, whereas encrypting the 
+strings and streams protects the document's contents. 
+When a PDF stream object (see 7.3.8, "Stream objects") refers to an external file, the stream’s contents 
+shall not be encrypted, since they are not part of the PDF file itself. However, if the contents of the 
+stream are embedded within the PDF file (see 7.11.4, "Embedded file streams"), they shall be encrypted 
+like any other stream in the file. Beginning with PDF 1.5, embedded files can be encrypted in an 
+otherwise unencrypted document (see 7.6.6, "Crypt filters"). 
+ Encrypt 
+Encryption-related information shall be stored in a document’s encryption dictionary, which shall be 
+the value of theentry in the document’s trailer dictionary (see "Table 15: Entries in the file 
+trailer dictionary"). The absence of this entry from the trailer dictionary means that a PDF processor 
+shall consider the document to be not encrypted. The entries shown in "Table 20: Entries common to all 
+Encrypt
+encryption dictionaries" are common to all encryption dictionaries. For document with multiple 
+versions the  entry should be identical in all copies of the trailer. 
+Filter
+The encryption dictionary’s  entry identifies the file’s security handler, a software module that 
+implements various aspects of the encryption process and controls access to the contents of the 
+encrypted document. PDF specifies a standard password-based security handler that all PDF processors 
+shall support, but PDF processors can optionally provide additional security handlers of their own. 
+ SubFilter 
+Theentry specifies the syntax of the encryption dictionary contents. It allows interoperability 
+© ISO 2017 – All rights reserved 75 
+
+ISO/DIS 32000-2
+ 
+FilterSubFilter
+between handlers; that is, a document can be decrypted by a handler other than the preferred one (the 
+ entry) if they both support the format specified by . 
+V
+V
+The  entry, in specifying which algorithm to use, determines the length of the file encryption key, on 
+LengthV
+which the encryption (and decryption) of data in a PDF file shall be based. For  values 2 and 3, the 
+ entry specifies the exact length of the file encryption key. In PDF 1.5, a value of 4 for  permits 
+PDF 2.0
+the security handler to use its own encryption and decryption algorithms and to specify crypt filters 
+V
+with a key length of 128 bits (16 bytes) to use on specific streams (see 7.6.6, "Crypt filters"). () A 
+V
+value of 5 for  permits the specification of crypt filters with a file encryption key length of 256 bits (32 
+bytes). Values less than 5 for the  entry are deprecated. 
+The remaining contents of the encryption dictionary shall be determined by the security handler and 
+may vary from one handler to another. Entries for the standard security handler are described in 7.6.4, 
+"Standard security handler". Entries for public-key security handlers are described in 7.6.5, "Public-key 
+security handlers". 

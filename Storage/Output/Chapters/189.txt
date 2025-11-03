@@ -1,0 +1,98 @@
+Table 199: Entries in a form field’s additional-actions dictionary 
+Key Type Value 
+(Optional; PDF 1.3) 
+K  
+dictionary An ECMAScriptaction that shall be performed when the user 
+modifies a character in a text field or combo box or modifies the selection in a 
+scrollable list box. This action may check the added text for validity and reject or 
+modify it. 
+(Optional; PDF 1.3) 
+F  
+dictionary An ECMAScriptaction that shall be performed before the field is 
+formatted to display its value. This action may modify the field’s value before 
+formatting. 
+(Optional; PDF 1.3) 
+V  
+V
+dictionary An ECMAScriptaction that shall be performed when the field’s 
+value is changed. This action may check the new value for validity. (The name  
+stands for "validate.") 
+(Optional; PDF 1.3) 
+C  
+C
+dictionary An ECMAScriptaction that shall be performed to recalculate the 
+value of this field when that of another field changes. (The name  stands for 
+ CO 
+"calculate.") The order in which the document’s fields are recalculated shall be 
+defined by theentry in the interactive form dictionary (see 12.7.3, "Interactive 
+form dictionary"). 
+© ISO 2017 – All rights reserved 494 
+
+ISO/DIS 32000-2
+ 
+Table 200: Entries in the document catalog’s additional-actions dictionary 
+Key Type Value 
+(Optional; PDF 1.4) 
+WC  
+ WC 
+dictionary An ECMAScriptaction that shall be performed before closing a 
+document. (The namestands for "will close.") 
+(Optional; PDF 1.4) 
+WS  
+ WS 
+dictionary An ECMAScriptaction that shall be performed before saving a 
+document. (The namestands for "will save.") 
+(Optional; PDF 1.4) 
+DS  
+ DS 
+dictionary An ECMAScriptaction that shall be performed after saving a 
+document. (The namestands for "did save.") 
+(Optional; PDF 1.4) 
+WP  
+ WP 
+dictionary An ECMAScriptaction that shall be performed before printing a 
+document. (The namestands for "will print.") 
+(Optional; PDF 1.4) 
+DP  
+ DP 
+dictionary An ECMAScriptaction that shall be performed after printing a 
+document. (The namestands for "did print.") 
+ 
+Interactive PDF processors shall ensure the presence of such a device, or equivalent controls for 
+simulating one, for the corresponding actions to be executed correctly. Mouse-related trigger events are 
+subject to the following constraints: 
+E
+• 
+XE
+• 
+An  (enter) event may occur only when the mouse button is up. 
+UED
+• 
+An  (exit) event may not occur without a preceding  event. 
+• 
+A  (up) event may not occur without preceding  and  events. 
+X
+In the case of overlapping or nested annotations, entering a second annotation’s active area causes 
+NOTE 2 The field-related trigger events  (keystroke),  (format), V (validate), and  (calculate) are not 
+KFC
+an  event to occur for the first annotation. 
+defined for button fields (see 12.7.5.2, "Button fields"). The effects of an action triggered by one of 
+these events are limited only by the action itself and can occur outside the described scope of the 
+event. For example, even though the  event is used to trigger actions that format field values 
+F
+prior to display, it is possible for an action triggered by this event to perform a calculation or 
+make any other modification to the document. 
+ NeedAppearances 
+These field-related trigger events can occur either through user interaction or programmatically, such 
+ FDF 
+as in response to theentry (deprecated in PDF 2.0) in the interactive form 
+ ECMAScript 
+dictionary (see 12.7.3, "Interactive form dictionary"), importation ofdata (12.7.8, "Forms data 
+format"), oractions (12.6.4.17, "ECMAScript actions"). For example, the user’s modifying a 
+field value can trigger a cascade of calculations and further formatting and validation for other fields in 
+the document. 
+12.6.4Action types 
+ 
+12.6.4.1General 
+ 
+PDF supports the standard action types listed in "

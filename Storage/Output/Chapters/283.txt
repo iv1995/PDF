@@ -1,0 +1,159 @@
+Table 360: Entries common to all attribute object dictionaries") identifying the 
+conforming product that owns the attribute information. Other entries, except the  entry, shall 
+represent the attributes: the keys shall be attribute names, and values shall be the corresponding 
+attribute values. To facilitate the interchange of content among conforming products, PDF defines a set 
+of standard structure attributes identified by specific standard owners; see 
+14.8.5, "Standard structure 
+attributes". In addition, attributes may be used to represent user properties (see 14.7.6.4, "User 
+properties"). 
+NOTE Earlier versions of PDF also provided for the use of streams as attributes. 
+© ISO 2017 – All rights reserved 711 
+
+ISO/DIS 32000-2
+ 
+Table 360: Entries common to all attribute object dictionaries 
+Key Type Value 
+Required
+O 
+NSOUserProperties
+name () The name of the PDF processor creating the attribute data. The value shall either be a 
+,  (see "Table 361: Additional entries in an attribute object dictionary for user 
+properties"), one of the values from 14.8.5, "Standard structure attributes", or conform to the 
+NSO
+ONS
+guidelines described in Annex E, "PDF Name Registry". 
+If the value for the  entry is  then the  entry shall be present, and shall identify the owner 
+of the attribute object. 
+Required if the value of the  entry is NSO; not permitted otherwise; PDF 2.0)
+NS O
+dictionary ( An indirect 
+reference to a namespace dictionary defining the namespace that attributes with this attribute 
+object dictionary belong to (see 14.7.4, "Namespaces"). If not present, the attributes in this 
+NOTE Because the  entry is now reserved within the attribute object dictionary, attributes 
+NS
+attribute object dictionary do not have a namespace. 
+from existing namespaces with a matching name will not be able to be used. 
+ 
+A
+Any PDF processor may attach attributes to any structure element, even one created by another PDF 
+processor. Multiple PDF processors may attach attributes to the same structure element. The  entry in 
+the structure element dictionary (see "Table 355: Entries in a structure element dictionary") shall hold 
+either a single attribute object or an array of at least one object. 
+ONS
+When an array of attribute objects is provided, the value of the  and  keys may be repeated across 
+attribute objects. If a given attribute is specified more than once, the later (in array order) entry shall 
+take precedence. 
+14.7.6.2Attribute classes 
+ 
+If many structure elements share the same set of attribute values, they may be defined as an attribute 
+class sharing the identical attribute object. Structure elements shall refer to the class by name. The 
+ClassMap
+association between class names and attribute objects shall be defined by a dictionary called the class 
+map, that shall be kept in the  entry of the structure tree root (see "Table 354: Entries in the 
+structure tree root"). Each key in the class map shall be a name object denoting the name of a class. The 
+corresponding value shall be an attribute object or an array of such objects. 
+NOTE PDF attribute classes are unrelated to the concept of a class in object-oriented programming 
+languages such as Java and C++. Attribute classes are strictly a mechanism for storing attribute 
+information in a more compact form; they have no inheritance properties like those of true object-
+oriented classes. 
+C
+The  entry in a structure element dictionary (see "Table 355: Entries in a structure element 
+C
+dictionary") shall contain a class name or an array of class names (typically accompanied by revision 
+numbers as well; see 14.7.6.3, "Attribute revision numbers"). For each class named in the  entry, the 
+AAC
+corresponding attribute object or objects shall be considered to be attached to the given structure 
+A
+element, along with those identified in the element’s  entry. If both the  and  entries are present and 
+a given attribute is specified by both, the one specified by the  entry shall take precedence. 
+14.7.6.3Attribute revision numbers 
+ 
+The features described in this subclause are deprecated with PDF 2.0. 
+© ISO 2017 – All rights reserved 712 
+
+ISO/DIS 32000-2
+ 
+When a PDF processor modifies a structure element or its contents, the change may affect the validity of 
+attribute information attached to that structure element by other PDF processors. A system of revision 
+numbers shall allow PDF processors to detect such changes and update their own attribute information 
+accordingly, as described in this subclause. 
+R
+R
+A structure element shall have a revision number, that shall be stored in the  entry in the structure 
+element dictionary (see "Table 355: Entries in a structure element dictionary") or default to 0 if no  
+entry is present. Initially, the revision number shall be 0. When a PDF processor modifies the structure 
+element or any of its content items, it may signal the change by incrementing the revision number. 
+NOTE 1 The revision number is unrelated to the generation number associated with an indirect object (see 
+7.3.10, "Indirect objects"). 
+NOTE 2 If there is no  entry and the revision number is to be incremented from the default value of 0 to 1, 
+R
+an  entry will have to be created in the structure element dictionary in order to record the 1. 
+R
+Each attribute object attached to a structure element shall have an associated revision number. The 
+revision number shall be stored in the array that associates the attribute object with the structure 
+element or if not stored in the array that associates the attribute object with the structure element shall 
+default to 0. 
+A
+• 
+Each attribute object in a structure element’s  array shall be represented by a single or a pair of 
+array elements, the first or only element shall contain the attribute object itself and the second 
+(when present) shall contain the integer revision number associated with it in this structure 
+C
+• 
+element. 
+The structure element’s  array shall contain a single or a pair of elements for each attribute class, 
+the first or only shall contain the class name and the second (when present) shall contain the 
+AC
+associated revision number. 
+The revision numbers are optional in both the  and  arrays. An attribute object or class name that is 
+not followed by an integer array element shall have a revision number of 0 and is represented by a 
+single entry in the array. 
+NOTE 3 The revision number is not stored directly in the attribute object because a single attribute object 
+can be associated with more than one structure element (whose revision numbers might differ). 
+Since an attribute object reference is distinct from an integer, that distinction is used to determine 
+whether the attribute object is represented in the array by a single or a pair of entries. 
+NOTE 4 When an attribute object is created or modified, its revision number is set to the current value of 
+the structure element’s  entry. By comparing the attribute object’s revision number with that of 
+R
+the structure element, an application can determine whether the contents of the attribute object 
+are still current or whether they have been outdated by more recent changes in the underlying 
+structure element. 
+Changes in an attribute object shall not change the revision number of the associated structure element, 
+which shall change only when the structure element itself or any of its content items is modified. 
+Occasionally, a PDF processor may make extensive changes to a structure element that are likely to 
+invalidate all previous attribute information associated with it. In this case, instead of incrementing the 
+AC
+structure element’s revision number, the PDF processor may choose to delete all unknown attribute 
+objects from its  and  arrays. These two actions shall be mutually exclusive: the PDF processor should 
+either increment the structure element’s revision number or remove its attribute objects, but it shall 
+not do both. 
+© ISO 2017 – All rights reserved 713 
+
+ISO/DIS 32000-2
+ 
+NOTE 5 Any PDF processor creating attribute objects needs to be prepared for the possibility that they can 
+be deleted at any time by another PDF processor. 
+14.7.6.4User properties 
+ 
+structure attributes
+ BackgroundColor BorderStyle
+Most  (see 14.8.5, "Standard structure attributes") specify information that is 
+reflected in the element’s appearance; for example,or . 
+Some PDF writers, such as CAD applications, may use objects that have a standardized appearance, each 
+of which contains non-graphical information that distinguishes the objects from one another. For 
+example, several transistors might have the same appearance but different attributes such as type and 
+part number. 
+User propertiesPDF 1.6
+ () may be used to contain such information. Any graphical object that 
+UserPropertiesO
+corresponds to a structure element may have associated user properties, specified by means of an 
+attribute object dictionary that shall have a value of  for the  entry (see "Table 361: 
+Additional entries in an attribute object dictionary for user properties"). 
+Table 361: Additional entries in an attribute object dictionary for user properties 
+Key Type Value 
+RequiredUserProperties
+O 
+name () The attribute owner. Shall be . 
+Required
+P 
+array () An array of dictionaries, each of which represents a user property (see "

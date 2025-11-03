@@ -1,0 +1,297 @@
+Table 114: Entries in a CIDSystemInfo dictionary 
+Key Type Value 
+Required
+Registry 
+ASCII string  () A string identifying the issuer of the character collection. The 
+string shall begin with the 4 or 5 characters of a registered developer 
+prefix followed by a LOW LINE (5Fh) followed by any other identifying 
+characters chosen by the issuer. See Annex E, "PDF Name Registry", for 
+how to obtain a unique developer prefix. 
+Required
+Ordering 
+ASCII string  () A string that uniquely names the character collection within 
+the specified registry. 
+Required
+Supplement 
+integer  () The supplement number of the character collection. An 
+original character collection has a supplement number of 0. Whenever 
+additional CIDs are assigned in a character collection, the supplement 
+number shall be increased. Supplements shall not alter the ordering of 
+existing CIDs in the character collection. This value shall not be used in 
+determining compatibility between character collections. 
+ 
+9.7.4CIDFonts 
+ 
+9.7.4.1General 
+ 
+A CIDFont program contains glyph descriptions that are accessed using a CID as the character selector. 
+There are two types of CIDFonts: 
+• 
+A Type 0 CIDFont contains glyph descriptions based on CFF 
+© ISO 2017 – All rights reserved 322 
+
+ISO/DIS 32000-2
+ 
+NOTE The term "Type 0" when applied to a CIDFont has a different meaning than for a "Type 0 font". 
+• 
+A Type 2 CIDFont contains glyph descriptions based on the TrueType glyph technology. 
+Font
+TypeEncoding
+A CIDFont dictionary is a PDF object that contains information about a CIDFont program. Although its 
+ Font Tf
+ value is , a CIDFont is not actually a font. It does not have an  entry, it may not be 
+listed in thesubdictionary of a resource dictionary, and it may not be used as the operand of the  
+operator. It shall be used only as a descendant of a Type 0 font. The CMap in the Type 0 font shall be 
+what defines the encoding that maps character codes to CIDs in the CIDFont. "Table 115: Entries in a 
+CIDFont dictionary" lists the entries in a CIDFont dictionary. 
+Table 115: Entries in a CIDFont dictionary 
+Key Type Value 
+Required
+Type  
+Font
+ 
+name () The type of PDF object that this dictionary describes; shall be
+for a CIDFont dictionary. 
+RequiredCIDFontType0CIDFontType2
+Subtype 
+name () The type of CIDFont shall be  or . 
+Required
+BaseFont 
+CIDFontName
+name () The PostScript name of the CIDFont. For Type 0 CIDFonts, this 
+shall be the value of the  entry in the CIDFont program. 
+For Type 2 CIDFonts, it shall be derived the same way as for a simple 
+TrueType font; see 9.6.3, "TrueType fonts". In either case, the name may 
+have a subset prefix if appropriate; see 9.9.2, "Font subsets". 
+Required
+CIDSystemInfo 
+dictionary  () A dictionary containing entries that define the character 
+collection of the CIDFont. See "Table 114: Entries in a CIDSystemInfo 
+dictionary". 
+Required; shall be an indirect reference
+FontDescriptor 
+dictionary  () A font descriptor describing the 
+CIDFont’s default metrics other than its glyph widths (see 9.8, "Font 
+descriptors"). 
+Optional
+DW 
+number  () The default width for glyphs in the CIDFont (see 9.7.4.3, 
+"Glyph metrics in CIDFonts"). Default value: 1000. 
+Optional
+W 
+NOTE The array’s elements have a variable format that can specify 
+array () A description of the widths for the glyphs in the CIDFont.  
+individual widths for consecutive CIDs or one width for a range 
+of CIDs (see 9.7.4.3, "Glyph metrics in CIDFonts"). 
+DW
+Default value: none (the  value shall be used for all glyphs). 
+Optional; applies only to CIDFonts used for vertical writing
+DW2 
+array  () An array of 
+two numbers specifying the default metrics for vertical writing (see 
+9.7.4.3, "Glyph metrics in CIDFonts"). Default value: [880 -1000]. 
+Optional; applies only to CIDFonts used for vertical writing
+W2 
+array  () A description 
+DW2
+of the metrics for vertical writing for the glyphs in the CIDFont (see 
+9.7.4.3, "Glyph metrics in CIDFonts"). Default value: none (the  value 
+shall be used for all glyphs). 
+© ISO 2017 – All rights reserved 323 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Required for Type 2 CIDFonts with embedded font programs
+CIDToGIDMap 
+stream or () A 
+name specification of the mapping from CIDs to glyph indices. If the value is a 
+c
+stream, the bytes in the stream shall contain the mapping from CIDs to 
+glyph indices: the glyph index for a particular CID value  shall be a 2-
+CIDToGIDMap
+byte value stored in bytes 2 × 𝑐𝑐 and 2 × 𝑐𝑐+ 1, where the first byte shall 
+Identity
+be the high-order byte. If the value of  is a name, it shall be 
+, indicating that the mapping between CIDs and glyph indices is 
+the identity mapping. 
+ 
+9.7.4.2Glyph selection in CIDFonts 
+ 
+Type 0 and Type 2 CIDFonts handle the mapping from CIDs to glyph descriptions in somewhat different 
+CIDSystemInfo
+ways. For Type 0, the CIDFont program contains glyph descriptions that are identified by CIDs. The 
+CIDFont program identifies the character collection by a  dictionary, which should be 
+copied into the PDF CIDFont dictionary. CIDs shall be interpreted uniformly in all CIDFont programs 
+supporting a given character collection, whether the program is embedded in the PDF file or obtained 
+from an external source. 
+  
+ FontFile3 
+When the CIDFont contains an embedded font program that is represented in the CompactFontFormat 
+CIDFontType0COpenType
+(CFF), theentry in the font descriptor (see "Table 124: Embedded font organization for 
+various font types") shall be either  or . There are two cases, depending on the 
+contents of the font program: 
+• 
+The "CFF" font program has a Top DICT that uses CIDFont operators: The CIDs shall be used to 
+determine the GID value for the glyph procedure using the charset table in the CFF program. The 
+NOTE Although in many fonts the CID value and GID value are the same, the CID and GID values can 
+GID value shall then be used to look up the glyph procedure using the CharStrings INDEX table. 
+differ. 
+• 
+The "CFF" font program has a Top DICT that does not use CIDFont operators: The CIDs shall be 
+used directly as GID values, and the glyph procedure shall be retrieved using the CharStrings 
+INDEX. 
+glyph index
+For Type 2, the CIDFont program is actually a TrueType font program, which has no native notion of 
+CIDs. In a TrueType font program, glyph descriptions are identified by  values. Glyph indices 
+are internal to the font and are not defined consistently from one font to another. Instead, a TrueType 
+font program contains a "cmap" table that provides mappings directly from character codes to glyph 
+indices for one or more predefined encodings. 
+TrueType font programs are integrated with the CID-keyed font architecture in one of two ways, 
+depending on whether the font program is embedded in the PDF file: 
+• 
+CIDToGIDMap
+If the TrueType font program is embedded, the Type 2 CIDFont dictionary shall contain a 
+ entry that maps CIDs to the glyph indices for the appropriate glyph descriptions in 
+• 
+that font program. 
+CIDToGIDMapCIDToGIDMap
+If the TrueType font program is not embedded but is referenced by name, and the Type 2 CIDFont 
+dictionary contains a  entry, the  entry shall be ignored, since it is 
+not meaningful to refer to glyph indices in an external font program. In this case, CIDs shall not 
+participate in glyph selection, and only predefined CMaps may be used with this CIDFont (see 
+9.7.5, "CMaps"). The PDF processor shall select glyphs by translating characters from the encoding 
+© ISO 2017 – All rights reserved 324 
+
+ISO/DIS 32000-2
+ 
+specified by the predefined CMap to one of the encodings in the TrueType font’s "cmap" table. The 
+means by which this is accomplished are implementation-dependent. 
+Even though the CIDs are not used to select glyphs in a Type 2 CIDFont, they shall always be used to 
+determine the glyph metrics, as described in the next subclause. 
+Every CIDFont shall contain a glyph description for CID 0, which is analogous to the . notdef character 
+name in simple fonts (see 9.7.6.3, "Handling undefined characters"). 
+9.7.4.3Glyph metrics in CIDFonts 
+ 
+As discussed in 9.2.4, "Glyph positioning and metrics", the width of a glyph refers to the horizontal 
+displacement between the origin of the glyph and the origin of the next glyph when writing in 
+DWW
+horizontal mode. In this mode, the vertical displacement between origins shall be 0. Widths for a 
+CIDFont are defined using the  and  entries in the CIDFont dictionary. These widths shall be 
+consistent with the actual widths given in the CIDFont program. 
+WW
+The  array allows the definition of widths for individual CIDs. The elements of the  array shall be 
+numbers organised in groups of two or three, where each group shall be in one of these two formats: 
+12n
+c [w
+ w… w] 
+firstlast
+c
+ c w 
+c
+nnc
+In the first format,  shall be an integer specifying a starting CID value; it shall be followed by an array of 
+wc
+c
+ numbers that shall specify the widths for  consecutive CIDs, starting with . The second format shall 
+firstlast
+define the same width, , as a number, for all CIDs in the range 
+ to . Specifying a given CID value 
+more than once should not be done. In the case where it is done, the first specification is the one that 
+shall be used. 
+EXAMPLE 1 In this example, the glyphs having CIDs 120, 121, and 122 are 400, 325, and 500 units wide, respectively. CIDs 
+in the range 7080 through 8032 inclusive all have a width of 1000 units. 
+W
+  entry example: 
+/W [120 [400 325 500] 
+   7080 8032 1000 
+  ] 
+ 
+WMode
+Glyphs from a CIDFont may be shown in vertical writing mode. This is selected by the  entry in 
+the associated CMap dictionary; see 9.7.5, "CMaps". To be used in this way, the CIDFont shall define the 
+vertical displacement for each glyph and the position vector that relates the horizontal and vertical 
+writing origins. 
+DW2
+v
+DW2
+The default position vector and vertical displacement vector shall be specified by the  entry in the 
+w1
+CIDFont dictionary.  shall be an array of two values: the vertical component of the position vector  
+and the vertical component of the displacement vector  (see "Figure 55: Metrics for horizontal and 
+vertical writing modes"). The horizontal component of the position vector shall be half the glyph width, 
+and that of the displacement vector shall be 0. 
+DW2
+EXAMPLE 2 If the  entry is 
+  / DW2 [880 -1000] 
+© ISO 2017 – All rights reserved 325 
+
+ISO/DIS 32000-2
+ 
+then a glyph’s position vector and vertical displacement vector are 
+ 
+0
+v=(𝑤𝑤÷2,880)
+w1=(0,−1000)  
+w
+0
+where  is the width (horizontal displacement) for the same glyph. 
+NOTE A negative value for the vertical component places the origin of the next glyph below the current 
+glyph because vertical coordinates in a standard coordinate system increase from bottom to top. 
+W2
+The  array shall define vertical metrics for individual CIDs. The elements of the array shall be 
+1y1x1y2y2x2y
+organised in groups of two or five, where each group shall be in one of these two formats: 
+c [w168TR v68TR v68TR w168TR v68TR v68TR …] 
+firstlast1y1x1y 
+ c68TR w168TR v68TR v68TR
+c68TR
+ 
+c
+In the first format,  is a starting CID and shall be followed by an array containing numbers interpreted 
+w1
+in groups of three. Each group shall consist of the vertical component of the vertical displacement 
+v
+vector  (whose horizontal component shall be 0) followed by the horizontal and vertical components 
+c
+for the position vector . Successive groups shall define the vertical metrics for consecutive CIDs 
+starting with . The second format defines a range of CIDs from cfirst to clast, that shall be followed by 
+three numbers that define the vertical metrics for all CIDs in this range. 
+W2
+EXAMPLE 3 This  entry defines the vertical displacement vector for the glyph with CID 120 as (0, -1000) and the 
+position vector as (250, 772). It also defines the displacement vector for CIDs in the range 7080 through 8032 
+as (0, -1000) and the position vector as (500, 900). 
+/W2 [120 [-1000 250 772] 
+  7080 8032 -1000 500 900 
+ 
+  ] 
+9.7.5CMaps 
+ 
+9.7.5.1General 
+ 
+A CMap shall specify the mapping from character codes to character selectors. In PDF, the character 
+Encoding
+selectors shall be CIDs in a CIDFont (as mentioned earlier, PostScript CMaps can use names or codes as 
+well). A CMap serves a function analogous to the  dictionary for a simple font. The CMap shall 
+not refer directly to a specific CIDFont; instead, it shall be combined with it as part of a CID-keyed font, 
+font number
+represented in PDF as a Type 0 font dictionary (see 9.7.6, "Type 0 font dictionaries"). Within the CMap, 
+the character mappings shall refer to the associated CIDFont by , which in PDF shall be 0. 
+PDF also uses a special type of CMap to map character codes to Unicode values (see 9.10.3, "ToUnicode 
+CMaps"). 
+A CMap shall specify the writing mode — horizontal or vertical — for any CIDFont with which the CMap 
+is combined. The writing mode determines which metrics shall be used when glyphs are painted from 
+that font. 
+NOTE Writing mode is specified as part of the CMap because, in some cases, different shapes are used 
+when writing horizontally and vertically. In such cases, the horizontal and vertical variants of a 
+CMap specify different CIDs for a given character code. 
+A CMap shall be specified in one of two ways: 
+© ISO 2017 – All rights reserved 326 
+
+ISO/DIS 32000-2
+ 
+• 
+As a name object identifying a predefined CMap, whose value shall be one of the predefined CMap 
+• 
+names defined in "

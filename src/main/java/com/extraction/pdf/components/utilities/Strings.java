@@ -137,6 +137,30 @@ public class Strings {
 	
 	/**
 	 * 
+	 * @param str The string that is going to be split
+	 * @param middle The starting index and the ending index of the part
+	 * 			     that needs to be removed from {@code str}
+	 * @return 
+	 */
+	public static String unused(String str, int[] start, boolean included) {
+		
+		if(start == null || StringUtils.isEmpty(str)) {
+			new String();
+		} else if(start.length != 2 || Array.containsNegative(start)) {
+			new String();
+		}
+		
+		if(included && str.length() > 0) {
+			return str.substring(start[0], str.length());
+		} else if (str.length() == 0){
+			return new String();
+		} else {
+			return str.substring(start[1], str.length());
+		}
+	}
+	
+	/**
+	 * 
 	 * @param str The string that is going to be processed
 	 * @return An array with both elements containing the last index of {@code str}
 	 */

@@ -1,0 +1,78 @@
+Table 225: 
+Signature flags", and 12.7.5.5, "Signature fields"). Default value: 0. 
+(Required if any fields in the document have additional-actions 
+CO 
+dictionaries containing a  entry; PDF 1.3) 
+C
+array 
+An array of indirect 
+calculation order 
+references to field dictionaries with calculation actions, defining the 
+in which their values will be recalculated when 
+the value of any field changes (see 12.6.3, "Trigger events"). 
+(Optional) 
+DR 
+dictionary A resource dictionary (see 7.8.3, "Resource 
+dictionaries") containing default resources (such as fonts, patterns, 
+ Font 
+or colour spaces) that shall be used by form field appearance 
+streams. At a minimum, this dictionary shall contain aentry 
+specifying the resource name and font dictionary of the default font 
+for displaying text. 
+(Optional) 
+DA  DA 
+string A document-wide default value for theattribute of 
+variable text fields (see 12.7.4.3, "Variable text"). 
+(Optional) 
+Q 
+integer A document-wide default value for the Q attribute of 
+variable text fields (see 12.7.4.3, "Variable text"). 
+(Optional; deprecated in PDF 2.0) 
+XFA  
+resourceData Package 
+ 
+stream or array A stream or array containing an
+(XDP) Specification
+XFA, whose format shall conform to the 
+. 
+See Annex K, "XFA forms" for more information. 
+ 
+SigFlags
+The value of the interactive form dictionary’s  entry is an unsigned 32-bit integer containing 
+flags specifying various document-level characteristics related to signature fields (see 12.7.5.5, 
+"Signature fields"). Bit positions within the flag word shall be numbered from 1 (low-order) to 32 (high-
+order). "Table 225: Signature flags" shows the meanings of the flags; all undefined flag bits shall be 
+reserved and shall be set to 0. 
+© ISO 2017 – All rights reserved 514 
+
+ISO/DIS 32000-2
+ 
+Table 225: Signature flags 
+Bit position Name Meaning 
+1 SignaturesExist If set, the document contains at least one signature field. This flag 
+allows an interactive PDF processor to enable user interface items 
+(such as menu items or push-buttons) related to signature processing 
+without having to scan the entire document for the presence of 
+signature fields. 
+2 AppendOnly If set, the document contains signatures that may be invalidated if the 
+file is saved (written) in a way that alters its previous contents, as 
+opposed to an incremental update. Merely updating the file by 
+appending new information to the end of the previous version is safe 
+H.7, "Updating example"). Interactive PDF processors may use this 
+(see 
+flag to inform a user requesting a full save that signatures will be 
+invalidated and require explicit confirmation before continuing with 
+the operation. 
+ 
+12.7.4Field dictionaries 
+ 
+12.7.4.1General 
+ 
+field dictionary
+Each field in a document’s interactive form shall be defined by a , which shall be an 
+inheritable
+indirect object. The field dictionaries may be organised hierarchically into one or more tree structures. 
+Many field attributes are , meaning that if they are not explicitly specified for a given field, 
+their values are taken from those of its parent in the field hierarchy. Such inheritable attributes shall be 
+Required; inheritable
+designated as such in the "Table 226: Entries common to all field dictionaries" and "

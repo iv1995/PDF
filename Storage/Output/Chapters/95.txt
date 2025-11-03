@@ -1,0 +1,4 @@
+Extend = [false false], Background not specified ![27.jpg](./Storage/Output/Images/27.jpg)
+ 
+Extend = [true true], Background not specified ![28.png](./Storage/Output/Images/28.png)
+ 

@@ -1,0 +1,380 @@
+Table 140: Variables used in the group compositing 
+formulas" (in addition to those in "Table 139: Arguments and results of the group compositing 
+function"). 
+α
+ii
+i
+sj
+𝑗𝑗
+For an element 
+E that is an elementary object, the colour, shape, and alpha valuesC , 𝑓𝑓, and  are 
+intrinsic attributes of the object. For an element that is a group, the group compositing function shall be 
+ii
+𝑆𝑆𝑗𝑗
+applied recursively to the subgroup and the resulting 
+C, 𝑓𝑓, anαd  values shall be used for its 𝐶𝐶, 𝑓𝑓, and 
+i
+𝑗𝑗
+ in the calculations for the parent group. 
+𝛼𝛼
+© ISO 2017 – All rights reserved 397 
+
+ISO/DIS 32000-2
+ 
+Table 140: Variables used in the group compositing formulas 
+Variable Meaning 
+i
+𝑚𝑚
+𝐸𝐸 Element  of the group: a compound variable representing the element’s 
+colour, shape, opacity, and blend mode 
+i
+E
+𝑖𝑖
+𝑓𝑓
+𝑓𝑓  
+Source shape for element  
+i
+E
+𝑖𝑖
+𝑗𝑗
+𝑓𝑓  
+Object shape for element  
+i
+E
+𝑖𝑖
+𝑚𝑚
+𝑓𝑓  
+Mask shape for element  
+i
+E
+𝑖𝑖
+𝑘𝑘
+𝑓𝑓 
+Constant shape for element  
+1i
+EE
+𝑖𝑖
+𝑔𝑔
+𝑓𝑓 
+Group shape: the accumulated source shapes of group elements  to , 
+excluding the initial backdrop 
+i
+E
+𝑖𝑖
+𝑚𝑚
+𝑞𝑞 
+Mask opacity for element  
+i
+E
+𝑖𝑖
+𝑘𝑘
+𝑞𝑞 
+Constant opacity for element  
+i
+E
+𝑖𝑖
+𝑓𝑓
+𝛼𝛼 
+Source alpha for element  
+i
+E
+𝑖𝑖
+𝑗𝑗
+𝛼𝛼 
+Object alpha for element  : the product of its object shape and object 
+opacity 
+1i
+EE
+𝑖𝑖
+𝑔𝑔
+𝛼𝛼 
+Group alpha: the accumulated source alphas of group elements  to , 
+excluding the initial backdrop 
+i
+E
+𝑚𝑚
+𝛼𝛼 Accumulated alpha after compositing element , including the initial 
+backdrop 
+i
+E
+𝑖𝑖
+𝑓𝑓
+𝑐𝑐  
+Source colour for element  
+i
+E
+𝑚𝑚
+𝑐𝑐  Accumulated colour after compositing element , including the initial 
+backdrop 
+i
+E
+i
+ii−1s
+Blend function for element  
+B�c,c �
+ 
+NOTE 2 The elements of a group are composited onto a backdrop that includes the group’s initial 
+backdrop. This is done to achieve the correct effects of the blend modes, most of which are 
+dependent on both the backdrop and source colours being blended. This feature is what 
+distinguishes non-isolated groups from isolated groups, discussed in the next sub-clause. 
+NOTE 3 Special attention should be directed to the formulas at the end that compute the final results , , 
+and , of the group compositing function. Essentially, these formulas remove the contribution of 
+C𝑓𝑓
+the group backdrop from the computed results. This ensures that when the group is subsequently 
+α
+composited with that backdrop (possibly with additional shape or opacity inputs or a different 
+blend mode), the backdrop’s contribution is included only once. 
+Normal
+For colour, the backdrop removal is accomplished by an explicit calculation, whose effect is essentially 
+the reverse of compositing with the  blend mode. The formula is a simplification of the following 
+formulas, which present this operation more intuitively: 
+n
+g0
+�×α
+�1−α
+b
+ϕ
+= 
+n
+0g
+Union�α,α�
+© ISO 2017 – All rights reserved 398 
+
+ISO/DIS 32000-2
+ 
+ 
+𝑛𝑛𝑏𝑏0
+𝐶𝐶
+−𝜙𝜙×𝐶𝐶
+𝐶𝐶=
+𝑏𝑏
+1−𝜙𝜙
+backdrop fraction
+ 
+𝑏𝑏
+where 𝜙𝜙
+ is the , the relative contribution of the backdrop colour to the overall colour. 
+NOTE 4 For shape and alpha, backdrop removal can be accomplished by maintaining two sets of variables 
+to hold the accumulated values. There is never any need to compute the corresponding complete 
+i
+, that includes the backdrop contribution.  
+shape, 
+i
+f
+i
+gg
+The group shape and alpha, 𝑓𝑓 and α, shall accumulate only the shape and alpha of the group elements, 
+excluding the group backdrop. Their final values shall become the group results returned by the group 
+𝑚𝑚
+, includes the backdrop contribution as well; its value is 
+compositing function. The complete alpha, 𝛼𝛼
+NOTE 5 As a result of these corrections, the effect of compositing objects as a group is the same as that of 
+used in the colour compositing computations. 
+compositing them separately (without grouping) if the following conditions hold: 
+ The group is non-isolated and has the same knockout attribute as its parent group (see 11.4.5, 
+"Isolated groups" and 11.4.6, "Knockout groups"). 
+Normal
+When compositing the group’s results with the group backdrop, the  blend mode is used, and 
+the shape and opacity inputs are always 1.0. 
+11.4.5Isolated groups 
+ 
+An isolated group is one whose elements shall be composited onto a fully transparent initial backdrop 
+rather than onto the group’s backdrop. The resulting source colour, object shape, and object alpha for 
+the group shall be therefore independent of the group backdrop. The only interaction with the group 
+backdrop shall occur when the group’s computed colour, shape, and alpha are composited with the 
+group backdrop. 
+In particular, the special effects produced by the blend modes of objects within the group take into 
+account only the intrinsic colours and opacities of those objects; they shall not be influenced by the 
+group’s backdrop. 
+EXAMPLE Applying the Multiply blend mode to an object in the group produces a darkening effect on other objects lower 
+© ISO 2017 – All rights reserved 399 
+
+ISO/DIS 32000-2
+ 
+in the group’s stack but not on the group’s backdrop. ![Figure 74 Isolated and knockout groups  .png](./Storage/Output/Images/Figure 74 Isolated and knockout groups  .png)
+Figure 74: Isolated and knockout groups 
+ 
+"Figure 74: Isolated and knockout groups" (see 11.4.5, "Isolated groups" and 11.4.6 "Knockout groups") 
+Multiply
+illustrates this effect for a group consisting of four overlapping circles in a light gray colour (C = M = Y = 
+Normal
+0.0; K = 0.15). The circles are painted within the group with opacity 1.0 in the  blend mode; the 
+group itself is painted against its backdrop in  blend mode. In the top row, the group is isolated 
+and thus does not interact with the rainbow backdrop. In the bottom row, the group is non-isolated and 
+composites with the backdrop. The figure also illustrates the difference between knockout and non-
+knockout groups (see 11.4.6, "Knockout groups"). 
+NOTE 1 Conceptually, the effect of an isolated group could be represented by a simple object that directly 
+specifies a colour, shape, and opacity at each point. This flattening of an isolated group is 
+sometimes useful for importing and exporting fully composited artwork in applications. 
+For an isolated group, the group compositing formulas shall be altered by adding one statement to the 
+initialization: 
+0
+𝐷𝐷
+=0.0 if the group is isolated 
+That is, the initial backdrop on which the elements of the group are composited shall be transparent 
+rather than inherited from the group’s backdrop. 
+NOTE 2 This substitution also makes  undefined, but the normal compositing formulas take care of that. 
+, since there is no backdrop 
+Also, the result computation for  automatically simplifies to 
+0
+𝐶𝐶
+contribution to be factored out. 
+𝑛𝑛
+C𝐶𝐶= 𝐶𝐶
+When compositing the group’s results with the group backdrop, any required colour conversion from 
+the blending space to the colour space in effect for the back drop shall use the rendering intent and 
+black point compensation values specified in the current graphics state (see 8.4, "Graphics state") at the 
+time the group was invoked. 
+11.4.6Knockout groups 
+ 
+In a knockout group, each individual element shall be composited with the group’s initial backdrop 
+© ISO 2017 – All rights reserved 400 
+
+ISO/DIS 32000-2
+ 
+rather than with the stack of preceding elements in the group. When objects have binary shapes (1.0 for 
+inside, 0.0 for outside), each object shall overwrite (knocks out) the effects of any earlier elements it 
+overlaps within the same group. At any given point, only the topmost object enclosing the point shall 
+contribute to the result colour and opacity of the group as a whole. 
+EXAMPLE "Figure 74: Isolated and knockout groups" illustrates the difference between knockout and non-knockout 
+groups. In the left column, the four overlapping circles are defined as a knockout group and therefore do not 
+composite with each other within the group. In the right column, the circles form a non-knockout group and 
+thus do composite with each other. In each column, the upper and lower figures depict an isolated and a non-
+isolated group, respectively. 
+NOTE 1 This model is similar to the opaque imaging model, except that the "topmost object wins" rule 
+applies to both the colour and the opacity. Knockout groups are useful in composing a piece of 
+artwork from a collection of overlapping objects, where the topmost object in any overlap 
+completely obscures those beneath. At the same time, the topmost object interacts with the 
+group’s initial backdrop in the usual way, with its opacity and blend mode applied as appropriate. 
+The concept of knockout is generalized to accommodate fractional shape values. In that case, the 
+immediate backdrop shall be only partially knocked out and shall be replaced by only a fraction of the 
+result of compositing the object with the initial backdrop. 
+b
+The restated group compositing formulas deal with knockout groups by introducing a new variable, , 
+ibi
+which is a subscript that specifies which previous result to use as the backdrop in the compositing 
+computations: 0 in a knockout group or  - 1 in a non-knockout group. When  =  - 1, the formulas 
+simplify to the ones given in 11.4.4, "Group compositing computations". 
+In the general case, the computation shall proceed in two stages: 
+ 
+a)Composite the source object with the group’s initial backdrop, disregarding the object’s shape and using a 
+C
+source shape value of 1.0 everywhere. This produces unnormalised temporary alpha and colour results, 
+tt
+NOTE 2 For colour, this computation is essentially the same as the unsimplified colour compositing 
+α
+ and . 
+formula given in 11.3.6, "Interpretation of alpha" but using a source shape of 1.0. 
+𝑏𝑏𝑖𝑖
+𝑡𝑡𝑔𝑔𝑓𝑓
+𝛼𝛼=Union�𝛼𝛼,𝑞𝑞� 
+𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖
+𝑡𝑡𝑓𝑓𝑏𝑏𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓𝑏𝑏𝑚𝑚𝑏𝑏𝑓𝑓
+)
+(
+×𝐶𝐶
+𝐶𝐶
+=�1−𝑞𝑞�×𝛼𝛼×𝐶𝐶+𝑞𝑞×�1−𝛼𝛼+𝛼𝛼×B�𝐶𝐶,𝐶𝐶�� 
+ 
+ 
+b)Compute a weighted average of this result with the object’s immediate backdrop, using the source shape 
+ 
+as the weighting factor. Then normalise the result colour by the result alpha: 
+𝑖𝑖𝑖𝑖𝑖𝑖−1𝑖𝑖
+ 
+𝑔𝑔𝑓𝑓𝑔𝑔𝑓𝑓𝑡𝑡
+𝛼𝛼=�1−𝑓𝑓�×𝛼𝛼+𝑓𝑓×𝛼𝛼
+𝑖𝑖
+𝑚𝑚0𝑔𝑔
+=Union�𝛼𝛼,𝛼𝛼�
+𝛼𝛼
+ii
+si−1i−1st
+�×α×C+𝑓𝑓×C
+�1−𝑓𝑓
+i
+= 
+C
+i
+α
+This averaging computation shall be performed for both colour and alpha. 
+NOTE 3 The preceding formulas show this averaging directly. The formulas in 11.4.8, "Summary of group 
+compositing computations" are slightly altered to use source shape and alpha rather than source 
+shape and opacity, avoiding the need to compute a source opacity value explicitly. 
+ inGroupCompositing Computations is slightly different from the preceding : it is 
+NOTE 4 
+  
+ 
+. 
+premultiplied by
+tt
+C
+C
+i
+s
+𝑓𝑓
+© ISO 2017 – All rights reserved 401 
+
+ISO/DIS 32000-2
+ 
+NOTE 5 The extreme values of the source shape produce the straightforward knockout effect. That is, a 
+shape value of 1.0 (inside) yields the colour and opacity that result from compositing the object 
+with the initial backdrop. A shape value of 0.0 (outside) leaves the previous group results 
+unchanged. 
+The existence of the knockout feature is the main reason for maintaining a separate shape value rather 
+than only a single alpha that combines shape and opacity. The separate shape value shall be computed 
+in any group that is subsequently used as an element of a knockout group. 
+A knockout group may be isolated or non-isolated; that is, isolated and knockout are independent 
+attributes. A non-isolated knockout group composites its topmost enclosing element with the group’s 
+backdrop. An isolated knockout group composites the element with a transparent backdrop. 
+NOTE 6 When a non-isolated group is nested within a knockout group, the initial backdrop of the inner 
+group is the same as that of the outer group; it is not the immediate backdrop of the inner group. 
+This behaviour, although perhaps unexpected, is a consequence of the group compositing formulas 
+when  = 0. 
+11.4.7Page group 
+ 
+b
+P
+All of the elements painted directly onto a page — both top-level groups and top-level objects that are 
+page group
+not part of any group — shall be treated as if they were contained in a transparency group , which in 
+turn is composited with a context-dependent backdrop. This group is called the . 
+The page group shall be treated in one of two distinctly different ways: 
+• 
+Ordinarily, the page shall be imposed directly on an output medium, such as paper or a display 
+screen. The page group shall be treated as an isolated group, whose results shall then be 
+composited with a backdrop colour appropriate for the medium. The backdrop is nominally white 
+(in a colour space chosen by the PDF processor), although varying according to the actual 
+properties of the medium. However, some interactive PDF processors may choose to provide a 
+different backdrop, such as a checker board or grid to aid in visualizing the effects of transparency 
+• 
+in the artwork. 
+A "page" of a PDF file may be treated as a graphics object to be used as an element of a page of 
+some other document, for example, when used as a reference XObject (see 8.10.4, "Reference 
+XObjects"). In this situation the PDF “page” shall not be composited with the media colour; instead 
+it shall be treated as a transparency group using the page Group attributes dictionary and is 
+composited with its backdrop in the usual way according to the page Group attributes dictionary 
+settings. 
+The remainder of this sub-clause pertains only to the first use of the page group, where it is to be 
+imposed directly on the medium. 
+C of the page at a given point shall be defined by a simplification of the general group 
+The colour 
+compositing formula: 
+ 
+𝑔𝑔𝑔𝑔𝑔𝑔
+()
+�𝐶𝐶
+,𝑓𝑓,𝛼𝛼�=Composite𝑈𝑈,0,𝑃𝑃 
+𝑔𝑔𝑔𝑔𝑔𝑔
+𝐶𝐶=�1−𝛼𝛼�×𝑙𝑙+𝛼𝛼×𝐶𝐶
+ 
+where the variables have the meanings shown in "Table 141: Variables used in the page group 
+P
+compositing formulas". The first formula computes the colour and alpha for the group given a 
+Normal
+transparent backdrop — in effect, treating  as an isolated group. The second formula composites the 
+results with the context-dependent backdrop (using the equivalent of the  blend mode). 
+© ISO 2017 – All rights reserved 402 
+
+ISO/DIS 32000-2
+ 

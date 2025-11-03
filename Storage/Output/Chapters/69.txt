@@ -1,0 +1,153 @@
+Figure 14: Effect of Transformation Order" shows the effect of the order in which transformations are 
+applied. The figure shows two sequences of transformations applied to a coordinate system. After each 
+successive transformation, an outline of the letter n is drawn. ![Figure 14 Effect of Transformation Order  .jpg](./Storage/Output/Images/Figure 14 Effect of Transformation Order  .jpg)
+Figure 14: Effect of Transformation Order 
+ 
+© ISO 2017 – All rights reserved 152 
+
+ISO/DIS 32000-2
+ 
+NOTE The following transformations are shown in the figure: a translation of 10 units in the  direction 
+and 20 units in the  direction; a rotation of 30 degrees; a scaling by a factor of 3 in the  direction 
+x
+ In the figure, the axes are shown with a dash pattern having a 2-unit dash and a 2-unit gap. In 
+yx
+addition, the original (untransformed) axes are shown in a lighter colour for reference. Notice 
+that the scale-rotate-translate ordering results in a distortion of the coordinate system, leaving 
+the  and  axes no longer perpendicular; the recommended translate-rotate-scale ordering 
+results in no distortion. 
+xy
+8.3.4Transformation matrices 
+ 
+This subclause discusses the mathematics of transformation matrices. 
+To understand the mathematics of coordinate transformations in PDF, it is vital to remember two 
+points: 
+Transformations alter coordinate systems, not graphics objects
+• 
+. All objects painted before a 
+transformation is applied shall be unaffected by the transformation. Objects painted after the 
+Transformation matrices specify the transformation from the new (transformed) coordinate system 
+• 
+transformation is applied shall be interpreted in the transformed coordinate system. 
+to the original (untransformed) coordinate system
+. All coordinates used after the transformation 
+shall be expressed in the transformed coordinate system. PDF applies the transformation matrix to 
+NOTE 1 Many computer graphics textbooks consider transformations of graphics objects rather than of 
+find the equivalent coordinates in the untransformed coordinate system. 
+coordinate systems. Although either approach is correct and self-consistent, some details of the 
+calculations differ depending on which point of view is taken. 
+xy
+xy
+PDF represents coordinates in a two-dimensional space. The point (, ) in such a space can be 
+expressed in vector form as [  1]. The constant third element of this vector (1) is needed so that the 
+vector can be used with 3-by-3 matrices in the calculations described below. 
+The transformation between two coordinate systems can be represented by a 3-by-3 transformation 
+matrix written as follows: 
+ab0
+�
+� 
+cd0
+ef1
+ 
+Because a transformation matrix has only six elements that can be changed, in most cases in PDF it shall 
+be specified as the six-element array [a b c d e f]. 
+Coordinate transformations shall be expressed as matrix multiplications: 
+ 
+ab0
+′′
+𝑥𝑥𝑦𝑦1
+][]
+[
+𝑦𝑦1
+𝑥𝑥
+==�
+�
+cd0
+ef1
+ 
+x′y′
+Because PDF transformation matrices specify the conversion from the transformed coordinate system 
+xy
+to the original (untransformed) coordinate system,  and  in this equation shall be the coordinates in 
+the untransformed coordinate system, and  and  shall be the coordinates in the transformed system. 
+The multiplication is carried out as follows: 
+′
+=a×𝑥𝑥+c×𝑦𝑦+e 
+𝑥𝑥
+© ISO 2017 – All rights reserved 153 
+
+ISO/DIS 32000-2
+ 
+′
+=b×𝑥𝑥+d×𝑦𝑦+f 
+𝑦𝑦
+ 
+If a series of transformations is carried out, the matrices representing each of the individual 
+transformations can be multiplied together to produce a single equivalent matrix representing the 
+composite transformation. 
+NOTE 2 Matrix multiplication is not commutative — the order in which matrices are multiplied is 
+significant. Consider a sequence of two transformations: a scaling transformation applied to the 
+user space coordinate system, followed by a conversion from the resulting scaled user space to 
+SC
+ be the matrix specifying the scaling and  the current transformation 
+device space. Let 
+matrix, which transforms user space to device space. Recalling that coordinates are always 
+M
+M
+specified in the transformed space, the correct order of transformations first converts the scaled 
+coordinates to default user space and then converts the default user space coordinates to device 
+space. This can be expressed as 
+where 
+DUCSSCSSC
+))
+((
+×M 
+X=X×M=X×M=X×M×M
+ denotes the coordinates in device space 
+D
+ denotes the coordinates in default user space 
+X
+U
+ denotes the coordinates in scaled user space 
+X
+S
+X
+This shows that when a new transformation is concatenated with an existing one, the matrix 
+representing it shall be multiplied before (premultiplied with) the existing transformation matrix. 
+M′
+This result is true in general for PDF: when a sequence of transformations is carried out, the matrix 
+T
+M
+representing the combined transformation () is calculated by premultiplying the matrix representing 
+M
+the additional transformation (
+) with the one representing all previously existing transformations 
+(): 
+ 
+′
+NOTE 3 When rendering graphics objects, it is sometimes necessary for a PDF reader to perform the 
+𝑇𝑇
+𝑀𝑀
+=𝑀𝑀×𝑀𝑀
+inverse of a transformation — that is, to find the user space coordinates that correspond to a 
+given pair of device space coordinates. Not all transformations are invertible, however. For 
+example, if a matrix contains and  elements that are all zero, all user coordinates map to 
+the same device coordinates and there is no unique inverse transformation. Such noninvertible 
+a, b, c, d
+transformations are not very useful and generally arise from unintended operations, such as 
+scaling by 0. Use of a noninvertible matrix when painting graphics objects can result in 
+unpredictable behaviour. 
+8.4Graphics state 
+ 
+8.4.1General 
+ 
+graphics state
+A PDF processor shall maintain an internal data structure called the  that holds current 
+graphics control parameters. These parameters define the global framework within which the graphics 
+operators execute. 
+fS
+    
+EXAMPLE 1 The(fill) operator implicitly uses the current colour parameter, and the(stroke) operator additionally uses 
+the current line width parameter from the graphics state. 
+A PDF processor shall initialise the graphics state at the beginning of each page with the values 
+specified in "

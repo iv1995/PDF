@@ -1,0 +1,115 @@
+Table 391: Entries in a source 
+information dictionary") each containing information about the locations from which the source data 
+for the content set was retrieved. 
+© ISO 2017 – All rights reserved 778 
+
+ISO/DIS 32000-2
+ 
+Table 391: Entries in a source information dictionary 
+Key Type Value 
+Required
+AU   
+ASCII string () An ASCII string orURLalias dictionary (see 14.10.5.2, "URL alias 
+or dictionary dictionaries") which shall identify the URLs from which the source data was retrieved. 
+Optional
+TS 
+date () A timestamp which, if present, shall contain the most recent date and time at 
+which the content set’s contents were known to be up to date with the source data. 
+Optional
+E 
+date () An expiration stamp which, if present, shall contain the date and time at 
+which the content set’s contents is out of date with the source data. 
+Optional
+S 
+integer () A code which, if present, shall indicate the type of form submission, if any, by 
+S
+which the source data was accessed (see 12.7.6.2, "Submit-form action"). If present, the 
+value of the  entry shall be 0, 1, or 2, in accordance with the following meanings: 
+0 Not accessed by means of a form submission 
+1 Accessed by means of an HTTP GET request 
+This
+2 Accessed by means of an HTTP POST request 
+ entry may be present only in source information dictionaries associated with page 
+sets. Default value: 0. 
+Optional; if present, shall be an indirect reference
+C 
+dictionary () A command dictionary (see 
+14.10.5.3, "Command dictionaries") describing the command that caused the source 
+data to be retrieved. This entry may be present only in source information dictionaries 
+associated with page sets. 
+ 
+SI
+A content set's  entry may contain a single source information dictionary. However, a PDF processor 
+may attempt to detect situations in which the same source data has been located via two or more 
+SI
+distinct URLs. If a processor detects such a situation, it may generate a single content set from the 
+  
+source data, containing a single copy of the relevant PDF pages or image XObjects. In this case, the  
+entry shall be an array containing one source information dictionary for each distinctURLfrom which 
+the original source content was found. 
+The determination that distinct URLs produce the same source data shall be made by comparing digital 
+identifiers for the source data. 
+AU
+v
+A source information dictionary’s  (aliased URLs) entry shall identify the URLs from which the 
+AU  
+source data was retrieved. If there is only one such URL, the  value of this entry may be a string. If 
+multiple URLs map to the same location through redirection, the  value shall be aURLalias 
+dictionary (see 14.10.5.2, "URL alias dictionaries"). 
+NOTE 1 For file size efficiency, the entireURL alias dictionary (excluding the URL strings) can be 
+ 
+represented as a direct object because its internal structure is never shared or externally 
+referenced. 
+ TS 
+The(timestamp) entry allows each source location associated with a content set to have its own 
+timestamp. 
+NOTE 2 This is necessary because the timestamp in the content set dictionary (see "Table 388: Entries 
+common to all Web Capture content sets") merely refers to the creation date of the content set. A 
+hypothetical "Update Content Set" command might reset the timestamp in the source information 
+dictionary to the current time if it found that the source data had not changed since the 
+timestamp was last set. 
+© ISO 2017 – All rights reserved 779 
+
+ISO/DIS 32000-2
+ 
+E
+The  (expiration) entry specifies an expiration date for each source location associated with a content set. If the current date 
+14.10.5.2URL alias dictionaries 
+and time are later than those specified, the contents of the content set is out of date with respect to the original source. 
+ 
+response header
+  
+  
+When aURLis accessed via HTTP, a  may be returned indicating that the requested data 
+is at a different URL. This redirection process may be repeated in turn at the newURLand can 
+    
+potentially continue indefinitely. It is not uncommon to find multiple URLs that all lead eventually to the 
+same destination through one or more redirections. AURLalias dictionary represents such a set ofURL
+chains leading to a common destination. "Table 392: Entries in a URL alias dictionary" shows the 
+contents of this type of dictionary. 
+Table 392: Entries in a URL alias dictionary 
+Key Type Value 
+Required
+U   C
+ASCII string () The destinationURLto which all of the chains specified by the  entry lead. 
+Optional
+C 
+U
+array () An array of one or more arrays of strings, each representing a chain of URLs leading to 
+the common destination specified by . 
+ 
+C C
+The  (chains) entry may be omitted if theURL alias dictionary contains only one URL. If  is present, its 
+value shall be an array of arrays, each representing a chain of URLs leading to the common destination. 
+Within each chain, the URLs shall be stored as ASCII strings in the order in which they occur in the 
+U
+redirection sequence. The common destination (the last URL in a chain) may be omitted, since it is 
+already identified by the  entry. 
+14.10.5.3Command dictionaries 
+ 
+Web Capture command dictionary
+A  represents a command executed by Web Capture to retrieve one or 
+more pieces of source data that were used to create new pages or modify existing pages. The entries in 
+this dictionary represent parameters that were originally specified interactively by the user who 
+requested that the Web content be captured. This information is recorded so that the command can 
+subsequently be repeated to update the captured content. "

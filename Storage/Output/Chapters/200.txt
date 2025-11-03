@@ -1,0 +1,63 @@
+Table 221: 
+Additional entries specific to an ECMAScript action" shows the action dictionary entries specific to this 
+type of action.  
+Table 221: Additional entries specific to an ECMAScript action 
+Key Type Value 
+(Required) 
+S  
+JavaScript
+  
+ 
+name The type of action that this dictionary describes; shall be
+for anECMAScriptaction. 
+(Required) 
+JS   
+text string or text A text string or text stream containing theECMAScriptscript to be 
+stream executed. 
+ 
+JavaScript
+    
+To support the use of parameterized function calls inECMAScriptscripts, theentry in a PDF 
+  
+document’s name dictionary (see 7.7.4, "Name dictionary") may contain a name tree that maps name 
+ 
+strings to document-levelECMAScriptactions. When the document is opened, all of the actions in this 
+name tree shall be executed, defining ECMAScriptfunctions for use by other scripts in the document. 
+© ISO 2017 – All rights reserved 511 
+
+ISO/DIS 32000-2
+ 
+NOTE The name strings associated with individual ECMAScript actions in the name dictionary serve 
+merely as a convenient means for organizing and packaging scripts. The names are arbitrary and 
+need not bear any relation to the ECMAScriptname space. 
+ 
+12.6.4.18Rich-Media-Execute actions 
+ 
+rich-media-execute action
+A  identifies a rich media annotation and specifies a command to be sent to 
+that annotation’s handler (see Clause 13.7, "Rich media". "Table 222: Additional entries specific to a 
+rich-media-execute action" shows the entries in a rich-media-execute action dictionary. 
+Table 222: Additional entries specific to a rich-media-execute action 
+Key Type Value 
+(Required; PDF 2.0) 
+S  
+RichMediaExecute
+ 
+name The type of action that this dictionary describes; shall be
+for a rich-media-execute action. 
+(Required; PDF 2.0) 
+TA 
+RichMedia
+dictionary An indirect object reference to an annotation dictionary 
+(of Subtype ) upon which to execute the command. 
+(Optional; PDF 2.0) 
+TI  
+RichMediaInstance dictionary
+dictionary A dictionary that shall be an indirect object reference to a
+ that is also present in the Instances array of the 
+annotation. 
+(Required; PDF 2.0) RichMediaCommand dictionary
+CMD  
+dictionary A containing the 
+command name and arguments to be executed when the rich-media-execute 
+action is invoked. See "

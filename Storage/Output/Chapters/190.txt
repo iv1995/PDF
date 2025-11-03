@@ -1,0 +1,120 @@
+Table 201: Action types". The following subclauses 
+describe each of these types in detail. 
+© ISO 2017 – All rights reserved 495 
+
+ISO/DIS 32000-2
+ 
+Table 201: Action types 
+Action type Description Discussed in subclause 
+GoTo 
+Go to a destination in the current document. 12.6.4.2, "Go-To actions" 
+GoToR 
+("Go-to remote") Go to a destination in another document. 12.6.4.3, "Remote Go-To actions" 
+PDF 1.6
+GoToE 
+("Go-to embedded"; ) Go to a destination in an 12.6.4.4, "Embedded Go-To actions" 
+embedded file. 
+PDF 2.0
+GoToDPart 
+("Go-to document part"; ) Go to a specified DPart 12.6.4.5, "GoToDPart action" 
+in the current document. 
+Launch 
+Launch an application, usually to open a file. 12.6.4.6, "Launch actions" 
+Thread 
+Begin reading an article thread. 12.6.4.7, "Thread actions" 
+URI 
+Resolve a uniform resource identifier. 12.6.4.8, "URI actions" 
+(PDF 1.2; deprecated in PDF 2.0) 
+Sound 
+Play a sound. 12.6.4.9, "Sound actions" 
+(PDF 1.2; deprecated in PDF 2.0) 
+Movie 
+Play a movie. 12.6.4.10, "Movie actions" 
+(PDF 1.2) 
+Hide 
+Set an annotation’s Hidden flag. 12.6.4.11, "Hide actions" 
+(PDF 1.2) 
+Named 
+Execute a predefined action. 12.6.4.12, "Named actions" 
+(PDF 1.2) 
+SubmitForm 
+Send data to a uniform resource locator. 12.7.6.2, "Submit-form action" 
+(PDF 1.2) 
+ResetForm 
+Set fields to their default values. 12.7.6.3, "Reset-form action" 
+(PDF 1.2) 
+ImportData 
+Import field values from a file. 12.7.6.4, "Import-data action" 
+(PDF 1.5) 
+SetOCGState 
+Set the states of optional content groups. 12.6.4.13, "Set-OCG-state actions" 
+(PDF 1.5) 
+Rendition 
+Controls the playing of multimedia content. 12.6.4.14, "Rendition actions" 
+(PDF 1.5) 
+Trans 
+Updates the display of a document, using a 12.6.4.15, "Transition actions" 
+transition dictionary. 
+(PDF 1.6) 
+GoTo3DView 
+Set the current view of a 3D annotation 12.6.4.16, "Go-To-3D-View actions" 
+(PDF 1.3)  
+JavaScript   
+Execute anECMAScriptscript.12.6.4.17, "ECMAScript actions" 
+(PDF 2.0;RichMediaannotation only) 
+RichMediaExecute   
+Specifies a command 12.6.4.18, "Rich-Media-Execute actions" 
+to be sent to the annotation’s handler. 
+ 
+12.6.4.2Go-To actions 
+ 
+go-to action
+A  changes the view to a specified destination (page, location, and magnification factor). 
+"Table 202: Additional entries specific to a go-to action" shows the action dictionary entries specific to 
+this type of action. 
+© ISO 2017 – All rights reserved 496 
+
+ISO/DIS 32000-2
+ 
+Table 202: Additional entries specific to a go-to action 
+Key Type Value 
+(Required) GoTo
+S   
+name The type of action that this dictionary describes; shall befor a 
+go-to action. 
+(Required) 
+D 
+name, byte The destination to jump to (see 12.3.2, "Destinations"). 
+string, or array 
+(Optional; PDF 2.0)
+SD 
+array  The structure destination to jump to (see 12.3.2.3, "Structure 
+D
+destinations"). If present, the structure destination should take precedence over 
+destination in the  entry. 
+NOTE Specifying a go-to action in the  entry of a link annotation or outline item (see "Table 176: 
+A
+Additional entries specific to a link annotation" and "Table 151: Entries in an outline item 
+dictionary") has the same effect as specifying the destination directly with the  entry. For 
+Dest
+example, the link annotation shown in the Example in 12.6.4.13, "Set-OCG-state actions" which 
+uses a go-to action, has the same effect as the one in the following Example, which specifies the 
+destination directly. However, the go-to action is less compact and is not compatible with PDF 1.0; 
+therefore, using a direct destination is preferable. 
+EXAMPLE  
+93 0 obj 
+  <</Type /Annot 
+   /Subtype /Link 
+   /Rect [71 717 190 734] 
+   /Border [16 16 1] 
+   /A <</Type /Action 
+     /S /GoTo 
+     /D [3 0 R /FitR –4 399 199 533] 
+    >> 
+  >> 
+endobj 
+ 
+12.6.4.3Remote Go-To actions 
+ 
+A remote go-to action is similar to an ordinary go-to action but jumps to a destination in another PDF 
+file instead of the current file. "

@@ -1,0 +1,12 @@
+Table 235: Additional entries specific to a signature field 
+Key Type Value 
+(Optional; shall be an indirect reference; PDF 1.5) signature field lock dictionary 
+Lock 
+dictionary A 
+that specifies a set of form fields that shall be locked when this signature field is 
+signed. "Table 236: Entries in a signature field lock dictionary" lists the entries in 
+this dictionary. 
+(Optional; shall be an indirect reference; PDF 1.5) seed value dictionary 
+SV 
+dictionary A (see 
+"

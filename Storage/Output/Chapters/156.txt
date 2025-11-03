@@ -1,0 +1,124 @@
+Table 143: Restrictions on the entries in a soft-mask image dictionary". This type 
+of image dictionary may contain an additional entry, . 
+matte colour
+When an image is accompanied by a soft-mask image, it is sometimes advantageous for the image data 
+to be pre-blended with some background colour, called the . Each image sample represents 
+premultiplied 
+a weighted average of the original source colour and the matte colour, using the corresponding mask 
+alpha
+sample as the weighting factor. (This is a generalization of a technique commonly called 
+.) 
+ Matte 
+If the image data is pre-blended, the matte colour shall be specified by aentry in the soft-mask 
+image dictionary (see "Table 143: Restrictions on the entries in a soft-mask image dictionary"). The pre-
+blending computation, performed independently for each component, shall be 
+© ISO 2017 – All rights reserved 410 
+
+ISO/DIS 32000-2
+ 
+ 
+′
+()
+=𝑚𝑚+𝛼𝛼×𝑐𝑐−𝑚𝑚
+𝑐𝑐
+where 
+c′ is the value to be provided in the image source data 
+c is the original image component value 
+m is the matte colour component value 
+α is the corresponding mask sample 
+FilterDecode
+This computation shall use actual colour component values, with the effects of the  and  
+transformations already performed. The computation shall be the same whether the colour space is 
+additive or subtractive. 
+Table 143: Restrictions on the entries in a soft-mask image dictionary 
+Key Restriction 
+Type 
+If present, shall be XObject. 
+Subtype 
+Required, shall be Image. 
+Width  Matte 
+Width
+If aentry (see "Table 144: Additional entry in a soft-mask 
+image dictionary") is present, shall be the same as the  
+value of the parent image; otherwise independent of it. Both 
+images shall be mapped to the unit square in user space (as are 
+all images), regardless of whether the samples coincide 
+individually. 
+Height Width
+Same considerations as for . 
+ColorSpace DeviceGray
+Required; shall be . 
+BitsPerComponent 
+Required. 
+Intent 
+Ignored. 
+ImageMask 
+Shall be false or absent. 
+Mask 
+Shall be absent. 
+SMask 
+Shall be absent. 
+Decode 
+Optional; default value: [0 1]. 
+Interpolate 
+Optional. 
+Alternates 
+Ignored. 
+Name 
+Ignored. 
+StructParent 
+Ignored. 
+ID 
+Ignored. 
+OPI 
+Ignored. 
+© ISO 2017 – All rights reserved 411 
+
+ISO/DIS 32000-2
+ 
+ 
+Table 144: Additional entry in a soft-mask image dictionary 
+Key Type Value 
+Optional; PDF 1.4
+Matte 
+array () An array of component values specifying the matte colour with 
+nn
+which the image data in the parent image shall have been pre-blended. The array shall 
+ ColorSpace 
+consist of  numbers, where  is the number of components in the colour space 
+Indexed
+specified by theentry (or the base entry of the colour space, if the colour 
+space is ) in the parent image’s image dictionary; the numbers shall be valid 
+colour components in that colour space. If this entry is absent, the image data shall not 
+be pre-blended. 
+ 
+When pre-blended image data is used in transparency blending and compositing computations, the 
+c
+results shall be the same as if the original, unblended image data were used and no matte colour were 
+c′
+specified. In particular, the inputs to the blend function shall be the original colour values. To derive  
+from , the PDF processor may sometimes need to invert the formula shown previously. The resulting c 
+value shall lie within the range of colour component values for the image colour space. 
+NOTE When deriving c from c’ and α is 0.0, the inverted formula will result in a divide by zero. In this 
+special case an arbitrary value for c may be chosen within the range of colour component values 
+for the image colour space. Because α is 0.0, the arbitrary value of c does not affect output as 
+described in 11.3.2 "Basic notation for compositing computations". 
+ 
+ColorSpace 
+The pre-blending computation shall be done in the colour space specified by the parent image’s
+entry. This is independent of the group colour space into which the image may be painted. 
+ Indexed 
+If a colour conversion is required, inversion of the pre-blending shall precede the colour conversion. If 
+the image colour space is anspace (see 8.6.6.3, "Indexed colour spaces"), the colour values in 
+the colour table (not the index values themselves) shall be pre-blended. 
+11.6.6Transparency group XObjects 
+ 
+A transparency group is represented in PDF as a special type of group XObject (see 8.10.3, "Group 
+ Group 
+XObjects") called a transparency group XObject. A group XObject is in turn a type of form XObject, 
+distinguished by the presence of aentry in its form dictionary (see 8.10.2, "Form dictionaries"). 
+The value of this entry is a group attributes dictionary defining the properties of the group. The format 
+Transparency
+S
+and meaning of the dictionary’s contents is determined by its group subtype, which is specified by the 
+dictionary’s  entry. The entries for a transparency group (subtype ) are shown in "

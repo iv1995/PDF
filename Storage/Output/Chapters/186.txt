@@ -1,0 +1,179 @@
+Table 193: Additional entries specific to a watermark annotation") shall be a dictionary 
+that contains values for specifying the size and position of the annotation (see "Table 194: Entries in a 
+fixed print dictionary"). 
+Watermark annotations shall have no popup window nor other interactive elements. When displaying a 
+watermark annotation on-screen, interactive PDF processors shall use the dimensions of the media box 
+(see "Table 29: Entries in the catalog dictionary") as the media dimensions so that the scroll and zoom 
+behaviour is the same as for other annotations. 
+NOTE 1 Since many printing devices have nonprintable margins, such margins need to be taken into 
+consideration when positioning watermark annotations near the edge of a page. 
+Table 193: Additional entries specific to a watermark annotation 
+Key Type Value 
+(Required) 
+Subtype 
+Watermark
+name The type of annotation that this dictionary describes; shall be 
+ for a watermark annotation. 
+© ISO 2017 – All rights reserved 487 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) fixed print dictionary 
+FixedPrint 
+dictionary A (see "Table 194: Entries in a fixed print 
+dictionary") that specifies how this annotation shall be drawn relative to the 
+dimensions of the target media. If this entry is not present, the annotation 
+shall be drawn without any special consideration for the dimensions of the 
+target media. 
+ 
+If the dimensions of the target media are not known at the time of drawing, 
+MediaBox 
+drawing shall be done relative to the dimensions specified by the page’s
+entry (see "Table 31: Entries in a page object"). 
+ 
+Table 194: Entries in a fixed print dictionary 
+Key Type Value 
+(Required) FixedPrint
+Type 
+name Shall be . 
+(Optional) 
+Matrix 
+array The matrix used to transform the annotation’s rectangle before 
+rendering. 
+Default value: the identity matrix [1 0 0 1 0 0]. 
+ 
+When positioning content near the edge of the media, this entry should be 
+used to provide a reasonable offset to allow for unprintable margins.
+(Optional) 
+H 
+number The amount to translate the associated content horizontally, as a 
+MediaBox
+percentage of the width of the target media (or if unknown, the width of the 
+page’s ). 1.0 represents 100% and 0.0 represents 0%. Negative 
+values should not be used, since they may cause content to be drawn off the 
+ 
+media. 
+Default value: 0.
+(Optional) 
+V 
+number The amount to translate the associated content vertically, as a 
+MediaBox
+percentage of the height of the target media (or if unknown, the height of the 
+page’s ). 1.0 represents 100% and 0.0 represents 0%. Negative 
+values should not be used, since they may cause content to be drawn off the 
+media. 
+Default value: 0. 
+ 
+FixedPrint
+  
+When rendering a watermark annotation with aentry, the following behaviour shall occur: 
+rectangle
+ Rect 
+• 
+Matrix FixedPrint 
+The annotation’s  (as specified by itsentry) shall be translated to the origin and 
+transformed by the  entry of itsdictionary to produce a quadrilateral with 
+transformed annotation rectangle
+• 
+arbitrary orientation. 
+The  shall be defined as the smallest upright rectangle that 
+encompasses this quadrilateral; it shall be used in place of the annotation rectangle referred to in 
+B
+steps 2 and 3 of "Algorithm: appearance streams" (see 12.5.5, "Appearance streams"). 
+B
+In addition, given a matrix  that maps a scaled and rotated page into the default user space, a new 
+matrix shall be computed that cancels out  and translates the origin of the media (e.g., printed page) to 
+the origin of the default user space. This transformation shall be applied to ensure the correct scaling 
+and alignment. 
+EXAMPLE The following example shows a watermark annotation that prints a text string one inch from the left and one 
+© ISO 2017 – All rights reserved 488 
+
+ISO/DIS 32000-2
+ 
+inch from the top of the printed page. 
+8 0 obj           %Watermark appearance 
+  << 
+   /Length … 
+   /Subtype /Form 
+   /Resources … 
+   /BBox … 
+  >> 
+  stream 
+  … 
+   BT 
+   /F1 1 Tf 
+   36 0 0 36 0 -36 Tm 
+   (Do Not Build) Tx 
+   ET 
+   … 
+  endstream 
+endobj 
+ 
+9 0 obj           %Watermark annotation 
+  << 
+   /Rect … 
+   /Type /Annot 
+   /Subtype /Watermark 
+   /FixedPrint 10 0 R 
+   /AP <</N 8 0 R>> 
+  >> 
+             %in the page dictionary 
+  /Annots [9 0 R] 
+ 
+10 0 obj           %Fixed print dictionary 
+  << 
+   /Type /FixedPrint 
+   /Matrix [1 0 0 1 72 -72]  %Translate one inch right and one inch down 
+   /H 0 
+   /V 1.0        %Translate the full height of the page vertically 
+  >> 
+endobj 
+ 
+FixedPrint
+  
+In situations other than the usual case where the PDF page size equals the media size, watermark 
+annotations with aentry shall be printed in the following manner: 
+• 
+When page tiling is selected in a PDF processor (that is, a single PDF page is printed on multiple 
+pages), watermark annotations shall be printed at the specified size and position on each page to 
+n
+• 
+ensure that the content of the watermark annotation is present and legible on each printed page. 
+When -up printing is selected (that is, multiple PDF pages are printed on a single page), the 
+annotations shall be printed at the specified size and shall be positioned as if the dimensions of the 
+printed page were limited to a single portion of the page. This ensures that any content of the 
+NOTE 2 There is no guarantee that the location of a fixed print annotation on any given output page will 
+watermark annotation does not overlap content from other pages, thus rendering it illegible. 
+cover content. 
+12.5.6.23Redaction annotations 
+ 
+redaction annotationPDF 1.7
+A  () identifies content that is intended to be removed from the document. 
+The intent of redaction annotations is to enable the following process: 
+Content identification
+ 
+a). A user applies redact annotations that specify the pieces or regions of content that 
+should be removed. Up until the next step is performed, the user can see, move and redefine these 
+© ISO 2017 – All rights reserved 489 
+annotations. 
+
+ISO/DIS 32000-2
+ 
+Content removal
+ 
+b). The user instructs the viewer application to apply the redact annotations, after which 
+the content in the area specified by the redact annotations is removed. In the removed content’s place, 
+some marking appears to indicate the area has been redacted. Also, the redact annotations are removed 
+from the PDF document.  
+Redaction annotations provide a mechanism for the first step in the redaction process (content 
+identification). This allows content to be marked for redaction in a non-destructive way, thus enabling a 
+review process for evaluating potential redactions prior to removing the specified content. 
+Redaction annotations shall provide enough information to be used in the second phase of the redaction 
+process (content removal). This phase is application-specific and requires the PDF processor to remove 
+all content identified by the redaction annotation, as well as the annotation itself. Interactive PDF 
+processors that support redaction annotations shall provide a mechanism for applying content removal, 
+and they shall remove all traces of the specified content. If a portion of an image is contained in a 
+redaction region, that portion of the image data shall be destroyed; clipping or image masks shall not be 
+used to hide that data. Such interactive PDF processors shall also be diligent in their consideration of all 
+content that can exist in a PDF document. 

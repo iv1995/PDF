@@ -1,0 +1,39 @@
+Table 64: Entries in a Lab colour space 
+dictionary"). Component values falling outside the specified range shall be adjusted to the nearest valid 
+value without error indication. 
+Table 64: Entries in a Lab colour space dictionary 
+Key Type Value 
+WWW
+RequiredX Y Z
+WhitePoint 
+array () An array of three numbers [] that shall specify the tristimulus value, in the 
+WWW
+X
+CIE 1931 XYZ space, of the diffuse white point; see 8.6.5.3, "CalRGB colour spaces" for further 
+discussion. The numbers  and Z shall be positive, and Y shall be 1.0. 
+BBB
+OptionalX Y Z
+BlackPoint 
+XYZ
+array () An array of three numbers [] that shall specify the tristimulus value, in the CIE 
+1931  space, of the diffuse black point; see 8.6.5.3, "CalRGB colour spaces" for further 
+discussion. All three of these numbers shall be non-negative. Default value: [0.0 0.0 0.0]. 
+Optionala a b b
+Range 
+a*b* 
+minmaxminmax
+array () An array of four numbers [] that shall specify the range of valid values 
+for the  and (B and C) components of the colour space — that is, 
+𝑚𝑚𝑚𝑚𝑛𝑛𝑚𝑚𝑚𝑚𝑥𝑥
+𝐷𝐷≤𝐷𝐷∗≤𝐷𝐷 
+and 
+ 
+𝑚𝑚𝑚𝑚𝑛𝑛𝑚𝑚𝑚𝑚𝑥𝑥
+𝑏𝑏≤𝑏𝑏∗≤𝑏𝑏 
+Component values falling outside the specified range shall be adjusted to the nearest valid value 
+without error indication. 
+Default value: [-100 100 -100 100] 
+ 
+Lab
+ L*a*b*, RGBCMYK
+"Figure 26: Lab colour space" illustrates the coordinates of a typical  colour space; "

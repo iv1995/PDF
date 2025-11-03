@@ -1,0 +1,147 @@
+Table 264: Entries in a legal attestation dictionary". This dictionary shall 
+be the value of the  entry in the document catalog dictionary (see "Table 29: Entries in the catalog 
+ 
+dictionary"). Its entries shall specify all content that may result in unexpected rendering of the 
+Attestation 
+document contents. The author may provide further clarification of such content by means of the
+entry. Reviewers should establish for themselves that they trust the author and contents of 
+the document. In the case of a legal challenge to the document, any questionable content can be 
+reviewed in the context of the information in this dictionary. 
+Table 264: Entries in a legal attestation dictionary 
+Key Type Value 
+(Optional) 
+JavaScriptActions   
+integer The number ofECMAScriptactions found in the document 
+(see 12.6.4.17, "ECMAScript actions"). 
+(Optional) 
+LaunchActions 
+integer The number of launch actions found in the document (see 
+12.6.4.6, "Launch actions"). 
+(Optional) 
+URIActions   
+integer The number ofURIactions found in the document (see 
+12.6.4.8, "URI actions"). 
+© ISO 2017 – All rights reserved 574 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; deprecated in PDF 2.0) 
+MovieActions 
+integer The number of movie actions found in 
+the document (see 12.6.4.10, "Movie actions"). 
+(Optional; deprecated in PDF 2.0) 
+SoundActions 
+integer The number of sound actions found in 
+the document (see 12.6.4.9, "Sound actions"). 
+(Optional) 
+HideAnnotationActions 
+integer The number of hide actions found in the document (see 
+12.6.4.11, "Hide actions"). 
+(Optional
+GoToRemoteActions 
+integer ) The number of remote go-to actions found in the document 
+(see 12.6.4.3, "Remote Go-To actions"). 
+(Optional) 
+AlternateImages 
+integer The number of alternate images found in the document (see 
+8.9.5.4, "Alternate images") 
+(Optional) 
+ExternalStreams 
+integer The number of external streams found in the document. 
+(Optional) 
+TrueTypeFonts 
+integer The number of TrueType fonts found in the document (see 
+9.6.3, "TrueType fonts"). 
+(Optional) 
+ExternalRefXobjects 
+integer The number of reference XObjects found in the document (see 
+8.10.4, "Reference XObjects"). 
+(Optional; deprecated in PDF 2.0) 
+ExternalOPIdicts 
+integer The number of OPI dictionaries found 
+in the document (see 14.11.7, "Open prepress interface (OPI)"). 
+(Optional) 
+NonEmbeddedFonts 
+integer The number of non-embedded fonts found in the document 
+(see 9.9, "Embedded font programs") 
+(Optional) 
+DevDepGS_OP  OP 
+integer The number of references to the graphics state parameter
+found in the document (see "Table 57: Entries in a graphics state 
+parameter dictionary"). 
+(Optional) 
+DevDepGS_HT  HT 
+integer The number of references to the graphics state parameter
+found in the document (see "Table 57: Entries in a graphics state 
+parameter dictionary"). 
+(Optional) 
+DevDepGS_TR  TR 
+integer The number of references to the graphics state parameter
+found in the document (see "Table 57: Entries in a graphics state 
+parameter dictionary"). 
+(Optional) 
+DevDepGS_UCR  
+UCR 
+integer The number of references to the graphics state parameter
+found in the document (see "Table 57: Entries in a graphics state 
+parameter dictionary"). 
+(Optional) 
+DevDepGS_BG  BG 
+integer The number of references to the graphics state parameter
+found in the document (see "Table 57: Entries in a graphics state 
+parameter dictionary"). 
+(Optional) 
+DevDepGS_FL  FL 
+integer The number of references to the graphics state parameter
+found in the document (see "Table 57: Entries in a graphics state 
+parameter dictionary"). 
+(Optional) 
+Annotations 
+integer The number of annotations found in the document (see 12.5, 
+"Annotations"). 
+(Optional) true
+OptionalContent 
+boolean  if optional content is found in the document (see 8.11, 
+"Optional content"). 
+© ISO 2017 – All rights reserved 575 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) 
+Attestation 
+text string An attestation, created by the author of the document, 
+explaining the presence of any of the other entries in this dictionary or 
+the presence of any other content affecting the legal integrity of the 
+document. 
+ 
+12.9Measurement properties 
+ 
+PDF documents, such as those created by CAD software, may contain graphics that are intended to 
+represent real-world objects. Users of such documents often require information about the scale and 
+units of measurement of the corresponding real-world objects and their relationship to units in PDF 
+user space. 
+This information enables users of interactive PDF processors to perform measurements that yield 
+results in the units intended by the creator of the document. A measurement in this context is the result 
+of a canonical function that takes as input a set pairs 
+00𝑛𝑛−1𝑛𝑛−1
+(
+)()
+{𝑥𝑥
+,…,𝑥𝑥} 
+,𝑦𝑦,𝑦𝑦
+ 
+and produces a single number as output depending on the type of measurement. For example, distance 
+measurement is equivalent to 
+𝑛𝑛−2
+22
+ii+1ii+1
+))
+(
+�(
+−𝑥𝑥+𝑦𝑦−𝑦𝑦 
+�𝑥𝑥
+i=0
+ 
+Beginning with PDF 1.6, such information may be stored in a measure dictionary (see "

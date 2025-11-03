@@ -1,0 +1,133 @@
+Table 245: Entries in the FDF catalog dictionary 
+Key Type Value 
+(Optional; PDF 1.4) 
+Version   
+  
+name The version of theFDFspecification to which 
+thisFDFfile conforms (for example, 1.4) if later than the version 
+specified in the file’s header (see 12.7.8.2.2, "FDF header"). If the 
+header specifies a later version, or if this entry is absent, the 
+document conforms to the version specified in the header. 
+/
+The value of this entry is a name object, not a number, and 
+/1.4
+  
+ 
+therefore shall be preceded by a slash character () when 
+written in theFDFfile (for example, ).
+(Required) 
+FDF   
+dictionary TheFDFdictionary for this file (see "Table 246: 
+Entries in the FDF dictionary"). 
+© ISO 2017 – All rights reserved 542 
+
+ISO/DIS 32000-2
+ 
+ 
+Table 246: Entries in the FDF dictionary 
+Key Type Value 
+(Optional) source file target file
+F   
+file specification The or : the PDF document file that thisFDF
+file was exported from or is intended to be imported into. 
+(Optional) 
+ID 
+F
+array An array of two byte strings constituting a file identifier (see 
+ ID 
+14.4, "File identifiers") for the source or target file designated by , taken 
+from theentry in the file’s trailer dictionary (see 7.5.5, "File trailer"). 
+(Optional) 
+Fields   
+array An array ofFDFfield dictionaries (see 12.7.8.3.2, "FDF fields" in 
+12.7.8.3, "FDF catalog") describing the root fields (those with no ancestors 
+Pages
+in the field hierarchy) that shall be exported or imported. This entry and 
+the  entry shall not both be present. 
+(Optional) 
+Status 
+PDFDocEncoded A status string that shall be displayed indicating the result of an 
+PDFDocEncoding
+string action, typically a submit-form action (see 12.7.6.2, "Submit-form action"). 
+Pages
+The string shall be encoded with . This entry and the 
+ entry shall not both be present. 
+(Optional; PDF 1.3) 
+Pages   
+array An array ofFDFpage dictionaries (see 12.7.8.3.3, "FDF 
+FieldsStatus
+pages") describing pages that shall be added to a PDF target document. 
+The  and  entries shall not be present together with this entry. 
+(Optional; PDF 1.3) 
+Encoding  FDF 
+V Opt 
+name The encoding that shall be used for anyfield value 
+or option ( orin the field dictionary; see "Table 249: Entries in an 
+FDF field dictionary") or field name that is a string and does not begin with 
+PDFDocEncoding
+the Unicode prefix ZERO WIDTH NO-BREAK SPACE (U+FEFF). 
+Shift_JIS, BigFive, GBK, UHC, utf_8, utf_16
+ 
+Default value: . 
+Other allowed values include 
+(Optional; PDF 1.3) 
+Annots   
+array An array ofFDFannotation dictionaries (see 12.7.8.3.4, 
+"FDF annotation dictionaries" in 12.7.8.3, "FDF catalog"). The array may 
+Link, Movie, Widget, PrinterMark, Screen,  
+include annotations of any of the standard types listed in "Table 171: 
+TrapNet
+Annotation types" except and
+. 
+(Optional; PDF 1.4) 
+Differences 
+stream A stream containing all the bytes in all incremental 
+updates made to the underlying PDF document since it was opened (see 
+ FDF 
+7.5.6, "Incremental updates"). If a submit-form action submitting the 
+document to a remote server ashas its IncludeAppendSaves flag set 
+(see 12.7.6.2, "Submit-form action"), the contents of this stream shall be 
+included in the submission. This allows any digital signatures (see 12.8, 
+"Digital signatures") to be transmitted to the server. An incremental 
+update shall be automatically performed just before the submission takes 
+place, in order to capture all changes made to the document. 
+The submission shall include the full set of incremental updates back to 
+the time the document was first opened, even if some of them may already 
+ 
+Fields Annots 
+have been included in intervening submissions. 
+Differences
+Although a orentry (or both) may be present along with 
+ Differences 
+, there is no requirement that their contents will be consistent 
+ Differences 
+with each other. In particular, ifcontains a digital signature, 
+ 
+only the values of the form fields given in thestream shall be 
+considered trustworthy under that signature.
+(Optional; PDF 1.4) 
+Target 
+string The name of a browser frame in which the underlying 
+PDF document shall be opened. This mimics the behaviour of the target 
+attribute in HTML <href> tags. 
+© ISO 2017 – All rights reserved 543 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional; PDF 1.4
+EmbeddedFDFs 
+ FDF 
+array () An array of file specifications (see 7.11, "File 
+specifications") representing otherfiles embedded within this one 
+(7.11.4, "Embedded file streams"). 
+(Optional; PDF 1.4) ECMAScript dictionary 
+JavaScript  
+  
+dictionary An(see "Table 248: Entries in 
+the ECMAScript dictionary") defining document-levelECMAScriptscripts. 
+ 
+  EmbeddedFDFs 
+Although deprecated in PDF 2.0, embeddedFDF files specified in the FDF dictionary’s
+entry may be encrypted. Besides the usual entries for an embedded file stream, the stream dictionary 
+representing such an encrypted FDF file shall contain the additional entry shown in "

@@ -1,0 +1,145 @@
+Figure 76: Presentation timing" illustrates the relationship between transition duration  in the 
+(D
+transition dictionary) and display duration ( in the page object). Note that the transition 
+Dur
+duration specified for a page (page 2 in the figure) governs the transition to that page from 
+another page; the transition from the page is governed by the next page’s transition duration. ![Figure 76 Presentation timing  .png](./Storage/Output/Images/Figure 76 Presentation timing  .png)
+Figure 76: Presentation timing 
+ 
+EXAMPLE The following example shows the presentation parameters for a page to be displayed for 5 seconds. Before 
+the page is displayed, there is a 3.5-second transition in which two vertical lines sweep outward from the 
+centre to the edges of the page. 
+10 0 obj 
+  <</Type /Page 
+   /Parent 4 0 R 
+   /Contents 16 0 R 
+   /Dur 5 
+   /Trans << /Type /Trans 
+       /D 3.5 
+       /S /Split 
+       /Dm /V 
+       /M /O 
+     >> 
+  >> 
+© ISO 2017 – All rights reserved 452 
+
+ISO/DIS 32000-2
+ 
+endobj 
+ 
+12.4.4.2Sub-page navigation 
+ 
+Sub-page navigationPDF 1.5
+ () provides the ability to navigate not only between pages but also between 
+different states of the same page. 
+NOTE 1 A single page in a PDF presentation could have a series of bullet points that could be individually 
+turned on and off. In such an example, the bullets would be represented by optional content (see 
+8.11.2, "Optional content groups"), and each state of the page would be represented as a 
+navigation node. 
+NOTE 2 Interactive PDF processors need to save the state of optional content groups when a user enters 
+presentation mode and restore it when presentation mode ends. This ensures, for example, that 
+transient changes to bullets do not affect the printing of the document. 
+navigation node dictionary
+A  (see "Table 165: Entries in a navigation node dictionary") specifies actions 
+to execute when the user makes a navigation request. 
+EXAMPLE Pressing an arrow key. 
+Next Prev 
+ PresSteps 
+The navigation nodes on a page form a doubly linked list by means of their  andentries. The 
+primary node on a page shall be determined by the optionalentry in a page dictionary (see 
+"Table 31: Entries in a page object"). 
+NOTE 3 An interactive PDF processor needs to respect navigation nodes only when in presentation mode 
+(see 12.4.4, "Presentations"). 
+Table 165: Entries in a navigation node dictionary 
+Key Type Value 
+(Optional) 
+Type  
+NavNode
+ 
+name The type of PDF object that this dictionary describes; shall be
+for a navigation node dictionary. 
+(Optional) 
+NA 
+dictionary An action (which may be the first in a sequence of actions) that shall 
+be executed when a user navigates forward. 
+(Optional) 
+PA 
+dictionary An action (which may be the first in a sequence of actions) that shall 
+be executed when a user navigates backward. 
+(Optional) 
+Next 
+dictionary The next navigation node, if any. 
+(Optional) 
+Prev 
+dictionary The previous navigation node, if any. 
+(Optional) 
+Dur 
+number The maximum number of seconds before the interactive PDF 
+processor shall automatically advance forward to the next navigation node. If 
+this entry is not specified, no automatic advance shall occur. 
+ 
+ PresSteps 
+An interactive PDF processor shall maintain a current navigation node. When a user navigates to a page, 
+if the page dictionary has aentry, the node specified by that entry shall become the current 
+node. (Otherwise, there is no current node.) If the user requests to navigate forward (such as an arrow 
+key press) and there is a current navigation node, the following shall occur: 
+ NA 
+ 
+a)The sequence of actions specified by(if present) shall be executed. 
+© ISO 2017 – All rights reserved 453 
+
+ISO/DIS 32000-2
+ 
+ NA 
+Next
+Ifspecifies an action that navigates to another page, the following actions for navigating to 
+Next
+ 
+another page take place, and  should not be present. 
+b)The node specified by  (if present) shall become the new current navigation node.  
+Similarly, if the user requests to navigate backward and there is a current navigation node, the 
+following shall occur: 
+ PA 
+ 
+ PA 
+c)The sequence of actions specified by(if present) shall be executed.  
+ Prev 
+Ifspecifies an action that navigates to another page, the following actions for navigating to 
+ Prev 
+ 
+another page take place, andshould not be present. 
+d)The node specified by(if present) shall become the new current navigation node.  
+ NA  PA 
+Transition effects, similar to the page transitions described earlier, may be specified as transition 
+actions that are part of theorsequence; see 12.6.4.15, "Transition actions". 
+ PresSteps 
+If the user requests to navigate to another page (regardless of whether there is a current node) and that 
+page’s dictionary contains aentry, the following shall occur: 
+ PresSteps 
+ 
+ 
+a)The navigation node represented byshall become the current node. 
+ NA 
+b)If the navigation request was forward, or if the navigation request was for random access (such as by 
+clicking on a link), the actions specified byshall be executed and the node specified by Next shall 
+ PA 
+become the new current node, as described previously.  
+ Prev 
+If the navigation request was backward, the actions specified byshall be executed and the node 
+ 
+specified byshall become the new current node, as described previously. 
+ Trans 
+c)The interactive PDF processor shall make the new page the current page and shall display it. Any page 
+12.5Annotations 
+ 
+transitions specified by theentry of the page dictionary shall be performed.  
+12.5.1General 
+ 
+annotationnotelinkrich media
+An  associates an object such as a ,  or  with a location on a page of a PDF 
+document, or provides a way to interact with the user by means of the mouse and keyboard. PDF 
+includes a wide variety of standard annotation types, described in detail in 12.5.6, "Annotation types". 
+Many of the standard annotation types may be displayed in either the open or the closed state. When 
+closed, they appear on the page in some distinctive form, such as an icon, a box, or a rubber stamp, 
+depending on the specific annotation type. When the user activates the annotation by clicking it, it 
+exhibits its associated object, such as by opening a popup window displaying a text note ("

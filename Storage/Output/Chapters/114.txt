@@ -1,0 +1,18 @@
+ ID 
+EI
+An inline image object shall be delimited in the content stream by the operators  (begin image),
+BI ID 
+(image data), and  (end image). These operators are summarised in "Table 90: Inline image 
+ ID EI
+operators".  andshall bracket a series of key-value pairs specifying the characteristics of the 
+image, such as its dimensions and colour space; the image data shall follow between theand  
+BI 
+operators. The format is thus analogous to that of a stream object such as an image XObject: 
+Key-value pairs
+  
+ID 
+  …  … 
+Image data
+  
+EI 
+  …  …

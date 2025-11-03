@@ -1,0 +1,100 @@
+Table 300: Entries in a 
+timespan dictionary". 
+Table 300: Entries in a timespan dictionary 
+Key Type Value 
+Optional
+Type 
+Timespan
+name () The type of PDF object that this dictionary describes; if present, shall 
+be  for a timespan dictionary. 
+© ISO 2017 – All rights reserved 610 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+RequiredS
+S 
+name () The subtype of timespan dictionary. The value shall be  (simple 
+timespan). The rendition is non-viable if the interactive PDF processor does not 
+recognise the value of this entry. 
+Required
+V 
+number () The number of seconds in the timespan. Non-integral values shall be 
+S
+S
+allowed. Negative values shall not be used. 
+This entry shall be used only if the value of the  entry is . Subtypes defined in 
+the future need not use this entry. 
+ 
+13.2.7Other multimedia objects 
+ 
+13.2.7.1General 
+ 
+This subclause defines several dictionary types that are referenced by the previous subclauses. 
+13.2.7.2Media players dictionary 
+ 
+media players dictionary
+A  may be referenced by media clip data (see 13.2.4.2, "Media clip data") and 
+media play parameters (see 13.2.5, "Media play parameters") dictionaries, and shall allow them to 
+media player info dictionaries
+specify which players may or may not be used to play the associated media. The media players 
+dictionary references  (see 13.2.7.3, "Media player info dictionary") that 
+shall provide specific information about each player. 
+Table 301: Entries in a media players dictionary 
+Key Type Value 
+Optional
+Type 
+MediaPlayers
+name () The type of PDF object that this dictionary describes; if present, shall 
+be  for a media players dictionary. 
+Optional
+MU 
+array () An array of media player info dictionaries (see "Table 302: Entries in 
+a media player info dictionary") that shall specify a set of players, one of which 
+NUMU
+shall be used in playing the associated media object. 
+Any players specified in  are effectively removed from . 
+MUNU
+MU
+EXAMPLE If  specifies versions 1 through 5 of a player and  
+specifies versions 1 and 2 of the same player,  is effectively 
+versions 3 through 5. 
+Optional
+A 
+array () An array of media player info dictionaries (see "Table 302: Entries in 
+MU
+a media player info dictionary") that shall specify a set of players, any of which 
+A
+may be used in playing the associated media object. If  is also present and 
+non-empty,  shall be ignored. 
+Optional
+NU 
+array () An array of media player info dictionaries (see "Table 302: Entries in 
+a media player info dictionary") that shall specify a set of players that shall not 
+MU
+be used in playing the associated media object (even if they are also specified in 
+). 
+ 
+MUANU
+The , , and  entries each shall specify one or more media player info dictionaries. An empty 
+© ISO 2017 – All rights reserved 611 
+
+ISO/DIS 32000-2
+ 
+array shall be treated as if it is not present. The media player info dictionaries shall be allowed to 
+specify overlapping player ranges. 
+NOTE 1  could contain a media player info dictionary describing versions 1 to 10 of Player X and 
+MU
+another describing versions 3 through 5 of Player X. 
+MUNUA
+If a non-viable media player info dictionary is referenced by , , or , it shall be treated as if it were 
+not present in its original array, and a media player info dictionary containing the same software 
+NU
+identifier dictionary (see 13.2.7.4, "Software identifier dictionary") shall logically considered present in 
+. The same rule shall apply to a media player info dictionary that contains a partially unrecognised 
+software identifier dictionary. 
+Since both media clip data and media play parameters dictionaries may be employed in a play 
+operation, and each may reference a media players dictionary, there is a potential for conflict between 
+the contents of the two media players dictionaries. At play-time, the viewer shall use the following 
+algorithm to determine whether a player present on the machine may be employed. The player may not 
+be used if any of the following conditions are true: 

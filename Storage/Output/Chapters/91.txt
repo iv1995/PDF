@@ -1,0 +1,463 @@
+Table 74: Additional entries specific to a Type 1 pattern dictionary". 
+Table 74: Additional entries specific to a Type 1 pattern dictionary 
+Key Type Value 
+Optional
+Type 
+Pattern
+name () The type of PDF object that this dictionary describes; if present, shall be 
+ for a pattern dictionary. 
+Required
+PatternType 
+integer () A code identifying the type of pattern that this dictionary describes; 
+shall be 1 for a tiling pattern. 
+© ISO 2017 – All rights reserved 215 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Required
+PaintType 
+integer () A code that determines how the colour of the pattern cell shall be 
+Coloured tiling pattern.
+1
+ 
+specified: 
+ The pattern’s content stream shall specify the 
+colours used to paint the pattern cell. The current colours in use when 
+the PDF processor begins processing the content stream are the ones 
+initially in effect in the pattern’s parent content stream. This is similar to 
+ 
+the definition of the pattern matrix; see 8.7.2, "General properties of 
+Uncoloured tiling pattern
+2
+ 
+patterns".
+. The pattern’s content stream shall not specify 
+any colour information. Instead, the entire pattern cell is painted with a 
+separately specified colour each time the pattern is used. Essentially, the 
+content stream describes a stencil through which the current 
+nonstroking colour shall be poured. The content stream shall not invoke 
+operators that specify colours or other colour-related parameters in the 
+graphics state; otherwise, the operator is ignored and processing of the 
+"). The 
+stream continues without error (see 8.6.8, "Colour operators
+ 
+content stream may paint an image mask however, since it does not 
+specify any colour information (see 8.9.6.2, "Stencil masking").
+Required
+TilingType 
+integer () A code that controls adjustments to the spacing of tiles relative to the 
+1 Constant spacing
+device pixel grid: 
+. Pattern cells shall be spaced consistently — that is, by a 
+XStepYStep
+multiple of a device pixel. To achieve this, the PDF processor may need to 
+distort the pattern cell slightly by making small adjustments to , , 
+and the transformation matrix. The amount of distortion shall not exceed 1 
+2No distortion
+device pixel. 
+ . The pattern cell shall not be distorted, but the spacing between 
+pattern cells may vary by as much as 1 device pixel, both horizontally and 
+XStepYStep
+vertically, when the pattern is painted. This achieves the spacing requested 
+by  and  on average but not necessarily for each individual 
+Constant spacing and faster tiling
+pattern cell. 
+3 . Pattern cells shall be spaced consistently as 
+ 
+in tiling Type 1 but with additional distortion permitted to enable a more 
+efficient implementation.
+Required
+BBox 
+rectangle () An array of four numbers in the pattern coordinate system giving the 
+coordinates of the left, bottom, right, and top edges, respectively, of the pattern 
+NOTE 1 A BBox of zero height or width will still paint one pixel (see 10.7.4, "Scan 
+cell’s bounding box. These boundaries shall be used to clip the pattern cell. 
+conversion rules"). 
+Required
+XStep 
+number () The desired horizontal spacing between pattern cells, measured in the 
+pattern coordinate system. 
+Required
+YStep 
+number () The desired vertical spacing between pattern cells, measured in the 
+NOTE 2andcan differ from the dimensions of the pattern cell implied 
+ XStep  YStep 
+pattern coordinate system. 
+by theentry. This allows tiling with irregularly shaped figures. 
+ BBox 
+XStep YStep 
+ andmay be either positive or negative but shall not be zero. 
+Required
+Resources 
+dictionary () A resource dictionary that shall contain all of the named resources 
+required by the pattern’s content stream (see 7.8.3, "Resource dictionaries"). 
+Optional
+Matrix 
+array () An array of six numbers specifying the pattern matrix (see 8.7.2, 
+"General properties of patterns"). Default value: the identity matrix [1 0 0 1 0 0]. 
+ 
+© ISO 2017 – All rights reserved 216 
+
+ISO/DIS 32000-2
+ 
+BBoxXStep YStep 
+The pattern dictionary’s , , andvalues shall be interpreted in the pattern coordinate 
+system, and the graphics objects in the pattern’s content stream shall be defined with respect to that 
+ XStep  YStep 
+coordinate system. The placement of pattern cells in the tiling is based on the location of one key 
+pattern cell, which is then displaced by multiples ofandto replicate the pattern. The origin 
+Matrix
+of the key pattern cell coincides with the origin of the pattern coordinate system. The phase of the tiling 
+can be controlled by the translation components of the  entry in the pattern dictionary. 
+Prior to painting with a tiling pattern, the PDF writer shall establish the pattern as the current colour in 
+the graphics state. Subsequent painting operations tile the painted areas with the pattern cell described 
+by the pattern’s content stream. To obtain the pattern cell, the interactive PDF processor shall perform 
+these steps: 
+q
+ 
+ 
+a)Saves the current graphics state (as if by invoking the  operator) 
+b)Installs the graphics state that was in effect at the beginning of the pattern’s parent content stream, with 
+the current transformation matrix altered by the pattern matrix as described in 8.7.2, "General properties 
+ 
+of patterns" 
+Q
+ 
+c)Paints the graphics objects specified in the pattern’s content stream 
+d)Restores the saved graphics state (as if by invoking the  operator)  
+The pattern’s content stream shall not set any of the device-dependent parameters in the graphics state 
+(see "Table 52: Device-dependent graphics state parameters") because it can result in incorrect output.  
+8.7.3.2Coloured tiling patterns 
+ 
+A coloured tiling pattern is a pattern whose colour is self-contained. In the course of painting the 
+pattern cell, the pattern’s content stream explicitly sets the colour of each graphical element it paints. A 
+single pattern cell may contain elements that are painted different colours; it may also contain sampled 
+grayscale or colour images. This type of pattern is identified by a pattern type of 1 and a paint type of 1 
+in the pattern dictionary. 
+Pattern
+SCNscn
+When the current colour space is a  space, a coloured tiling pattern shall be selected as the 
+Pattern
+current colour by supplying its name as the single operand to the  or  operator. This name shall 
+be the key of an entry in the  subdictionary of the current resource dictionary (see 7.8.3, 
+"Resource dictionaries"), whose value shall be the stream object representing the pattern. Since the 
+SCNscn
+pattern defines its own colour information, no additional operands representing colour components 
+shall be specified to  or . 
+EXAMPLE 1 If P1 is the name of a pattern resource in the current resource dictionary, the following code establishes it as 
+the current nonstroking colour: 
+/Pattern cs 
+/P1 scn 
+NOTE 1 Subsequent executions of nonstroking painting operators, such as  (fill),  (show text), or  
+fTjDo
+(paint external object) with an image mask, use the designated pattern to tile the areas to be 
+painted. 
+NOTE 2 The following defines a page (object 5) that paints three circles and a triangle using a coloured 
+tiling pattern (object 15) over a yellow background. The pattern consists of the symbols for the 
+four suits of playing cards (spades, hearts, diamonds, and clubs), which are character glyphs taken 
+from the ZapfDingbats font (see D.5, "ZapfDingbats set and encoding"); the pattern’s content 
+© ISO 2017 – All rights reserved 217 
+
+ISO/DIS 32000-2
+ 
+stream specifies the colour of each glyph. "Figure 31: Coloured tiling pattern" shows the pattern 
+cell on the left side and the patterned shapes on the right side. 
+EXAMPLE 2 
+5 0 obj               %Page object 
+  <</Type /Page 
+   /Parent 2 0 R 
+   /Resources 10 0 R 
+   /Contents 30 0 R 
+   /CropBox [0 0 225 225] 
+  >> 
+endobj 
+ 
+10 0 obj               %Resource dictionary for page 
+  <</Pattern  <</P1 15 0 R>> 
+  >> 
+endobj 
+ 
+15 0 obj               %Pattern definition 
+  <</Type /Pattern 
+   /PatternType 1          %Tiling pattern 
+   /PaintType 1          %Coloured 
+   /TilingType 2 
+   /BBox [0 0 100 100] 
+   /XStep 100 
+   /YStep 100 
+   /Resources 16 0 R 
+   /Matrix [0.4 0.0 0.0 0.4 0.0 0.0] 
+   /Length 183 
+  >> 
+stream 
+  BT               %Begin text object 
+   /F1 1 Tf            %Set text font and size 
+   64 0 0 64 7.1771 2.4414 Tm      %Set text matrix 
+   0 Tc             %Set character spacing 
+   0 Tw             %Set word spacing 
+   1.0 0.0 0.0 rg          %Set nonstroking colour to red 
+   (\001) Tj           %Show spade glyph 
+ 
+   0.7478 -0.007 TD         %Move text position 
+   0.0 1.0 0.0 rg        %Set nonstroking colour to green 
+   (\002) Tj           %Show heart glyph 
+ 
+   -0.7323 0.7813 TD         %Move text position 
+   0.0 0.0 1.0 rg          %Set nonstroking colour to blue 
+   (\003) Tj           %Show diamond glyph 
+   0.6913 0.007 TD         %Move text position 
+   0.0 0.0 0.0 rg         %Set nonstroking colour to black 
+   (\004) Tj           %Show club glyph 
+ 
+   ET              %End text object 
+endstream 
+endobj 
+ 
+16 0 obj               %Resource dictionary for pattern 
+  <</Font <</F1 20 0 R>> 
+  >> 
+endobj 
+ 
+20 0 obj               %Fontfor pattern 
+ 
+  <</Type /Font 
+ /Subtype /Type1 
+   /Encoding 21 0 R 
+   /BaseFont /ZapfDingbats 
+  >> 
+© ISO 2017 – All rights reserved 218 
+
+ISO/DIS 32000-2
+ 
+endobj 
+ 
+21 0 obj               %Fontencoding 
+ 
+  <</Type /Encoding 
+   /Differences [1 /a109 /a110 /a111 /a112] 
+  >> 
+endobj 
+ 
+30 0 obj               %Contents of page 
+  <</Length 1252>> 
+stream 
+  0.0 G             %Set stroking colour to black 
+  1.0 1.0 0.0 rg           %Set nonstroking colour to yellow 
+  25 175 175 -150 re         %Construct rectangular path 
+  f               %Fill path 
+ 
+  /Pattern cs            %Set pattern colour space 
+  /P1 scn             %Set pattern as nonstroking colour 
+ 
+  99.92 49.92 m           %Start new path 
+  99.92 77.52 77.52 99.92 49.92 99.92 c   %Construct lower-left circle 
+  22.32 99.92 -0.08 77.52 -0.08 49.92 c 
+  -0.08 22.32 22.32 -0.08 49.92 -0.08 c 
+  77.52 -0.08 99.92 22.32 99.92 49.92 c 
+  B               %Fill and stroke path 
+ 
+  224.96 49.92 m           %Start new path 
+  224.96 77.52 202.56 99.92 174.96 99.92 c  %Construct lower-right circle 
+  147.36 99.92 124.96 77.52 124.96 49.92 c 
+  124.96 22.32 147.36 -0.08 174.96 -0.08 c 
+  202.56 -0.08 224.96 22.32 224.96 49.92 c 
+  B               %Fill and stroke path 
+ 
+  87.56 201.70 m           %Start new path 
+  63.66 87.90 55.46 157.32 69.26 133.40 c  %Construct upper circle 
+  83.06 109.50 113.66 101.30 137.56 115.10 c 
+  161.46 128.90 169.66 159.50 155.86 183.40 c 
+  142.06 207.30 111.46 215.50 87.56 201.70 c 
+  B               %Fill and stroke path 
+  
+  50 50 m             %Start new path 
+  175 50 l             %Construct triangular path 
+  112.5 158.253 l 
+  b               %Close, fill, and stroke path 
+endstream 
+endobj 
+NOTE 3 Several features of Example 2 in this subclause are noteworthy: 
+ The three circles and the triangle are painted with the same pattern. The pattern cells align, even 
+though the circles and triangle are not aligned with respect to the pattern cell. For example, the 
+position of the blue diamonds varies relative to the three circles. 
+ The pattern cell does not completely cover the tile: it leaves the spaces between the glyphs 
+unpainted. When the tiling pattern is used as a colour, the existing background (the yellow 
+rectangle) shows through these unpainted areas. 
+© ISO 2017 – All rights reserved 219 
+
+ISO/DIS 32000-2
+ ![Figure 31 Coloured tiling pattern  .png](./Storage/Output/Images/Figure 31 Coloured tiling pattern  .png)
+Figure 31: Coloured tiling pattern 
+ 
+8.7.3.3Uncoloured tiling patterns 
+ 
+An uncoloured tiling pattern is a pattern that has no inherent colour: the colour shall be specified 
+separately whenever the pattern is used. It provides a way to tile different regions of the page with 
+pattern cells having the same shape but different colours. This type of pattern shall be identified by a 
+pattern type of 1 and a paint type of 2 in the pattern dictionary. The pattern’s content stream shall not 
+explicitly specify any colours (see 8.6.8, "Colour operators"); it may paint an image mask (see 8.9.6.2, 
+"Stencil masking") but no other kind of image. 
+Pattern
+A  colour space representing an uncoloured tiling pattern shall have a parameter: an object 
+Pattern
+identifying the underlying colour space in which the actual colour of the pattern shall be specified. The 
+underlying colour space shall be given as the second element of the array that defines the  
+colour space. 
+EXAMPLE 1 The array 
+[/Pattern /DeviceRGB] 
+Pattern DeviceRGB 
+ defines a  colour space withas its underlying colour space. 
+NOTE The underlying colour space cannot be another  colour space. 
+Pattern
+SCNscn
+Operands supplied to the  or  operator in such a colour space shall include a colour value in the 
+underlying colour space, specified by one or more numeric colour components, as well as the name of a 
+pattern object representing an uncoloured tiling pattern. 
+ ColorSpace 
+PatternPattern
+EXAMPLE 2 If the current resource dictionary (see 7.8.3, "Resource dictionaries") defines Cs3 as the name of a
+resource whose value is the  colour space shown above and P2 as a  resource denoting an 
+uncoloured tiling pattern, the code 
+/Cs3 cs 
+0.30 0.75 0.21 /P2 scn 
+ DeviceRGB 
+ establishes Cs3 as the current nonstroking colour space and P2 as the current nonstroking colour, to be 
+fTjDo
+painted in the colour represented by the specified components in thecolour space. Subsequent 
+executions of nonstroking painting operators, such as  (fill),  (show text), and  (paint external object) 
+© ISO 2017 – All rights reserved 220 
+
+ISO/DIS 32000-2
+ 
+with an image mask, use the designated pattern and colour to tile the areas to be painted. The same pattern 
+can be used repeatedly with a different colour each time. 
+EXAMPLE 3 This example is similar to Example 2 in 8.7.3.2, "Coloured tiling patterns", except that it uses an uncoloured 
+scn
+tiling pattern to paint the three circles and the triangle, each in a different colour (see "Figure 32: Uncoloured 
+ DeviceRGB 
+tiling pattern". To do so, it supplies four operands each time it invokes the  operator: three numbers 
+denoting the colour components in the underlyingcolour space, along with the name of the 
+pattern. 
+5 0 obj               %Page object 
+  <</Type /Page 
+   /Parent 2 0 R 
+   /Resources 10 0 R 
+   /Contents 30 0 R 
+   /CropBox [0 0 225 225] 
+  >> 
+endobj 
+ 
+10 0 obj               %Resource dictionary for page 
+  <</ColorSpace <</Cs12 12 0 R>> 
+   /Pattern <</P1 15 0 R>> 
+  >> 
+endobj 
+ 
+12 0 obj               %Colour space 
+  [/Pattern /DeviceRGB] 
+endobj 
+ 
+15 0 obj               %Pattern definition 
+  <</Type /Pattern 
+   /PatternType 1          %Tiling pattern 
+   /PaintType 2          %Uncoloured 
+   /TilingType 2 
+   /BBox [0 0 100 100] 
+   /XStep 100 
+   /YStep 100 
+   /Resources 16 0 R 
+   /Matrix [0.4 0.0 0.0 0.4 0.0 0.0] 
+   /Length 127 
+  >> 
+stream 
+  BT               %Begin text object 
+   /F1 1 Tf            %Set text font and size 
+   64 0 0 64 7.1771 2.4414 Tm      %Set text matrix 
+   0 Tc             %Set character spacing 
+   0 Tw             %Set word spacing 
+ 
+   (001) Tj            %Show spade glyph 
+   0.7478 -0.007 TD         %Move text position 
+   (\002) Tj           %Show heart glyph 
+ 
+   -0.7323 0.7813 TD         %Move text position 
+   (\003) Tj           %Show diamond glyph 
+ 
+   0.6913 0.007 TD         %Move text position 
+   (\004) Tj           %Show club glyph 
+ 
+  ET               %End text object 
+endstream 
+endobj 
+ 
+16 0 obj               %Resource dictionary for pattern 
+  <</Font <</F1 20 0 R>> 
+  >> 
+endobj 
+ 
+© ISO 2017 – All rights reserved 221 
+
+ISO/DIS 32000-2
+ 
+20 0 obj               %Fontfor pattern 
+ 
+  <</Type /Font 
+   /Subtype /Type1 
+   /Encoding 21 0 R 
+   /BaseFont /ZapfDingbats 
+  >> 
+endobj 
+ 
+21 0 obj               %Fontencoding 
+ 
+   <</Type /Encoding 
+   /Differences [1 /a109 /a110 /a111 /a112] 
+  >> 
+endobj 
+ 
+30 0 obj               %Contents of page 
+  <</Length 1316>> 
+stream 
+  0.0 G              %Set stroking colour to black 
+  1.0 1.0 0.0 rg           %Set nonstroking colour to yellow 
+  25 175 175 -150 re         %Construct rectangular path 
+  f               %Fill path 
+ 
+  /Cs12 cs             %Set pattern colour space 
+  0.77 0.20 0.00 /P1 scn        %Set nonstroking colour and 
+pattern 
+  99.92 49.92 m           %Start new path 
+  99.92 77.52 77.52 99.92 49.92 99.92 c   %Construct lower-left circle 
+  22.32 99.92 -0.08 77.52 -0.08 49.92 c 
+  -0.08 22.32 22.32 -0.08 49.92 -0.08 c 
+  77.52 -0.08 99.92 22.32 99.92 49.92 c 
+ 
+  B               %Fill and stroke path 
+  0.2 0.8 0.4 /P1 scn         %Change nonstroking colour 
+  224.96 49.92 m           %Start new path 
+  224.96 77.52 202.56 99.92 174.96 99.92 c  %Construct lower-right circle 
+  147.36 99.92 124.96 77.52 124.96 49.92 c 
+  124.96 22.32 147.36 -0.08 174.96 -0.08 c 
+  202.56 -0.08 224.96 22.32 224.96 49.92 c 
+  B               %Fill and stroke path 
+ 
+  0.3 0.7 1.0 /P1 scn         %Change nonstroking colour 
+  87.56 201.70 m           %Start new path 
+  63.66 187.90 55.46 157.30 69.26 133.40 c  %Construct upper circle 
+  83.06 109.50 113.66 101.30 137.56 115.10 c 
+  161.46 128.90 169.66 159.50 155.86 183.40 c 
+  142.06 207.30 111.46 215.50 87.56 201.70 c 
+  B               %Fill and stroke path 
+ 
+  0.5 0.2 1.0 /P1 scn         %Change nonstroking colour 
+  50 50 m             %Start new path 
+  175 50 l             %Construct triangular path 
+  112.5 158.253 l 
+  b               %Close, fill, and stroke path 
+endstream 
+endobj 
+© ISO 2017 – All rights reserved 222 
+
+ISO/DIS 32000-2
+ ![Figure 32 Uncoloured tiling pattern  .png](./Storage/Output/Images/Figure 32 Uncoloured tiling pattern  .png)

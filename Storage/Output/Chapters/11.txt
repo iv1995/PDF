@@ -1,12 +1,19 @@
-byte) 
-comparison. ![87.png](./Storage/Output/Images/87.png)
+content stream in some situations are interpreted as 
  
- Figure Annex K.3: Comparing two XObjects 
-J.4Known issues 
+character codes that select glyphs to be drawn on the page according to a character encoding 
+that is associated with the text font. 
+4.11 
  
-J.4.1Equal vs. equivalent 
+character set 
+defined set of characters each assigned a unique character value 
+4.12 
  
-One issue with this particular solution for comparison of XObject equality is that it does not provide for 
-the comparison of two functionally equivalent but binary different XObjects. 
-Consider the case where a PDF optimisation process has optimised the data of the stream itself - for 
-example, converting all the end of line 
+content stream 
+stream object whose data consists of a sequence of instructions describing the graphical elements to be 
+painted on a page 
+4.13 
+ 
+cross reference table 
+data structure that contains the byte offset start for each of the indirect objects within the file 
+4.14 
+ 

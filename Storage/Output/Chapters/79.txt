@@ -1,0 +1,166 @@
+Figure 22: Additive and subtractive colour"). 
+The most widely used forms of these two types of colour specification are known as  and , 
+respectively, for the names of the primary colours on which they are based. They correspond to the 
+following device colour spaces: 
+DeviceGray
+• 
+DeviceRGB
+• 
+ controls the intensity of achromatic light, on a scale from black to white. 
+ controls the intensities of red, green, and blue light, the three additive primary colours 
+DeviceCMYK
+• 
+used in displays. 
+ controls the concentrations of cyan, magenta, yellow, and black inks, the four 
+NOTE Although the notion of explicit colour spaces is a PDF 1.1 feature, the operators for specifying 
+subtractive process colours used in printing. 
+colours in the device colour spaces — , and — are available in all versions of PDF. 
+G, g, RG, rg, Kk 
+Beginning with PDF 1.2, colours specified in device colour spaces can optionally be remapped 
+systematically into other colour spaces; see 8.6.5.6, "Default colour spaces". 
+© ISO 2017 – All rights reserved 178 
+
+ISO/DIS 32000-2
+ ![Figure 22 Additive and subtractive colour  .png](./Storage/Output/Images/Figure 22 Additive and subtractive colour  .png)
+Figure 22: Additive and subtractive colour 
+ 
+ 
+PDF 1.4
+In the transparent imaging model (), the use of device colour spaces is subject to special 
+treatment within a transparency group whose group colour space is CIE-based (see 11.4, "Transparency 
+groups" and 11.6.6, "Transparency group XObjects"). In particular, the device colour space operators 
+should be used only if device colour spaces have been remapped to CIE-based spaces by means of the 
+default colour space mechanism. Otherwise, the colour results are implementation-dependent and 
+unpredictable. 
+8.6.4.2DeviceGray colour space 
+ 
+Black, white, and intermediate shades of gray are special cases of full colour. A grayscale value shall be 
+represented by a single number in the range 0.0 to 1.0, where 0.0 corresponds to black, 1.0 to white, 
+and intermediate values to different gray levels. 
+ DeviceGray 
+EXAMPLE This example shows alternative ways to select thecolour space and a specific gray level within 
+that space for stroking operations. 
+DeviceGray
+/ CS        %Set DeviceGray colour space 
+gray SC          %Set gray level 
+gray G          %Set both in one operation 
+ 
+CSSC
+Gcsscg
+The  and  operators shall select the current stroking colour space and current stroking colour 
+ DeviceGray 
+separately;  shall set them in combination. (The , , and  operators shall perform the same 
+functions for nonstroking operations.) Setting either current colour space toshall initialise 
+the corresponding current colour to 0.0. 
+8.6.4.3DeviceRGB colour space 
+ 
+RGB
+ DeviceRGB 
+Colours in thecolour space shall be specified according to the additive  (red-green-
+blue) colour model, in which colour values shall be defined by three components representing the 
+intensities of the additive primary colourants red, green, and blue. Each component shall be specified by 
+a number in the range 0.0 to 1.0, where 0.0 shall denote the complete absence of a primary component 
+and 1.0 shall denote maximum intensity. 
+ DeviceRGB 
+EXAMPLE This example shows alternative ways to select thecolour space and a specific colour within that 
+space for stroking operations. 
+/DeviceRGB CS       %Set DeviceRGB colour space 
+red green blue SC      %Set colour 
+ 
+red green blue RG      %Set both in one operation 
+1 0 0 RG         %Set a pure red colour for stroking operations 
+© ISO 2017 – All rights reserved 179 
+
+ISO/DIS 32000-2
+ 
+ 
+CSSC
+RGcsscrg
+The  and  operators shall select the current stroking colour space and current stroking colour 
+ DeviceRGB 
+separately;  shall set them in combination. The , , and  operators shall perform the same 
+functions for nonstroking operations. Setting either current colour space toshall initialise 
+the red, green, and blue components of the corresponding current colour to 0.0. 
+8.6.4.4DeviceCMYK colour space 
+ 
+CMYK
+ DeviceCMYK 
+Thecolour space allows colours to be specified according to the subtractive  (cyan-
+ DeviceCMYK 
+magenta-yellow-black) model typical of printers and other paper-based output devices. The four 
+components in acolour value shall represent the concentrations of these process 
+colourants. Each component shall be a number in the range 0.0 to 1.0, where 0.0 shall denote the 
+complete absence of a process colourant and 1.0 shall denote maximum concentration (absorbs as 
+much as possible of the additive primary). 
+NOTE As much as the reflective colours (CMYK) decrease reflection with increased ink values and 
+radiant colours (RGB) increases the intensity of colours with increased values the values work in 
+an opposite manner. 
+ DeviceCMYK 
+EXAMPLE The following shows alternative ways to select thecolour space and a specific colour within that 
+space for stroking operations. 
+/DeviceCMYK CS        %Set DeviceCMYK colour space 
+cyan magenta yellow black SC   %Set colour 
+cyan magenta yellow black K   %Set both in one operation 
+ 
+CSSC
+Kcssck
+The  and  operators shall select the current stroking colour space and current stroking colour 
+ DeviceCMYK 
+separately;  shall set them in combination. The , , and  operators shall perform the same 
+functions for nonstroking operations. Setting either current colour space toshall initialise 
+the cyan, magenta, and yellow components of the corresponding current colour to 0.0 and the black 
+component to 1.0. 
+8.6.5CIE-Based colour spaces 
+ 
+8.6.5.1General 
+ 
+CIE-based
+Calibrated colour in PDF shall be defined in terms of an international standard used in the graphic arts, 
+television, and printing industries.  colour spaces enable a page description to specify colour 
+values in a way that is related to human visual perception. The goal is for the same colour specification 
+to produce consistent results on different output devices, within the limitations of each device; "Figure 
+23: Uncalibrated colour" illustrates the kind of variation in colour reproduction that can result from the 
+CalGrayCalRGBLabICCBased
+use of uncalibrated colour on different devices. PDF 1.1 supports three CIE-based colour space families, 
+named , , and ; PDF 1.3 added a fourth, named . 
+© ISO 2017 – All rights reserved 180 
+
+ISO/DIS 32000-2
+ ![Figure 23 Uncalibrated colour   .jpg](./Storage/Output/Images/Figure 23 Uncalibrated colour   .jpg)
+Figure 23: Uncalibrated colour  
+ 
+CalCMYK
+DeviceCMYK
+A PDF reader shall ignore  colour space attributes and render colours specified in this family 
+as if they had been specified using . 
+NOTE 1 In PDF 1.1, a colour space family named  was partially defined, with the expectation that 
+CalCMYK
+its definition would be completed in a future version. However, this feature has been completely 
+removed. PDF 1.3 and later versions support calibrated four-component colour spaces by means of 
+ICC profiles (see 8.6.5.5, "ICCBased colour spaces"). 
+NOTE 2 The details of the CIE colorimetric system and the theory on which it is based are beyond the scope 
+of this specification; see the Bibliography for sources of further information. The semantics of CIE-
+based colour spaces are defined in terms of the relationship between the space’s components and 
+the tristimulus values , and  of the CIE 1931  space. Theand  colour spaces 
+ CalRGB Lab
+PDF 1.1) are special cases of three-component CIE-based colour spaces, known as  
+X, YZXYZ
+colour spaces. These spaces are defined in terms of a two-stage, nonlinear transformation of the 
+(CIE-based ABC
+CIE 1931  space. The formulation of such colour spaces models a simple  of colour 
+vision, consisting of a nonlinear trichromatic first stage combined with a nonlinear opponent-
+XYZzone theory
+colour second stage. This formulation allows colours to be digitised with minimum loss of fidelity, 
+an important consideration in sampled images. 
+ABCAB
+C
+Colour values in a CIE-based  colour space shall have three components, arbitrarily named , , and 
+decoding functions
+. The first stage shall transform these components by first forcing their values to a specified range, 
+LMN
+then applying , and then multiplying the results by a 3-by-3 matrix, producing three 
+XYZ
+intermediate components arbitrarily named , , and . The second stage shall transform these 
+XYZ
+intermediate components in a similar fashion, producing the final , , and  components of the CIE 
+1931  space (see "

@@ -1,0 +1,215 @@
+Table 131: Additional entries specific to a Type 16 
+halftone dictionary" in addition to the usual entries common to all streams (see "Table 5: Entries 
+© ISO 2017 – All rights reserved 370 
+
+ISO/DIS 32000-2
+ 
+WidthHeight
+common to all stream dictionaries"). The dictionary’s  and  entries define the dimensions 
+ Width2 Height2
+of the first (or only) rectangle. The dimensions of the second, optional rectangle are defined by the 
+WidthHeight
+optional entriesand . Each threshold value shall be represented as 2 bytes, with the 
+2 × ( ×  +× ) 
+WidthHeight Width2 Height2
+high-order byte first. The stream shall contain 2 ×  ×  bytes if there is only one rectangle or 
+bytes if there are two rectangles. The contents of the first 
+rectangle are specified first, followed by those of the second rectangle. Threshold values within each 
+rectangle shall be defined in device space in the same order as image samples in image space (see 
+"Figure 49: Source image coordinate system"), with the first value at device coordinates (0, 0) and 
+horizontal coordinates changing faster than vertical coordinates. 
+Table 131: Additional entries specific to a Type 16 halftone dictionary 
+Key Type Value 
+OptionalHalftone
+Type 
+name () The type of PDF object that this dictionary describes; if present, shall be  
+for a halftone dictionary. 
+Required
+HalftoneType 
+integer () A code identifying the halftone type that this dictionary describes; shall be 16 for 
+this type of halftone. 
+Optional
+HalftoneName 
+byte () The name of the halftone dictionary. 
+string 
+Required
+Width 
+integer () The width of the first (or only) rectangle in the threshold array, in device pixels. 
+Required
+Height 
+integer () The height of the first (or only) rectangle in the threshold array, in device pixels. 
+Optional
+Width2 
+Height2
+integer () The width of the optional second rectangle in the threshold array, in device 
+Height2
+pixels. If this entry is present, the  entry shall be present as well. If this entry is 
+absent, the  entry shall also be absent, and the threshold array has only one 
+rectangle. 
+Optional
+Height2 
+integer () The height of the optional second rectangle in the threshold array, in device 
+pixels. 
+Optional
+TransferFunction 
+function () A transfer function, which shall override the current transfer function in the 
+or name graphics state for the same component. This entry shall be present if the dictionary is a 
+component of a Type 5 halftone (see 10.6.5.6, "Type 5 halftones") and represents either a 
+Identity
+nonprimary or nonstandard primary colour component (see 10.5, "Transfer functions"). The 
+name  may be used to specify the identity function. 
+ 
+10.6.5.6Type 5 halftones 
+ 
+Some devices, particularly colour printers, require separate halftones for each individual colourant. 
+Also, devices that can produce named separations may require individual halftones for each separation. 
+Halftone dictionaries of Type 5 allow individual halftones to be specified for an arbitrary number of 
+colourants or colour components. 
+A Type 5 halftone dictionary ("Table 132: Entries in a Type 5 halftone dictionary") is a composite 
+dictionary containing independent halftone definitions for multiple colourants. Its keys shall be name 
+objects representing the names of individual colourants or colour components. The values associated 
+with these keys shall be other halftone dictionaries, each defining the halftone screen and transfer 
+function for a single colourant or colour component. The component halftone dictionaries shall not be 
+© ISO 2017 – All rights reserved 371 
+
+ISO/DIS 32000-2
+ 
+of halftone Type 5. 
+Table 132: Entries in a Type 5 halftone dictionary 
+Key Type Value 
+Optional
+Type 
+Halftone
+name () The type of PDF object that this dictionary describes; if present, shall be 
+ for a halftone dictionary. 
+Required
+HalftoneType 
+number () A code identifying the halftone Type that this dictionary describes; shall 
+be 5 for this Type of halftone. 
+Optional
+HalftoneName 
+byte string () The name of the halftone dictionary. 
+Required, one per colourant
+any colourant 
+name 
+dictionary or () The halftone corresponding to the colourant or colour 
+stream component named by the key. The halftone may be of any Type other than 5. 
+Required
+Default 
+dictionary or () A halftone that shall be used for any colourant or colour component that 
+stream does not have an entry of its own. The value shall not be 5. If there are any 
+nonprimary colourants, the default halftone shall have a transfer function. 
+ 
+Default
+The colourants or colour components represented in a Type 5 halftone dictionary (aside from the 
+ entry) fall into two categories: 
+GrayDeviceGray
+• 
+RedGreenBlueDeviceRGBCyanMagentaYellowBlackDeviceCMYK
+Primary colour components for the standard native device colour spaces ( for ; 
+ Separation  DeviceN 
+• 
+, , and  for ; , , , and  for ;). 
+Nonstandard colour components for use as spot colourants inandcolour 
+spaces. Some of these may also be used as process colourants if the native colour space is 
+nonstandard. 
+When a halftone dictionary of some other Type appears as the value of an entry in a Type 5 halftone 
+dictionary, it shall apply only to the single colourant or colour component named by that entry’s key. 
+This is in contrast to such a dictionary’s being used as the current halftone parameter in the graphics 
+state, which shall apply to all colour components. If nonprimary colourants are requested when the 
+current halftone is defined by any means other than a Type 5 halftone dictionary, the gray halftone 
+screen and transfer function shall be used for all such colourants. 
+EXAMPLE In this example, the halftone dictionaries for the colour components and for the default all use the same spot 
+function.  
+27 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 5 
+   /Cyan 31 0 R 
+   /Magenta 32 0 R 
+   /Yellow 33 0 R 
+   /Black 34 0 R 
+   /Default 35 0 R 
+  >> 
+endobj 
+ 
+31 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 1 
+   /Frequency 89.827 
+   /Angle 15 
+   /SpotFunction /Round 
+© ISO 2017 – All rights reserved 372 
+
+ISO/DIS 32000-2
+ 
+   /AccurateScreens true 
+  >> 
+endobj 
+ 
+32 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 1 
+   /Frequency 89.827 
+   /Angle 75 
+   /SpotFunction /Round 
+   /AccurateScreens true 
+  >> 
+endobj 
+ 
+33 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 1 
+   /Frequency 90.714 
+   /Angle 0 
+   /SpotFunction /Round 
+   /AccurateScreens true 
+  >> 
+endobj 
+ 
+34 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 1 
+   /Frequency 89.803 
+   /Angle 45 
+   /SpotFunction /Round 
+   /AccurateScreens true 
+  >> 
+endobj 
+ 
+35 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 1 
+   /Frequency 90.0 
+   /Angle 45 
+   /SpotFunction /Round 
+   /AccurateScreens true 
+  >> 
+endobj 
+ 
+10.7Scan conversion details 
+ 
+10.7.1General 
+ 
+scan conversion
+The final step of rendering shall be . The PDF processor executes a scan conversion 
+algorithm to paint graphics, text, and images in the raster memory of the output device. 
+NOTE The specifics of the scan conversion algorithm are not defined as part of PDF. Different 
+implementations might perform scan conversion in different ways; techniques that are 
+appropriate for one device might be inappropriate for another. Still, it is useful to have a general 
+understanding of how scan conversion works, particularly when creating PDF files intended for 
+viewing on a display. At the low resolutions typical of displays, variations of even one pixel’s width 
+can have a noticeable effect on the appearance of painted shapes. 
+Most scan conversion details are not under program control, but a few are; the parameters for 
+controlling them are described here. 
+© ISO 2017 – All rights reserved 373 
+
+ISO/DIS 32000-2
+ 
+10.7.2Flatness tolerance 
+ 
+flatness tolerance
+The  controls the maximum permitted distance in device pixels between the 
+i
+mathematically correct path and an approximation constructed from straight line segments, as shown 
+ FL 
+in "

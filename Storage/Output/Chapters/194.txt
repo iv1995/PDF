@@ -1,0 +1,115 @@
+Table 209: Additional entries specific to a thread action" shows 
+the action dictionary entries specific to this type of action. 
+Table 209: Additional entries specific to a thread action 
+Key Type Value 
+(Required) 
+S 
+Thread
+name The type of action that this dictionary describes; shall be 
+ for a thread action. 
+(Optional) 
+F 
+file specification The file containing the thread. If this entry is absent, the thread 
+is in the current file. 
+(Required) 
+D 
+dictionary, integer, or The destination thread, specified in one of the following forms: 
+text string 
+An indirect reference to a thread dictionary (see 12.4.3, "Articles"). In this 
+Threads
+case, the thread shall be in the current file. 
+The index of the thread within the  array of its document’s 
+catalog dictionary (see 7.7.2, "Document catalog dictionary"). The first 
+thread in the array has index 0. 
+The title of the thread as specified in its thread information dictionary 
+"). If two or more threads 
+(see "Table 162: Entries in a thread dictionary
+Threads
+ 
+have the same title, the one appearing first in the document catalog’s 
+ array shall be used.
+(Optional) 
+B 
+dictionary or integer The bead in the destination thread, specified in one of the 
+following forms: 
+An indirect reference to a bead dictionary (see 12.4.3, "Articles"). In this 
+case, the thread shall be in the current file. 
+The index of the bead within its thread. The first bead in a thread has 
+index 0. 
+ 
+ 
+The title of the thread as specified in its thread information dictionary (see "Table 162: Entries in a 
+ Threads 
+thread dictionary"). If two or more threads have the same title, the one appearing first in the document
+catalog’sarray shall be used. 
+12.6.4.8URI actions 
+ 
+uniform resource identifier
+A  (URI) is a string that identifies (resolves to) a resource on the Internet 
+Internet RFC 3986Uniform Resource Identifiers (URI): Generic 
+— typically a file that is the destination of a hypertext link, although it may also resolve to a query or 
+Syntax
+other entity. (URIs are described in , 
+.) 
+URI action
+   
+A causes aURIto be resolved. "Table 210: Additional entries specific to a URI action" shows 
+the action dictionary entries specific to this type of action. 
+© ISO 2017 – All rights reserved 503 
+
+ISO/DIS 32000-2
+ 
+Table 210: Additional entries specific to a URI action 
+Key Type Value 
+(Required) URI
+S     
+name The type of action that this dictionary describes; shall befor aURI
+action. 
+(Required) 
+URI 
+ASCII string The uniform resource identifier to resolve, encoded in UTF8. 
+(Optional) 
+IsMap   
+false
+boolean A flag specifying whether to track the mouse position when theURIis 
+resolved (see the discussion following this Table). Default value: . 
+ 
+This entry applies only to actions triggered by the user’s clicking an annotation; it 
+OpenAction 
+shall be ignored for actions associated with outline items or with a document’s
+entry. 
+ 
+true
+ IsMap   
+If theflag is  and the user has triggered theURIaction by clicking an annotation, the 
+coordinates of the mouse position at the time the action has been triggered shall be transformed from 
+ Rect   
+device space to user space and then offset relative to the upper-left corner of the annotation rectangle 
+(that is, the value of theentry in the annotation with which theURIaction is associated). 
+xyllll
+urxy
+ur
+mmxy
+EXAMPLE 1 If the mouse coordinates in user space are (,  ) and the annotation rectangle extends from (,  ) at the 
+xyff
+,  ) at the upper-right, the final coordinates (,  ) are as follows: 
+lower-left to (
+𝑓𝑓𝑚𝑚𝑥𝑥
+�𝑥𝑥=𝑥𝑥−𝑙𝑙𝑙𝑙� 
+y
+x
+f𝑦𝑦m
+𝑦𝑦
+=ur−𝑦𝑦 
+  
+ff
+,  ) are fractional, they shall be rounded to the nearest integer values. 
+If the resulting coordinates (
+They shall then be appended to theURIto be resolved, separated by COMMAS (2Ch) and preceded by a 
+QUESTION MARK (3Fh), as shown in this example: 
+EXAMPLE 2 http://www.iso.org/intro?100,200 
+  
+ URI   
+To supportURIactions, a PDF document’s catalog dictionary (see 7.7.2, "Document catalog dictionary") 
+may include aentry whose value is aURIdictionary. Only one entry shall be defined for such a 
+dictionary (see "

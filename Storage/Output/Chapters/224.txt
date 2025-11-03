@@ -1,0 +1,110 @@
+Table 266: 
+Entries in a measure dictionary"). Measure dictionaries provide information about measurement units 
+associated with a rectangular area of the document known as a viewport. 
+PDF 1.6
+ VP 
+A viewport () is a rectangular region of a page. The optionalentry in a page dictionary (see 
+"Table 31: Entries in a page object") shall specify an array of viewport dictionaries, whose entries shall 
+Measure
+be as shown in "Table 265: Entries in a viewport dictionary". Viewports allow different measurement 
+scales (specified by the  entry) to be used in different areas of a page, if necessary. 
+ VP 
+The dictionaries in thearray shall be in drawing order. Since viewports might overlap, to determine 
+ BBox 
+the viewport to use for any point on a page, the dictionaries in the array shall be examined, starting with 
+the last one and iterating in reverse, and the first one whoseentry contains the point shall be 
+chosen. 
+NOTE 1 Any measurement that potentially involves multiple viewports, such as one specifying the distance 
+between two points, shall use the information specified in the viewport of the first point. 
+© ISO 2017 – All rights reserved 576 
+
+ISO/DIS 32000-2
+ 
+Table 265: Entries in a viewport dictionary 
+Key Type Value 
+(Optional) 
+Type  
+Viewport
+ 
+name The type of PDF object that this dictionary describes; shall be
+for a viewport dictionary. 
+(Required) 
+BBox 
+rectangle A rectangle in default user space coordinates specifying the location 
+of the viewport on the page. 
+The two coordinate pairs of the rectangle shall be specified in normalised form; 
+that is, lower-left followed by upper-right, relative to the measuring coordinate 
+x y 
+system. This ordering shall determine the orientation of the measuring 
+coordinate system (that is, the direction of the positive and axes) in this 
+viewport, which may have a different rotation from the page. 
+ 
+O
+The coordinates of this rectangle are independent of the origin of the measuring 
+Table 267: Additional entries in 
+coordinate system, specified in the entry (see "
+Measure
+ 
+a rectilinear measure dictionary") of the measurement dictionary specified by 
+.
+(Optional) 
+Name 
+text string A descriptive text string or title of the viewport, intended for use in a 
+user interface. 
+(Optional) 
+Measure 
+dictionary A measure dictionary (see "Table 266: Entries in a measure 
+dictionary") that specifies the scale and units that shall apply to measurements 
+taken on the contents within the viewport. 
+(Optional; PDF 2.0) 
+PtData 
+dictionary A point data dictionary (see "Table 272: Entries in a point 
+data dictionary") that shall specify the extended geospatial data that applies to 
+the image. 
+ 
+A measure dictionary shall specify an alternative coordinate system for a region of a page. Along with 
+the viewport dictionary, it shall provide the information needed to convert coordinates in the page’s 
+coordinate system to coordinates in the measuring coordinate system. The measure dictionary shall 
+provide information for formatting the resulting values into textual form for presentation in a graphical 
+user interface. 
+rectilinear
+"Table 266: Entries in a measure dictionary" shows the entries in a measure dictionary. PDF 1.6 defines 
+RLRLxy
+  Subtype
+only a single type of coordinate system, a  coordinate system, that shall be specified by the 
+geospatial
+valuefor the  entry.  is defined as one in which the  and  axes are perpendicular and 
+GEO
+  Subtype
+have units that increment linearly (to the right and up, respectively). PDF 2.0 defines a  
+coordinate system specified by the valuefor the  entry. Other subtypes may be used, 
+providing the flexibility to measure using other types of coordinate systems. 
+GEO
+Subtype
+When the value of the  entry is , the dictionary shall define the relationship between points 
+or regions in the two dimensional PDF object space and points or regions with respect to an underlying 
+model of the earth (or, potentially, other ellipsoid objects). 
+Table 266: Entries in a measure dictionary 
+Key Type Value 
+(Optional) Measure
+Type 
+name The type of PDF object that this dictionary describes; shall be  
+for a measure dictionary. 
+© ISO 2017 – All rights reserved 577 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) 
+Subtype 
+RL
+name A name specifying the type of coordinate system to use for measuring. 
+GEO(PDF 2.0) 
+: for a rectilinear coordinate system 
+RL
+: for a geospatial coordinate system 
+Default value:  
+ 
+"Table 267: Additional entries in a rectilinear measure dictionary" shows the additional entries in a 
+rectilinear measure dictionary. Many of the entries in this dictionary shall be number format arrays, 
+which are arrays of number format dictionaries (see "

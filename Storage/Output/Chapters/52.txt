@@ -1,0 +1,101 @@
+Table 25: Entries common to all crypt filter dictionaries 
+Key Type Value 
+OptionalCryptFilter
+Type 
+name () If present, shall be  for a crypt filter dictionary. 
+Optional
+CFM 
+name () The method used, if any, by the PDF reader to decrypt data. The 
+None
+following values shall be supported: 
+ The application shall not decrypt data but shall direct the input 
+V2Deprecated
+stream to the security handler for decryption. 
+ () The application shall ask the security handler for 
+the file encryption key and shall implicitly decrypt data with 
+7.6.3.1, "Algorithm 1: Encryption of data using the RC4 or AES 
+AESV2PDF 1.6; deprecated
+algorithms", using the RC4 algorithm. 
+ () The application shall ask the security 
+handler for the file encryption key and shall implicitly decrypt 
+data with 7.6.3.1, "Algorithm 1: Encryption of data using the RC4 
+or AES algorithms", using the AES algorithm in Cipher Block 
+Chaining (CBC) mode with a 16-byte block size and an 
+initialization vector that shall be randomly generated and placed 
+Length
+as the first 16 bytes in the stream or string. The key size 
+AESV3PDF 2.0
+() shall be 128 bits. 
+ () The application shall ask the security handler for the 
+file encryption key and shall implicitly decrypt data with 7.6.3.2, 
+"Algorithm 1.A: Encryption of data using the AES algorithms", 
+using the AES-256 algorithm in Cipher Block Chaining (CBC) 
+with padding mode with a 16-byte block size and an 
+Length
+initialization vector that is randomly generated and placed as 
+the first 16 bytes in the stream or string. The key size () 
+V2AESV2AESV3
+shall be 256 bits. 
+When the value is ,  or , the application may ask once for 
+this file encryption key and cache the key for subsequent use for streams 
+that use the same crypt filter. Therefore, there shall be a one-to-one 
+relationship between a crypt filter name and the corresponding file 
+encryption key. 
+Only the values listed here shall be supported. Applications that 
+encounter other values shall report that the file is encrypted with an 
+None
+ 
+unsupported algorithm. 
+Default value: .
+Optional
+AuthEvent 
+name () The event that shall be used to trigger the authorization that is 
+required to access file encryption keys used by this filter. If authorization 
+DocOpen
+fails, the event shall fail. Valid values shall be: 
+ Authorization shall be required when a document is 
+EFOpen
+opened. 
+ Authorization shall be required when accessing embedded 
+DocOpen
+files. 
+StrFStmF
+Default value: . 
+If this filter is used as the value of  or  in the encryption 
+Table 20: Entries common to all encryption 
+dictionary (see "
+DocOpen
+ 
+dictionaries"), the PDF reader shall ignore this key and behave as if the 
+value is .
+© ISO 2017 – All rights reserved 94 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; deprecated) 
+Length 
+Length
+integer Security handlers may define their own use of the 
+ entry and should use it to define the bit length of the file 
+encryption key. The bit length of the file encryption key shall be a multiple 
+Length
+of 8 in the range of 40 to 256. The standard security handler expresses the 
+ entry in bytes (e.g., 32 means a length of 256 bits) and public-key 
+AESV2
+CFMLength
+security handlers express it as is (e.g., 256 means a length of 256 bits). 
+AESV3
+CFMLength
+When  is , the  key shall be ignored and a value of 128 
+bits used. When  is , the  key shall be ignored and a 
+value of 256 bits used. 
+ 
+Security handlers may add their own private data to crypt filter dictionaries. Names for private data 
+entries shall conform to the PDF name registry (see Annex E, "PDF Name Registry"). 
+Table 26: Standard crypt filter names 
+Name Description 
+Identity 
+Input data shall be passed through without any processing. 
+ 
+"

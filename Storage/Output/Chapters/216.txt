@@ -1,0 +1,27 @@
+Table 251: Entries in an FDF page dictionary" shows the contents of this type of 
+dictionary. 
+Table 251: Entries in an FDF page dictionary 
+Key Type Value 
+(Required) FDF template dictionaries 
+Templates  
+array An array of(see "Table 252: Entries in 
+an FDF template dictionary") that shall describe the named pages that serve 
+as templates on the page. 
+(Optional) FDF page information dictionary 
+Info  
+dictionary Anthat shall contain additional 
+information about the page. 
+ 
+  
+AnFDFtemplate dictionary shall contain information describing a named page that serves as a 
+template. "Table 252: Entries in an FDF template dictionary" shows the contents of this type of 
+dictionary. 
+© ISO 2017 – All rights reserved 547 
+
+ISO/DIS 32000-2
+ 
+Table 252: Entries in an FDF template dictionary 
+Key Type Value 
+(Required) 
+TRef 
+dictionary A named page reference dictionary (see "

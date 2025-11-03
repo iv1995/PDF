@@ -1,0 +1,269 @@
+Table 163: Entries in a bead dictionary"). The thread dictionary’s  entry shall refer to the first bead in 
+V
+the thread; the beads shall be chained together sequentially in a doubly linked list through their  
+B
+(next) and  (previous) entries. In addition, for each page on which article beads appear, the page 
+object (see 7.7.3, "Page tree") shall contain a  entry whose value is an array of indirect references to 
+the beads on the page, in drawing order. 
+Table 162: Entries in a thread dictionary 
+Key Type Value 
+(Optional) 
+Type 
+Thread
+name The type of PDF object that this dictionary describes; if present, shall 
+be  for a thread dictionary. 
+Required; shall be an indirect reference
+F 
+dictionary () The first bead in the thread. 
+(Optional) 
+I 
+dictionary A thread information dictionary containing information about the 
+thread, such as its title, author, and creation date. The contents of this dictionary 
+shall conform to the syntax for the document information dictionary (see 14.3.3, 
+"Document information dictionary"). 
+Optional; PDF 2.0; shall be an indirect reference
+Metadata 
+stream () A metadata stream containing 
+ 
+information about the thread, such as its title, author, and creation date (see 
+14.3.2, "Metadata streams").
+Table 163: Entries in a bead dictionary 
+Key Type Value 
+(Optional) 
+Type 
+Bead
+  
+name The type of PDF object that this dictionary describes; if present, shall 
+befor a bead dictionary. 
+Required for the first bead of a thread; optional for all others; shall be an indirect 
+T 
+reference
+dictionary (
+(PDF 1.1) 
+) The thread to which this bead belongs. 
+(PDF 1.2) 
+ 
+This entry shall be permitted only for the first bead of a thread. 
+It shall be permitted for any bead but required only for the first.
+(Required; shall be an indirect reference) 
+N 
+dictionary The next bead in the thread. In the last 
+bead, this entry shall refer to the first bead. 
+(Required; shall be an indirect reference) 
+V 
+dictionary The previous bead in the thread. In the 
+first bead, this entry shall refer to the last bead. 
+(Required; shall be an indirect reference) 
+P 
+dictionary The page object representing the page on 
+which this bead appears. 
+(Required) 
+R 
+rectangle A rectangle specifying the location of this bead on the page in default 
+user space. 
+EXAMPLE 2 The following example shows a thread with three beads. 
+22 0 obj 
+  <</F 23 0 R 
+   /I <</Title (Man Bites Dog)>> 
+  >> 
+© ISO 2017 – All rights reserved 449 
+
+ISO/DIS 32000-2
+ 
+endobj 
+ 
+23 0 obj 
+   <</T 22 0 R 
+   /N 24 0 R 
+   /V 25 0 R 
+   /P 8 0 R 
+   /R [158 247 318 905] 
+  >> 
+endobj 
+ 
+24 0 obj 
+   <</T 22 0 R 
+   /N 25 0 R 
+   /V 23 0 R 
+   /P 8 0 R 
+   /R [322 246 486 904] 
+  >> 
+endobj 
+ 
+25 0 obj 
+   <</T 22 0 R 
+   /N 23 0 R 
+   /V 24 0 R 
+   /P 10 0 R 
+   /R [157 254 319 903] 
+  >> 
+endobj 
+ 
+12.4.4Presentations 
+ 
+12.4.4.1General 
+ 
+Some interactive PDF processors may allow a document to be displayed in the form of a presentation or 
+slide show, advancing from one page to the next either automatically or under user control. In addition, 
+PDF 1.5 introduces the ability to advance between different states of the same page (12.4.4.2, "Sub-page 
+navigation"). 
+page objectPDF 1.1
+ Dur  Trans 
+ Trans 
+A  (see 7.7.3, "Page tree") may contain two optional entries,and(), to 
+specify how to display that page in presentation mode. Theentry shall contain a transition 
+dictionary describing the style and duration of the visual transition to use when moving from another 
+page to the given page during a presentation. "Table 164: Entries in a transition dictionary" shows the 
+contents of the transition dictionary. (Some of the entries shown are needed only for certain transition 
+styles, as indicated in the table.) 
+ Dur 
+Theentry in the page object specifies the page’s display duration (also called its advance timing): 
+the maximum length of time, in seconds, that the page shall be displayed before the presentation 
+automatically advances to the next page. 
+NOTE 1 The user can advance the page manually before the specified time has expired. 
+ Dur 
+If noentry is specified in the page object, the page shall not advance automatically. 
+© ISO 2017 – All rights reserved 450 
+
+ISO/DIS 32000-2
+ 
+Table 164: Entries in a transition dictionary 
+Key Type Value 
+(Optional) 
+Type  
+Trans
+ 
+name The type of PDF object that this dictionary describes; if present, shall be
+for a transition dictionary. 
+(Optional) transition style 
+S 
+R
+name The that shall be used when moving to this page from 
+Split 
+another during a presentation. Default value: . 
+Two lines sweep across the screen, revealing the new page. The lines 
+ Dm 
+may be either horizontal or vertical and may move inward from the 
+M
+edges of the page or outward from the centre, as specified by the
+Blinds 
+and  entries, respectively. 
+Multiple lines, evenly spaced across the screen, synchronously sweep 
+ Dm 
+in the same direction to reveal the new page. The lines may be either 
+horizontal or vertical, as specified by theentry. Horizontal lines 
+Box 
+move downward; vertical lines move to the right. 
+M
+A rectangular box sweeps inward from the edges of the page or 
+outward from the centre, as specified by the  entry, revealing the 
+Wipe 
+new page. 
+ Di 
+A single line sweeps across the screen from one edge to the other in 
+Dissolve 
+the direction specified by theentry, revealing the new page. 
+Glitter Dissolve
+The old page dissolves gradually to reveal the new one. 
+Similar to , except that the effect sweeps across the page in a 
+ Di 
+wide band moving from one side of the screen to the other in the 
+R 
+direction specified by theentry. 
+D
+The new page simply replaces the old one with no special transition 
+Fly (PDF 1.5) 
+M
+effect; the  entry shall be ignored. 
+Di
+Changes are flown out or in (as specified by ), in the 
+None
+ Di 
+direction specified by , to or from a location that is offscreen except 
+Push (PDF 1.5) 
+whenis . 
+Di
+The old page slides off the screen while the new page slides 
+Cover (PDF 1.5) 
+in, pushing the old page out in the direction specified by . 
+Di
+The new page slides on to the screen in the direction 
+Uncove(PDF 1.5) 
+specified by , covering the old page. 
+Di Di
+r The old page slides off the screen in the direction specified 
+Fade (PDF 1.5) 
+by , uncovering the new page in the direction specified by. 
+ 
+The new page gradually becomes visible through the old 
+one.
+(Optional) 
+D 
+number The duration of the transition effect, in seconds. Default value: 1. 
+(Optional; Split and Blinds transition styles only) 
+Dm 
+name The dimension in which the 
+H 
+specified transition effect shall occur: 
+V 
+Horizontal 
+H
+ 
+Vertical  
+Default value: .
+(Optional; Split, Box and Fly transition styles only) 
+M 
+name The direction of motion for the 
+I 
+specified transition effect: 
+O 
+Inward from the edges of the page 
+I
+Outward from the centre of the page 
+Default value: . 
+© ISO 2017 – All rights reserved 451 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; Wipe, Glitter, Fly, Cover, Uncover and Push transition styles only) 
+Di 
+number or The 
+name direction in which the specified transition effect shall moves, expressed in degrees 
+Rotate
+counterclockwise starting from a left-to-right direction. (This differs from the page 
+object’s  entry, which is measured clockwise from the top.) 
+If the value is a number, it shall be one of: 
+Wipe
+0 Left to right 
+Wipe
+90 Bottom to top ( only) 
+180 Right to left ( only) 
+Glitter
+270 Top to bottom 
+NoneFly
+315 Top-left to bottom-right ( only) 
+ SS 
+If the value is a name, it shall be , which is relevant only for the  transition 
+ 
+when the value ofis not 1.0. 
+Default value: 0.
+Optional; PDF 1.5; Fly transition style only) 
+SS 
+M
+number (The starting or ending scale at which 
+ SS M
+the changes shall be drawn. If  specifies an inward transition, the scale of the 
+changes drawn shall progress fromto 1.0 over the course of the transition. If  
+ SS 
+specifies an outward transition, the scale of the changes drawn shall progress from 
+ 
+1.0 toover the course of the transition 
+Default: 1.0.
+Optional; PDF 1.5; Fly transition style onlytrue
+B 
+false
+boolean () If , the area that shall be flown in is 
+rectangular and opaque. Default: . 
+ 
+NOTE 2 "

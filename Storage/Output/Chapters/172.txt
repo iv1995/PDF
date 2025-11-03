@@ -1,0 +1,129 @@
+Algorithm: appearance streams 
+ BBox 
+ 
+transformed appearance box
+Matrix
+1.The appearance’s bounding box (specified by itsentry) shall be transformed, using 
+, to produce a quadrilateral with arbitrary orientation. The  
+is the smallest upright rectangle that encompasses this quadrilateral. 
+A
+ 
+A
+ Rect 
+2.A matrix  shall be computed that scales and translates the transformed appearance box to align 
+xy
+with the edges of the annotation’s rectangle (specified by theentry).  maps the lower-left 
+corner (the corner with the smallest  and  coordinates) and the upper-right corner (the corner 
+with the greatest x and y coordinates) of the transformed appearance box to the corresponding 
+corners of the annotation’s rectangle. 
+AAA
+Matrix
+ 
+3. shall be concatenated with  to form a matrix  that maps from the appearance’s 
+coordinate system to the annotation’s rectangle in default user space: 
+𝐴𝐴𝐴𝐴 = 𝑀𝑀𝐷𝐷𝑡𝑡𝑚𝑚𝐷𝐷𝑥𝑥 × 𝐴𝐴 
+ 
+The annotation may be further scaled and rotated if either the NoZoom or NoRotate flag is set (see 
+12.5.3, "Annotation flags"). Any transformation applied to the annotation as a whole shall also applied 
+to the appearance within it. 
+ Group 
+Starting with PDF 1.4, an annotation appearance may include transparency. If the appearance’s stream 
+dictionary does not contain aentry, it shall be treated as a non-isolated, non-knockout 
+transparency group. Otherwise, the isolated and knockout values specified in the group dictionary (see 
+11.6.6, "Transparency group XObjects") shall be used. 
+Normal
+The transparency group shall be composited with a backdrop consisting of the page content along with 
+None
+any previously painted annotations, using a blend mode of , an alpha constant of 1.0, and a soft 
+mask of . 
+NOTE 1 If a transparent annotation appearance is painted over an annotation that is drawn without using 
+an appearance stream, the effect is implementation-dependent. This is because such annotations 
+are sometimes drawn by means that do not conform to the PDF imaging model. Also, the effect of 
+highlighting a transparent annotation appearance is implementation-dependent. 
+An annotation may define as many as three separate appearances: 
+normal appearance
+• 
+The  shall be used when the annotation is not interacting with the user. This 
+appearance is also used for printing the annotation. 
+© ISO 2017 – All rights reserved 462 
+
+ISO/DIS 32000-2
+ 
+rollover appearance
+• 
+The  shall be used when the user moves the cursor into the annotation’s active 
+down appearance 
+• 
+area without pressing the mouse button. 
+The shall be used when the mouse button is pressed or held down within the 
+NOTE 2 As used here, the term mouse denotes a generic pointing device that controls the location of a 
+annotation’s active area. 
+cursor on the screen and has at least one button that can be pressed, held down, and released. See 
+12.6.3, "Trigger events" for further discussion. 
+ AP 
+The normal, rollover, and down appearances shall be defined in an appearance dictionary, which in turn 
+is the value of theentry in the annotation dictionary (see "Table 166: Entries common to all 
+annotation dictionaries"). "Table 170: Entries in an appearance dictionary" shows the contents of the 
+appearance dictionary. 
+Table 170: Entries in an appearance dictionary 
+Key Type Value 
+(Required) 
+N 
+stream or dictionary The annotation’s normal appearance. 
+(Optional) 
+R 
+N
+stream or dictionary The annotation’s rollover appearance. Default value: the value 
+of the  entry. 
+(Optional) 
+D 
+N
+stream or dictionary The annotation’s down appearance. Default value: the value of 
+the  entry. 
+ 
+appearance subdictionary
+Each entry in the appearance dictionary may contain either a single appearance stream or an 
+appearance states
+. In the latter case, the subdictionary shall define multiple appearance streams 
+corresponding to different  of the annotation. 
+OnOff
+EXAMPLE An annotation representing an interactive check box may have two appearance states named  and . Its 
+appearance dictionary may be defined as 
+/AP  <</N <</On formXObject1 
+     /Off formXObject2 
+    >> 
+   /D <</On formXObject3 
+     /Off formXObject4 
+    >> 
+  > 
+ 
+ormXObject1ormXObject2
+formXObject3formXObject4
+where f and f define the check box’s normal appearance in its checked and 
+R
+unchecked states, and  and  provide visual feedback, such as emboldening its 
+outline, when the user clicks it. (No  entry is defined because no special appearance is needed when 
+ AS 
+the user moves the cursor over the check box without pressing the mouse button.) The choice between 
+the checked and unchecked appearance states is determined by theentry in the annotation 
+dictionary (see "Table 166: Entries common to all annotation dictionaries"). 
+N
+If a PDF processor does not have native support for a particular annotation type, the PDF processor 
+ AS 
+shall render the annotation with its normal () appearance. PDF processors shall also attempt to 
+provide reasonable behaviour (such as displaying nothing) if an annotation’sentry designates an 
+appearance state for which no appearance is defined in the appearance dictionary. 
+ AP 
+For convenience in managing appearance streams that are used repeatedly, theentry in a PDF 
+© ISO 2017 – All rights reserved 463 
+
+ISO/DIS 32000-2
+ 
+document’s name dictionary (see 7.7.4, "Name dictionary") may contain a name tree mapping name 
+strings to appearance streams. The name strings have no standard meanings; no PDF objects may refer 
+to appearance streams by name. 
+12.5.6Annotation types 
+ 
+12.5.6.1General 
+ 
+PDF supports the standard annotation types listed in "

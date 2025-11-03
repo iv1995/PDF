@@ -1,0 +1,83 @@
+Table 178: Additional 
+entries specific to a line annotation" shows the annotation dictionary entries specific to this type of 
+annotation. 
+Table 178: Additional entries specific to a line annotation 
+Key Type Value 
+(Required) Line
+Subtype 
+name The type of annotation that this dictionary describes; shall be  
+for a line annotation. 
+© ISO 2017 – All rights reserved 472 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+2
+(Required) xyxy
+L 
+112
+array An array of four numbers, [   ], specifying the starting and 
+ LL 
+ending coordinates of the line in default user space. 
+If theentry is present, this value shall represent the endpoints of the 
+leader lines rather than the endpoints of the line itself; see "Figure 80: Leader 
+lines". 
+(Optional) 
+BS 
+dictionary A border style dictionary (see "Table 168: Entries in a border style 
+dictionary") specifying the width and dash pattern that shall be used in 
+drawing the line. 
+(Optional; PDF 1.4) 
+LE 
+array An array of two names specifying the line ending styles 
+that shall be used in drawing the line. The first and second elements of the 
+2
+yxy
+x
+array shall specify the line ending styles for the endpoints defined, 
+L
+112
+,  ) and (,  ), 
+respectively, by the first and second pairs of coordinates, (
+in the  array. "Table 179: Line ending styles" shows the possible values. 
+Default value: [/None /None]. 
+(Optional; PDF 1.4) 
+IC 
+interior colour 
+array An array of numbers in the range 0.0 to 1.0 specifying the 
+that shall be used to fill the annotation’s line endings (see 
+"Table 179: Line ending styles"). The number of array elements shall 
+determine the colour space in which the colour is defined: 
+DeviceGray
+0 No colour; transparent 
+DeviceRGB
+1  
+DeviceCMYK
+ 
+3   
+4  
+(Required ifis present, otherwise optional; PDF 1.6) leader 
+LL  LLE 
+lines 
+number The length of 
+in default user space that extend from each endpoint of the line 
+perpendicular to the line itself, as shown in "Figure 80: Leader lines". A 
+positive value shall mean that the leader lines appear in the direction that is 
+L
+clockwise when traversing the line from its starting point to its ending point 
+ 
+(as specified by ); a negative value shall indicate the opposite direction. 
+Default value: 0 (no leader lines).
+(Optional; PDF 1.6) 
+LLE 
+leader line extensions 
+number A non-negative number that shall represents the length of 
+that extend from the line proper 180 degrees from the 
+ 
+leader lines, as shown in "Figure 80: Leader lines". 
+Default value: 0 (no leader line extensions).
+(Optional; PDF 1.6) true
+Cap ContentsRC
+boolean If , the text specified by the  or  entries 
+shall be replicated as a caption in the appearance of the line, as shown in 
+"

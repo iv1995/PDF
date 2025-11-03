@@ -1,0 +1,251 @@
+Table 138: Revised variables for the basic 
+compositing formulas". 
+NOTE Compare these formulas with those shown in 11.3.8, "Summary of basic compositing 
+computations". 
+Table 138: Revised variables for the basic compositing formulas 
+Variable Meaning 
+i
+𝑖𝑖
+𝑓𝑓
+𝑓𝑓 
+Source shape for object  
+i
+𝑖𝑖
+𝑗𝑗
+𝑓𝑓 
+Object shape for object  
+i
+𝑖𝑖
+𝑚𝑚
+𝑓𝑓  
+Mask shape for object  
+i
+𝑖𝑖
+𝑘𝑘
+𝑓𝑓 
+Constant shape for object  
+i
+𝑚𝑚
+𝑓𝑓 Result shape after compositing object  
+i
+𝑖𝑖
+𝑓𝑓
+𝑞𝑞 
+Source opacity for object  
+i
+𝑖𝑖
+𝑗𝑗
+𝑞𝑞 
+Object opacity for object  
+i
+𝑖𝑖
+𝑚𝑚
+𝑞𝑞 
+Mask opacity for object  
+i
+𝑖𝑖
+𝑘𝑘
+𝑞𝑞 
+Constant opacity for object  
+i
+𝑚𝑚
+𝑞𝑞 Result opacity after compositing object  
+i
+𝑖𝑖
+𝑓𝑓
+𝛼𝛼 
+Source alpha for object  
+i
+𝑚𝑚
+𝛼𝛼 Result alpha after compositing object  
+i
+𝑖𝑖
+𝑓𝑓
+𝑐𝑐 
+Source colour for object  
+i
+𝑚𝑚
+𝐶𝐶 Result colour after compositing object  
+i
+i
+ii−1s
+Blend function for object  
+B�C,C �
+ 
+11.4.3Group structure and nomenclature 
+ 
+As stated earlier, the elements of a group shall be treated as a separate transparency stack, referred to 
+as the group stack. These objects shall be composited against a selected initial backdrop and the 
+resulting colour, shape, and opacity shall then be treated as if they belonged to a single object. The 
+resulting object is in turn composited with the group’s backdrop in the usual way. 
+NOTE This computation entails interpreting the stack as a tree. For an -element group that begins at 
+position  in the stack, it treats the next  objects as an -element substack, whose elements are 
+n
+given an independent numbering of 1 to . These objects are then removed from the object 
+inn
+numbering in the parent (containing) stack and replaced by the group object, numbered , 
+n
+followed by the remaining objects to be painted on top of the group, renumbered starting at  + 1. 
+i
+This operation applies recursively to any nested subgroups. 
+i
+© ISO 2017 – All rights reserved 395 
+
+ISO/DIS 32000-2
+ 
+i
+E ) refers to a member of some group; it can be either an individual object 
+The term element (denoted 
+or a contained subgroup. 
+From the perspective of a particular element in a nested group, there are three different backdrops of 
+interest: 
+group backdrop
+• 
+The  is the result of compositing all elements up to but not including the first 
+element in the group. (This definition is altered if the parent group is a knockout group; see 11.4.6, 
+initial backdrop
+• 
+"Knockout groups"). 
+The  is a backdrop that is selected for compositing the group’s first element. This is 
+either the same as the group backdrop (for a non-isolated group) or a fully transparent backdrop 
+immediate backdrop
+• 
+(for an isolated group). 
+The  is the result of compositing all elements in the group up to but not 
+including the current element. 
+When all elements in a group have been composited, the result shall be treated as if the group were a 
+single object, which shall then be composited with the group backdrop. This operation shall occur 
+whether the initial backdrop chosen for compositing the elements of the group was the group backdrop 
+or a transparent backdrop. A PDF processor shall ensure that the backdrop’s contribution to the overall 
+result is applied only once. 
+11.4.4Group compositing computations 
+ 
+The colour and opacity of a group shall be defined by the group compositing function: 
+ 
+Composite
+00
+⟨⟩
+)
+(
+,𝛼𝛼,𝐵𝐵
+𝐶𝐶,𝑓𝑓,𝛼𝛼=𝐶𝐶
+ 
+where the variables have the meanings shown in "Table 139: Arguments and results of the group 
+compositing function". 
+Table 139: Arguments and results of the group compositing function 
+Variable Meaning 
+ 
+𝐵𝐵The transparency group: a compound object consisting of all elements 
+1n
+ of the group — the n constituent objects’ colours, shapes, 
+E,…E, 
+opacities, and blend modes 
+0
+𝐶𝐶 Colour of the group’s backdrop 
+𝐶𝐶 Computed colour of the group, which shall be used as the source colour 
+when the group is treated as an object 
+𝑓𝑓 Computed shape of the group, which shall be used as the object shape 
+when the group is treated as an object 
+0
+𝛼𝛼 Alpha of the group’s backdrop 
+𝛼𝛼 Computed alpha of the group, which shall be used as the object alpha 
+when the group is treated as an object 
+ 
+© ISO 2017 – All rights reserved 396 
+
+ISO/DIS 32000-2
+ 
+NOTE 1 The opacity is not given explicitly as an argument or result of this function. Almost all of the 
+computations use the product of shape and opacity (alpha) rather than opacity alone; therefore, it 
+is usually convenient to work directly with shape and alpha rather than shape and opacity. When 
+needed, the opacity can be computed by dividing the alpha by the associated shape. 
+The result of applying the group compositing function shall then be treated as if it were a single object, 
+which in turn is composited with the group’s backdrop according to the formulas defined in this sub-
+clause. In those formulas, the colour, shape, and alpha (
+C, 𝑓𝑓, anαd ) calculated by the group compositing 
+j
+𝑓𝑓j
+, the object shape 𝑓𝑓, and the object alphαa  . 
+function shall be used, respectively, as the source colour 𝐶𝐶
+The group compositing formulas for a non-isolated, non-knockout group are defined as follows: 
+• 
+ 
+Initialization: 
+00
+𝑔𝑔𝑔𝑔
+• 
+𝑓𝑓
+=α=0.0
+𝑚𝑚
+()
+∈𝐵𝐵 𝐷𝐷=1,…,𝑛𝑛: 
+For each group element 𝐸𝐸
+ 
+𝑚𝑚−1𝑚𝑚−1𝑚𝑚𝑚𝑚
+(
+)
+Composite𝐶𝐶
+if 𝐸𝐸
+,𝛼𝛼,𝐸𝐸 is a group
+𝑖𝑖𝑖𝑖𝑖𝑖
+𝑓𝑓𝑗𝑗𝑗𝑗
+�𝐶𝐶
+,𝑓𝑓,𝛼𝛼�=�
+𝑚𝑚
+()
+  otherwise
+intrinsic color, shape, and shape×opacity of 𝐸𝐸
+ 
+𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖
+𝑓𝑓𝑗𝑗𝑚𝑚𝑘𝑘
+=𝑓𝑓×𝑓𝑓×𝑓𝑓 
+𝑓𝑓
+𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖
+𝑓𝑓𝑗𝑗𝑚𝑚𝑚𝑚𝑘𝑘𝑘𝑘
+=𝛼𝛼×�𝑓𝑓×𝑞𝑞�×�𝑓𝑓×𝑞𝑞� 
+𝛼𝛼
+ 
+𝑖𝑖𝑖𝑖−1𝑖𝑖
+𝑔𝑔𝑔𝑔𝑓𝑓
+𝑓𝑓
+ =Union�𝑓𝑓,𝑓𝑓� 
+𝑖𝑖𝑖𝑖−1𝑖𝑖
+𝑔𝑔𝑔𝑔𝑓𝑓
+𝛼𝛼=Union�𝛼𝛼,𝛼𝛼� 
+𝑖𝑖
+𝑚𝑚0𝑔𝑔
+𝛼𝛼  =Union�α,𝛼𝛼� 
+ 
+ii
+ss
+αα
+ii
+ii−1i−1si−1ii−1s
+)
+(
+×C
+C=�1−�×C+×�1−α+α×B�C,C� �
+ii
+• 
+αα
+Result: 
+0
+𝛼𝛼
+𝑛𝑛𝑛𝑛00
+)
+(
+×�
+𝐶𝐶=𝐶𝐶+𝐶𝐶−𝐶𝐶−𝛼𝛼� 
+𝑛𝑛
+𝑔𝑔
+𝛼𝛼
+𝑛𝑛
+𝑔𝑔
+ 
+𝑓𝑓=𝑓𝑓
+𝑛𝑛
+𝑔𝑔
+𝛼𝛼=𝛼𝛼
+ 
+ 
+where the variables have the meanings shown in "

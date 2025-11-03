@@ -1,0 +1,292 @@
+Table 118: Additional entries in a CMap stream dictionary 
+Key Type Value 
+Required
+Type 
+CMap
+name  () The type of PDF object that this dictionary describes; shall be 
+ for a CMap dictionary. 
+Required
+CMapName 
+CMapName
+name () The name of the CMap. It shall be the same as the value of 
+ in the CMap file. 
+Required
+CIDSystemInfo 
+dictionary  () A dictionary (see 9.7.3, "CIDSystemInfo dictionaries") containing 
+entries that define the character collection for the CIDFont or CIDFonts 
+CIDSystemInfo
+associated with the CMap. The value of this entry shall be the same as the 
+Identity-HIdentity-V
+CIDSystemInfo
+value of  in the CMap file. (However, it does not need to match 
+the values of  for the  or  CMaps.) 
+Optional
+WMode 
+integer  () A code that specifies the writing mode for any CIDFont with which 
+this CMap is combined. The value shall be 0 for horizontal or 1 for vertical. 
+WMode
+Default value: 0. The value of this entry shall be the same as the value of 
+ in the CMap file. 
+Optional
+UseCMap 
+name or stream  () The name of a predefined CMap, or a stream containing a CMap. If 
+this entry is present, the referencing CMap shall specify only the character 
+mappings that differ from the referenced CMap. 
+ 
+9.7.5.4CMap example and operator summary 
+ 
+Embedded CMap files shall conform to the format documented in Adobe Technical Note #5014, subject 
+to these additional constraints: 
+ 
+UseCMap
+a)If the embedded CMap file contains a usecmap reference, the CMap indicated there shall also be identified 
+usefont
+ 
+by the  entry in the CMap stream dictionary. 
+beginbfcharendbfcharEncoding
+ 
+b)The  operator, if present, shall specify a font number of 0.  
+c)The  and  shall not appear in a CMap that is used as the  entry of a Type 
+beginnotdefcharendnotdefcharbeginnotdefrange
+ 
+0 font; however, they may appear in the definition of a ToUnicode CMap.  
+endnotdefrange
+d)A notdef mapping, defined using , , , and 
+ shall be used if the normal mapping produces a CID for which no glyph is present in the 
+beginrearrangedfontendrearrangedfontbeginusematrixendusematrix
+ 
+associated CIDFont.  
+e)The , , , and  operators shall 
+NOTE While often used for mapping 2 byte character codes to CID codes it is also possible to use 
+not be used.  
+character codes with just 1 byte or more than 2 bytes, as long as they can be mapped to CID codes 
+without ambiguity. 
+EXAMPLE This example shows a sample CMap for a Japanese Shift-JIS encoding. Character codes in this encoding can be 
+CIDSystemInfo
+either 1 or 2 bytes in length. This CMap could be used with a CIDFont that uses the same CID ordering as 
+specified in the  entry. Note that several of the entries in the stream dictionary are also 
+© ISO 2017 – All rights reserved 332 
+
+ISO/DIS 32000-2
+ 
+replicated in the stream data. 
+22 0 obj 
+  <</Type /CMap 
+   /CMapName /90ms-RKSJ-H 
+   /CIDSystemInfo <</Registry (Adobe) 
+         /Ordering (Japan1) 
+         /Supplement 2 
+        >> 
+   /WMode 0 
+   /Length 23 0 R 
+  >> 
+stream 
+%!PS-Adobe-3 . 0 Resource-CMap 
+%%DocumentNeededResources : ProcSet (CIDInit) 
+%%IncludeResource : ProcSet (CIDInit) 
+%%BeginResource : CMap (90ms-RKSJ-H) 
+%%Title : (90ms-RKSJ-H Adobe Japan1 2) 
+%%Version : 10 . 001 
+%%Copyright : Copyright 1990-2001 Adobe Systems Inc . 
+%%Copyright : All Rights Reserved . 
+%%EndComments 
+ 
+/CIDInit /ProcSet findresource begin 
+12 dict begin begincmap 
+/CIDSystemInfo 
+3 dict dup begin 
+/Registry (Adobe) def 
+/Ordering (Japan1) def 
+/Supplement 2 def  
+end def 
+ 
+/CMapName /90ms-RKSJ-H def 
+/CMapVersion 10 . 001 def 
+/CMapType 1 def 
+/UIDOffset 950 def 
+/XUID [1 10 25343] def 
+/WMode 0 def 
+ 
+4 begincodespacerange 
+<00>   <80> 
+<8140>  <9FFC> 
+<A0>   <DF> 
+<E040>  <FCFC> 
+endcodespacerange 
+ 
+1 beginnotdefrange 
+<00>   <1F>  231 
+endnotdefrange 
+ 
+100 begincidrange 
+<20>   <7D>  231 
+<7E>   <7E>  631 
+<8140>  <817E> 633 
+<8180>  <81AC> 696 
+<81B8>  <81BF> 741 
+<81C8>  <81CE> 749 
+… Additional ranges … 
+<FB40>  <FB7E> 8518 
+<FB80>  <FBFC> 8581 
+<FC40>  <FC4B> 8706 
+endcidrange 
+endcmap 
+ 
+CMapName currentdict /CMap defineresource pop 
+end 
+© ISO 2017 – All rights reserved 333 
+
+ISO/DIS 32000-2
+ 
+end 
+%%EndResource 
+%%EOF 
+endstream 
+endobj 
+ 
+9.7.6Type 0 font dictionaries 
+ 
+9.7.6.1General 
+ 
+A Type 0 font dictionary contains the entries listed in "Table 119: Entries in a Type 0 font dictionary". 
+Table 119: Entries in a Type 0 font dictionary 
+Key Type Value 
+Required
+Type  
+Font
+ 
+name () The type of PDF object that this dictionary describes; shall be
+for a font dictionary. 
+RequiredType0
+Subtype 
+name () The type of font; shall be  for a Type 0 font. 
+Required
+BaseFont 
+BaseFont
+name () The name of the font. If the descendant is a Type 0 CIDFont, 
+Encoding
+this name should be the concatenation of the CIDFont’s  name, 
+CMapName
+a hyphen, and the CMap name given in the  entry (or the 
+BaseFont
+ entry in the CMap). If the descendant is a Type 2 CIDFont, 
+NOTE In principle, this is an arbitrary name, since there is no font 
+this name should be the same as the CIDFont’s  name. 
+program associated directly with a Type 0 font dictionary. The 
+conventions described here ensure maximum compatibility with 
+existing PDF processors. 
+Required
+Encoding 
+name or stream  () The name of a predefined CMap, or a stream containing a 
+CMap that maps character codes to font numbers and CIDs. If the 
+Encoding
+descendant is a Type 2 CIDFont whose associated TrueType font 
+program is not embedded in the PDF file, the  entry shall be a 
+predefined CMap name (see 9.7.4.2, "Glyph selection in CIDFonts"). 
+Required
+DescendantFonts 
+array () A one-element array specifying the CIDFont dictionary that is 
+the descendant of this Type 0 font. 
+Optional
+ToUnicode 
+stream () A stream containing a CMap file that maps character codes to 
+Unicode values (see 9.9.2, "Font subsets"). 
+ 
+EXAMPLE This code sample shows a Type 0 font. 
+14 0 obj 
+  <</Type /Font 
+   /Subtype /Type0 
+   /BaseFont /HeiseiMin-W5-90ms-RKSJ-H 
+   /Encoding /90ms-RKSJ-H 
+   /DescendantFonts [15 0 R] 
+  >> 
+endobj 
+ 
+9.7.6.2CMap mapping 
+ 
+Encoding
+Tj
+The  entry of a Type 0 font dictionary specifies a CMap that specifies how text-showing 
+operators (such as ) shall interpret the bytes in the string to be shown when the current font is the 
+© ISO 2017 – All rights reserved 334 
+
+ISO/DIS 32000-2
+ 
+Type 0 font. This subclause describes how the characters in the string shall be decoded and mapped 
+into character selectors, which in PDF are always CIDs. 
+begincodespacerangeendcodespacerange
+The codespace ranges in the CMap (delimited by  and ) 
+specify how many bytes are extracted from the string for each successive character code. A codespace 
+range shall be specified by a pair of codes of some particular length giving the lower and upper bounds 
+of that range. A code shall be considered to match the range if it is the same length as the bounding 
+codes and the value of each of its bytes lies between the corresponding bytes of the lower and upper 
+bounds. The code length shall not be greater than 4. 
+A sequence of one or more bytes shall be extracted from the string and matched against the codespace 
+ranges in the CMap. That is, the first byte shall be matched against 1-byte codespace ranges; if no match 
+is found, a second byte shall be extracted, and the 2-byte code shall be matched against 2-byte 
+codespace ranges. This process continues for successively longer codes until a match is found or all 
+codespace ranges have been tested. There will be at most one match because codespace ranges shall not 
+overlap. 
+beginbfcharendbfcharbegincidcharendcidchar
+The code extracted from the string shall be looked up in the character code mappings for codes of that 
+length. (These are the mappings defined by , , , , and 
+corresponding operators for ranges.) Failing that, it shall be looked up in the notdef mappings, as 
+described in the next subclause. 
+DescendantFonts
+The results of the CMap mapping algorithm are a font number and a character selector. The font 
+number shall be used as an index into the Type 0 font’s  array to select a CIDFont. In 
+PDF, the font number shall be 0 and the character selector shall be a CID; this is the only case described 
+notdef mappings
+here. The CID shall then be used to select a glyph in the CIDFont. If the CIDFont contains no glyph for 
+that CID, the  shall be consulted, as described in 9.7.6.3, "Handling undefined 
+characters". 
+9.7.6.3Handling undefined characters 
+ 
+A CMap mapping operation can fail to select a glyph for a variety of reasons. This subclause describes 
+those reasons and what happens when they occur. 
+notdef mappings
+If a code maps to a CID for which no such glyph exists in the descendant CIDFont, the  in 
+beginnotdefcharendnotdefcharbeginnotdefrangeendnotdefrange
+the CMap shall be consulted to obtain a substitute character selector. These mappings are delimited by 
+the operators , , , and  within an 
+embedded CMap file. They shall always map to a CID. If a matching notdef mapping is found, the CID 
+selects a glyph in the associated descendant, which shall be a CIDFont. If no glyph exists for that CID, the 
+glyph for CID 0 (which shall be present) shall be substituted. 
+NOTE The are similar to the .notdef character mechanism in simple fonts. 
+notdef mappings 
+If the CMap does not contain either a character mapping or a notdef mapping for the code, descendant 0 
+shall be selected and the glyph for CID 0 shall be substituted from the associated CIDFont. 
+If the code is invalid — that is, the bytes extracted from the string to be shown do not match any 
+codespace range in the CMap — a substitute glyph is chosen as just described. The character mapping 
+algorithm shall be reset to its original position in the string, and a modified mapping algorithm chooses 
+the best partially matching codespace range: 
+© ISO 2017 – All rights reserved 335 
+
+ISO/DIS 32000-2
+ 
+ 
+a)If the first byte extracted from the string to be shown does not match the first byte of any codespace 
+ 
+range, the range having the shortest codes shall be chosen. 
+b)Otherwise (that is, if there is a partial match), for each additional byte extracted, the code accumulated so 
+far shall be matched against the beginnings of all longer codespace ranges until the longest such partial 
+match has been found. If multiple codespace ranges have partial matches of the same length, the one 
+having the shortest codes shall be chosen.  
+The length of the codes in the chosen codespace range determines the total number of bytes to consume 
+from the string for the current mapping operation. 
+CIDtoGIDMap
+CIDtoGIDMap
+For an embedded TrueType font with a  stream, if a (character) code does not have a 
+corresponding GID in the  stream, the glyph for CID 0 shall be substituted. 
+9.8Font descriptors 
+ 
+9.8.1General 
+ 
+A font descriptor specifies metrics and other attributes of a simple font or a CIDFont as a whole, as 
+distinct from the metrics of individual glyphs. These font metrics provide information that enables a 
+PDF processor to synthesise a substitute font or select a similar font when the font program is 
+unavailable. The font descriptor may also be used to embed the font program in the PDF file. 
+Font descriptors shall not be used with Type 0 fonts. Beginning with PDF 1.5, font descriptors may be 
+used with Type 3 fonts. 
+A font descriptor is a dictionary whose entries specify various font attributes. The entries common to all 
+font descriptors — for both simple fonts and CIDFonts — are listed in "

@@ -1,0 +1,115 @@
+Table 389: Additional 
+entries specific to a Web Capture page set" defines the content set dictionary entries specific to Page 
+Sets. 
+The TID (text identifier) entry may be used to store an identifier generated from the text of the pages 
+belonging to the page set (see 14.10.3.3, "Digital identifiers"). A text identifier may not be appropriate 
+for some page sets (such as those with no text) and may be omitted in these cases. 
+EXAMPLE This identifier can be used to determine whether the text of a document has changed. 
+Table 388: Entries common to all Web Capture content sets 
+Key Type Value 
+Optional
+Type 
+SpiderContentSet
+name () The type of PDF object that this dictionary describes; if present, shall be 
+ for a Web Capture content set. 
+Required
+S 
+name () The subtype of content set that this dictionary describes. The value shall be 
+SPS
+one of: 
+SIS
+ ("Spider page set") A page set 
+ ("Spider image set") An image set 
+Required
+ID 
+byte string () The digital identifier of the content set (see Digital identifiers"). 
+Required
+O 
+SPS
+S
+array () An array of indirect references to the objects belonging to the content set. The 
+order of objects in the array is restricted when the content set subtype ( entry) is  
+(see 14.10.4.2, "Page sets"). 
+Required
+SI 
+dictionary () A source information dictionary (see 14.10.5, "Source information") or an 
+or array array of such dictionaries, describing the sources from which the objects belonging to the 
+content set were created. 
+Optional
+CT 
+ASCII string () The content type, an ASCII string characterising the source from which the 
+Multipurpose Internet Mail Extensions 
+objects belonging to the content set were created. The string shall conform to the content 
+(MIME) Part One: Format of Internet Message Bodies
+type specification described in Internet RFC 2045, 
+. 
+EXAMPLE For a page set consisting of a group of PDF pages created from an HTML 
+file, the content type would be text/html. 
+Optional
+TS 
+date () A timestamp giving the date and time at which the content set was created. 
+ 
+Table 389: Additional entries specific to a Web Capture page set 
+Key Type Value 
+RequiredSPS
+S 
+name () The subtype of content set that this dictionary describes; shall be . 
+© ISO 2017 – All rights reserved 777 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional
+T 
+text string () The title of the page set, a human-readable text string. 
+Optional
+TID 
+byte string () A text identifier generated from the text of the page set, as described in 
+14.10.3.3, "Digital identifiers". 
+ 
+14.10.4.3Image sets 
+ 
+image set
+An  is a content set containing a group of image XObjects generated from a common source, 
+such as multiple frames of an animated GIF image. A single XObject shall not belong to more than one 
+image set. 
+content set dictionary
+  
+"Table 390: Additional entries specific to a Web Capture image set" shows the  
+entries specific toImageSets. 
+Table 390: Additional entries specific to a Web Capture image set 
+Key Type Value 
+RequiredSIS
+S 
+name () The subtype of content set that this dictionary describes; shall be . 
+Required
+R 
+integer or () The reference counts for the image XObjects belonging to the image set. For an image 
+array set containing a single XObject, the value shall be the integer reference count for that XObject. 
+O
+For an image set containing multiple XObjects, the value shall be an array of reference counts 
+R
+Table 388: Entries common to all Web Capture content sets"); that 
+parallel to the  array (see "
+O
+is, each element in the  array shall hold the reference count for the image XObject at the 
+corresponding position in the  array. 
+ 
+Each image XObject in an image set has a reference count indicating the number of PDF pages referring 
+to that XObject. The reference count shall be incremented whenever Web Capture creates a new page 
+referring to the XObject (including copies of already existing pages) and decremented whenever such a 
+page is destroyed. The reference count shall be incremented or decremented only once per page, 
+regardless of the number of times the XObject may be referenced by that page. If the reference count 
+OO
+reaches 0, it shall be assumed that there are no remaining pages referring to the XObject and that the 
+R
+XObject can be removed from the image set’s  array. When removing an XObject from the  array of an 
+image set, the corresponding entry in the  array shall be removed also. 
+14.10.5Source information 
+ 
+14.10.5.1General 
+ 
+SI
+source information dictionaries
+The  entry in a content set dictionary (see "Table 388: Entries common to all Web Capture content 
+sets") shall contain one or more , (see "

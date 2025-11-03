@@ -1,0 +1,71 @@
+Table 386: Entries in the Web Capture information dictionary 
+Key Type Value 
+Required
+V 
+number () The Web Capture version number. The version number shall be 1.0 in a 
+conforming file. 
+This value shall be a single real number, not a major and minor version number. 
+EXAMPLE A version number of 1.2 would be considered greater than 1.15. 
+© ISO 2017 – All rights reserved 771 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional
+C 
+array () An array of indirect references to Web Capture command dictionaries (see 
+14.10.5.3, "Command dictionaries") describing commands that were used in building 
+the PDF file. The commands shall appear in the array in the order in which they were 
+executed in building the file. 
+ 
+14.10.3Content database 
+ 
+14.10.3.1General 
+ 
+When a PDF file, or part of a PDF file, is built from a content resource stored in another format, such as 
+an HTML page, the resulting PDF file (or portion thereof) may contain content from more than the 
+single content resources. Conversely, since many content formats do not have static pagination, a single 
+content resource may give rise to multiple PDF pages. 
+To keep track of the correspondence between PDF content and the resources from which the content 
+was derived, a PDF file may contain a content database that maps URLs and digital identifiers to PDF 
+objects such as pages and XObjects. 
+NOTE By looking up digital identifiers in the database, Web Capture can determine whether newly 
+downloaded content is identical to content already retrieved from a different URL. Thus, it can 
+perform optimisations such as storing only one copy of an image that is referenced by multiple 
+HTML pages. 
+Web Capture’s content database shall be organised into content sets. Each content set shall be a 
+SPS
+S
+dictionary holding information about a group of related PDF objects generated from the same source 
+SIS
+data. A content set shall have for the value of its  (subtype) entry either the value , for a page set, or 
+, for an image set. 
+  
+The mapping from a source content resource to a content set in a PDF document may be saved in the 
+PDF file. The mapping may be an association from the resource'sURLto the content set, stored in the 
+PDF document's URLS name tree. The mapping may also be an association from a digital identifier 
+(14.10.3.3, "Digital identifiers") generated from resource's data to the content set, stored in the PDF 
+document's IDS name tree. Both associations may be present in the PDF file. 
+"Figure 114: Simple Web Capture file structureFigure 100: Rendering of the 3D artwork using View1 
+(all shapes visible and opaque)" shows a simple web capture file structure. 
+© ISO 2017 – All rights reserved 772 
+
+ISO/DIS 32000-2
+ 
+Document catalog
+Dictionary
+Namedictionary
+Name tree
+URLSIDS
+http://www.iso.org/904B…1EA2
+Page set
+Page
+Page
+Page
+Figure 114: Simple Web Capture file structure 
+ 
+URLSIDS
+Entries in the  and  name trees may refer to an array of content sets or a single content set. If 
+the entry is an array, the content sets need not have the same subtype; the array may include both page 
+sets and image sets. 
+"

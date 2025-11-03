@@ -1,0 +1,57 @@
+Table 241: Additional entries specific to a reset-form action" shows the action 
+dictionary entries specific to this type of action. 
+ Flags 
+The value of the action dictionary’sentry is a non-negative containing flags specifying various 
+characteristics of the action. Bit positions within the flag word shall be numbered starting from 1 (low-
+order). Only one flag is defined for this type of action. All undefined flag bits shall be reserved and shall 
+be set to 0. 
+Table 241: Additional entries specific to a reset-form action 
+Key Type Value 
+(Required) 
+S  
+ResetForm
+ 
+name The type of action that this dictionary describes; shall be
+for a reset-form action. 
+© ISO 2017 – All rights reserved 538 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) 
+Fields 
+array An array identifying which fields to reset or which to 
+ Flags 
+exclude from resetting, depending on the setting of the Include/ 
+Exclude flag in theentry (see "Table 242: Flag for reset-form 
+(PDF 1.3) 
+actions"). Each element of the array shall be either an indirect 
+reference to a field dictionary or a text string representing 
+the fully qualified name of a field. Elements of both kinds may be 
+mixed in the same array. 
+ 
+If this entry is omitted, the Include/Exclude flag shall be ignored; all 
+fields in the document’s interactive form are reset.
+(Optional; inheritable) 
+Flags 
+integer A set of flags specifying various characteristics 
+of the action (see "Table 242: Flag for reset-form actions"). Default 
+value: 0. 
+Table 242: Flag for reset-form actions 
+Bit position Name Meaning 
+Fields
+1 Include/Exclude If clear, the  array (see "Table 241: Additional entries specific 
+to a reset-form action") specifies which fields to reset. (All 
+Fields
+descendants of the specified fields in the field hierarchy are reset as 
+well.) If set, the  array indicates which fields to exclude from 
+except 
+Fields
+resetting; that is, all fields in the document’s interactive form shall be 
+reset those listed in the  array. 
+ 
+12.7.6.4Import-data action 
+ 
+Upon invocation of an import-data action, a PDF processor shall import data from Forms Data Format 
+(FDF), XFDF (XML-based Forms Data Format) or any other data format that it supports into the 
+document’s interactive form from a specified file. 

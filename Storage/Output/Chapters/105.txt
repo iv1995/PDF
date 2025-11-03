@@ -1,0 +1,28 @@
+The coordinate mapping for the shading is given by the surface , defined as 
+CDB
+S=S
++S−S 
+ 
+This defines the geometry of each patch. A patch mesh is constructed from a sequence of one or more 
+such coloured patches. 
+uv
+Patches can sometimes appear to fold over on themselves — for example, if a boundary curve intersects 
+itself. As the value of parameter  or  increases in parameter space, the location of the corresponding 
+u, v
+pixels in device space may change direction so that new pixels are mapped onto previous pixels already 
+vv
+mapped. If more than one point () in parameter space is mapped to the same point in device space, 
+u
+the point selected shall be the one with the largest value of . If multiple points have the same , the one 
+with the largest value of  shall be selected. If one patch overlaps another, the patch that appears later 
+in the data stream shall paint over the earlier one. 
+NOTE The patch is a control surface rather than a painting geometry. The outline of a projected square 
+(that is, the painted area) might not be the same as the patch boundary if, for example, the patch 
+folds over on itself, as shown in "Figure 44: Painted area and boundary of a Coons Patch". 
+© ISO 2017 – All rights reserved 241 
+
+ISO/DIS 32000-2
+ ![Figure 44 Painted area and boundary of a Coons Patch  .jpg](./Storage/Output/Images/Figure 44 Painted area and boundary of a Coons Patch  .jpg)
+Figure 44: Painted area and boundary of a Coons Patch 
+ 
+"

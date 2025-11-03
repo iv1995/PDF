@@ -1,0 +1,9 @@
+stream object 
+dictionary followed by zero or more bytes bracketed between the keywords stream and endstream 
+4.59 
+ 
+string object 
+series of bytes (unsigned integer values in the range 0 to 255) in which the bytes are not integer objects, 
+but are stored in a more compact form 
+4.60 
+ 

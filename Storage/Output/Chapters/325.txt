@@ -1,0 +1,103 @@
+Figure Annex H.5: Table of contents" shows the table of contents described by the example in, H.8.2, 
+"Table of Contents". 
+TABLE OF CONTENTS
+1. Chapter One  3
+      1.2 Section A4
+      1.3 Section B5
+2. ChapterTwo   6
+3. ChapterTwo   7
+      3.1 Section A8
+Figure Annex H.5: Table of contents 
+ 
+"Figure Annex H.6: Association between content and marked content identifiers" illustrates the 
+MCID
+association between marked content identifiers (MCID) and content. This illustration includes part of 
+the stream object so you can see how the  entries are associated with the content in the table of 
+contents. 
+© ISO 2017 – All rights reserved 892 
+
+ISO/DIS 32000-2
+ 
+C
+onten
+t
+Associationofmarkedcontentsofthestreamobject(partial)
+identifiers(atright)tocontent
+1
+/P<</MCI
+D1>>BDC
+TABNTS
+LEOONTE
+FC
+BTT*(TABLEOFCONTENTS)TjET
+111
+21314
+EMC
+1
+.
+C
+h
+a
+pt
+erOne.
+ . .. . .. .
+. 3
+/Lbl<</MCID 11>>BDC
+21
+222
+32
+4
+BTT*(1.)TjETEMC
+ . 4
+1 .. . .. ..
+.1SectionA
+/Reference<</MCID12>>BDC
+. .. . .. . .5
+B
+ion
+ect
+1.2S
+BT(ChapterOne)TjETEMC
+2
+.
+Ch
+a
+pt
+erTwo
+ . .. .
+. . .. . 6
+/NonStruct<</MCID 13>>BDC
+BT(.. . .. .. . .)TjETEMC
+3
+.
+C
+h
+a
+p
+ter
+Th
+ree .
+. .. . ..
+ . 7
+/Reference<</MCID14>>/BDC
+BT(3)TjETEMC
+3
+.
+1
+Secti
+onA
+ .. . .. ..
+ . 8
+/Lbl<</MCID 21>>BDC
+BTT*(1.1)TjETEMC
+/Reference<</MCID22>>BDC
+BT(SectionA)TjETEMC
+/NonStruct<</MCID 23>>BDC
+BT(.. . .. .. .)TjE
+TEMC
+/Reference<</MCID24>>/BDC
+BT(4)TjETEMC
+Figure Annex H.6: Association between content and marked content identifiers 
+ 
+TOCTOCI
+"

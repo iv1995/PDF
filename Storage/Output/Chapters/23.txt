@@ -1,0 +1,13 @@
+JPEG 
+image format [ISO/IEC 10918] 
+© ISO 2017 – All rights reserved 19 
+
+ISO/DIS 32000-2
+ 
+4.37 
+ 
+job definition 
+information that specifies the production requirements and workflow of a unit of work involving 
+purposing PDF content to one or more messaging channels 
+4.38 
+ 

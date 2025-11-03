@@ -1,0 +1,73 @@
+Figure 
+55: Metrics for horizontal and vertical writing modes" illustrates the metrics for the two writing modes: 
+• 
+llurw0
+The left diagram illustrates the glyph metrics associated with writing mode 0, horizontal writing. 
+The coordinates  and  specify the bounding box of the glyph relative to origin 0.  is the 
+displacement vector that specifies how the text position shall be changed after the glyph is painted 
+w1
+• 
+in writing mode 0; its vertical component shall be 0. 
+The centre diagram illustrates writing mode 1, vertical writing.  shall be the displacement 
+v
+• 
+vector for writing mode 1; its horizontal component shall be 0. 
+In the right diagram,  is a position vector defining the position of origin 1 relative to origin 0. ![Figure 55 Metrics for horizontal and vertical writing modes  .jpg](./Storage/Output/Images/Figure 55 Metrics for horizontal and vertical writing modes  .jpg)
+Figure 55: Metrics for horizontal and vertical writing modes 
+ 
+© ISO 2017 – All rights reserved 293 
+
+ISO/DIS 32000-2
+ 
+9.3Text state parameters and operators 
+ 
+9.3.1General 
+ 
+The text state comprises those graphics state parameters that only affect text. There are nine 
+parameters in the text state (see "Table 102: Text state parameters"). 
+Table 102: Text state parameters 
+Parameter Description 
+T
+c
+ Character spacing 
+T
+w
+ Word spacing 
+T
+h
+ Horizontal scaling 
+T
+l
+ Leading 
+T
+f
+ Text font 
+T
+fs
+ Text font size 
+T
+mode
+ Text rendering mode 
+T
+rise
+ Text rise 
+T
+k
+ Text knockout 
+ 
+T
+T
+ 
+ffs
+Except for the previously described 
+and , these parameters are discussed further in subsequent 
+T
+TT
+subclauses. (As described in 9.4, "Text objects", three additional text-related parameters may occur only 
+mlmrm
+within a text object: 
+, the text matrix; , the text line matrix; and , the text rendering matrix.) The 
+values of the text state parameters shall be consulted when text is positioned and shown (using the 
+operators described in 9.4.2, "Text-positioning operators" and 9.4.3, "Text-showing operators"). In 
+particular, the spacing and scaling parameters shall be used in a computation described in 9.4.4, "Text 
+space details". The text state parameters may be set using the operators listed in "

@@ -1,0 +1,124 @@
+Figure 60: Text rise" 
+illustrates the effect of the text rise. Text rise shall apply to the vertical coordinate in text space, 
+regardless of the writing mode. 
+NOTE Adjustments to the baseline are useful for drawing superscripts or subscripts. The default location 
+of the baseline can be restored by setting the text rise to 0. ![Figure 60 Text rise  .png](./Storage/Output/Images/Figure 60 Text rise  .png)
+Figure 60: Text rise 
+ 
+9.3.8Text knockout 
+ 
+T
+k
+The text knockout parameter,  (PDF 1.4), shall be a boolean value that determines what text elements 
+shall be considered elementary objects for purposes of colour compositing in the transparent imaging 
+TKgs
+model. Unlike other text state parameters, there is no specific operator for setting this parameter; it 
+may be set only through the  entry in a graphics state parameter dictionary by using the  operator 
+TKgs
+(see 8.4.5, "Graphics state parameter dictionaries"). The text knockout parameter shall apply only to 
+BTET
+entire text objects. Any  value in a graphics state parameter dictionary installed using the  
+operator shall be ignored between the  and  operators delimiting a text object. The text knockout 
+truefalse
+parameter controls the behaviour of glyphs obtained from any font type, including Type 3. Its initial 
+value shall be . If the parameter is , each glyph in a text object shall be treated as a separate 
+elementary object; when glyphs overlap, they shall composite with one another. 
+true
+If the parameter is , the behaviour shall be equivalent to treating the entire text object as if it were a 
+© ISO 2017 – All rights reserved 299 
+
+ISO/DIS 32000-2
+ 
+non-isolated knockout transparency group; see 11.4.6, "Knockout groups" where each glyph is an 
+individual element in that group’s transparency stack. When glyphs overlap, later glyphs shall overwrite 
+("knock out") earlier ones in the area of overlap. The following additional rules shall apply: 
+• 
+Graphics state parameters, including transparency parameters, shall be inherited from the context 
+in which the text object appears. They shall not be saved and restored. The transparency 
+parameters shall not be reset at the beginning of the transparency group (as they are when a 
+transparency group XObject is explicitly invoked). Changes made to graphics state parameters 
+• 
+within the text object shall persist beyond the end of the text object. 
+Normal
+After the implicit transparency group for the text object has been completely evaluated, the group 
+results shall be composited with the backdrop, using the  blend mode and alpha and soft 
+NOTE With the above listed exceptions, the compositing described in 11.4.6, "Knockout groups" applies 
+mask values of 1.0. 
+when the text knockout graphics parameter is true including the handling of masks. 
+9.4Text objects 
+ 
+9.4.1General 
+ 
+A PDF text object consists of operators that may show text strings, move the text position, and set text 
+state and certain other parameters. In addition, three parameters may be specified only within a text 
+object and shall not persist from one text object to the next: 
+T
+• 
+m
+T
+• 
+, the text matrix. 
+lm
+T
+• 
+, the text line matrix. 
+rm
+T
+, the text rendering matrix, which is actually just an intermediate result that combines the 
+m
+BTET
+), and the current transformation matrix. 
+effects of text state parameters, the text matrix (
+A text object begins with the  operator and ends with the  operator, as shown in the Example, and 
+described in "Table 105: Text object operators". 
+NOTE Although text objects cannot be statically nested, text might be shown using a Type 3 font whose 
+glyph descriptions include any graphics objects, including another text object. Likewise, the 
+current colour might be a tiling pattern whose pattern cell includes a text object. 
+EXAMPLE 
+BT 
+  …Zero or more text operators or other allowed operators… 
+ET 
+Table 105: Text object operators 
+Operands Operator Description 
+— T
+BT  
+T
+m
+Begin a text object, initializing the text matrix, , and the text line 
+BTET
+lm
+matrix, , to the identity matrix. Text objects shall not be nested; a 
+second  shall not appear before an . 
+— 
+ET 
+End a text object, discarding the text matrix. 
+ 
+These specific categories of text-related operators may appear in a text object: 
+© ISO 2017 – All rights reserved 300 
+
+ISO/DIS 32000-2
+ 
+• 
+• 
+Text state operators, described in 9.3, "Text state parameters and operators". 
+• 
+Text-positioning operators, described in 9.4.2, "Text-positioning operators". 
+Text-showing operators, described in 9.4.3, "Text-showing operators". 
+The latter two subclauses also provide further details about these text object parameters. The other 
+operators that may appear in a text object are those related to the general graphics state, colour, and 
+marked content, as shown in "Figure 9: Graphics Objects". 
+9.4.2Text-positioning operators 
+ 
+T
+T
+TT
+m
+Text space is the coordinate system in which text is shown. It shall be defined by the text matrix, , and 
+fs
+hrise
+the text state parameters 
+, , and , which together shall determine the transformation from text 
+space to user space. Specifically, the origin of the first glyph shown by a text-showing operator shall be 
+placed at the origin of text space. If text space has been translated, scaled, or rotated, then the position, 
+size, or orientation of the glyph in user space shall be correspondingly altered. 
+The text-positioning operators shall only appear within text objects. 

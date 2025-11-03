@@ -1,0 +1,175 @@
+Table 325: Entries in a 3D units dictionary 
+Key Type Value 
+Optional; PDF 2.0
+TSm  TSm 
+ TU 
+number () The creation time units m scale value. If omitted,defaults 
+to 1.0; if included,shall exist. 
+Optional; PDF 2.0
+TSn  TSn 
+ TU 
+number () The creation time units n scale value. If omitted,defaults to 
+1.0; if included,shall exist. 
+© ISO 2017 – All rights reserved 660 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional; PDF 2.0
+TU 
+text string () The creation time units value. A text string specifying a label for 
+NOTE 1 It is recommended that the label use a universally recognised abbreviation.
+ 
+displaying the units represented by this dictionary in a user interface. 
+Optional; PDF 2.0
+USm  USm 
+ UU 
+number () The user defined units m scale value. If omitted,defaults 
+to 1.0; if included,shall exist. 
+Optional; PDF 2.0
+USn  USn 
+ UU 
+number () The user defined units n scale value. If omitted,defaults to 
+1.0; if included,shall exist. 
+Optional; PDF 2.0
+UU 
+text string () The user override units value. A text string specifying a label 
+NOTE 2 It is recommended that the label use a universally recognised abbreviation.
+ 
+for displaying the units represented by this dictionary in a user interface. 
+Optional; PDF 2.0
+DSm  DSm 
+ DU 
+number () The display units m scale value. If omitted,defaults to 1.0; 
+if included,shall exist. 
+Optional; PDF 2.0
+DSn  DSn 
+ DU 
+number () The display units n scale value. If omitted,defaults to 1.0; 
+if included,shall exist. 
+Optional; PDF 2.0
+DU 
+text string () The display units value. A text string specifying a label for 
+NOTE 3 It is recommended that the label use a universally recognised abbreviation. 
+displaying the units represented by this dictionary in a user interface. 
+ 
+The following algorithm shall be used to map model space distances for display in 3D measurements for 
+each of the three sets of units. 
+Starting from these default values: 
+n = 1.0 // a number  
+m = 1.0 // a number  
+Units = "Model Units"  // a text string 
+In the algorithm that follows, an entry is defined if it is included in the 3D Units dictionary. 
+Creation time units
+ – The following is the process creation time units definition: 
+ TU 
+Ifis defined, then Units = TU 
+ TSm 
+Ifis defined, then m = TSm 
+ TSn 
+Ifis defined, then n = TSn 
+ TSm  TSn  TU  TU 
+If eitheroris defined,should be included in the 3D Units dictionary; ifis not defined in 
+this case, the unit specification is undefined and shall be ignored. 
+User override units
+ – The following is the process user override units definition:  
+ UU 
+Ifis defined, then Units = UU 
+© ISO 2017 – All rights reserved 661 
+
+ISO/DIS 32000-2
+ 
+ USm 
+ USn 
+Ifis defined, then m = USm 
+ USm  USn  UU  UU 
+Ifis defined, then n = USn 
+If eitheroris defined,should be included in the 3D Units dictionary; ifis not defined in 
+this case, the unit specification is undefined and is ignored. 
+Display units
+ – The following is the display units definition:  
+ DU  
+Ifis defined, then Units = DU
+ DSm 
+Ifis defined, then m = m × DSm 
+ DSn 
+Ifis defined, then n = n × DSn 
+ 
+ DSm  DSn  DU  DU 
+If eitheroris defined,should be included in the 3D Units dictionary; ifis not defined in 
+this case, the unit specification is undefined and is ignored. 
+Finally, if X is a model space distance and Y is the displayed value, the functional relationship between X 
+and Y is given by the equation Y Units = (m/n) × X. 
+13.6.7.33D measurement/markup dictionary 
+ 
+3D measurement 
+MA
+dictionaries
+The  entry of "Table 315: Entries in a 3D view dictionary" contains an array of 
+, where each dictionary represents an instance of a 3D measurement to be displayed in the 
+Subtype
+context of this view. Each 3D measurement dictionary describes the type of the 3D measurement 
+through the  entry, as well as provides a name for the measurement as it may appear in the 
+user interface of an colour PDF processor. 
+The entries of the 3D Measurement/Markup dictionary are described in "Table 326: Entries in a 3D 
+measurement/markup dictionary common to all markup subtypes". 
+Table 326: Entries in a 3D measurement/markup dictionary common to all markup subtypes 
+Key Type Value 
+Optional; PDF 2.0
+Type 
+3DMeasure
+name () The type of PDF object that this dictionary describes; if present, it 
+shall be  for a 3D measurement dictionary. 
+© ISO 2017 – All rights reserved 662 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Required; PDF 2.0
+Subtype 
+name () A name specifying the measurement type for this measurement 
+LD3linear dimension measurement
+which shall be chosen from the following:  
+ A  is used to denote the distance between two 
+arbitrary points on a 3D model. See 13.6.7.3.1, "3D linear dimension 
+PD3perpendicular dimension measurement
+measurement" for a listing of additional entries in this dictionary. 
+ A  is used to denote the perpendicular 
+distance between two geometric entities (normally two lines or a point and a 
+line). See "Table 328: Additional entries in a 3D measurement/markup 
+dictionary for a 3D perpendicular dimension measurement" for a listing of 
+AD3angular dimension measurement
+additional entries in this dictionary. 
+ An  is used to denote the angle between two 
+linear entities. See "Table 329: Additional entries in a 3D 
+measurement/markup dictionary for a 3D angular dimension measurement" 
+RD3radial dimension measurement
+for a listing of additional entries in this dictionary. 
+ A  is used to define the radius or diameter of a 
+circular 3D entity. See "Table 330: Additional entries in a 3D 
+measurement/markup dictionary for a 3D radial dimension measurement" for 
+3DC3D comment note
+a listing of additional entries in this dictionary. 
+ A  lets users connect a comment to a specific piece of 
+Table 331: Additional entries in a 3D 
+geometry in the 3D model. See "
+ 
+measurement/markup dictionary for a 3D comment note" for a listing of 
+additional entries in this dictionary.
+Optional; PDF 2.0
+TRL 
+text () A name string that may be associated with a measurement markup. If 
+string omitted, an interactive PDF processor may create one. 
+Interactive PDF processors that do not provide a user interface for such elements should 
+ignore this field. 
+ 
+TRL
+The  field contains the current name for the measurement markup. Each measurement markup is 
+assigned a name ("Measurement 1", "3D Comment 22", … and so on) when it is created. These names 
+may be shown by an interactive PDF processor so that users can see what measurements are associated 
+with what views. Users should be allowed to override the initially defined names. 
+13.6.7.3.13D linear dimension measurement 
+ 
+3D linear measurement
+A  is a markup showing the distance between two arbitrary points on a 3D 
+model. "

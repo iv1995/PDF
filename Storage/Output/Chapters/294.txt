@@ -1,0 +1,146 @@
+Table 382: Standard list 
+attributes" control the interpretation of the  element as it relates to other  elements that are not its 
+immediate parent. 
+Table 382: Standard list attributes 
+Key Type Value 
+(Optional; inheritable)
+ListNumbering Lbl
+Lbl
+name  The numbering system used to generate the content of the  
+(Label) elements in a numbered list, or the type of symbol in the content of the  
+ListNumbering
+(Label) elements used to identify list items in an unnumbered list (see "Table 368: 
+General inline level structure types"). The value of the  shall be one of 
+None
+Lbl
+the following, and shall be applied as described here. 
+ No numbering system;  elements (if present) contain arbitrary 
+Unordered
+text not subject to any numbering scheme 
+Disc
+ (PDF 2.0) Unordered list with unspecified bullets 
+Circle
+  Solid circular bullet 
+Square
+  Open circular bullet 
+Ordered
+  Solid square 
+Decimal
+ (PDF 2.0) Ordered lists with unspecified numbering 
+UpperRoman
+  Decimal Arabic numerals (1–9, 10–99, … ) 
+LowerRoman
+  Uppercase Roman numerals (I, II, III, IV, … ) 
+UpperAlpha
+  Lowercase Roman numerals (i, ii, iii, iv, … ) 
+LowerAlpha
+  Uppercase letters (A, B, C, .. ) 
+None
+  Lowercase letters (a, b, c, … ) 
+ListNumbering
+Default value: . 
+Ordered, Decimal, UpperRoman, LowerRoman, UpperAlpha
+A list is an unordered list unless the  attribute is present with one of 
+LowerAlpha
+the following values:  or 
+UpperAlphaLowerAlpha
+, in which case the list is an ordered list. 
+Lang
+The alphabet used for  and  is determined by the prevailing 
+ entry (see 14.9.2, "Natural language specification"). 
+© ISO 2017 – All rights reserved 759 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; PDF 2.0)
+ContinuedList 
+truefalsefalse
+Boolean  A flag specifying whether the list is a continuation of a previous 
+ContinuedFrom
+list in the structure tree (), or not (). Default value: . 
+If the  attribute is not present, the continuation is from the preceding 
+list at the same level in the structure hierarchy. 
+(Optional; PDF 2.0)
+ContinuedFrom ID
+ID (byte  The  (see Table 355, "Entries in a structure element dictionary") 
+string) of the list for which this list is a continuation. 
+NOTE  The  attribute allows a content extraction tool to autonumber a list. However, the 
+ListNumbering
+list’s structure elements can contain the resulting numbers explicitly, so that the document can 
+Lbl 
+be reused without autonumbering. 
+14.8.5.6PrintField attributes 
+ 
+The attributes described in the next table define the accessibility mechanism for non-interactive PDF 
+forms (see 12.7.9, "Non-interactive forms"). Such forms may have originally contained interactive fields 
+such as text fields and radio buttons but were then converted into non-interactive PDF files, or they may 
+have been designed to be printed out and filled in manually. Since the form’s fields cannot be 
+PrintField
+determined from interactive elements, form field roles and values in a non-interactive form field are 
+defined using a  attribute on respective Form elements (see "Table 383: PrintField 
+PrintField
+O
+attributes") enclosing each set of content representing a non-interactive form field. This attribute may 
+Layout, List, TableArtifact
+only be defined in attribute objects whose  (owner) entry has the value  or whose owner is 
+any other owner excluding  and . 
+Table 383: PrintField attributes 
+Key Type Value 
+(Optional; not inheritable; PDF 1.7)
+Role 
+Role
+name  The type of form field represented. The value of 
+rb
+ shall be one of the following: 
+ 
+cb
+  Radio button  
+ 
+pb
+  Check box 
+tv
+  Push button 
+lb
+ Text-value field 
+tv
+ Listbox field 
+The  role shall be used for non-interactive fields with textual values. The text that 
+is the value of the field shall be the content of the Form structure element (see 
+NOTE 1  Examples include text edit fields, numeric fields, password fields, digital 
+"Table 368: General inline level structure types"). 
+signature fields and combo box fields. 
+Semantic groupings of non-interactive form fields and associated content (for 
+Part
+example, a set of radio button fields associated with a label) should be enclosed 
+within a  structure element. 
+Default value: None specified. 
+(Optional; not inheritable; PDF 1.7; lower case form is deprecated in PDF 2.0)
+Checked, 
+on, off
+checked 
+name  The 
+neutral
+state of a radio button or check box field. The value shall be one of: , or 
+NOTE 2  In earlier versions of PDF the case (capitalization) used for this key did not 
+. 
+conform to the same conventions used elsewhere in this standard. 
+off
+Default value: . 
+© ISO 2017 – All rights reserved 760 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; not inheritable; PDF 1.7)
+Desc 
+NOTE 3  Similar to the value supplied in the  entry of the field dictionary for 
+TU
+text string  The alternate name of the field. 
+interactive fields (see "Table 226: Entries common to all field dictionaries"). 
+ 
+14.8.5.7Table attributes 
+ 
+Table
+O
+The table attributes, as described in "

@@ -1,0 +1,114 @@
+Table 203: Additional entries specific to a remote go-to action" shows 
+the action dictionary entries specific to this type of action. 
+NOTE Remote go-to actions cannot be used with embedded files; see 12.6.4.4, "Embedded Go-To actions" 
+Table 203: Additional entries specific to a remote go-to action 
+Key Type Value 
+(Required) 
+S  
+GoToR
+ 
+name The type of action that this dictionary describes; shall be
+for a remote go-to action. 
+(Required) 
+F 
+file specification The file in which the destination shall be located. 
+(Required) 
+D 
+name, byte string, The destination to jump to (see 12.3.2, "Destinations"). If the 
+or array value is an array defining an explicit destination (as described under 
+12.3.2.2, "Explicit destinations"), its first element shall be a page number 
+within the remote document rather than an indirect reference to a page 
+object in the current document. The first page shall be numbered 0. 
+© ISO 2017 – All rights reserved 497 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; PDF 2.0)
+SD 
+array  The structure destination to jump to (see 12.3.2.3, 
+ ID 
+"Structure destinations"). The first element in the array shall be a byte 
+string representing a structure elementin the remote document, 
+instead of an indirect reference to a structure element dictionary. 
+D
+If present, the structure destination should take precedence over 
+destination in the  entry. 
+(Optional; PDF 1.2) 
+NewWindow 
+false
+boolean A flag specifying whether to open the destination 
+document in a new window. If this flag is , the destination document 
+replaces the current document in the same window. If this entry is absent, 
+the interactive PDF processor should behave in accordance with its 
+preference. 
+ 
+12.6.4.4Embedded Go-To actions 
+ 
+An embedded go-to action (PDF 1.6) is similar to a remote go-to action but allows jumping to or from a 
+PDF file that is embedded in another PDF file (see 7.11.4, "Embedded file streams"). Embedded files 
+ EmbeddedFiles 
+may be associated with file attachment annotations (see 12.5.6.15, "File attachment annotations") or 
+with entries in thename tree (see 7.7.4, "Name dictionary"). Embedded files may in 
+turn contain embedded files. "Table 204: Additional entries specific to an embedded go-to action" 
+shows the action dictionary entries specific to embedded go-to actions. 
+NOTE Embedded go-to actions work only for files of Type PDF. 
+Embedded go-to actions provide a complete facility for linking between a file in a hierarchy of nested 
+embedded files and another file in the same or different hierarchy. The following terminology shall be 
+used: 
+source
+• 
+target
+• 
+The  is the document containing the embedded go-to action. 
+T
+• 
+The  is the document in which the destination lives. 
+The  entry in the action dictionary is a target dictionary that locates the target in relation to the 
+source, in much the same way that a relative path describes the physical relationship between two 
+files in a file system. Target dictionaries may be nested recursively to specify one or more 
+current
+intermediate targets before reaching the final one. As the hierarchy is navigated, each intermediate 
+NOTE It is an error for a target dictionary to have an infinite cycle (for example, one where a target 
+target shall be referred to as the  document. Initially, the source is the current document. 
+dictionary refers to itself). Interactive PDF processors need to attempt to detect such cases and 
+refuse to execute the action if one is found. 
+child
+• 
+parent
+• 
+A  document shall be one that is embedded within another PDF file. 
+root document
+• 
+The document in which a file is embedded shall be its . 
+A  is one that is not embedded in another PDF file. The target and source may be 
+contained in root documents or embedded documents. 
+© ISO 2017 – All rights reserved 498 
+
+ISO/DIS 32000-2
+ 
+Table 204: Additional entries specific to an embedded go-to action 
+Key Type Value 
+(Required) GoToE
+S   
+name The type of action that this dictionary describes; shall be
+for an embedded go-to action. 
+(Optional) 
+F 
+file specification The root document of the target relative to the root document 
+of the source. If this entry is absent, the source and target share the same 
+root document. 
+(Required) 
+D 
+name, byte The destination in the target to jump to (see 12.3.2, 
+string, or array "Destinations"). 
+(Optional) true
+NewWindow 
+false
+boolean If , the destination document should be opened in a new 
+window; if , the destination document should replace the current 
+document in the same window. If this entry is absent, the interactive PDF 
+processor should act according to its preference. 
+(Optional if F is present; otherwise required) target dictionary 
+T 
+dictionary A (see "

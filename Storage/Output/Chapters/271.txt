@@ -1,0 +1,82 @@
+Table 336: Entries 
+in a RichMediaDeactivation dictionary") that specifies the condition and type of 
+unloading (restart or pause) that occurs during deactivation. 
+ 
+13.7.2.2.1RichMediaActivation dictionary 
+ 
+RichMediaActivation dictionary
+The  specifies the style of presentation, default script behavior, default 
+view information, and animation style when the annotation is activated. "Table 335: Entries in a 
+RichMediaActivation dictionary" details the contents of the dictionary. 
+script array
+Assets
+The activation dictionary includes a . Each element contains an indirect object reference to 
+file specification objects that are also referenced by the  name tree of the RichMediaContent 
+  
+dictionary. When the annotation is activated, each script in the array shall be executed in order in a 
+common environment per annotation by the rich media run timeECMAScriptinterpreter. 
+Views
+There may be an optional reference to a view in the scene’s  array (see "Table 341: Entries in a 
+RichMediaContent dictionary") that acts as the default view for the annotation. If not specified, the first 
+view in the views array shall be used. If there are no views specified, default values shall be used for all 
+camera and display parameters. 
+Table 335: Entries in a RichMediaActivation dictionary 
+Key Type Value 
+Optional; PDF 2.0
+Type 
+RichMediaActivation
+name () The type of PDF object that this dictionary describes. If present, shall 
+be . 
+Optional; PDF 2.0
+Condition 
+name () A name that shall specify the circumstances under which the 
+XA
+annotation shall be activated. The following values are valid:  
+PO
+ the annotation is explicitly activated by a user action or script. 
+ the annotation is activated as soon as the page that contains the annotation 
+PV
+receives focus as the current page. 
+ the annotation is activated as soon as any part of the page that contains the 
+NOTE One example is in a multiple-page presentation. Only one page is the current 
+annotation becomes visible. 
+page although several are visible. 
+XA
+Default value: . 
+Optional; PDF 2.0RichMediaAnimation dictionary
+Animation 
+dictionary () A  (see "Table 337: Entries in a 
+RichMediaAnimation dictionary") that describes the preferred method that interactive 
+PDF processor should use to drive keyframe animations present in this artwork. 
+© ISO 2017 – All rights reserved 677 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional; PDF 2.0
+View 
+Views
+dictionary () An indirect object reference to a 3D view dictionary (see "Table 315: 
+Entries in a 3D view dictionary" that shall also be referenced by the  array within 
+the annotation’s RichMediaContent dictionary (see "Table 341: Entries in a 
+Views
+RichMediaContent dictionary"). 
+Default value: The first element in the  array of the annotation specified in the 
+RichMediaContent dictionary. If a Views array does not exist, default values for the 
+ 
+components of a 3D view dictionary (see "Table 344: Additional entry in a 3D view 
+dictionary") are used.
+Optional; PDF 2.0
+Configuration 
+dictionary () An indirect object reference to a RichMediaConfiguration dictionary 
+Configurations
+(see "Table 342: Entries in a RichMediaConfiguration dictionary") that shall also be 
+referenced by the  array in the RichMediaContent dictionary (see "Table 
+Configurations
+341: Entries in a RichMediaContent dictionary"). 
+ 
+Default value: The first element within the  array specified in the 
+RichMediaContent dictionary.
+Optional; PDF 2.0
+Presentation 
+dictionary () A RichMediaPresentation dictionary (see "

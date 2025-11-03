@@ -1,0 +1,36 @@
+Table 182: Additional entries specific to text 
+markup annotations" shows the annotation dictionary entries specific to these types of annotations. 
+© ISO 2017 – All rights reserved 478 
+
+ISO/DIS 32000-2
+ 
+Table 182: Additional entries specific to text markup annotations 
+Key Type Value 
+(Required) 
+Subtype 
+HighlightUnderlineSquigglyStrikeOut
+name The type of annotation that this dictionary describes; shall be 
+, , , or  for a highlight, underline, 
+squiggly-underline, or strikeout annotation, respectively. 
+(Required)  n 
+QuadPoints 
+array An array of 8 × nnumbers specifying the coordinates of 
+quadrilaterals in default user space. Each quadrilateral shall encompasses 
+a word or group of contiguous words in the text underlying the 
+annotation. The coordinates for each quadrilateral shall be given in the 
+order 
+11223344
+ 𝑦𝑦𝑥𝑥 𝑦𝑦𝑥𝑥 𝑦𝑦𝑥𝑥 𝑦𝑦 
+𝑥𝑥
+specifying the quadrilateral’s four vertices in counterclockwise order (see 
+2
+xyxy
+"Figure 84: QuadPoints specification"). The text shall be oriented with 
+112
+respect to the edge connecting points (, ) and (, ). ![Figure 84 QuadPoints specification  .png](./Storage/Output/Images/Figure 84 QuadPoints specification  .png)
+Figure 84: QuadPoints specification 
+ 
+12.5.6.11Caret annotations 
+ 
+PDF 1.5
+A caret annotation () is a visual symbol that indicates the presence of text edits. "

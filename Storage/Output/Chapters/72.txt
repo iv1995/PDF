@@ -1,0 +1,85 @@
+Figure 15: 
+Miter length"). When the limit is exceeded, the join is converted from a miter to a bevel. 
+j
+The ratio of miter length to line width is directly related to the angle  between the segments in user 
+space by the following formula:  
+1
+𝑚𝑚𝐷𝐷𝑡𝑡𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑛𝑛𝑔𝑔𝑡𝑡ℎ
+= 
+𝑗𝑗
+𝑙𝑙𝐷𝐷𝑛𝑛𝑚𝑚𝑙𝑙𝐷𝐷𝐵𝐵𝑡𝑡ℎ
+sin
+2
+When the line width is zero, the miter length is zero. 
+NOTE Very large miter lengths are allowed. 
+jj
+j
+EXAMPLE A miter limit of 1.414 converts miters to bevels for  less than 90 degrees, a limit of 2.0 converts them for  less 
+than 60 degrees, and a limit of 10.0 converts them for  less than approximately 11.5 degrees. ![Figure 15 Miter length  .png](./Storage/Output/Images/Figure 15 Miter length  .png)
+Figure 15: Miter length 
+ 
+8.4.3.6Line dash pattern 
+ 
+line dash pattern
+dash arraydash phase
+The  shall control the pattern of dashes and gaps used to stroke paths. It shall be 
+specified by a  and a . The dash array’s elements shall be numbers that specify the 
+© ISO 2017 – All rights reserved 160 
+
+ISO/DIS 32000-2
+ 
+lengths of alternating dashes and gaps; the numbers shall be nonnegative and not all zero. The dash 
+phase shall be a number that specifies the distance into the dash pattern at which to start the dash. If 
+the dash phase is negative, it shall be incremented by twice the sum of all lengths in the dash array until 
+it is positive. The elements of both the dash array and the dash phase shall be expressed in user space 
+units. 
+Before beginning to stroke a path, the dash array shall be cycled through, adding up the lengths of 
+dashes and gaps. When the accumulated length equals the value specified by the dash phase, stroking of 
+the path shall begin, and the dash array shall be used cyclically from that point onward. "Table 55: 
+Examples of line dash patterns" shows examples of line dash patterns. If the dash array is empty, the 
+dash phase shall be zero and the path shall be stroked with a solid, unbroken line. 
+Table 55: Examples of line dash patterns 
+Dash Array Appearance Description 
+and Phase 
+[] 0 No dash; solid, unbroken lines 
+ 
+[3] 0 3 units on, 3 units off, … 
+ 
+[2] 1 1 on, 2 off, 2 on, 2 off, … 
+ 
+[2 1] 0 2 on, 1 off, 2 on, 1 off, … 
+ 
+[3 5] 6 2 off, 3 on, 5 off, 3 on, 5 off, … 
+ 
+[2 3] 11 1 on, 3 off, 2 on, 3 off, 2 on, … 
+ 
+[2 1 3] 0 2 on, 1 off, 3 on, 2 off, 1 on, 3 
+ 
+off, 2 on, … 
+[2 1 3] -2 2-off, 2 on, 1 off, 3 on, 2 off, 1 
+ 
+on, 2-off, … 
+ 
+Dashed lines shall wrap around curves and corners just as solid stroked lines do. The ends of each dash 
+shall be treated with the current line cap style, and corners within dashes shall be treated with the 
+current line join style. The treatment of overlapping line caps shall follow the rules given in 11.6.2, 
+"Specifying source and backdrop colours". A stroking operation shall take no measures to coordinate 
+the dash pattern with features of the path; it simply shall dispense dashes and gaps along the path in the 
+pattern defined by the dash array. If the end of a dashed segment coincides exactly with a join point, 
+then the end cap is painted before the corner. 
+When a path consisting of several subpaths is stroked, each subpath shall be treated independently — 
+that is, the dash pattern shall be restarted and the dash phase shall be reapplied to it at the beginning of 
+each subpath. 
+NOTE As noted in 8.5.3.2, "Stroking" and in "Table 58: Path construction operators", closed paths have 
+no end caps, but the individual dash segments of a path stroked using a non-empty line dash 
+pattern are individually open paths and therefore receive end cap processing as specified in the 
+graphics state. If any dash segment includes a corner then that corner is painted using the current 
+© ISO 2017 – All rights reserved 161 
+
+ISO/DIS 32000-2
+ 
+join style in the graphics state. If a corner is not contained within any dashed segment the corner 
+is not painted. 
+8.4.4Graphics state operators 
+ 
+"

@@ -1,0 +1,29 @@
+Figure 34: Radial 
+shadings depicting a cone" depict the results of extending the shading at the smaller and larger 
+ends, respectively. 
+© ISO 2017 – All rights reserved 231 
+
+ISO/DIS 32000-2
+ ![Figure 34 Radial shadings depicting a cone  .png](./Storage/Output/Images/Figure 34 Radial shadings depicting a cone  .png)
+Figure 34: Radial shadings depicting a cone 
+ 
+s
+Conceptually, all of the blend circles shall be painted in order of increasing values of , from smallest to 
+tt
+s
+Function
+largest. Blend circles extending beyond the starting circle shall be painted in the same colour defined by 
+tt
+s
+0
+the shading dictionary’s  entry for the starting circle ( = 
+,  = 0.0). Blend circles extending 
+1
+beyond the ending circle shall be painted in the colour defined for the ending circle ( = 
+,  = 1.0). The 
+painting is opaque, with the colour of each circle completely overlaying those preceding it. Therefore, if 
+s
+a point lies on more than one blend circle, its final colour shall be that of the last of the enclosing circles 
+to be painted, corresponding to the greatest value of . 
+NOTE 2 If one of the starting and ending circles entirely contains the other, the shading depicts a sphere, 
+as in "Figure 35: Radial shadings depicting a sphere" and "

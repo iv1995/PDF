@@ -1,0 +1,51 @@
+Figure 43: Coordinate mapping from a unit square 
+to a four-sided Coons Patch". 
+ 
+© ISO 2017 – All rights reserved 239 
+
+ISO/DIS 32000-2
+ ![Figure 42 Coons patch mesh  .jpg](./Storage/Output/Images/Figure 42 Coons patch mesh  .jpg)
+Figure 42: Coons patch mesh 
+ 
+, C
+, C, D,  D
+1212
+uv
+The sides of the patch are given by four cubic Bézier curves
+and, defined over a pair of 
+parametric variables,  and , that vary horizontally and vertically across the unit square. The four 
+corners of the Coons patch satisfy the following equations: 
+11
+()()
+C
+0=D0 
+12
+()()
+C
+1=D0 
+21
+()()
+0=D1 
+C
+22
+()()
+C
+1=D1 
+© ISO 2017 – All rights reserved 240 
+
+ISO/DIS 32000-2
+ ![Figure 43 Coordinate mapping from a unit square to a four-sided Coons Patch  .png](./Storage/Output/Images/Figure 43 Coordinate mapping from a unit square to a four-sided Coons Patch  .png)
+Figure 43: Coordinate mapping from a unit square to a four-sided Coons Patch 
+ 
+u
+S
+Two surfaces can be described that are linear interpolations between the boundary curves. Along the  
+C
+axis, the surface 
+ is defined by 
+C12
+()()()()
+u,v=1−v×Cu+v×Cu 
+S
+vS
+ 

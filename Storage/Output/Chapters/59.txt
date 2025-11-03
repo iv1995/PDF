@@ -1,0 +1,282 @@
+Table 38: Entries common to all function 
+dictionaries". 
+Table 38: Entries common to all function dictionaries 
+Key Type Value 
+Required
+FunctionType 
+integer () The function type: 
+0 Sampled function 
+2 Exponential interpolation function 
+ 
+3 Stitching function 
+4 PostScript calculator function
+Required
+Domain 
+Domain
+array () An array of 2 × m numbers, where m shall be the number of 
+ii
+ix
+Domain
+2i
+input values. For each i from 0 to m - 1,  shall be less than or 
+th
+iii
+Domain
+Domain
+2+1
+equal to , and the  input value, , shall lie in the interval 
+22+1
+ ≤ x ≤  . Input values outside the declared domain 
+shall be clipped to the nearest boundary value. 
+© ISO 2017 – All rights reserved 124 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Required for Type 4 and Type 4 functions, optional otherwise; see below
+Range 
+nn
+array () 
+j
+jn
+RangeRange
+An array of 2 ×  numbers, where  shall be the number of output values. 
+jjjj
+y
+j
+RangeRange
+2j2+1
+For each  from 0 to  - 1,  shall be less than or equal to , 
+th
+22+1
+ output value, , shall lie in the interval  ≤ y ≤ . 
+and the 
+Output values outside the declared range shall be clipped to the nearest 
+boundary value. If this entry is absent, no clipping shall be done (subject 
+to implementation limits). 
+ 
+In addition, each type of function dictionary shall include entries appropriate to the particular function 
+Range
+type. The number of output values can usually be inferred from other attributes of the function; if not 
+DomainRange
+(as is always the case for Type 4 and Type 4 functions), the  entry is required. The dimensionality 
+of the function implied by the  and  entries shall be consistent with that implied by other 
+attributes of the function. 
+minmaxminmax
+(
+)
+𝑦𝑦=Interpolate𝑥𝑥,𝑥𝑥
+ 
+,𝑥𝑥,𝑦𝑦,𝑦𝑦
+maxmin
+𝑦𝑦
+−𝑦𝑦
+minmin
+)
+(
+=𝑦𝑦
+×
++�𝑥𝑥−𝑥𝑥� 
+maxmin
+xyx
+𝑥𝑥−𝑥𝑥
+minmin
+For a given value of , Interpolate calculates the  value on the line defined by the two points (
+, y) 
+maxmax
+and (x
+, y). 
+7.10.2Type 0 (sampled) functions 
+ 
+Type 0 functions use a sequence of sample values (contained in a stream) to provide an approximation 
+for functions whose domains and ranges are bounded. The samples are organised as an m-dimensional 
+table in which each entry has n components. 
+NOTE 1 Sampled functions are highly general and offer reasonably accurate representations of arbitrary 
+analytic functions at low expense. For example, a 1-input sinusoidal function can be represented 
+over the range [0 180] with an average error of only 1 percent, using just ten samples and linear 
+interpolation. Two-input functions require significantly more samples but usually not a 
+prohibitive number if the function does not have high frequency variations. 
+There shall be no dimensionality limit of a sampled function except for possible implementation limits. 
+NOTE 2 The number of samples required to represent functions with high dimensionality multiplies 
+rapidly unless the sampling resolution is very low. Also, the process of multilinear interpolation 
+becomes computationally intensive if the number of inputs m is greater than 2. The 
+multidimensional spline interpolation is even more computationally intensive. 
+In addition to the entries in "Table 38: Entries common to all function dictionaries", a Type 0 function 
+dictionary includes those shown in "Table 39: Additional entries specific to a Type 0 function 
+dictionary". 
+DomainEncodeSize
+SizeEncode
+The , , and  entries determine how the function’s input variable values are mapped 
+Encode
+into the sample table. For example, if  is [21 31], the default  array shall be [0 20 0 30], 
+which maps the entire domain into the full set of sample table entries. Other values of  may be 
+used. 
+DomainEncodeSize
+DecodeRange
+The interpolate function (7.10.1, "General") explains the relationship between , , , 
+, and . 
+© ISO 2017 – All rights reserved 125 
+
+ISO/DIS 32000-2
+ 
+Table 39: Additional entries specific to a Type 0 function dictionary 
+Key Type Value 
+Required
+Size 
+array () An array of m positive integers that shall specify the number of 
+samples in each input dimension of the sample table. 
+Required
+BitsPerSample 
+ 
+integer () The number of bits that shall represent each sample. (If the 
+BitsPerSample 
+function has multiple output values, each one shall occupy
+bits.) Valid values shall be 1, 2, 4, 8, 12, 16, 24, and 32. 
+Optional
+Order 
+integer () The order of interpolation between samples. Valid values shall 
+be 1 and 3, specifying linear and cubic spline interpolation, respectively. 
+Default value: 1. 
+Optionalm
+Encode 
+array () An array of 2 ×  numbers specifying the linear mapping of 
+SizeSize
+input values into the domain of the function’s sample table. Default value: 
+01
+[0 ( -1) 0 ( - 1)…]. 
+Optionaln
+Decode 
+array () An array of 2 ×  numbers specifying the linear mapping of 
+Range
+sample values into the range appropriate for the function’s output values. 
+Default value: same as the value of . 
+Optional
+other stream 
+attributes 
+(various) () Other attributes of the stream that shall provide the sample 
+values, as appropriate (see "Table 5: Entries common to all stream 
+dictionaries"). 
+ 
+i
+x
+im
+When a sampled function is called, each input value 
+, for 0 ≤  < , shall be clipped to the domain: 
+′
+i2i2i+1
+i
+))
+((
+,Domain
+=minmax x,Domain 
+x
+ 
+That value shall be encoded: 
+′
+i2i2i+12i2i+1
+i
+e
+=Interpolate (x,Domain,Domain,Encode,Encode )
+ 
+That value shall be clipped to the size of the sample table in that dimension: 
+′
+ii
+i
+(())
+e
+=min maxe,0,Size−1 
+ 
+j
+r
+The encoded input values shall be real numbers, not restricted to integers. Interpolation shall be used to 
+jn
+determine output values from the nearest surrounding values in the sample table. Each output value 
+, 
+for 0 ≤  < , shall then be decoded: 
+′
+BitsPerSample
+j2j2j+1
+j
+r
+=Interpolate (r,0,2−1,Decode,Decode )
+ 
+Finally, each decoded value shall be clipped to the range: 
+′
+j2j2j+1
+j
+y
+=min(max �r,Range�,Range )
+ 
+Sample data shall be represented as a stream of bytes. The bytes shall constitute a continuous bit 
+ BitsPerSample 
+stream, with the high-order bit of each byte first. Each sample value shall be represented as a sequence 
+ofbits. Successive values shall be adjacent in the bit stream; there shall be no padding 
+© ISO 2017 – All rights reserved 126 
+
+ISO/DIS 32000-2
+ 
+at byte boundaries. 
+For a function with multidimensional input (more than one input variable), the sample values in the 
+first dimension vary fastest, and the values in the last dimension vary slowest. 
+fa, b, ca, bc
+ffffffffff
+EXAMPLE 1 For a function (), where , and  vary from 0 to 9 in steps of 1, the sample values would appear in this 
+f
+order: (0, 0, 0), (1, 0, 0),…, (9, 0, 0), (0, 1, 0), (1, 1, 0),…, (9, 1, 0), (0, 2, 0), (1, 2, 0),…, (9, 9, 0), (0, 0, 1), 
+(1, 0, 1), and so on. 
+Range
+For a function with multidimensional output (more than one output value), the values shall be stored in 
+the same order as . 
+SizeRange
+BitsPerSample
+The stream data shall be long enough to contain the entire sample array, as indicated by , , 
+and ; see 7.3.8.2, "Stream extent". 
+xy
+Example 2 illustrates a sampled function with 4-bit samples in an array containing 21 columns and 31 
+zx
+rows (651 values). The function takes two arguments,  and , in the domain [-1.0 1.0], and returns one 
+y
+value, , in that same range. The  argument shall be linearly transformed by the encoding to the domain 
+z
+ BitsPerSample 
+[0 20] and the  argument to the domain [0 30]. Using bilinear interpolation between sample points, the 
+z
+function computes a value for , which (becauseis 4) will be in the range [0 15], and the 
+decoding transforms  to a number in the range [-1.0 1.0] for the result. The sample array shall be 
+stored in a string of 326 bytes, calculated as follows (rounded up): 
+326 bytes = 31 rows × 21 samples /row × 4 bits /sample ÷ 8 bits /byte 
+The first byte contains the sample for the point (-1.0, -1.0) in the high-order 4 bits and the sample for 
+the point (-0.9, -1.0) in the low-order 4 bits. 
+EXAMPLE 2 
+14 0 obj 
+  <</FunctionType 0 
+   /Domain [-1.0 1.0 -1.0 1.0] 
+   /Size [21 31] 
+   /Encode [0 20 0 30] 
+   /BitsPerSample 4 
+   /Range [-1.0 1.0] 
+   /Decode [-1.0 1.0] 
+   /Length … 
+   /Filter… 
+  >> 
+stream 
+651 sample values
+…… 
+endstream 
+endobj 
+ 
+NOTE 3 The  entry can be used creatively to increase the accuracy of encoded samples 
+Decode
+corresponding to certain values in the range. 
+ BitsPerSample Decode 
+EXAMPLE 3 If the range of the function is [-1.0 1.0] andis 4, the usual value of would be [-1.0 1.0] 
+and the sample values would be integers in the interval [0 15] (as shown in "Figure 8: Mapping with the 
+Decode
+Decode array"). But if these values are used, the midpoint of the range, 0.0, is not represented exactly by any 
+sample value, since it falls halfway between 7 and 8. However, if the  array is [-1.0 +1.1429] (1.1429 
+being approximately equal to 16 ÷ 14) and the sample values supplied are in the interval [0 14], the effective 
+© ISO 2017 – All rights reserved 127 
+
+ISO/DIS 32000-2
+ 
+range of [-1.0 1.0] is achieved, and the range value 0.0 is represented by the sample value 7. ![Figure 8 Mapping with the Decode array  .png](./Storage/Output/Images/Figure 8 Mapping with the Decode array  .png)

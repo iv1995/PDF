@@ -1,0 +1,201 @@
+Table 257: Entries in the DocMDP 
+transform parameters dictionary") shall indicate the author’s specification of which changes to the 
+DocMDP
+document will invalidate the signature. (These changes to the document shall also be prevented if the 
+P
+signature dictionary is referred from the  entry in the permissions dictionary.) A value of 1 for 
+ indicates that the document shall be final; that is, any changes shall invalidate the signature with the 
+exception of subsequent DSS (see 12.8.4.3, "Document Security Store (DSS)") and/or document 
+timestamp (see 12.8.5, "Document timestamp (DTS) dictionary") incremental updates. The values 2 and 
+ DSS 
+3 shall permit modifications that are appropriate for form field or comment workflows as well as 
+subsequentand/or document timestamp incremental updates. 
+12.8.2.2.2Validating signatures that use the DocMDP transform method 
+ 
+ DocMDP 
+To validate a signature that uses thetransform method, a PDF processor first shall verify the 
+byte range digest. Next, it shall verify that any modifications that have been made to the document are 
+permitted by the transform parameters. 
+ ByteRange 
+Once the byte range digest is validated, the portion of the document specified by theentry 
+in the signature dictionary (see "Table 255: Entries in a signature dictionary") is known to correspond 
+to the state of the document at the time of signing. Therefore, PDF processors may compare the signed 
+and current versions of the document to see whether there have been modifications to any objects that 
+are not permitted by the transform parameters. 
+Table 257: Entries in the DocMDP transform parameters dictionary 
+Key Type Value 
+(Optional) 
+Type  
+TransformParams
+ 
+name The type of PDF object that this dictionary describes; if present, shall be
+for a transform parameters dictionary. 
+(Optional) 
+P 
+number The access permissions granted for this document. Changes to a PDF 
+that are incremental updates which include only the data necessary to add DSS’s 
+12.8.4.3, "Document Security Store (DSS)" and/or document timestamps 12.8.5, 
+"Document timestamp (DTS) dictionary" to the document shall not be considered 
+as changes to the document as defined in the choices below. 
+Valid values shall be: 
+1 No changes to the document shall be permitted; any change to the document 
+shall invalidate the signature. 
+2 Permitted changes shall be filling in forms, instantiating page templates, and 
+signing; other changes shall invalidate the signature. 
+3 Permitted changes shall be the same as for 2, as well as annotation creation, 
+deletion, and modification; other changes shall invalidate the signature. 
+Default value: 2. 
+© ISO 2017 – All rights reserved 555 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) 
+V  DocMDP 
+name Thetransform parameters dictionary version. The only valid 
+NOTE This value is a name object, not a number. 
+value shall be 1.2. 
+Default value: 1.2. 
+ 
+12.8.2.3UR 
+ 
+The features described in this subclause are deprecated with PDF 2.0. 
+ UR 
+usage rights 
+ UR3 
+Thetransform method (deprecated in PDF 2.0) shall be used to detect changes to a document that 
+shall invalidate a signature, which is referred to from theentry in the permissions 
+dictionary (see "Table 263: Entries in a permissions dictionary"). The transform parameters dictionary 
+(see "Table 258: Entries in the UR transform parameters dictionary") specifies the additional rights that 
+shall be enabled if the signature is valid. If the signature is invalid because the document has been 
+modified in a way that is not permitted or the identity of the signer is not granted the extended 
+permissions, additional rights shall not be granted. 
+A PDF processor that modifies a PDF, with a UR signature in excess of the rights that are granted by that 
+signature, should remove that signature prior to writing the newly modified PDF. 
+PDF 1.6, deprecated in PDF 2.0
+UR3 ByteRange 
+ (): Theentry in the signature dictionary (see "Table 255: 
+ ByteRange 
+Entries in a signature dictionary") shall be present. First, a PDF processor shall verify the byte range 
+digest to determine whether the portion of the document specified bycorresponds to the 
+state of the document at the time of signing. Next, a PDF processor shall examine the current version of 
+the document to see whether there have been modifications to any objects that are not permitted by the 
+transform parameters. 
+Table 258: Entries in the UR transform parameters dictionary 
+Key Type Value 
+(Optional) 
+Type  
+TransformParams
+ 
+name The type of PDF object that this dictionary describes; if present, shall be
+for a transform parameters dictionary. 
+(Optional) 
+Document 
+FullSave
+array An array of names specifying additional document-wide usage rights 
+(PDF 1.5) 
+for the document. The only defined value shall be , which permits a user to 
+save the document along with modified form and/or annotation data. 
+FullSave 
+Any usage right that permits the document to be modified implicitly shall enable 
+ UR3  
+the right. 
+Annots 
+If the PDF document contains adictionary, only rights specified by the
+FullSave FullSave 
+entry that permit the document to be modified shall implicitly enable the 
+right. For all other rights, shall be explicitly enabled in order to 
+save the document. (Signature rights shall permit saving as part of the signing 
+process but not otherwise). 
+(Optional) 
+Msg 
+text string A text string that may be used to specify any arbitrary information, such 
+as the reason for adding usage rights to the document. 
+© ISO 2017 – All rights reserved 556 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) 
+V  UR 
+name Thetransform parameters dictionary version. The value shall be 
+NOTE This value is a name object, not a number. 
+2.2. If an unknown version is present, no rights shall be enabled. 
+Default value: 2.2. 
+(Optional) 
+Annots 
+(PDF 1.5) CreateDeleteModifyCopyImport
+array An array of names specifying additional annotation-related usage rights 
+Export
+for the document. Valid names are , , , , , 
+and , which shall permit the user to perform the named operation on 
+(PDF 1.6) 
+annotations. 
+The following names are also permitted (see "Table 263: Entries in a 
+Online 
+permissions dictionary"): 
+Permits online commenting; that is, the ability to upload or 
+SummaryView 
+download markup annotations from a server. 
+ 
+Permits a user interface to be shown that summarises the 
+comments (markup annotations) in a document.
+Form 
+(Optional) 
+(PDF 1.5) 
+array An array of names specifying additional form-field-related usage rights 
+Add 
+for the document. Valid names are: 
+Delete 
+Permits the user to add form fields to the document. 
+FillIn 
+Permits the user to delete form fields to the document. 
+Permits the user to save a document on which form fill-in 
+Import 
+has been done. 
+Permits the user to import form data files in FDF, XFDF and 
+Export 
+  
+text (CSV/TSV) formats. 
+SubmitStandalone 
+Permits the user to export form data files asFDFor XFDF. 
+Permits the user to submit form data when the document is 
+SpawnTemplate 
+not open in a Web browser. 
+Permits new pages to be instantiated from named page 
+(PDF 1.6) 
+templates. 
+BarcodePlaintext 
+The following names are also valid: 
+Permits text form field data to be encoded as a plaintext 
+Online  
+two-dimensional barcode. 
+ 
+Permitsthe use of forms-specific online mechanisms such 
+as SOAP or Active Data Object.
+(Optional) 
+Signature 
+Modify
+array An array of names specifying additional signature-related usage rights 
+for the document. The only defined value shall be , which permits a user to 
+apply a digital signature to an existing signature form field or clear a signed 
+signature form field. 
+(Optional; PDF 1.6) 
+EF 
+CreateDeleteModify
+array An array of names specifying additional usage rights for named 
+Import
+embedded files in the document. Valid names shall be , , , and 
+, which shall permit the user to perform the named operation on named 
+embedded files. 
+(Optional; PDF 1.6) false
+P 
+false
+boolean If , any possible restriction may be ignored. Default value: 
+. 
+ 
+12.8.2.4FieldMDP 
+ 
+ FieldMDP 
+Thetransform method shall be used to detect changes to the values of a list of form fields. 
+The entries in its transform parameters dictionary are listed in "

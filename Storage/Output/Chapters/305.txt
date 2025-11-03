@@ -1,0 +1,324 @@
+Table 400: Entries in a separation dictionary" shows the contents of this type of dictionary. 
+Table 400: Entries in a separation dictionary 
+Key Type Value 
+Required
+Pages 
+array () An array of indirect references to page objects representing 
+separations of the same document page. One of the page objects in the array 
+SeparationInfo
+shall be the one with which this separation dictionary is associated, and all of 
+Pages
+them shall have separation dictionaries ( entries) containing 
+ arrays identical to this one. 
+Required
+DeviceColorant 
+Cyan
+name or () The name of the device colourant that shall be used in rendering 
+string this separation, such as  or PANTONE 35 CV. 
+Optional
+ColorSpace  Separation  DeviceN 
+array () An array defining aorcolour space (see 
+8.6.6.4, "Separation colour spaces" and 8.6.6.5, "DeviceN colour spaces"). It 
+DeviceColorant 
+provides additional information about the colour specified by 
+— in particular, the alternate colour space and tint 
+transformation function that shall be used to represent the colourant as a 
+process colour. This information enables an interactive PDF processor to 
+DeviceColorant 
+preview the separation in a colour that approximates the device colourant. 
+  DeviceN 
+The value of  shall match the space’s colourant name (if it is a
+Separationspace) or be one of the space’s colourant names (if it is a
+space). 
+ 
+14.11.5Output intents 
+ 
+PDF 1.4
+Output intents () provide a means for matching the colour characteristics of page content in a 
+OutputIntents
+PDF document with those of a target output device or production environment in which the document 
+will be printed. The optional  entry in the document catalog dictionary (see 7.7.2, 
+"Document catalog dictionary") or a Page dictionary (see 7.7.3.3, "Page objects") holds an array of 
+output intent dictionaries, each describing the colour reproduction characteristics of a possible output 
+S
+device or production condition. The contents of these dictionaries may vary for different devices and 
+conditions. The dictionary’s  entry specifies an output intent subtype that determines the format and 
+meaning of the remaining entries. 
+NOTE 1 This use of multiple output intents allows the production process to be customised to the expected 
+workflow and the specific tools available. For example, one production facility might process files 
+conforming to a recognised standard such as PDF/X-1a which is based upon CMYK processing, 
+while another uses the PDF/A standard to produce RGB output for document distribution on the 
+Web. Each of these workflows would require different sets of output intent information. Multiple 
+output intents also allow the same PDF file to be distributed unmodified to multiple production 
+facilities. The choice of which output intent to use in a given production environment is a matter 
+for agreement between the purchaser and provider of production services. PDF intentionally does 
+not include a selector for choosing a particular output intent from within the PDF file. It 
+nevertheless does offer a provision for specifying a default output intent to be use if no other 
+provisions or agreements are in effect. 
+GTS_PDFXGTS_PDFA1ISO_PDFE1
+At the time of publication, three output intent subtypes in the document catalog dictionary have been 
+defined: , , and . "Table 401: Entries in an output intent dictionary" lists 
+© ISO 2017 – All rights reserved 789 
+
+ISO/DIS 32000-2
+ 
+the keys used in these subtypes of output intent dictionaries. Other subtypes may be added in the 
+future; the names of any such additional subtypes shall conform to the naming guidelines described in 
+Annex E, "PDF Name Registry".  
+NOTE 2  corresponds to the PDF/X format standard (ISO 15930, all parts),  
+corresponds to the PDF/A standard (ISO 19005, all parts), and  corresponds to the 
+GTS_PDFXGTS_PDFA1
+PDF/E standard (ISO 24517, all parts). 
+ISO_PDFE1
+Table 401: Entries in an output intent dictionary 
+Key Type Value 
+Optional
+Type  
+OutputIntent
+ 
+name () The type of PDF object that this dictionary describes; if present, shall be
+for an output intent dictionary. 
+RequiredGTS_PDFXGTS_PDFA1
+S 
+ISO_PDFE1
+name () The output intent subtype. The value may be , , 
+ or a key defined by an ISO 32000 extension. 
+Optional
+OutputCondition 
+text string () A text string concisely identifying the intended output device or 
+production condition in human-readable form. This is the preferred method of 
+defining such a string for presentation to the user. 
+Required
+OutputConditionIdentifier 
+text string () A text string identifying the intended output device or production 
+OutputCondition
+condition in human- or machine-readable form. If human-readable, this string may 
+be used in lieu of an  string for presentation to the user. 
+A typical value for this entry may be the name of a production condition maintained 
+in an industry-standard registry such as the ICC Characterization Data Registry. If 
+the designated condition matches that in effect at production time, the production 
+software is responsible for providing the corresponding ICC profile as defined in the 
+registry. 
+Custom
+ 
+If the intended production condition is not a recognised standard, the value of this 
+ Info 
+DestOutputProfile 
+entry may be  or an application-specific, machine-readable name. The
+entry defines the ICC profile, and theentry shall be used 
+for further human-readable identification. 
+Optional
+RegistryName 
+text string () A text string (conventionally a uniform resource identifier, or URI) 
+OutputConditionIdentifier
+identifying the registry in which the condition designated by 
+ is defined. 
+Required if  does not specify a standard production 
+Info OutputConditionIdentifier
+condition; optional otherwise
+text string (
+) A human-readable text string containing additional 
+information or comments about the intended target device or production condition. 
+Required if  does not specify a standard production 
+DestOutputProfile OutputConditionIdentifier
+condition; optional otherwise
+stream (
+) An ICC profile stream defining the transformation 
+ ICCBased 
+from the PDF document’s source colours to output device colourants. 
+The format of the profile stream is the same as that used in specifying an
+"). The output transformation 
+colour space (see 8.6.5.5, "ICCBased colour spaces
+uses the profile’s "from CIE" information (BToA in ICC terminology); the "to CIE" 
+(AToB) information may optionally be used to remap source colour values to some 
+other destination colour space, such as for screen preview or hardcopy proofing. 
+Optional; PDF 2.0
+DestOutputProfileRef 
+dictionary () A dictionary containing information about one or more 
+referenced ICC profiles. See "Table 402: Entries in a DestOutputProfileRef 
+dictionary". 
+© ISO 2017 – All rights reserved 790 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional, PDF 2.0
+MixingHints   
+DotGain
+dictionary () ADeviceNMixing Hints dictionary ("Table 72: Entries in a 
+NOTE 1 This is because dot gain information is better handled according to ISO 
+DeviceN mixing hints dictionary") which shall not contain a  key. 
+17972.  
+SoliditiesMixingHints
+SpectralData
+In addition, each key in the  dictionary referenced from the  
+dictionary shall not also be present in the  dictionary within the same 
+NOTE 2 This is because it would not be clear which one is to be used, so only 
+output intent. 
+allowing one place where such data is present avoids the conflict. 
+MixingHints
+This part of ISO 32000 intentionally does not specify how a PDF processor may 
+make use of the data provided in the  dictionary, and a PDF processor 
+EXAMPLE 1 The data in the  dictionary could be used in the process 
+MixingHints
+may ignore such data altogether. 
+of rendering or color converting the colourants specified in the 
+ dictionary referenced from the  dictionary. 
+SoliditiesMixingHints
+Optional, PDF 2.0
+SpectralData 
+dictionary () A dictionary where each key represents a colourant name as 
+defined in 8.6.6.4, "Separation colour spaces" and where the value of each key shall 
+be a stream whose contents shall represent CxF/X-4 spot colour characterisation 
+SpotInkCharacterisationSpotInkName
+data that conform to ISO 17972-4:2015. This stream shall contain exactly one 
+ element whose  matches the colourant 
+SpotInkCharacterisation
+7.3.5, "Name objects"). In addition, this stream may contain zero or more 
+name (see 
+NOTE 3 This makes it possible to reference the same CxF/X-4 data stream from 
+further  elements, and/or other data. 
+more than one entry in the  dictionary, as long as for each 
+SpectralData
+such entry there is a matching  entry in the 
+SpotInkCharacterisation
+CxF/X-4 data stream. 
+Solidities
+MixingHints
+In addition, each key in this dictionary shall not also be present in the  
+dictionary referenced from the  dictionary within the same output 
+NOTE 4 This is because it would not be clear which one is to be used, so by only 
+intent. 
+allowing one place where such data is is present it avoids the conflict. 
+SpectralData
+This part of ISO 32000 intentionally does not specify how a PDF processor may 
+make use of the data provided in the  dictionary, and a PDF processor 
+EXAMPLE 2 The data in the  dictionary could be used in the 
+SpectralData
+may ignore such data altogether. 
+process of rendering or color converting the colourants specified in 
+the  dictionary. 
+SpectralData
+Table 402: Entries in a DestOutputProfileRef dictionary 
+Key Type Value 
+Optional, PDF 2.0
+CheckSum 
+string () An MD5 hash consisting of a 16 byte string that shall be computed as 
+NOTE 1 Any MD5 embedded within the ICC profile itself is computed differently and is 
+described in "7.11.4, "Embedded file streams" for the uncompressed ICC profile file. 
+inappropriate for use as the value of the  key. 
+CheckSum
+NOTE 2 This is strictly a checksum, and is not used for security purposes. 
+Optional, PDF 2.0
+ColorantTable 
+ColorantTable
+array () An array of colourant names, each of which shall be encoded as a name object. 
+colorantTableTag
+The order and names of the colourants in  shall be identical to those in the ICC 
+ in the ICC profile. 
+© ISO 2017 – All rights reserved 791 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional, PDF 2.0
+ICCVersion 
+string () The value of bytes 8 to 11, ICC profile version number, from the header of the 
+ICC profile. 
+Optional, PDF 2.0
+ProfileCS 
+string () The four-byte colour space signature of the ICC profile, including any space 
+characters. 
+Optional, PDF 2.0
+ProfileName profileDescriptionTag
+text string () The value of the ICC  from the ICC profile. 
+Optional, PDF 2.0
+URLs 
+array () An array, containing at least one element, where each element shall be an 
+embedded file specification (7.11.4, "Embedded file streams") or a URL file specification (7.11.5, 
+NOTE:  ICC profiles referenced via the  array do not have to conform to the  
+URLsICCBased
+"URL specifications"). 
+requirements of "Table 67: ICC profile types" and thus can also support N-component 
+output profiles. 
+ 
+In addition to the output intent subtype being different in PDF/X, PDF/A and PDF/E, these standards 
+also impose additional requirements on the presence (or absence) of the various keys in the Output 
+ ICCBased 
+Intent dictionary and the values thereof. The ICC profile information in an output intent dictionary 
+supplements rather than replaces that in anor default colour space (see 8.6.5.5, "ICCBased 
+colour spaces" and 8.6.5.6, "Default colour spaces"). Those mechanisms are specifically intended for 
+describing the characteristics of source colour component values. An output intent can be used in 
+conjunction with them to convert source colours to those required for a specific production condition or 
+to enable the display or proofing of the intended output. 
+The data in an output intent dictionary shall be provided for informational purposes only, and PDF 
+processors are free to disregard it. If a PDF processor chooses to respect output intents it shall give 
+priority to a page-level output intent, if present. In particular, there is no expectation that PDF 
+production tools automatically convert colours expressed in the same source colour space to the 
+specified target space before generating output. In some workflows, such conversion may, in fact, be 
+undesirable. 
+NOTE 3 When working with  source colours tagged with a source ICC profile solely for purposes of 
+characterisation, converting such colours from four components to three and back is unnecessary 
+CMYK
+and will result in a loss of fidelity in the values of the black component; see 8.6.5.7, "Implicit 
+conversion of CIE-Based colour spaces" for further discussion.) On the other hand, when source 
+colours are expressed in different base colour spaces — for example, when combining separately 
+generated images on the same PDF page — it is possible (though not required) to use the 
+destination profile specified in the output intent dictionary to convert source colours to the same 
+target colour space. 
+EXAMPLE 1 This Example shows a PDF/X output intent dictionary based on an industry-standard production condition 
+(CGATS TR 001) from the ICC Characterization Data Registry. Example 2 shows one for a custom production 
+condition. 
+<<  /Type /OutputIntent       %Output intent dictionary 
+  /S /GTS_PDFX 
+  /OutputCondition (CGATSTR001 (SWOP)) 
+  
+  /OutputConditionIdentifier (CGATS TR 001) 
+  /RegistryName (http://www.color.org) 
+  /DestOutputProfile 100 0 R  
+>> 
+ 
+© ISO 2017 – All rights reserved 792 
+
+ISO/DIS 32000-2
+ 
+100 0 obj            %ICC profile stream 
+   <</N 4 
+   /Length 1605 
+   /Filter /ASCIIHexDecode 
+  >> 
+stream 
+00 00 02 0C 61 70 … > 
+endstream 
+endobj 
+EXAMPLE 2 
+<<  /Type /OutputIntent       %Output intent dictionary 
+  /S /GTS_PDFX 
+  /OutputCondition (Coated) 
+  /OutputConditionIdentifier (Custom) 
+  /Info (Coated 150lpi) 
+  /DestOutputProfile 100 0 R 
+>> 
+ 
+100 0 obj            %ICC profile stream 
+  << /N 4 
+   /Length 1605 
+   /Filter /ASCIIHexDecode 
+  >> 
+stream 
+00 00 02 0C 61 70…> 
+endstream 
+endobj 
+ 
+14.11.6Trapping support 
+ 
+14.11.6.1General 
+ 
+The features described in this clause are deprecated with PDF 2.0. 
+On devices such as offset printing presses, which mark multiple colourants on a single sheet of physical 
+medium, mechanical limitations of the device can cause imprecise alignment, or misregistration, 
+between colourants. This can produce unwanted visual artifacts such as brightly coloured gaps or bands 
+trap
+around the edges of printed objects. In high-quality reproduction of colour documents, such artifacts 
+are commonly avoided by creating an overlap, called a , between areas of adjacent colour. 
+NOTE "

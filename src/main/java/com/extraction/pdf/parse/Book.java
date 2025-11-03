@@ -149,7 +149,11 @@ public class Book {
 		
 		ArrayList<String> chpt = getBookTitles(pages);
 		
-		ArrayList<String> chapters = Chapters.isolateChapters(all.toString(), chpt);
+		for(String c : chpt) {
+			System.out.println(c);
+		}
+		
+		ArrayList<String> chapters = Chapters.chapters(all.toString(), chpt);
 		
 		for(int i = 0; i < chapters.size(); i++) {
 			File dest = new File("./Storage/Output/Chapters/" + i + ".txt");

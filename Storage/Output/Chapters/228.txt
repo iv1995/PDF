@@ -1,0 +1,78 @@
+Table 273: Entries common to all 
+requirement dictionaries". 
+© ISO 2017 – All rights reserved 586 
+
+ISO/DIS 32000-2
+ 
+Table 273: Entries common to all requirement dictionaries 
+Key Type Description 
+(Optional) 
+Type 
+Requirement
+  
+name The type of PDF object that this dictionary describes. If present, shall 
+befor a requirement dictionary. 
+(Required) 
+S 
+name The type of requirement that this dictionary describes. See "Table 274: 
+Requirement types" for valid values. 
+(Optional; PDF 2.0) 
+V 
+name or The minimum version level of support needed to satisfy the 
+dictionary requirement. See 12.11.4, "Requirement versions". If this entry is absent, 
+determining if the requirement is satisfied shall be done without regard to 
+version number. 
+ 
+Unless otherwise mentioned in the entries in "Table 274: Requirement types", the 
+value shall represent the PDF version.
+(Optional) 
+RH 
+dictionary An alternative requirement handler dictionary or an array of such 
+or array of dictionaries. Each dictionary identifies a requirement handler that shall be 
+S
+dictionaries disabled (not invoked) if the interactive PDF processor can check the 
+requirement specified in the  entry (whether or not it can satisfy that 
+ 
+requirement). See 12.11.5, "Requirement handlers". 
+Default value: an empty array.
+(Optional; PDF 2.0) 
+Penalty 
+integer An integer value that shall be between 0 and 100 (inclusive) 
+that represents the penalty value to be applied when this requirement cannot be 
+met by a PDF processor. 
+Default value is 100. 
+ 
+S
+There are two additional keys that may appear in a requirements dictionary that are specific to certain 
+types of requirements (i.e., value of the  key). These are described in "Table 274: Entries for specific 
+types of requirements". 
+Table 274: Entries for specific types of requirements 
+Key Type Description 
+(Required, if the  key has the value : PDF 2.0) 
+Encrypt S
+dictionary EncryptionAn encryption 
+dictionary ("Table 20: Entries common to all encryption dictionaries") that 
+defines all of the relevant aspects of the encryption method needed to process 
+the document. 
+(Optional, but only used when the  key has the value of 
+DigSig S,  
+ ; PDF 2.0) 
+dictionary DigSigDigSigValidation
+orDigSigMDPA signature dictionary ("Table 255: Entries in a 
+signature dictionary") that defines all of the relevant aspects that are needed in 
+order to process the digital signature requirements. 
+ 
+12.11.2Requirement types 
+ 
+S
+The  entry in a requirement dictionary identifies ("Table 273: Entries common to all requirement 
+dictionaries") a feature of the PDF language or a capability that may be present in a PDF processor. Such 
+entries enable the document to identify feature(s) of PDF beyond those commonly expected, such as 2D 
+graphics rendering, and are required for correct handling in accordance with this standard. In addition, 
+although not required for viewing, a document may also use requirement values that stipulate required 
+© ISO 2017 – All rights reserved 587 
+
+ISO/DIS 32000-2
+ 
+features of interactive PDF processors such as the ability to interact with or modify the document. 
+"

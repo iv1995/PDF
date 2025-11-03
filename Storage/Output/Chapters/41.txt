@@ -1,0 +1,295 @@
+Table 6: Standard filters", which also indicates whether they 
+accept any optional parameters. The following subclauses describe these filters and their parameters (if 
+any) in greater detail, including specifications of encoding algorithms for some filters. 
+© ISO 2017 – All rights reserved 40 
+
+ISO/DIS 32000-2
+ 
+Table 6: Standard filters 
+FILTER name Parameters Description 
+ASCIIHexDecode 
+no Decodes data encoded in an ASCII hexadecimal representation, 
+reproducing the original binary data. 
+ASCII85Decode 
+no Decodes data encoded in an ASCII base-85 representation, 
+reproducing the original binary data. 
+LZWDecode 
+yes Decompresses data encoded using the LZW (Lempel-Ziv-Welch) 
+adaptive compression method, reproducing the original text or 
+binary data. 
+PDF 1.2
+FlateDecode 
+yes () Decompresses data encoded using the zlib/deflate 
+compression method, reproducing the original text or binary data. 
+RunLengthDecode 
+no Decompresses data encoded using a byte-oriented run-length 
+encoding algorithm, reproducing the original text or binary data 
+(typically monochrome image data, or any data that contains 
+frequent long runs of a single byte value). 
+CCITTFaxDecode 
+yes Decompresses data encoded using the CCITT facsimile standard, 
+reproducing the original data (typically monochrome image data at 
+1 bit per pixel). 
+PDF 1.4
+JBIG2Decode 
+yes () Decompresses data encoded using the JBIG2 standard, 
+reproducing the original monochrome (1 bit per pixel) image data 
+(or an approximation of that data). 
+DCTDecode 
+yes Decompresses data encoded using a DCT (discrete cosine 
+transform) technique based on the JPEG standard, reproducing 
+image sample data that approximates the original data. 
+PDF 1.5
+JPXDecode 
+no () Decompresses data encoded using the wavelet-based 
+JPEG2000 standard, reproducing the original image data. 
+PDF 1.5
+Crypt 
+yes () Decrypts data encrypted by a security handler, 
+reproducing the data as it was before encryption. 
+ 
+EXAMPLE 3 The following example shows a stream, containing the marking instructions for a page, that was compressed 
+DecodeParms
+using the Flate compression method and then encoded in ASCII base-85 representation. The optional entry, 
+ is not used in this example, resulting in each filter using its default parameter values. 
+1 0 obj 
+  <</Length 447 
+  /Filter [/ASCII85Decode /FlateDecode] 
+  >> 
+stream 
+GhQ\j_/=ii'LfceJ%/-bPR=PCD-LeMX!Z7pmG\.BSJGfG1MH^`^(F$rh*;h>h/i!XMIl:?" 
+o%Tk8W%<tN0"eRE==1.4N>=Cc@SiF+*s\3`snB>Y$n=^$I[!5nkk"\Wp1;WBoI"]#[bZ=Ou#c 
+QqtW?@3^VI[CftgH<HWngT*U:T12>8lm%+Q=gI^i0+\=:@fc@rHeGG!&rPQYfZ>YdpV`eM._@ Z]46KR;P?sT-tkq-
+Xn4&]=EE2[h<FPBAePZJ9inNNF4R*)W-?\NH1C-GG&?=IC_>b%&++C2jo 
+*B+a7eU&`hee<0<F%-Y]De8<t.o"7p,rtNedLjK.J`kSL@c;BDEq+;F1Y?O)>keNVh+-(1*S= 
+CQ?fQ_I]jWNc*Qe2XR^R#;3:<$\m;6d>@C3egX,+W+VfZ]X4*3r5*tiejhQe:!'jq$^jfSIj% 
+13FL 
+endstream 
+endobj 
+EXAMPLE 4 The following shows the same stream without any filters applied to it. (The stream’s contents are explained 
+© ISO 2017 – All rights reserved 41 
+
+ISO/DIS 32000-2
+ 
+in 7.8.2, "Content streams" and the operators used there are further described in clause 9, "Text".) 
+1 0 obj 
+  <</Length 562>> 
+stream 
+ 2 J 
+ BT 
+  /F1 12 Tf 
+  0 Tc 
+  0 Tw 
+  72.5 712 TD 
+  [(Unfiltered streams can be read easily) 65 (,)] TJ 
+  0 -14 TD 
+  [(b) 20 (ut generally tak) 10 (e more space than \311)] TJ  
+  T* 
+  (compressed streams.) Tj 
+  0 -28 TD 
+  [(Se) 25 (v) 15 (eral encoding methods are a) 20 (v) 25 (ailable in PDF) 80 (.)] TJ 
+  0 -14 TD 
+  (Some are used for compression and others simply) Tj 
+  T* 
+  [(to represent binary data in an) 55 (ASCII format.)] TJ  
+  T* 
+  (Some of the compression filters are \ 
+  suitable) Tj 
+  T* 
+  (for both data and images, while others are \ 
+  suitable only) Tj 
+  T* 
+  (for continuous-tone images.) Tj 
+ ET 
+endstream 
+endobj 
+ 
+7.4.2ASCIIHexDecode filter 
+ 
+ ASCIIHexDecode 
+Thefilter decodes data that has been encoded in ASCII hexadecimal form. ASCII 
+hexadecimal encoding and ASCII base-85 encoding (7.4.3, "ASCII85Decode filter") convert binary data, 
+such as image data or previously compressed data, to 7-bit ASCII characters. 
+NOTE ASCII base-85 encoding is preferred to ASCII hexadecimal encoding. Base-85 encoding is preferred 
+because it is more compact: it expands the data by a factor of 4:5, compared with 1:2 for ASCII 
+hexadecimal encoding. 
+ ASCIIHexDecode 
+Thefilter shall produce one byte of binary data for each pair of ASCII hexadecimal 
+digits (0–9 and A–F or a–f). All white-space characters (see 7.2, "Lexical conventions") shall be ignored. 
+A GREATER-THAN SIGN (3Eh) indicates EOD (End Of Data). Any other characters shall cause an error. If 
+the filter encounters the EOD marker after reading an odd number of hexadecimal digits, it shall behave 
+as if a 0 (zero) followed the last digit. 
+7.4.3ASCII85Decode filter 
+ 
+ ASCII85Decode 
+Thefilter decodes data that has been encoded in ASCII base-85 encoding and produces 
+ ASCII85Decode 
+binary data. The following paragraphs describe the process for encoding binary data in ASCII base-85; 
+thefilter reverses this process. 
+ ASCII85Decode 
+The ASCII base-85 encoding shall use the ASCII characters ! through u ((21h) - (75h)) and the character 
+z (7Ah), with the 2-character sequence ~> (7Eh)(3Eh) as its EOD marker. Thefilter 
+shall ignore all white-space characters (see 7.2, "Lexical conventions"). Any other characters, and any 
+© ISO 2017 – All rights reserved 42 
+
+ISO/DIS 32000-2
+ 
+character sequences that represent impossible combinations in the ASCII base-85 encoding, shall cause 
+an error. 
+b
+ b b b
+Specifically, ASCII base-85 encoding shall produce 5 ASCII characters for every 4 bytes of binary data. 
+1234
+Each group of 4 binary input bytes, (
+), shall be converted to a group of 5 output bytes, 
+12345
+ 𝑐𝑐 𝑐𝑐 𝑐𝑐 𝑐𝑐), using the relation 
+(𝑐𝑐
+321
+1234
+(
+)()()
+𝑏𝑏
++𝑏𝑏+𝑏𝑏+𝑏𝑏
+×256×256×256
+4321
+12345
+)()
+(
++𝑐𝑐+(𝑐𝑐
+=𝑐𝑐×85×85×85)+(𝑐𝑐×85)+𝑐𝑐 
+ 
+In other words, 4 bytes of binary data shall be interpreted as a base-256 number and then shall be 
+converted to a base-85 number. The five bytes of the base-85 number shall then be converted to ASCII 
+characters by adding 33 (the ASCII code for the character !) to each. The resulting encoded data shall 
+contain only printable ASCII characters with codes in the range 33 (!) to 117 (u). As a special case, if all 
+five bytes are 0, they shall be represented by the character with code 122 (z) instead of by five 
+exclamation points (! ! ! ! !). 
+If the length of the data to be encoded is not a multiple of 4 bytes, the last, partial group of 4 shall be 
+n
+used to produce a last, partial group of 5 output characters. Given n (1, 2, or 3) bytes of binary data, the 
+zn
+encoder shall first append 4 -  zero bytes to make a complete group of 4. It shall encode this group in 
+the usual way, but shall not apply the special  case. Finally, it shall write only the first  + 1 characters 
+of the resulting group of 5. These characters shall be immediately followed by the ~> EOD marker. 
+The following conditions shall never occur in a correctly encoded byte sequence: 
+• 
+z
+• 
+The value represented by a group of 5 characters is greater than 232 - 1. 
+• 
+A  character occurs in the middle of a group. 
+7.4.4LZWDecode and FlateDecode filters 
+ 
+A final partial group contains only one character. 
+7.4.4.1General 
+ 
+PDF 1.2
+ LZWDecode  FlateDecode 
+Theand ()filters have much in common and are discussed together 
+in this subclause. They decode data that has been encoded using the LZW or Flate data compression 
+method, respectively: 
+• 
+LZW (Lempel-Ziv-Welch) is a variable-length, adaptive compression method that has been 
+adopted as one of the standard compression methods in Adobe TIFF Revision 6.0; Final (TIFF). For 
+• 
+details on LZW encoding see 7.4.4.2, "Details of LZW encoding". 
+The Flate method is based on the public-domain zlib/deflate compression method, which is a 
+InternetRFC 1950, ZLIB Compressed Data Format SpecificationInternet
+variable-length Lempel-Ziv adaptive compression method cascaded with adaptive Huffman coding. 
+RFC 1951, DEFLATE Compressed Data Format Specification
+It is fully defined in  , and  
+. 
+Both of these methods compress either binary data or ASCII text but (like all compression methods) 
+always produce binary data, even if the original data was text. 
+The LZW and Flate compression methods can discover and exploit many patterns in the input data, 
+whether the data is text or images. As described later, both filters support optional transformation by a 
+© ISO 2017 – All rights reserved 43 
+
+ISO/DIS 32000-2
+ 
+predictor function, which improves the compression of sampled image data. 
+NOTE 1 Because of its cascaded adaptive Huffman coding, Flate-encoded output is usually much more 
+compact than LZW-encoded output for the same input. Flate and LZW decoding speeds are 
+comparable, but Flate encoding is considerably slower than LZW encoding. 
+NOTE 2 Usually, both Flate and LZW encodings compress their input substantially. However, in the worst 
+case (in which no pair of adjacent bytes appears twice), Flate encoding expands its input by no 
+more than 11 bytes or a factor of 1.003 (whichever is larger), plus the effects of algorithm tags 
+added by PNG predictors. For LZW encoding, the best case (all zeros) provides a compression 
+approaching 1365:1 for long files, but the worst-case expansion is at least a factor of 1.125, which 
+can increase to nearly 1.5 in some implementations, plus the effects of PNG tags as with Flate 
+encoding. 
+7.4.4.2Details of LZW encoding 
+ 
+Data encoded using the LZW compression method shall consist of a sequence of codes that are 9 to 12 
+bits long. Each code shall represent a single character of input data (0–255), a clear-table marker (256), 
+an EOD marker (257), or a table entry representing a multiple-character sequence that has been 
+encountered previously in the input (258 or greater). 
+Initially, the code length shall be 9 bits and the LZW table shall contain only entries for the 258 fixed 
+codes. As encoding proceeds, entries shall be appended to the table, associating new codes with longer 
+and longer sequences of input characters. The encoder and the decoder shall maintain identical copies 
+of this table. 
+Whenever both the encoder and the decoder independently (but synchronously) realise that the 
+current code length is no longer sufficient to represent the number of entries in the table, they shall 
+increase the number of bits per code by 1. The first output code that is 10 bits long shall be the one 
+following the creation of table entry 511, and similarly for 11 (1023) and 12 (2047) bits. Codes shall 
+never be longer than 12 bits; therefore, entry 4095 is the last entry of the LZW table. 
+The encoder shall execute the following sequence of steps to generate each output code: 
+ 
+ 
+a)Accumulate a sequence of one or more input characters matching a sequence already present in the table. 
+ 
+b)For maximum compression, the encoder looks for the longest such sequence.  
+ 
+c)Emit the code corresponding to that sequence. 
+d)Create a new table entry for the first unused code. Its value is the sequence found in step (a) followed by 
+the next input character. 
+EXAMPLE 1 Suppose the input consists of the following sequence of ASCII character codes: 
+45 45 45 45 45 65 45 45 45 66 
+ 
+Starting with an empty table, the encoder proceeds as shown in "Table 7: Typical LZW encoding 
+sequence". 
+© ISO 2017 – All rights reserved 44 
+
+ISO/DIS 32000-2
+ 
+Table 7: Typical LZW encoding sequence 
+Input Output code Code added Sequence 
+sequence to table represented by 
+new code 
+– 256 (clear-table) – – 
+45 45 258 45 45 
+45 45 258 259 45 45 45 
+45 45 258 260 45 45 65 
+65 65 261 65 45 
+45 45 45 259 262 45 45 45 66 
+66 66 – – 
+– 257 (EOD) – – 
+ 
+Codes shall be packed into a continuous bit stream, high-order bit first. This stream shall then be 
+divided into bytes, high-order bit first. Thus, codes may straddle byte boundaries arbitrarily. After the 
+EOD marker (code value 257), any leftover bits in the final byte shall be set to 0. 
+In the example above, all the output codes are 9 bits long; they would pack into bytes as follows 
+(represented in hexadecimal): 
+EXAMPLE 2 
+80 0B 60 50 22 0C 0C 85 01 
+ 
+To adapt to changing input sequences, the encoder may at any point issue a clear-table code, which 
+causes both the encoder and the decoder to restart with initial tables and a 9-bit code length. The 
+encoder shall begin by issuing a clear-table code. It shall issue a clear-table code when the table 
+becomes full; it may do so sooner. 
+7.4.4.3LZWDecode and FlateDecode parameters 
+ 
+ LZWDecode  FlateDecode 
+Theandfilters shall accept optional parameters to control the decoding 
+process. 
+NOTE Most of these parameters are related to techniques that reduce the size of compressed sampled 
+images (rectangular arrays of colour values, described in 8.9, "Images"). For example, image data 
+typically changes very little from sample to sample. Therefore, subtracting the values of adjacent 
+samples (a process called differencing), and encoding the differences rather than the raw sample 
+values, can reduce the size of the output data. Furthermore, when the image data contains several 
+colour components (red-green-blue or cyan-magenta-yellow-black) per sample, taking the 
+difference between the values of corresponding components in adjacent samples, rather than 
+between different colour components in the same sample, often reduces the output data size. 
+ LZWDecode  FlateDecode 
+"

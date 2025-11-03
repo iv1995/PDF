@@ -1,0 +1,84 @@
+Table 219: Additional entries specific 
+to a transition action"). Once this transition completes, drawing shall be suspended again. 
+Table 219: Additional entries specific to a transition action 
+Key Type Value 
+(Required) Trans
+S   
+name The type of action that this dictionary describes; shall befor a 
+transition action. 
+(Required) 
+Trans 
+dictionary The transition to use for the update of the display (see "Table 164: 
+Entries in a transition dictionary"). 
+ 
+12.6.4.16Go-To-3D-View actions 
+ 
+go-to-3D-view actionPDF 1.6
+A  () identifies a 3D annotation and specifies a view for the annotation to 
+use (see 13.6, "3D Artwork"). "Table 220: Additional entries specific to a go-to-3D-view action" shows 
+the entries in a go-to-3D-view action dictionary. 
+Table 220: Additional entries specific to a go-to-3D-view action 
+Key Type Value 
+(Required) 
+S  
+GoTo3DView
+ 
+name The type of action that this dictionary describes; shall be
+for a transition action. 
+(Required) 
+TA 
+dictionary The target annotation for which to set the view. 
+© ISO 2017 – All rights reserved 510 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Required) 
+V 
+• 
+(various) The view to use. It may be one of the following types:  
+ VA 
+• 
+A 3D view dictionary (see 13.6.4, "3D views"). 
+An integer specifying an index into thearray in the 3D stream (see 
+ IN  VA 
+• 
+"Table 311: Entries in a 3D stream dictionary"). 
+A text string matching theentry in one of the views in thearray (see 
+(
+FLNP
+• 
+"Table 315: Entries in a 3D view dictionary"). 
+D VA 
+A name that indicates the first (), last ), next (), previous (), or 
+default () entries in thearray; see discussion following this Table. 
+ 
+V
+ VA 
+The  entry selects the view to apply to the annotation specified by TA. This view may be one of the 
+predefined views specified by theentry of the 3D stream (see "Table 311: Entries in a 3D stream 
+dictionary") or a unique view specified here. 
+NP
+If the predefined view is specified by the names  (next) or  (previous), it should be interpreted in the 
+following way: 
+ VA NP
+• 
+ VA 
+When the last view applied was specified by means of thearray,  and  indicate the next and 
+VANP
+• 
+previous entries, respectively, in thearray (wrapping around if necessary). 
+When the last view was not specified by means of , using  or  should result in reverting to the 
+12.6.4.17ECMAScript actions 
+ 
+default view. 
+  
+ 
+Upon invocation of anECMAScriptaction, a PDF processor shall execute a script that is written in the 
+ECMAScriptprogramming language. That script may include the extensions described in ISO 
+Adobe JavaScript 
+22537:2006. Depending on the nature of the script, various interactive form fields in the document may 
+for Acrobat API Reference
+ 
+update their values or change their visual appearances. ISO/IEC 16262:2011 and the 
+ give details on the contents and effects of ECMAScriptscripts. "

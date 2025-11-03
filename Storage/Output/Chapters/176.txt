@@ -1,0 +1,142 @@
+Table 177: Additional entries specific to 
+a free text annotation" shows the annotation dictionary entries specific to this type of annotation. 
+Subclause 12.7.4.3, "Variable text", describes the process of using these entries to generate the 
+© ISO 2017 – All rights reserved 470 
+
+ISO/DIS 32000-2
+ 
+appearance of the text in these annotations. 
+Table 177: Additional entries specific to a free text annotation 
+Key Type Value 
+(Required) 
+Subtype  
+FreeText
+ 
+name The type of annotation that this dictionary describes; shall be
+for a free text annotation. 
+(Required) 
+DA 
+string The default appearance string that shall be used in formatting the 
+text (see 12.5.6.4, "Text annotations"), a free text annotation has no open or 
+closed state; instead of being displayed in a popup window, the text shall be 
+Table 177: Additional entries specific to a free text 
+always visible. "
+ 
+annotation" shows the annotation dictionary entries specific to this type of 
+annotation. 12.7.4.3, "Variable text"
+(Optional; PDF 1.4) quadding 
+Q 
+integer A code specifying the form of (justification) 
+that shall be used in displaying the annotation’s text: 
+0  Left-justified 
+1  Centred 
+2  Right-justified 
+Default value: 0 (left-justified). 
+(Optional; PDF 1.5) AdobeXMLArchitecture,XMLForms 
+RC     
+Architecture (XFA) Specification, version 3.3
+text string or A rich text string (see 
+ 
+text stream ) that shall be used to generate 
+the appearance of the annotation.
+(Optional; PDF 1.5) AdobeXML
+DS   
+Architecture,XMLForms Architecture (XFA) Specification, version 3.3
+  
+text string A default style string, as described in 
+. 
+(Optional; meaningful only ifis FreeTextCallout; PDF 1.6) 
+CL  IT 
+array An array of four 
+23
+xyxyxy
+or six numbers specifying a callout line attached to the free text annotation. 
+1123
+Six numbers [     ] represent the starting, knee point, and ending 
+xyxy
+Figure 79: Free text 
+coordinates of the line in default user space, as shown in "
+1122
+annotation with callout". Four numbers [   ] represent the starting 
+and ending coordinates of the line. 
+Optional; PDF 1.6
+IT 
+ IT 
+name () A name describing the intent of the free text annotation 
+(see also theentry in "Table 172: Additional entries in an annotation 
+dictionary specific to markup annotations"). The following values shall be 
+FreeText 
+valid: 
+The annotation is intended to function as a plain 
+free-text annotation. A plain free-text annotation is 
+FreeTextCallout 
+also known as a text box comment. 
+The annotation is intended to function as a callout. 
+CL
+The callout is associated with an area on the page 
+FreeTextTypeWriter 
+through the callout line specified in . 
+The annotation is intended to function as a click-
+to-type or typewriter object and no callout line is 
+FreeText
+ 
+drawn. 
+Default value: 
+Optional; PDF 1.6
+BE 
+dictionary () A border effect dictionary (see "Table 169: Entries in a 
+ BS 
+border effect dictionary") used in conjunction with the border style 
+dictionary specified by theentry. 
+© ISO 2017 – All rights reserved 471 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; PDF 1.6) 
+RD 
+ Rect 
+rectangle A set of four numbers describing the numerical 
+differences between two rectangles: theentry of the annotation and a 
+rectangle contained within that rectangle. The inner rectangle is where the 
+ BS  BE 
+annotation’s text should be displayed. Any border styles and/or border 
+effects specified byandentries, respectively, shall be applied to the 
+border of the inner rectangle. 
+ Rect 
+The four numbers correspond to the differences in default user space 
+between the left, top, right, and bottom coordinates ofand those of the 
+inner rectangle, respectively. Each value shall be greater than or equal to 0. 
+Rect
+The sum of the top and bottom differences shall be less than the height of 
+Rect
+ 
+, and the sum of the left and right differences shall be less than the width 
+of .
+Optional; PDF 1.6
+BS 
+dictionary () A border style dictionary (see "Table 168: Entries in a 
+border style dictionary") specifying the line width and dash pattern that shall 
+be used in drawing the annotation’s border. 
+Optional; meaningful only ifis present; PDF 1.6
+LE  CL 
+CL
+name () A name specifying the line 
+ending style that shall be used in drawing the callout line specified in . The 
+, y
+x
+name shall specify the line ending style for the endpoint defined by the pairs 
+11
+). "Table 179: Line ending styles" shows the possible line 
+of coordinates (
+None
+ending styles. 
+Default value: . ![Figure 79 Free text annotation with callout  .png](./Storage/Output/Images/Figure 79 Free text annotation with callout  .png)
+Figure 79: Free text annotation with callout 
+ 
+ 
+12.5.6.7Line annotations 
+ 
+line annotationPDF 1.3
+The purpose of a  () is to display a single straight line on the page. When opened, 
+it shall display a popup window containing the text of the associated note. "

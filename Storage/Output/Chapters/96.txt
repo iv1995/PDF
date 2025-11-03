@@ -1,0 +1,121 @@
+Extend = [true true], Background specified 
+Figure 33: Axial shading 
+8.7.4.5.4Type 3 (radial) shadings 
+ 
+Type 3 (radial) shadings define a colour blend that varies between two circles. Shadings of this type are 
+commonly used to depict three-dimensional spheres and cones. Shading dictionaries for this type of 
+shading contain the entries shown in "Table 80: Additional entries specific to a Type 3 shading 
+dictionary", as well as those common to all shading dictionaries (see "Table 77: Entries common to all 
+shading dictionaries"). 
+ Indexed 
+This type of shading shall not be used with ancolour space. 
+Table 80: Additional entries specific to a Type 3 shading dictionary 
+Key Type Value 
+Requiredxyrxyr
+Coords 
+000111
+array () An array of six numbers [     ] specifying the centres and radii of the 
+rr
+starting and ending circles, expressed in the shading’s target coordinate space. The radii 
+01
+ and  shall both be greater than or equal to 0. If one radius is 0, the corresponding 
+circle shall be treated as a point; if both are 0, nothing shall be painted. 
+© ISO 2017 – All rights reserved 230 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optionaltt
+Domain 
+t
+01
+array () An array of two numbers [ ] specifying the limiting values of a parametric 
+t
+variable . The variable is considered to vary linearly between these two values as the 
+colour gradient varies between the starting and ending circles. The variable  becomes 
+the input argument to the colour function(s). Default value: [0 1]. 
+Requirednnn
+Function 
+Function () A 1-in, -out function or an array of  1-in, 1-out functions (where  is the 
+t
+or array number of colour components in the shading dictionary’s colour space). The function(s) 
+Domain
+shall be called with values of the parametric variable  in the domain defined by the 
+shading dictionary’s  entry. Each function’s domain shall be a superset of that of 
+the shading dictionary. If the value returned by the function for a given colour component 
+is out of range, it shall be adjusted to the nearest valid value. 
+Optional
+Extend 
+false false
+array () An array of two boolean values specifying whether to extend the shading 
+beyond the starting and ending circles, respectively. Default value: []. 
+ 
+Coords
+The colour blend is based on a family of blend circles interpolated between the starting and ending 
+circles that shall be defined by the shading dictionary’s  entry. The blend circles shall be defined 
+in terms of a subsidiary parametric variable. The appearance of the shading shall be as if an infinite 
+number of such circles are painted in turn, each with an infinitely narrow stroke. 
+0
+t−t
+s=
+ 
+10
+t−t
+tt
+t
+ 
+Domain
+01
+which varies linearly between 0.0 and 1.0 as  varies across the domain from 
+ to , as specified by the 
+dictionary’s  entry. The centre and radius of each blend circle shall be given by the following 
+parametric equations: 
+c010
+())
+(
+𝑥𝑥
+s=𝑥𝑥 
++s×𝑥𝑥−𝑥𝑥
+c010
+())
+(
+s=𝑦𝑦 
+𝑦𝑦
++s×𝑦𝑦−𝑦𝑦
+010
+)
+()(
+ 
+rs=r+s×r−r
+st
+ 
+Function
+Each value of  between 0.0 and 1.0 determines a corresponding value of , which is passed as the input 
+s
+argument to the function(s) defined by the shading dictionary’s  entry. This yields the 
+Extend 
+component values of the colour with which to paint the corresponding blend circle. For values of  not 
+true
+lying between 0.0 and 1.0, the boolean elements of the shading dictionary’s array determine 
+strue
+whether and how the shading is extended. If the first of the two elements is , the shading shall be 
+sr
+extended beyond the defined starting circle to values of  less than 0.0; if the second element is , the 
+0
+r
+Coords
+shading shall be extended beyond the defined ending circle to  values greater than 1.0 unless radii 
+ 
+1
+ in the  array are both zero. 
+and 
+NOTE 1 Either of the starting and ending circles can be larger than the other. If the shading is extended at 
+the smaller end, the family of blend circles continues as far as that value of  for which the radius 
+of the blend circle  () = 0. If the shading is extended at the larger end, the blend circles continue 
+s
+as far as that  value for which  () is large enough to encompass the shading’s entire bounding 
+rs
+box (). Extending the shading can thus cause painting to extend beyond the areas defined by 
+BBox
+srs
+the two circles themselves. The two examples in the rightmost column of "

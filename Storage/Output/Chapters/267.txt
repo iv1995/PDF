@@ -1,0 +1,49 @@
+Figure 111: 3D 
+Radial Dimension" illustrates two examples of a radial dimension. 
+© ISO 2017 – All rights reserved 670 
+
+ISO/DIS 32000-2
+ ![Figure 111 3D Radial Dimension  .png](./Storage/Output/Images/Figure 111 3D Radial Dimension  .png)
+Figure 111: 3D Radial Dimension 
+ 
+As shown on the left, the basic markup for a radial dimension consists of an arrow pointing to a circle or 
+arc that is connected to a leader line and text label that defines the radius or diameter. If the arrow is 
+positioned such that it is off the underlying arc, as in the figure on the right, an extension arc is 
+generated that clarifies which arc is being measured. 
+For radius measurements, the measure value is preceded by an "R" in the measure string. For diameter 
+values, the measure value is preceded by the diameter symbol (⌀). 
+In addition to the entries in "Table 326: Entries in a 3D measurement/markup dictionary common to all 
+Subtype
+markup subtypes", "Table 330: Additional entries in a 3D measurement/markup dictionary for a 3D 
+RD3
+radial dimension measurement" lists entries defined for a 3D measurement dictionary with a  
+value of  for 3D radial measurement. 
+Table 330: Additional entries in a 3D measurement/markup dictionary for a 3D radial 
+dimension measurement 
+Key Type Value 
+Required; PDF 2.0
+AP 
+array () A three-element array of numbers specifying the 3D annotation 
+plane on which the measurement markup lies. 
+Required; PDF 2.0
+A1 
+array () A three-element array of numbers specifying the model space 
+NOTE 1 It is assumed that this is a position on the 3D model associated with this view. 
+position of the first anchor point, called the circle centre point, in world space. 
+Required; PDF 2.0
+A2 
+array () A three-element array of numbers specifying the model space 
+NOTE 2 It is assumed that this is a position on the 3D model associated with this view. 
+position of the second anchor point, which is a point on the arc, in world space. 
+Optional; PDF 2.0
+N2 
+A2
+text string () The name of the part (or model tree node) associated with anchor 
+point 2 (). The part name is used to verify that the part exists and is visible. If not, 
+the measurement is not displayed. If omitted, no validation occurs. 
+Required for arcs only; PDF 2.0
+A3 
+array () A three-element array of numbers that defines the 
+start of the arc being measured. This entry is required if the geometry being 
+A3
+measured is an arc. See "

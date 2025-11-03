@@ -1,0 +1,65 @@
+Table 53: Line cap styles" shows the possible 
+values. 
+Table 53: Line cap styles 
+Style Appearance Description 
+Butt cap
+0 ![16.png](./Storage/Output/Images/16.png)
+. The stroke shall be squared off at the endpoint of the path. There shall be 
+no projection beyond the end of the path. 
+ 
+Round cap
+1 ![17.png](./Storage/Output/Images/17.png)
+. A semicircular arc with a diameter equal to the line width shall be 
+drawn around the endpoint and shall be filled in. 
+ 
+Projecting square cap
+2 
+. The stroke shall continue beyond the endpoint of the path ![18.png](./Storage/Output/Images/18.png)
+for a distance equal to half the line width and shall be squared off. 
+ 
+ 
+8.4.3.4Line join style 
+ 
+The line join style shall specify the shape to be used at the corners of paths that are stroked. "Table 54: 
+Line join styles" shows the possible values. Join styles shall be significant only at points where 
+consecutive segments of a path connect at an angle; segments that meet or intersect fortuitously shall 
+receive no special treatment. 
+Table 54: Line join styles 
+Style Appearance Description 
+Miter join
+0 
+. The outer edges of the strokes for the two segments shall be extended 
+until they meet at an angle, as in a picture frame. If the segments meet at too sharp 
+an angle (as defined by the miter limit parameter — see 8.4.3.5, "Miter limit"), a ![19.png](./Storage/Output/Images/19.png)
+bevel join shall be used instead. 
+ 
+Round join
+1 
+. An arc of a circle with a diameter equal to the line width shall be drawn 
+around the point where the two segments meet, connecting the outer edges of the 
+strokes for the two segments. This pie-slice-shaped figure shall be filled in, ![20.png](./Storage/Output/Images/20.png)
+producing a rounded corner. 
+ 
+© ISO 2017 – All rights reserved 159 
+
+ISO/DIS 32000-2
+ 
+Style Appearance Description 
+Bevel join
+2 
+. The two segments shall be finished with butt caps (see 8.4.3.3, "Line cap 
+style") and the resulting notch beyond the ends of the segments shall be filled with 
+a triangle. ![21.png](./Storage/Output/Images/21.png)
+ 
+ 
+A zero length dash occurring at a zero length subpath segment does not have a determinable direction 
+and thus is rendered in an implementation-dependent manner if the line caps are non-round. 
+In a closed subpath that is dashed, if the first segment starts with an on-dash and the last segment ends 
+within an on-dash, then they shall be joined. 
+NOTE The definition of round join was changed in PDF 1.5. In rare cases, the implementation of the 
+previous specification could produce unexpected results. 
+8.4.3.5Miter limit 
+ 
+When two line segments meet at a sharp angle and mitered joins have been specified as the line join 
+style, it is possible for the miter to extend far beyond the thickness of the line stroking the path. The 
+miter limit shall impose a maximum on the ratio of the miter length to the line width (see "

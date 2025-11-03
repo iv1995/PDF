@@ -1,0 +1,139 @@
+Table 278: Entries in a rendition MH/BE dictionary") 
+• 
+Media clip data ("Table 287: Entries in a media clip data MH/BE dictionary") 
+• 
+Media clip section ("Table 289: Entries in a media clip section MH/BE dictionary") 
+• 
+Media play parameters ("Table 291: Entries in a media play parameters MH/BE dictionary") 
+13.2.3Renditions 
+ 
+Media screen parameters ("Table 294: Entries in a media screen parameters MH/BE dictionary") 
+13.2.3.1General 
+ 
+There are two types of rendition objects: 
+media rendition
+• 
+A  (see 13.2.3.2, "Media renditions") is a basic media object that specifies what to 
+selector rendition
+• 
+play, how to play it, and where to play it. 
+A  (see 13.2.3.3, "Selector renditions") contains an ordered list of renditions. This 
+list may include other selector renditions, resulting in a tree whose leaves are media renditions. 
+The interactive PDF processor should play the first viable media rendition it encounters in the tree 
+NOTE 1 "Table 277: Entries common to all rendition dictionaries" shows the entries common to all 
+(see 13.2.2, "Viability"). 
+rendition dictionaries. The  entry in a rendition dictionary specifies a name that can be used to 
+N
+access the rendition object by means of name tree lookup (see "Table 32: Entries in the name 
+dictionary").ECMAScriptactions (see 12.6.4.17, "ECMAScript actions"), for example, use this 
+  
+mechanism. 
+Since the values referenced by name trees shall be indirect objects, all rendition objects should be 
+indirect objects. 
+NOTE 2 A rendition dictionary is not required to have a name tree entry. When it does, the interactive PDF 
+processor needs to ensure that the name specified in the tree is kept the same as the value of the  
+N
+entry (for example, if the user interface allows the name to be changed). As a consequence it is 
+recommended that a document not contain multiple renditions with the same name. 
+MH BE 
+C
+The  andentries are dictionaries whose entries may be present in one or the other of them, as 
+described in 13.2.2, "Viability". For renditions, these dictionaries shall have a single entry  (see "Table 
+© ISO 2017 – All rights reserved 595 
+
+ISO/DIS 32000-2
+ 
+278: Entries in a rendition MH/BE dictionary"), whose value shall have a media criteria dictionary 
+specifying a set of criteria that shall be met for the rendition to be considered viable (see "Table 279: 
+Entries in a media criteria dictionary"). 
+MHBE
+The media criteria dictionary behaves somewhat differently than other / entries, as they are 
+MH BE  BE 
+described in 13.2.2, "Viability". The criteria specified by all of its entries shall be met regardless of 
+whether they are in an  or adictionary. The only exception is that if an entry in adictionary is 
+MHBE
+unrecognised by the interactive PDF processor, it shall not affect the viability of the object. If a media 
+MH BE 
+criteria dictionary is present in both  and , the entries in both dictionaries shall be individually 
+evaluated, with  taking precedence (correspondingentries shall be ignored). 
+Table 277: Entries common to all rendition dictionaries 
+Key Type Value 
+Optional
+Type 
+Rendition
+name () The type of PDF object that dictionary describes; if present, shall be 
+ for a rendition object. 
+RequiredMR
+S   
+SR
+  
+name () The type of rendition that this dictionary describes. May befor 
+media rendition orfor selector rendition. The rendition is non-viable if the 
+interactive PDF processor does not recognise the value of this entry. 
+Optional
+N 
+  
+text string () A Unicode-encoded text string specifying the name of the rendition 
+for use in a user interface and for name tree lookup byECMAScriptactions. 
+Optional
+MH 
+dictionary () A dictionary whose entries (see "Table 278: Entries in a rendition 
+MH/BE dictionary") shall be honoured for the rendition to be considered viable. 
+Optional
+BE 
+dictionary () A dictionary whose entries (see "Table 278: Entries in a rendition 
+MH/BE dictionary") shall only be honoured in a "best effort" sense. 
+Table 278: Entries in a rendition MH/BE dictionary 
+Key Type Value 
+Optional
+C 
+dictionary () A media criteria dictionary (see "Table 279: Entries in a media 
+MH BE 
+criteria dictionary"). 
+The media criteria dictionary behaves somewhat differently than other /
+MH BE 
+". The criteria specified by all of its entries 
+entries described in 13.2.2, "Viability
+ BE 
+shall be met regardless of whether it is in a  or adictionary. The only 
+exception is that if an entry in adictionary is unrecognised by the interactive 
+PDF processor, it shall not affect the viability of the object. 
+Table 279: Entries in a media criteria dictionary 
+Key Type Value 
+Optional
+Type 
+MediaCriteria
+name () The type of PDF object that this dictionary describes; if present, shall 
+be  for a media criteria dictionary. 
+Optional
+A 
+boolean () If specified, the value of this entry shall match the user’s preference 
+NOTE 1 Equivalent to SMIL’s systemAudioDesc attribute. 
+for whether to hear audio descriptions in order for this object to be viable. 
+© ISO 2017 – All rights reserved 596 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional
+C 
+boolean () If specified, the value of this entry shall match the user’s preference 
+NOTE 2 Equivalent to SMIL’s systemCaptions attribute. 
+for whether to see text captions in order for this object to be viable. 
+Optional
+O 
+boolean () If specified, the value of this entry shall match the user’s preference 
+for whether to hear audio overdubs in order for this object to be viable. 
+Optional
+S 
+boolean () If specified, the value of this entry shall match the user’s preference 
+for whether to see subtitles in order for this object to be viable. 
+Optional
+R 
+integer () If specified, the system’s bandwidth (in bits per second) shall be 
+greater than or equal to the value of this entry in order for this object to be 
+NOTE 3 Equivalent to SMIL’s systemBitrate attribute. 
+viable. 
+Optional
+D 
+dictionary () A dictionary (see "

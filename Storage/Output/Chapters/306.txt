@@ -1,0 +1,152 @@
+Figure 117: Trapping example" shows an example of trapping. The light and medium grays 
+represent two different colourants, which are used to paint the background and the glyph 
+denoting the letter A. The first figure shows the intended result, with the two colourants properly 
+registered. The second figure shows what happens when the colourants are misregistered. In the 
+third figure, traps have been overprinted along the boundaries, obscuring the artifacts caused by 
+the misregistration. (For emphasis, the traps are shown here in dark gray; in actual practice, their 
+colour will be similar to one of the adjoining colours.) 
+© ISO 2017 – All rights reserved 793 
+
+ISO/DIS 32000-2
+ ![Figure 117 Trapping example  .jpg](./Storage/Output/Images/Figure 117 Trapping example  .jpg)
+Figure 117: Trapping example 
+ 
+Trapping may be implemented by the application generating a PDF file, by some intermediate 
+application that adds traps to a PDF document, or by the raster image processor (RIP) that produces 
+final output. In the last two cases, the trapping process is controlled by a set of trapping instructions, 
+which define two kinds of information: 
+Trapping zones
+• 
+Trapping parameters
+• 
+ within which traps should be created 
+ specifying the nature of the traps within each zone 
+Trapping zones and trapping parameters are discussed fully in subcluases 6.3.2 and 6.3.3, respectively, 
+of the PostScript Language Reference, Third Edition. Trapping instructions are not directly specified in a 
+PDF file (as they are in a PostScript file). Instead, they shall be specified in a job ticket that accompanies 
+the PDF file or is embedded within it.  
+NOTE The primary standard for the format of job tickets is JDF (Job Definition Format) described in the 
+CIP4 document JDF Specification. 
+When trapping is performed before the production of final output, the resulting traps shall be placed in 
+the PDF file for subsequent use. The traps themselves shall be described as a content stream in a trap 
+network annotation (see 14.11.6.2, "Trap network annotations"). The stream dictionary may include 
+additional entries describing the method that was used to produce the traps and other information 
+about their appearance. 
+14.11.6.2Trap network annotations 
+ 
+PDF 1.3
+A complete set of traps generated for a given page under a specified set of trapping instructions is called 
+a trap network (). It is a form XObject containing graphics objects for painting the required traps 
+on the page. A page may have more than one trap network based on different trapping instructions, 
+presumably intended for different output devices. All of the trap networks for a given page shall be 
+ Annots 
+contained in a single trap network annotation (see 12.5, "Annotations"). There may be at most one trap 
+network annotation per page, which shall be the last element in the page’sarray (see 7.7.3.3, 
+"Page objects"). This ensures that the trap network shall be printed after all of the page’s other contents. 
+The form XObject defining a trap network shall be specified as an appearance stream in the N (normal) 
+N
+entry of the trap network annotation’s appearance dictionary (12.5.5, "Appearance streams"). If more 
+ AS 
+than one trap network is defined for the same page, the  entry holds a subdictionary containing the 
+alternate trap networks, each identified by an arbitrary key. The(appearance state) entry in the 
+annotation dictionary designates one of them as the current trap network to be displayed or printed. 
+© ISO 2017 – All rights reserved 794 
+
+ISO/DIS 32000-2
+ 
+NOTE 1 The trap network annotation’s appearance dictionary can include  (rollover) or  (down) 
+entries, but appearances defined in either of these entries are never printed. 
+RD
+TrapNet AP  AS 
+Like all annotations, a trap network annotation shall be defined by an annotation dictionary (see 12.5.2, 
+F
+"Annotation dictionaries"); its annotation type is . The(appearances),(appearance 
+state), and  (flags) entries (which ordinarily are optional) shall be present, with the Print and 
+ReadOnly flags set and all others clear (see 12.5.3, "Annotation flags"). "Table 403: Additional entries 
+specific to a trap network annotation" shows the additional annotation dictionary entries specific to this 
+type of annotation. 
+VersionAnnotStates
+Version
+The  and  entries, if present, shall be used to detect changes in the content of a 
+page that might require regenerating its trap networks. The  array identifies elements of the 
+Version
+page’s content that might be changed by an editing application and thus invalidate its trap networks. 
+Because there is at most one  array per trap network annotation (and thus per page), any PDF 
+writer that generates a new trap network shall also verify the validity of existing trap networks by 
+enumerating the objects identified in the array and verifying that the results exactly match the array’s 
+current contents. Any trap networks found to be invalid shall be regenerated. 
+LastModifiedVersion
+LastModified
+The  entry may be used in place of the  array to track changes to a page’s trap 
+VersionAnnotStatesLastModified
+network. (The trap network annotation shall include either a  entry or the combination of 
+ and , but not all three.) If the modification date in the  entry of the 
+page object (see 7.7.3.3, "Page objects") is more recent than the one in the trap network annotation 
+dictionary, the page’s trap networks are invalid and shall be regenerated. 
+NOTE 2 Not all editing applications correctly maintain these modification dates. 
+This method of tracking trap network modifications may be used reliably only in a controlled workflow 
+environment where the integrity of the modification dates is assured. 
+Table 403: Additional entries specific to a trap network annotation 
+Key Type Value 
+RequiredTrapNet
+Subtype   
+name () The type of annotation that this dictionary describes; shall befor a 
+trap network annotation. 
+Required if  and  are absent; shall be absent if  and 
+LastModified VersionAnnotStatesVersion
+ are present; PDF 1.4
+AnnotStates
+date (
+) The date and time (see 7.9.4, "Dates") when the trap 
+network was most recently modified. 
+Required if  is present; shall be absent if  is present
+Version AnnotStatesLastModified
+array () An 
+unordered array of all objects present in the page description at the time the trap 
+networks were generated and that, if changed, could affect the appearance of the page. If 
+Contents
+• 
+present, the array shall include the following objects: 
+All content streams identified in the page object’s  entry (see 7.7.3.3, 
+• 
+"Page objects") 
+All resource objects (other than procedure sets) in the page’s resource dictionary 
+• 
+(see 7.8.3, "Resource dictionaries") 
+All resource objects (other than procedure sets) in the resource dictionaries of 
+• 
+any form XObjects on the page (see 8.10, "Form XObjects") 
+All OPI dictionaries associated with XObjects on the page (see 14.11.7, "
+Open 
+prepress interface (OPI)"). This entry is deprecated in PDF 2.0. 
+© ISO 2017 – All rights reserved 795 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Required if  is present; shall be absent if  is present
+AnnotStates VersionLastModified
+ AS 
+array () An array of 
+name objects representing the appearance states (value of theentry) for annotations 
+ Annots 
+associated with the page. The appearance states shall be listed in the same order as the 
+ AS 
+7.7.3.3, "Page objects"). For an annotation 
+annotations in the page’sarray (see 
+with noentry, the corresponding array element should be null. No appearance state 
+shall be included for the trap network annotation itself. 
+Optional
+FontFauxing 
+array () An array of font dictionaries representing fonts that were fauxed (replaced by 
+substitute fonts) during the generation of trap networks for the page. 
+ 
+14.11.6.3Trap network appearances 
+ 
+N
+Each entry in the  (normal) subdictionary of a trap network annotation’s appearance dictionary holds 
+an appearance stream defining a trap network associated with the given page. Like all appearances, a 
+trap network is a stream object defining a form XObject (see 8.10, "Form XObjects"). The body of the 
+stream contains the graphics objects needed to paint the traps making up the trap network. Its 
+dictionary entries include, besides the standard entries for a form dictionary, the additional entries 
+shown in "

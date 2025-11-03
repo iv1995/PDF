@@ -1,0 +1,109 @@
+Figure 25: Component transformations in a CIE-based A colour space" illustrates the 
+transformations of the  component to , , and  components of the CIE 1931  space. ![Figure 25 Component transformations in a CIE-based A colour space  .png](./Storage/Output/Images/Figure 25 Component transformations in a CIE-based A colour space  .png)
+Figure 25: Component transformations in a CIE-based A colour space 
+ 
+A
+ CalGray 
+Acolour space shall be a CIE-based  colour space with only one transformation stage instead 
+of two. In this type of space, A represents the gray component of a calibrated gray space. This 
+component shall be in the range 0.0 to 1.0; component values falling outside that range shall be adjusted 
+© ISO 2017 – All rights reserved 182 
+
+ISO/DIS 32000-2
+ 
+A
+to the nearest valid value without error indication. The decoding function (denoted by "Decode " in 
+Gamma
+"Figure 25: Component transformations in a CIE-based A colour space") is a gamma function whose 
+A
+coefficient shall be specified by the  entry in the colour space dictionary (see "Table 62: Entries 
+WhitePoint
+in a CalGray colour space dictionary"). The transformation matrix denoted by "Matrix " in the figure is 
+LMNLMN
+derived from the dictionary’s  entry, as described below. Since there is no second 
+transformation stage, "Decode " and "Matrix " shall be implicitly taken to be identity 
+transformations. 
+Table 62: Entries in a CalGray colour space dictionary 
+Key Type Value 
+WWW
+RequiredX
+WhitePoint 
+array () An array of three numbers [ Y Z] specifying the tristimulus value, 
+WWW
+X
+in the CIE 1931 XYZ space, of the diffuse white point; see 8.6.5.3, "CalRGB colour 
+spaces", for further discussion. The numbers  and Z shall be positive, and Y 
+shall be equal to 1.0. 
+BBB
+OptionalXYZ
+BlackPoint 
+array () An array of three numbers [  ] specifying the tristimulus value, in 
+the CIE 1931 XYZ space, of the diffuse black point; see 8.6.5.3, "CalRGB colour 
+spaces", for further discussion. All three of these numbers shall be non-negative. 
+Default value: [0.0 0.0 0.0]. 
+OptionalGG
+Gamma 
+number () A number  defining the gamma for the gray (A) component.  shall be 
+positive and is generally greater than or equal to 1. Default value: 1. 
+ 
+GammaWhitePoint
+The transformation defined by the  and  entries is 
+ 
+𝐺𝐺
+ 
+𝑊𝑊
+×𝐴𝐴
+𝑋𝑋=𝑚𝑚=𝑋𝑋
+𝐺𝐺
+ 
+𝑊𝑊
+×𝐴𝐴
+𝑌𝑌=𝑀𝑀=𝑌𝑌
+𝐺𝐺
+𝑊𝑊
+×𝐴𝐴
+𝑍𝑍=𝑁𝑁=𝑍𝑍
+A
+ 
+L, MN
+In other words, the  component shall be first decoded by the gamma function, and the result shall be 
+L, MN
+multiplied by the components of the white point to obtain the , and  components of the 
+X, YZ
+intermediate representation. Since there is no second stage, the , and  components shall also be 
+the , and  components of the final representation. 
+ CalGray 
+YXYZ
+EXAMPLE 1 The examples in this subclause illustrate interesting and useful special cases ofspaces. This example 
+establishes a space consisting of the  dimension of the CIE 1931  space with the CCIR XA/11– 
+recommended D65 white point. 
+[/CalGray 
+   <</WhitePoint [0.9505 1.00 1.0890]>> 
+] 
+EXAMPLE 2 This example establishes a calibrated gray space with the CCIR XA/11–recommended D65 white point and 
+opto-electronic transfer function. 
+[/CalGray 
+   <</WhitePoint [0.9505 1.00 1.0890] 
+     /Gamma 2.222 
+   >> 
+] 
+ 
+© ISO 2017 – All rights reserved 183 
+
+ISO/DIS 32000-2
+ 
+8.6.5.3CalRGB colour spaces 
+ 
+ABC
+ CalRGB 
+, A, B, C
+Acolour space is a CIE-based  colour space with only one transformation stage instead of 
+two. In this type of spaceand  represent calibrated red, green, and blue colour values. These three 
+colour components shall be in the range 0.0 to 1.0; component values falling outside that range shall be 
+ABC
+adjusted to the nearest valid value without error indication. The decoding functions (denoted by 
+Gamma
+"Decode " in "Figure 24: Component transformations in a CIE-based ABC colour space") are gamma 
+functions whose coefficients shall be specified by the  entry in the colour space dictionary (see 
+ABC
+"

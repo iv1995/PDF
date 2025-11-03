@@ -1,0 +1,154 @@
+Table 155: Entries in a collection field dictionary" describes the entries in a 
+collection field dictionary. 
+© ISO 2017 – All rights reserved 439 
+
+ISO/DIS 32000-2
+ 
+Table 155: Entries in a collection field dictionary 
+Key Type Value 
+Optional
+Type 
+CollectionField
+name () The type of PDF object that this dictionary describes; if 
+present, shall be  for a collection field dictionary. 
+Required
+Subtype 
+name () The subtype of collection field or file-related field that this 
+dictionary describes. This entry identifies the type of data that shall be 
+stored in the field. 
+The following values identify the types of fields in the collection item or 
+S
+collection subitem dictionary: 
+D
+ A text field. The field data shall be stored as a PDF text string. 
+ A date field. The field data shall be stored as a PDF date string 
+N
+(see 7.9.4, "Dates"). 
+ A number field. The field data shall be stored as a PDF number. 
+F
+The following values identify the types of file-related fields: 
+ UF 
+ The field data shall be the file name of the 
+embedded file stream, as identified by the
+F
+entry of the file specification, if present; 
+otherwise by the  entry of the file specification 
+(see "Table 43: Entries in a file specification 
+Desc
+dictionary"). 
+Desc
+  
+ The field data shall be the description of the 
+embedded file stream, as identified by the
+entry in the file specification dictionary (see 
+"Table 43: Entries in a file specification 
+ModDate
+dictionary"). 
+ 
+ The field data shall be the modification date of 
+ModDate 
+the embedded file stream, as identified by the
+entry in the embedded file parameter 
+dictionary (see "Table 45: Entries in an 
+CreationDate
+embedded file parameter dictionary"). 
+ 
+ The field data shall be the creation date of the 
+CreationDate
+ 
+embedded file stream, as identified by the
+entry in the embedded file 
+parameter dictionary (see "Table 45: Entries in 
+Size
+an embedded file parameter dictionary"). 
+Size
+ The field data shall be the size of the embedded 
+embedded
+file, as identified by the  entry in the 
+ file parameter dictionary (see "Table 
+45: Entries in an embedded file parameter 
+CompressedSize(PDF 2.0) 
+dictionary"). 
+ The field data is the length of the 
+Length
+embedded file stream, as identified by the 
+ entry in the embedded file stream 
+ 
+dictionary (see 7.11.4, "Embedded file streams"), 
+and the two values shall be identical.
+Required
+N 
+text string () The textual field name that shall be presented to the user by 
+the interactive PDF processor. 
+Optional
+O 
+integer () The relative order of the field name in the user interface. 
+Fields shall be sorted by the interactive PDF processor in ascending 
+order. 
+Optional
+V 
+true
+boolean () The initial visibility of the field in the user interface. Default 
+value: . 
+Optional
+E 
+false
+boolean () A flag indicating whether the interactive PDF processor 
+should provide support for editing the field value. Default value: . 
+© ISO 2017 – All rights reserved 440 
+
+ISO/DIS 32000-2
+ 
+ 
+collection sort dictionary
+A  identifies the fields that shall be used to sort items in the collection. The type 
+of sorting depends on the type of data: 
+• 
+NOTE 3 Lexical ordering is an implementation dependency for interactive PDF processors. 
+Text strings shall be ordered lexically from smaller to larger, if ascending order is specified. 
+• 
+• 
+Numbers shall be ordered numerically from smaller to larger, if ascending order is specified. 
+Dates shall be ordered from oldest to newest, if ascending order is specified. 
+"Table 156: Entries in a collection sort dictionary" describes the entries in a collection sort dictionary. 
+Table 156: Entries in a collection sort dictionary 
+Key Type Value 
+Optional
+Type 
+CollectionSort
+name () The type of PDF object that this dictionary describes; if present, shall be 
+ for a collection sort dictionary. 
+Required
+S 
+name or () The name or names of fields that the interactive PDF processor shall use 
+array to sort the items in the collection. If the value is a name, it identifies a field described 
+in the parent collection dictionary. 
+If the value is an array, each element of the array shall be a name that identifies a 
+field described in the parent collection dictionary. The array form shall be used to 
+allow additional fields to contribute to the sort, where each additional field shall be 
+used to break ties. More specifically, if multiple collection item dictionaries have the 
+same value for the first field named in the array, the values for successive fields 
+ 
+named in the array shall be used for sorting, until a unique order is determined or 
+until the named fields are exhausted.
+Optional
+A 
+true
+boolean or () If the value is a boolean, it specifies whether the interactive PDF processor 
+false
+array shall sort the items in the collection in ascending order () or descending order 
+S
+(). If the value is an array, each element of the array shall be a boolean value that 
+specifies whether the entry at the same index in the  array shall be sorted in 
+AS
+ascending or descending order. 
+A
+If the number of entries in the  array is larger than the number of entries in the  
+ASA
+array the extra entries in the  array shall be ignored. If the number of entries in the 
+true
+ array is less than the number of entries in the  array the missing entries in the  
+true
+array shall be assumed to be . 
+Default value: . 
+ 

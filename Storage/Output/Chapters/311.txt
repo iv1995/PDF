@@ -1,0 +1,244 @@
+ 
+ 
+Operators in Type 4 Functions 
+(Normative) 
+B.1General 
+ 
+This annex summarises the PostScript language operators that may appear in a Type 4 function, as 
+PostScript Language Reference
+discussed in 7.10.5, "Type 4 (PostScript calculator) functions". For details on these operators, see the 
+, Third Edition. 
+B.2Arithmetic operators 
+ 
+numnumsum numnum
+add  
+   
+121 2
+numnumdifference numnum
+sub 
+Return plus 
+   
+121 2
+numnumproduct numnum
+mul 
+Return minus 
+   
+121 2
+numnumquotient  numnum
+div 
+Return times 
+   
+121 2
+intintquotientintint
+idiv 
+Return divided by 
+ 
+1 21 2 
+intintremainderintint
+mod 
+ Return divided by as an integer 
+  
+1 21 2
+numnumnum
+neg 
+ Return remainder after dividing by 
+   
+121
+numnumnum
+abs 
+Return negative of 
+   
+121
+numnumnum
+ceiling 
+Return absolute value of 
+   
+121
+numnumnum
+floor 
+Return ceiling of 
+   
+121
+numnumnum
+round 
+Return floor of 
+  
+121 
+numnumnum
+truncate 
+Round to nearest integer 
+   
+121
+num real  num
+sqrt 
+Remove fractional part of 
+anglereal angle
+sin 
+ Return square root of  
+anglereal angle
+cos 
+ Return sine of  degrees 
+num denangle num den
+atan 
+ Return cosine of  degrees 
+base exponentreal 
+exp 
+ Return arc tangent of / in degrees 
+numreal e
+ln 
+ Raise base to exponent power 
+num real  
+log 
+ Return natural logarithm (base ) 
+numint integer 
+ cvi 
+Return common logarithm (base 10)
+num real real
+cvr 
+Convert to 
+Convert to  
+ 
+ 
+© ISO 2017 – All rights reserved 815 
+
+ISO/DIS 32000-2
+ 
+B.3Relational, boolean, and bitwise operators 
+ 
+anyanybool
+eq
+ 
+1  2
+anyanybool
+ne
+  Test equal 
+ 
+1  2
+numnumbool
+gt
+  Test not equal 
+ 
+1  2
+numnumbool
+ge
+  Test greater than 
+ 
+1  2
+numnumbool
+lt
+  Test greater than or equal 
+ 
+1  2
+numnumbool
+le
+  Test less than 
+ 
+1  2
+boolintboolintboolint
+and
+  Test less than or equal 
+  
+1 1  2 23 3
+boolintboolintboolint
+or
+| | |  Perform logical | bitwise and 
+  
+1 1  2 23 3
+boolintboolintboolint
+xor
+| | |  Perform logical | bitwise inclusive or 
+  
+1 1  2 23 3
+boolintboolint
+not
+| | |  Perform logical | bitwise exclusive or 
+ 
+1 1 2 2
+intintint
+bitshift
+|  |  Perform logical | bitwise not 
+ 
+1  21 
+truetrue
+true 
+shift  Perform bitwise shift of (positive is left) 
+false false
+false 
+–   Return boolean value  
+– Return boolean value  
+B.4Conditional operators 
+ 
+boolexprexprbool
+if  
+boolexpr1expr2expr1boolexpr2
+ifelse 
+ {  } – Execute  if  is true 
+ {  }  {  } – Execute  if  is true,  if false 
+B.5Stack operators 
+ 
+any
+pop
+any  anyanyany
+exch
+  – Discard top element 
+1 221
+anyanyany
+dup
+     Exchange top two elements 
+anyanynanyanyanyanyn
+copy
+    Duplicate top element 
+1 n1n1n
+anyanynanyanyany
+index
+…      …    …  Duplicate top  elements 
+n0n0n
+nnjn
+anyanyn janyanyanyanyn
+roll
+ …      …    Duplicate arbitrary element 
+-10(j-1) mod n0  mod 
+ …      …   …  Roll  elements up j times   
+  
+© ISO 2017 – All rights reserved 816 
+
+ISO/DIS 32000-2
+ 
+ ![77.png](./Storage/Output/Images/77.png)
+ 
+ 
+Advice on Maximising Portability 
+(Informative) 
+C.1General 
+ 
+In general, this PDF standard does not restrict the size or quantity of things described in the PDF file 
+format, such as numbers, arrays, images, and so on. However, a particular PDF processor running on a 
+particular device and in a particular operating environment will always have practical limits. When a 
+PDF processor encounters a PDF construct that exceeds one of these internal limits or performs a 
+computation whose intermediate results exceeds a limit, an error occurs. To avoid this situation, and to 
+ensure portability of PDF documents across a wide range of devices, this annex provides guidance to 
+both PDF writers and PDF processors. 
+This annex highlights some aspects of this PDF standard which can cause portability issues across PDF 
+processors and devices, however this annex is not intended as a detailed implementation guide. Issues 
+can be classified into three main classes: 
+Architectural limits Memory limits File limits 
+The hardware on which a PDF The amount of memory available to a PDF files may be very large in size and 
+processor executes imposes certain PDF processor limits the number of may exceed the capacity of some PDF 
+constraints. For example, an integer is memory-consuming objects that can be processors. Transmission of PDF 
+usually represented in 32 bits, limiting held simultaneously. documents across devices may also 
+the range of allowed integers. In cause corruption so PDF writers are 
+ 
+addition, the design of the software encouraged to follow some simple 
+may impose other constraints, such as formatting guidelines when generating 
+a limit to the number of elements in an PDF output. 
+array or string. 
+ 
+ 
+Because of these limits and specific PDF processor behaviours, implementers are encouraged not to rely 
+on just one specific PDF processor to determine the validity and suitability of their PDF output. Further 
+information may be found at https://reference.pdfa.org/iso/32000
+. 
+NOTE Some PDF subset standards mandate specific limits. 
+C.2Architectural limits 
+ 
+"

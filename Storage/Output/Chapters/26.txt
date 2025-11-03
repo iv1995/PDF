@@ -1,0 +1,6 @@
+number tree 
+similar to a dictionary that associates keys and values but the keys in a number tree are integers and are 
+ordered 
+4.43 
+ 
+numeric 

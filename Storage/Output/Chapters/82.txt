@@ -1,0 +1,200 @@
+Table 63: Entries in a CalRGB colour space dictionary"). The transformation matrix denoted by "Matrix 
+LMN
+Matrix
+" in "Figure 24: Component transformations in a CIE-based ABC colour space" shall be defined by 
+LMN
+the dictionary’s  entry. Since there is no second transformation stage, "Decode " and "Matrix 
+" shall be implicitly taken to be identity transformations. 
+Table 63: Entries in a CalRGB colour space dictionary 
+Key Type Value 
+WWW
+RequiredXYZ
+WhitePoint 
+XYZ
+array () An array of three numbers [  ] specifying the tristimulus value, in the CIE 
+WWW
+XY
+1931  space, of the diffuse white point; see below for further discussion. The numbers 
+ and Z shall be positive, and  shall be equal to 1.0. 
+KKK
+OptionalX Y Z
+BlackPoint 
+XYZ
+array () An array of three numbers [] specifying the tristimulus value, in the CIE 
+1931  space, of the diffuse black point; see below for further discussion. All three of 
+these numbers shall be non-negative. Default value: [0.0 0.0 0.0]. 
+OptionalGGG
+Gamma 
+ABC
+RGB
+array () An array of three numbers [  ] specifying the gamma for the red, green, 
+and blue (, , and ) components of the colour space. Default value: [1.0 1.0 1.0]. 
+AAABBBCCC
+OptionalXY Z X Y Z X Y Z
+Matrix 
+ABC
+array () An array of nine numbers [ ] specifying the linear 
+XYZ
+interpretation of the decoded , , and  components of the colour space with respect to the 
+final  representation. Default value: the identity matrix [1 0 0 0 1 0 0 0 1]. 
+ 
+WhitePointBlackPoint
+The  and  entries in the colour space dictionary shall control the overall effect of 
+WhitePointBlackPoint
+the CIE-based gamut mapping function described in subclause 10.3, "CIE-Based colour to device colour". 
+Typically, the colours specified by  and  shall be mapped to the nearly lightest 
+and nearly darkest achromatic colours that the output device is capable of rendering in a way that 
+preserves colour appearance and visual contrast. 
+WhitePoint
+BlackPoint
+ represents the diffuse achromatic highlight, not a specular highlight. Specular highlights, 
+achromatic or otherwise, are often reproduced lighter than the diffuse highlight.  represents 
+WhitePointBlackPoint
+the diffuse achromatic shadow; its value is limited by the dynamic range of the input device. In images 
+produced by a photographic system, the values of  and  vary with exposure, 
+system response, and artistic intent; hence, their values are image-dependent. 
+GammaMatrix CalRGB 
+The transformation defined by the  and  entries in thecolour space dictionary 
+shall be 
+ 
+𝑅𝑅𝐺𝐺𝐵𝐵
+𝐺𝐺𝐺𝐺𝐺𝐺
+ 
+𝐴𝐴𝐵𝐵𝐶𝐶
+𝑋𝑋=𝑚𝑚=𝑋𝑋
+×𝐴𝐴+𝑋𝑋×𝐵𝐵+𝑋𝑋×𝐶𝐶
+𝑅𝑅𝐺𝐺𝐵𝐵
+𝐺𝐺𝐺𝐺𝐺𝐺
+ 
+𝐴𝐴𝐵𝐵𝐶𝐶
+×𝐴𝐴+𝑌𝑌×𝐵𝐵+𝑌𝑌×𝐶𝐶
+𝑌𝑌=𝑀𝑀=𝑌𝑌
+𝑅𝑅𝐺𝐺𝐵𝐵
+𝐺𝐺𝐺𝐺𝐺𝐺
+𝐴𝐴𝐵𝐵𝐶𝐶
+×𝐴𝐴+𝑍𝑍×𝐵𝐵+𝑍𝑍×𝐶𝐶
+𝑍𝑍=𝑁𝑁=𝑍𝑍
+© ISO 2017 – All rights reserved 184 
+ 
+
+ISO/DIS 32000-2
+ 
+A, BC
+L, MN
+The , and  components shall first be decoded individually by the gamma functions. The results shall 
+X, 
+be treated as a three-element vector and multiplied by Matrix (a 3-by-3 matrix) to obtain the , and  
+YZ
+components of the intermediate representation. Since there is no second stage, these shall also be the 
+, and  components of the final representation. 
+ CalRGB 
+EXAMPLE The following shows an example of acolour space for the CCIR XA/11–recommended D65 white point 
+with 1.8 gammas and Sony Trinitron phosphor chromaticities. 
+[/CalRGB 
+   <</WhitePoint [0.9505 1.00 1.0890] 
+    /Gamma [1.8000 1.8000 1.8000] 
+    /Matrix [0.4497 0.2446 0.0252 
+       0.3163 0.6720 0.1412 
+       0.1845 0.0833 0.9227 
+       ] 
+   >> 
+] 
+ CalRGB 
+RRGG
+x
+yxyxy
+The parameters of acolour space may be specified in terms of the CIE 1931 chromaticity 
+WW
+x
+yRGBR, G, BR, G
+BB
+coordinates (
+,  ), (,  ), (,  ) of the red, green, and blue phosphors, respectively, and the 
+B
+chromaticity (
+,  ) of the diffuse white point corresponding to a linear  value (), where , 
+Matrix
+and  should all equal 1.0. The standard CIE notation uses lowercase letters to specify chromaticity 
+WhitePoint
+coordinates and uppercase letters to specify tristimulus values. Given this information,  and 
+ shall be calculated as follows: 
+𝑊𝑊𝐺𝐺𝐵𝐵𝑅𝑅𝑅𝑅𝐵𝐵𝐺𝐺𝑅𝑅𝐺𝐺𝐵𝐵
+()()()
+𝑧𝑧=𝑦𝑦
+×�𝑥𝑥−𝑥𝑥 ×𝑦𝑦−𝑥𝑥−𝑥𝑥 ×𝑦𝑦+𝑥𝑥−𝑥𝑥 ×𝑦𝑦 � 
+ 
+𝑅𝑅𝐺𝐺𝐵𝐵𝑊𝑊𝑊𝑊𝐵𝐵𝐺𝐺𝑊𝑊𝐺𝐺𝐵𝐵
+(
+)()()
+𝑦𝑦𝑥𝑥
+−𝑥𝑥 ×𝑦𝑦−𝑥𝑥−𝑥𝑥 ×𝑦𝑦+𝑥𝑥−𝑥𝑥 ×𝑦𝑦
+𝐴𝐴
+𝑌𝑌
+=× 
+𝑅𝑅𝑧𝑧
+ 
+RR
+𝑥𝑥1−𝑥𝑥
+𝐴𝐴𝐴𝐴AA
+RR
+𝑦𝑦𝑦𝑦
+𝑋𝑋=𝑌𝑌×  Z=Y×�−1� 
+ 
+GRBWWBRWRB
+()))
+((
+𝑦𝑦𝑥𝑥×𝑦𝑦×𝑦𝑦×𝑦𝑦
+−𝑥𝑥−𝑥𝑥−𝑥𝑥+𝑥𝑥−𝑥𝑥
+B
+Y=× 
+G𝑧𝑧
+ 
+GG
+𝑥𝑥1−𝑥𝑥
+BBBB
+GG
+𝑦𝑦𝑦𝑦
+X=Y× Z=Y×�−1� 
+ 
+BRGWWGRWRG
+()))
+((
+𝑦𝑦𝑥𝑥×𝑦𝑦×𝑦𝑦×𝑦𝑦
+−𝑥𝑥−𝑥𝑥−𝑥𝑥+𝑥𝑥−𝑥𝑥
+C
+Y=× 
+B𝑧𝑧
+ 
+BB
+𝑥𝑥1−𝑥𝑥
+CCCC
+BB
+𝑦𝑦𝑦𝑦
+X=Y× Z=Y×�−1� 
+ 
+WABC
+X
+=X×R+X×G+X×B 
+WABC
+=Y×R+Y×G+Y×B 
+Y
+WABC
+Z
+=Z×R+Z×G+Z×B 
+8.6.5.4Lab colour spaces 
+ 
+ 
+ABC
+A Lab colour space is a CIE-based  colour space with two transformation stages (see "Figure 24: 
+© ISO 2017 – All rights reserved 185 
+
+ISO/DIS 32000-2
+ 
+A, BC
+L*, abL*a*b*L*
+Component transformations in a CIE-based ABC colour space"). In this type of space, , and  
+a*b*
+represent the *, and * components of a CIE 1976  space. The range of the first () 
+Range
+component shall be 0 to 100; the ranges of the second and third ( and ) components shall be 
+defined by the  entry in the colour space dictionary (see "

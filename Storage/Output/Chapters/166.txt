@@ -1,0 +1,83 @@
+Table 161: Entries in a page label 
+dictionary" shows the contents of a page label dictionary. 
+© ISO 2017 – All rights reserved 447 
+
+ISO/DIS 32000-2
+ 
+Table 161: Entries in a page label dictionary 
+Key Type Value 
+(Optional) 
+Type  
+PageLabel
+ 
+name The type of PDF object that this dictionary describes; if present, shall be
+for a page label dictionary. 
+(Optional) 
+S 
+name The numbering style that shall be used for the numeric portion of each page 
+D 
+label: 
+R 
+Decimal Arabic numerals 
+r 
+Uppercase Roman numerals 
+A 
+Lowercase Roman numerals 
+Uppercase letters (A to Z for the first 26 pages, AA to ZZ for the next 26, and so 
+a 
+on) 
+S
+Lowercase letters (a to z for the first 26 pages, aa to zz for the next 26, and so on) 
+There is no default numbering style; if no  entry is present, page labels shall consist 
+NOTE If the  entry (next) specifies the label prefix Contents, each page is simply 
+P
+solely of a label prefix with no numeric portion. 
+labelled Contents with no page number. (If the  entry is also missing or 
+P
+empty, the page label is an empty string.) 
+(Optional) 
+P 
+text string The label prefix for page labels in this range. 
+(Optional) 
+St 
+integer The value of the numeric portion for the first page label in the range. 
+Subsequent pages shall be numbered sequentially from this value, which shall be 
+greater than or equal to 1. Default value: 1. 
+EXAMPLE The following example shows a document with pages labelled i, ii, iii, iv, 1, 2, 3, A-8, A-9, … 
+1 0 obj 
+  <</Type /Catalog 
+   /PageLabels <</Nums [ 0 <</S /r>>  %A number tree containing 
+         4 <</S /D>>    %three page label dictionaries 
+         7 <</S /D 
+          /P ( A- ) 
+          /St 8 
+           >> 
+         ] 
+       >> 
+   … 
+  >> 
+endobj 
+ 
+12.4.3Articles 
+ 
+Some types of documents may contain sequences of content items that are logically connected but not 
+physically sequential. 
+EXAMPLE 1 A news story may begin on the first page of a newsletter and run over onto one or more nonconsecutive 
+interior pages. 
+PDF 1.1
+To represent such sequences of physically discontiguous but logically related items, a PDF document 
+may define one or more articles (). The sequential flow of an article shall be defined by an article 
+thread; the individual content items that make up the article are called beads on the thread. Interactive 
+PDF processors may provide navigation facilities to allow the user to follow a thread from one bead to 
+the next. 
+© ISO 2017 – All rights reserved 448 
+
+ISO/DIS 32000-2
+ 
+Threads
+The optional  entry in the document catalog dictionary (see 7.7.2, "Document catalog 
+dictionary") holds an array of thread dictionaries ("Table 162: Entries in a thread dictionary") defining 
+F
+the document’s articles. Each individual bead within a thread shall be represented by a bead dictionary 
+N
+("

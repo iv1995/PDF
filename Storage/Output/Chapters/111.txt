@@ -1,0 +1,59 @@
+Figure 49: Source image coordinate system", where the numbers inside the squares indicate 
+the order of the samples, counting from 0. The upper-left corner of the first sample is at coordinates (0, 
+ww
+0), the second at (1, 0), and so on through the last sample of the first row, whose upper-left corner is at 
+wh
+( - 1, 0) and whose upper-right corner is at (, 0). The next samples after that are at coordinates (0, 1), 
+wh
+(1, 1), and so on to the final sample of the image, whose upper-left corner is at ( - 1,  - 1) and whose 
+lower-right corner is at (, ). 
+NOTE The image coordinate system and scanning order imposed by PDF do not preclude using different 
+conventions in the actual image. Coordinate transformations can be used to map from other 
+conventions to the PDF convention. 
+The correspondence between image space and user space is constant: the unit square of user space, 
+bounded by user coordinates (0, 0) and (1, 1), corresponds to the boundary of the image in image space 
+h
+(see "Figure 50: Mapping the source image"). Following the normal convention for user space, the 
+coordinate (0, 0) is at the lower-left corner of this square, corresponding to coordinates (0, ) in image 
+wh
+space. The implicit transformation from image space to user space, if specified explicitly, would be 
+described by the matrix [1⁄ 0 0 -1⁄ 0 1]. 
+© ISO 2017 – All rights reserved 251 
+
+ISO/DIS 32000-2
+ ![Figure 49 Source image coordinate system  .png](./Storage/Output/Images/Figure 49 Source image coordinate system  .png)
+Figure 49: Source image coordinate system 
+ ![Figure 50 Mapping the source image  .png](./Storage/Output/Images/Figure 50 Mapping the source image  .png)
+Figure 50: Mapping the source image 
+ 
+cm
+An image can be placed on the output page in any position, orientation, and size by using the  
+operator to modify the current transformation matrix (CTM) so as to map the unit square of user space 
+q  Q
+to the rectangle or parallelogram in which the image shall be painted. Typically, this is done within a 
+pair of and operators to isolate the effect of the transformation, which can include translation, 
+rotation, reflection, and skew (see 8.3, "Coordinate systems"). 
+XObject
+EXAMPLE If the  subdictionary of the current resource dictionary defines the name Image1 to denote an image 
+XObject, the code shown in this example paints the image in a rectangle whose lower-left corner is at 
+coordinates (100, 200), that is rotated 45 degrees counter clockwise, and that is 150 units wide and 80 units 
+high. 
+q                %Save graphics state 
+  1 0 0 1 100 200 cm        %Translate 
+  0. 7071 0.7071 -0.7071 0.7071 0 0 cm  %Rotate 
+  150 0 0 80 0 0 cm         %Scale 
+  /Image1 Do           %Paint image 
+Q                %Restore graphics state 
+ As discussed in 8.3.4, "Transformation matrices", these three transformations could be combined into one. Of 
+course, if the aspect ratio (width to height) of the original image in this example is different from 150:80, the 
+© ISO 2017 – All rights reserved 252 
+
+ISO/DIS 32000-2
+ 
+result will be distorted. 
+8.9.5Image dictionaries 
+ 
+8.9.5.1General 
+ 
+An image dictionary — that is, the dictionary portion of a stream representing an image XObject — may 
+contain the entries listed in "

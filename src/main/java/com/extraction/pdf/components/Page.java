@@ -6,17 +6,10 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.MimeTypeUtils;
-
 import com.extraction.pdf.components.utilities.Strings;
-import com.extraction.pdf.components.utilities.Type;
 import com.extraction.pdf.ai.Chat;
 import com.extraction.pdf.components.utilities.Array;
-import com.extraction.pdf.components.utilities.Markdown;
 import com.extraction.pdf.sort.Sort;
 import com.itextpdf.kernel.pdf.PdfName;
 
@@ -27,12 +20,6 @@ public class Page {
 	
 	private ArrayList<Obj> objects = new ArrayList<>();
 	private ArrayList<String> h1 = new ArrayList<>();
-	
-//	private String before = new String();
-//	private String after = new String();
-//	
-//	ArrayList<Integer> bef = new ArrayList<>();
-//	ArrayList<Integer> aft = new ArrayList<>();
 	
 	public Page(ArrayList<Obj> objects) {
 		populate(objects);

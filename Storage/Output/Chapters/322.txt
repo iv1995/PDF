@@ -1,0 +1,225 @@
+Figure Annex 
+H.3: Document outline as displayed in Example 1". 
+© ISO 2017 – All rights reserved 882 
+
+ISO/DIS 32000-2
+ 
+Object
+Count
+On-screen appearance
+number
+216
+Document
+4
+22
+Section 1
+0
+25
+Section 2
+1
+26
+Subsection 1
+0
+27
+Section 3
+0
+28
+Summary
+0
+29
+Figure Annex H.3: Document outline as displayed in Example 1 
+ 
+EXAMPLE 1 
+21 0 obj 
+  <</Type /Outlines 
+   /First 22 0 R 
+   /Last 29 0 R 
+   /Count 6 
+  >> 
+endobj 
+ 
+22 0 obj 
+  <</Title ( Document ) 
+   /Parent 21 0 R 
+   /Next 29 0 R 
+   /First 25 0 R 
+   /Last 28 0 R 
+   /Count 4 
+   /Dest [3 0 R /XYZ 0 792 0] 
+  >> 
+endobj 
+ 
+25 0 obj 
+  <</Title ( Section 1 ) 
+   /Parent 22 0 R 
+   /Next 26 0 R 
+   /Dest [3 0 R /XYZ null 701 null] 
+  >> 
+endobj 
+ 
+26 0 obj 
+  <</Title ( Section 2 ) 
+   /Parent 22 0 R 
+   /Prev 25 0 R 
+   /Next 28 0 R 
+   /First 27 0 R 
+   /Last 27 0 R 
+   /Count 1 
+   /Dest [3 0 R /XYZ null 680 null] 
+  >> 
+endobj 
+ 
+27 0 obj 
+  <</Title ( Subsection 1 ) 
+   /Parent 26 0 R 
+   /Dest [3 0 R /XYZ null 670 null] 
+  >> 
+endobj 
+ 
+28 0 obj 
+© ISO 2017 – All rights reserved 883 
+
+ISO/DIS 32000-2 
+  <</Title ( Section 3 ) 
+   /Parent 22 0 R 
+   /Prev 26 0 R 
+   /Dest [7 0 R /XYZ null 500 null] 
+  >> 
+endobj 
+ 
+29 0 obj 
+  <</Title ( Summary ) 
+   /Parent 21 0 R 
+   /Prev 22 0 R 
+   /Dest [8 0 R /XYZ null 199 null] 
+  >> 
+endobj 
+ 
+Example 2 in H.6, "Outline hierarchy example" is the same as Example 1, except that one of the outline 
+items has been closed in the display. The outline appears as shown in "Figure Annex H.4: Document 
+outline as displayed in Example 2". 
+t
+c
+Obje
+Count
+een appearance
+n-scr
+O
+number
+215
+ocument
+D
+22
+3
+Section 1
+25
+0
+26
+Section 2
+–1
+28
+Section 3
+0
+0
+29
+Summary
+Figure Annex H.4: Document outline as displayed in Example 2 
+ 
+EXAMPLE 2 
+21 0 obj 
+  <</Type /Outlines 
+   /First 22 0 R 
+   /Last 29 0 R 
+   /Count 5 
+  >> 
+endobj 
+ 
+22 0 obj 
+  <</Title (Document) 
+   /Parent 21 0 R 
+   /Next 29 0 R 
+   /First 25 0 R 
+   /Last 28 0 R 
+   /Count 3 
+   /Dest [3 0 R /XYZ 0 792 0] 
+  >> 
+endobj 
+ 
+25 0 obj 
+  <</Title (Section 1) 
+   /Parent 22 0 R 
+   /Next 26 0 R 
+   /Dest [3 0 R /XYZ null 701 null] 
+  >> 
+endobj 
+ 
+© ISO 2017 – All rights reserved 884 
+
+ISO/DIS 32000-2
+ 
+26 0 obj 
+  <</Title (Section 2) 
+   /Parent 22 0 R 
+   /Prev 25 0 R 
+   /Next 28 0 R 
+   /First 27 0 R 
+   /Last 27 0 R 
+   /Count -1 
+   /Dest [3 0 R /XYZ null 680 null] 
+  >> 
+endobj 
+ 
+27 0 obj 
+  <</Title (Subsection 1) 
+   /Parent 26 0 R 
+   /Dest [3 0 R /XYZ null 670 null] 
+  >> 
+endobj 
+ 
+28 0 obj 
+  <</Title (Section 3) 
+   /Parent 22 0 R 
+   /Prev 26 0 R 
+   /Dest [7 0 R /XYZ null 500 null] 
+  >> 
+endobj 
+ 
+29 0 obj 
+  <</Title (Summary) 
+   /Parent 21 0 R 
+   /Prev 22 0 R 
+   /Dest [8 0 R /XYZ null 199 null] 
+  >> 
+endobj 
+H.7Updating example 
+ 
+H.7.1General 
+ 
+This example shows the structure of a PDF file as it is updated several times; it illustrates multiple body 
+sections, cross-reference sections, and trailers. In addition, it shows that once an object has been 
+assigned an object identifier, it keeps that identifier until the object is deleted, even if the object is 
+altered. Finally, the example illustrates the reuse of cross-reference entries for objects that have been 
+deleted, along with the incrementing of the generation number after an object has been deleted. 
+The original file is the example in H.2, "Minimal PDF file". The updates are divided into four stages, with 
+the file saved after each stage: 
+ 
+ 
+a)Four text annotations are added. 
+ 
+b)The text of one of the annotations is altered.  
+ 
+c)Two of the text annotations are deleted.  
+d)Three text annotations are added.  
+The following subclauses show the segments added to the file at each stage. Throughout this example, 
+objects are referred to by their object identifiers, which are made up of the object number and the 
+generation number, rather than simply by their object numbers as in earlier examples. This is necessary 
+because the example reuses object numbers; therefore, the objects they denote are not unique. 
+© ISO 2017 – All rights reserved 885 
+
+ISO/DIS 32000-2 
+NOTE The tables in these subclauses show only those objects that are modified during the updating 
+process. Objects from H.2, "Minimal PDF file" that are not altered during the update are not 
+shown. 
+H.7.2Stage 1: Add four text annotations 
+ 
+Four text annotations are added to the initial file and the file is saved. "

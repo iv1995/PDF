@@ -1,0 +1,258 @@
+Table 2: Delimiter characters 
+Glyph Decimal Hexadecimal Octal Name 
+( 
+40 28 050 LEFT PARENTHESIS 
+) 
+41 29 051 RIGHT PARENTHESIS 
+< 
+60 3C 074 LESS-THAN SIGN 
+© ISO 2017 – All rights reserved 28 
+
+ISO/DIS 32000-2
+ 
+Glyph Decimal Hexadecimal Octal Name 
+> 
+62 3E 076 GREATER-THAN SIGN 
+[ 
+91 5B 133 LEFT SQUARE BRACKET 
+] 
+93 5D 135 RIGHT SQUARE BRACKET 
+{ 
+123 7B 173 LEFT CURLY BRACKET 
+} 
+125 7D 175 RIGHT CURLY BRACKET 
+/ 
+47 2F 057 SOLIDUS 
+% 
+37 25 045 PERCENT SIGN 
+ 
+All characters except the white-space characters and delimiters are referred to as regular characters. 
+These characters include bytes that are outside the ASCII character set. A sequence of consecutive 
+regular characters comprises a single token. PDF is case-sensitive; corresponding uppercase and 
+lowercase letters are distinct. 
+7.2.4Comments 
+ 
+Any occurrence of the PERCENT SIGN (25h) outside a string or inside a content stream (see 7.8.2, 
+"Content streams") introduces a comment. The comment consists of all characters after the PERCENT 
+SIGN and up to but not including the end-of-the-line marker. A PDF processor shall ignore comments, 
+and treat them as single white-space characters. That is, a comment separates the token preceding it 
+from the one following it. 
+EXAMPLE The PDF fragment in this example is syntactically equivalent to just the tokens abc and 123. 
+abc%comment (/%) blah blah blah 
+123 
+ 
+Comments (other than the %PDF–n.m and %%EOF comments described in 7.5, "File structure") have 
+no semantics. They are not necessarily preserved by a PDF processor.  
+7.3Objects 
+ 
+7.3.1General 
+ 
+PDF includes eight basic types of objects: Boolean values, Integer and Real numbers, Strings, Names, 
+Arrays, Dictionaries, Streams, and the null object. 
+Objects may be labelled so that they can be referred to by other objects. A labelled object is called an 
+indirect object (see 7.3.10, "Indirect objects"). 
+Each object type, their method of creation and their proper referencing as indirect objects is described 
+in 7.3.2, "Boolean objects" through 7.3.10, "Indirect objects". 
+© ISO 2017 – All rights reserved 29 
+
+ISO/DIS 32000-2
+ 
+7.3.2Boolean objects 
+ 
+truefalse
+Boolean objects represent the logical values of true and false. They appear in PDF files using the 
+keywords  and . See 4, "Notation", for more information regarding the notation of these 
+keywords throughout this International Standard. 
+7.3.3Numeric objects 
+ 
+PDF provides two types of numeric objects: integer and real. Integer objects represent mathematical 
+integers. Real objects represent mathematical real numbers. The range and precision of numbers may 
+be limited by the internal representations used in the computer on which the PDF processor is running; 
+Annex C, "Advice on Maximising Portability", gives these limits for typical implementations. 
+An integer shall be written as one or more decimal digits optionally preceded by a sign. The value shall 
+be interpreted as a signed decimal integer and shall be converted to an integer object. 
+EXAMPLE 1 Integer objects 
+123 43445 +17 -98 0 
+ 
+A real value shall be written as one or more decimal digits with an optional sign and a leading, trailing, 
+or embedded PERIOD (2Eh) (decimal point). The value shall be interpreted as a real number and shall 
+be converted to a real object. A real number shall not be present when an integer is expected. Wherever 
+a real number is expected, an integer may be used instead. For example, it is not necessary to write the 
+number 1.0 in real format; the integer 1 is sufficient. 
+EXAMPLE 2 Real objects 
+34.5 -3.62 +123.6 4. -.002 0.0 
+ 
+A PDF writer shall not use the PostScript language syntax for numbers with non-decimal radices (such 
+as 16#FFFE) or in exponential format (such as 6.02E23). 
+number
+Throughout this part of ISO 32000, the term  refers to an object whose type can be either integer 
+or real. 
+7.3.4String objects 
+ 
+7.3.4.1General 
+ 
+A string object shall consist of a series of zero or more bytes. The maximum length of a string used in 
+the computer on which the PDF processor is running may be subject to implementation limits; see 
+Annex C, "Advice on Maximising Portability". 
+String objects shall be written in one of the following two ways: 
+• 
+As a sequence of literal characters enclosed in parentheses () (using LEFT PARENTHESIS (28h) 
+• 
+and RIGHT PARENTHESIS (29h)); see 7.3.4.2, "Literal strings" 
+As hexadecimal data enclosed in angle brackets <> (using LESS-THAN SIGN (3Ch) and GREATER-
+THAN SIGN (3Eh)); see 7.3.4.3, "Hexadecimal strings" 
+© ISO 2017 – All rights reserved 30 
+
+ISO/DIS 32000-2
+ 
+NOTE In many contexts, conventions exist for the interpretation of the contents of a string value. This 
+subclause defines only the basic syntax for writing a string as a sequence of bytes; conventions or 
+rules governing the contents of strings in particular contexts are described with the definition of 
+those particular contexts. 
+Subclause 7.9.2, "String object types" describes the encoding schemes used for the contents of string 
+objects. 
+7.3.4.2Literal strings 
+ 
+literal string
+A  shall be written as an arbitrary number of characters enclosed in parentheses (LEFT 
+PARENHESIS (28h) and RIGHT PARENTHESIS (29h)). Any characters may appear in a string except 
+unbalanced parentheses and the backslash (REVERSE SOLIDUS (5Ch)), which shall be treated specially 
+as described in this subclause. Balanced pairs of parentheses within a string require no special 
+treatment. 
+EXAMPLE 1 The following are valid literal strings:  
+(This is a string) 
+(Strings can contain newlines 
+and such.) 
+(Strings can contain balanced parentheses () 
+and special characters ( * ! & } ^ %and so on) .) 
+(The following is an empty string .) 
+() 
+(It has zero (0) length.) 
+ 
+Within a literal string, the REVERSE SOLIDUS is used as an escape character. The character immediately 
+following the REVERSE SOLIDUS determines its precise interpretation as shown in "Table 3: Escape 
+sequences in literal strings". If the character following the REVERSE SOLIDUS is not one of those shown 
+in "Table 3: Escape sequences in literal strings", the REVERSE SOLIDUS shall be ignored. 
+Table 3: Escape sequences in literal strings 
+Sequence Meaning 
+\n LINE FEED (0Ah) (LF) 
+\r CARRIAGE RETURN (0Dh) (CR) 
+\t HORIZONTAL TAB (09h) (HT) 
+\b BACKSPACE (08h) (BS) 
+\f FORM FEED (0Ch) (FF) 
+\( LEFT PARENTHESIS (28h) 
+\) RIGHT PARENTHESIS (29h) 
+\\ REVERSE SOLIDUS (5Ch) (Backslash) 
+\ddd Character code ddd (octal) 
+ 
+A PDF writer may split a literal string across multiple lines. The REVERSE SOLIDUS (5Ch) (backslash 
+© ISO 2017 – All rights reserved 31 
+
+ISO/DIS 32000-2
+ 
+character) at the end of a line shall be used to indicate that the string continues on the following line. A 
+PDF processor shall disregard the REVERSE SOLIDUS and the end-of-line marker following it when 
+reading the string; the resulting string value shall be identical to that which would be read if the string 
+were not split. 
+EXAMPLE 2 
+(These \ 
+two strings \ 
+are the same.) 
+(These two strings are the same.) 
+ 
+An end-of-line marker appearing within a literal string without a preceding REVERSE SOLIDUS shall be 
+treated as a byte value of (0Ah), irrespective of whether the end-of-line marker was a CARRIAGE 
+RETURN (0Dh), a LINE FEED (0Ah), or both. 
+EXAMPLE 3 
+(This string has an end-of-line at the end of it. 
+) 
+(So does this one.\n) 
+ 
+The \ddd escape sequence provides a way to represent characters outside the printable ASCII character 
+set. 
+EXAMPLE 4 
+(This string contains \245two octal characters\307.) 
+ 
+The number ddd may consist of one, two, or three octal digits; high-order overflow shall be ignored. 
+Three octal digits shall be used, with leading zeros as needed, if the next character of the string is also a 
+digit. 
+EXAMPLE 5  
+  (\0053) 
+the literal 
+  (\053) 
+denotes a string containing two characters, \005 (Control-E) followed by the digit 3, whereas both 
+  (\53) 
+and 
+denote strings containing the single character \053, a plus sign (+). 
+ 
+Since any 8-bit value may appear in a string (with proper escaping for REVERSE SOLIDUS (backslash) 
+and unbalanced PARENTHESES) this \ddd notation provides a way to specify characters outside the 
+ASCII character set by using ASCII characters only. However, any 8-bit value may appear in a string, 
+represented either as itself or with the \ddd notation described. 
+When a document is encrypted (see 7.6, "Encryption"), all of its strings are encrypted; the encrypted 
+string values contain arbitrary 8-bit values. When writing encrypted strings using the literal string 
+form, the PDF writer shall follow the rules described. That is, the REVERSE SOLIDUS character shall be 
+used as an escape to specify unbalanced PARENTHESES or the REVERSE SOLIDUS character itself. The 
+REVERSE SOLIDUS may, but is not required, to be used to specify other, arbitrary 8-bit values. 
+© ISO 2017 – All rights reserved 32 
+
+ISO/DIS 32000-2
+ 
+7.3.4.3Hexadecimal strings 
+ 
+Strings may also be written in hexadecimal form, which is useful for including arbitrary binary data in a 
+PDF file. A hexadecimal string shall be written as a sequence of hexadecimal digits (0–9 and either A–F 
+or a–f) encoded as ASCII characters and enclosed within angle brackets (using LESS-THAN SIGN (3Ch) 
+and GREATER-THAN SIGN (3Eh)). 
+EXAMPLE 1 
+<4E6F762073686D6F7A206B6120706F702E> 
+ 
+Each pair of hexadecimal digits defines one byte of the string. White-space characters (see Table 1) shall 
+be ignored. 
+If the final digit of a hexadecimal string is missing — that is, if there is an odd number of digits — the 
+final digit shall be assumed to be 0. 
+EXAMPLE 2 
+<901FA3> 
+ 
+is a 3-byte string consisting of the characters whose hexadecimal codes are 90, 1F, and A3, but 
+<901FA> 
+ 
+ 
+is a 3-byte string containing the characters whose hexadecimal codes are 90, 1F, and A0. 
+7.3.5Name objects 
+ 
+ 
+Beginning with PDF 1.2 a name object is an atomic symbol uniquely defined by a sequence of any 
+characters (8-bit values) except null (character code 0). Uniquely defined means that any two name 
+objects that, after all escaping is expanded (see below) and the resulting sequences of bytes are not an 
+exact binary match denote different objects. Atomic means that a name has no internal structure; 
+although it is defined by a sequence of characters, those characters are not considered elements of the 
+name. 
+Even though a name may contain any characters except null, in order to express a name following the 
+general rules for parsing PDF, when written into a PDF file names should be encoded as described in the 
+succeeding paragraphs. 
+When writing a name in a PDF file, a SOLIDUS (2Fh) (/) shall be used to introduce a name. The SOLIDUS 
+is not part of the name but is a prefix indicating that what follows is a sequence of characters 
+representing the name in the PDF file and shall follow these rules: 
+ 
+a)A NUMBER SIGN (23h) (#) in a name shall be written by using its 2-digit hexadecimal code (23), 
+ 
+preceded by the NUMBER SIGN. 
+b)Any character in a name that is a regular character (other than NUMBER SIGN) shall be written as itself or 
+ 
+by using its 2-digit hexadecimal code, preceded by the NUMBER SIGN. 
+c)Any character that is not a regular character shall be written using its 2-digit hexadecimal code, preceded 
+NOTE 1 There is not a unique encoding of names into the PDF file because regular characters can be coded 
+by the NUMBER SIGN only. 
+in either of two ways. 
+© ISO 2017 – All rights reserved 33 
+
+ISO/DIS 32000-2
+ 
+White-space used as part of a name shall always be coded using the 2-digit hexadecimal notation and no 
+white-space may intervene between the SOLIDUS and the encoded name. 
+Regular characters that are outside the range EXCLAMATION MARK(21h) (!) to TILDE (7Eh) (~) should 
+be written using the hexadecimal notation. 
+The token SOLIDUS (a slash followed by no regular characters) introduces a unique valid name defined 
+by the empty sequence of characters. 
+NOTE 2 The examples shown in "

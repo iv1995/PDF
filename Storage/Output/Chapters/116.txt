@@ -1,0 +1,395 @@
+Table 92: Additional abbreviations in an inline image object" 
+may be used in place of the full names. Entries other than those listed shall be ignored. 
+LengthL
+IDEI
+The value of the  (or ) key, which shall be present on all inline images, is the length of the data 
+Length
+between the  and  operators excluding the white-space delimiting those operators. The value of the 
+ key should not exceed 4096 bytes.  
+NOTE 1 Because the  (or ) key is new to PDF 2.0, PDF processors will not encounter this key in 
+LengthL
+older versions of PDF.  
+NOTE 2 The  key permits PDF processors to efficiently skip inline images if they do not need to display 
+L
+them. To skip an image a processor can advance beyond the single white-space character 
+following the  operator, then if the final or only filter is  or  
+IDASCIIHexDecodeASCII85Decode
+skip any further white-space. The number of characters expressed by the  key is then skipped, and 
+L
+the  operator is expected following optional white-space. 
+EI
+"Table 92: Additional abbreviations in an inline image object" shows additional abbreviations that can 
+be used for the names of colour spaces and filters. 
+JBIG2Decode Crypt  JPXDecode 
+These abbreviations are valid only in inline images; they shall not be used in image XObjects. 
+,andare not listed in "Table 92: Additional abbreviations in an inline 
+image object", because those filters shall not be used with inline images. 
+Table 91: Entries in an inline image object 
+Full Name Abbreviation 
+BitsPerComponent BPC 
+ColorSpace CS 
+Decode D 
+DecodeParms DP 
+Filter F 
+Height H 
+ImageMask IM 
+PDF 1.1
+Intent () 
+No abbreviation 
+Interpolate I
+ (uppercase I) 
+PDF 2.0
+Length () L
+  
+Width W 
+© ISO 2017 – All rights reserved 263 
+
+ISO/DIS 32000-2
+ 
+Table 92: Additional abbreviations in an inline image object 
+Full Name Abbreviation 
+DeviceGray G 
+DeviceRGB RGB 
+DeviceCMYK CMYK 
+Indexed I
+ (uppercase i) 
+ASCIIHexDecode AHx 
+ASCII85Decode A85 
+LZWDecode LZW 
+PDF 1.2
+FlateDecodeFl 
+ () (uppercase F, lowercase L) 
+RunLengthDecode RL 
+CCITTFaxDecode CCF 
+DCTDecode DCT 
+ 
+ ColorSpace CS
+DeviceGrayDeviceRGBDeviceCMYK ImageMask IM
+The colour space specified by the(or ) entry shall be one of the standard device colour 
+true
+spaces (, , or ) and shall be present unless() is 
+ Indexed 
+present and has the value of . It shall not be a CIE-based colour space or a special colour space, with 
+the exception of a limited form ofcolour space whose base colour space is a device space and 
+ ColorSpace  ColorSpace 
+whose colour table is specified by a byte string (see 8.6.6.3, "Indexed colour spaces"). Beginning with 
+PDF 1.2, the value of theentry may also be the name of a colour space in the
+subdictionary of the current resource dictionary (see 7.8.3, "Resource dictionaries"). In this case, the 
+name may designate any colour space that can be used with an image XObject. 
+NOTE 3 The names , , and(as well as their abbreviations , , and 
+DeviceGrayDeviceRGB DeviceCMYK GRGB
+) always identify the corresponding colour spaces directly; they never refer to resources in 
+CMYK
+thesubdictionary. 
+ ColorSpace 
+JPXDecode Crypt JBIG2Decode ID 
+The image data in an inline image may be encoded by using any of the standard PDF filters except 
+EI
+,and . The bytes between theoperator and a whitespace token, but 
+before the  operator shall be treated the same as a stream object’s data (see 7.3.8, "Stream objects"), 
+even though they do not follow the standard stream syntax. 
+NOTE 4 This is an exception to the usual rule that the data in a content stream is interpreted according to 
+the standard PDF syntax for objects. Accordingly, this does not permit comments (see 7.2.4, 
+"Comments") within the image data. 
+ DeviceRGB 
+cm
+EXAMPLE This example shows an inline image 17 samples wide by 17 high with 8 bits per component in the
+q  
+colour space. The image has been encoded using LZW and ASCII base-85 encoding. The  operator is used 
+Qcm
+to scale it to a width and height of 17 units in user space and position it at coordinates (298, 388). The and
+ operators encapsulate the  operation to limit its effect to resizing the image. 
+q                %Save graphics state 
+17 0 0 17 298 388 cm          %Scale and translate coordinate space 
+ 
+© ISO 2017 – All rights reserved 264 
+
+ISO/DIS 32000-2
+ 
+BI                %Begin inline image object 
+ /W 17              %Width in samples 
+ /H 17              %Height in samples 
+ /CS /RGB             %Colour space 
+ /BPC 8             %Bits per component 
+ /L 763 
+ /F [/A85 /LZW]           %Filters 
+ 
+ID                %Begin image data 
+J1/gKA>.]AN&J?]-<HW]aRVcg*bb.\eKAdVV%/PcZ 
+… Image data representing 289 samples … 
+R.s(4KE3&d&7hb*7[%Ct2HCqC~> 
+EI                %End inline image object 
+Q                %Restore graphics state 
+8.10Form XObjects 
+ 
+8.10.1General 
+ 
+form XObject
+A  is a PDF content stream that is a self-contained description of any sequence of graphics 
+objects (including path objects, text objects, and sampled images). A form XObject may be painted 
+multiple times — either on several pages or at several locations on the same page — and produces the 
+same results each time, subject only to the graphics state at the time it is invoked. Not only is this 
+shared definition economical to represent in the PDF file, but under suitable circumstances the PDF 
+processor can optimise execution by caching the results of rendering the form XObject for repeated 
+reuse. 
+NOTE 1 The term form also refers to a completely different kind of object, an  (sometimes 
+called an ), discussed in 12.7, "Forms". Whereas the form XObjects described in this 
+interactive form
+subclause correspond to the notion of forms in the PostScript language, interactive forms are the 
+AcroForm
+PDF equivalent of the familiar paper instrument. Any unqualified use of the word  is 
+understood to refer to an interactive form; the type of form described here is always referred to 
+form
+explicitly as a . 
+form XObject
+Form XObjects have various uses: 
+• 
+As its name suggests, a form XObject may serve as the template for an entire page. 
+EXAMPLE A program that prints filled-in tax forms can first paint the fixed template as a form XObject and then paint the 
+variable information on top of it. 
+• 
+Any graphical element that is to be used repeatedly, such as a company logo or a standard 
+• 
+component in the output from a computer-aided design system, may be defined as a form XObject. 
+Certain document elements that are not part of a page’s contents, such as annotation appearances 
+group XObjectPDF 1.4
+• 
+(see 12.5.5, "Appearance streams"), shall be represented as form XObjects. 
+A specialised type of form XObject, called a  (), can be used to group graphical 
+elements together as a unit for various purposes (see 8.10.3, "Group XObjects"). In particular, 
+group XObjects shall be used to define transparency groups and soft masks for use in the 
+11.6.5.1, "Soft-mask dictionaries" and 11.6.6, "Transparency 
+transparent imaging model (see 
+reference XObjectPDF 1.4
+• 
+group XObjects"). 
+Another specialised type of form XObject, a  (), may be used to import 
+content from one PDF document into another (see 8.10.4, "Reference XObjects"). 
+A PDF writer shall perform the following two specific operations in order to use a form XObject: 
+Define the appearance of the form XObject.
+ 
+a) A form XObject is a PDF content stream. The dictionary portion 
+© ISO 2017 – All rights reserved 265 
+of the stream (called the form dictionary) shall contain descriptive information about the form XObject; 
+
+ISO/DIS 32000-2
+ 
+the body of the stream shall describe the graphics objects that produce its appearance. The contents of 
+Paint the form XObject.
+Do
+ 
+the form dictionary are described in 8.10.2, "Form dictionaries". 
+XObject
+b) The  operator (see 8.8, "External objects") shall paint a form XObject whose 
+name is supplied as an operand. The name shall be defined in the  subdictionary of the current 
+resource dictionary. Before invoking this operator, the content stream in which it appears should set 
+appropriate parameters in the graphics state. In particular, it should alter the current transformation 
+ BBox 
+matrix to control the position, size, and orientation of the form XObject in user space. 
+Each form XObject is defined in its own coordinate system, called form space. Theentry in the 
+Matrix
+form dictionary shall be expressed in form space, as shall be any coordinates used in the form XObject’s 
+Do
+content stream, such as path coordinates. The  entry in the form dictionary shall specify the 
+mapping from form space to the current user space. Each time the form XObject is painted by the  
+operator, this matrix shall be concatenated with the current transformation matrix to define the 
+mapping from form space to device space. 
+NOTE 2 This differs from the  entry in a pattern dictionary, which maps pattern space to the initial 
+Matrix
+user space of the content stream in which the pattern is used. 
+Do
+When the  operator is applied to a form XObject, a PDF processor shall perform the following tasks: 
+q
+ 
+Matrix
+ 
+a)Saves the current graphics state, as if by invoking the  operator (see 8.4.4, "Graphics state operators") 
+b)Concatenates the matrix from the form dictionary’s  entry with the current transformation matrix 
+ BBox 
+ 
+(CTM)  
+ 
+c)Clips according to the form dictionary’sentry 
+Q
+ 
+d)Paints the graphics objects specified in the form’s content stream 
+e)Restores the saved graphics state, as if by invoking the  operator (see 8.4.4, "Graphics state operators") 
+Do
+Except as described above, the initial graphics state for the form shall be inherited from the graphics state 
+8.10.2Form dictionaries 
+ 
+that is in effect at the time  is invoked.  
+Every form XObject shall have a form type, which determines the format and meaning of the entries in 
+its form dictionary. This specification only defines one form type, Type 1. Form XObject dictionaries 
+may contain the entries shown in "Table 93: Additional entries specific to a Type 1 form dictionary", in 
+addition to the usual entries common to all streams (see "Table 5: Entries common to all stream 
+dictionaries"). 
+Table 93: Additional entries specific to a Type 1 form dictionary 
+Key Type Value 
+Optional
+Type 
+XObject
+name () The type of PDF object that this dictionary describes; if present, 
+shall be  for a form XObject. 
+RequiredForm
+Subtype 
+name () The type of XObject that this dictionary describes; shall be  
+for a form XObject. 
+Optional
+FormType 
+integer () A code identifying the type of form XObject that this dictionary 
+describes. The only valid value is 1. Default value: 1. 
+© ISO 2017 – All rights reserved 266 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Required
+BBox 
+rectangle () An array of four numbers in the form coordinate system (see 
+above), giving the coordinates of the left, bottom, right, and top edges, 
+respectively, of the form XObject’s bounding box. These boundaries shall be 
+used to clip the form XObject and to determine its size for caching. 
+Optionalform matrix
+Matrix 
+array () An array of six numbers specifying the , which maps 
+form space into user space (see 8.3.4, "Transformation matrices"). Default 
+value: the identity matrix [1 0 0 1 0 0]. 
+Optional but strongly recommended; PDF 1.2
+Resources 
+dictionary () A dictionary specifying any 
+resources (such as fonts and images) required by the form XObject (see 7.8, 
+"Content streams and resources"). 
+In a PDF whose version is 1.1 and earlier, all named resources used in the 
+form XObject shall be included in the resource dictionary of each page object 
+on which the form XObject appears, regardless of whether they also appear in 
+the resource dictionary of the form XObject. These resources should also be 
+specified in the form XObject’s resource dictionary as well, to determine 
+which resources are used inside the form XObject. If a resource is included in 
+both dictionaries, it shall have the same name in both locations. 
+In PDF 1.2 and later versions, form XObjects may be independent of the 
+content streams in which they appear, and this is strongly recommended 
+although not required. In an independent form XObject, the resource 
+dictionary of the form XObject is required and shall contain all named 
+resources used by the form XObject. These resources shall not be promoted to 
+the outer content stream’s resource dictionary, although that stream’s 
+resource dictionary refers to the form XObject. 
+Optional; PDF 1.4group attributes dictionary
+Group 
+dictionary () A  indicating that the contents 
+of the form XObject shall be treated as a group and specifying the attributes of 
+Ref
+that group (see 8.10.3, "Group XObjects"). 
+If a  entry (see below) is present, the group attributes shall also apply to 
+the external page imported by that entry, which allows such an imported page 
+to be treated as a group without further modification. 
+Optional; PDF 1.4reference dictionary
+Ref 
+dictionary () A  identifying a page to be imported 
+from another PDF file, and for which the form XObject serves as a proxy (see 
+8.10.4, "Reference XObjects"). 
+Optional; PDF 1.4metadata stream
+Metadata 
+stream () A  containing metadata for the form 
+XObject (see 14.3.2, "Metadata streams"). 
+Optional; PDF 1.3
+PieceInfo 
+dictionary () A page-piece dictionary associated with the form XObject 
+(see 14.5, "Page-piece dictionaries"). 
+Required if  is present; optional otherwise; PDF 1.3
+LastModified PieceInfo
+date () The date and 
+PieceInfo
+time (see 7.9.4, "Dates") when the form XObject’s contents were most recently 
+modified. If a page-piece dictionary () is present, the modification 
+date shall be used to ascertain which of the application data dictionaries it 
+contains correspond to the current content of the form (see 14.5, "Page-piece 
+dictionaries"). 
+Required if the form XObject is a structural content item; PDF 1.3
+StructParent 
+integer () The integer 
+key of the form XObject’s entry in the structural parent tree (see 14.7.5.4, 
+"Finding structure elements from content items"). 
+© ISO 2017 – All rights reserved 267 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Required if the form XObject contains marked-content sequences that are 
+StructParents 
+structural content items; PDF 1.3
+integer (
+) The integer key of the form XObject’s entry 
+in the structural parent tree (see 14.7.5.4, "Finding structure elements from 
+StructParentStructParents
+content items"). 
+At most one of the entries  or  shall be present. A 
+form XObject shall be either a content item in its entirety or a container for 
+marked-content sequences that are content items, but not both. 
+Optional; PDF 1.2; deprecated in PDF 2.0
+OPI 
+dictionary () An OPI version dictionary for the 
+form XObject (see 14.11.7, "Open prepress interface (OPI)"). 
+Optional; PDF 1.5
+OC 
+dictionary () An optional content group or optional content 
+membership dictionary (see 8.11, "Optional content") specifying the optional 
+content properties for the form XObject. Before the form is processed, its 
+Do
+visibility shall be determined based on this entry. If it is determined to be 
+invisible, the entire form shall be skipped, as if there were no  operator to 
+invoke it. 
+Required in PDF 1.0; optional otherwise; deprecated in PDF 2.0
+Name 
+XObject
+name () The name by 
+which this form XObject is referenced in the  subdictionary of the 
+current resource dictionary (see 7.8.3, "Resource dictionaries"). 
+Optional; PDF 2.0
+AF 
+array of () An array of one or more file specification dictionaries 
+dictionaries (7.11.3, "File specification dictionaries") which denote the associated files for 
+this Form XObject. See 14.13, "Associated files" and 14.13.7, "Associated files 
+linked to XObjects" for more details. 
+Optional; PDF 2.0
+Measure 
+dictionary () A measure dictionary (see "Table 265: Entries in a 
+measure dictionary") that specifies the scale and units which shall apply to 
+the form. 
+Optional; PDF 2.0
+PtData 
+dictionary () A point data dictionary (see "Table 271: Entries in a point 
+data dictionary") that specifies the extended geospatial data that shall apply 
+to the form. 
+EXAMPLE The following shows a simple form XObject that paints a filled square 1000 units on each side. 
+6 0 obj             %Form XObject 
+  <</Type /XObject 
+   /Subtype /Form 
+   /FormType 1 
+   /BBox [0 0 1000 1000] 
+   /Matrix [1 0 0 1 0 0] 
+   /Length 58 
+  >> 
+stream 
+  0 0 m 
+  0 1000 l 
+  1000 1000 l 
+  1000 0 l f 
+endstream 
+endobj 
+ 
+8.10.3Group XObjects 
+ 
+group XObjectPDF 1.4
+ Group 
+A  () is a special type of form XObject that can be used to group graphical elements 
+together as a unit for various purposes. It shall be distinguished by the presence of the optional
+entry in the form dictionary (see 8.10.2, "Form dictionaries"). The value of this entry shall be a 
+subsidiary group attributes dictionary describing the properties of the group. 
+© ISO 2017 – All rights reserved 268 
+
+ISO/DIS 32000-2
+ 
+group subtype
+S
+As shown in "

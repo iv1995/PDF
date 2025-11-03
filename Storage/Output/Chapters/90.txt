@@ -1,0 +1,284 @@
+Table 73: Colour operators" lists the PDF operators that control colour spaces and colour values. Also 
+colour-related is the graphics state operator , listed in "Table 56: Graphics state operators" and 
+discussed under 8.6.5.8, "Rendering intents
+". Colour operators may appear at the page description level 
+or inside text objects (see "Figure 9: Graphics Objects"). 
+© ISO 2017 – All rights reserved 211 
+
+ISO/DIS 32000-2
+ 
+Table 73: Colour operators 
+Operands Operator Description 
+name PDF 1.1
+CS 
+() Set the current colour space to use for stroking operations. The operand name 
+DeviceGrayDeviceRGBDeviceCMYK
+shall be a name object. If the colour space is one that can be specified by a name and no 
+Pattern 
+additional parameters (, , , and certain cases of 
+ColorSpace 
+), the name may be specified directly. Otherwise, it shall be a name defined in the
+7.8.3, "Resource 
+subdictionary of the current resource dictionary (see 
+dictionaries"); the associated value shall be an array describing the colour space (see 8.6.3, 
+DeviceGrayDeviceRGBDeviceCMYKPattern
+"Colour space families"). 
+ ColorSpace 
+The names , , , and  always identify the 
+corresponding colour spaces directly; they never refer to resources in the
+CS
+subdictionary. 
+The  operator shall also set the current stroking colour to its initial value, which depends 
+DeviceGrayDeviceRGB CalRGB 
+on the colour space: 
+In a , , CalGray, orcolour space, the initial colour shall have 
+ DeviceCMYK 
+all components equal to 0.0. 
+Lab ICCBased 
+In acolour space, the initial colour shall be [0.0 0.0 0.0 1.0]. 
+Range
+In a  orcolour space, the initial colour shall have all components equal to 0.0 
+unless that falls outside the intervals specified by the space’s  entry, in which case the 
+ Indexed 
+nearest valid value shall be substituted. 
+ Separation  DeviceN 
+In ancolour space, the initial colour value shall be 0. 
+Pattern
+In aorcolour space, the initial tint value shall be 1.0 for all colourants. 
+In a  colour space, the initial colour shall be a pattern object that causes nothing to 
+be painted. 
+name PDF 1.1
+cs CS
+() Same as  but used for nonstroking operations. 
+1n
+c… c PDF 1.1
+SC 
+ Indexed 
+() Set the colour to use for stroking operations in a device, CIE-based (other than 
+ICCBased), orcolour space. The number of operands required and their 
+DeviceGrayCalGray Indexed 
+interpretation depends on the current stroking colour space: 
+For , , andcolour spaces, one operand shall be required (n = 
+DeviceRGBCalRGBLab
+1). 
+DeviceCMYK
+For , , and  colour spaces, three operands shall be required (n = 3). 
+For , four operands shall be required (n = 4). 
+1n
+c… c PDF 1.2
+PatternSeparation DeviceN  ICCBased 
+SCN 
+1n
+c
+… c name 
+SCN 
+() Same as SC but also supports , ,andcolour 
+SeparationDeviceN ICCBased 
+spaces. 
+1
+c
+c
+If the current stroking colour space is a , , orcolour space, 
+n
+…  shall be numbers. The number of operands and their interpretation 
+the operands 
+Pattern
+depends on the colour space. 
+Pattern
+If the current stroking colour space is a  colour space, name shall be the name of an 
+1
+c
+PatternTypePaintType
+entry in the  subdictionary of the current resource dictionary (see 7.8.3, "Resource 
+c
+"). For an uncoloured tiling pattern ( = 1 and  = 2), … 
+dictionaries
+n
+ shall be component values specifying a colour in the pattern’s underlying colour space. 
+ 
+For other types of patterns, these operands shall not be specified.
+1n
+c… c PDF 1.1
+sc SC
+() Same as  but used for nonstroking operations. 
+1n
+c… c PDF 1.2
+SCN
+scn 
+1n
+c
+… c name 
+scn 
+() Same as  but used for nonstroking operations. 
+gray 
+G  DeviceGray DefaultGray
+Set the stroking colour space to(or the  colour space; see 8.6.5.6, 
+"Default colour spaces") and set the gray level to use for stroking operations. gray shall be a 
+number between 0.0 (black) and 1.0 (white). 
+gray 
+g G
+Same as  but used for nonstroking operations. 
+© ISO 2017 – All rights reserved 212 
+
+ISO/DIS 32000-2
+ 
+Operands Operator Description 
+r g b 
+RG  DeviceRGB  DefaultRGB 
+Set the stroking colour space to(or thecolour space; see 8.6.5.6, 
+"Default colour spaces") and set the colour to use for stroking operations. Each operand 
+shall be a number between 0.0 (minimum intensity) and 1.0 (maximum intensity). 
+r g b 
+rg RG
+Same as  but used for nonstroking operations. 
+c m y k 
+K  DeviceCMYK DefaultCMYK
+Set the stroking colour space to(or the  colour space; see 
+8.6.5.6, "Default colour spaces") and set the colour to use for stroking operations. Each 
+operand shall be a number between 0.0 (zero concentration) and 1.0 (maximum 
+concentration). The behaviour of this operator is affected by the overprint mode (see 8.6.7, 
+"Overprint control"). 
+c m y k 
+k K
+Same as  but used for nonstroking operations. 
+ 
+Invoking operators that specify colours or other colour-related parameters in the graphics state is 
+restricted in certain circumstances. This restriction occurs when defining graphical figures whose 
+colours shall be specified separately each time they are used. Specifically, the restriction applies in these 
+circumstances: 
+d1
+• 
+In any glyph description that uses the  operator (see 9.6.4, "Type 3 fonts") and to all other 
+• 
+content streams invoked from within the same glyph description. 
+In the content stream of an uncoloured tiling pattern (see 8.7.3.3, "Uncoloured tiling patterns") 
+and to all other content streams invoked from within the uncoloured tiling pattern stream 
+In these circumstances 
+• 
+CS scn K 
+All of the following operators shall be ignored: 
+cs G k 
+SC g ri 
+SCN RG sh 
+sc rg  
+gs
+• 
+All of the following entries, if present in the graphics state parameter dictionary of a  operator 
+TR BG UCR 
+shall be ignored: 
+TR2 BG2 UCR2 
+HT UseBlackPtComp  
+• 
+NOTE Painting an image mask (see 8.9.6.2, "Stencil masking") is permitted because it does not specify 
+Unless painting an image mask, all image painting operators shall be ignored. 
+colours; instead, it designates places where the current colour shall be painted. 
+© ISO 2017 – All rights reserved 213 
+
+ISO/DIS 32000-2
+ 
+8.7Patterns 
+ 
+8.7.1General 
+ 
+Patterns come in two varieties: 
+Tiling patterns
+• 
+ consist of a small graphical figure (called a pattern cell) that is replicated at fixed 
+horizontal and vertical intervals to fill the area to be painted. The graphics objects to use for tiling 
+Shading patterns
+• 
+shall be described by a content stream. 
+ define a gradient fill that produces a smooth transition between colours across 
+the area. 
+The colour to use shall be specified as a function of position using any of a variety of methods. 
+NOTE 1 When operators such as  (stroke),  (fill), and  (show text) paint an area of the page with the 
+SfTj
+current colour, they ordinarily apply a single colour that covers the area uniformly. However, it is 
+also possible to apply "paint" that consists of a repeating graphical figure or a smoothly varying 
+colour gradient instead of a simple colour. Such a repeating figure or smooth gradient is called a 
+.Patternsare quite general, and have many uses; for example, they can be used to create 
+  
+various graphical textures, such as weaves, brick walls, sunbursts, and similar geometrical and 
+pattern
+chromatic effects. 
+NOTE 2 Older techniques such as defining a pattern by using character glyphs in a special font and 
+painting them repeatedly with the  operator are not recommended. Another technique, defining 
+Tj
+patterns as halftone screens, is also not recommended because the effects produced are device-
+dependent. 
+Pattern
+Patterns shall be specified in a special family of colour spaces named . These spaces shall use 
+pattern objects as the equivalent of colour values instead of the numeric component values used with 
+other spaces. A pattern object shall be a dictionary or a stream, depending on the type of pattern; the 
+term pattern dictionary is used generically throughout this subclause to refer to either a dictionary 
+object or the dictionary portion of a stream object. (Those pattern objects that are streams are 
+Pattern
+specifically identified as such in the descriptions of particular pattern types; unless otherwise stated, 
+they are understood to be simple dictionaries instead.) This subclause describes  colour spaces 
+and the specification of colour values within them. 
+NOTE 3 See 8.6, "Colour spaces", for information about colour spaces and colour values in general and 
+11.6.7, "Patterns and transparency", for further discussion of the treatment of patterns in the 
+transparent imaging model. 
+8.7.2General properties of patterns 
+ 
+PatternType
+A pattern dictionary contains descriptive information defining the appearance and properties of a 
+pattern. All pattern dictionaries shall contain an entry named , whose value identifies the 
+kind of pattern the dictionary describes: Type 1 for a tiling pattern or Type 2 for a shading pattern. The 
+remaining contents of the dictionary depend on the pattern type and are detailed in the subclauses on 
+individual pattern types. 
+PatternCScs
+All patterns shall be treated as colours; a  colour space shall be established with the  or  
+SCNscn
+operator just like other colour spaces, and a particular pattern shall be installed as the current colour 
+with the  or  operator (see "Table 73: Colour operators"). 
+A pattern’s appearance is described with respect to its own internal coordinate system. Every pattern 
+© ISO 2017 – All rights reserved 214 
+
+ISO/DIS 32000-2
+ 
+pattern matrix
+parentcontent stream
+has a , a transformation matrix that maps the pattern’s internal coordinate system to the 
+default coordinate system of the pattern’s   (the content stream in which the 
+pattern coordinate space
+pattern is defined as a resource). The concatenation of the pattern matrix with that of the parent 
+content stream establishes the , within which all graphics objects in the pattern 
+shall be interpreted. 
+NOTE 1 If a pattern is used on a page, the pattern appears in the  subdictionary of that page’s 
+Pattern
+resource dictionary, and the pattern matrix maps pattern space to the default (initial) coordinate 
+space of the page. Changes to the page’s transformation matrix that occur within the page’s 
+content stream, such as rotation and scaling, have no effect on the pattern; it maintains its 
+original relationship to the page no matter where on the page it is used. Similarly, if a pattern is 
+used within a form XObject (see 8.10, "Form XObjects"), the pattern matrix maps pattern space to 
+the form’s default user space (that is, the form coordinate space at the time the form is painted 
+with the  operator). A pattern can be used within another pattern; the inner pattern’s matrix 
+Do
+defines its relationship to the pattern space of the outer pattern. 
+All patterns shall be local to the context in which they are defined. 
+NOTE 2 The PostScript language allows a pattern to be defined in one context but used in another. For 
+example, a pattern might be defined on a page (that is, its pattern matrix maps the pattern 
+coordinate space to the user space of the page) but be used in a form on that page, so that its 
+relationship to the page is independent of each individual placement of the form. PDF does not 
+support this feature. 
+8.7.3Tiling patterns 
+ 
+8.7.3.1General 
+ 
+pattern cell
+A tiling pattern consists of a small graphical figure called a . Painting with the pattern 
+replicates the cell at fixed horizontal and vertical intervals to fill an area. The effect is as if the figure 
+tiling
+were painted on the surface of a clear glass tile, identical copies of which were then laid down in an 
+array covering the area and trimmed to its boundaries. This process is called  the area. 
+The pattern cell can include graphical elements such as filled areas, text, and sampled images. Its shape 
+Sf
+need not be rectangular, and the spacing of tiles can differ from the dimensions of the cell itself. When 
+performing painting operations such as  (stroke) or  (fill), the PDF processor shall paint the cell on the 
+current page as many times as necessary to fill an area. The order in which individual tiles (instances of 
+the cell) are painted is unspecified and unpredictable; figures on adjacent tiles should not overlap. 
+The appearance of the pattern cell shall be defined by a content stream containing the painting 
+operators needed to paint one instance of the cell. Besides the usual entries common to all streams (see 
+"Table 5: Entries common to all stream dictionaries"), this stream’s dictionary may contain the 
+additional entries listed in "

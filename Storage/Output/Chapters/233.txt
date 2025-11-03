@@ -1,0 +1,72 @@
+Table 282: Additional entries in a media rendition dictionary" lists the entries in a media rendition 
+CPSP
+dictionary. Its entries specify what media should be played (), how (), and where () it should be 
+played. A media rendition object shall be viable if and only if the objects referenced by its , , and  
+entries are viable. 
+C
+P
+ may be omitted only in cases where a referenced player takes no meaningful input. This requires that 
+PL
+ shall be present and that its referenced media play parameters dictionary (see "Table 290: Entries in 
+MUA
+a media play parameters dictionary") shall contain a  entry, whose referenced media players 
+dictionary (see 13.2.7.2, "Media players dictionary") has a non-empty  array or a non-empty  array. 
+Table 282: Additional entries in a media rendition dictionary 
+Key Type Value 
+Optional
+C 
+dictionary () A media clip dictionary (see 13.2.4, "Media clip objects") that 
+specifies what should be played when the media rendition object is played. 
+Required if  is not present, otherwise optional
+P C
+dictionary () A media play parameters 
+dictionary (see 13.2.5, "Media play parameters") that specifies how the media 
+rendition object should be played. 
+Default value: a media play parameters dictionary whose entries (see "Table 
+ 
+290: Entries in a media play parameters dictionary") all contain their default 
+values.
+© ISO 2017 – All rights reserved 598 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional
+SP 
+dictionary () A media screen parameters dictionary (see 13.2.6, "Media screen 
+parameters") that specifies where the media rendition object should be played. 
+Default value: a media screen parameters dictionary whose entries (see "Table 
+293: Entries in a media screen parameters dictionary") all contain their default 
+values. 
+ 
+13.2.3.3Selector renditions 
+ 
+selector rendition dictionary
+R
+A  shall specify an array of rendition objects in its  entry (see "Table 283: 
+Additional entries specific to a selector rendition dictionary"). The renditions in this array should be 
+ordered by preference, with the most preferred rendition first. At play-time, the renditions in the array 
+shall be evaluated and the first viable media rendition, if any, shall be played. If one of the renditions is 
+itself a selector, that selector shall be evaluated in turn, yielding the equivalent of a depth-first tree 
+search. A selector rendition itself may be non-viable; in this case, none of its associated media 
+renditions shall be evaluated (in effect, this branch of the tree is skipped). 
+NOTE This mechanism can be used, for example, to specify that a large video clip need be used on high-
+bandwidth machines and a smaller clip need be used on low-bandwidth machines. 
+Table 283: Additional entries specific to a selector rendition dictionary 
+Key Type Value 
+Required
+R 
+array () An array of rendition objects. The first viable media rendition object 
+found in the array, or nested within a selector rendition in the array, should be 
+used. An empty array is legal. 
+ 
+13.2.4Media clip objects 
+ 
+13.2.4.1General 
+ 
+MCD
+S
+media clip dataMCSmedia clip section
+There are two types of media clip objects, determined by the subtype , which can be either  for 
+ (see 13.2.4.2, "Media clip data") or  for  (see 13.2.4.3, "Media clip 
+section"). The entries for media clip dictionaries are listed in "

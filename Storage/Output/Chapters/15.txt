@@ -1,0 +1,8 @@
+document part hierarchy 
+hierarchical data structure that specifies the organization of document parts 
+4.21 
+ 
+document part metadata 
+metadata associated with a document part 
+4.22 
+ 

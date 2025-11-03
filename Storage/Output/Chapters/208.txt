@@ -1,0 +1,482 @@
+Table 237: Entries in a signature field seed value dictionary") containing 
+information that constrains the properties of a signature that is applied to this 
+field. 
+ 
+The signature field lock dictionary (described in "Table 236: Entries in a signature field lock 
+dictionary") contains the names of form fields whose values shall no longer be changed after this 
+signature has been signed. 
+Table 236: Entries in a signature field lock dictionary 
+Key Type Value 
+(Optional) 
+Type  
+SigFieldLock
+ 
+name The type of PDF object that this dictionary describes; if present, shall be
+for a signature field lock dictionary. 
+(Required) 
+Action Fields
+name A name which, in conjunction with , indicates the set of fields 
+All 
+that should be locked. The value shall be one of the following: 
+Include 
+Fields
+All fields in the document 
+Exclude 
+Fields
+ 
+All fields specified in  
+All fields except those specified in 
+(Required if the value of is Include or Exclude) 
+Fields Action
+array  An array of text strings 
+containing field names. 
+(Optional; PDF 2.0) 
+P 
+number The access permissions granted for this document. Valid 
+values shall be: 
+1 No changes to the document are permitted; any change to the document 
+shall invalidate the signature. 
+2 Permitted changes shall be filling in forms, instantiating page templates, and 
+signing; other changes shall invalidate the signature. 
+3 Permitted changes are the same as for 2, as well as annotation creation, 
+deletion, and modification; other changes shall invalidate the signature. 
+There is no default value; absence of this key shall result in no effect on signature 
+ MDP 
+validation rules. 
+Ifpermission is already in effect from an earlier incremental save section or 
+the original part of the document, the number shall specify permissions less than 
+or equal to the permissions already in effect based on signatures earlier in the 
+ MDP 
+document. That is, permissions can be denied but not added. If the number 
+specifies greater permissions than anvalue already in effect, the new 
+number is ignored. 
+If the document does not have an author signature, the initial permissions in effect 
+are those based on the number 3. 
+The new permission applies to any incremental changes to the document 
+following the signature of which this key is part. 
+ 
+© ISO 2017 – All rights reserved 529 
+
+ISO/DIS 32000-2
+ 
+ SV 
+The value of theentry in the field dictionary is a seed value dictionary whose entries (see "Table 
+ Ff 
+237: Entries in a signature field seed value dictionary") provide constraining information that shall be 
+used at the time the signature is applied. Theentry in this signature field seed value dictionary 
+specifies whether the other entries in the dictionary shall be honoured or whether they are merely 
+recommendations. 
+Table 237: Entries in a signature field seed value dictionary 
+Key Type Value 
+(Optional) 
+Type 
+SV
+  
+name The type of PDF object that this dictionary describes; if present, shall 
+befor a seed value dictionary. 
+(Optional) 
+Ff 
+integer A set of bit flags specifying the interpretation of specific entries in this 
+dictionary. A value of 1 for the flag indicates that the associated entry is a 
+FilterSubFilterVReasons
+required constraint. A value of 0 indicates that the associated entry is an optional 
+LegalAttestationAddRevInfoDigestMethod
+constraint. Bit positions are 1 (); 2 (); 3 (); 4 (); 5 
+LockdocumentAppearanceFilter
+(); 6 (); and 7 ():for PDF 2.0 the 
+following bit flags are added: 8 (); and 9 (). 
+Default value: 0. 
+(Optional) 
+Filter 
+Filter Ff 
+name The signature handler that shall be used to sign the signature field. 
+Beginning with PDF 1.7, if  is specified and theentry indicates this entry 
+ Ff 
+is a required constraint, then the signature handler specified by this entry shall 
+be used when signing; otherwise, signing shall not take place. Ifindicates that 
+this is an optional constraint, this handler may be used if it is available. If it is not 
+available, a different handler may be used instead. 
+(Optional) 
+SubFilter 
+array An array of names indicating encodings to use when signing. The first 
+ SubFilter 
+name in the array that matches an encoding supported by the signature handler 
+ Ff 
+shall be the encoding that is actually used for signing. Ifis specified 
+and theentry indicates that this entry is a required constraint, then the first 
+ Ff 
+matching encodings shall be used when signing; otherwise, signing shall not take 
+place. Ifindicates that this is an optional constraint, then the first matching 
+encoding shall be used if it is available. If none is available, a different encoding 
+may be used. 
+Optional; PDF 1.7
+DigestMethod 
+SHA1SHA256SHA384SHA512
+, , ,  
+array () An array of names indicating acceptable digest algorithms to 
+RIPEMD160
+use while signing. The value shall be one of and 
+. The default value is implementation-specific. 
+This property is only applicable if the digital credential signing contains RSA 
+SHA1
+  
+ 
+public/private keys. If it contains DSA public/ private keys, the digest algorithm 
+is alwaysand this attribute shall be ignored.
+(Optional) 
+V 
+integer The minimum required capability of the signature field seed value 
+dictionary parser. A value of 1 specifies that the parser shall be able to recognise 
+all seed value dictionary entries in a PDF 1.5 file. A value of 2 specifies that it 
+shall be able to recognise all seed value dictionary entries specified. A value of 3 
+specifies that it shall be able to recognise all seed value dictionary entries 
+ Ff 
+ 
+specified in PDF 2.0 and earlier. 
+Theentry indicates whether this shall be treated as a required constraint.
+(Optional) certificate seed value dictionary 
+Cert 
+dictionary A (see "Table 238: Entries in a 
+certificate seed value dictionary") containing information about the 
+characteristics of the certificate that shall be used when signing. 
+© ISO 2017 – All rights reserved 530 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) 
+Reasons 
+array An array of text strings that specifying possible reasons for signing a 
+document. If specified, the reasons supplied in this entry replace those used by 
+Reasons Ff Reasons
+interactive PDF processors. 
+If the  array is provided and theentry indicates that  is a 
+ Ff 
+required constraint, one of the reasons in the array shall be used for the 
+Reasons
+signature dictionary; otherwise, signing shall not take place. If theentry 
+indicates  is an optional constraint, one of the reasons in the array may 
+Reasons
+be chosen or a custom reason can be provided. 
+ Ff Reasons 
+If the  array is omitted or contains a single entry with the value PERIOD 
+Reason 
+(2Eh) and theentry indicates that  is a required constraint, the
+ 
+entry shall be omitted from the signature dictionary (see "Table 255: 
+Entries in a signature dictionary").
+(Optional; PDF 1.6) 
+MDP P
+dictionary A dictionary containing a single entry whose key is  and 
+whose value is an integer between 0 and 3. A value of 0 defines the signature as 
+P
+an approval signature (see 12.8, "Digital signatures"). The values 1 through 3 
+DocMDP
+shall be used for certification signatures and correspond to the value of  in a 
+ transform parameters dictionary (see "Table 257: Entries in the 
+ MDP  MDP P
+DocMDP transform parameters dictionary"). 
+ 
+If thiskey is not present or thedictionary does not contain a  entry, 
+no rules shall be defined regarding the type of signature or its permissions.
+(Optional; PDF 1.6) 
+TimeStamp 
+URL  
+dictionary A timestamp dictionary containing two entries: 
+  An ASCII string specifying theURLof a timestamping server, providing 
+Internet RFC 5816Internet X.509 Public Key Infrastructure Time-Stamp 
+a timestamp that is compliant with Internet RFC 3161 as updated by 
+Protocol
+, 
+Ff
+. 
+ An integer whose value is 1 (the signature shall have a timestamp) or 0 
+NOTE 1 Please see 12.8.3.3, "CMS (PKCS#7) signatures" for more details about 
+(the signature need not have a timestamp). Default value: 0. 
+hashing. 
+(Optional; PDF 1.6) 
+LegalAttestation 
+array An array of text strings specifying possible legal attestations 
+ Ff 
+(see 12.8.7, "Legal content attestations"). The value of the corresponding flag in 
+theentry indicates whether this is a required constraint. 
+Optional; PDF 1.7
+AddRevInfo 
+true
+ AddRevInfo 
+boolean () A flag indicating whether revocation checking shall be carried 
+out. Ifis , the PDF processor shall perform the following 
+• 
+additional tasks when signing the signature field: 
+Perform revocation checking of the certificate (and the corresponding 
+• 
+issuing certificates) used to sign. 
+ SubFilter  AddRevInfo 
+Include the revocation information within the signature value. 
+trueadbe.pkcs7.detachedadbe.pkcs7.sha1 
+ SubFilter   
+Threevalues have been defined. For those values the
+adbe.x509.rsa_sha1false
+SubFilter
+value shall be  only ifisor .If 
+ AddRevInfo 
+ is , this entry shall be omitted or set to . 
+true
+ AddRevInfo  Ff 
+Additional SubFilters may be defined that also usevalues. 
+Ifis  and theentry indicates this is a required constraint, 
+then the preceding tasks shall be performed. If they cannot be performed, then 
+false
+signing shall fail. 
+NOTE 2 Revocation information is carried in the signature data as specified by 
+Default value:  
+PCKS#7. See 12.8.3.3, "CMS (PKCS#7) signatures". 
+© ISO 2017 – All rights reserved 531 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; PDF 2.0) 
+LockDocument 
+name A name value supplying the author’s intent for whether the 
+truefalseauto
+signing dialogue should allow the user to lock the document at the time of 
+true
+ Ff 
+signing. The value shall be one of , , and , as follows: 
+LockDocument
+ the document should be locked at the time of signing. If theentry 
+indicates that  is not a required constraint, the user 
+may choose to override this at the time of signing; otherwise, the 
+false
+document is locked after signing. 
+Ff
+ the document should not be locked after signing. Again, the required 
+auto 
+flag, , determines whether this is a required constraint. 
+Ff
+the consuming application decided whether to present the lock user 
+interface for the document and whether to honour the required flag, , 
+auto
+based on the properties of the document. 
+Default value:  
+(Optional; PDF 2.0) 
+AppearanceFilter 
+text string A text string naming the appearance that shall be used when 
+signing the signature field. interactive PDF processors may choose to maintain a 
+list of named signature appearances. This text string provides authors with a 
+ AppearanceFilter  Ff 
+means of specifying which appearance should be used to sign the signature field. 
+If the required bitinis set, the appearance shall be 
+available to sign the document and is used. 
+ 
+A seed value dictionary may also include seed values for private entries belonging to multiple handlers. 
+A given handler shall use only those private entries that are pertinent to itself and ignore any other 
+private entries. 
+For optional keys that are not present, no constraint shall be placed upon the signature handler for that 
+property when signing. 
+Table 238: Entries in a certificate seed value dictionary 
+Key Type Value 
+(Optional) 
+Type 
+SVCert
+  
+name The type of PDF object that this dictionary describes; if present, 
+shall befor a certificate seed value dictionary. 
+(Optional) 
+Ff 
+integer A set of bit flags specifying the interpretation of specific entries 
+in this dictionary. A value of 1 for the flag means that a signer shall be 
+SubjectIssuer
+required to use only the specified values for the entry. A value of 0 means 
+OIDSubjectDNReservedKeyUsageURL
+that other values are permissible. Bit positions are 1 (); 2 (); 
+ 
+3 (); 4 (); 5 (); 6 (); 7 (). Default 
+value: 0.
+(Optional) 
+Subject 
+array An array of byte strings containing DER-encoded X.509v3 
+Internet RFC 3280Internet X.509 Public Key Infrastructure, 
+certificates that are acceptable for signing. X.509v3 certificates are 
+Certificate and Certificate Revocation List (CRL) Profile
+described in , 
+ Ff 
+. The value of the 
+corresponding flag in theentry indicates whether this is a required 
+constraint. 
+(Optional: PDF 2.0) 
+SignaturePolicyOID  OID 
+ASCII string The string representation of theof the signature 
+policy to use when signing. 
+© ISO 2017 – All rights reserved 532 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional: PDF 2.0)
+SignaturePolicyHashValue 
+string  The computed hash value of the signature policy, 
+computed the same way as hashValue of sigPolicyHash in clause 5.2.9 of 
+SignaturePolicyHashAlgorithm.
+CAdES (ETSI EN 319 122-1), according to the hash algorithm specified by 
+ 
+(Optional: PDF 2.0) 
+SignaturePolicyHashAlgorithm 
+SignaturePolicyHashValue
+name The hash function used to compute the value of the 
+ SubFilter 
+ entry. Entries shall be represented the same 
+way asvalues specified in "Table 260: SubFilter value algorithm 
+support". 
+(Optional: PDF 2.0) 
+SignaturePolicyCommitmentType  SignaturePolicyOID 
+Array of ASCII If theis present, this array 
+strings defines the commitment types that may be used within the signature 
+policy. An empty string may be used to indicate that all commitments 
+defined by the signature policy may be used. 
+Optional; PDF 1.7
+SubjectDN 
+array of () An array of dictionaries, each specifying a Subject 
+dictionaries Distinguished Name (DN) that shall be present within the certificate for it 
+to be acceptable for signing. The certificate ultimately used for the digital 
+PDF keys and values are mapped to certificate 
+signature shall contain all the attributes specified in each of the 
+attributes and values.
+dictionaries in this array. (
+) The certificate is not constrained to use only 
+Internet RFC 
+attribute entries from these dictionaries but may contain additional 
+3280
+attributes. The Subject Distinguished Name is described in 
+. The key can be any legal attribute identifier (OID). Attribute names 
+shall contain characters in the set a-z A-Z 0-9 and PERIOD. 
+Certificate attribute names are used as key names in the dictionaries in 
+this array. Values of the attributes are used as values of the keys. Values 
+ Ff 
+shall be text strings. 
+ 
+The value of the corresponding flag in theentry indicates whether this 
+entry is a required constraint.
+Optional; PDF 1.7
+KeyUsage 
+ 
+array of ASCII () An array of ASCII strings, where each string specifies 
+stringsan acceptable key-usage extension that shall be present in the signing 
+Internet RFC 3280
+certificate. Multiple strings specify a range of acceptable key-usage 
+extensions. The key-usage extension is described in . 
+Each character in a string represents a key-usage type, where the order of 
+the characters indicates the key-usage extension it represents. The first 
+through ninth characters in the string, from left to right, represent the 
+required value for the following key-usage extensions: 
+1 digitalSignature 4 dataEncipherment 7 cRLSign 
+2  non-Repudiation  5 keyAgreement  8 encipherOnly 
+3  keyEncipherment  6 keyCertSign  9 decipherOnly 
+ 
+Any additional characters shall be ignored. Any missing characters or 
+characters that are not one of the following values, shall be treated as ‘X’. 
+The following character values shall be supported: 
+0 Corresponding key-usage shall not be set. 
+X 
+1 Corresponding key-usage shall be set. 
+State of the corresponding key-usage does not matter. 
+EXAMPLE 1 The string values ‘1’ and ‘1XXXXXXXX’ represent settings 
+where the key-usage type digitalSignature is set and the 
+state of all other key-usage types do not matter. 
+ Ff 
+ 
+The value of the corresponding flag in theentry indicates whether this 
+is a required constraint.
+© ISO 2017 – All rights reserved 533 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) 
+Issuer 
+array An array of byte strings containing DER-encoded X.509v3 
+certificates of acceptable issuers. If the signer’s certificate refers to any of 
+the specified issuers (either directly or indirectly), the certificate shall be 
+ Ff 
+considered acceptable for signing. The value of the corresponding flag in 
+ 
+theentry indicates whether this is a required constraint. 
+This array may contain self-signed certificates.
+(Optional) 
+OID 
+array An array of byte strings that contain Object Identifiers (OIDs) of 
+the certificate policies that shall be present in the signing certificate. 
+EXAMPLE 2 An example of such a string is:  
+(2.16.840.1.113733.1.7.1.1) 
+ Issuer 
+ 
+Internet RFC 3280
+This field shall only be used if the value ofis not empty. The 
+ Ff 
+certificate policies extension is described in . The value 
+ 
+of the corresponding flag in theentry indicates whether this is a 
+required constraint.
+(Optional) 
+URL URLType
+ASCII string A URL, the use for which shall be defined by the  
+entry. 
+Optional; PDF 1.7
+URLType  URL 
+Name () A name indicating the usage of theentry. There 
+are standard uses and there can be implementation-specific uses for this 
+Browser 
+ URL 
+URL. The following value specifies a valid standard usage: 
+– Thereferences content that shall be displayed in 
+ Ff  URL 
+a web browser to allow enrolling for a new credential if a 
+matching credential is not found. Theattribute’sbit shall 
+be ignored for this usage. 
+Third parties may extend the use of this attribute with their own attribute 
+PDF 
+values, which shall conform to the guidelines described in Annex E, "
+Browser
+Name Registry". 
+The default value is . 
+ 
+ SignaturePolicyOID SignaturePolicyHashValueSignaturePolicyHashAlgorithm
+SignaturePolicyCommitmentType SignaturePolicyOID 
+If theis absent, the ,  
+ SignaturePolicyCommitmentType 
+and  fields shall be ignored. If theis present 
+but theis absent, all commitments defined by the signature policy 
+may be used. 
+NOTE The above entries allow the creation of a signature-policy-identifier as in CAdES (ETSI 319 122-1). 
+All rules defined in CAdES apply. In particular, CAdES allows the creation of a EPES signature 
+when the signature policy hash is not available, therefore, the absence of the 
+ does not preclude the creation of a PAdES-EPES signature. 
+SignaturePolicyHashValue
+12.7.6Form actions 
+ 
+12.7.6.1General 
+ 
+Interactive forms also support special types of actions in addition to those described in 12.6.4, "Action 
+types": 
+submit-form action 
+• 
+reset-form action 
+• 
+© ISO 2017 – All rights reserved 534 
+
+ISO/DIS 32000-2
+ 
+import-data action 
+• 
+12.7.6.2Submit-form action 
+ 
+Upon invocation of a submit-form action, an interactive PDF processor shall transmit the names and 
+  
+values of selected interactive form fields to a specified uniform resource locator (URL). 
+ Flags 
+NOTE Presumably, theURLis the address of a Web server that will process them and send back a response. 
+The value of the action dictionary’sentry shall be an non-negative integer containing flags 
+specifying various characteristics of the action. Bit positions within the flag word shall be numbered 
+starting with 1 (low-order). "Table 240: Flags for submit-form actions" shows the meanings of the flags; 
+all undefined flag bits shall be reserved and shall be set to 0. 

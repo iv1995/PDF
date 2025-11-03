@@ -1,0 +1,76 @@
+Table 247: 
+Additional entry in an embedded file stream dictionary for an encrypted FDF file" to identify the 
+revision number of the FDF encryption algorithm used to encrypt the file. Although the FDF encryption 
+mechanism is separate from the one for PDF file encryption described in 7.6, "Encryption" revision 1 
+(the only one defined) uses a similar RC4 encryption algorithm based on a 40-bit encryption key. The 
+key shall be computed by means of an MD5 hash, using a padded user-supplied password as input. The 
+computation shall be identical to steps (a) and (b) of the "Algorithm 2: Computing a file encryption key 
+ 
+in order to encrypt a document (revision 4 and earlier)" in 7.6.4.3, "File encryption key algorithm"; the 
+first 5 bytes of the result shall be the file encryption key for the embedded FDFfile. 
+Table 247: Additional entry in an embedded file stream dictionary for an encrypted FDF file 
+Key Type Value 
+(Required if theFDFfile is encrypted; deprecated in PDF 2.0) 
+EncryptionRevision   
+  
+integer The revision 
+number of theFDFencryption algorithm used to encrypt the file. This 
+value shall be 1. 
+ 
+ 
+ JavaScript     
+Theentry in theFDFdictionary holds an ECMAScriptdictionary containingECMAScript
+  
+scripts that shall be defined globally at the document level, rather than associated with individual fields. 
+  
+The dictionary may contain scripts definingECMAScriptfunctions for use by other scripts in the 
+document, as well as scripts that shall be executed immediately before and after theFDFfile is 
+imported. "Table 247: Additional entry in an embedded file stream dictionary for an encrypted FDF file" 
+shows the contents of this dictionary. 
+Table 248: Entries in the ECMAScript dictionary 
+Key Type Value 
+(Optional) 
+Before  
+  
+text string or A text string or text stream containing an ECMAScriptscript 
+text stream that shall be executed just before theFDFfile is imported. 
+(Optional) 
+After  
+  
+text string or A text string or text stream containing an ECMAScriptscript 
+text stream that shall be executed just after theFDFfile is imported. 
+(Optional; PDF 1.6) 
+AfterPermsReady 
+   
+text string or A text string or text stream containing an 
+text stream ECMAScriptscript that shall be executed after theFDFfile is imported 
+and the usage rights in the PDF document have been determined (see 
+12.8.2.3, "UR"). 
+© ISO 2017 – All rights reserved 544 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) 
+Doc   
+ JavaScript 
+Array An array defining additionalECMAScriptscripts that shall 
+be added to those defined in theentry of the document’s 
+name dictionary (see 7.7.4, "Name dictionary"). The array shall 
+contain an even number of elements, organised in pairs. The first 
+element of each pair shall be a name and the second shall be a text 
+string or text stream defining the script corresponding to that name. 
+Each of the defined scripts shall be added to those already defined in 
+Before
+the name dictionary and shall then be executed before the script 
+NOTE As described in 12.6.4.17, "ECMAScript actions" these scripts 
+defined in the  entry is executed. 
+are used to defineECMAScriptfunctions for use by other 
+  
+scripts in the document. 
+ 
+12.7.8.3.2FDF fields 
+ 
+FDF field dictionary
+   
+Each field in anFDFfile shall be described by an. "

@@ -1,3 +1,52 @@
 ISO/FDIS 32000-2 
 Secretariat: ANSI 
  
+Document management — Portable Document Format — Part 2: PDF 2.0 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+ISO/DIS 32000-2
+ 
+Warning 
+This document is not an ISO International Standard. It is distributed for review and comment. It is subject to 
+change without notice and may not be referred to as an International Standard. 
+Recipients of this draft are invited to submit, with their comments, notification of any relevant patent rights 
+of which they are aware and to provide supporting documentation. 
+Trademarks 
+All product or company names that may be mentioned in this publication are tradenames, trademarks or 
+registered trademarks of their respective owners. 
+Copyright Notice 
+This ISO document is a working draft and is copyright-protected by ISO. Although the reproduction of 
+working drafts in any form for use by participants in the ISO standards development process is permitted 
+without prior permission from ISO, neither this document nor any extract from it may be reproduced, stored 
+or transmitted in any form for any other purpose without prior written permission from ISO. 
+Requests for permission to reproduce this document for the purpose of selling it should be addressed as 
+shown below or to ISO’s member body in the country of the requester: 
+ISO copyright office 
+Ch. de Blandonnet 8 • CP 401 
+CH-1214 Vernier, Geneva, Switzerland 
+Tel. +41 22 749 01 11 
+Fax +41 22 749 09 47 
+Reproduction for sales purposes may be subject to royalty payments or a licensing agreement. 
+Violators may be prosecuted. 
+ 
+  
+© ISO 2017 – All rights reserved ii 
+
+ISO/DIS 32000-2
+ 
+ContentsPage
+  

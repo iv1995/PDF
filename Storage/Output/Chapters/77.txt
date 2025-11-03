@@ -1,0 +1,65 @@
+Table 60: Clipping path operators") may appear after the last path construction operator and before 
+the path-painting operator that terminates a path object. Although the clipping path operator appears 
+After
+before the painting operator, it shall not alter the clipping path at the point where it appears. Rather, it 
+shall modify the effect of the succeeding painting operator.  the path has been painted, the clipping 
+path in the graphics state shall be set to the intersection of the current clipping path and the newly 
+constructed path. 
+Table 60: Clipping path operators 
+Operands Operator Description 
+— 
+W 
+Modify the current clipping path by intersecting it with the current path, using the non-zero 
+winding number rule to determine which regions lie inside the clipping path. 
+— 
+W* 
+Modify the current clipping path by intersecting it with the current path, using the even-odd 
+rule to determine which regions lie inside the clipping path. 
+ 
+© ISO 2017 – All rights reserved 173 
+
+ISO/DIS 32000-2
+ 
+NOTE 1 In addition to path objects, text objects can also be used for clipping; see 9.3.6, "Text rendering 
+mode". 
+n
+The  operator (see "Table 59: Path-painting operators") is a no-op path-painting operator; it shall 
+W n
+cause no marks to be placed on the page, but can be used with a clipping path operator to establish a 
+new clipping path. That is, after a path has been constructed, the sequence  shall intersect that path 
+with the current clipping path and shall establish a new clipping path. 
+NOTE 2 There is no way to enlarge the current clipping path or to set a new clipping path without 
+reference to the current one. However, since the clipping path is part of the graphics state, its 
+effect can be localized to specific graphics objects by enclosing the modification of the clipping 
+path and the painting of those objects between a pair of and operators (see 8.4.2, "Graphics 
+q  Q
+state stack"). Execution of the  operator causes the clipping path to revert to the value that was 
+Q
+saved by the  operator before the clipping path was modified. 
+8.6Colour spaces 
+q
+ 
+8.6.1General 
+ 
+PDF includes facilities for specifying the colours of graphics objects. The colour facilities are divided 
+into two parts: 
+Colour specification
+• 
+colour spaces
+. A PDF file may specify abstract colours in a device-independent way. Colours 
+RGB, CMYK
+may be described in any of a variety of colour systems, or . Some colour spaces are 
+related to device colour representation (grayscale, ), others to human visual perception 
+(CIE-based). Certain special features are also modelled as colour spaces: patterns, colour mapping, 
+Colour rendering
+• 
+separations, and high-fidelity and multitone colour. 
+. A PDF reader shall reproduce colours on the raster output device by a multiple-
+step process that includes some combination of colour conversion, gamma correction, halftoning, 
+and scan conversion. Some aspects of this process use information that is specified in PDF. 
+However, unlike the facilities for colour specification, the colour-rendering facilities are device-
+dependent and should not be included in a page description. 
+When the device is a subtractive colour device, "rendering for separations" may be implemented (see 
+10.8.2, "Separations"). In addition, a PDF reader may optionally support "separation simulation" for any 
+device (see 10.8.3, "Separation simulation"). In both cases overprinting (see 8.6.7, "Overprint control") 
+may be enabled. "

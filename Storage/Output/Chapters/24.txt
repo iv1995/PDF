@@ -1,0 +1,10 @@
+job ticket 
+electronic specification of process control for print production in either a published or proprietary 
+format 
+4.39 
+ 
+name object 
+atomic symbol uniquely defined by a sequence of characters introduced by a SOLIDUS (/), (2Fh) but the 
+SOLIDUS is not considered to be part of the name 
+4.40 
+ 
