@@ -1,0 +1,108 @@
+Table 229: Field flags 
+specific to button fields" and clauses 12.7.5.2.2, "Push-buttons", and 12.7.5.2.4, "Radio buttons". 
+Table 229: Field flags specific to button fields 
+Bit position Name Meaning 
+(Radio buttons only) 
+15 NoToggleToOff If set, exactly one radio button shall be selected at 
+all times; selecting the currently selected button has no effect. If clear, 
+clicking the selected button deselects it, leaving no button selected. 
+16 Radio If set, the field is a set of radio buttons; if clear, the field is a check box. 
+This flag may be set only if the Pushbutton flag is clear. 
+17 Pushbutton If set, the field is a push-button that does not retain a permanent value. 
+(PDF 1.5) 
+26 RadiosInUnison If set, a group of radio buttons within a radio button field that 
+use the same value for the on state will turn on and off in unison; that 
+is if one is checked, they are all checked. If clear, the buttons are 
+mutually exclusive (the same behaviour as HTML radio buttons). 
+ 
+12.7.5.2.2Push-buttons 
+ 
+Btn
+  
+A push-button field shall have a field type ofand the Pushbutton flag (see "Table 229: Field flags 
+VDV
+specific to button fields") set to one. Because this type of retains no permanent value, it shall not use the 
+ and  entries in the field dictionary (see "Table 226: Entries common to all field dictionaries"). 
+© ISO 2017 – All rights reserved 520 
+
+ISO/DIS 32000-2
+ 
+12.7.5.2.3Check boxes 
+ 
+Btn
+  
+A check box field represents one or more check boxes that toggle between two states, on and off, when 
+manipulated by the user with the mouse or keyboard. Its field type shall beand its Pushbutton and 
+Radio flags (see "Table 229: Field flags specific to button fields") shall both be clear. Each state can have 
+a separate appearance, which shall be defined by an appearance stream in the appearance dictionary of 
+Off
+the field’s widget annotation (see 12.5.5, "Appearance streams"). The appearance for the off state is 
+optional but, if present, shall be stored in the appearance dictionary under the name . 
+V
+The  entry in the field dictionary (see "Table 226: Entries common to all field dictionaries") holds a 
+V
+name object representing the check box’s appearance state, which shall be used to select the 
+ASASV
+appropriate appearance from the appearance dictionary. The value of the  key shall also be the value 
+of the  key. If they are not equal, then the value of the  key shall be used instead of the  key to 
+determine which appearance to use. 
+EXAMPLE 1 This example shows a typical check box definition. 
+1 0 obj 
+  <</Type /Annot 
+   /Subtype /Widget 
+   /Rect [100 100 120 120] 
+   /FT /Btn 
+   /T (Urgent) 
+   /V /Yes 
+   /AS /Yes 
+   /AP <</N <</Yes 2 0 R /Off 3 0 R>> 
+  >> 
+endobj 
+ 
+2 0 obj 
+  <</Type /XObject 
+   /Subtype /Form 
+   /BBox [0 0 20 20] 
+   /Resources 20 0 R 
+   /Length 104 
+  >> 
+stream 
+ q 
+  0 0 1 rg 
+  BT 
+   /ZaDb 12 Tf 
+   0 0 Td 
+   (4) Tj 
+  ET 
+ Q 
+endstream 
+endobj 
+ 
+3 0 obj 
+  <</Type /XObject 
+   /Subtype /Form 
+   /BBox [0 0 20 20] 
+   /Resources 20 0 R 
+   /Length 104 
+  >> 
+stream 
+ q 
+  0 0 1 rg 
+  BT 
+   /ZaDb 12 Tf 
+   0 0 Td 
+© ISO 2017 – All rights reserved 521 
+
+ISO/DIS 32000-2
+ 
+   (8) Tj 
+  ET 
+ Q 
+endstream 
+endobj 
+ 
+ 
+Opt 
+Beginning with PDF 1.4, the field dictionary for check boxes and radio buttons may contain an optional
+ Opt 
+entry (see "

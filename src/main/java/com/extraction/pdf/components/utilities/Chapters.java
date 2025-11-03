@@ -6,7 +6,6 @@ public class Chapters {
 	
 	public static ArrayList<String> chapters(String book, ArrayList<String> titles){
 		ArrayList<String> chapter = new ArrayList<>();
-		int count = 1;
 		
 		do {
 			int[] first = {0,0};
@@ -14,12 +13,12 @@ public class Chapters {
 			
 			
 			do {
-				if(count < titles.size() - 2) {
-					titles.remove(count);
-					next = Strings.indexesOf(book, titles.get(count));
+				if(1 < titles.size() - 2) {
+					next = Strings.indexesOf(book, titles.get(1));
 					
 					if(Array.containsNegative(next)) {
-						count++;
+						titles.remove(1);
+						continue;
 					} else {
 						break;
 					}
@@ -33,8 +32,8 @@ public class Chapters {
 			chapter.add(Strings.getBetween(book, first, next));
 			book = Strings.unused(book, next, true);
 			
-			if(titles.size() > 1) {
-				titles.remove(1);
+			if(titles.size() > 2) {
+				titles.remove(0);
 			} else {
 				break;
 			}

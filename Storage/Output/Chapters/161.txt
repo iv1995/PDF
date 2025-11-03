@@ -1,210 +1,41 @@
-Table 151: Entries in an outline item dictionary 
+Table 65: Additional entries specific to an ICC profile stream dictionary". 
+Table 65: Additional entries specific to an ICC profile stream dictionary 
 Key Type Value 
 Required
-Title 
-text string () The text that shall be displayed on the screen for this item.  
-© ISO 2017 – All rights reserved 434 
-
-ISO/DIS 32000-2
+N 
+N
+integer () The number of colour components in the colour space described by the ICC profile data. 
+Optional
+Alternate 
+This number shall match the number of components actually in the ICC profile.  shall be 1, 3, or 4. 
+array or  () An alternate colour space that shall be used in case the one specified in the stream data 
+Pattern
+name is not supported. PDF readers should not use this colour space. The alternate space may be any 
+N
+valid colour space (except a  colour space) that has the number of components specified by 
+DeviceGrayDeviceRGBDeviceCMYK
+. If this entry is omitted and the PDF reader does not understand the ICC profile data, the colour 
+N
+space that shall be used is , , or , depending on whether the 
  
-Key Type Value 
-Required; shall be an indirect reference
-Parent 
-dictionary () The parent of this item in the 
-outline hierarchy. The parent of a top-level item shall be the outline 
-dictionary itself.  
-Required for all but the first item at each level; shall be an indirect 
-Prev 
-reference
-dictionary (
-) The previous item at this outline level.  
-Required for all but the last item at each level; shall be an indirect 
-Next 
-reference
-dictionary (
-) The next item at this outline level.  
-Required if the item has any descendants; shall be an indirect reference
-First 
-dictionary () 
-The first of this item’s immediate children in the outline hierarchy.  
-Required if the item has any descendants; shall be an indirect reference
-Last 
-dictionary () 
-The last of this item’s immediate children in the outline hierarchy.  
-Required if the item has any descendants
-Count 
-Count
-integer () If the outline item is open, 
- is the sum of the number of visible descendent outline items at all 
-levels. The number of visible descendent outline items shall be 
-Count
-determined by the following recursive process: 
-Count
-Step 1. Initialize  to zero. 
-Count
-Step 2. Add to  the number of immediate children. During 
-repetitions of this step, update only the  of the original 
-Count
-outline item. 
-Step 3. For each of those immediate children whose  is positive 
-Count
-and non-zero, repeat steps 2 and 3.  
-If the outline item is closed,  is negative and its absolute value is the 
-number of descendants that would be visible if the outline item were 
-opened. 
-Optional; shall not be present if an  entry is present
-Dest A
-name, byte string, () The destination that 
-or array shall be displayed when this item is activated (see 12.3.2, "Destinations").  
-Optional; PDF 1.1; shall not be present if a  entry is present
-A Dest
-dictionary () The 
-action that shall be performed when this item is activated (see 12.6, 
-"Actions").  
-Optional; PDF 1.3; shall be an indirect reference
-SE 
-dictionary () The structure element to 
-NOTE  This value is not intended for navigation. Structure Destinations 
-which the item refers (see 14.7.2, "Structure hierarchy"). 
-( entry) are the method to provide structure-based 
-Dest
-navigation.  
+value of  is 1, 3, or 4, respectively. There shall not be conversion of source colour values, such as a 
+ICCBased 
+tint transformation, when using the alternate colour space. Colour values within the range of the
+colour space might not be within the range of the alternate colour space. In this case and 
+after constraining to the ICCBased range, the nearest values within the range of the alternate space 
+Optional
+N
+Range 
+shall be substituted without error indication. 
+0011
+() An array of 2 ×  numbers [𝑚𝑚𝐷𝐷𝑛𝑛,𝑚𝑚𝐷𝐷𝑥𝑥 𝑚𝑚𝐷𝐷𝑛𝑛,𝑚𝑚𝐷𝐷𝑥𝑥…] that shall specify the minimum 
+array 
+and maximum valid values of the corresponding colour components. These values shall match the 
 Optional; PDF 1.4
-C 
-DeviceRGB
-array () An array of three numbers in the range 0.0 to 1.0, 
-representing the components in the  colour space of the 
-colour that shall be used for the outline entry’s text. Default value: [0.0 0.0 
-0.0].  
-Optional; PDF 1.4
-F 
-integer () A set of flags specifying style characteristics for 
-displaying the outline item’s text (see "Table 152: Outline item flags"). 
-Default value: 0.  
+Metadata 
+information in the ICC profile. Default value: [0.0 1.0 0.0 1.0…]. 
+stream () A metadata stream that shall contain metadata for the colour space ("see 14.3.2, 
+"Metadata streams"). 
  
-PDF 1.4
-F
-The value of the outline item dictionary’s  entry () shall be an integer interpreted as one-bit 
-flags specifying style characteristics for displaying the item. Bit positions within the flag word are 
-numbered from low-order to high-order bits, with the lowest-order bit numbered 1. "Table 152: Outline 
-item flags" shows the meanings of the flags; all other bits of the integer shall be 0. 
-© ISO 2017 – All rights reserved 435 
-
-ISO/DIS 32000-2
- 
-Table 152: Outline item flags 
-Bit position Name Meaning 
-1 Italic If set to 1, display the item in italic. 
-2 Bold If set to 1, display the item in bold. 
- 
-EXAMPLE The following example shows a typical outline dictionary and outline item dictionary. See H.6, "Outline 
-hierarchy example" for an example of a complete outline hierarchy. 
-21 0 obj 
-  <</Count 6 
-   /First 22 0 R 
-   /Last 29 0 R 
-  >> 
-endobj 
- 
-22 0 obj 
-  <</Title ( Chapter 1 ) 
-   /Parent 21 0 R 
-   /Next 26 0 R 
-   /First 23 0 R 
-   /Last 25 0 R 
-   /Count 3 
-   /Dest [3 0 R /XYZ 0 792 0] 
-  >> 
-endobj 
- 
-12.3.4Thumbnail images 
- 
-thumbnail 
-A PDF document may contain images representing the contents of its pages in miniature 
-form. An interactive PDF processor may display these images on the screen, allowing the user to 
-navigate to a page by clicking its thumbnail image: 
-NOTE Thumbnail images are not required, and can be included for some pages and not for others. 
-Thumb
-The thumbnail image for a page shall be an image XObject specified by the  entry in the page 
-WidthHeightColorSpaceBitsPerComponentDecode
-object (see 7.7.3, "Page tree"). It has the usual structure for an image dictionary (8.9.5, "Image 
-dictionaries"), but only the , , , , and  entries are 
-Image
-Subtype
-significant; all of the other entries listed in "Table 87: Additional entries specific to an image dictionary" 
- DeviceGray DeviceRGB Indexed  
-shall be ignored if present. (If a  entry is specified, its value shall be .) The image’s colour 
-space shall be eitheror , or ancolourspace based on one of these. 
-EXAMPLE This example shows a typical thumbnail image definition. 
-12 0 obj 
-  <</Width 76 
-   /Height 99 
-   /ColorSpace /DeviceRGB 
-   /BitsPerComponent 8 
-   /Length 13 0 R 
-   /Filter [/ASCII85Decode /DCTDecode] 
-  >> 
-stream 
-s4IA>!"M;*Ddm8XA,lT0!!3,S!/(=R!<E3%!<N<(!WrK*!WrN, 
-… Omitted data … 
-endstream 
-endobj 
-© ISO 2017 – All rights reserved 436 
-
-ISO/DIS 32000-2
- 
- 
-13 0 obj              %Length of stream 
-… 
-endobj 
- 
-12.3.5Collections 
- 
-12.3.5.1General 
- 
-collections of file attachments
-Beginning with PDF 1.7, PDF documents may specify how an interactive PDF processor’s user interface 
-presents , where the attachments are related in structure or content. Such 
-a presentation is called a portable collection. 
-NOTE 1 The intent of portable collections is to present, sort, and search collections of related documents 
-embedded in the containing PDF document, such as email archives, photo collections, and 
-engineering bid sets. There is no requirement that documents in a collection have an implicit 
-relationship or even a similarity; however, showing differentiating characteristics of related 
-documents can be helpful for document navigation. 
-collection dictionary
-A  specifies the viewing and organisational characteristics of portable collections. If 
- EmbeddedFiles 
-this dictionary is present in a PDF document, the interactive PDF processor shall present the document 
-as a portable collection. Thename tree specifies file attachments (see "Table 32: 
-Entries in the name dictionary"). 
-View
-When an interactive PDF processor first opens a PDF document containing a collection, it shall display 
-D
-the contents according to the  key of the collection dictionary. The initial document may be the 
-container PDF or one of the embedded documents as specified by the  key in the collection dictionary. 
-NOTE 2 The page content in the initial document needs to contain information that helps the user 
-understand what is contained in the collection, such as a title and an introductory paragraph. 
- EmbeddedFiles 
-The file attachments comprising a collection shall be located in thename tree. All 
-attachments in that tree are in the collection; any attachments not in that tree are not. For a PDF 
-EmbeddedFiles
-document that is an unencrypted wrapper for an encrypted payload document (See 7.6.7, "Unencrypted 
-wrapper document", the  name tree shall contain exactly one entry, for the encrypted 
-payload document. 
-navigator
-Beginning with PDF 2.0, a portable collection may include an interactive layout, or presentation, of the 
-collection contents. The collection layout or presentation is called a . For more information 
-about navigators, see 12.3.6, "Navigators". 
-Navigator
-When a navigator is used the collection dictionary shall contain some entries that support navigators. 
-Colors
-The  entry shall be an indirect reference to a navigator dictionary that describes the 
-Folders
-interactive layout. The value of the  entry shall be a collection colors dictionary that specifies a 
-suggested set of colours for use by a collection layout. The  entry shall be an indirect reference 
-to the root folder of the collection’s folder structure. 
-The table below describes the entries in a collection dictionary. 
-© ISO 2017 – All rights reserved 437 
-
-ISO/DIS 32000-2
- 
+ ICCBased 
+The ICC specification is an evolving standard. "

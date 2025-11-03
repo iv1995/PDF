@@ -1,63 +1,18 @@
-Table 130: Additional entries specific to a Type 10 halftone dictionary 
-Key Type Value 
-Optional
-Type 
-Halftone
-name () The type of PDF object that this dictionary describes; if present, 
-shall be  for a halftone dictionary. 
-© ISO 2017 – All rights reserved 369 
-
-ISO/DIS 32000-2
+Figure 18: Non-zero winding number rule". For a path consisting of a five-pointed 
+star, drawn with five connected straight line segments intersecting each other, the rule considers the 
+inside to be the entire area enclosed by the star, including the pentagon in the centre. For a path 
+composed of two concentric circles, the areas enclosed by both circles are considered to be inside, 
+provided that both are drawn in the same direction. If the circles are drawn in opposite directions, only 
+the doughnut shape between them is inside, according to the rule; the doughnut hole is outside. ![Figure 18 Non-zero winding number rule  .png](./Storage/Output/Images/Figure 18 Non-zero winding number rule  .png)
+Figure 18: Non-zero winding number rule 
  
-Key Type Value 
-Required
-HalftoneType 
-integer () A code identifying the halftone type that this dictionary describes; 
-shall be 10 for this type of halftone. 
-Optional
-HalftoneName 
-byte string () The name of the halftone dictionary. 
-RequiredX
-Xsquare 
-integer () The side of square , in device pixels; see below. 
-RequiredY
-Ysquare 
-integer () The side of square , in device pixels; see below. 
-Optional
-TransferFunction 
-function or name () A transfer function, which shall override the current transfer 
-function in the graphics state for the same component. This entry shall be 
-present if the dictionary is a component of a Type 5 halftone (see 10.6.5.6, 
-Identity
-") and represents either a nonprimary or nonstandard 
-"Type 5 halftones
-primary colour component (see 10.5, "Transfer functions"). The name  
-may be used to specify the identity function. 
  
-XsquareYsquare
-Xsquare
-Ysquare
-The  and  entries shall specify the dimensions of the two squares in device pixels. The 
-22
-XY
-stream shall contain 
- +  bytes, each representing a single threshold value. The 
-contents of square  shall be specified first, followed by those of square . Threshold values within each 
-square shall be defined in device space in the same order as image samples in image space (see "Figure 
-49: Source image coordinate system"), with the first value at device coordinates (0, 0) and horizontal 
-coordinates changing faster than vertical coordinates. 
-10.6.5.5Type 16 halftones 
+8.5.3.3.3Even-odd rule 
  
-PDF 1.3
-Like Type 10, a Type 16 halftone () defines a halftone screen with a threshold array and allows 
-non-zero screen angles. In Type 16, however, each element of the threshold array shall be 16 bits wide 
-instead of 8. This allows the threshold array to distinguish 65,536 levels of colour rather than only 256 
-levels. The threshold array may consist of either one rectangle or two rectangles. If two rectangles are 
-specified, they shall tile the device space as shown in "Figure 68: Tiling of device space in a Type 16 
-halftone". The last row in the first rectangle shall be immediately adjacent to the first row in the second 
-and shall start in the same column. ![Figure 68 Tiling of device space in a Type 16 halftone  .png](./Storage/Output/Images/Figure 68 Tiling of device space in a Type 16 halftone  .png)
-Figure 68: Tiling of device space in a Type 16 halftone 
- 
-A Type 16 halftone, like Type 6 and Type 10, shall be represented as a stream containing the threshold 
-values, with the parameters defining the halftone specified by entries in the stream dictionary. This 
-dictionary may contain the entries shown in "
+even-odd rule
+An alternative to the non-zero winding number rule is the . This rule determines whether 
+a point is inside a path by drawing a ray from that point in any direction and simply counting the 
+number of path segments that cross the ray, regardless of direction. If this number is odd, the point is 
+inside; if even, the point is outside. This yields the same results as the non-zero winding number rule for 
+paths with simple shapes, but produces different results for more complex shapes. 
+"

@@ -1,133 +1,87 @@
-Figure 107: Perpendicular measurement 
- 
-"Figure 107: Perpendicular measurement" shows a perpendicular measurement markup consists of two 
-filled circles at the anchor points, two parallel extension lines (referred to as leader lines) starting at the 
-anchor points and extending away from the anchor points. There is also a labelled line with arrowheads 
-on both sides (referred to as the measure line) indicating that the distance shown is the perpendicular 
-distance between the two parallel lines. 
-PD3
-ISubtype
-In addition to the entries in "Table 326: Entries in a 3D measurement/markup dictionary common to all 
-markup subtypes", the following entries are defined for a  with a  value of  for 3D 
-perpendicular measurement. 
-Table 328: Additional entries in a 3D measurement/markup dictionary for a 3D perpendicular 
-dimension measurement 
-Key Type Value 
-Required; PDF 2.0
-AP 
-array () A three-element array of numbers specifying the 3D annotation plane on which 
-the measurement markup will lie. 
-Required; PDF 2.0
-A1 
-array () A three-element array of numbers specifying the model space position of the 
-NOTE 1 It is assumed that this is a position on the 3D model associated with this view. 
-first anchor point in world space. 
-Optional; PDF 2.0
-N1 A1
-text string () The name of the part (or model tree node) associated with anchor point 1 (). 
-The part name is used to verify that the part exists and is visible. If not, the measurement is not 
-displayed. If omitted, no validation occurs. 
-Required; PDF 2.0
-A2 
-array () A three-element array of numbers specifying the model space position of the 
-NOTE 2 It is assumed that this is a position on the 3D model associated with this view. 
-second anchor point in world space. 
-Optional; PDF 2.0
-N2 A2
-text string () The name of the part (or model tree node) associated with anchor point 2 (). 
-The part name is used to verify that the part exists and is visible. If not, the measurement is not 
-displayed. If omitted, no validation occurs. 
-Required; PDF 2.0
-D1 
-A1A2
-array () A three-element array of numbers specifying the direction vector for leader 
-lines associated with the anchor points ( and ). 
-Required; PDF 2.0
-TP 
-array () A three-element array of numbers specifying the text anchor point for the 
-measurement value string. 
-Required; PDF 2.0
-TY 
-array () A three-element array of numbers specifying the up direction vector, called the 
-text Y direction, for the text string presenting the measurement value string. 
-Optional; PDF 2.0
-TS 
-number () A number representing the measurement text string height defined in points in 
- 
-the default user space. The measurement text shall be zoom invariant. 
-The default is 12 points.
-© ISO 2017 – All rights reserved 666 
+Figure 63: Characteristics represented in the 
+Flags entry of a font descriptor" shows examples of fonts with these characteristics. 
+Table 121: Font flags 
+Bit position Name Meaning 
+1 FixedPitch  All glyphs have the same width (as opposed to proportional or variable-
+pitch fonts, which have different widths). 
+Sans serif
+2 Serif  Glyphs have serifs, which are short strokes drawn at an angle on the top 
+and bottom of glyph stems. ( fonts do not have serifs.) 
+3 Symbolic  Font contains glyphs outside the Standard Latin character set. This flag 
+and the Nonsymbolic flag shall not both be set or both be clear. 
+4 Script Glyphs resemble cursive handwriting. 
+6 Nonsymbolic  Font uses the Standard Latin character set or a subset of it. This flag and 
+the Symbolic flag shall not both be set or both be clear. 
+7 Italic Glyphs have dominant vertical strokes that are slanted. 
+17 AllCap  Font contains no lowercase letters; typically used for display purposes, 
+such as for titles or headlines. 
+© ISO 2017 – All rights reserved 338 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional; PDF 2.0
-C  DeviceRGB 
-array () An array of three numbers in the range 0.0 to 1.0, representing the
+Bit position Name Meaning 
+18 SmallCap  Font contains both uppercase and lowercase letters. The uppercase 
+letters are similar to those in the regular version of the same typeface 
+family. The glyphs for the lowercase letters have the same shapes as the 
+corresponding uppercase letters, but they are sized and their proportions 
+adjusted so that they have the same size and stroke weight as lowercase 
+glyphs in the same typeface family. 
+19 ForceBold See description after Note 1 in this subclause. 
  
-colour of the measurement markup. 
-The default value is the array [1 1 1], representing the colour white.
-Required; PDF 2.0
-V 
-number () A numeric value representing a measurement value. This value is converted to 
-a text string and displayed as part of the measurement text string. 
-Required; PDF 2.0
-U 
-text string () A string, called the units string, representing the units for the measurement. 
-Optional; PDF 2.0
-P 
-V
-integer () The number of decimal digits, which represents the precision, shown for the 
-P
- 
-measurement value (). 
-The default is 3, if  is not specified.
-Optional; PDF 2.0
-UT 
-text string () A string defined by the user that is appended to the end of the measurement 
-value string. If omitted, no string is appended. 
-Optional; PDF 2.0
-S 
-dictionary () A comment reference is an indirect reference to a projection annotation that 
-may be associated with this 3D measurement. See 13.6.7.4, "3D measurements and projection 
-annotations". 
- 
-"Figure 108: Parameters associated with the perpendicular dimension" illustrates the parameters 
-associated with the perpendicular dimension. ![Figure 108 Parameters associated with the perpendicular dimension  .png](./Storage/Output/Images/Figure 108 Parameters associated with the perpendicular dimension  .png)
-Figure 108: Parameters associated with the perpendicular dimension 
- 
-AP
-"Figure 108: Parameters associated with the perpendicular dimension" shows the measure markup and 
-parameters. All the markup items are drawn on the annotation plane (as defined by ). The text layout 
-TP
-is defined in a similar manner as for linear dimensions. The lower-left corner of the text box is 
-A1A2
-positioned at the text anchor point (), and the text's X-axis is aligned with the measure line. The text 
- TY 
-will flow in the direction defined by a vector from  to . The text's up direction is defined as the 
-cross product of the annotation plane normal and the text X-axis, in the direction defined by the
-parameter. 
-TP
-In addition to controlling text position, the text anchor point () also controls the lengths of the leader 
-lines and the placement of the measure line. Because the leader lines are parallel and the measure line 
-is required to be perpendicular to both leader lines, the intersection of the leader lines and the measure 
-line is easily computed. 
- TP A1A2
- TP 
-If the text positionis outside the area between  and , an extension line collinear to the measure 
-line connectingto the closest anchor point is generated. 
-© ISO 2017 – All rights reserved 667 
+ Flags 
+The Nonsymbolic flag (bit 6 in theentry) indicates that the font’s character set is the Standard 
+Latin character set (or a subset of it) and that it uses the standard names for those glyphs. This 
+character set is shown in D.2, "Latin character set and encodings". If the font contains any glyphs 
+outside this set, the Symbolic flag shall be set and the Nonsymbolic flag shall be clear. In other words, 
+any font whose character set is not a subset of the Standard character set is considered to be symbolic. 
+This influences the font’s default base encoding and may affect a PDF processor’s font substitution 
+strategies. 
+The use of the two flags to represent a single binary choice is a historical accident. A PDF processor 
+should always check the Symbolic flag to determine whether the state is Symbolic or NonSymbolic. PDF 
+writers should still set the NonSymbolic flag to be the inverse of the Symbolic flag for backward 
+compatibility. 
+NOTE 1 This classification of nonsymbolic and symbolic fonts is peculiar to PDF. A font can contain 
+additional characters that are used in Latin writing systems but are outside the Standard Latin 
+character set; PDF considers such a font to be symbolic. 
+The ForceBold flag (bit 19) shall determine whether bold glyphs shall be painted with extra pixels even 
+at very small text sizes by a PDF processor. If the ForceBold flag is set, features of bold glyphs may be 
+thickened at small text sizes. 
+NOTE 2 Typically, when glyphs are painted at small sizes on very low-resolution devices such as display 
+screens, features of bold glyphs might appear only 1 pixel wide. Because this is the minimum 
+feature width on a pixel-based device, ordinary (nonbold) glyphs also appear with 1-pixel-wide 
+features and therefore cannot be distinguished from bold glyphs. 
+© ISO 2017 – All rights reserved 339 
 
 ISO/DIS 32000-2
+ ![Figure 63 Characteristics represented in the Flags entry of a font descriptor  .png](./Storage/Output/Images/Figure 63 Characteristics represented in the Flags entry of a font descriptor  .png)
+Figure 63: Characteristics represented in the Flags entry of a font descriptor 
  
-V
-UUT
-There are three parts to the text string displayed with the measurement: a numeric value (), a units 
-P
-string (), and an optional user string (). The display of the numeric value field number is also 
-controlled by the precision value (), which indicates how many digits to display to the right of the 
-decimal point. The viewer should convert the numeric value to a string and combine it with the units 
-string and user text as appropriate. This process is viewer dependent. 
-13.6.7.3.33D angular dimension measurement 
+ Flags 
+EXAMPLE This code sample illustrates a font descriptor whoseentry has the Serif, Nonsymbolic, and ForceBold 
+flags (bits 2, 6, and 19) set. 
+7 0 obj 
+  <</Type /FontDescriptor 
+   /FontName /AGaramond-Semibold 
+   /Flags 262178         %Bits 2, 6, and 19 
+   /FontBBox [-177 -269 1123 866] 
+   /MissingWidth 255 
+   /StemV 105 
+   /StemH 45 
+   /CapHeight 660 
+   /XHeight 394 
+   /Ascent 720 
+   /Descent -270 
+   /Leading 83 
+   /MaxWidth 1212 
+   /AvgWidth 478 
+   /ItalicAngle 0 
+  >> 
+endobj 
  
-An angular measurement is used to denote the angle between two linear entities, as shown in "
+9.8.3Font descriptors for CIDFonts 
+ 
+9.8.3.1General 
+ 
+FontDescriptor
+In addition to the entries in "Table 120: Entries common to all font descriptors", the  
+dictionaries of CIDFonts may contain the entries listed in "

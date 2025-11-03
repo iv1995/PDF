@@ -1,197 +1,153 @@
-Table 111: Type 3 font 
-operators" to pass width and bounding box information to the font machinery. This shall precede the 
-execution of any path construction or path-painting operators describing the glyph. 
-NOTE 3 Type 3 fonts in PDF are very similar to those in the PostScript language. Some of the information 
-provided in Type 3 font dictionaries and glyph descriptions, although seemingly redundant or 
-unnecessary, is nevertheless required for correct results when a PDF processor prints to a 
-PostScript language compatible output device. This applies particularly to the operands of the  
-d0
-and  operators, which are the equivalent of PostScript'sand . For 
-d1 setcharwidth setcachedevice
-further explanation, see clause 5.7 of the . 
-PostScript Language Reference, Third Edition
-© ISO 2017 – All rights reserved 312 
+Figure 14: Effect of Transformation Order" shows the effect of the order in which transformations are 
+applied. The figure shows two sequences of transformations applied to a coordinate system. After each 
+successive transformation, an outline of the letter n is drawn. ![Figure 14 Effect of Transformation Order  .jpg](./Storage/Output/Images/Figure 14 Effect of Transformation Order  .jpg)
+Figure 14: Effect of Transformation Order 
+ 
+© ISO 2017 – All rights reserved 152 
 
 ISO/DIS 32000-2
  
-Table 111: Type 3 font operators 
-Operands Operator Description 
+NOTE The following transformations are shown in the figure: a translation of 10 units in the  direction 
+and 20 units in the  direction; a rotation of 30 degrees; a scaling by a factor of 3 in the  direction 
+x
+ In the figure, the axes are shown with a dash pattern having a 2-unit dash and a 2-unit gap. In 
+yx
+addition, the original (untransformed) axes are shown in a lighter colour for reference. Notice 
+that the scale-rotate-translate ordering results in a distortion of the coordinate system, leaving 
+the  and  axes no longer perpendicular; the recommended translate-rotate-scale ordering 
+results in no distortion. 
 xy
-w w  
-d0 
-Set width information for the glyph and declare that the glyph description 
-NOTE 1 This operator name ends in the digit 0. 
-specifies both its shape and its colour. 
-x
-w
-y
-w
-Widths
- denotes the horizontal displacement in the glyph coordinate system; it shall be 
- shall be 0 
-consistent with the corresponding width in the font’s  array. 
-(see 9.2.4, "Glyph positioning and metrics"). 
-CharProcs
-This operator shall only be permitted as the first operator in a content stream 
-appearing in a Type 3 font’s  dictionary. It is typically used only if the 
-glyph description executes operators to set the colour or other colour-related 
-NOTE 2 An image does set the colour space and colour explicitly; an image mask 
-parameters explicitly. 
-does not and requires explicit operators to do so for it. 
-xyxyx
-w w ll ll ur 
-d1 
-y
-ur  
-Set width and bounding box information for the glyph and declare that the glyph 
-NOTE 3 This operator name ends in the digit 1. 
-description specifies only shape, not colour. 
-x
-w
-y
-w
-Widths
- denotes the horizontal displacement in the glyph coordinate system; it shall be 
- shall be 0 
-consistent with the corresponding width in the font’s  array. 
-xyxy
-llurur
-ll
-(see 9.2.4, "Glyph positioning and metrics"). 
- and  denote the coordinates of the lower-left corner, and  and  denote 
-the upper-right corner, of the glyph bounding box. The glyph bounding box is the 
-smallest rectangle, oriented with the axes of the glyph coordinate system, that 
-completely encloses all marks placed on the page as a result of executing the 
-glyph’s description. The declared bounding box shall be correct — in other words, 
-sufficiently large to enclose the entire glyph. If any marks fall outside this 
-d1
-bounding box, the result is implementation-dependent. 
-A glyph description that begins with the  operator should not execute any 
-operators that set the colour (or other colour-related parameters including 
-transparency) in the graphics state; any use of such operators shall be ignored 
-and the glyph stream continues to be processed without error (see 8.6.8, "Colour 
-operators"). The glyph description is executed solely to determine the glyph’s 
-shape. Its colour shall be determined by the graphics state in effect each time this 
-glyph is painted by a text-showing operator. For the same reason, the glyph 
-description shall not include an image; however, an image mask is acceptable, 
-since it merely defines a region of the page to be painted with the current colour. 
-CharProcs
-This operator shall be used only in a content stream appearing in a Type 3 font’s 
- dictionary. 
-EXAMPLE This example shows the definition of a Type 3 font with only two glyphs — a filled square and a filled triangle, 
-selected by the character codes a and b. "Figure 62: Output from the example in 9.6.5, "Type 3 fonts" shows 
-© ISO 2017 – All rights reserved 313 
+8.3.4Transformation matrices 
+ 
+This subclause discusses the mathematics of transformation matrices. 
+To understand the mathematics of coordinate transformations in PDF, it is vital to remember two 
+points: 
+Transformations alter coordinate systems, not graphics objects
+• 
+. All objects painted before a 
+transformation is applied shall be unaffected by the transformation. Objects painted after the 
+Transformation matrices specify the transformation from the new (transformed) coordinate system 
+• 
+transformation is applied shall be interpreted in the transformed coordinate system. 
+to the original (untransformed) coordinate system
+. All coordinates used after the transformation 
+shall be expressed in the transformed coordinate system. PDF applies the transformation matrix to 
+NOTE 1 Many computer graphics textbooks consider transformations of graphics objects rather than of 
+find the equivalent coordinates in the untransformed coordinate system. 
+coordinate systems. Although either approach is correct and self-consistent, some details of the 
+calculations differ depending on which point of view is taken. 
+xy
+xy
+PDF represents coordinates in a two-dimensional space. The point (, ) in such a space can be 
+expressed in vector form as [  1]. The constant third element of this vector (1) is needed so that the 
+vector can be used with 3-by-3 matrices in the calculations described below. 
+The transformation between two coordinate systems can be represented by a 3-by-3 transformation 
+matrix written as follows: 
+ab0
+�
+� 
+cd0
+ef1
+ 
+Because a transformation matrix has only six elements that can be changed, in most cases in PDF it shall 
+be specified as the six-element array [a b c d e f]. 
+Coordinate transformations shall be expressed as matrix multiplications: 
+ 
+ab0
+′′
+𝑥𝑥𝑦𝑦1
+][]
+[
+𝑦𝑦1
+𝑥𝑥
+==�
+�
+cd0
+ef1
+ 
+x′y′
+Because PDF transformation matrices specify the conversion from the transformed coordinate system 
+xy
+to the original (untransformed) coordinate system,  and  in this equation shall be the coordinates in 
+the untransformed coordinate system, and  and  shall be the coordinates in the transformed system. 
+The multiplication is carried out as follows: 
+′
+=a×𝑥𝑥+c×𝑦𝑦+e 
+𝑥𝑥
+© ISO 2017 – All rights reserved 153 
 
 ISO/DIS 32000-2
  
-the result of showing the string ( ababab ) using this font. ![Figure 62 Output from the example in 965, Type 3 fonts  .png](./Storage/Output/Images/Figure 62 Output from the example in 965, Type 3 fonts  .png)
-Figure 62: Output from the example in 9.6.5, "Type 3 fonts" 
+′
+=b×𝑥𝑥+d×𝑦𝑦+f 
+𝑦𝑦
  
+If a series of transformations is carried out, the matrices representing each of the individual 
+transformations can be multiplied together to produce a single equivalent matrix representing the 
+composite transformation. 
+NOTE 2 Matrix multiplication is not commutative — the order in which matrices are multiplied is 
+significant. Consider a sequence of two transformations: a scaling transformation applied to the 
+user space coordinate system, followed by a conversion from the resulting scaled user space to 
+SC
+ be the matrix specifying the scaling and  the current transformation 
+device space. Let 
+matrix, which transforms user space to device space. Recalling that coordinates are always 
+M
+M
+specified in the transformed space, the correct order of transformations first converts the scaled 
+coordinates to default user space and then converts the default user space coordinates to device 
+space. This can be expressed as 
+where 
+DUCSSCSSC
+))
+((
+×M 
+X=X×M=X×M=X×M×M
+ denotes the coordinates in device space 
+D
+ denotes the coordinates in default user space 
+X
+U
+ denotes the coordinates in scaled user space 
+X
+S
+X
+This shows that when a new transformation is concatenated with an existing one, the matrix 
+representing it shall be multiplied before (premultiplied with) the existing transformation matrix. 
+M′
+This result is true in general for PDF: when a sequence of transformations is carried out, the matrix 
+T
+M
+representing the combined transformation () is calculated by premultiplying the matrix representing 
+M
+the additional transformation (
+) with the one representing all previously existing transformations 
+(): 
  
-%Snippet of page content stream that places several Type 3 font strings onto the page 
- … 
- 0.2 0.8 0.0 rg 
- 0.1 0.4 0.0 RG 
- BT 
-  /FT3 15 Tf 
-  300 400 Td 
-  (ab) Tj 
-  0.8 0.2 0.0 rg 
-  0.4 0.1 0.0 RG 
-  (ab) Tj 
-  0.8 0.8 0.2 rg 
-  0.4 0.4 0.1 RG 
-  (ab) Tj 
- ET 
- … 
+′
+NOTE 3 When rendering graphics objects, it is sometimes necessary for a PDF reader to perform the 
+𝑇𝑇
+𝑀𝑀
+=𝑀𝑀×𝑀𝑀
+inverse of a transformation — that is, to find the user space coordinates that correspond to a 
+given pair of device space coordinates. Not all transformations are invertible, however. For 
+example, if a matrix contains and  elements that are all zero, all user coordinates map to 
+the same device coordinates and there is no unique inverse transformation. Such noninvertible 
+a, b, c, d
+transformations are not very useful and generally arise from unintended operations, such as 
+scaling by 0. Use of a noninvertible matrix when painting graphics objects can result in 
+unpredictable behaviour. 
+8.4Graphics state 
  
+8.4.1General 
  
-%Type 3 font definition encoding two glyphs, 'a' and 'b'. 
-4 0 obj 
- << 
-  /Type /Font 
-  /Subtype /Type3 
-  /FontBBox [-36 -36 786 786] 
-  /FontMatrix [0.001 0 0 0.001 0 0] 
-  /CharProcs 10 0 R 
-  /Encoding 9 0 R 
-  /FirstChar 97 
-  /LastChar 104 
-  /Widths [1000 1000] 
- >> 
-endobj 
- 
-9 0 obj 
- << 
-  /Type /Encoding 
-  /Differences [97 /square /triangle] 
- >> 
-endobj 
- 
-10 0 obj 
- << 
-  /square 11 0 R 
-  /triangle 12 0 R 
- >> 
-endobj 
- 
-%Type 3 "square" glyph description 
-© ISO 2017 – All rights reserved 314 
-
-ISO/DIS 32000-2
- 
-11 0 obj 
-  <</Length …>> 
-stream 
- 1000 0 -36 -36 786 786 d1     %uncoloured glyph - defines only shape 
- 72 w 
- 0 0 750 750 re 
- B 
-endstream 
-endobj 
- 
-%Type 3 "triangle" glyph description 
-12 0 obj 
-  <</Length …>> 
-stream 
- 1000 0 d0          %coloured glyph - defines colour and shape 
- 72 w 
- 0.2 0.6 0.8 rg 
- 0.1 0.3 0.4 RG 
- 0 0 m 
- 375 750 l 
- 750 0 l 
- b 
-endstream 
-endobj 
- 
-9.6.5Character encoding 
- 
-9.6.5.1General 
- 
-A font’s encoding is the association between character codes (obtained from text strings that are 
-shown) and glyph descriptions. This subclause describes the character encoding scheme used with 
-simple PDF fonts. Composite fonts (Type 0) use a different character mapping algorithm, as discussed in 
-9.7, "Composite fonts". 
-Except for Type 3 fonts, every font program shall have a built-in encoding. Under certain circumstances, 
-a PDF font dictionary may change the encoding used with the font program to match the requirements 
-of the PDF writer generating the text being shown. 
-This flexibility in character encoding is valuable for two reasons: 
-• 
-  
-It permits showing text that is encoded according to any of the various existing conventions. For 
-TM
-example, the Microsoft Windows
- and AppleMacOS operating systems use different standard 
-• 
-encodings for Latin text, and many PDF writers use their own special-purpose encodings. 
-It permits PDF writers to specify how characters selected from a large character set are to be 
-encoded. 
-Some character sets consist of more than 256 characters, including ligatures, accented characters, and 
-other symbols required for high-quality typography or non-Latin writing systems. Different encodings 
-may select different subsets of the same character set. 
-StandardEncodingStandardEncoding
-One commonly used font encoding for Latin-text font programs is often referred to as 
-. The name  shall have no special meaning in PDF, but this encoding 
-  
-does play a role as a default encoding (as shown in "
+graphics state
+A PDF processor shall maintain an internal data structure called the  that holds current 
+graphics control parameters. These parameters define the global framework within which the graphics 
+operators execute. 
+fS
+    
+EXAMPLE 1 The(fill) operator implicitly uses the current colour parameter, and the(stroke) operator additionally uses 
+the current line width parameter from the graphics state. 
+A PDF processor shall initialise the graphics state at the beginning of each page with the values 
+specified in "

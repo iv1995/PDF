@@ -1,0 +1,10 @@
+Figure 95: Rendering of the 3D artwork using View0 (no cross section) 
+ 
+"Figure 95: Rendering of the 3D artwork using View0 (no cross section)" through "Figure 99: Rendering 
+of the 3D artwork using View4" use world coordinates whose origin is the centre of the cube. The axes 
+illustrated in each diagram show the relative orientation of the world coordinate axes, not the actual 
+position of those axes. These axes are not part of the 3D artwork used in this example. 
+© ISO 2017 – All rights reserved 648 
+
+ISO/DIS 32000-2
+ ![Figure 96 Rendering of the 3D artwork using View1 (cross section perpendicular to the x axis)  .jpg](./Storage/Output/Images/Figure 96 Rendering of the 3D artwork using View1 (cross section perpendicular to the x axis)  .jpg)

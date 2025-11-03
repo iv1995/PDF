@@ -1,243 +1,138 @@
-Table 171: Annotation types". The following 
-subclauses describe each of these types in detail. 
-Subtype
-The values in the first column of "Table 171: Annotation types" represent the value of the annotation 
-dictionary’s  entry. The third column indicates whether the annotation is a markup annotation, 
-Contents
-as described in 12.5.6.2, "Markup annotations" The subclause also provides more information about the 
-value of the  entry for different annotation types. 
-Table 171: Annotation types 
-Annotation Description Markup Discussed in subclause 
-type 
-Text 
-Text annotation Yes 12.5.6.4, "Text annotations" 
-Link 
-Link annotation No 12.5.6.5, "Link annotations" 
-(PDF 1.3) 
-FreeText 
-Free text annotation Yes 12.5.6.6, "Free text annotations" 
-(PDF 1.3) 
-Line 
-Line annotation Yes 12.5.6.7, "Line annotations" 
-(PDF 1.3) 
-Square 
-Square annotation Yes 12.5.6.8, "Square and circle annotations" 
-(PDF 1.3)
-Circle  
-Circle annotation Yes 12.5.6.8, "Square and circle annotations" 
-(PDF 1.5) 
-Polygon 
-Polygon annotation Yes 12.5.6.9, "Polygon and polyline annotations" 
-(PDF 1.5) 
-PolyLine 
-Polyline annotation Yes 12.5.6.9, "Polygon and polyline annotations" 
-(PDF 1.3) 
-Highlight 
-Highlight annotation Yes 12.5.6.10, "Text markup annotations" 
-(PDF 1.3) 
-Underline 
-Underline annotation Yes 12.5.6.10, "Text markup annotations" 
-(PDF 1.4) 
-Squiggly 
-Squiggly-underline Yes 12.5.6.10, "Text markup annotations" 
-annotation 
-(PDF 1.3) 
-StrikeOut 
-Strikeout annotation Yes 12.5.6.10, "Text markup annotations" 
-(PDF 1.5)
-Caret   
-Caretannotation Yes 12.5.6.11, "Caret annotations" 
-(PDF 1.3) 
-Stamp 
-Rubber stamp annotation Yes 12.5.6.12, "Rubber stamp annotations" 
-(PDF 1.3) 
-Ink 
-Ink annotation Yes 12.5.6.13, "Ink annotations" 
-(PDF 1.3) 
-Popup 
-Popup annotation No 12.5.6.14, "Pop-up annotations" 
-(PDF 1.3) 
-FileAttachment 
-File attachment annotation Yes 12.5.6.15, "File attachment annotations" 
-© ISO 2017 – All rights reserved 464 
+in these 
+circumstances: 
+d1
+• 
+In any glyph description that uses the  operator (see 9.6.4, "Type 3 fonts") and to all other 
+• 
+content streams invoked from within the same glyph description. 
+In the content stream of an uncoloured tiling pattern (see 8.7.3.3, "Uncoloured tiling patterns") 
+and to all other content streams invoked from within the uncoloured tiling pattern stream 
+In these circumstances 
+• 
+CS scn K 
+All of the following operators shall be ignored: 
+cs G k 
+SC g ri 
+SCN RG sh 
+sc rg  
+gs
+• 
+All of the following entries, if present in the graphics state parameter dictionary of a  operator 
+TR BG UCR 
+shall be ignored: 
+TR2 BG2 UCR2 
+HT UseBlackPtComp  
+• 
+NOTE Painting an image mask (see 8.9.6.2, "Stencil masking") is permitted because it does not specify 
+Unless painting an image mask, all image painting operators shall be ignored. 
+colours; instead, it designates places where the current colour shall be painted. 
+© ISO 2017 – All rights reserved 213 
 
 ISO/DIS 32000-2
  
-Annotation Description Markup Discussed in subclause 
-type 
-(PDF 1.2; deprecated in PDF 2.0) 
-Sound 
-Sound Yes 12.5.6.16, "Sound annotations" 
-annotation 
-(PDF 1.2; deprecated in PDF 2.0)
-Movie   
-MovieNo 12.5.6.17, "Movie annotations" 
-annotation 
-(PDF 1.5) 
-Screen 
-Screen annotation No 12.5.6.18, "Screen annotations" 
-(PDF 1.2)
-Widget   
-Widgetannotation No 12.5.6.19, "Widget annotations" 
-(PDF 1.4) 
-PrinterMark 
-Printer’s mark annotation No 12.5.6.20, "Printer’s mark annotations" 
-(PDF 1.3) 
-TrapNet 
-Trap network annotation No 12.5.6.21, "Trap network annotations" 
-(PDF 1.6) 
-Watermark 
-Watermark annotation No 12.5.6.22, "Watermark annotations" 
-(PDF 1.6) 
-3D 
-3D annotation No 13.6.2, "3D Annotations" 
-(PDF 1.7)
-Redact   
-Redactannotation Yes 12.5.6.23, "Redaction annotations" 
-(PDF 2.0) 
-Projection 
-Projection annotation Yes 12.5.6.24, "Projection annotations" 
-(PDF 2.0)
-RichMedia   
-RichMediaannotation No 13.7.2, "RichMedia annotations" 
+8.7Patterns 
  
-12.5.6.2Markup annotations 
+8.7.1General 
  
-Contents
-As mentioned in 12.5.2, "Annotation dictionaries", the meaning of an annotation’s  entry varies 
-by annotation type. Typically, it is the text that shall be displayed for the annotation or, if the annotation 
-Contents
-does not display text, an alternative description of the annotation’s contents in human-readable form. In 
-either case, the  entry is useful when extracting the document’s contents in support of 
-accessibility to users with disabilities or for other purposes (see 14.9.3, "Alternate descriptions"). 
-markup annotations
-Many annotation types are defined as  because they are used primarily to mark up 
-PDF documents (see "Table 172: Additional entries in an annotation dictionary specific to markup 
-annotations"). These annotations have text that appears as part of the annotation and may be displayed 
-in other ways by an interactive PDF processor, such as in a comments pane. Markup annotations may be 
-divided into the following groups: 
-Contents
+Patterns come in two varieties: 
+Tiling patterns
 • 
-Free text annotations display text directly on the page. The annotation’s  entry specifies 
+ consist of a small graphical figure (called a pattern cell) that is replicated at fixed 
+horizontal and vertical intervals to fill the area to be painted. The graphics objects to use for tiling 
+Shading patterns
 • 
-the displayed text. 
-Contents
-Most other markup annotations have an associated popup window that may contain text. The 
-annotation’s  entry specifies the text that shall be displayed when the popup window is 
-opened. These include text, line, square, circle, polygon, polyline, highlight, underline, squiggly-
-• 
-underline, strikeout, rubber stamp, caret, ink, and file attachment annotations. 
-Contents
-Sound annotations do not have a popup window but may also have associated text specified by the 
-• 
- entry. 
-Projection annotations valid within the context of an associated run-time environment, such as an 
-activated 3D model (see 12.5.6.24, "Projection annotations"). 
-© ISO 2017 – All rights reserved 465 
-When separating text into paragraphs, a CARRIAGE RETURN (0Dh) shall be used and not, for example, a 
+shall be described by a content stream. 
+ define a gradient fill that produces a smooth transition between colours across 
+the area. 
+The colour to use shall be specified as a function of position using any of a variety of methods. 
+NOTE 1 When operators such as  (stroke),  (fill), and  (show text) paint an area of the page with the 
+SfTj
+current colour, they ordinarily apply a single colour that covers the area uniformly. However, it is 
+also possible to apply "paint" that consists of a repeating graphical figure or a smoothly varying 
+colour gradient instead of a simple colour. Such a repeating figure or smooth gradient is called a 
+.Patternsare quite general, and have many uses; for example, they can be used to create 
+  
+various graphical textures, such as weaves, brick walls, sunbursts, and similar geometrical and 
+pattern
+chromatic effects. 
+NOTE 2 Older techniques such as defining a pattern by using character glyphs in a special font and 
+painting them repeatedly with the  operator are not recommended. Another technique, defining 
+Tj
+patterns as halftone screens, is also not recommended because the effects produced are device-
+dependent. 
+Pattern
+Patterns shall be specified in a special family of colour spaces named . These spaces shall use 
+pattern objects as the equivalent of colour values instead of the numeric component values used with 
+other spaces. A pattern object shall be a dictionary or a stream, depending on the type of pattern; the 
+term pattern dictionary is used generically throughout this subclause to refer to either a dictionary 
+object or the dictionary portion of a stream object. (Those pattern objects that are streams are 
+Pattern
+specifically identified as such in the descriptions of particular pattern types; unless otherwise stated, 
+they are understood to be simple dictionaries instead.) This subclause describes  colour spaces 
+and the specification of colour values within them. 
+NOTE 3 See 8.6, "Colour spaces", for information about colour spaces and colour values in general and 
+11.6.7, "Patterns and transparency", for further discussion of the treatment of patterns in the 
+transparent imaging model. 
+8.7.2General properties of patterns 
+ 
+PatternType
+A pattern dictionary contains descriptive information defining the appearance and properties of a 
+pattern. All pattern dictionaries shall contain an entry named , whose value identifies the 
+kind of pattern the dictionary describes: Type 1 for a tiling pattern or Type 2 for a shading pattern. The 
+remaining contents of the dictionary depend on the pattern type and are detailed in the subclauses on 
+individual pattern types. 
+PatternCScs
+All patterns shall be treated as colours; a  colour space shall be established with the  or  
+SCNscn
+operator just like other colour spaces, and a particular pattern shall be installed as the current colour 
+with the  or  operator (see "Table 73: Colour operators"). 
+A pattern’s appearance is described with respect to its own internal coordinate system. Every pattern 
+© ISO 2017 – All rights reserved 214 
 
 ISO/DIS 32000-2
  
-LINE FEED character (0Ah). 
-NOTE 1 A subset of markup annotations is called text markup annotations (12.5.6.10, "Text markup 
-annotations"). 
-The remaining annotation types are not considered markup annotations: 
-• 
-The popup annotation type shall not appear by itself; it shall be associated with a markup 
-NOTE 2 The  entry for a pop-up annotation is relevant only if it has no parent; in that case, it 
-Contents
-annotation that uses it to display text. 
-represents the text of the annotation. 
-Link, Movie, Widget, RichMedia, PrinterMark,TrapNet
-• 
-Contents
-For all other annotation types ( and ), 
-the  entry may provide an alternative representation of the annotation’s contents in 
-human-readable form, which is useful when extracting the document’s contents in support of 
-accessibility to users with disabilities or for other purposes (see 14.9.3, "Alternate descriptions"). 
-"Table 172: Additional entries in an annotation dictionary specific to markup annotations" lists 
-annotation dictionary entries that apply to all markup annotations. 
-Table 172: Additional entries in an annotation dictionary specific to markup annotations 
-Key Type Value 
-(Optional; PDF 1.1) 
-T 
-text string The text label that shall be displayed in the title bar of the 
-annotation’s popup window when open and active. This entry shall identify 
-the user who added the annotation. 
-(Optional; PDF 1.3) 
-Popup 
-dictionary An indirect reference to a popup annotation for entering 
-or editing the text associated with this annotation. 
-(Optional; PDF 1.5) AdobeXMLArchitecture,XMLForms 
-RC     
-Architecture (XFA) Specification, version 3.3
-text string or A rich text string (see 
-text stream ) that shall be displayed in the 
-popup window when the annotation is opened. 
-(Optional; PDF 1.5) 
-CreationDate 
-date The date and time (7.9.4, "Dates") when the annotation 
-was created. 
-(Required if anentry is present, otherwise optional; PDF 1.5) 
-IRT  RT 
-dictionary A reference to 
-the annotation that this annotation is "in reply to." Both annotations shall be 
- RT 
-on the same page of the document. The relationship between the two 
- FDF 
-annotations shall be specified by theentry. 
+pattern matrix
+parentcontent stream
+has a , a transformation matrix that maps the pattern’s internal coordinate system to the 
+default coordinate system of the pattern’s   (the content stream in which the 
+pattern coordinate space
+pattern is defined as a resource). The concatenation of the pattern matrix with that of the parent 
+content stream establishes the , within which all graphics objects in the pattern 
+shall be interpreted. 
+NOTE 1 If a pattern is used on a page, the pattern appears in the  subdictionary of that page’s 
+Pattern
+resource dictionary, and the pattern matrix maps pattern space to the default (initial) coordinate 
+space of the page. Changes to the page’s transformation matrix that occur within the page’s 
+content stream, such as rotation and scaling, have no effect on the pattern; it maintains its 
+original relationship to the page no matter where on the page it is used. Similarly, if a pattern is 
+used within a form XObject (see 8.10, "Form XObjects"), the pattern matrix maps pattern space to 
+the form’s default user space (that is, the form coordinate space at the time the form is painted 
+with the  operator). A pattern can be used within another pattern; the inner pattern’s matrix 
+Do
+defines its relationship to the pattern space of the outer pattern. 
+All patterns shall be local to the context in which they are defined. 
+NOTE 2 The PostScript language allows a pattern to be defined in one context but used in another. For 
+example, a pattern might be defined on a page (that is, its pattern matrix maps the pattern 
+coordinate space to the user space of the page) but be used in a form on that page, so that its 
+relationship to the page is independent of each individual placement of the form. PDF does not 
+support this feature. 
+8.7.3Tiling patterns 
  
-If this entry is present in anfile (see 12.7.8, "Forms data format"), its 
-NM 
-type shall not be a dictionary but a text string containing the contents of the
- FDF 
+8.7.3.1General 
  
-entry of the annotation being replied to, to allow for a situation where 
-the annotation being replied to is not in the samefile.
-(Optional; PDF 1.5) 
-Subj 
-text string Text representing a short description of the subject being 
-addressed by the annotation. 
-© ISO 2017 – All rights reserved 466 
-
-ISO/DIS 32000-2
- 
-Key Type Value 
-(Optional; meaningful only ifis present; PDF 1.6) 
-RT  IRT 
-name A name specifying the 
-IRT
-relationship (the "reply type") between this annotation and one specified by 
-R 
-. Valid values are: 
-IRT
-The annotation is considered a reply to the annotation specified by 
-. Interactive PDF processors shall not display replies to an 
-annotation individually but together in the form of threaded 
-Group 
-comments. 
-IRT
-The annotation shall be grouped with the annotation specified by 
-R
-; see the discussion following this Table. 
-Default value: . 
-(Optional; PDF 1.6) intent 
-IT 
-name A name describing the of the markup annotation. 
-Intents allow interactive PDF processors to distinguish between different 
-uses and behaviours of a single markup annotation type. If this entry is not 
-present or its value is the same as the annotation type, the annotation shall 
-have no explicit intent and should behave in a generic manner in an 
-interactive PDF processor. 
-Free text annotations ("Table 177: Additional entries specific to a free text 
-annotation"), line annotations ("Table 178: Additional entries specific to a 
-line annotation"), polygon annotations ("Table 181: Additional entries 
-specific to a polygon or polyline annotation"), (PDF 1.7) polyline annotations 
-("Table 181: Additional entries specific to a polygon or polyline annotation") 
-Table 184: Additional entries specific to a rubber 
-and stamp annotations (
- 
-stamp annotation") have defined intents, whose values are enumerated in 
-the corresponding tables.
- 
-"
+pattern cell
+A tiling pattern consists of a small graphical figure called a . Painting with the pattern 
+replicates the cell at fixed horizontal and vertical intervals to fill an area. The effect is as if the figure 
+tiling
+were painted on the surface of a clear glass tile, identical copies of which were then laid down in an 
+array covering the area and trimmed to its boundaries. This process is called  the area. 
+The pattern cell can include graphical elements such as filled areas, text, and sampled images. Its shape 
+Sf
+need not be rectangular, and the spacing of tiles can differ from the dimensions of the cell itself. When 
+performing painting operations such as  (stroke) or  (fill), the PDF processor shall paint the cell on the 
+current page as many times as necessary to fill an area. The order in which individual tiles (instances of 
+the cell) are painted is unspecified and unpredictable; figures on adjacent tiles should not overlap. 
+The appearance of the pattern cell shall be defined by a content stream containing the painting 
+operators needed to paint one instance of the cell. Besides the usual entries common to all streams (see 
+"Table 5: Entries common to all stream dictionaries"), this stream’s dictionary may contain the 
+additional entries listed in "

@@ -1,0 +1,80 @@
+Figure 104: 3D artwork set to CommentView2 
+ 
+"Figure 104: 3D artwork set to CommentView2" shows a view referenced by two markup annotations: 
+• 
+• 
+A line annotation (/Subtype /Line) with a line dimension intent (/IT/ LineDimension) 
+13.6.7Persistence of 3D measurements and markups 
+ 
+A stamp annotation (/Subtype /Stamp) 
+13.6.7.1General 
+ 
+3D measurement data
+3D measurement/markup dictionary
+Beginning with PDF 2.0, it is possible to add  to an instance of a 3D artwork. This 
+measurement data is stored in a . 3D measurements are associated 
+with 3D views, and each 3D view is able to contain zero or more 3D measurement dictionaries. 
+After a measurement is associated with view, it shall be visible only when that view is selected or active 
+in an interactive PDF processor. As different views are displayed, the measurements associated with 
+that view shall be made visible and previously displayed measurements become invisible. 
+3D measurements are either simple 3D markups used to add information to the geometric data shown 
+in a view, or have an associated comment, in which case they have all the associated functionality of a 
+comment. A 3D measurement is able to be promoted or demoted to or from comment status. 
+There are three key aspects to defining persistent 3D measurements: 
+© ISO 2017 – All rights reserved 659 
+
+ISO/DIS 32000-2
+ 
+3DU
+• 
+3D units dictionary
+A mechanism to define the units associated with the geometric data being measured. A  entry 
+in "Table 309: Additional entries specific to a 3D annotation", has as its value a , 
+which stores the units data for this 3D annotation. (See "Table 325: Entries in a 3D units 
+MA
+• 
+dictionary" for more information.) 
+The association between 3D measurements and 3D view is realised through the  entry in a 3D 
+3D measurement/markup dictionaries
+view dictionary (see "Table 315: Entries in a 3D view dictionary"). The value of this entry is an 
+array of , where each dictionary represents an instance of a 
+3D measurement to be displayed in the context of this view. For more information about 3D 
+projection annotation
+• 
+measurement dictionaries, see 13.6.7.3, "3D measurement/markup dictionary". 
+When a 3D measurement is promoted to a comment, a  ("see 12.5.6.24, 
+"Projection annotations") is created to manage the comment and its appearance in the comments 
+list. An indirect reference to this projection annotation is placed in the 3D measurement 
+13.6.7.2The 3D units dictionary 
+ 
+dictionary. (See 13.6.7.3, "3D measurement/markup dictionary".) 
+arbitrary 3D coordinate system
+The data associated with a 3D artwork annotation may be defined in an . 
+For viewing purposes, the interactive PDF processor shall define a camera to map these coordinates 
+onto a view surface. (3D coordinate systems are discussed in 13.6.5, "Coordinate systems for 3D".) For 
+measurement purposes, distances are computed in this arbitrary coordinate system and assigned 
+physical meaning by entries in the 3D units dictionary. These sets of optional units shall be defined: 
+Creation time units
+• 
+User override units
+• 
+: Units known at the time the 3D artwork annotation is created. 
+Display units
+• 
+: Units defined by the user after the annotation was created. 
+: Units that the user would like used when displaying distances for all newly created 
+measurements. 
+The first two definitions assign physical meaning to measured distances, and the third defines how the 
+distances are presented. When a 3D annotation is created, the application may have information from 
+external sources that allows it to determine the units of the data being imported. Later the user may 
+want to either override that definition or control what units data is displayed in. 
+In addition to defining the units, a scaling operation shall be defined that maps one set of units to 
+another. For the creation time and user override units, the mapping states that "m model data units = n 
+real units". For the display units, the mapping states that "m model units = n display units". In most 
+cases, the m and n scale values shall be 1.0 because most data is defined in some well-known units 
+system, such as meters or inches. 
+3D units dictionary
+The entries in the  establish these mappings for each set of units (creation time, user 
+3DU
+override, and display units). The 3D Units dictionary is referenced in "Table 309: Additional entries 
+specific to a 3D annotation" as the value of the  entry. 

@@ -1,0 +1,17 @@
+Table 215: Named actions" lists several  () that interactive PDF processors shall 
+support; further names may be added in the future. 
+Table 215: Named actions 
+Name Action 
+NextPage 
+Go to the next page of the document. 
+PrevPage 
+Go to the previous page of the document. 
+FirstPage 
+Go to the first page of the document. 
+LastPage 
+Go to the last page of the document. 
+NOTE Interactive PDF processors may support additional, nonstandard named actions, but any 
+document using them is not portable. 
+If the PDF processor encounters a named action that is inappropriate for a viewing platform, or if the 
+viewer does not recognise the name, it shall take no action. 
+"

@@ -1,0 +1,11 @@
+Algorithm: software identifier 
+U
+ 
+LHLIHI
+ 
+a)The software name shall match the name specified by the  entry (see 13.2.7.4.2, "Software URIs"). 
+b)The software version shall be within the interval specified by the , , , and  entries (see 13.2.7.4.3, 
+ 
+"Version arrays"). 
+c)The machine’s operating system name shall be an exact match for one present in the OS array. If the array 
+is not present or empty, a match shall also be considered to exist.  

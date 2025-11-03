@@ -1,147 +1,73 @@
-Figure 46: Edge connections in a Coons Patch Mesh"), and therefore shall not be explicitly repeated in 
-the data stream. "Table 84: Data Values in a Coons Patch Mesh" summarises the required data values for 
-various values of the edge flag. ![Figure 46 Edge connections in a Coons Patch Mesh  .png](./Storage/Output/Images/Figure 46 Edge connections in a Coons Patch Mesh  .png)
-Figure 46: Edge connections in a Coons Patch Mesh 
+Table 34: Entries in a resource dictionary". 
+The corresponding values shall be as follows: 
+• 
+For all resource types, the value shall be a subdictionary. Each key in the subdictionary shall be the 
+name of a specific resource, and the corresponding value shall be a PDF object associated with the 
+name. 
+Table 34: Entries in a resource dictionary 
+Key Type Value 
+Optional
+ExtGState 
+dictionary () A dictionary that maps resource names to graphics state 
+parameter dictionaries (see 8.4.5, "Graphics state parameter 
+dictionaries"). 
+Optional
+ColorSpace 
+dictionary () A dictionary that maps each resource name to either the name 
+of a device-dependent colour space or an array describing a colour space 
+(see 8.6, "Colour spaces"). 
+Optional
+Pattern 
+dictionary () A dictionary that maps resource names to pattern objects (see 
+8.7, "Patterns"). 
+Optional; PDF 1.3
+Shading 
+dictionary () A dictionary that maps resource names to shading 
+dictionaries (see 8.7.4.3, "Shading dictionaries"). 
+Optional
+XObject 
+dictionary () A dictionary that maps resource names to external objects (see 
+8.8, "External objects"). 
+Optional
+Font 
+dictionary () A dictionary that maps resource names to font dictionaries (see 
+9, "Text"). 
+Optional; deprecated in PDF 2.0
+ProcSet 
+array () An array of predefined procedure set 
+names (see 14.2, "Procedure sets"). 
+Optional; PDF 1.2
+Properties 
+dictionary () A dictionary that maps resource names to property list 
+dictionaries for marked content (see 14.6.2, "Property lists"). 
  
-Function
-c
- c
-If the shading dictionary contains a  entry, the colour data for each corner of a patch shall be 
-t 
-1n
-specified by a single parametric value t rather than by n separate colour components 
-…. All linear 
-Function
-interpolation within the mesh shall be done using the values. After interpolation, the results shall be 
-passed to the function(s) specified in the  entry to determine the colour at each point. 
-Table 84: Data Values in a Coons Patch Mesh 
-Edge Flag Next Set of Data Values 
-f
+EXAMPLE 2 The following shows a resource dictionary containing fonts, and external objects. The fonts are specified with 
+a subdictionary associating the names F5, F6, F7, and F8 with objects 6, 8, 10, and 12, respectively. Likewise, 
+the XObject subdictionary associates the names Im1 and Im2 with objects 13 and 15, respectively. 
+<</Font <</F5 6 0 R 
+    /F6 8 0 R 
+    /F7 10 0 R 
+    /F8 12 0 R 
+    >> 
+ /XObject <</Im1 13 0 R 
+     /Im2 15 0 R 
+    >> 
+>> 
  
-112233445566
- = 0 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
-778899101011111212
-𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
-1234
- c c c c 
- 
-New patch; no implicit values  
-© ISO 2017 – All rights reserved 244 
+© ISO 2017 – All rights reserved 114 
 
 ISO/DIS 32000-2
  
-Edge Flag Next Set of Data Values 
-f
-5566778899101011111212
- = 1 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
-34
-c c 
+7.9Common data structures 
  
-2
-cc
-Implicit values:  
-1
-114,4
-23
-cc
-)
-(
-=�𝑥𝑥
-𝑥𝑥
-,𝑦𝑦 𝑦𝑦� previous   =  previous 
-225,5
-(
-)
-𝑥𝑥
-=�𝑥𝑥
-,𝑦𝑦 𝑦𝑦� previous   =  previous 
-336,6
-(
-)
-𝑥𝑥
-=�𝑥𝑥
-,𝑦𝑦 𝑦𝑦� previous 
+7.9.1General 
  
-447,7
-()
-𝑥𝑥,𝑦𝑦=�𝑥𝑥 𝑦𝑦� previous 
-f
-5566778899101011111212
- = 2 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
-34
-c c 
- 
-cc
-Implicit values:  
-13
-117,7
-cc
-)
-(
-=�𝑥𝑥
-𝑥𝑥
-,𝑦𝑦 𝑦𝑦� previous   =  previous 
-24
-228,8
-(
-)
-𝑥𝑥
-=�𝑥𝑥
-,𝑦𝑦 𝑦𝑦� previous   =  previous 
-339,9
-(
-)
-𝑥𝑥
-=�𝑥𝑥
-,𝑦𝑦 𝑦𝑦� previous 
- 
-4410,10
-()
-𝑥𝑥,𝑦𝑦=�𝑥𝑥 𝑦𝑦� previous 
- f 
-5566778899101011111212
-= 3 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
-34
-c c 
-c
-Implicit values:  
-14
-1110,10
-2
-cc
-)
-(
-=�𝑥𝑥
-𝑥𝑥
-,𝑦𝑦 𝑦𝑦� previous  = c previous 
-1
-2211,11
-(
-)
-𝑥𝑥
-=�𝑥𝑥
-,𝑦𝑦 𝑦𝑦� previous  =  previous 
-3312,12
-(
-)
-𝑥𝑥
-=�𝑥𝑥
-,𝑦𝑦 𝑦𝑦� previous 
- 
-441,1
-()
-𝑥𝑥,𝑦𝑦=�𝑥𝑥 𝑦𝑦� previous  
- 
-8.7.4.5.8Type 7 (tensor-product patch mesh) shadings 
- 
-Type 7 (tensor-product patch mesh) shadings are identical to Type 6, except that they are based on a 
-bicubic tensor-product patch defined by 16 control points instead of the 12 control points that define a 
-ShadingType
-Coons patch. The shading dictionaries representing the two patch types differ only in the value of the 
- entry and in the number of control points specified for each patch in the data stream. 
-NOTE Although the Coons patch is more concise and easier to use, the tensor-product patch affords 
-greater control over colour mapping. 
-Like the Coons patch mapping, the tensor-product patch mapping is controlled by the location and 
-shape of four cubic Bézier curves marking the boundaries of the patch. However, the tensor-product 
-patch has four additional, "internal" control points to adjust the mapping. The 16 control points can be 
-arranged in a 4-by-4 array indexed by row and column, as follows (see "
+As mentioned at the beginning of this clause, there are some general-purpose data structures that are 
+built from the basic object types described in 7.3, "Objects" and used throughout PDF technology. This 
+subclause describes data structures for text strings, dates, rectangles, name trees, and number trees. 
+More complex data structures are described in 7.10, "Functions" and 7.11, "File specifications". 
+All of these data structures are meaningful only as part of the document hierarchy; they may not appear 
+within content streams. In particular, the special conventions for interpreting the values of string 
+objects apply only to strings outside content streams. An entirely different convention is used within 
+content streams for using strings to select sequences of glyphs to be painted on the page (see clause 9, 
+"Text"). "

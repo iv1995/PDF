@@ -1,322 +1,80 @@
-Table 323: Entries in a 3D node dictionary" shows the entries in a 3D node dictionary. 
-Table 323: Entries in a 3D node dictionary 
-Key Type Value 
-Optional
-Type 
-3DNode
-name () The type of PDF object that this dictionary describes; if present, shall be 
- for a 3D node dictionary. 
-Required
-N 
-Subtype
-text string () The name of the node being described by the node dictionary. Interpretation 
-of this entry shall depend upon the 3D format specified in the  entry in "Table 
-U3DU3D
-Subtype
-311: Entries in a 3D stream dictionary" as described below:  
- If the  of the corresponding 3D Stream is , this entry 
-shall correspond to the field Node block name, specified in the 
-PRCPDF 2.0PRC
-Subtype
-Universal 3D file format. 
- () If the  of the corresponding 3D Stream is , this 
-entry shall be constructed from fields stored in the PRC stream. 
-When comparing this entry to node names for a particular 
-convention (such as Universal 3D), interactive PDF processors shall 
-translate between the PDF text encoding used by PDF and the 
-NOTE For information on deriving names from PRC fields, see the documentation 
-character encoding specified in the 3D stream. 
-module "Naming PRC entities for outside PDF referencing" in the PRC Format.
- 
-Optional
-O 
-number () A number in the range [0, 1] indicating the opacity of the geometry supplied 
-by this node using a standard additive blend mode. 
- 
-If this entry is absent, the viewer shall use the opacity specified for the parent node or 
-for the 3D artwork (in ascending order).
-Optionaltrue
-V 
-false
-boolean () A flag indicating the visibility of this node. If , then the node is visible. If 
-, then the node shall not be visible. 
- 
-If this entry is absent, the viewer shall use the visibility specified for the parent node or 
-for the 3D artwork (in ascending order).
-Optional
-M 
-array () A 12-element 3D transformation matrix that specifies the position and 
-orientation of this node, relative to its parent, in world coordinates (see 13.6.5, 
-"Coordinate systems for 3D"). 
-Required if data is present; PDF 2.0
-Instance  
-RichMediaInstance 
-dictionary () An indirect object reference to a
-dictionary (see "Table 343: Entries in a RichMediaInstance 
-dictionary") that is also referenced by an entry in the Instances array. 
-Optional; PDF 2.0
-Data 
-text string () A text string or stream that contains state data to be passed to the 
-Data
-or stream instance when the view is triggered. 
- 
-See the extended description of the  key in "Table 345: Entries in a View Params 
-dictionary".
-© ISO 2017 – All rights reserved 651 
+Table 117: Character collections for predefined CMaps, by PDF version" lists the character 
+collections referenced by the predefined CMaps for the different versions of PDF. A dash (—) 
+indicates that the CMap is not predefined in that PDF version. 
+Table 117: Character collections for predefined CMaps, by PDF version 
+CMAP PDF 1.2 PDF 1.3 PDF 1.4 PDF 1.5 
+Chinese (Simplified) 
+GB-EUC-H/V Adobe-GB1-0 Adobe-GB1-0 Adobe-GB1-0 Adobe-GB1-0 
+GBpc-EUC-H Adobe-GB1-0 Adobe-GB1-0 Adobe-GB1-0 Adobe-GB1-0 
+GBpc-EUC-V — Adobe-GB1-0 Adobe-GB1-0 Adobe-GB1-0 
+GBK-EUC-H/V — Adobe-GB1-2 Adobe-GB1-2 Adobe-GB1-2 
+GBKp-EUC-H/V — — Adobe-GB1-2 Adobe-GB1-2 
+GBK2K-H/V — — Adobe-GB1-4 Adobe-GB1-4 
+UniGB-UCS2-H/V — Adobe-GB1-2 Adobe-GB1-4 Adobe-GB1-4 
+UniGB-UTF16-H/V — — — Adobe-GB1-4 
+Chinese (Traditional) 
+B5pc-H/V Adobe-CNS1-0 Adobe-CNS1-0 Adobe-CNS1-0 Adobe-CNS1-0 
+HKscs-B5-H/V — — Adobe-CNS1-3 Adobe-CNS1-3 
+ETen-B5-H/V Adobe-CNS1-0 Adobe-CNS1-0 Adobe-CNS1-0 Adobe-CNS1-0 
+ETenms-B5-H/V — Adobe-CNS1-0 Adobe-CNS1-0 Adobe-CNS1-0 
+CNS-EUC-H/V Adobe-CNS1-0 Adobe-CNS1-0 Adobe-CNS1-0 Adobe-CNS1-0 
+UniCNS-UCS2-H/V — Adobe-CNS1-0 Adobe-CNS1-3 Adobe-CNS1-3 
+UniCNS-UTF16-H/V — — — Adobe-CNS1-4 
+Japanese 
+83pv-RKSJ-H Adobe-Japan1-1 Adobe-Japan1-1 Adobe-Japan1-1 Adobe-Japan1-1 
+90ms-RKSJ-H/V Adobe-Japan1-2 Adobe-Japan1-2 Adobe-Japan1-2 Adobe-Japan1-2 
+90msp-RKSJ-H/V — Adobe-Japan1-2 Adobe-Japan1-2 Adobe-Japan1-2 
+90pv-RKSJ-H Adobe-Japan1-1 Adobe-Japan1-1 Adobe-Japan1-1 Adobe-Japan1-1 
+Add-RKSJ-H/V Adobe-Japan1-1 Adobe-Japan1-1 Adobe-Japan1-1 Adobe-Japan1-1 
+EUC-H/V — Adobe-Japan1-1 Adobe-Japan1-1 Adobe-Japan1-1 
+Ext-RKSJ-H/V Adobe-Japan1-2 Adobe-Japan1-2 Adobe-Japan1-2 Adobe-Japan1-2 
+H/V Adobe-Japan1-1 Adobe-Japan1-1 Adobe-Japan1-1 Adobe-Japan1-1 
+© ISO 2017 – All rights reserved 330 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional; PDF 2.0
-RM 
-dictionary () A render mode dictionary that shall specify the render mode and 
-related properties for this node. If omitted, the render mode specified in the 3D view is 
-used, and if that is not present, the render mode of the 3D artwork is used. 
-The render mode dictionary shall be identical to that used by the 3D view dictionary. 
-See "Table 318: Entries in a render mode dictionary". 
+CMAP PDF 1.2 PDF 1.3 PDF 1.4 PDF 1.5 
+UniJIS-UCS2-H/V — Adobe-Japan1-2 Adobe-Japan1-4 Adobe-Japan1-4 
+UniJIS-UCS2-HW-H/V — Adobe-Japan1-2 Adobe-Japan1-4 Adobe-Japan1-4 
+UniJIS-UTF16-H/V — — — Adobe-Japan1-5 
+Korean 
+KSC-EUC-H/V Adobe-Korea1-0 Adobe-Korea1-0 Adobe-Korea1-0 Adobe-Korea1-0 
+KSCms-UHC-H/V Adobe-Korea1-1 Adobe-Korea1-1 Adobe-Korea1-1 Adobe-Korea1-1 
+KSCms-UHC-HW-H/V — Adobe-Korea1-1 Adobe-Korea1-1 Adobe-Korea1-1 
+KSCpc-EUC-H Adobe-Korea1-0 Adobe-Korea1-0 Adobe-Korea1-0 Adobe-Korea1-0 
+UniKS-UCS2-H/V — Adobe-Korea1-1 Adobe-Korea1-1 Adobe-Korea1-1 
+UniKS-UTF16-H/V — — — Adobe-Korea1-2 
+Generic 
+Identity-H/V Adobe-Identity-0 Adobe-Identity-0 Adobe-Identity-0 Adobe-Identity-0 
  
-N
-The  entry specifies which node in the 3D stream corresponds to this node dictionary. 
-OV
-The  entry describes the opacity that shall be used when rendering this node, and the  entry shall 
-determine whether or not the node is rendered at all. While a node with an opacity of 0 shall be 
-rendered in the same way as a non-visible node, having a separate value for the visibility of a node 
-allows interactive PDF processors to show/hide partially transparent nodes, without overwriting the 
-intended opacity of those nodes. 
-M
-The  entry specifies the node’s matrix relative to its parent, in world coordinates. If an hierarchy of 
+A PDF processor shall support all of the character collections listed in "Table 117: Character collections 
+for predefined CMaps, by PDF version". As noted in 9.7.3, "CIDSystemInfo dictionaries", a character 
+collection is identified by registry, ordering, and supplement number, and supplements are cumulative; 
+that is, a higher-numbered supplement includes the CIDs contained in lower-numbered supplements, as 
+well as some additional CIDs. Consequently, text encoded according to the predefined CMaps for a given 
+PDF version shall be valid when interpreted by a PDF processor supporting the same or a later PDF 
+version. When interpreted by a PDF processor supporting an earlier PDF version, such text causes an 
+error if a CMap is encountered that is not predefined for that PDF version. If character codes are 
+encountered that were added in a higher-numbered supplement than the one corresponding to the 
+supported PDF version, no characters are displayed for those codes; see 9.7.6.3, "Handling undefined 
+characters". 
+Identity-HIdentity-V
+The  and  CMaps shall not be used with a non-embedded font. Only standardized 
+character sets may be used. 
+NOTE 4 If a PDF processor producing a PDF file encounters text to be included that uses CIDs from a 
+higher-numbered supplement than the one corresponding to the PDF version being generated, the 
+application will need to embed the CMap for the higher-numbered supplement rather than refer to 
+the predefined CMap. 
+The CMap programs that define the predefined CMaps are available through a variety of online sources. 
+9.7.5.3Embedded CMap files 
  
-nodes is intended to be repositioned while still maintaining its internal structure, then only the node at 
-the root of the hierarchy needs to be adjusted.
-InstanceDataInstances
-Data
-The  and  entries provide a reference to an instance array dictionary within the  
-array. The content of  shall be passed to and from the appropriate media run time engine by the 
-interactive PDF processor in a rich media context. 
-RM
-The  provides the facility of specifying a change in render mode for each node. In PDF 1.7, render 
-mode could be specified globally or per view. See 13.6.4, "3D views". 
-RM
-The  entry to the 3D node dictionary is applicable both for the 3D node structure within a rich media 
-InstancesData
-context (see 13.7.2, "RichMedia annotations") and within the existing 3D annotations structure (see 
-13.6.2, "3D Annotations"). The  array and additional  entries are applicable only to 3D 
-nodes within a rich media context. 
-EXAMPLE The following example shows a 3D view specifying an array of node parameters. 
-3 0 obj          %Default node params with all shapes visible and opaque 
- [<</Type /3DNode 
-   /N (Sphere) 
-   /O 1 
-   /V true 
-   /M […]>> 
-   <</Type /3DNode 
-   /N (Cone) 
-   /O 1 
-   /V true>> 
-   <</Type /3DNode 
-   /N (Cube) 
-   /O 1 
-   /V true>> 
- ] 
- 
-4 0 obj          %Params with the cone hidden and the sphere semi-transparent 
- [<</Type /3DNode 
-   /N (Sphere) 
-   /O 0.5 
-   /V true>> 
-© ISO 2017 – All rights reserved 652 
+For character encodings that are not predefined, the PDF file shall contain a stream that defines the 
+CMap. In addition to the standard entries for streams (listed in "Table 5: Entries common to all stream 
+dictionaries"), the CMap stream dictionary contains the entries listed in "Table 118: Additional entries 
+© ISO 2017 – All rights reserved 331 
 
 ISO/DIS 32000-2
  
-   <</Type /3DNode 
-   /N (Cone) 
-   /O 1 
-   /V false>> 
-   <</Type /3DNode 
-   /N (Cube) 
-   /O 1 
-   /V true>> 
- ] 
-endobj 
- 
-5 0 obj          %View1, using the default set of node params 
- << 
-  /Type /3DView 
-  /XN (View1) 
-  /NA 3 0 R 
-  … 
- >> 
-endobj 
- 
-6 0 obj          %View2, using the alternative set of node params 
- << 
-  /Type /3DView 
-  /XN (View2) 
-  /NA 4 0 R 
-  … 
- >> 
-endobj 
- ![Figure 100 Rendering of the 3D artwork using View1 (all shapes visible and opaque)  .jpg](./Storage/Output/Images/Figure 100 Rendering of the 3D artwork using View1 (all shapes visible and opaque)  .jpg)
-Figure 100: Rendering of the 3D artwork using View1 (all shapes visible and opaque) 
- 
-"Figure 100: Rendering of the 3D artwork using View1 (all shapes visible and opaque)" shows a view 
-whose node array includes three nodes, all of which shall be rendered with the appearance opaque (/O 
-1) and visible (/V true). 
-© ISO 2017 – All rights reserved 653 
-
-ISO/DIS 32000-2
- ![73.jpg](./Storage/Output/Images/73.jpg)
-Figure 101: Rendering of the 3D artwork using View2 (the cone is hidden and the sphere is semi-
- 
-transparent) 
-"Figure 101: Rendering of the 3D artwork using View2 (the cone is hidden and the sphere is semi-
-transparent)" shows a view with a node array that specifies the same three nodes used in "Figure 100: 
-Rendering of the 3D artwork using View1 (all shapes visible and opaque)". These nodes have the 
-following display characteristics: 
-• 
-• 
-The node named Sphere is partially transparent (/O 0.5) and visible (/V true) 
-• 
-The node named Cone is opaque (/O 1) and invisible (/V false) 
-13.6.5Coordinate systems for 3D 
- 
-The node named Cube is opaque (/O 1) and visible (/V true) 
-3D artwork is a collection of objects whose positions and geometry shall be specified using three-
-dimensional coordinates. 8.3, "Coordinate systems" discusses the concepts of two-dimensional 
-coordinate systems, their geometry and transformations. This subclause extends those concepts to 
-include the third dimension. 
-xy
-x
-As described in 8.3, "Coordinate systems" positions shall be defined in terms of pairs of  and  
-yz
-coordinates on the Cartesian plane. The origin of the plane specifies the location (0, 0);  values increase 
-z
-to the right and  values increase upward. For three-dimensional graphics, a third axis, the  axis, shall 
-be used. The origin shall be at (0, 0, 0); positive  values increase going into the page. 
-In two-dimensional graphics, the transformation matrix transforms the position, size, and orientation of 
-objects in a plane. It is a 3-by-3 matrix, where only six of the elements may be changed; therefore, the 
-matrix shall be expressed in PDF as an array of six numbers: 
- 
-𝐷𝐷𝑏𝑏0
-𝑐𝑐𝐵𝐵0
-[𝐷𝐷𝑏𝑏𝑐𝑐𝐵𝐵𝑡𝑡𝑥𝑥𝑡𝑡𝑦𝑦]
-�
-�=
-𝑡𝑡𝑥𝑥𝑡𝑡𝑦𝑦1
-In 3D graphics, a 4-by-4 matrix shall be used to transform the position, size, and orientations of objects 
-in a three-dimensional coordinate system. Only the first three columns of the matrix may be changed; 
-therefore, the matrix shall be expressed in PDF as an array of 12 numbers: 
-𝐷𝐷𝑏𝑏𝑐𝑐0
-𝐵𝐵𝑚𝑚𝑓𝑓0
-[𝐷𝐷𝑏𝑏𝑐𝑐𝐵𝐵𝑚𝑚𝑓𝑓𝑔𝑔ℎ𝐷𝐷𝑡𝑡𝑥𝑥𝑡𝑡𝑦𝑦𝑡𝑡𝑧𝑧]
-�= 
-�
-𝑔𝑔ℎ𝐷𝐷0
-𝑡𝑡𝑥𝑥𝑡𝑡𝑦𝑦𝑡𝑡𝑧𝑧1
- 
-© ISO 2017 – All rights reserved 654 
-
-ISO/DIS 32000-2
- 
-3D coordinate transformations shall be expressed as matrix transformations: 
-𝐷𝐷𝑏𝑏𝑐𝑐0
-′′′
-𝐵𝐵𝑚𝑚𝑓𝑓0
-𝑥𝑥𝑦𝑦𝑧𝑧1
-[
-][]
-𝑥𝑥
-𝑦𝑦𝑧𝑧1
-� 
-=×�
-𝑔𝑔ℎ𝐷𝐷0
-𝑡𝑡𝑥𝑥𝑡𝑡𝑦𝑦𝑡𝑡𝑧𝑧1
- 
-Carrying out the multiplication has the following results: 
-′
-𝑥𝑥
-=𝐷𝐷×𝑥𝑥+𝐵𝐵×𝑦𝑦+𝑔𝑔×𝑧𝑧+𝑡𝑡𝑥𝑥 
-′
-=𝑏𝑏×𝑥𝑥+𝑚𝑚×𝑦𝑦+ℎ×+𝑡𝑡𝑦𝑦 
-𝑦𝑦
-′
-=𝑐𝑐×𝑥𝑥+𝑓𝑓×𝑦𝑦+𝐷𝐷×𝑧𝑧+𝑡𝑡𝑧𝑧 
-𝑧𝑧
- 
-Position and orientation of 3D artwork typically involves translation (movement) and rotation along 
-any axis. The virtual camera represents the view of the artwork. The relationship between camera and 
-artwork may be thought of in two ways: 
-• 
-The 3D artwork is in a fixed position and orientation, and the camera moves to different positions 
-• 
-and orientations. 
-The camera is in a fixed location, and the 3D artwork is translated and rotated. 
-Both approaches may achieve the same visual effects; in practice, 3D systems typically use a 
-combination of both. Conceptually, there are three distinct coordinate systems: 
-artwork coordinatesystem
-• 
-camera coordinate system
-• 
-The  . 
-zxy
-The , in which the camera shall be positioned at (0, 0, 0) facing out along 
-world coordinate system
-• 
-the positive  axis, with the positive  axis to the right and the positive  axis going straight up. 
-An intermediate system called the . 
-Two 3D transformation matrices shall be used in coordinate conversions: 
-artwork-to-world matrix
-• 
-The  specifies the position and orientation of the artwork in the world 
-camera-to-world matrix
-• 
-coordinate system. This matrix shall be contained in the 3D stream. 
-C2WU3DPath
-The  specifies the position and orientation of the camera in the world 
-coordinate system. This matrix shall be specified by either the  or  entries of the 3D 
-view dictionary. 
-When drawing 3D artwork in a 3D annotation’s target coordinate system, the following transformations 
-take place: 
-Artwork coordinates shall be transformed to world coordinates: 
-wwwaaa
-[
-][]
-𝑥𝑥
- 𝑦𝑦 𝑧𝑧 1=𝑥𝑥 𝑦𝑦 𝑧𝑧 1×aw 
- 
-World coordinates shall be transformed to camera coordinates: 
-−1
-cccwww
-[
-)
-][](
-𝑥𝑥
- 
- 𝑦𝑦 𝑧𝑧 1=𝑥𝑥 𝑦𝑦 𝑧𝑧 1×cw
- 
-The first two steps can be expressed as a single equation, as follows: 
-−1
-cccaaa
-[
-)
-][](
-𝑥𝑥
- 
- 𝑦𝑦 𝑧𝑧 1=𝑥𝑥 𝑦𝑦 𝑧𝑧 1×aw×cw
-© ISO 2017 – All rights reserved 655 
-
-ISO/DIS 32000-2
- 
-z
- 
-Finally, the camera coordinates shall be projected into two dimensions, eliminating the  coordinate, 
-then scaled and positioned within the annotation’s target coordinate system. 
-13.6.63D markup 
- 
-Beginning with PDF 1.7, users may comment on specific views of 3D artwork by using markup 
-annotations (see 12.5.6.2, "Markup annotations"). Markup annotations (as other annotations) are 
- ExData 
-normally associated with a location on a page. To associate the markup with a specific view of a 3D 
-annotation, the annotation dictionary for the markup annotation contains anentry (see "Table 
-173: Additional entries in an annotation dictionary specific to external data") that specifies the 3D 
-annotation and view. "
+in a CMap stream dictionary". The data in the stream defines the mapping from character codes to a font 
+number and a character selector. The data shall follow the syntax defined in Adobe Technical Note 
+#5014, Adobe CMap and CIDFont Files Specification. 

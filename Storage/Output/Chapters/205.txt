@@ -1,143 +1,146 @@
-Table 231: Field flags specific to text fields" 
-shows the flags pertaining to this type of field. A text field shall have a field type of . A conforming PDF 
-file, and an interactive PDF processor shall obey the usage guidelines in "Table 231: Field flags specific 
-to text fields". 
-Table 231: Field flags specific to text fields 
-Bit position Name Meaning 
-13 Multiline If set, the field may contain multiple lines of text; if clear, the field’s text 
-shall be restricted to a single line. 
-14 Password If set, the field is intended for entering a secure password that should not 
-be echoed visibly to the screen. Characters typed from the keyboard shall 
-instead be echoed in some unreadable form, such as asterisks or bullet 
-NOTE To protect password confidentiality, it is imperative that PDF 
-characters. 
-processors never store the value of the text field in the PDF file if 
-this flag is set. 
-(PDF 1.4) 
-21 FileSelect If set, the text entered in the field represents the pathname of a 
-file whose contents shall be submitted as the value of the field. 
-(PDF 1.4) 
-23 DoNotSpellCheck If set, text entered in the field shall not be spell-checked. 
-(PDF 1.4) 
-24 DoNotScroll If set, the field shall not scroll (horizontally for single-line 
-fields, vertically for multiple-line fields) to accommodate more text than 
-fits within its annotation rectangle. Once the field is full, no further text 
-shall be accepted for interactive form filling; for non-interactive form 
-filling, the filler should take care not to add more character than will 
-visibly fit in the defined area. 
-© ISO 2017 – All rights reserved 524 
+Table 84: Data Values in a Coons Patch Mesh" summarises the required data values for 
+various values of the edge flag. ![Figure 46 Edge connections in a Coons Patch Mesh  .png](./Storage/Output/Images/Figure 46 Edge connections in a Coons Patch Mesh  .png)
+Figure 46: Edge connections in a Coons Patch Mesh 
+ 
+Function
+c
+ c
+If the shading dictionary contains a  entry, the colour data for each corner of a patch shall be 
+t 
+1n
+specified by a single parametric value t rather than by n separate colour components 
+…. All linear 
+Function
+interpolation within the mesh shall be done using the values. After interpolation, the results shall be 
+passed to the function(s) specified in the  entry to determine the colour at each point. 
+Table 84: Data Values in a Coons Patch Mesh 
+Edge Flag Next Set of Data Values 
+f
+ 
+112233445566
+ = 0 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
+778899101011111212
+𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
+1234
+ c c c c 
+ 
+New patch; no implicit values  
+© ISO 2017 – All rights reserved 244 
 
 ISO/DIS 32000-2
  
-Bit position Name Meaning 
-(PDF 1.5) 
- MaxLen 
-25 Comb May be set only if theentry is present in the text field 
-dictionary (see "Table 232: Additional entry specific to a text field") and 
-if the Multiline, Password, and FileSelect flags are clear. If set, the field 
-combs
-MaxLen
-shall be automatically divided into as many equally spaced positions, or 
-, as the value of , and the text is laid out into those combs. 
-(PDF 1.5) Adobe
+Edge Flag Next Set of Data Values 
+f
+5566778899101011111212
+ = 1 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
+34
+c c 
  
-XMLArchitecture,XMLForms Architecture (XFA) Specification, version 
-   
-26 RichText If set, the value of this field shall be a rich text string (see 
-3.3
-RV
-Table 
-). If the field has a value, the  entry of the field dictionary ("
-228: Additional entries common to all fields containing variable text") 
-shall specify the rich text string. 
+2
+cc
+Implicit values:  
+1
+114,4
+23
+cc
+)
+(
+=�𝑥𝑥
+𝑥𝑥
+,𝑦𝑦 𝑦𝑦� previous   =  previous 
+225,5
+(
+)
+𝑥𝑥
+=�𝑥𝑥
+,𝑦𝑦 𝑦𝑦� previous   =  previous 
+336,6
+(
+)
+𝑥𝑥
+=�𝑥𝑥
+,𝑦𝑦 𝑦𝑦� previous 
  
-V
-The field’s text shall be held in a text string (or, beginning with PDF 1.5, a stream) in the  (value) entry 
-of the field dictionary. The contents of this text string or stream shall be used to construct an 
- DA 
-appearance stream for displaying the field, as described under 12.7.4.3, "Variable text" The text shall be 
-presented in a single style (font, size, colour, and so forth), as specified by the(default appearance) 
-string. 
-PDF 1.4
-If the FileSelect flag () is set, the field shall function as a file-select control. In this case, the field’s 
-text represents the pathname of a file whose contents shall be submitted as the field’s value: 
-• 
-Internet RFC 2045Multipurpose Internet Mail Extensions 
-For fields submitted in HTML Form format, the submission shall use the MIME content type 
-(MIME), Part One: Format of Internet Message Bodies.
-multipart / form-data, as described in , 
-V FDF 
-• 
+447,7
+()
+𝑥𝑥,𝑦𝑦=�𝑥𝑥 𝑦𝑦� previous 
+f
+5566778899101011111212
+ = 2 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
+34
+c c 
  
-For Forms Data Format (FDF) submission, the value of the  entry in thefield dictionary (see 
-12.7.8.3.2, "FDF fields") shall be a file specification (7.11, "File specifications") identifying the 
-• 
-selected file. 
-XML format is not supported for file-select controls; therefore, no value shall be submitted in this 
-case. Besides the usual entries common to all fields (see "Table 226: Entries common to all field 
-dictionaries") and to fields containing variable text (see "Table 228: Additional entries common to 
-all fields containing variable text"), the field dictionary for a text field may contain the additional 
-entry shown in "Table 232: Additional entry specific to a text field". 
-Table 232: Additional entry specific to a text field 
-Key Type Value 
-(Optional; inheritable) 
-MaxLen 
-integer The maximum length of the field’s text, in characters. 
-EXAMPLE The following example shows the object definitions for a typical text field. 
-6 0 obj 
-  <</Type /Annot 
-   /Subtype /Widget 
-   /Rect [100 100 400 220] 
-   /FT /Tx 
-   /Ff …            %Set Multiline flag 
-   /T (Silly prose) 
-   /DA (0 0 1 rg /Ti 12 Tf) 
-   /V (The quick brown fox ate the lazy mouse) 
-   /AP <</N 5 0 R>> 
-  >> 
-© ISO 2017 – All rights reserved 525 
-
-ISO/DIS 32000-2
+cc
+Implicit values:  
+13
+117,7
+cc
+)
+(
+=�𝑥𝑥
+𝑥𝑥
+,𝑦𝑦 𝑦𝑦� previous   =  previous 
+24
+228,8
+(
+)
+𝑥𝑥
+=�𝑥𝑥
+,𝑦𝑦 𝑦𝑦� previous   =  previous 
+339,9
+(
+)
+𝑥𝑥
+=�𝑥𝑥
+,𝑦𝑦 𝑦𝑦� previous 
  
-endobj 
+4410,10
+()
+𝑥𝑥,𝑦𝑦=�𝑥𝑥 𝑦𝑦� previous 
+ f 
+5566778899101011111212
+= 3 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
+34
+c c 
+c
+Implicit values:  
+14
+1110,10
+2
+cc
+)
+(
+=�𝑥𝑥
+𝑥𝑥
+,𝑦𝑦 𝑦𝑦� previous  = c previous 
+1
+2211,11
+(
+)
+𝑥𝑥
+=�𝑥𝑥
+,𝑦𝑦 𝑦𝑦� previous  =  previous 
+3312,12
+(
+)
+𝑥𝑥
+=�𝑥𝑥
+,𝑦𝑦 𝑦𝑦� previous 
  
-5 0 obj 
-  <</Type /XObject 
-   /Subtype /Form 
-   /BBox [0 0 300 120] 
-   /Resources 21 0 R 
-   /Length 172 
-  >> 
-stream 
- /Tx BMC 
-  q 
-   BT 
-    0 0 1 rg 
-    /Ti 12 Tf 
-    1 0 0 1 100 100 Tm 
-    0 0 Td 
-    (The quick brown fox) Tj 
-    0 -13 Td 
-    (ate the lazy mouse.) Tj 
-   ET 
-  Q 
- EMC 
-endstream 
-endobj 
+441,1
+()
+𝑥𝑥,𝑦𝑦=�𝑥𝑥 𝑦𝑦� previous  
  
-12.7.5.4Choice fields 
+8.7.4.5.8Type 7 (tensor-product patch mesh) shadings 
  
-choice fieldCh
-A  shall have a field type of  that contains several text items, one or more of which shall be 
-selected as the field value. The items may be presented to the user in one of the following two forms: 
-list box
-• 
-combo box
-• 
-A scrollable  
-A  consisting of a drop-down list. The combo box may be accompanied by an editable 
- Ff 
-text box in which the user can type a value other than the predefined choices, as directed by the 
- Ff 
-value of the Edit bit in theentry. 
-The various types of choice fields are distinguished by flags in theentry, as shown in "
+Type 7 (tensor-product patch mesh) shadings are identical to Type 6, except that they are based on a 
+bicubic tensor-product patch defined by 16 control points instead of the 12 control points that define a 
+ShadingType
+Coons patch. The shading dictionaries representing the two patch types differ only in the value of the 
+ entry and in the number of control points specified for each patch in the data stream. 
+NOTE Although the Coons patch is more concise and easier to use, the tensor-product patch affords 
+greater control over colour mapping. 
+Like the Coons patch mapping, the tensor-product patch mapping is controlled by the location and 
+shape of four cubic Bézier curves marking the boundaries of the patch. However, the tensor-product 
+patch has four additional, "internal" control points to adjust the mapping. The 16 control points can be 
+arranged in a 4-by-4 array indexed by row and column, as follows (see "

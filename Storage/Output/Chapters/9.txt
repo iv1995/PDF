@@ -1,23 +1,4 @@
-bytes 
+binary data 
+sequence of bytes 
 4.7 
- 
-boolean objects 
-truefalse
-either the keyword  or the keyword  
-4.8 
- 
-byte 
-group of 8 binary digits (an 8-bit value) which collectively can be configured to represent one of 256 
-different values 
-4.9 
- 
-certification signature 
-one and only one digital signature applied to a document which allows the detection of changes to the 
-document and which confirms the origin or the author of the document and that is able to allow or to 
-block specified actions to be performed when using conformant signatures handlers or PDF processors. 
-© ISO 2017 – All rights reserved 16 
-
-ISO/DIS 32000-2
- 
-4.10 
  

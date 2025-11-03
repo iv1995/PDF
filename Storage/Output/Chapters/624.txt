@@ -1,0 +1,52 @@
+Table Annex F.11: Embedded file stream hint table, 
+header section"), which shall have general information about the embedded file stream groups. The 
+header section shall be followed by the entries in "Table Annex F.12: Embedded file stream hint table, 
+per-embedded file stream group entries". Each of the items in "Table Annex F.12: Embedded file stream 
+hint table, per-embedded file stream group entries" shall be repeated for each embedded file stream 
+group (the number of groups being represented by item 3 in "Table Annex F.11: Embedded file stream 
+hint table, header section"). That is, the order of items in "Table Annex F.12: Embedded file stream hint 
+table, per-embedded file stream group entries" shall be item 1 for the first group, item 1 for the second 
+group, and so on; item 2 for the first group, item 2 for the second group, and so on; repeated for the 5 
+items. 
+Table Annex F.11: Embedded file stream hint table, header section 
+Item Size (bits) Description 
+1 32 The object number of the first object in the first embedded file stream group. 
+2 32 The location of the first object in the first embedded file stream group. 
+3 32 The number of embedded file stream groups referenced by this hint table. 
+4 16 The number of bits needed to represent the highest object number corresponding to 
+an embedded file stream object. 
+5 16 The number of bits needed to represent the greatest number of objects in an 
+embedded file stream group. 
+6 16 The number of bits needed to represent the greatest length of an embedded file stream 
+group, in bytes. 
+© ISO 2017 – All rights reserved 866 
+
+ISO/DIS 32000-2
+ 
+Item Size (bits) Description 
+7 16 The number of bits needed to represent the greatest number of shared object 
+references in any embedded file stream group. 
+Table .12: Embedded file stream hint table, per-embedded file stream group entries 
+Annex F
+Item Size (bits) Description 
+1 See "Table Annex F.11: The object number of the embedded file stream that this entry is 
+Embedded file stream hint associated with. 
+table, header section", item 4 
+2 See "Table Annex F.11: The number of objects in this embedded file streams group. This item may 
+Embedded file stream hint be 0, meaning that there are only shared object references. In this case, 
+table, header section", item 5 item 4 for this group shall be greater than zero and item 3 shall be zero. 
+3 See "Table Annex F.11: The length of this embedded file stream group, in bytes. This item may be 
+Embedded file stream hint 0, which shall mean that there are only shared object references. In this 
+table, header section", item 6 case, item 4 for this group shall be greater than zero and item 2 shall be 
+zero. 
+4 See "Table Annex F.11: The number of shared objects referenced by this embedded file stream 
+Embedded file stream hint group. 
+table, header section", item 7 
+5 See "Table Annex F.3: Page A bit-packed list of shared object identifiers; that is, indices into the 
+offset hint table, header shared object hint table (see "F.4.3, "Shared object hint table"). Item 4 for 
+section", item 11 this group shall specify how many shared object identifiers shall be 
+associated with the group. 
+  
+© ISO 2017 – All rights reserved 867 
+
+ISO/DIS 32000-2 ![65.png](./Storage/Output/Images/65.png)

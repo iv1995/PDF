@@ -1,0 +1,48 @@
+Figure 96: Rendering of the 3D artwork using View1 (cross section perpendicular to the x axis) 
+ 
+3DView
+"Figure 96: Rendering of the 3D artwork using View1 (cross section perpendicular to the x axis)" shows 
+the cross section specified for the  that references CrossSection1. The illustration shows the 
+edges of the cutting plane ending at the edges of the annotation’s rectangle. This cross section specifies 
+a plane with the following characteristics: 
+• 
+• 
+Includes the world art origin: /C [0 0 0] 
+• 
+Perpendicular to the X axis and parallel to the Y and Z axes: /O [null 0 0] 
+• 
+Opacity of the cutting plane is 35%: /PO 0.35 
+• 
+Colour of the cutting plane is light blue: /PC [/DeviceRGB 0.75 0.86 1] 
+• 
+Intersection of the cutting plane with the object is visible: /IV true 
+Colour of the intersection of the cutting plane and the object is green: 
+/IC [/DeviceRGB 0 1 0] ![55.jpg](./Storage/Output/Images/55.jpg)
+Figure 97: Rendering of the 3D artwork using View2 (cross section rotated around the y axis  
+ 
+by -30 degrees) 
+3DView
+"Figure 97: Rendering of the 3D artwork using View2 (cross section rotated around the y axis  
+by -30 degrees)" shows the cross section specified for the  that references CrossSection2. This 
+cross section specifies a plane that differs from the one specified in CrossSection1 ("Figure 96: 
+Rendering of the 3D artwork using View1 (cross section perpendicular to the x axis)") in the following 
+way: 
+• 
+Perpendicular to the X axis, rotated -30 degrees around the Y axis, and parallel to the Z axis: /O 
+[null -30 0] 
+© ISO 2017 – All rights reserved 649 
+
+ISO/DIS 32000-2
+ ![56.jpg](./Storage/Output/Images/56.jpg)
+Figure 98: Rendering of the 3D artwork using View3 (cross section rotated around the z axis  
+ 
+by 30 degrees) 
+3DView
+"Figure 98: Rendering of the 3D artwork using View3 (cross section rotated around the z axis  
+by 30 degrees)" shows the cross section specified for the  that references CrossSection3. This 
+cross section specifies a plane that differs from the one specified in CrossSection1 ("Figure 96: 
+Rendering of the 3D artwork using View1 (cross section perpendicular to the x axis)") in the following 
+way: 
+• 
+Perpendicular to the X axis, parallel to the Y axis, and rotated 30 degrees around the Z axis: /O 
+[null 0 30] ![Figure 99 Rendering of the 3D artwork using View4  .jpg](./Storage/Output/Images/Figure 99 Rendering of the 3D artwork using View4  .jpg)

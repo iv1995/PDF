@@ -1,76 +1,127 @@
-Figure 39: Connecting triangles in a free-form Gouraud-shaded triangle mesh 
- 
-Complex shapes can be created by using the edge flags to control the edge on which subsequent 
-triangles are formed. 
-EXAMPLE "Figure 40: Varying the value of the edge flag to create different shapes" shows two simple examples. Mesh1 
-begins with triangle 1 and uses the following edge flags to draw each succeeding triangle: 
-𝑚𝑚𝑏𝑏𝑐𝑐𝑚𝑚
-1 (𝑓𝑓=𝑓𝑓=𝑓𝑓=0) 7 (𝑓𝑓=2) 
-𝑑𝑑𝑗𝑗
-()
-2 𝑓𝑓=1 8 (𝑓𝑓=2) 
-𝑒𝑒𝑘𝑘
-()
-3 𝑓𝑓=1 9  (𝑓𝑓=2) 
-𝑙𝑙
-𝑓𝑓
-10 (𝑓𝑓=1) 
-4 �𝑓𝑓=1� 
-𝑚𝑚
-𝑔𝑔
-11 (𝑓𝑓=1) 
-5 �𝑓𝑓=1� 
-ℎ
-()
-6 𝑓𝑓=1  
- 
-     Mesh 2 again begins with triangle 1 and uses the following edge flags: 
-𝑚𝑚𝑏𝑏𝑐𝑐𝑓𝑓
-1 (𝑓𝑓=𝑓𝑓=𝑓𝑓=0) 4 (𝑓𝑓=2) 
-𝑑𝑑𝑔𝑔
-()
-2 𝑓𝑓=1 5 (𝑓𝑓=2) 
-𝑒𝑒ℎ
-()
-3 𝑓𝑓=2  6 (𝑓𝑓=2) 
- 
-The stream shall provide vertex data for a whole number of triangles with appropriate edge flags; 
-otherwise, an error occurs. 
-© ISO 2017 – All rights reserved 236 
+Table 28: Entries in an 
+encrypted payload dictionary") with details of the cryptographic filter needed to decrypt the encrypted 
+payload. 
+© ISO 2017 – All rights reserved 97 
 
 ISO/DIS 32000-2
- ![Figure 40 Varying the value of the edge flag to create different shapes  .png](./Storage/Output/Images/Figure 40 Varying the value of the edge flag to create different shapes  .png)
-Figure 40: Varying the value of the edge flag to create different shapes 
  
-The data for each vertex consists of the following items, reading in sequence from higher-order to 
-lower-order bit positions: 
-BitsPerFlag
-• 
-BitsPerCoordinate
-• 
-An edge flag, expressed in  bits 
-• 
-A pair of horizontal and vertical coordinates, expressed in  bits each 
- BitsPerComponent sc
-A set of n colour components (where n is the number of components in the shading’s colour 
-space), expressed inbits each, in the order expected by the  operator 
-Each set of vertex data shall occupy a whole number of bytes. If the total number of bits required is not 
-Decode
-divisible by 8, the last data byte for each vertex is padded at the end with extra bits, which shall be 
-ignored. The coordinates and colour values shall be decoded according to the  array in the same 
-way as in an image dictionary (see 8.9.5.2, "Decode arrays"). 
-Function
-tn
-If the shading dictionary contains a  entry, the colour data for each vertex shall be specified by 
-t
-a single parametric value  rather than by  separate colour components. All linear interpolation within 
-Function
-the triangle mesh shall be done using the  values. After interpolation, the results shall be passed to the 
-function(s) specified in the  entry to determine the colour at each point. 
-8.7.4.5.6Type 5 (lattice-form Gouraud-shaded triangle mesh) shadings 
+Table 28: Entries in an encrypted payload dictionary 
+Key Type Value 
+(Optional)
+Type 
+EncryptedPayload
+name  The type of PDF object that this dictionary describes; if present, 
+shall be  for an encrypted payload file specification. 
+(Required)
+Subtype 
+name  The name of the cryptographic filter used to encrypt the 
+encrypted payload document. This allows a PDF processor to easily 
+determine whether it has the appropriate cryptographic filter. 
+(Optional)
+Version 
+name  The version number of the cryptographic filter used to encrypt 
+NOTE  The value of  is not to be interpreted as a real number but 
+Version
+the encrypted payload referenced by this dictionary. 
+as integers with a PERIOD (2Eh) between them. 
+EXAMPLE This example shows details of an unencrypted wrapper document containing an encrypted payload document. 
+%PDF-2.0  
+15 0 obj  
+  <</Length 377 /Filter /FlateDecode>> 
+stream 
+ … 
+endstream 
+endobj 
  
-pseudorectangular lattice
-Type 5 (lattice-form Gouraud-shaded triangle mesh) shadings are similar to Type 4, but instead of using 
-free-form geometry, their vertices are arranged in a , which is topologically 
-equivalent to a rectangular grid. The vertices are organised into rows, which need not be geometrically 
-linear (see "
+17 0 obj           %File Specification Dictionary 
+  << 
+   /Desc (This embedded file is encrypted using the Acme Custom Crypto filter) 
+   /EF <</F 18 0 R>> 
+   /F (AcmeCustomCrypto Protected PDF.pdf) 
+   /Type /Filespec 
+   /UF (AcmeCustomCrypto Protected PDF.pdf) 
+   /EP 
+   << 
+    /Type /EncryptedPayload 
+    /Subtype /AcmeCustomCrypto 
+    /Version /1.0 
+   >> 
+   /AFRelationship /EncryptedPayload 
+  >> 
+endobj 
+ 
+18 0 obj           %Embedded File stream 
+  << 
+   /Type /EmbeddedFile 
+   /DL 123456 
+   /Filter /FlateDecode 
+   /Length 123456 
+   /Params 
+   << 
+    /CheckSum <01234567890123456789012345678901> 
+    /CreationDate (D:20130228170141-08'00') 
+    /ModDate (D:20130228170141-08'00') 
+    /Size 123456 
+   >> 
+   /Subtype /application#2Fpdf 
+  >> 
+stream 
+… Flate-encoded contents of encrypted payload document …  
+endstream 
+endobj 
+ 
+© ISO 2017 – All rights reserved 98 
+
+ISO/DIS 32000-2
+ 
+19 0 obj           %Document Catalog 
+  << 
+   /Type/Catalog 
+   /Collection  
+   << 
+    /D (AcmeCustomCrypto Protected PDF.pdf) 
+    /View /H 
+   >> 
+   /Names 20 0 R 
+   /Pages 12 0 R 
+   … 
+   /AF [17 0 R] 
+  >> 
+endobj 
+ 
+20 0 obj           %Document Name tree 
+  <</EmbeddedFiles 21 0 R>> 
+endobj 
+ 
+21 0 obj           %Embedded Files Name dictionary 
+  <</Names [(AcmeCustomCrypto Protected PDF.pdf) 17 0 R]>> 
+endobj 
+ 
+12 0 obj %Page tree 
+  … Page tree for wrapper cover page …  
+endobj 
+ 
+… 
+xref 
+0 21 
+0000000000 65536 f 
+… 
+0000036212 00000 n 
+trailer 
+  << 
+   /Root 19 0 R 
+   /Info 3 0 R 
+   /Size 21 
+  >> 
+startxref 
+37873 
+%%EOF 
+ 
+7.7Document structure 
+ 
+7.7.1General 
+ 
+A PDF document can be regarded as a hierarchy of objects contained in the body section of a PDF file. At 
+the root of the hierarchy is the document’s catalog dictionary (see 7.7.2, "Document catalog 
+dictionary"). 
+NOTE Most of the objects in the hierarchy are dictionaries. "

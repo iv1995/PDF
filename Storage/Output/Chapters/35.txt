@@ -1,13 +1,7 @@
-white-space character 
-characters that separate PDF syntactic constructs such as names and numbers from each other; white-
-space characters are HORIZONTAL TABULATION (09h), LINE FEED (0Ah), FORM FEED (0Ch), 
-CARRIAGE RETURN (0Dh), SPACE (20h), NULL (00h); (see "Table 1: White-space characters" in 7.2.3, 
-"Character set") 
-4.61 
+ICC specification [ISO 15076-1:2010] 
+4.32 
  
-XFDF file 
-file conforming to the XML Forms Data Format 3.0 specification, which is an XML transliteration of 
-Forms Data Format (FDF). See ISO/DIS 19444-1, Document management – XML Forms Data Format – 
-Part 1: XFDF 3.0. 
-4.62 
+ICC specification 
+Cross-platform profile format for the creation and interpretation of colour data [ISO 15076-1:2010] 
+4.33 
  

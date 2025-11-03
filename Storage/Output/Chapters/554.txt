@@ -1,0 +1,20 @@
+Table 360: Entries common to all attribute object dictionaries") identifying the 
+conforming product that owns the attribute information. Other entries, except the  entry, shall 
+represent the attributes: the keys shall be attribute names, and values shall be the corresponding 
+attribute values. To facilitate the interchange of content among conforming products, PDF defines a set 
+of standard structure attributes identified by specific standard owners; see 
+14.8.5, "Standard structure 
+attributes". In addition, attributes may be used to represent user properties (see 14.7.6.4, "User 
+properties"). 
+NOTE Earlier versions of PDF also provided for the use of streams as attributes. 
+© ISO 2017 – All rights reserved 711 
+
+ISO/DIS 32000-2
+ 
+Table 360: Entries common to all attribute object dictionaries 
+Key Type Value 
+Required
+O 
+NSOUserProperties
+name () The name of the PDF processor creating the attribute data. The value shall either be a 
+,  (see "

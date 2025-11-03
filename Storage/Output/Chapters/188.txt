@@ -1,104 +1,21 @@
-Table 197: Entries in an annotation’s additional-actions dictionary" to "Table 200: Entries in the 
-document catalog’s additional-actions dictionary" show the contents of this type of dictionary. 
-PDF 1.5 introduces four trigger events in annotation’s additional-actions dictionary to support 
-multimedia presentations: 
-POPCOC
-• 
-The  and  entries have a similar function to the  and  entries in the page object’s 
-additional-actions dictionary (see "Table 197: Entries in an annotation’s additional-actions 
-dictionary"). However, associating these triggers with annotations allows annotation objects to be 
-self-contained. 
-EXAMPLE Annotations containing such actions can be copied or moved between pages without requiring page 
-open/close actions to be changed. 
-PVPI
-• 
-The  and  entries allow a distinction between pages that are open and pages that are visible. 
-NOTE 1 For these trigger events, the values of the flags specified by the annotation’s  entry (see 12.5.3, 
-F
-At any one time, while more than one page may be visible, depending on the page layout. 
-"Annotation flags") have no bearing on whether a given trigger event occurs. 
-Table 197: Entries in an annotation’s additional-actions dictionary 
-Key Type Value 
-(Optional; PDF 1.2) 
-E 
-dictionary An action that shall be performed when the cursor enters the 
-annotation’s active area. 
-(Optional; PDF 1.2) 
-X 
-dictionary An action that shall be performed when the cursor exits the 
-annotation’s active area. 
-(Optional; PDF 1.2) 
-D 
-dictionary An action that shall be performed when the mouse button is 
-pressed inside the annotation’s active area. 
-(Optional; PDF 1.2) 
-U 
-dictionary An action that shall be performed when the mouse button is 
-A
-released inside the annotation’s active area. 
-For backward compatibility, the  entry in an annotation dictionary, if present, 
+Figure 36: Radial shadings with 
+extension". In "Figure 35: Radial shadings depicting a sphere", the inner circle has zero radius; it is 
+the starting circle in the figure on the left and the ending circle in the figure on the right. Neither 
+shading is extended at either the smaller or larger end. In "Figure 36: Radial shadings with 
+extension", the inner circle in both figures has a non-zero radius and the shading is extended at 
+the larger end. In each plate, a background colour is specified for the figure on the right but not 
+for the figure on the left. ![Figure 35 Radial shadings depicting a sphere  .png](./Storage/Output/Images/Figure 35 Radial shadings depicting a sphere  .png)
+Figure 35: Radial shadings depicting a sphere 
  
-takes precedence over this entry (see "Table 170: Entries in an appearance 
-dictionary").
-(Optional; PDF 1.2; widget annotations only) 
-Fo 
-dictionary An action that shall be performed when 
-the annotation receives the input focus. 
-(Optional; PDF 1.2; widget annotations only) 
-Bl 
-dictionary (Uppercase B, lowercase L) An action 
-that shall be performed when the annotation loses the input focus. 
-(Optional; PDF 1.5) 
-PO 
-dictionary An action that shall be performed when the page containing the 
-annotation is opened. 
-EXAMPLE 1 When the user navigates to it from the next or previous page or by 
-means of a link annotation or outline item. 
-O
-The action shall be executed after the  action in the page’s additional-actions 
- OpenAction Catalog
-") 
-dictionary (see "Table 198: Entries in a page object’s additional-actions dictionary
- 
-and theentry in the document  (see "Table 29: Entries in the 
-catalog dictionary"), if such actions are present.
-© ISO 2017 – All rights reserved 493 
+© ISO 2017 – All rights reserved 232 
 
 ISO/DIS 32000-2
+ ![Figure 36 Radial shadings with extension  .png](./Storage/Output/Images/Figure 36 Radial shadings with extension  .png)
+Figure 36: Radial shadings with extension 
  
-Key Type Value 
-(Optional; PDF 1.5) 
-PC 
-dictionary An action that shall be performed when the page containing the 
-annotation is closed. 
-EXAMPLE 2 When the user navigates to the next or previous page, or follows 
-a link annotation or outline item. 
-C
-The action shall be executed before the  action in the page’s additional-actions 
- 
-dictionary (see "Table 198: Entries in a page object’s additional-actions 
-dictionary"), if present.
-(Optional; PDF 1.5) 
-PV 
-dictionary An action that shall be performed when the page containing the 
-annotation becomes visible. 
-(Optional; PDF 1.5) 
-PI 
-dictionary An action that shall be performed when the page containing the 
-annotation is no longer visible in the interactive PDF processor’s user interface. 
-Table 198: Entries in a page object’s additional-actions dictionary 
-Key Type Value 
-(Optional; PDF 1.2) 
-O 
-dictionary An action that shall be performed when the page is opened (for 
-example, when the user navigates to it from the next or previous page or by means 
- OpenAction 
-of a link annotation or outline item). This action is independent of any that may be 
-defined by theentry in the document catalog dictionary (see 7.7.2, 
-"Document catalog dictionary") and shall be executed after such an action. 
-(Optional; PDF 1.2) 
-C 
-dictionary An action that shall be performed when the page is closed (for 
-example, when the user navigates to the next or previous page or follows a link 
-annotation or an outline item). This action applies to the page being closed and 
-shall be executed before any other page is opened. 
+NOTE 3 If neither circle contains the other, the shading depicts a cone. If the starting circle is larger, the 
+cone appears to point out of the page. If the ending circle is larger, the cone appears to point into 
+the page (see "Figure 34: Radial shadings depicting a cone" ("8.7.4.5.4"Type 3 (radial) 
+, 
+shadings")). 
+EXAMPLE 1 This example shows the shading used for the objects in the leaf-covered branch in "

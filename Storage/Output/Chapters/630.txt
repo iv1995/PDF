@@ -1,0 +1,160 @@
+Figure Annex H.1: 
+Output of the following example" shows the resulting output. (Each shape has a red border, and the 
+ ICCBased 
+rectangle is filled with light blue.) The colours, but not the black fill, are specified as calibrated colours, 
+to increase colour fidelity on a range of devices. To achieve this ancolour space is used, such 
+as an embedded sRGB profile. 
+© ISO 2017 – All rights reserved 876 
+
+ISO/DIS 32000-2
+ 
+Table Annex H.3: Objects in simple graphics example 
+Object number Object type 
+Catalog
+1  (document catalog) 
+2 ICCBased profile stream 
+Pages
+3  (page tree node) 
+Page
+4  (page object) 
+5 Content stream 
+Metadata
+6  (metadata stream) 
+ 
+Figure Annex H.1: Output of the following example 
+ 
+EXAMPLE  
+%PDF-2.0 
+…              %at least 4 binary characters > 127 
+ 
+1 0 obj             %Catalog (root) object used to locate everything else 
+  <</Type /Catalog 
+   /Pages 3 0 R 
+   /Metadata 6 0 R 
+  >> 
+endobj 
+ 
+2 0 obj             %ICCBasedcolour space profile stream dictionary 
+ 
+  <</N 3           %Number of components – 3 for an RGB 
+   /Filter /FlateDecode     %Indicate filter (compression) used on profile 
+   /Length …        %Length of compressed data (not of raw profile) 
+              %Note that this kind of object does not use a /Type key 
+  >> 
+stream 
+… Flate compressed data of ICC profile for calibrated RGB colour space (raw binary) … 
+… For example, this could be the compressed sRGB profile … 
+endstream 
+endobj 
+ 
+3 0 obj             %Pages catalog, containing a single page 
+  <</Type /Pages 
+© ISO 2017 – All rights reserved 877 
+
+ISO/DIS 32000-2 
+   /Kids [4 0 R] 
+   /Count 1 
+  >> 
+endobj 
+ 
+4 0 obj             %Page dictionary 
+  <</Type /Page 
+   /Parent 3 0 R 
+   /MediaBox  [0 0 612 792] 
+   /Contents 5 0 R 
+   /Resources 
+    <</ColorSpace 
+      <</MyCS [/ICCBased 2 0 R] %MyCS, arbitrary resource name for calibrated RGB 
+      >> 
+    >> 
+  >> 
+endobj 
+ 
+5 0 obj %Page contents for page 1 
+number of bytes in page marking operators >>
+  <</Length … … 
+stream 
+ %Draw a line segment, using the default colour space, colour and line width. 
+ %The initial colour space isand the initial colour is black. 
+ DeviceGray 
+ %The initial line width is 1.0. 
+ 150 250 m 
+ 150 350 l 
+ S 
+ 
+ %Draw a thicker, dashed line segment. 
+ q             %Save graphics state 
+ 4 w            %Set line width to 4 user space units 
+ [4 6] 0 d          %Set dash pattern to 4 units on, 6 units off 
+ 150 250 m 
+ 400 250 l 
+ S 
+ Q             %Restore graphics state – undo w and d 
+ 
+ %Select the calibrated RGB colour space for filling and stroking 
+ /MyCS cs           %Arbitrary name in resource dictionary 
+ /MyCS CS           %leading to embedded calibrated RGB profile stream 
+ 
+ %Draw a rectangle with a 1-unit red border, filled with light blue. 
+ 1.0 0.0 0.0 SCN         %Red (in calibrated RGB) for stroke colour 
+ 0.5 0.75 1.0 scn         %Light blue (in calibrated RGB) for fill colour 
+ 200 300 50 75 re 
+ B              %fill/stroke with non-zero winding number rule 
+ 
+ %Draw a curve filled with gray (DeviceGray, not calibrated RGB) and with a coloured border. 
+ 0.5 0.1 0.2 SCN 
+ 0.7 g            %DeviceGray(uncalibrated); or 0.7 0.7 0.7 scn for 
+ 
+              %a neutral (gray) in calibrated ICC-based RGB 
+ 300 300 m 
+ 300 400 400 400 400 300 c 
+ b              % Close, fill, and stroke path using non-zero winding  
+endstream 
+endobj 
+ 
+6 0 obj             %Document metadata 
+  <</Type /Metadata 
+   /Subtype /XML 
+number of bytes in metadata  
+   /Length … …
+  >> 
+stream 
+UTF-8 value of U+FEFF (efbbbf) 
+<?xpacket begin="… …" id="W5M0MpCehiHzreSzNTczkc9d"?> 
+ document metadata 
+…… 
+<?xpacket end="w"?> 
+© ISO 2017 – All rights reserved 878 
+
+ISO/DIS 32000-2
+ 
+endstream 
+endobj 
+ 
+%Cross reference and trailer 
+xref 
+0 7 
+Note that the 10 digit byte offsets here must be recalculated by the software producing the PDF  
+… …
+ and that the entries must each occupy 20 bytes including white-space  
+……
+0000000000 65535 f 
+0000000009 00000 n 
+byte offset for object 2, exactly 10 digits 
+… … 00000 n 
+byte offset for object 3, exactly 10 digits 
+… … 00000 n 
+0000002179 00000 n 
+0000002300 00000 n 
+byte offset for object 6, exactly 10 digits 
+… … 00000 n 
+trailer 
+<</Size 7 /Root 1 0 R>> 
+startxref 
+… needs to be the exact byte address of the word xref …
+2503  
+%%EOF 
+H.5Page tree example 
+ 
+The example in H.5, "Page tree example" is a fragment of a PDF file illustrating the structure of the page 
+tree for a large document. It contains the page tree nodes for a 62-page document. "

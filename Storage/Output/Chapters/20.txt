@@ -1,7 +1,5 @@
-graphics state 
-top of a push down stack of the graphics control parameters that defines the current global framework 
-within which the graphics operators execute 
-4.31 
+dictionary object 
+associative table containing pairs of objects, the first object being a name object serving as the key and 
+the second object serving as the value and may be any kind of object including another dictionary 
+4.18 
  
-ICC profile 
-colour profile conforming to the 

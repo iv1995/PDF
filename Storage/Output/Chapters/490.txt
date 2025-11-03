@@ -1,0 +1,52 @@
+Figure 87: Default view of artwork" through "Figure 89: Shared artwork 
+(annotations 2 & 3) modified" show three annotations that use the same 3D artwork. Object 100 (Annotation 
+1) has its own run-time instance of the 3D stream (object 200); object 101(Annotation 2) and object 102 
+(Annotation 3) share a run-time instance through the 3D reference dictionary (object 201). 
+100 0 obj           %3D annotation 1 
+  <</Type /Annot 
+   /Subtype /3D 
+   /3DD 200 0 R       %Reference to the 3D stream containing the 3D artwork 
+© ISO 2017 – All rights reserved 629 
+
+ISO/DIS 32000-2
+ 
+  >> 
+endobj 
+ 
+101 0 obj %3D annotation 2 
+  <</Type /Annot 
+   /Subtype /3D 
+   /3DD 201 0 R       %Reference to a 3D reference dictionary 
+  >> 
+endobj 
+ 
+102 0 obj           %3D annotation 3 
+  <</Type /Annot 
+   /Subtype /3D 
+   /3DD 201 0 R       %Reference to the same 3D reference dictionary 
+  >> 
+endobj 
+ 
+200 0 obj           %The 3D stream 
+  <</Type /3D 
+   /Subtype /U3D 
+ other keys related to a stream, such as /Length …  
+   …
+  >> 
+  stream 
+   … U3D data … 
+ endstream 
+endobj 
+ 
+201 0 obj           %3D reference dictionary 
+  <</Type /3DRef 
+   /3DD 200 0 R       %Reference to the actual 3D artwork. 
+  >> 
+endobj 
+ ![Figure 87 Default view of artwork  .png](./Storage/Output/Images/Figure 87 Default view of artwork  .png)
+Figure 87: Default view of artwork 
+ 
+© ISO 2017 – All rights reserved 630 
+
+ISO/DIS 32000-2
+ ![Figure 88 Annotation 2 rotated  .png](./Storage/Output/Images/Figure 88 Annotation 2 rotated  .png)

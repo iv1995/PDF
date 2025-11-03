@@ -1,93 +1,72 @@
-Table 207: Additional entries 
-specific to a launch action" shows the action dictionary entries specific to this type of action. 
-WinMacUnix
-Previously, , , and  entries allowed the action dictionary to include platform-specific 
-© ISO 2017 – All rights reserved 501 
+Figure 40: Varying the value of the edge flag to create different shapes" shows two simple examples. Mesh1 
+begins with triangle 1 and uses the following edge flags to draw each succeeding triangle: 
+𝑚𝑚𝑏𝑏𝑐𝑐𝑚𝑚
+1 (𝑓𝑓=𝑓𝑓=𝑓𝑓=0) 7 (𝑓𝑓=2) 
+𝑑𝑑𝑗𝑗
+()
+2 𝑓𝑓=1 8 (𝑓𝑓=2) 
+𝑒𝑒𝑘𝑘
+()
+3 𝑓𝑓=1 9  (𝑓𝑓=2) 
+𝑙𝑙
+𝑓𝑓
+10 (𝑓𝑓=1) 
+4 �𝑓𝑓=1� 
+𝑚𝑚
+𝑔𝑔
+11 (𝑓𝑓=1) 
+5 �𝑓𝑓=1� 
+ℎ
+()
+6 𝑓𝑓=1  
+ 
+     Mesh 2 again begins with triangle 1 and uses the following edge flags: 
+𝑚𝑚𝑏𝑏𝑐𝑐𝑓𝑓
+1 (𝑓𝑓=𝑓𝑓=𝑓𝑓=0) 4 (𝑓𝑓=2) 
+𝑑𝑑𝑔𝑔
+()
+2 𝑓𝑓=1 5 (𝑓𝑓=2) 
+𝑒𝑒ℎ
+()
+3 𝑓𝑓=2  6 (𝑓𝑓=2) 
+ 
+The stream shall provide vertex data for a whole number of triangles with appropriate edge flags; 
+otherwise, an error occurs. 
+© ISO 2017 – All rights reserved 236 
 
 ISO/DIS 32000-2
+ ![Figure 40 Varying the value of the edge flag to create different shapes  .png](./Storage/Output/Images/Figure 40 Varying the value of the edge flag to create different shapes  .png)
+Figure 40: Varying the value of the edge flag to create different shapes 
  
-F
-parameters for launching the designated application, however, they are now deprecated with PDF 2.0. 
-The  entry determines the file specification platform to be launched. 
-Table 207: Additional entries specific to a launch action 
-Key Type Value 
-(Required) 
-S 
-Launch
-name The type of action that this dictionary describes; shall be 
- for a launch action. 
-(Required if none of the entries , or  is present) 
-F WinMacUnix
-file specification , The 
-application that shall be launched or the document that shall be opened or 
-printed. If this entry is absent and the interactive PDF processor does not 
-understand any of the alternative entries, it shall do nothing. 
-(Optional; deprecated in PDF 2.0) 
-Win 
-dictionary A dictionary containing Microsoft 
-TM
-Windows specific launch parameters (see "Table 208: Entries in a 
-TM
-Microsoft Windows launch parameter dictionary"). 
-(Optional; deprecated in PDF 2.0)
-Mac   
-(undefined) MacOS–specific launch parameters; not 
-yet defined. 
-(Optional; deprecated in PDF 2.0) 
-Unix 
-(undefined) UNIX-specific launch parameters; not yet 
-defined. 
-(Optional; PDF 1.2) 
-NewWindow 
-false
-boolean A flag specifying whether to open the destination 
-document in a new window. If this flag is , the destination document 
-replaces the current document in the same window. If this entry is absent, 
-the interactive PDF processor should behave in accordance with its 
-F
-current preference. This entry shall be ignored if the file designated by the 
- entry is not a PDF document. 
-TM
-Table 208: Entries in a Microsoft Windows launch parameter dictionary 
-Key Type Value 
-(Required) 
-F 
-byte string The file name of the application that shall be launched or the 
-document that shall be opened or printed, in standard Microsoft 
-TM
-Windows specific pathname format. If the name string includes a 
-backslash character (\), the backslash shall itself be preceded by a 
+The data for each vertex consists of the following items, reading in sequence from higher-order to 
+lower-order bit positions: 
+BitsPerFlag
+• 
+BitsPerCoordinate
+• 
+An edge flag, expressed in  bits 
+• 
+A pair of horizontal and vertical coordinates, expressed in  bits each 
+ BitsPerComponent sc
+A set of n colour components (where n is the number of components in the shading’s colour 
+space), expressed inbits each, in the order expected by the  operator 
+Each set of vertex data shall occupy a whole number of bytes. If the total number of bits required is not 
+Decode
+divisible by 8, the last data byte for each vertex is padded at the end with extra bits, which shall be 
+ignored. The coordinates and colour values shall be decoded according to the  array in the same 
+way as in an image dictionary (see 8.9.5.2, "Decode arrays"). 
+Function
+tn
+If the shading dictionary contains a  entry, the colour data for each vertex shall be specified by 
+t
+a single parametric value  rather than by  separate colour components. All linear interpolation within 
+Function
+the triangle mesh shall be done using the  values. After interpolation, the results shall be passed to the 
+function(s) specified in the  entry to determine the colour at each point. 
+8.7.4.5.6Type 5 (lattice-form Gouraud-shaded triangle mesh) shadings 
  
-backslash. 
-This value shall be a simple string; it is not a file specification.
-(Optional) 
-D 
-byte string A bye string specifying the default directory in standard DOS 
-syntax. 
-(Optional) 
-O 
-open 
-ASCII string An ASCII string specifying the operation to perform: 
-print  
-Open a document. 
-F
-Print a document. 
-open
-If the  entry designates an application instead of a document, this entry 
-shall be ignored and the application shall be launched. Default value: . 
-(Optional) 
-P 
-FF
-byte string A parameter string that shall be passed to the application 
-designated by the  entry. This entry shall be omitted if  designates a 
-document. 
- 
-© ISO 2017 – All rights reserved 502 
-
-ISO/DIS 32000-2
- 
-12.6.4.7Thread actions 
- 
-thread action
-A  jumps to a specified bead on an article thread (see 12.4.3, "Articles"), in either the 
-current document or a different one. "
+pseudorectangular lattice
+Type 5 (lattice-form Gouraud-shaded triangle mesh) shadings are similar to Type 4, but instead of using 
+free-form geometry, their vertices are arranged in a , which is topologically 
+equivalent to a rectangular grid. The vertices are organised into rows, which need not be geometrically 
+linear (see "

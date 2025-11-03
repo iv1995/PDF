@@ -1,65 +1,133 @@
-Table 53: Line cap styles" shows the possible 
-values. 
-Table 53: Line cap styles 
-Style Appearance Description 
-Butt cap
-0 ![16.png](./Storage/Output/Images/16.png)
-. The stroke shall be squared off at the endpoint of the path. There shall be 
-no projection beyond the end of the path. 
- 
-Round cap
-1 ![17.png](./Storage/Output/Images/17.png)
-. A semicircular arc with a diameter equal to the line width shall be 
-drawn around the endpoint and shall be filled in. 
- 
-Projecting square cap
-2 
-. The stroke shall continue beyond the endpoint of the path ![18.png](./Storage/Output/Images/18.png)
-for a distance equal to half the line width and shall be squared off. 
- 
- 
-8.4.3.4Line join style 
- 
-The line join style shall specify the shape to be used at the corners of paths that are stroked. "Table 54: 
-Line join styles" shows the possible values. Join styles shall be significant only at points where 
-consecutive segments of a path connect at an angle; segments that meet or intersect fortuitously shall 
-receive no special treatment. 
-Table 54: Line join styles 
-Style Appearance Description 
-Miter join
-0 
-. The outer edges of the strokes for the two segments shall be extended 
-until they meet at an angle, as in a picture frame. If the segments meet at too sharp 
-an angle (as defined by the miter limit parameter — see 8.4.3.5, "Miter limit"), a ![19.png](./Storage/Output/Images/19.png)
-bevel join shall be used instead. 
- 
-Round join
-1 
-. An arc of a circle with a diameter equal to the line width shall be drawn 
-around the point where the two segments meet, connecting the outer edges of the 
-strokes for the two segments. This pie-slice-shaped figure shall be filled in, ![20.png](./Storage/Output/Images/20.png)
-producing a rounded corner. 
- 
-© ISO 2017 – All rights reserved 159 
+Table 2: Delimiter characters 
+Glyph Decimal Hexadecimal Octal Name 
+( 
+40 28 050 LEFT PARENTHESIS 
+) 
+41 29 051 RIGHT PARENTHESIS 
+< 
+60 3C 074 LESS-THAN SIGN 
+© ISO 2017 – All rights reserved 28 
 
 ISO/DIS 32000-2
  
-Style Appearance Description 
-Bevel join
-2 
-. The two segments shall be finished with butt caps (see 8.4.3.3, "Line cap 
-style") and the resulting notch beyond the ends of the segments shall be filled with 
-a triangle. ![21.png](./Storage/Output/Images/21.png)
+Glyph Decimal Hexadecimal Octal Name 
+> 
+62 3E 076 GREATER-THAN SIGN 
+[ 
+91 5B 133 LEFT SQUARE BRACKET 
+] 
+93 5D 135 RIGHT SQUARE BRACKET 
+{ 
+123 7B 173 LEFT CURLY BRACKET 
+} 
+125 7D 175 RIGHT CURLY BRACKET 
+/ 
+47 2F 057 SOLIDUS 
+% 
+37 25 045 PERCENT SIGN 
  
+All characters except the white-space characters and delimiters are referred to as regular characters. 
+These characters include bytes that are outside the ASCII character set. A sequence of consecutive 
+regular characters comprises a single token. PDF is case-sensitive; corresponding uppercase and 
+lowercase letters are distinct. 
+7.2.4Comments 
  
-A zero length dash occurring at a zero length subpath segment does not have a determinable direction 
-and thus is rendered in an implementation-dependent manner if the line caps are non-round. 
-In a closed subpath that is dashed, if the first segment starts with an on-dash and the last segment ends 
-within an on-dash, then they shall be joined. 
-NOTE The definition of round join was changed in PDF 1.5. In rare cases, the implementation of the 
-previous specification could produce unexpected results. 
-8.4.3.5Miter limit 
+Any occurrence of the PERCENT SIGN (25h) outside a string or inside a content stream (see 7.8.2, 
+"Content streams") introduces a comment. The comment consists of all characters after the PERCENT 
+SIGN and up to but not including the end-of-the-line marker. A PDF processor shall ignore comments, 
+and treat them as single white-space characters. That is, a comment separates the token preceding it 
+from the one following it. 
+EXAMPLE The PDF fragment in this example is syntactically equivalent to just the tokens abc and 123. 
+abc%comment (/%) blah blah blah 
+123 
  
-When two line segments meet at a sharp angle and mitered joins have been specified as the line join 
-style, it is possible for the miter to extend far beyond the thickness of the line stroking the path. The 
-miter limit shall impose a maximum on the ratio of the miter length to the line width (see "
+Comments (other than the %PDF–n.m and %%EOF comments described in 7.5, "File structure") have 
+no semantics. They are not necessarily preserved by a PDF processor.  
+7.3Objects 
+ 
+7.3.1General 
+ 
+PDF includes eight basic types of objects: Boolean values, Integer and Real numbers, Strings, Names, 
+Arrays, Dictionaries, Streams, and the null object. 
+Objects may be labelled so that they can be referred to by other objects. A labelled object is called an 
+indirect object (see 7.3.10, "Indirect objects"). 
+Each object type, their method of creation and their proper referencing as indirect objects is described 
+in 7.3.2, "Boolean objects" through 7.3.10, "Indirect objects". 
+© ISO 2017 – All rights reserved 29 
+
+ISO/DIS 32000-2
+ 
+7.3.2Boolean objects 
+ 
+truefalse
+Boolean objects represent the logical values of true and false. They appear in PDF files using the 
+keywords  and . See 4, "Notation", for more information regarding the notation of these 
+keywords throughout this International Standard. 
+7.3.3Numeric objects 
+ 
+PDF provides two types of numeric objects: integer and real. Integer objects represent mathematical 
+integers. Real objects represent mathematical real numbers. The range and precision of numbers may 
+be limited by the internal representations used in the computer on which the PDF processor is running; 
+Annex C, "Advice on Maximising Portability", gives these limits for typical implementations. 
+An integer shall be written as one or more decimal digits optionally preceded by a sign. The value shall 
+be interpreted as a signed decimal integer and shall be converted to an integer object. 
+EXAMPLE 1 Integer objects 
+123 43445 +17 -98 0 
+ 
+A real value shall be written as one or more decimal digits with an optional sign and a leading, trailing, 
+or embedded PERIOD (2Eh) (decimal point). The value shall be interpreted as a real number and shall 
+be converted to a real object. A real number shall not be present when an integer is expected. Wherever 
+a real number is expected, an integer may be used instead. For example, it is not necessary to write the 
+number 1.0 in real format; the integer 1 is sufficient. 
+EXAMPLE 2 Real objects 
+34.5 -3.62 +123.6 4. -.002 0.0 
+ 
+A PDF writer shall not use the PostScript language syntax for numbers with non-decimal radices (such 
+as 16#FFFE) or in exponential format (such as 6.02E23). 
+number
+Throughout this part of ISO 32000, the term  refers to an object whose type can be either integer 
+or real. 
+7.3.4String objects 
+ 
+7.3.4.1General 
+ 
+A string object shall consist of a series of zero or more bytes. The maximum length of a string used in 
+the computer on which the PDF processor is running may be subject to implementation limits; see 
+Annex C, "Advice on Maximising Portability". 
+String objects shall be written in one of the following two ways: 
+• 
+As a sequence of literal characters enclosed in parentheses () (using LEFT PARENTHESIS (28h) 
+• 
+and RIGHT PARENTHESIS (29h)); see 7.3.4.2, "Literal strings" 
+As hexadecimal data enclosed in angle brackets <> (using LESS-THAN SIGN (3Ch) and GREATER-
+THAN SIGN (3Eh)); see 7.3.4.3, "Hexadecimal strings" 
+© ISO 2017 – All rights reserved 30 
+
+ISO/DIS 32000-2
+ 
+NOTE In many contexts, conventions exist for the interpretation of the contents of a string value. This 
+subclause defines only the basic syntax for writing a string as a sequence of bytes; conventions or 
+rules governing the contents of strings in particular contexts are described with the definition of 
+those particular contexts. 
+Subclause 7.9.2, "String object types" describes the encoding schemes used for the contents of string 
+objects. 
+7.3.4.2Literal strings 
+ 
+literal string
+A  shall be written as an arbitrary number of characters enclosed in parentheses (LEFT 
+PARENHESIS (28h) and RIGHT PARENTHESIS (29h)). Any characters may appear in a string except 
+unbalanced parentheses and the backslash (REVERSE SOLIDUS (5Ch)), which shall be treated specially 
+as described in this subclause. Balanced pairs of parentheses within a string require no special 
+treatment. 
+EXAMPLE 1 The following are valid literal strings:  
+(This is a string) 
+(Strings can contain newlines 
+and such.) 
+(Strings can contain balanced parentheses () 
+and special characters ( * ! & } ^ %and so on) .) 
+(The following is an empty string .) 
+() 
+(It has zero (0) length.) 
+ 
+Within a literal string, the REVERSE SOLIDUS is used as an escape character. The character immediately 
+following the REVERSE SOLIDUS determines its precise interpretation as shown in "

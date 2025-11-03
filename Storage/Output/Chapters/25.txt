@@ -1,11 +1,6 @@
-name tree 
-similar to a dictionary that associates keys and values but the keys in a name tree are strings and are 
-ordered 
-4.41 
- 
-null object 
-null
-single object of type null, denoted by the keyword , and having a type and value that are unequal to 
-those of any other object 
-4.42 
+electronic document 
+electronic representation of a page-oriented aggregation of text, image and graphic data, and metadata 
+useful to identify, understand and render that data, that can be reproduced on paper or displayed 
+without significant loss of its information content 
+4.23 
  

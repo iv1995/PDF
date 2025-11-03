@@ -1,0 +1,25 @@
+Figure 112: Defining the 
+radial measurement for a circle". 
+© ISO 2017 – All rights reserved 672 
+
+ISO/DIS 32000-2
+ ![Figure 112 Defining the radial measurement for a circle  .png](./Storage/Output/Images/Figure 112 Defining the radial measurement for a circle  .png)
+Figure 112: Defining the radial measurement for a circle 
+ 
+A1
+A2TP
+The circle being measured is defined by two points lying on the annotation plane, a circle centre , and 
+TP
+a point on the circle . For radial measurement, the text position () controls the text string position, 
+the arrow line orientation, and the extension line. The arrow line is drawn from the text position () to 
+TPTX
+the intersection point between the circle and a line from text position to the circle centre. The extension 
+ EL 
+line will be drawn from the text position () in the direction of the text string's X-axis (). The length 
+ TX 
+of the extension line is defined by theparameter. The left centre of measure value string will begin at 
+the end of the extension line. Note that the vectoris expected to be orthogonal with the annotation 
+ TY 
+plane normal. The text's up direction is defined as the cross product of the annotation plane normal and 
+the text X-axis, in the direction defined by theparameter. 
+The parameters for defining a radial dimension for an arc are very similar, as shown in "

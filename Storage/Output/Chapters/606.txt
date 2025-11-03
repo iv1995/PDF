@@ -1,0 +1,30 @@
+Table 408: Entries in a DPartRoot dictionary" defines entries in a DPartRoot dictionary. 
+Table 408: Entries in a DPartRoot dictionary 
+Key Type Value 
+Optional; PDF 2.0DPartRoot
+Type 
+name () If present, it shall have the value  to identify the 
+dictionary as a DPartRoot dictionary. 
+Required; PDF 2.0
+DPartRootNode 
+dictionary () Shall be an indirect reference to the DPart dictionary that is the 
+root node of the document part tree structure. 
+Optional; PDF 2.0
+RecordLevel 
+integer () This attribute may be used when a single PDF file encodes 
+multiple documents.  It identifies the zero based level of the document part 
+hierarchy where each DPart node of that level corresponds to a component or 
+hierarchy of components. 
+Optional; PDF 2.0
+NodeNameList 
+array () An array of names where each name entry shall correspond to 
+DPartRootNode
+a DPart node level of the document part hierarchy beginning with the DPart 
+dictionary identified by the value of the DPartRoot dictionary's  
+key. 
+If present, the number of entries present in this array shall be equal to the number 
+  
+of DPart node levels in the document part hierarchy. 
+Each name in this array shall conform to the rules for anXMLName token. 
+ 
+"

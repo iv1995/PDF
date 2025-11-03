@@ -1,0 +1,83 @@
+Table 289: Entries in a media clip 
+section MH/BE dictionary") shall be honoured for the media clip section to be 
+considered viable. 
+Optional
+BE 
+dictionary () A dictionary whose entries (see "Table 289: Entries in a media clip 
+section MH/BE dictionary") shall only be honoured in a "best effort" sense. 
+ 
+© ISO 2017 – All rights reserved 602 
+
+ISO/DIS 32000-2
+ 
+BEMH BE 
+The  and  entries in the media clip section’s  anddictionaries (see "Table 289: Entries in a 
+D
+media clip section MH/BE dictionary") shall define a subsection of the next-level media object 
+BE
+referenced by  by specifying beginning and ending offsets into it. Depending on the media type, the 
+offsets may be specified by time, frames, or markers (see 13.2.6.2, "Media offset dictionary").  and  
+are not required to specify the same type of offset. 
+The following rules apply to these offsets: 
+BE
+• 
+For media types where an offset makes no sense (such as JPEG images),  and  shall be ignored, 
+BE
+• 
+with no effect on viability. 
+E
+When  or  are specified by time or frames, their value shall be considered to be relative to the 
+start of the next-level media clip. However, if  specifies an offset beyond the end of the next-level 
+BE
+• 
+media clip, the end value shall be used instead, and there is no effect on viability. 
+When  or  are specified by markers, there shall be a corresponding absolute offset into the 
+underlying media clip data object. If this offset is not within the range defined by the next-level 
+media clip (if any), or if the marker is not present in the underlying media clip, the existence of the 
+B
+• 
+entry shall be ignored, and there is no effect on viability. 
+E
+If the absolute offset derived from the values of all  entries in a media clip section chain is greater 
+than or equal to the absolute offset derived from the values of all  entries, an empty range shall be 
+BEMH
+• 
+defined. An empty range is legal. 
+Any  or  entry in a media clip section’s  dictionary shall be honoured at play-time in order for 
+NOTE 2 The entry cannot be honoured if its value was not viable or if the player did not support its value; 
+the media clip section to be considered viable. 
+for example, the player did not support markers. 
+BEMHBE
+• 
+MH
+If a  or  entry is in a media clip section’s  dictionary, all  or  entries, respectively, at deeper 
+ BE 
+levels (closer to the media clip data), shall be evaluated as if they were in an  dictionary (even if 
+BE BE 
+• 
+they are actually withindictionaries). 
+If  or  entry in adictionary cannot be supported, it may be ignored at play-time. 
+Table 289: Entries in a media clip section MH/BE dictionary 
+Key Type Value 
+Optional
+B 
+dictionary () A media offset dictionary (see 13.2.6.2, "Media offset dictionary") 
+that specifies the offset into the next-level media object at which the media 
+clip section begins.  
+Default: the start of the next-level media object. 
+Optional
+E 
+dictionary () A media offset dictionary (see 13.2.6.2, "Media offset dictionary") 
+that specifies the offset into the next-level media object at which the media 
+clip section ends.  
+Default: the end of the next-level media object. 
+ 
+13.2.5Media play parameters 
+ 
+media play parameters dictionary
+A  specifies how a media object should be played. It shall be referenced 
+from a media rendition (see 13.2.3.2, "Media renditions"). 
+© ISO 2017 – All rights reserved 603 
+
+ISO/DIS 32000-2
+ 

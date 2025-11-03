@@ -1,0 +1,9 @@
+Figure 84: QuadPoints specification"). The text shall be oriented with 
+112
+respect to the edge connecting points (, ) and (, ). ![Figure 84 QuadPoints specification  .png](./Storage/Output/Images/Figure 84 QuadPoints specification  .png)
+Figure 84: QuadPoints specification 
+ 
+12.5.6.11Caret annotations 
+ 
+PDF 1.5
+A caret annotation () is a visual symbol that indicates the presence of text edits. "

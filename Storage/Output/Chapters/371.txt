@@ -1,0 +1,53 @@
+Table 203: Additional entries specific to a remote go-to action" shows 
+the action dictionary entries specific to this type of action. 
+NOTE Remote go-to actions cannot be used with embedded files; see 12.6.4.4, "Embedded Go-To actions" 
+Table 203: Additional entries specific to a remote go-to action 
+Key Type Value 
+(Required) 
+S  
+GoToR
+ 
+name The type of action that this dictionary describes; shall be
+for a remote go-to action. 
+(Required) 
+F 
+file specification The file in which the destination shall be located. 
+(Required) 
+D 
+name, byte string, The destination to jump to (see 12.3.2, "Destinations"). If the 
+or array value is an array defining an explicit destination (as described under 
+12.3.2.2, "Explicit destinations"), its first element shall be a page number 
+within the remote document rather than an indirect reference to a page 
+object in the current document. The first page shall be numbered 0. 
+© ISO 2017 – All rights reserved 497 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; PDF 2.0)
+SD 
+array  The structure destination to jump to (see 12.3.2.3, 
+ ID 
+"Structure destinations"). The first element in the array shall be a byte 
+string representing a structure elementin the remote document, 
+instead of an indirect reference to a structure element dictionary. 
+D
+If present, the structure destination should take precedence over 
+destination in the  entry. 
+(Optional; PDF 1.2) 
+NewWindow 
+false
+boolean A flag specifying whether to open the destination 
+document in a new window. If this flag is , the destination document 
+replaces the current document in the same window. If this entry is absent, 
+the interactive PDF processor should behave in accordance with its 
+preference. 
+ 
+12.6.4.4Embedded Go-To actions 
+ 
+An embedded go-to action (PDF 1.6) is similar to a remote go-to action but allows jumping to or from a 
+PDF file that is embedded in another PDF file (see 7.11.4, "Embedded file streams"). Embedded files 
+ EmbeddedFiles 
+may be associated with file attachment annotations (see 12.5.6.15, "File attachment annotations") or 
+with entries in thename tree (see 7.7.4, "Name dictionary"). Embedded files may in 
+turn contain embedded files. "

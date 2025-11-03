@@ -1,0 +1,66 @@
+Table Annex F.7: Thumbnail hint table, 
+header section") followed by the thumbnails section, which shall include one or more per-page entries 
+("Table Annex F.8: Thumbnail hint table, per-page entry"), each of which describes the thumbnail image 
+ OpenAction 
+for a single page. The entries shall be in page number order starting with page 0, even if the document 
+catalog dictionary contains anentry that specifies opening at some page other than page 0. 
+Thumbnail images may exist for some pages and not for others. 
+Table Annex F.7: Thumbnail hint table, header section 
+Item Size (bits) Description 
+1 32 The object number of the first thumbnail image (that is, the thumbnail image 
+that is described by the first entry in the thumbnails section). 
+2 32 The location of the first thumbnail image. 
+3 32 The number of pages that have thumbnail images. 
+© ISO 2017 – All rights reserved 863 
+
+ISO/DIS 32000-2 
+Item Size (bits) Description 
+4 16 The number of bits needed to represent the greatest number of consecutive 
+pages that do not have a thumbnail image. 
+5 32 The least length of a thumbnail image in bytes. 
+6 16 The number of bits needed to represent the difference between the greatest and 
+least length of a thumbnail image. 
+7 32 The least number of objects in a thumbnail image. 
+8 16 The number of bits needed to represent the difference between the greatest and 
+least number of objects in a thumbnail image. 
+9 32 The object number of the first object in the thumbnail shared objects section (a 
+subsection of part 9). This section includes objects (colour spaces, for example) 
+that shall be referenced from some or all thumbnail objects and are not 
+referenced from any other objects. The thumbnail shared objects shall be 
+undifferentiated; there is no indication of which shared objects shall be 
+referenced from any given page’s thumbnail image. 
+10 32 The location of the first object in the thumbnail shared objects section. 
+11 32 The number of thumbnail shared objects. 
+12 32 The length of the thumbnail shared objects section in bytes. 
+Table Annex F.8: Thumbnail hint table, per-page entry 
+Item Size (bits) Description 
+Optional
+1 See "Table Annex F.7: () The number of preceding pages lacking a thumbnail image. 
+Thumbnail hint table, This number indicates how many pages without a thumbnail image lie 
+header section", item 4 between the previous entry’s page and this page. 
+2 See "Table Annex F.7: A number that, when added to the least number of objects in a thumbnail 
+Thumbnail hint table, image ("Table Annex F.7: Thumbnail hint table, header section", item 7), 
+header section", item 8 gives the number of objects in this page’s thumbnail image. 
+3 See "Table Annex F.7: A number that, when added to the least length of a thumbnail image 
+Thumbnail hint table, ("Table Annex F.7: Thumbnail hint table, header section", item 5), gives 
+header section", item 6 the length of this page’s thumbnail image in bytes. 
+ 
+The order of items in "Table Annex F.8: Thumbnail hint table, per-page entry" is as follows: 
+ 
+ 
+a)1 for all pages, in page order starting with the first page 
+ 
+b)2 for all pages, in page order starting with the first page 
+F.4.5Generic hint tables 
+ 
+c)3 for all pages, in page order starting with the first page 
+Categories of objects are associated with the document as a whole rather than with individual pages 
+(see F.3.10, "Other objects (Part 9)"), and hints should be provided for accessing those objects 
+efficiently. For each category of hints, there shall be a separate entry in the primary hint stream giving 
+the starting position of the table within the stream; see F.3.6, "Hint streams (Parts 5 and 10)". 
+© ISO 2017 – All rights reserved 864 
+
+ISO/DIS 32000-2
+ 
+Such hints shall be represented by a generic hint table, which describes a single group of objects that 
+are located together in the PDF file. The entries in this table are listed in "

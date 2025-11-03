@@ -1,0 +1,109 @@
+Table 376: 
+Standard structure attribute owners".  
+Table 376: Standard structure attribute owners 
+Owner value for Description 
+the attribute 
+object’s O entry 
+Layout 
+Attributes governing the layout of content 
+List 
+Attributes governing the numbering of lists 
+PrintField 
+Attributes governing Form structure elements for non-interactive form fields  
+Table 
+Attributes governing the organization of cells in tables 
+Artifact 
+Attributes governing Artifact structure elements 
+XML-1.00 
+Additional attributes governing translation to XML, version 1.00 
+HTML-3.20 
+Additional attributes governing translation to HTML, version 3.20 
+HTML-4.01 
+Additional attributes governing translation to HTML, version 4.0 
+HTML-5.00 
+Additional attributes governing translation to HTML, version 5.0 
+OEB-1.00 
+Additional attributes governing translation to OEB (Open eBook), version 1.0 
+© ISO 2017 – All rights reserved 743 
+
+ISO/DIS 32000-2
+ 
+Owner value for Description 
+the attribute 
+object’s O entry 
+RTF-1.05 
+Additional attributes governing translation to Microsoft Rich Text Format, version 1.05 
+CSS-1.00 
+Additional attributes governing translation to a format using CSS, version 1.00 
+CSS-2.00 
+Additional attributes governing translation to a format using CSS, version 2.00 
+CSS-3.00 
+Additional attributes governing translation to a format using CSS, version 3.00 
+RDFa-1.10 
+Additional attributes governing translation to a format using RDFa version 1.1 
+ 
+An attribute object owned by a specific export format, such as XML-1.00, shall be applied only when 
+Layout, List, PrintField, TableArtifact
+processing PDF content based on that format. Such format-specific attributes shall override any 
+corresponding attributes owned by  or . There may also be 
+additional format-specific attributes; the set of possible attributes is open-ended and is not explicitly 
+specified or limited by tagged PDF.  
+14.8.5.3Attribute values and inheritance 
+ 
+Some attributes are defined as inheritable. Inheritable attributes propagate down the structure tree; 
+that is, an attribute that is specified for an element shall apply to all the descendants of the element in 
+the structure tree unless a descendent element specifies an explicit value for the attribute. 
+NOTE 1 The description of each of the standard attributes in this subclause specifies whether their values 
+are inheritable. 
+An inheritable attribute may be specified for an element for the purpose of propagating its value to 
+child elements, even if the attribute is not meaningful for the parent element. Non-inheritable attributes 
+may be specified only for elements on which they would be meaningful. 
+The following list shows the priority for determining attribute values. A PDF processor determines an 
+attribute’s value to be the first item in the following list that applies: 
+A
+• 
+NSO
+OONSLayout, PrintField, Table
+The value of the attribute specified in the element’s  entry, owned by an owner as specified by the 
+ListArtifact
+ entry, or, if the value of the  entry is , the  entry, excluding , 
+ALayout, PrintField, Table, 
+• 
+ and , if present, and if processing based on the format indicated by the owner value 
+ListArtifact
+The value of the attribute specified in the element’s  entry, owned by 
+C
+• 
+ or , if present  
+The value of the attribute specified in a class map associated with the element’s  entry, if there is 
+• 
+one  
+• 
+The resolved value of the parent structure element, if the attribute is inheritable  
+NOTE 2  The attributes , and  do not appear in attribute dictionaries. The rules 
+Lang, Alt, ActualTextE
+The default value for the attribute, if there is one  
+governing their application are discussed in 14.9, "Accessibility support". 
+There is no semantic distinction between attributes that are specified explicitly and ones that are 
+inherited. Logically, the structure tree has attributes fully bound to each element, even though some 
+© ISO 2017 – All rights reserved 744 
+
+ISO/DIS 32000-2
+ 
+may be inherited from an ancestor element. This is consistent with the behaviour of properties (such as 
+font characteristics) that are not specified by structure attributes but shall be derived from the content. 
+14.8.5.4Layout attributes 
+ 
+14.8.5.4.1General  
+ 
+O
+Layout attributes specify parameters of the layout process used to produce the appearance described 
+Layout
+List, Table, 
+by a document’s PDF content. Attributes in this category shall be defined in attribute objects whose  
+PrintFieldArtifact
+(owner) entry has the value  or whose owner is any other owner excluding 
+ and . 
+NOTE  The intent is that these parameters can be used to repurpose the content or export it to some 
+other document format with at least basic styling preserved. 
+"

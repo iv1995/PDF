@@ -1,0 +1,36 @@
+Table 214: Additional entries specific to a hide action" shows the action dictionary entries specific to 
+this type of action. 
+Table 214: Additional entries specific to a hide action 
+Key Type Value 
+(Required) Hide
+S 
+name The type of action that this dictionary describes; shall be  for a 
+hide action. 
+© ISO 2017 – All rights reserved 506 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Required) 
+T 
+dictionary, text The annotation or annotations to be hidden or shown, shall be 
+• 
+string, or array specified in any of the following forms: 
+• 
+An indirect reference to an annotation dictionary 
+A text string giving the fully qualified field name of an interactive form 
+field whose associated widget annotation or annotations are to be affected 
+• 
+(see 12.7.4.2, "Field names") 
+An array of such dictionaries or text strings
+ 
+(Optional) true
+H 
+falsetrue
+boolean A flag indicating whether to hide the annotation () or show it 
+(). Default value: . 
+ 
+12.6.4.12Named actions 
+ 
+named actionsPDF 1.2
+"

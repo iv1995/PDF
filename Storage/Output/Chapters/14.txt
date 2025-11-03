@@ -1,9 +1,8 @@
-direct object 
-any object that has not been made into an indirect object 
-4.19 
+character set and some of which are treated as arbitrary binary 
+data depending upon the context. 
+•
+The contents (data) of a string or stream object in some contexts are interpreted as character 
  
-document part 
-set of related pages and/or related sets of pages. For example, the chapter pages of a book or all sets of 
-pages intended for a recipient 
-4.20 
- 
+codes in the PDFDocEncoding, UTF-8 or UTF-16 character set. 
+•
+The contents of a string within a PDF 

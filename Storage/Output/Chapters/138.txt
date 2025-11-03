@@ -1,176 +1,48 @@
-Figure 63: Characteristics represented in the 
-Flags entry of a font descriptor" shows examples of fonts with these characteristics. 
-Table 121: Font flags 
-Bit position Name Meaning 
-1 FixedPitch  All glyphs have the same width (as opposed to proportional or variable-
-pitch fonts, which have different widths). 
-Sans serif
-2 Serif  Glyphs have serifs, which are short strokes drawn at an angle on the top 
-and bottom of glyph stems. ( fonts do not have serifs.) 
-3 Symbolic  Font contains glyphs outside the Standard Latin character set. This flag 
-and the Nonsymbolic flag shall not both be set or both be clear. 
-4 Script Glyphs resemble cursive handwriting. 
-6 Nonsymbolic  Font uses the Standard Latin character set or a subset of it. This flag and 
-the Symbolic flag shall not both be set or both be clear. 
-7 Italic Glyphs have dominant vertical strokes that are slanted. 
-17 AllCap  Font contains no lowercase letters; typically used for display purposes, 
-such as for titles or headlines. 
-© ISO 2017 – All rights reserved 338 
+Table 55: 
+Examples of line dash patterns" shows examples of line dash patterns. If the dash array is empty, the 
+dash phase shall be zero and the path shall be stroked with a solid, unbroken line. 
+Table 55: Examples of line dash patterns 
+Dash Array Appearance Description 
+and Phase 
+[] 0 No dash; solid, unbroken lines 
+ 
+[3] 0 3 units on, 3 units off, … 
+ 
+[2] 1 1 on, 2 off, 2 on, 2 off, … 
+ 
+[2 1] 0 2 on, 1 off, 2 on, 1 off, … 
+ 
+[3 5] 6 2 off, 3 on, 5 off, 3 on, 5 off, … 
+ 
+[2 3] 11 1 on, 3 off, 2 on, 3 off, 2 on, … 
+ 
+[2 1 3] 0 2 on, 1 off, 3 on, 2 off, 1 on, 3 
+ 
+off, 2 on, … 
+[2 1 3] -2 2-off, 2 on, 1 off, 3 on, 2 off, 1 
+ 
+on, 2-off, … 
+ 
+Dashed lines shall wrap around curves and corners just as solid stroked lines do. The ends of each dash 
+shall be treated with the current line cap style, and corners within dashes shall be treated with the 
+current line join style. The treatment of overlapping line caps shall follow the rules given in 11.6.2, 
+"Specifying source and backdrop colours". A stroking operation shall take no measures to coordinate 
+the dash pattern with features of the path; it simply shall dispense dashes and gaps along the path in the 
+pattern defined by the dash array. If the end of a dashed segment coincides exactly with a join point, 
+then the end cap is painted before the corner. 
+When a path consisting of several subpaths is stroked, each subpath shall be treated independently — 
+that is, the dash pattern shall be restarted and the dash phase shall be reapplied to it at the beginning of 
+each subpath. 
+NOTE As noted in 8.5.3.2, "Stroking" and in "Table 58: Path construction operators", closed paths have 
+no end caps, but the individual dash segments of a path stroked using a non-empty line dash 
+pattern are individually open paths and therefore receive end cap processing as specified in the 
+graphics state. If any dash segment includes a corner then that corner is painted using the current 
+© ISO 2017 – All rights reserved 161 
 
 ISO/DIS 32000-2
  
-Bit position Name Meaning 
-18 SmallCap  Font contains both uppercase and lowercase letters. The uppercase 
-letters are similar to those in the regular version of the same typeface 
-family. The glyphs for the lowercase letters have the same shapes as the 
-corresponding uppercase letters, but they are sized and their proportions 
-adjusted so that they have the same size and stroke weight as lowercase 
-glyphs in the same typeface family. 
-19 ForceBold See description after Note 1 in this subclause. 
+join style in the graphics state. If a corner is not contained within any dashed segment the corner 
+is not painted. 
+8.4.4Graphics state operators 
  
- Flags 
-The Nonsymbolic flag (bit 6 in theentry) indicates that the font’s character set is the Standard 
-Latin character set (or a subset of it) and that it uses the standard names for those glyphs. This 
-character set is shown in D.2, "Latin character set and encodings". If the font contains any glyphs 
-outside this set, the Symbolic flag shall be set and the Nonsymbolic flag shall be clear. In other words, 
-any font whose character set is not a subset of the Standard character set is considered to be symbolic. 
-This influences the font’s default base encoding and may affect a PDF processor’s font substitution 
-strategies. 
-The use of the two flags to represent a single binary choice is a historical accident. A PDF processor 
-should always check the Symbolic flag to determine whether the state is Symbolic or NonSymbolic. PDF 
-writers should still set the NonSymbolic flag to be the inverse of the Symbolic flag for backward 
-compatibility. 
-NOTE 1 This classification of nonsymbolic and symbolic fonts is peculiar to PDF. A font can contain 
-additional characters that are used in Latin writing systems but are outside the Standard Latin 
-character set; PDF considers such a font to be symbolic. 
-The ForceBold flag (bit 19) shall determine whether bold glyphs shall be painted with extra pixels even 
-at very small text sizes by a PDF processor. If the ForceBold flag is set, features of bold glyphs may be 
-thickened at small text sizes. 
-NOTE 2 Typically, when glyphs are painted at small sizes on very low-resolution devices such as display 
-screens, features of bold glyphs might appear only 1 pixel wide. Because this is the minimum 
-feature width on a pixel-based device, ordinary (nonbold) glyphs also appear with 1-pixel-wide 
-features and therefore cannot be distinguished from bold glyphs. 
-© ISO 2017 – All rights reserved 339 
-
-ISO/DIS 32000-2
- ![Figure 63 Characteristics represented in the Flags entry of a font descriptor  .png](./Storage/Output/Images/Figure 63 Characteristics represented in the Flags entry of a font descriptor  .png)
-Figure 63: Characteristics represented in the Flags entry of a font descriptor 
- 
- Flags 
-EXAMPLE This code sample illustrates a font descriptor whoseentry has the Serif, Nonsymbolic, and ForceBold 
-flags (bits 2, 6, and 19) set. 
-7 0 obj 
-  <</Type /FontDescriptor 
-   /FontName /AGaramond-Semibold 
-   /Flags 262178         %Bits 2, 6, and 19 
-   /FontBBox [-177 -269 1123 866] 
-   /MissingWidth 255 
-   /StemV 105 
-   /StemH 45 
-   /CapHeight 660 
-   /XHeight 394 
-   /Ascent 720 
-   /Descent -270 
-   /Leading 83 
-   /MaxWidth 1212 
-   /AvgWidth 478 
-   /ItalicAngle 0 
-  >> 
-endobj 
- 
-9.8.3Font descriptors for CIDFonts 
- 
-9.8.3.1General 
- 
-FontDescriptor
-In addition to the entries in "Table 120: Entries common to all font descriptors", the  
-dictionaries of CIDFonts may contain the entries listed in "Table 122: Additional font descriptor entries 
-for CIDFonts". 
-© ISO 2017 – All rights reserved 340 
-
-ISO/DIS 32000-2
- 
-Table 122: Additional font descriptor entries for CIDFonts 
-Key Type Value 
-Optional
-Style 
-dictionary  () A dictionary containing entries that describe the style of the 
-glyphs in the font (see 9.8.3.2, "Style"). 
-Optional; PDF 1.5
-Lang 
-name  () A name specifying the language of the font, which may 
-be used for encodings where the language is not implied by the encoding 
-itself. The value shall be one of the codes defined by BCP 47, Tags for the 
-Identification of Languages. If this entry is absent, such absence provides 
-no information as to the language of the document; in particular, an 
-absence of this entry does not by itself mean the language of the 
-document is unknown. 
-Optional
-FD 
-dictionary () A dictionary whose keys identify a class of glyphs in a CIDFont. 
-Each value shall be a dictionary containing entries that shall override the 
-corresponding values in the main font descriptor dictionary for that class 
-of glyphs (see 9.8.3.3, "FD"). 
-Optional; deprecated in PDF 2.0
-CIDSet 
-stream  () A stream identifying which CIDs are 
-present in the CIDFont file. If this entry is present, the CIDFont shall 
-CIDSystemInfo
-contain only a subset of the glyphs in the character collection defined by 
-FontName
-the  dictionary. If it is absent, the only indication of a 
-9.9.2, 
-CIDFont subset shall be the subset tag in the  entry (see 
-"Font subsets"). 
-The stream’s data shall be organised as a table of bits indexed by CID. The 
-bits shall be stored in bytes with the high-order bit first. Each bit shall 
-correspond to a CID. The most significant bit of the first byte shall 
-correspond to CID 0, the next bit to CID 1, and so on. 
- 
-9.8.3.2Style 
- 
-Panose
-The Style dictionary contains entries that define style attributes and values for the CIDFont. Only the 
-Panose entry is defined. The value of  shall be a 12-byte string consisting of these elements: 
-  
-• 
-TrueType 1.0 Font Files Technical 
-The font family class and subclassIDbytes, given in the FamilyClass field of the "OS/2" table in a 
-Specification
-TrueType font. This field is documented in Microsoft’s 
-• 
-. 
-PANOSE Classification Metrics Guide
-Ten bytes for the PANOSE classification number for the font. The PANOSE classification system is 
-documented in Hewlett-Packard Company’s . 
-See 2, "Normative references" for more information about these documents. 
-Style
-EXAMPLE This is an example of a  entry in the font descriptor: 
-/Style <</Panose <01 05 02 02 03 00 00 00 00 00 00 00>>> 
- 
-9.8.3.3FD 
- 
-A CIDFont may be made up of different classes of glyphs, each class requiring different sets of the font-
-wide attributes that appear in font descriptors. 
-EXAMPLE 1 Latin glyphs, for example, may require different attributes than kanji glyphs. 
- FD 
-The font descriptor shall define a set of default attributes that apply to all glyphs in the CIDFont. The
-© ISO 2017 – All rights reserved 341 
-
-ISO/DIS 32000-2
- 
-entry in the font descriptor shall contain exceptions to these defaults. 
- FD 
-The key for each entry in andictionary shall be the name of a class of glyphs — that is, a particular 
-subset of the CIDFont’s character collection. The entry’s value shall be a font descriptor whose contents 
-FontFileFontFile2FontFile3
-shall override the font-wide attributes for that class only. This font descriptor shall contain entries for 
-metric information only; it shall not include , , , or any of the entries listed 
-in  
- FD 
-Thedictionary should contain at least the metrics for the proportional Latin glyphs. With the 
-information for these glyphs, a more accurate substitution font can be created. 
-Registry
-OrderingSupplementCIDSystemInfo
-The names of the glyph classes depend on the character collection, as identified by the , 
-, and  entries in the  dictionary. "
+"

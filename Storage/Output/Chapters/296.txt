@@ -1,71 +1,119 @@
-Table 386: Entries in the Web Capture information dictionary 
-Key Type Value 
-Required
-V 
-number () The Web Capture version number. The version number shall be 1.0 in a 
-conforming file. 
-This value shall be a single real number, not a major and minor version number. 
-EXAMPLE A version number of 1.2 would be considered greater than 1.15. 
-© ISO 2017 – All rights reserved 771 
+Table 139: Arguments and results of the group 
+compositing function". 
+Table 139: Arguments and results of the group compositing function 
+Variable Meaning 
+ 
+𝐵𝐵The transparency group: a compound object consisting of all elements 
+1n
+ of the group — the n constituent objects’ colours, shapes, 
+E,…E, 
+opacities, and blend modes 
+0
+𝐶𝐶 Colour of the group’s backdrop 
+𝐶𝐶 Computed colour of the group, which shall be used as the source colour 
+when the group is treated as an object 
+𝑓𝑓 Computed shape of the group, which shall be used as the object shape 
+when the group is treated as an object 
+0
+𝛼𝛼 Alpha of the group’s backdrop 
+𝛼𝛼 Computed alpha of the group, which shall be used as the object alpha 
+when the group is treated as an object 
+ 
+© ISO 2017 – All rights reserved 396 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional
-C 
-array () An array of indirect references to Web Capture command dictionaries (see 
-14.10.5.3, "Command dictionaries") describing commands that were used in building 
-the PDF file. The commands shall appear in the array in the order in which they were 
-executed in building the file. 
+NOTE 1 The opacity is not given explicitly as an argument or result of this function. Almost all of the 
+computations use the product of shape and opacity (alpha) rather than opacity alone; therefore, it 
+is usually convenient to work directly with shape and alpha rather than shape and opacity. When 
+needed, the opacity can be computed by dividing the alpha by the associated shape. 
+The result of applying the group compositing function shall then be treated as if it were a single object, 
+which in turn is composited with the group’s backdrop according to the formulas defined in this sub-
+clause. In those formulas, the colour, shape, and alpha (
+C, 𝑓𝑓, anαd ) calculated by the group compositing 
+j
+𝑓𝑓j
+, the object shape 𝑓𝑓, and the object alphαa  . 
+function shall be used, respectively, as the source colour 𝐶𝐶
+The group compositing formulas for a non-isolated, non-knockout group are defined as follows: 
+• 
  
-14.10.3Content database 
+Initialization: 
+00
+𝑔𝑔𝑔𝑔
+• 
+𝑓𝑓
+=α=0.0
+𝑚𝑚
+()
+∈𝐵𝐵 𝐷𝐷=1,…,𝑛𝑛: 
+For each group element 𝐸𝐸
  
-14.10.3.1General 
+𝑚𝑚−1𝑚𝑚−1𝑚𝑚𝑚𝑚
+(
+)
+Composite𝐶𝐶
+if 𝐸𝐸
+,𝛼𝛼,𝐸𝐸 is a group
+𝑖𝑖𝑖𝑖𝑖𝑖
+𝑓𝑓𝑗𝑗𝑗𝑗
+�𝐶𝐶
+,𝑓𝑓,𝛼𝛼�=�
+𝑚𝑚
+()
+  otherwise
+intrinsic color, shape, and shape×opacity of 𝐸𝐸
  
-When a PDF file, or part of a PDF file, is built from a content resource stored in another format, such as 
-an HTML page, the resulting PDF file (or portion thereof) may contain content from more than the 
-single content resources. Conversely, since many content formats do not have static pagination, a single 
-content resource may give rise to multiple PDF pages. 
-To keep track of the correspondence between PDF content and the resources from which the content 
-was derived, a PDF file may contain a content database that maps URLs and digital identifiers to PDF 
-objects such as pages and XObjects. 
-NOTE By looking up digital identifiers in the database, Web Capture can determine whether newly 
-downloaded content is identical to content already retrieved from a different URL. Thus, it can 
-perform optimisations such as storing only one copy of an image that is referenced by multiple 
-HTML pages. 
-Web Capture’s content database shall be organised into content sets. Each content set shall be a 
-SPS
-S
-dictionary holding information about a group of related PDF objects generated from the same source 
-SIS
-data. A content set shall have for the value of its  (subtype) entry either the value , for a page set, or 
-, for an image set. 
-  
-The mapping from a source content resource to a content set in a PDF document may be saved in the 
-PDF file. The mapping may be an association from the resource'sURLto the content set, stored in the 
-PDF document's URLS name tree. The mapping may also be an association from a digital identifier 
-(14.10.3.3, "Digital identifiers") generated from resource's data to the content set, stored in the PDF 
-document's IDS name tree. Both associations may be present in the PDF file. 
-"Figure 114: Simple Web Capture file structureFigure 100: Rendering of the 3D artwork using View1 
-(all shapes visible and opaque)" shows a simple web capture file structure. 
-© ISO 2017 – All rights reserved 772 
-
-ISO/DIS 32000-2
+𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖
+𝑓𝑓𝑗𝑗𝑚𝑚𝑘𝑘
+=𝑓𝑓×𝑓𝑓×𝑓𝑓 
+𝑓𝑓
+𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖
+𝑓𝑓𝑗𝑗𝑚𝑚𝑚𝑚𝑘𝑘𝑘𝑘
+=𝛼𝛼×�𝑓𝑓×𝑞𝑞�×�𝑓𝑓×𝑞𝑞� 
+𝛼𝛼
  
-Document catalog
-Dictionary
-Namedictionary
-Name tree
-URLSIDS
-http://www.iso.org/904B…1EA2
-Page set
-Page
-Page
-Page
-Figure 114: Simple Web Capture file structure 
+𝑖𝑖𝑖𝑖−1𝑖𝑖
+𝑔𝑔𝑔𝑔𝑓𝑓
+𝑓𝑓
+ =Union�𝑓𝑓,𝑓𝑓� 
+𝑖𝑖𝑖𝑖−1𝑖𝑖
+𝑔𝑔𝑔𝑔𝑓𝑓
+𝛼𝛼=Union�𝛼𝛼,𝛼𝛼� 
+𝑖𝑖
+𝑚𝑚0𝑔𝑔
+𝛼𝛼  =Union�α,𝛼𝛼� 
  
-URLSIDS
-Entries in the  and  name trees may refer to an array of content sets or a single content set. If 
-the entry is an array, the content sets need not have the same subtype; the array may include both page 
-sets and image sets. 
-"
+ii
+ss
+αα
+ii
+ii−1i−1si−1ii−1s
+)
+(
+×C
+C=�1−�×C+×�1−α+α×B�C,C� �
+ii
+• 
+αα
+Result: 
+0
+𝛼𝛼
+𝑛𝑛𝑛𝑛00
+)
+(
+×�
+𝐶𝐶=𝐶𝐶+𝐶𝐶−𝐶𝐶−𝛼𝛼� 
+𝑛𝑛
+𝑔𝑔
+𝛼𝛼
+𝑛𝑛
+𝑔𝑔
+ 
+𝑓𝑓=𝑓𝑓
+𝑛𝑛
+𝑔𝑔
+𝛼𝛼=𝛼𝛼
+ 
+ 
+where the variables have the meanings shown in "

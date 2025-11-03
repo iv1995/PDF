@@ -1,0 +1,43 @@
+Table 206: Entries in a GoToDPart dictionary" shows the action dictionary entries 
+specific to this type of action. 
+Table 206: Entries in a GoToDPart dictionary 
+Key Type Value 
+(Required; PDF 2.0) 
+S 
+GoToDp
+ 
+name The type of action that this dictionary describes; shall 
+be  for a go-to document part action.
+(Required; PDF 2.0) 
+Dp 
+dictionary The indirect reference to a DPart dictionary to go to. 
+GoToDp
+EXAMPLE 1 Using a  action reference 
+92 0 obj 
+ << 
+  /Parent 6 0 R 
+  /Start 100 0 R 
+  /End 101 0 R 
+  /Properties <</PartType (Cover)>> 
+ >> 
+endobj 
+ 
+93 0 obj 
+ << 
+  /Type /Annot 
+  /Subtype /Link 
+  /Rect [71 717 190 734] 
+  /Border [16 16 1] 
+  /A 
+  << 
+   /Type /Action 
+   /S /GoToDp 
+   /Dp 92 0 R 
+  >> 
+ >> 
+endobj 
+ 
+12.6.4.6Launch actions 
+ 
+launch action
+A  launches an application or opens or prints a document. "

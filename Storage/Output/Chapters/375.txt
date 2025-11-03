@@ -1,0 +1,49 @@
+Table 207: Additional entries 
+specific to a launch action" shows the action dictionary entries specific to this type of action. 
+WinMacUnix
+Previously, , , and  entries allowed the action dictionary to include platform-specific 
+© ISO 2017 – All rights reserved 501 
+
+ISO/DIS 32000-2
+ 
+F
+parameters for launching the designated application, however, they are now deprecated with PDF 2.0. 
+The  entry determines the file specification platform to be launched. 
+Table 207: Additional entries specific to a launch action 
+Key Type Value 
+(Required) 
+S 
+Launch
+name The type of action that this dictionary describes; shall be 
+ for a launch action. 
+(Required if none of the entries , or  is present) 
+F WinMacUnix
+file specification , The 
+application that shall be launched or the document that shall be opened or 
+printed. If this entry is absent and the interactive PDF processor does not 
+understand any of the alternative entries, it shall do nothing. 
+(Optional; deprecated in PDF 2.0) 
+Win 
+dictionary A dictionary containing Microsoft 
+TM
+Windows specific launch parameters (see "Table 208: Entries in a 
+TM
+Microsoft Windows launch parameter dictionary"). 
+(Optional; deprecated in PDF 2.0)
+Mac   
+(undefined) MacOS–specific launch parameters; not 
+yet defined. 
+(Optional; deprecated in PDF 2.0) 
+Unix 
+(undefined) UNIX-specific launch parameters; not yet 
+defined. 
+(Optional; PDF 1.2) 
+NewWindow 
+false
+boolean A flag specifying whether to open the destination 
+document in a new window. If this flag is , the destination document 
+replaces the current document in the same window. If this entry is absent, 
+the interactive PDF processor should behave in accordance with its 
+F
+current preference. This entry shall be ignored if the file designated by the 
+ entry is not a PDF document. 

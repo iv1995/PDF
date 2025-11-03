@@ -1,147 +1,38 @@
-Table 120: Entries common to 
-all font descriptors". Additional entries in the font descriptor for a CIDFont are described in 9.8.3, "Font 
-descriptors for CIDFonts". All dimensional values shall be units in glyph space. The conversion from 
-glyph space to text space is described in 9.2.4, "Glyph positioning and metrics". 
-Table 120: Entries common to all font descriptors 
-Key Type Value 
-Required
-Type 
-FontDescriptor
-name  () The type of PDF object that this dictionary describes; shall be 
- for a font descriptor. 
-Required
-FontName 
-BaseFont
-name  () The PostScript name of the font. This name shall be the same as the value 
-of  in the font or CIDFont dictionary that refers to this font descriptor. 
-Optional; PDF 1.5
-FontFamily 
-byte string () A byte string specifying the preferred font family name. 
-FontFamily
-EXAMPLE 1 For the font Times Bold Italic, the  is Times. 
-Optional; PDF 1.5
-FontStretch 
-UltraCondensed, ExtraCondensed, Condensed, 
-name  () The font stretch value. It shall be one of these names (ordered 
-SemiCondensed, Normal, SemiExpanded, Expanded, ExtraExpanded or UltraExpanded
-from narrowest to widest): 
-. 
-The specific interpretation of these values varies from font to font. 
-CondensedNormal
-EXAMPLE 2  in one font might appear most similar to  in 
-another. 
-© ISO 2017 – All rights reserved 336 
+Figure 15: 
+Miter length"). When the limit is exceeded, the join is converted from a miter to a bevel. 
+j
+The ratio of miter length to line width is directly related to the angle  between the segments in user 
+space by the following formula:  
+1
+𝑚𝑚𝐷𝐷𝑡𝑡𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑛𝑛𝑔𝑔𝑡𝑡ℎ
+= 
+𝑗𝑗
+𝑙𝑙𝐷𝐷𝑛𝑛𝑚𝑚𝑙𝑙𝐷𝐷𝐵𝐵𝑡𝑡ℎ
+sin
+2
+When the line width is zero, the miter length is zero. 
+NOTE Very large miter lengths are allowed. 
+jj
+j
+EXAMPLE A miter limit of 1.414 converts miters to bevels for  less than 90 degrees, a limit of 2.0 converts them for  less 
+than 60 degrees, and a limit of 10.0 converts them for  less than approximately 11.5 degrees. ![Figure 15 Miter length  .png](./Storage/Output/Images/Figure 15 Miter length  .png)
+Figure 15: Miter length 
+ 
+8.4.3.6Line dash pattern 
+ 
+line dash pattern
+dash arraydash phase
+The  shall control the pattern of dashes and gaps used to stroke paths. It shall be 
+specified by a  and a . The dash array’s elements shall be numbers that specify the 
+© ISO 2017 – All rights reserved 160 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional; PDF 1.5
-FontWeight 
-number  () The weight (thickness) component of the fully-qualified font 
-name or font specifier. The possible values shall be 100, 200, 300, 400, 500, 600, 700, 
-800, or 900, where each number indicates a weight that is at least as dark as its 
-predecessor. A value of 400 shall indicate a normal weight; 700 shall indicate bold. 
-The specific interpretation of these values varies from font to font. 
-EXAMPLE 3 300 in one font might appear most similar to 500 in another. 
-Required
-Flags 
-integer  () A collection of flags defining various characteristics of the font (see 9.8.2, 
-"Font descriptor flags"). 
-Required except for Type 3 fonts
-FontBBox 
-rectangle  () A rectangle (see 7.9.5, "Rectangles"), expressed in 
-the glyph coordinate system, that shall specify the font bounding box. This should be 
-the smallest rectangle enclosing the shape that would result if all of the glyphs of the 
-font were placed with their origins coincident and then filled. 
-Required
-ItalicAngle 
-number () The angle, expressed in degrees counterclockwise from the vertical, of the 
-dominant vertical strokes of the font. 
-EXAMPLE 4 The 9-o’clock position is 90 degrees, and the 3-o’clock position is –
-90 degrees. 
-The value shall be negative for fonts that slope to the right, as almost all italic fonts 
-do 
-Required, except for Type 3 fonts
-Ascent 
-number  () The maximum height above the baseline reached 
-by glyphs in this font. The height of glyphs for accented characters shall be excluded. 
-Required, except for Type 3 fonts
-Descent 
-number  () The maximum depth below the baseline reached 
-by glyphs in this font. The value shall be a negative number. 
-Optional
-Leading 
-number () The spacing between baselines of consecutive lines of text.  
-Default value: 0. 
-Required for fonts that have Latin characters, except for Type 3 fonts
-CapHeight 
-number  () The vertical 
-coordinate of the top of flat capital letters, measured from the baseline. 
-Optionalx
-XHeight 
-x
-number  () The font’s  height: the vertical coordinate of the top of flat nonascending 
-lowercase letters (like the letter ), measured from the baseline, in fonts that have 
-Latin characters. Default value: 0. 
-Required except for Type 3 fonts
-StemV 
-number  () The thickness measured horizontally, of the 
-dominant vertical stems of glyphs in the font. Values shall be positive. A value of 0 
-indicates an unknown stem thickness. 
-Optional
-StemH 
-number  () The thickness measured vertically of the dominant horizontal stems of 
-glyphs in the font. Values shall be positive. A value of 0 indicates an unknown stem 
-thickness. Default value: 0. 
-Optional
-AvgWidth 
-number () The average width of glyphs in the font. Default value: 0.  
-Optional
-MaxWidth 
-number () The maximum width of glyphs in the font. Default value: 0. 
-Optional
-MissingWidth 
-Widths
-number () The width to use for character codes whose widths are not specified in a 
-font dictionary’s  array. This shall have a predictable effect only if all such 
-MissingWidth
-codes map to glyphs whose actual widths are the same as the value of the 
- entry. Default value: 0. 
-© ISO 2017 – All rights reserved 337 
-
-ISO/DIS 32000-2
- 
-Key Type Value 
-Optional
-FontFile 
-stream  () A stream containing a Type 1 font program (see 9.9, "Embedded font 
-programs"). 
-Optional; PDF 1.1
-FontFile2 
-stream () A stream containing a TrueType font program (see 9.9, 
-"Embedded font programs"). 
-Optional; PDF 1.2
-FontFile3 
-Subtype
-stream  () A stream containing a font program whose format is specified by 
-the  entry in the stream dictionary (see "Table 124: Embedded font 
-organization for various font types"). 
-Optional; meaningful only in Type 1 fonts; PDF 1.1; deprecated in PDF 2.0
-CharSet 
-ASCII string or () A string 
-byte string  listing the character names defined in a font subset. The names in this string shall be 
-in PDF syntax — that is, each name preceded by a slash (/). The names may appear in 
-any order. The name . notdef shall be omitted; it shall exist in the font subset. If this 
-FontName
-entry is absent, the only indication of a font subset shall be the subset tag in the 
- entry (see 9.9.2, "Font subsets"). 
- 
-FontFileFontFile2 FontFile3 
-At most, only one of the , , andentries shall be present. 
-9.8.2Font descriptor flags 
- 
- Flags 
-The value of theentry in a font descriptor shall be an unsigned 32-bit integer containing flags 
-specifying various characteristics of the font. Bit positions within the flag word are numbered from 1 
-(low-order) to 32 (high-order). "Table 121: Font flags" shows the meanings of the flags; all undefined 
-flag bits are reserved and shall be set to 0 by PDF writers. "
+lengths of alternating dashes and gaps; the numbers shall be nonnegative and not all zero. The dash 
+phase shall be a number that specifies the distance into the dash pattern at which to start the dash. If 
+the dash phase is negative, it shall be incremented by twice the sum of all lengths in the dash array until 
+it is positive. The elements of both the dash array and the dash phase shall be expressed in user space 
+units. 
+Before beginning to stroke a path, the dash array shall be cycled through, adding up the lengths of 
+dashes and gaps. When the accumulated length equals the value specified by the dash phase, stroking of 
+the path shall begin, and the dash array shall be used cyclically from that point onward. "

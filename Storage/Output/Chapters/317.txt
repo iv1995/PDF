@@ -1,61 +1,51 @@
-Table Annex F.9: Generic hint 
-table". This representation shall be used for the following hint tables, if needed: 
-• 
-• 
-Outline hint table 
-• 
-Thread information hint table 
-• 
-Named destination hint table 
-• 
-Information dictionary hint table 
-Page label hint table 
-Generic hint tables may be used for product-specific objects accessed by PDF processors. 
-NOTE It is considerably more convenient for a PDF processor to use the generic hint representation than 
-to specify custom hints. 
-Table Annex F.9: Generic hint table 
-item Size (bits) Description 
-1 32 The object number of the first object in the group. 
-2 32 The location of the first object in the group. 
-3 32 The number of objects in the group. 
-4 32 The length of the object group in bytes. 
+Table 157: Entries in a collection colors dictionary 
+Key Type Value 
+Optional
+Type 
+CollectionColors
+name () The type of PDF object that this dictionary describes; if 
+present, shall be  for a collection colors dictionary. 
+(Optional; PDF 2.0) 
+Background 
+ DeviceRGB 
  
-F.4.6Extended generic hint tables 
+array An array of three numbers in the range 0.0 to 1.0, 
+representing acolour used for the background of the view.
+(Optional; PDF 2.0) 
+CardBackground 
+ DeviceRGB 
  
-An extended generic hint table shall begin with the same entries as in a generic hint table, and shall be 
-followed by three additional entries, as shown in "Table Annex F.10: Extended generic hint table". This 
-table provides hints for accessing objects that reference shared objects. As of PDF 1.5, the following hint 
-tables, if needed, shall use the extended generic format: 
-• 
-• 
-Interactive form hint table 
-• 
-Logical structure hint table 
-Renditions name tree hint table 
-Embedded file streams shall not be referred to by this hint table, even if they are reachable from nodes 
-in the renditions name tree; instead they shall use the hint table described in F.4.7, "Embedded file 
-stream hint tables". 
-Table Annex F.10: Extended generic hint table 
-Item Size (bits) Description 
-1 32 The object number of the first object in the group. 
-2 32 The location of the first object in the group. 
-© ISO 2017 – All rights reserved 865 
+array An array of three numbers in the range 0.0 to 1.0, 
+representing acolour used for the background of the card.
+© ISO 2017 – All rights reserved 441 
 
-ISO/DIS 32000-2 
-Item Size (bits) Description 
-3 32 The number of objects in the group. 
-4 32 The length of the object group in bytes. 
-5 32 The number of shared object references. 
-6 16 The number of bits needed to represent the numerically greatest shared 
-object identifier used by the objects in the group. 
-7 … See "Table Annex F.3: Page Starting with item 7, each of the remaining items in this table shall be a 
-offset hint table, header shared object identifier — that is, an index into the shared object hint 
-section", item 11 table (described in F.4.3, "Shared object hint table"). 
+ISO/DIS 32000-2
  
-F.4.7Embedded file stream hint tables 
+Key Type Value 
+(Optional; PDF 2.0) 
+CardBorder 
+ DeviceRGB 
  
-The embedded file streams hint table allows a PDF processor to locate all byte ranges of a PDF file 
-needed to access its embedded file streams. An embedded file stream may be grouped with other 
-objects that it references; all objects in such a group shall have adjacent object numbers. (A group shall 
-contain no objects at all if it contains shared object references.) 
-This hint table shall have a header section (see "
+array An array of three numbers in the range 0.0 to 1.0, 
+representing acolour used for the border of the card.
+(Optional; PDF 2.0) 
+PrimaryText 
+ DeviceRGB 
+array An array of three numbers in the range 0.0 to 1.0, 
+ 
+representing acolour used for the primary text in a 
+navigator.
+(Optional; PDF 2.0) 
+SecondaryText 
+ DeviceRGB 
+ 
+array An array of three numbers in the range 0.0 to 1.0, 
+representing acolour used for other text in a navigator.
+ 
+When displaying a collection, an interactive PDF processor presents an initial view in which the 
+View
+available display area may be divided by a splitter bar into two areas; one area containing a display of 
+the navigation controls of the collection as defined by the  and related entries of the collection 
+dictionary, and one area containing a preview of the initial or currently selected document of the 
+collection. The visibility, orientation or position of the splitter bar may be interactively adjusted by user 
+action subsequent to its initial view as defined by the collection split dictionary, if provided. 

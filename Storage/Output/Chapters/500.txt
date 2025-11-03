@@ -1,0 +1,12 @@
+Table 318: Entries 
+in a render mode dictionary" shows the entries in a render mode dictionary. 
+Table 318: Entries in a render mode dictionary 
+Key Type Value 
+Optional
+Type 
+3DRenderMode
+name () The type of PDF object that this dictionary describes; if present, shall be 
+. 
+Required
+Subtype 
+name () The type of render mode described by this dictionary; see "

@@ -1,241 +1,253 @@
-Table 322: Entries in a 3D cross section dictionary" shows the entries in a 3D cross section dictionary. 
-Table 322: Entries in a 3D cross section dictionary 
+Table 115: Entries in a 
+CIDFont dictionary" lists the entries in a CIDFont dictionary. 
+Table 115: Entries in a CIDFont dictionary 
 Key Type Value 
-Optional
-Type 
-3DCrossSection
-name () The type of PDF object that this dictionary describes; if present, shall be 
- for a 3D cross section dictionary. 
-Optional
-C 
-array () A three element array specifying the centre of rotation on the cutting plane in 
-world space coordinates (see 13.6.5, "Coordinate systems for 3D"). 
- 
-Default value: [0 0 0] specifying a cutting plane rotating about the origin of the world 
-space.
 Required
-O 
-array () A three-element array specifying the orientation of the cutting plane in world 
-space, where each value represents the orientation in relation to the X, Y, and Z axes, 
-respectively (see 13.6.5, "Coordinate systems for 3D"). Exactly one of the values shall be 
-null, indicating an initial state of the cutting plane that is perpendicular to the 
-corresponding axis and clipping all geometry on the positive side of that axis. The other 
-two values shall be numbers indicating the rotation of the plane, in degrees, around their 
-corresponding axes. The order in which these rotations are applied shall match the order 
-in which the values appear in the array. 
+Type  
+Font
  
-Default value: [null 0 0] specifying a cutting plane that is perpendicular to the X axis and 
-coplanar with the Y and Z axes.
+name () The type of PDF object that this dictionary describes; shall be
+for a CIDFont dictionary. 
+RequiredCIDFontType0CIDFontType2
+Subtype 
+name () The type of CIDFont shall be  or . 
+Required
+BaseFont 
+CIDFontName
+name () The PostScript name of the CIDFont. For Type 0 CIDFonts, this 
+shall be the value of the  entry in the CIDFont program. 
+For Type 2 CIDFonts, it shall be derived the same way as for a simple 
+TrueType font; see 9.6.3, "TrueType fonts". In either case, the name may 
+have a subset prefix if appropriate; see 9.9.2, "Font subsets". 
+Required
+CIDSystemInfo 
+dictionary  () A dictionary containing entries that define the character 
+collection of the CIDFont. See "Table 114: Entries in a CIDSystemInfo 
+dictionary". 
+Required; shall be an indirect reference
+FontDescriptor 
+dictionary  () A font descriptor describing the 
+CIDFont’s default metrics other than its glyph widths (see 9.8, "Font 
+descriptors"). 
 Optional
-PO 
-number () A number in the range [0, 1] indicating the opacity of the cutting plane using a 
- 
-standard additive blend mode. 
-Default value: 0.5
+DW 
+number  () The default width for glyphs in the CIDFont (see 9.7.4.3, 
+"Glyph metrics in CIDFonts"). Default value: 1000. 
 Optional
-PC 
-array () An array that specifies the colour for the cutting plane. The first entry in the 
-DeviceRGBDeviceRGB
-  
-array is a colour space, and the remaining entries are values in that colour space. The only 
-valid colour space is . If a colour space other thanis specified, this 
- 
-entry shall be ignored and the default value shall be used. 
-Default value: [/DeviceRGB 1 1 1] representing the colour white.
-© ISO 2017 – All rights reserved 645 
+W 
+NOTE The array’s elements have a variable format that can specify 
+array () A description of the widths for the glyphs in the CIDFont.  
+individual widths for consecutive CIDs or one width for a range 
+of CIDs (see 9.7.4.3, "Glyph metrics in CIDFonts"). 
+DW
+Default value: none (the  value shall be used for all glyphs). 
+Optional; applies only to CIDFonts used for vertical writing
+DW2 
+array  () An array of 
+two numbers specifying the default metrics for vertical writing (see 
+9.7.4.3, "Glyph metrics in CIDFonts"). Default value: [880 -1000]. 
+Optional; applies only to CIDFonts used for vertical writing
+W2 
+array  () A description 
+DW2
+of the metrics for vertical writing for the glyphs in the CIDFont (see 
+9.7.4.3, "Glyph metrics in CIDFonts"). Default value: none (the  value 
+shall be used for all glyphs). 
+© ISO 2017 – All rights reserved 323 
 
 ISO/DIS 32000-2
  
 Key Type Value 
-Optional
-IV 
-truefalse
-boolean () A flag indicating the visibility of the intersection of the cutting plane with any 
-3D geometry. If , then the intersection shall be visible. If , then the intersection 
-false
+Required for Type 2 CIDFonts with embedded font programs
+CIDToGIDMap 
+stream or () A 
+name specification of the mapping from CIDs to glyph indices. If the value is a 
+c
+stream, the bytes in the stream shall contain the mapping from CIDs to 
+glyph indices: the glyph index for a particular CID value  shall be a 2-
+CIDToGIDMap
+byte value stored in bytes 2 × 𝑐𝑐 and 2 × 𝑐𝑐+ 1, where the first byte shall 
+Identity
+be the high-order byte. If the value of  is a name, it shall be 
+, indicating that the mapping between CIDs and glyph indices is 
+the identity mapping. 
  
-shall not be visible. 
-Default value: 
-Optional
-IC 
-array () An array that specifies the colour for the cutting plane’s intersection with the 
-DeviceRGB
-3D artwork. The first entry in the array is a colour space, and the remaining entries are 
-DeviceRGB
+9.7.4.2Glyph selection in CIDFonts 
+ 
+Type 0 and Type 2 CIDFonts handle the mapping from CIDs to glyph descriptions in somewhat different 
+CIDSystemInfo
+ways. For Type 0, the CIDFont program contains glyph descriptions that are identified by CIDs. The 
+CIDFont program identifies the character collection by a  dictionary, which should be 
+copied into the PDF CIDFont dictionary. CIDs shall be interpreted uniformly in all CIDFont programs 
+supporting a given character collection, whether the program is embedded in the PDF file or obtained 
+from an external source. 
   
-values in that colour space. The only valid colour space is . If a colour space 
-true
-IV
-other thanis specified, this entry shall be ignored and the default value shall be 
- 
-used. This entry is meaningful only if  is . 
-Default value: [/DeviceRGB 0 1 0] representing the colour green.
-Optional; PDF 2.0Show Transparent
-ST 
-true
-boolean () . A flag indicating that the portion of a model on the 
-cut side of a section plane shall be viewed using a transparent render mode. If , the 
-clipped portion of the model shall be drawn as transparent regardless of the render mode 
-of the non-cut portion of the model. The recommend appearance uses graphical settings 
-Table 
-identical or similar to those used by the existing Transparent 3DRenderMode in "
-falsefalse
-319: Render modes" already supported by the 13.6.4.4, "3D render mode dictionaries". If 
-, the clipped portion of the model shall not be drawn. Default value: . 
-Optional; PDF 2.0Section Capping
-SC 
-true
-boolean () . A flag indicating whether 3D Nodes and the section 
-plane shall be analysed and rendered as if cutting through a solid object. If , an 
-algorithm is applied with the result that additional temporary geometry may be created to 
-false
-represent a section cap. The section cap shall be visible within the area enclosed by the 
-intersection of the 3D Node 3D geometry with the section plane. If the flag is , no 
-false
-additional temporary geometry shall be created to represent a section cap. Default value: 
-. 
- 
-C
-The  entry specifies the centre of the cutting plane. This implies that the plane passes through the 
-centre point, but it is also the point of reference when determining the orientation of the plane. 
-O
-The  array indicates the orientation of the cutting plane, taking into account its centre. The orientation 
-may be determined by a two-step process: 
-C
+ FontFile3 
+When the CIDFont contains an embedded font program that is represented in the CompactFontFormat 
+CIDFontType0COpenType
+(CFF), theentry in the font descriptor (see "Table 124: Embedded font organization for 
+various font types") shall be either  or . There are two cases, depending on the 
+contents of the font program: 
 • 
-The plane shall be situated such that it passes through point , and oriented such that it is 
+The "CFF" font program has a Top DICT that uses CIDFont operators: The CIDs shall be used to 
+determine the GID value for the glyph procedure using the charset table in the CFF program. The 
+NOTE Although in many fonts the CID value and GID value are the same, the CID and GID values can 
+GID value shall then be used to look up the glyph procedure using the CharStrings INDEX table. 
+differ. 
 • 
-perpendicular to the axis specified by the array entry whose value is null. 
-C
-For each of the other two axes, the plane shall be rotated the specified number of degrees around 
-the associated axis, while maintaining  as a fixed point on the plane. Since the two axes are 
-POPC
-perpendicular, the order in which the rotations are performed is irrelevant. 
-PO
-The  entry specifies the opacity of the plane itself when rendered, while the  entry provides its 
-colour. When the  entry is greater than 0, a visual representation of the cutting plane shall be 
-rendered with the 3D artwork. This representation is a square with a side length equal to the length of 
-PO
-the diagonal of the maximum bounding box for the 3D artwork, taking into account any keyframe 
-animations present. When the  entry is 0, no visible representation of the cutting plane shall be 
-rendered. 
-IV
- IC 
-The  entry shall be a boolean value that determines whether a visual indication shall be drawn of the 
-plane’s intersection with the 3D artwork. If such an indication is drawn, theentry shall specify its 
-colour. 
-EXAMPLE The following example describes a set of views and corresponding cross sections that illustrate the various 
-© ISO 2017 – All rights reserved 646 
+The "CFF" font program has a Top DICT that does not use CIDFont operators: The CIDs shall be 
+used directly as GID values, and the glyph procedure shall be retrieved using the CharStrings 
+INDEX. 
+glyph index
+For Type 2, the CIDFont program is actually a TrueType font program, which has no native notion of 
+CIDs. In a TrueType font program, glyph descriptions are identified by  values. Glyph indices 
+are internal to the font and are not defined consistently from one font to another. Instead, a TrueType 
+font program contains a "cmap" table that provides mappings directly from character codes to glyph 
+indices for one or more predefined encodings. 
+TrueType font programs are integrated with the CID-keyed font architecture in one of two ways, 
+depending on whether the font program is embedded in the PDF file: 
+• 
+CIDToGIDMap
+If the TrueType font program is embedded, the Type 2 CIDFont dictionary shall contain a 
+ entry that maps CIDs to the glyph indices for the appropriate glyph descriptions in 
+• 
+that font program. 
+CIDToGIDMapCIDToGIDMap
+If the TrueType font program is not embedded but is referenced by name, and the Type 2 CIDFont 
+dictionary contains a  entry, the  entry shall be ignored, since it is 
+not meaningful to refer to glyph indices in an external font program. In this case, CIDs shall not 
+participate in glyph selection, and only predefined CMaps may be used with this CIDFont (see 
+9.7.5, "CMaps"). The PDF processor shall select glyphs by translating characters from the encoding 
+© ISO 2017 – All rights reserved 324 
 
 ISO/DIS 32000-2
  
-effects of orientation. 
-3 0 obj             %CrossSection1 
-  << 
-   /Type /3DCrossSection 
-   /C [0 0 0] 
-   /O [null 0 0] 
-   /PO 0.35 
-   /PC [/DeviceRGB 0.75 0.86 1] 
-   /IV true 
-   /IC [/DeviceRGB 0 1 0] 
-  >> 
-endobj 
+specified by the predefined CMap to one of the encodings in the TrueType font’s "cmap" table. The 
+means by which this is accomplished are implementation-dependent. 
+Even though the CIDs are not used to select glyphs in a Type 2 CIDFont, they shall always be used to 
+determine the glyph metrics, as described in the next subclause. 
+Every CIDFont shall contain a glyph description for CID 0, which is analogous to the . notdef character 
+name in simple fonts (see 9.7.6.3, "Handling undefined characters"). 
+9.7.4.3Glyph metrics in CIDFonts 
  
-4 0 obj             %CrossSection2 
-  << 
-   /Type /3DCrossSection 
-   /C [0 0 0] 
-   /O [null -30 0] 
-   /PO 0.35 
-   /PC [/DeviceRGB 0.75 0.86 1] 
-   /IV true 
-   /IC [/DeviceRGB 0 1 0] 
-  >> 
-endobj 
+As discussed in 9.2.4, "Glyph positioning and metrics", the width of a glyph refers to the horizontal 
+displacement between the origin of the glyph and the origin of the next glyph when writing in 
+DWW
+horizontal mode. In this mode, the vertical displacement between origins shall be 0. Widths for a 
+CIDFont are defined using the  and  entries in the CIDFont dictionary. These widths shall be 
+consistent with the actual widths given in the CIDFont program. 
+WW
+The  array allows the definition of widths for individual CIDs. The elements of the  array shall be 
+numbers organised in groups of two or three, where each group shall be in one of these two formats: 
+12n
+c [w
+ w… w] 
+firstlast
+c
+ c w 
+c
+nnc
+In the first format,  shall be an integer specifying a starting CID value; it shall be followed by an array of 
+wc
+c
+ numbers that shall specify the widths for  consecutive CIDs, starting with . The second format shall 
+firstlast
+define the same width, , as a number, for all CIDs in the range 
+ to . Specifying a given CID value 
+more than once should not be done. In the case where it is done, the first specification is the one that 
+shall be used. 
+EXAMPLE 1 In this example, the glyphs having CIDs 120, 121, and 122 are 400, 325, and 500 units wide, respectively. CIDs 
+in the range 7080 through 8032 inclusive all have a width of 1000 units. 
+W
+  entry example: 
+/W [120 [400 325 500] 
+   7080 8032 1000 
+  ] 
  
-5 0 obj             %CrossSection3 
-  << 
-   /Type /3DCrossSection 
-  /C [0 0 0] 
-   /O [null 0 30] 
-   /PO 0.35 
-   /PC [/DeviceRGB 0.75 0.86 1] 
-   /IV true 
-   /IC [/DeviceRGB 0 1 0] 
-  >> 
-endobj 
- 
-6 0 obj             %CrossSection4 
-  << 
-   /Type /3DCrossSection 
-   /C [0 0 0] 
-   /O [null -30 30] 
-   /PO 0.35 
-   /PC [/DeviceRGB 0.75 0.86 1] 
-   /IV true 
-   /IC [/DeviceRGB 0 1 0] 
-  >> 
-endobj 
- 
-7 0 obj             %View0 
-  << 
-   /Type /3DView 
-   /XN (NoCrossSection) 
-   /SA [] 
-   … 
-  >> 
-endobj 
- 
-8 0 obj             %View1 
-  << 
-   /Type /3DView 
-   /XN (CrossSection1) 
-   /SA [3 0 R] 
-   … 
-  >> 
-© ISO 2017 – All rights reserved 647 
+WMode
+Glyphs from a CIDFont may be shown in vertical writing mode. This is selected by the  entry in 
+the associated CMap dictionary; see 9.7.5, "CMaps". To be used in this way, the CIDFont shall define the 
+vertical displacement for each glyph and the position vector that relates the horizontal and vertical 
+writing origins. 
+DW2
+v
+DW2
+The default position vector and vertical displacement vector shall be specified by the  entry in the 
+w1
+CIDFont dictionary.  shall be an array of two values: the vertical component of the position vector  
+and the vertical component of the displacement vector  (see "Figure 55: Metrics for horizontal and 
+vertical writing modes"). The horizontal component of the position vector shall be half the glyph width, 
+and that of the displacement vector shall be 0. 
+DW2
+EXAMPLE 2 If the  entry is 
+  / DW2 [880 -1000] 
+© ISO 2017 – All rights reserved 325 
 
 ISO/DIS 32000-2
  
-endobj 
+then a glyph’s position vector and vertical displacement vector are 
  
-9 0 obj             %View2 
-  << 
-   /Type /3DView 
-   /XN (CrossSection2) 
-   /SA [4 0 R] 
-   … 
-  >> 
-endobj 
+0
+v=(𝑤𝑤÷2,880)
+w1=(0,−1000)  
+w
+0
+where  is the width (horizontal displacement) for the same glyph. 
+NOTE A negative value for the vertical component places the origin of the next glyph below the current 
+glyph because vertical coordinates in a standard coordinate system increase from bottom to top. 
+W2
+The  array shall define vertical metrics for individual CIDs. The elements of the array shall be 
+1y1x1y2y2x2y
+organised in groups of two or five, where each group shall be in one of these two formats: 
+c [w168TR v68TR v68TR w168TR v68TR v68TR …] 
+firstlast1y1x1y 
+ c68TR w168TR v68TR v68TR
+c68TR
  
-10 0 obj             %View3 
-  << 
-   /Type /3DView 
-   /XN (CrossSection3) 
-   /SA [5 0 R] 
-   … 
-  >> 
-endobj 
+c
+In the first format,  is a starting CID and shall be followed by an array containing numbers interpreted 
+w1
+in groups of three. Each group shall consist of the vertical component of the vertical displacement 
+v
+vector  (whose horizontal component shall be 0) followed by the horizontal and vertical components 
+c
+for the position vector . Successive groups shall define the vertical metrics for consecutive CIDs 
+starting with . The second format defines a range of CIDs from cfirst to clast, that shall be followed by 
+three numbers that define the vertical metrics for all CIDs in this range. 
+W2
+EXAMPLE 3 This  entry defines the vertical displacement vector for the glyph with CID 120 as (0, -1000) and the 
+position vector as (250, 772). It also defines the displacement vector for CIDs in the range 7080 through 8032 
+as (0, -1000) and the position vector as (500, 900). 
+/W2 [120 [-1000 250 772] 
+  7080 8032 -1000 500 900 
  
-11 0 obj             %View4 
- << 
-  /Type /3DView 
-  /XN (CrossSection4) 
-  /SA [6 0 R] 
-  … 
- >> 
-endobj 
+  ] 
+9.7.5CMaps 
  
-The following illustrations show the views described in the previous example, some of which include 
-cross sections. ![Figure 95 Rendering of the 3D artwork using View0 (no cross section)  .jpg](./Storage/Output/Images/Figure 95 Rendering of the 3D artwork using View0 (no cross section)  .jpg)
-Figure 95: Rendering of the 3D artwork using View0 (no cross section) 
+9.7.5.1General 
  
-"Figure 95: Rendering of the 3D artwork using View0 (no cross section)" through "Figure 99: Rendering 
-of the 3D artwork using View4" use world coordinates whose origin is the centre of the cube. The axes 
-illustrated in each diagram show the relative orientation of the world coordinate axes, not the actual 
-position of those axes. These axes are not part of the 3D artwork used in this example. 
-© ISO 2017 – All rights reserved 648 
+A CMap shall specify the mapping from character codes to character selectors. In PDF, the character 
+Encoding
+selectors shall be CIDs in a CIDFont (as mentioned earlier, PostScript CMaps can use names or codes as 
+well). A CMap serves a function analogous to the  dictionary for a simple font. The CMap shall 
+not refer directly to a specific CIDFont; instead, it shall be combined with it as part of a CID-keyed font, 
+font number
+represented in PDF as a Type 0 font dictionary (see 9.7.6, "Type 0 font dictionaries"). Within the CMap, 
+the character mappings shall refer to the associated CIDFont by , which in PDF shall be 0. 
+PDF also uses a special type of CMap to map character codes to Unicode values (see 9.10.3, "ToUnicode 
+CMaps"). 
+A CMap shall specify the writing mode — horizontal or vertical — for any CIDFont with which the CMap 
+is combined. The writing mode determines which metrics shall be used when glyphs are painted from 
+that font. 
+NOTE Writing mode is specified as part of the CMap because, in some cases, different shapes are used 
+when writing horizontally and vertically. In such cases, the horizontal and vertical variants of a 
+CMap specify different CIDs for a given character code. 
+A CMap shall be specified in one of two ways: 
+© ISO 2017 – All rights reserved 326 
 
 ISO/DIS 32000-2
- ![Figure 96 Rendering of the 3D artwork using View1 (cross section perpendicular to the x axis)  .jpg](./Storage/Output/Images/Figure 96 Rendering of the 3D artwork using View1 (cross section perpendicular to the x axis)  .jpg)
+ 
+• 
+As a name object identifying a predefined CMap, whose value shall be one of the predefined CMap 
+• 
+names defined in "

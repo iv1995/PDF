@@ -1,10 +1,10 @@
-decimal radix separator 
-full stop character (PERIOD (2Eh)) placed between the integral and fractional parts of a real number 
-object 
-4.15 
+certification signature 
+one and only one digital signature applied to a document which allows the detection of changes to the 
+document and which confirms the origin or the author of the document and that is able to allow or to 
+block specified actions to be performed when using conformant signatures handlers or PDF processors. 
+© ISO 2017 – All rights reserved 16 
+
+ISO/DIS 32000-2
  
-developer 
-entities, including individuals, companies, non-profits, standards bodies, open source groups, etc., 
-developing standards or software to use and extend this part of ISO 32000 
-4.16 
+4.10 
  

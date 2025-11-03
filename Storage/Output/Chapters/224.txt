@@ -1,110 +1,91 @@
-Table 266: 
-Entries in a measure dictionary"). Measure dictionaries provide information about measurement units 
-associated with a rectangular area of the document known as a viewport. 
-PDF 1.6
- VP 
-A viewport () is a rectangular region of a page. The optionalentry in a page dictionary (see 
-"Table 31: Entries in a page object") shall specify an array of viewport dictionaries, whose entries shall 
-Measure
-be as shown in "Table 265: Entries in a viewport dictionary". Viewports allow different measurement 
-scales (specified by the  entry) to be used in different areas of a page, if necessary. 
- VP 
-The dictionaries in thearray shall be in drawing order. Since viewports might overlap, to determine 
- BBox 
-the viewport to use for any point on a page, the dictionaries in the array shall be examined, starting with 
-the last one and iterating in reverse, and the first one whoseentry contains the point shall be 
-chosen. 
-NOTE 1 Any measurement that potentially involves multiple viewports, such as one specifying the distance 
-between two points, shall use the information specified in the viewport of the first point. 
-© ISO 2017 – All rights reserved 576 
+Table 95: Entries in a reference 
+dictionary" shows the contents of the reference dictionary. 
+© ISO 2017 – All rights reserved 269 
 
 ISO/DIS 32000-2
  
-Table 265: Entries in a viewport dictionary 
+Table 95: Entries in a reference dictionary 
 Key Type Value 
-(Optional) 
-Type  
-Viewport
+Required
+F 
+file specification () The file containing the target document. 
+Required
+Page 
+integer or text () A page index or page label (see 12.4.2, "Page labels") identifying the 
+string page of the target document containing the content to be imported. This reference 
+is a weak one and may be inadvertently invalidated if the referenced page is 
+changed or replaced in the target document after the reference is created. 
+Optional
+ID 
+array () An array of two byte strings constituting a file identifier (14.4, "File 
+identifiers") for the file containing the target document. The use of this entry 
+improves a PDF processor’s chances of finding the intended file and allows it to 
+warn the user if the file has changed since the reference was created. 
  
-name The type of PDF object that this dictionary describes; shall be
-for a viewport dictionary. 
-(Required) 
+Matrix 
+When the imported content replaces the proxy, it shall be transformed according to the proxy object’s 
 BBox 
-rectangle A rectangle in default user space coordinates specifying the location 
-of the viewport on the page. 
-The two coordinate pairs of the rectangle shall be specified in normalised form; 
-that is, lower-left followed by upper-right, relative to the measuring coordinate 
-x y 
-system. This ordering shall determine the orientation of the measuring 
-coordinate system (that is, the direction of the positive and axes) in this 
-viewport, which may have a different rotation from the page. 
+transformation matrix and clipped to the boundaries of its bounding box, as specified by the  and
+entries in the proxy’s form dictionary (see 8.10.2, "Form dictionaries"). The combination of the 
+proxy object’s matrix and bounding box thus implicitly defines the bounding box of the imported page. 
+This bounding box typically coincides with the imported page’s crop box or art box (see 14.11.2, "Page 
+ Group 
+boundaries"), but may not correspond to any of the defined page boundaries. If the proxy object’s form 
+dictionary contains aentry, the specified group attributes shall apply to the imported page as 
+well, which allows the imported page to be treated as a group without further modification. 
+8.10.4.2Printing reference XObjects 
  
-O
-The coordinates of this rectangle are independent of the origin of the measuring 
-Table 267: Additional entries in 
-coordinate system, specified in the entry (see "
-Measure
+When printing a page containing reference XObjects, a PDF processor may emit any of the following 
+items, depending on its capabilities, the user’s preferences, and the nature of the print job: 
+• 
+• 
+The imported content designated by the reference XObject 
+8.10.4.3Special considerations 
  
-a rectilinear measure dictionary") of the measurement dictionary specified by 
-.
-(Optional) 
-Name 
-text string A descriptive text string or title of the viewport, intended for use in a 
-user interface. 
-(Optional) 
-Measure 
-dictionary A measure dictionary (see "Table 266: Entries in a measure 
-dictionary") that specifies the scale and units that shall apply to measurements 
-taken on the contents within the viewport. 
-(Optional; PDF 2.0) 
-PtData 
-dictionary A point data dictionary (see "Table 272: Entries in a point 
-data dictionary") that shall specify the extended geospatial data that applies to 
-the image. 
- 
-A measure dictionary shall specify an alternative coordinate system for a region of a page. Along with 
-the viewport dictionary, it shall provide the information needed to convert coordinates in the page’s 
-coordinate system to coordinates in the measuring coordinate system. The measure dictionary shall 
-provide information for formatting the resulting values into textual form for presentation in a graphical 
-user interface. 
-rectilinear
-"Table 266: Entries in a measure dictionary" shows the entries in a measure dictionary. PDF 1.6 defines 
-RLRLxy
-  Subtype
-only a single type of coordinate system, a  coordinate system, that shall be specified by the 
-geospatial
-valuefor the  entry.  is defined as one in which the  and  axes are perpendicular and 
-GEO
-  Subtype
-have units that increment linearly (to the right and up, respectively). PDF 2.0 defines a  
-coordinate system specified by the valuefor the  entry. Other subtypes may be used, 
-providing the flexibility to measure using other types of coordinate systems. 
-GEO
-Subtype
-When the value of the  entry is , the dictionary shall define the relationship between points 
-or regions in the two dimensional PDF object space and points or regions with respect to an underlying 
-model of the earth (or, potentially, other ellipsoid objects). 
-Table 266: Entries in a measure dictionary 
-Key Type Value 
-(Optional) Measure
-Type 
-name The type of PDF object that this dictionary describes; shall be  
-for a measure dictionary. 
-© ISO 2017 – All rights reserved 577 
+The reference XObject as a proxy for the imported content 
+Certain special considerations arise when reference XObjects interact with other PDF features: 
+• 
+When the page imported by a reference XObject contains annotations (see 12.5, "Annotations"), all 
+annotations that contain a printable, unhidden, visible appearance stream (12.5.5, "Appearance 
+streams") shall be included in the rendering of the imported page. If the proxy is a snapshot image 
+of the imported page, it shall also include the annotation appearances. These appearances shall 
+therefore be converted into part of the proxy’s content stream, either as subsidiary form XObjects 
+• 
+or by flattening them directly into the content stream. 
+Logical structure information associated with a page (see 14.7, "Logical structure") may be ignored 
+when importing that page into another document with a reference XObject. In a target document 
+with multiple pages, structure elements occurring on the imported page are typically part of a 
+larger structure pertaining to the document as a whole; such elements cannot meaningfully be 
+incorporated into the structure of the containing document. In a one-page target document or one 
+made up of independent, structurally unrelated pages, the logical structure for the imported page 
+may be wholly self-contained; in this case, it may be possible to incorporate this structure 
+information into that of the containing document. 
+© ISO 2017 – All rights reserved 270 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-(Optional) 
-Subtype 
-RL
-name A name specifying the type of coordinate system to use for measuring. 
-GEO(PDF 2.0) 
-: for a rectilinear coordinate system 
-RL
-: for a geospatial coordinate system 
-Default value:  
+8.11Optional content 
  
-"Table 267: Additional entries in a rectilinear measure dictionary" shows the additional entries in a 
-rectilinear measure dictionary. Many of the entries in this dictionary shall be number format arrays, 
-which are arrays of number format dictionaries (see "
+8.11.1General 
+ 
+Optional contentPDF 1.5
+ () refers to sections of content in a PDF document that can be selectively 
+viewed or hidden by document authors or consumers. This capability is useful in items such as CAD 
+drawings, layered artwork, maps, and multi-language documents. 
+The following subclauses describe the PDF structures used to implement optional content: 
+• 
+8.11.2, "Optional content groups" describes the primary structures used to control the visibility of 
+• 
+the document. 
+8.11.3, "Making graphical content optional", describes how individual pieces of content in a 
+• 
+document can declare themselves as belonging to one or more optional content groups. 
+8.11.2Optional content groups 
+ 
+8.11.4, "Configuring optional content", describes how the states of optional content groups are set. 
+8.11.2.1General 
+ 
+An optional content group is a dictionary representing a collection of graphics that can be made visible 
+or invisible dynamically by PDF processors. The graphics belonging to such a group may reside 
+anywhere in the document: they need not be consecutive in drawing order, nor even belong to the same 
+content stream. "

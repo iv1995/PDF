@@ -1,166 +1,66 @@
-Figure Annex P.1: A possible algorithm to determine the blending colour space of a transparency 
+Algorithm: appearance streams 
+ BBox 
  
-group 
-  
-© ISO 2017 – All rights reserved 940 
+transformed appearance box
+Matrix
+1.The appearance’s bounding box (specified by itsentry) shall be transformed, using 
+, to produce a quadrilateral with arbitrary orientation. The  
+is the smallest upright rectangle that encompasses this quadrilateral. 
+A
+ 
+A
+ Rect 
+2.A matrix  shall be computed that scales and translates the transformed appearance box to align 
+xy
+with the edges of the annotation’s rectangle (specified by theentry).  maps the lower-left 
+corner (the corner with the smallest  and  coordinates) and the upper-right corner (the corner 
+with the greatest x and y coordinates) of the transformed appearance box to the corresponding 
+corners of the annotation’s rectangle. 
+AAA
+Matrix
+ 
+3. shall be concatenated with  to form a matrix  that maps from the appearance’s 
+coordinate system to the annotation’s rectangle in default user space: 
+𝐴𝐴𝐴𝐴 = 𝑀𝑀𝐷𝐷𝑡𝑡𝑚𝑚𝐷𝐷𝑥𝑥 × 𝐴𝐴 
+ 
+The annotation may be further scaled and rotated if either the NoZoom or NoRotate flag is set (see 
+12.5.3, "Annotation flags"). Any transformation applied to the annotation as a whole shall also applied 
+to the appearance within it. 
+ Group 
+Starting with PDF 1.4, an annotation appearance may include transparency. If the appearance’s stream 
+dictionary does not contain aentry, it shall be treated as a non-isolated, non-knockout 
+transparency group. Otherwise, the isolated and knockout values specified in the group dictionary (see 
+11.6.6, "Transparency group XObjects") shall be used. 
+Normal
+The transparency group shall be composited with a backdrop consisting of the page content along with 
+None
+any previously painted annotations, using a blend mode of , an alpha constant of 1.0, and a soft 
+mask of . 
+NOTE 1 If a transparent annotation appearance is painted over an annotation that is drawn without using 
+an appearance stream, the effect is implementation-dependent. This is because such annotations 
+are sometimes drawn by means that do not conform to the PDF imaging model. Also, the effect of 
+highlighting a transparent annotation appearance is implementation-dependent. 
+An annotation may define as many as three separate appearances: 
+normal appearance
+• 
+The  shall be used when the annotation is not interacting with the user. This 
+appearance is also used for printing the annotation. 
+© ISO 2017 – All rights reserved 462 
 
 ISO/DIS 32000-2
  
-Bibliography ![94.png](./Storage/Output/Images/94.png)
-PDF Reference, First Edition, version 1.0 (June 1993), Addison-Wesley, 0-201-62628-4. 
- ![95.png](./Storage/Output/Images/95.png)
-PDF Reference, First Edition Revised, version 1.1 (March 1996), Adobe Systems Incorporated. 
- ![96.png](./Storage/Output/Images/96.png)
-PDF Reference, First Edition Revised, version 1.2 (November 1996), Adobe Systems 
- 
-Incorporated ![97.png](./Storage/Output/Images/97.png)
-PDF Reference, Second Edition, version 1.3 (July 2000), Addison-Wesley, ISBN 0-201-61588-6. 
- ![98.png](./Storage/Output/Images/98.png)
-PDF Reference, Third Edition, version 1.4 (November 2001), Addison-Wesley, ISBN 0-201-
- 
-75839-3. ![99.png](./Storage/Output/Images/99.png)
-PDF Reference, Fourth Edition, version 1.5 (August 2003), Adobe Systems Incorporated (web 
- 
-site only). ![100.png](./Storage/Output/Images/100.png)
-PDF Reference, Fifth Edition, version 1.6 (December 2004), Adobe Press, ISBN 0-321-30474-8. 
- ![101.png](./Storage/Output/Images/101.png)
-PDF Reference, Sixth Edition, version 1.7 (November 2006), Adobe Systems Incorporated (web 
- 
-site only). ![102.png](./Storage/Output/Images/102.png)
-PostScript Language Reference, Third Edition, Addison-Wesley, Reading, MA, 1999. 
- ![103.png](./Storage/Output/Images/103.png)
-ISO 14289-1:2014, Document management applications — Electronic document file format 
- 
-enhancement for accessibility — Part 1: Use of ISO 32000-1 (PDF/UA-1) ![104.png](./Storage/Output/Images/104.png)
-ISO 19005-1/Cor 1/Cor 2, Document management — Electronic document file format for long-
- 
-term preservation – Part 1: Use of PDF 1.4 (PDF/A-1) ![105.png](./Storage/Output/Images/105.png)
-ISO 19005-2, Document management — Electronic document file format for long-term 
- 
-preservation – Part 2: Use of ISO 32000-1 (PDF/A-2) ![106.png](./Storage/Output/Images/106.png)
-ISO 19005-3, Document management — Electronic document file format for long-term 
- 
-preservation – Part 3: Use of ISO 32000-1 (PDF/A-3) ![107.png](./Storage/Output/Images/107.png)
-ISO 16612-2, Graphic technology -- Variable data exchange -- Part 2: Using PDF/X-4 and 
- 
-PDF/X-5 (PDF/VT-1 and PDF/VT-2) ![108.png](./Storage/Output/Images/108.png)
-ISO 24517-1:2008, Document management — Engineering document format using PDF — 
- 
-Part 1: Use of PDF 1.6 (PDF/E-1) ![109.png](./Storage/Output/Images/109.png)
-ISO/DIS 24517-2, Document management — Engineering document format using PDF — Part 
- 
-2: Use of ISO 32000-2 including support for long-term preservation  (PDF/E-2) ![110.png](./Storage/Output/Images/110.png)
-International Telecommunications Union, Recommendation BT.709 (2002), available at 
- 
-http://www.itu.int/rec/R-REC-BT.709/en ![111.png](./Storage/Output/Images/111.png)
-Technical Note #5001, PostScript Language Document Structuring Conventions Specification, 
- 
-Version 3.0, (September 1992), Adobe Systems Incorporated. ![112.png](./Storage/Output/Images/112.png)
-Technical Note #5044, Color Separation Conventions for PostScript Language Programs, (May 
- 
-1996) Adobe Systems Incorporated. 
-© ISO 2017 – All rights reserved 941 
-
-ISO/DIS 32000-2 ![113.png](./Storage/Output/Images/113.png)
-Technical Note #5088, Font Naming Issues, (April 1993), Adobe Systems Incorporated  
- ![114.png](./Storage/Output/Images/114.png)
-FIPS PUB 140-2, Security Requirements For Cryptographic Modules, (December 2002), Federal 
- 
-Information Processing Standards. ![115.png](./Storage/Output/Images/115.png)
-Aho, A. V., Hopcroft, J. E., and Ullman, J. D., Data Structures and Algorithms, Addison-Wesley, 
- 
-Reading, MA, 1983. Includes a discussion of balanced trees. ![116.png](./Storage/Output/Images/116.png)
-Apple Computer, Inc., TrueType Reference Manual. Available on Apple’s Web site at 
- 
-http://developer.apple.com/fonts/TTRefMan/ ![117.png](./Storage/Output/Images/117.png)
-Arvo, J. (ed.), Graphics Gems II, Academic Press, 1994. The section "Geometrically Continuous 
- 
-Cubic Bézier Curves" by Hans-Peter Seidel describes the mathematics used to smoothly join two 
-cubic Bézier curves. ![118.png](./Storage/Output/Images/118.png)
-CIP4. See International Cooperation for the Integration of Processes in Prepress, Press and 
- 
-Postpress. ![119.png](./Storage/Output/Images/119.png)
-Ecma International, Standard ECMA-363, Universal 3D File Format, 1st Edition. This document 
- 
-is available at available at 
-http://www.ecma-international.org/ ![120.png](./Storage/Output/Images/120.png)
-Extensible Stylesheet Language (XSL) 1.0, http://www.w3.org/TR/xsl/ 
- ![121.png](./Storage/Output/Images/121.png)
-Fairchild, M. D., Color Appearance Models, Addison-Wesley, Reading, MA, 1997. Covers color 
- 
-vision, basic colorimetry, color appearance models, cross-media color reproduction, and the 
-current CIE standards activities. Updates, software, and color appearance data are available at 
-http://rit-mcsl.org/fairchild/CAM.html ![122.png](./Storage/Output/Images/122.png)
-Foley, J. D. et al., Computer Graphics: Principles and Practice, Addison-Wesley, Reading, MA, 
- 
-1996. (First edition was Foley, J. D. and van Dam, A., Fundamentals of Interactive Computer 
-Graphics, Addison-Wesley, Reading, MA, 1982.) Covers many graphics-related topics, including 
-the mathematics of Bézier cubics and Gouraud shadings. ![123.png](./Storage/Output/Images/123.png)
-Glassner, A. S. (ed.), Graphics Gems, Academic Press, 1993. The section "An Algorithm for 
- 
-Automatically Fitting Digitized Curves" by Philip J. Schneider describes an algorithm for 
-determining the set of Bézier curves approximating an arbitrary set of user-provided points. 
-Appendix 2 contains an implementation of the algorithm, written in the C programming 
-language. Other sections relevant to the mathematics of Bézier curves include "Solving the 
-Nearest-Point-On-Curve Problem" and "A Bézier Curve-Based Root-Finder," both by Philip J. 
-Schneider, and "Some Properties of Bézier Curves" by Ronald Goldman. The source code 
-appearing in the appendix is available via anonymous FTP, as described in the preface to 
-Graphics Gems III (Kirk, D. (ed.), Graphics Gems III, Academic Press, 1994). ![124.png](./Storage/Output/Images/124.png)
-Green, Phil (Editor), Kriss, Michael (Series Editor), "Color Management: Understanding and 
- 
-Using ICC Profiles", John Wiley & Sons,  2010 
-(Cf. 
-http://eu.wiley.com/WileyCDA/WileyTitle/productCd-0470058250.html) ![125.png](./Storage/Output/Images/125.png)
-Hunt, R. W. G., The Reproduction of Colour, 5th ed., Fisher Books, England, 1996. A general 
- 
-reference on color reproduction; includes an introduction to the CIE system. ![126.png](./Storage/Output/Images/126.png)
-Institute of Electrical and Electronics Engineers, IEEE Standard for Binary Floating-Point 
- 
-Arithmetic (IEEE 754-1985). 
-© ISO 2017 – All rights reserved 942 
-
-ISO/DIS 32000-2
- ![127.png](./Storage/Output/Images/127.png)
-Kirk, D. (ed.), Graphics Gems III, Academic Press, 1994. The section "Interpolation Using Bézier 
- 
-Curves" by Gershon Elber contains an algorithm for calculating a Bézier curve that passes 
-through a user-specified set of points. The algorithm uses not only cubic Bézier curves, which 
-are supported in PDF, but also higher-order Bézier curves. The appendix contains an 
-implementation of the algorithm, written in the C programming language. The source code 
-appearing in the appendix is available via anonymous FTP. ![128.png](./Storage/Output/Images/128.png)
-Lunde, K., CJKV Information Processing, O’Reilly & Associates, Sebastopol, CA, 1999. Excellent 
- 
-background material on CMaps, character sets, encodings, and the like. ![129.png](./Storage/Output/Images/129.png)
-Microsoft Corporation, TrueType 1.0 Font Files Technical Specification. Available at 
- 
-www.microsoft.com/typography/tt/tt.htm ![130.png](./Storage/Output/Images/130.png)
-Porter, T. and Duff, T., "Compositing Digital Images," Computer Graphics, Vol. 18 No. 3, July 
- 
-1984. Computer Graphics is the newsletter of the ACM’s special interest group SIGGRAPH; for 
-more information, see 
-http://www.acm.org ![131.png](./Storage/Output/Images/131.png)
-PKCS #1 - RSA Cryptography Standard http://www.emc.com/emc-plus/rsa-labs/standards-
- 
-initiatives/pkcs-rsa-cryptography-standard.htm. This document, among others related to 
-public-key cryptography and digital signatures, is available at http://www.emc.com/emc-
-plus/rsa-labs/standards-initiatives/public-key-cryptography-standards.htm ![132.png](./Storage/Output/Images/132.png)
-Scalable Vector Graphics (SVG) 1.0 Specification, http://www.w3.org/TR/2001/REC-SVG-
- 
-20010904/ ![133.png](./Storage/Output/Images/133.png)
-Synchronized Multimedia Integration Language (SMIL 2.0), http://www.w3.org/TR/smil20/ 
- ![134.png](./Storage/Output/Images/134.png)
-Web Content Accessibility Guidelines 1.0, http://www.w3.org/TR/WAI-WEBCONTENT/ 
- ![135.png](./Storage/Output/Images/135.png)
-HTML 5, http://www.w3.org/TR/html5/ 
- ![136.png](./Storage/Output/Images/136.png)
-JDF Specification, Version 1.5 (September 2013). International Cooperation for the Integration 
- 
-of Processes in Prepress, Press and Postpress (CIP4), 
-http://www.cip4.org ![137.png](./Storage/Output/Images/137.png)
-Unicode Standard Annex #9, Unicode Bidirectional Algorithm. Unicode Consortium 
- ![138.png](./Storage/Output/Images/138.png)
-Unicode Standard Annex #21, Case Mappings. Unicode Consortium 
- ![139.png](./Storage/Output/Images/139.png)
-Unicode Standard Annex #29, Unicode Text Segmentation. Unicode Consortium. 
- 
-© ISO 2017 – All rights reserved 943 
+rollover appearance
+• 
+The  shall be used when the user moves the cursor into the annotation’s active 
+down appearance 
+• 
+area without pressing the mouse button. 
+The shall be used when the mouse button is pressed or held down within the 
+NOTE 2 As used here, the term mouse denotes a generic pointing device that controls the location of a 
+annotation’s active area. 
+cursor on the screen and has at least one button that can be pressed, held down, and released. See 
+12.6.3, "Trigger events" for further discussion. 
+ AP 
+The normal, rollover, and down appearances shall be defined in an appearance dictionary, which in turn 
+is the value of theentry in the annotation dictionary (see "Table 166: Entries common to all 
+annotation dictionaries"). "

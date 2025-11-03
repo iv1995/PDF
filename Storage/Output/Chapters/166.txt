@@ -1,83 +1,353 @@
-Table 161: Entries in a page label 
-dictionary" shows the contents of a page label dictionary. 
-© ISO 2017 – All rights reserved 447 
+Figure 28: Rendering intents" illustrates the effects of the standard rendering intents. These intents 
+have been chosen to correspond to those defined by the International Color Consortium (ICC), an 
+RelativeColorimetric
+industry organization that has developed standards for device-independent colour. If a PDF processor 
+does not recognise the specified name, it shall use the  intent by default. 
+NOTE Note, however, that the exact set of rendering intents supported can vary from one output device 
+to another; a particular device might not support all possible intents or might support additional 
+ones beyond those listed in the table. ![6.jpg](./Storage/Output/Images/6.jpg)![7.jpg](./Storage/Output/Images/7.jpg)
+AbsoluteColorimetricRelativeColorimetric![8.jpg](./Storage/Output/Images/8.jpg)![9.jpg](./Storage/Output/Images/9.jpg)
+SaturationPerceptual
+Figure 28: Rendering intents 
+ 
+See 11.7.5, "Rendering parameters and transparency", and in particular 11.7.5.3, "Rendering intent, 
+black point compensation and colour conversions", for further discussion of the role of rendering 
+intents in the transparent imaging model. 
+© ISO 2017 – All rights reserved 194 
 
 ISO/DIS 32000-2
  
-Table 161: Entries in a page label dictionary 
-Key Type Value 
-(Optional) 
-Type  
-PageLabel
+8.6.5.9Use of black point compensation 
  
-name The type of PDF object that this dictionary describes; if present, shall be
-for a page label dictionary. 
-(Optional) 
-S 
-name The numbering style that shall be used for the numeric portion of each page 
-D 
-label: 
-R 
-Decimal Arabic numerals 
-r 
-Uppercase Roman numerals 
-A 
-Lowercase Roman numerals 
-Uppercase letters (A to Z for the first 26 pages, AA to ZZ for the next 26, and so 
-a 
-on) 
-S
-Lowercase letters (a to z for the first 26 pages, aa to zz for the next 26, and so on) 
-There is no default numbering style; if no  entry is present, page labels shall consist 
-NOTE If the  entry (next) specifies the label prefix Contents, each page is simply 
-P
-solely of a label prefix with no numeric portion. 
-labelled Contents with no page number. (If the  entry is also missing or 
-P
-empty, the page label is an empty string.) 
-(Optional) 
-P 
-text string The label prefix for page labels in this range. 
-(Optional) 
-St 
-integer The value of the numeric portion for the first page label in the range. 
-Subsequent pages shall be numbered sequentially from this value, which shall be 
-greater than or equal to 1. Default value: 1. 
-EXAMPLE The following example shows a document with pages labelled i, ii, iii, iv, 1, 2, 3, A-8, A-9, … 
-1 0 obj 
-  <</Type /Catalog 
-   /PageLabels <</Nums [ 0 <</S /r>>  %A number tree containing 
-         4 <</S /D>>    %three page label dictionaries 
-         7 <</S /D 
-          /P ( A- ) 
-          /St 8 
-           >> 
-         ] 
-       >> 
-   … 
-  >> 
+Black point compensation applies to CIE-based colour conversion and extends the concept of the use of 
+rendering intents for colour conversion based upon the ICC architecture. 
+UseBlackPtComp 
+ON
+ExtGState UseBlackPtComp
+The use of black point compensation can be controlled through the  entry in the
+OFF
+  
+dictionary. If the value for  is , colour conversion shall be carried out 
+Default
+according to the provisions in ISO 18619. If it is set tono black point compensation shall be carried 
+AbsColorimetric
+out. If the value is not given or set to , then the behaviour is left to the PDF processor to 
+OFF
+UseBlackPtComp
+determine. If the current render intent of an object is  then the value of 
+ shall be treated as . 
+8.6.6Special colour spaces 
+ 
+8.6.6.1General 
+ 
+Pattern, Indexed, SeparationDeviceN
+Special colour spaces add features or properties to an underlying colour space. There are four special 
+colour space families: , and . 
+8.6.6.2Pattern colour spaces 
+ 
+PDF 1.2pattern
+Pattern
+tiling patternshading pattern
+A  colour space () specifies that an area is to be painted with a  rather than a 
+single colour. The pattern shall be either a  (Type 1) or a  (Type 2). 8.7, 
+"Patterns", discusses patterns in detail. 
+8.6.6.3Indexed colour spaces 
+ 
+colour mapcolour table
+ Indexed 
+Ancolour space specifies a  or  of arbitrary colours in some other space. 
+A PDF reader shall treat each sample value as an index into the colour table and shall use the colour 
+value it finds there. This technique can considerably reduce the amount of data required to represent a 
+sampled image. 
+ Indexed 
+Ancolour space shall be defined by a four-element array:  
+base hival lookup
+[/Indexed ] 
+Indexed
+ Indexed 
+The first element shall be the colour space family name . The remaining elements shall be 
+ Indexed 
+parameters that ancolour space requires; their meanings are discussed below. Setting the 
+current stroking or nonstroking colour space to ancolour space shall initialise the 
+corresponding current colour to 0. 
+base
+PDF 1.3
+ 
+The  parameter shall be an array or name that identifies the base colour space in which the values 
+Separation  DeviceN Pattern Indexed 
+in the colour table are to be interpreted. It shall be any device or CIE-based colour space or () a
+DeviceRGB
+orspace, but shall not be a  space or anotherspace. If the base 
+ABC
+ CalRGB Lab
+colour space is , the values in the colour table shall be interpreted as red, green, and blue 
+A, BC
+components; if the base colour space is a CIE-based  space such as aor  space, the 
+values shall be interpreted as , and  components. 
+hival
+hivalhival
+The  parameter shall be an integer that specifies the maximum valid index value. The colour table 
+shall be indexed by integers in the range 0 to .  shall be no greater than 255, which is the 
+© ISO 2017 – All rights reserved 195 
+
+ISO/DIS 32000-2
+ 
+integer required to index a table with 8-bit index values. 
+lookupPDF 1.2
+The colour table shall be defined by the  parameter, which may be either a stream or () a 
+byte string. It shall provide the mapping between index values and the corresponding colours in the 
+base colour space. 
+m
+The colour table data shall be 𝑚𝑚 × (ℎ𝐷𝐷𝑖𝑖𝐷𝐷𝑙𝑙 + 1) bytes long, where  is the number of colour 
+components in the base colour space. Each byte shall be an unsigned integer in the range 0 to 255 that 
+shall be scaled to the range of the corresponding colour component in the base colour space; that is, 0 
+corresponds to the minimum value in the range for that component, and 255 corresponds to the 
+maximum. 
+The colour components for each entry in the table shall appear consecutively in the string or stream. 
+ DeviceRGB 
+EXAMPLE 1 If the base colour space isand the indexed colour space contains two colours, the order of bytes 
+000111
+ G B R G B, where letters denote the colour component and numeric subscripts 
+in the string or stream is R
+denote the table entry. 
+  
+ DeviceRGB 
+EXAMPLE 2 The following illustrates the specification of anIndexedcolour space that maps 8-bit index values to three-
+component colour values in thecolour space. 
+[/Indexed 
+   /DeviceRGB 
+   255 
+   <000000 FF0000 00FF00 0000FF B57342 …> 
+] 
+The example shows only the first five colour values in the lookup string; in all, there will be 256 colour 
+values and the string will be 768 bytes long. Having established this colour space, the PDF file can now 
+specify colours as single-component values in the range 0 to 255. For example, a colour value of 4 
+selects an RGB colour whose components are coded as the hexadecimal integers B5, 73, and 42. 
+Dividing these by 255 and scaling the results to the range 0.0 to 1.0 yields a colour with red, green, and 
+blue components of 0.710, 0.451, and 0.259, respectively. 
+ Indexed 
+, , 
+SCSCNscscn
+Although ancolour space is useful mainly for images, index values can also be used with the 
+colour selection operators , and . 
+EXAMPLE 3 The following selects the same colour as does an image sample value of 123. 
+123 sc 
+ 
+hival
+hival
+The index value should be an integer in the range 0 to . If the value is a real number, it shall be 
+rounded to the nearest integer (0.5 values shall be rounded up); if it is outside the range 0 to , it 
+shall be adjusted to the nearest value within that range. 
+8.6.6.4Separation colour spaces 
+ 
+PDF 1.2
+ Separation 
+Acolour space () provides a means for specifying the use of additional colourants or 
+for isolating the control of individual colour components of a device colour space for a subtractive 
+device. When such a space is the current colour space, the current colour shall be a single-component 
+value, called a tint, that controls the application of the given colourant or colour components only. 
+NOTE 1 Colour output devices produce full colour by combining  or  in varying 
+amounts. On an additive colour device such as a display, the primary colourants consist of red, 
+primaryprocess colourants
+green, and blue phosphors; on a subtractive device such as a printer, they typically consist of cyan, 
+© ISO 2017 – All rights reserved 196 
+
+ISO/DIS 32000-2
+ 
+magenta, yellow, and sometimes black inks. In addition, some devices can apply special colourants, 
+often called , to produce effects that cannot be achieved with the standard process 
+colourants alone. Examples include metallic and fluorescent colours and special textures. 
+spot colourants
+NOTE 2 When printing a page, most devices produce a single composite page on which all process 
+colourants (and spot colourants, if any) are combined. However, some devices, such as 
+imagesetters, produce a separate, monochromatic rendition of the page, called a , for 
+each colourant. When the separations are later combined — on a printing press, for example — 
+separation
+and the proper inks or other colourants are applied to them, the result is a full-colour page. 
+NOTE 3 The term  is often misused as a synonym for an individual device colourant. In the 
+context of this discussion, a printing system that produces separations generates a separate piece 
+separation
+of physical medium (generally film) for each colourant. It is these pieces of physical medium that 
+are correctly referred to as separations. A particular colourant properly constitutes a separation 
+only if the device is generating physical separations, one of which corresponds to the given 
+colourant. Thecolour space is so named for historical reasons, but it has evolved to 
+ Separation 
+the broader purpose of controlling the application of individual colourants in general, regardless 
+of whether they are actually realised as physical separations. 
+NOTE 4 The operation of acolour space itself is independent of the characteristics of any 
+ Separation 
+particular output device. Depending on the device, the space might or might not correspond to a 
+true, physical separation or to an actual colourant. For example, acolour space could 
+ Separation 
+be used to control the application of a single process colourant (such as cyan) on a composite 
+device that does not produce physical separations, or could represent a colour (such as orange) 
+for which no specific colourant exists on the device. Acolour space provides 
+ Separation 
+consistent, predictable behaviour, even on devices that cannot directly generate the requested 
+colour. 
+ Separation 
+Acolour space is defined as follows: 
+name alternateSpace tintTransform
+[/Separation ] 
+Separation
+ Separation 
+It shall be a four-element array whose first element shall be the colour space family name . 
+The remaining elements are parameters that acolour space requires; their meanings are 
+discussed below. 
+ Separation 
+A colour value in acolour space shall consist of a single tint component in the range 0.0 to 
+subtractive
+1.0. The value 0.0 shall represent the minimum amount of colourant that can be applied; 1.0 shall 
+represent the maximum. Tints shall always be treated as  colours, even if the device 
+produces output for the designated component by an additive method. Thus, a tint value of 0.0 denotes 
+SCNscn
+the lightest colour that can be achieved with the given colourant, and 1.0 is the darkest. The initial value 
+for both the stroking and nonstroking colour in the graphics state shall be 1.0. The  and  
+operators respectively shall set the current stroking and nonstroking colour to a tint value. A sampled 
+image with single-component samples may also be used as a source of tint values. 
+NOTE 5 This convention is the same as forcolour components but opposite to the one for
+ DeviceCMYK  
+and . 
+DeviceGray DeviceRGB
+name
+ Separation 
+AllNone
+The  parameter is a name object that shall specify the name of the colourant that this
+, , 
+CyanMagentaYellowBlack
+colour space is intended to represent (or one of the special names  or ; see below). With the 
+exception of the names  and  which are reserved to name the process 
+colourants of a CMYK device, such colourant names are arbitrary, and there may be any number of 
+them, subject to implementation limits. 
+All
+ Separation 
+The special colourant name  shall refer collectively to all colourants available on an output device, 
+including those for the standard process colourants. When aspace with this colourant 
+© ISO 2017 – All rights reserved 197 
+
+ISO/DIS 32000-2
+ 
+name is the current colour space, painting operators shall apply tint values to all available colourants at 
+All
+once. When outputting to an additive device, such as a computer monitor, the subtractive tint values of 
+the  colourant shall be complemented by subtracting from 1 before applying to all available 
+colourants. 
+NOTE 6 This is useful for purposes such as painting registration targets in the same place on every 
+separation. Such marks are typically painted as the last step in composing a page to ensure that 
+they are not overwritten by subsequent painting operations. 
+None 
+Separation 
+The special colourant name  shall not produce any visible output. Painting operations in a
+space with this colourant name shall have no effect on the current page. 
+ Separation AllNone
+ Separation 
+A PDF reader shall supportcolour spaces with the colourant names  and  on all 
+alternateSpace
+devices, even if the devices are not capable of supporting any others. When processing
+tintTransform
+spaces with either of these colourant names PDF readers shall ignore the  and 
+ parameters (discussed below), although valid values shall still be provided. 
+ Separation 
+At the moment the colour space is set to aspace, the PDF reader shall determine whether 
+alternateSpacetintTransform
+the device has an available colourant corresponding to the name of the requested space. If so, the PDF 
+reader shall ignore the  and  parameters; subsequent painting operations 
+within the space shall apply the designated colourant directly, according to the tint values supplied. 
+ Separation 
+The preceding paragraph applies only to subtractive output devices such as printers and imagesetters. 
+For an additive device such as a computer display, acolour space never applies a process 
+colourant directly; it always reverts to the alternate colour space as described below. This is because 
+the model of applying process colourants independently does not work as intended on an additive 
+device. 
+Red
+EXAMPLE 1 In an R, G, B colour space, painting tints of the  component on a white background (1,1,1) produces a result 
+that varies from white to cyan (0,1,1) which is not as might be otherwise expected for a red component. 
+Red
+GreenBlueRed
+This exception applies only to colourants for additive devices, not to any specific names, e.g., , 
+ Separation 
+, and . In contrast, a printer might have a (subtractive) ink named , which should work as 
+acolour space just the same as any other supported colourant. 
+ Separation 
+If the colourant name associated with acolour space does not correspond to a colourant 
+available on the device, the PDF reader shall arrange for subsequent painting operations to be 
+performed in an alternate colour space. The intended colours may be approximated by colours in a 
+device or CIE-based colour space, which shall then be rendered using the usual primary or process 
+colourants: 
+alternateSpace
+• 
+The  parameter shall be an array or name object that identifies the alternate colour 
+Pattern, Indexed, SeparationDeviceN
+space, which may be any device or CIE-based colour space but may not be another special colour 
+tintTransform
+• 
+space (, or ). 
+The  parameter shall be a function (see 7.10, "Functions"). During subsequent 
+painting operations, a PDF reader calls this function to transform a tint value into colour 
+component values in the alternate colour space. The function shall be called with the tint value and 
+shall return the corresponding colour component values. That is, the number of components and 
+NOTE 7 In some cases where colourants are unavailable on the output device, painting in the alternate 
+the interpretation of their values shall depend on the alternate colour space. 
+colour space can produce a good approximation of the intended colour when only opaque objects 
+© ISO 2017 – All rights reserved 198 
+
+ISO/DIS 32000-2
+ 
+are painted. However, it does not necessarily reflect the interactions between an object and its 
+backdrop when overprinting (see 8.6.7, "Overprint control") is enabled. Separation simulation (see 
+10.8.3) can be used as an alternative method to yield better results when overprinting is involved. 
+When transparency is involved, the use of the alternate space can produce incorrect output 
+regardless of what method is used. 
+ Separation 
+ DeviceCMYK 
+EXAMPLE 2 The following illustrates the specification of acolour space (object 5) that is intended to produce 
+a colour named LogoGreen. If the output device has no colourant corresponding to this colour,
+is used as the alternate colour space, and the tint transformation function (object 12) maps tint values linearly 
+into shades of a CMYK colour value approximating the LogoGreen colour. 
+5 0 obj           %Colour space 
+  [/Separation 
+   /LogoGreen 
+   /DeviceCMYK 
+   12 0 R 
+  ] 
 endobj 
  
-12.4.3Articles 
+12 0 obj           %Tint transformation function 
+  <</FunctionType 4 
+   /Domain [0.0 1.0] 
+   /Range [0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0] 
+   /Length 62 
+  >> 
+stream 
+  {dup 0.84 mul 
+  exch 0.00 exch dup 0.44 mul exch 0.21 mul 
+  } 
+endstream 
+endobj 
  
-Some types of documents may contain sequences of content items that are logically connected but not 
-physically sequential. 
-EXAMPLE 1 A news story may begin on the first page of a newsletter and run over onto one or more nonconsecutive 
-interior pages. 
-PDF 1.1
-To represent such sequences of physically discontiguous but logically related items, a PDF document 
-may define one or more articles (). The sequential flow of an article shall be defined by an article 
-thread; the individual content items that make up the article are called beads on the thread. Interactive 
-PDF processors may provide navigation facilities to allow the user to follow a thread from one bead to 
-the next. 
-© ISO 2017 – All rights reserved 448 
-
-ISO/DIS 32000-2
+ Separation 
+See 11.7.3, "Spot colours and transparency", for further discussion of the role ofcolour 
+spaces in the transparent imaging model. 
+8.6.6.5DeviceN colour spaces 
  
-Threads
-The optional  entry in the document catalog dictionary (see 7.7.2, "Document catalog 
-dictionary") holds an array of thread dictionaries ("Table 162: Entries in a thread dictionary") defining 
-F
-the document’s articles. Each individual bead within a thread shall be represented by a bead dictionary 
-N
-("
+PDF 1.3
+DeviceN
+ colour spaces () may contain an arbitrary number of colour components. 
+NOTE 1 They provide greater flexibility than is possible with standard device colour spaces such as
+ 
+or with individualcolour spaces. 
+DeviceCMYK  Separation 
+ DeviceN 
+EXAMPLE 1 It is possible to create acolour space consisting of only the cyan, magenta, and yellow colour 
+components, with the black component excluded. 
+NOTE 2  colour spaces are used in applications such as these: 
+DeviceN
+ High-fidelity colour is the use of more than the standard CMYK process colourants to produce an 
+extended gamut, or range of colours. A popular example is the PANTONE Hexachrome system, 
+which uses six colourants: the usual cyan, magenta, yellow, and black, plus orange and green. 
+ Multitone colour systems use a single-component image to specify multiple colour components. In 
+a duotone, for example, a single-component image can be used to specify both the black 
+component and a spot colour component. The tone reproduction is generally different for the 
+different components. For example, the black component might be painted with the exact sample 
+data from the single-component image; the spot colour component might be generated as a 
+nonlinear function of the image data in a manner that emphasizes the shadows. "

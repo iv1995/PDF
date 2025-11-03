@@ -1,16 +1,22 @@
-Table 298: Additional entries in a media offset frame dictionary 
-Key Type Value 
-Required
-F 
-integer () Shall specify a frame within a media object. Frame numbers begin at 
-0; negative frame numbers are out of range. 
-Table 299: Additional entries in a media offset marker dictionary 
-Key Type Value 
-Required
-M 
-text string () A text string that identifies a named offset within a media object. 
+Figure 57: Word spacing in horizontal writing" illustrates the effect of word spacing in 
+horizontal writing. ![Figure 57 Word spacing in horizontal writing  .png](./Storage/Output/Images/Figure 57 Word spacing in horizontal writing  .png)
+Figure 57: Word spacing in horizontal writing 
  
-13.2.6.3Timespan dictionary 
+Word spacing shall be applied to every occurrence of the single-byte character code 32 in a string when 
+using a simple font (including Type 3) or a composite font that defines code 32 as a single-byte code. It 
+shall not apply to occurrences of the byte value 32 in multiple-byte codes. 
+9.3.4Horizontal scaling 
  
-timespan dictionary
-A  shall specify a length of time; its entries are shown in "
+T
+h
+The horizontal scaling parameter, , adjusts the width of glyphs by stretching or compressing them in 
+the horizontal direction. Its value shall be specified as a percentage of the normal width of the glyphs, 
+with 100 being the normal width. The scaling shall apply to the horizontal coordinate in text space, 
+independently of the writing mode. It shall affect both the glyph’s shape and its horizontal displacement 
+T
+T
+TJ
+(that is, its displacement vector). If the writing mode is horizontal, it shall also affect the spacing 
+cw
+parameters 
+ and , as well as any positioning adjustments performed by the  operator. "

@@ -1,0 +1,16 @@
+Table 320: Entries in a 3D lighting scheme dictionary" shows the entries in a 3D lighting scheme 
+dictionary. 
+Table 320: Entries in a 3D lighting scheme dictionary 
+Key Type Value 
+Optional
+Type 
+3DLightingScheme
+name () The type of PDF object that this dictionary describes; 
+if present, shall be . 
+Required
+Subtype 
+name () The style of lighting scheme described by this 
+dictionary (see "Table 320: 3D lighting scheme styles"). 
+ 
+infinite
+"

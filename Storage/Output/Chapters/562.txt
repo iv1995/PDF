@@ -1,0 +1,201 @@
+Table 368: General inline level structure types" defines standard structure types for inline level 
+structure types. 
+© ISO 2017 – All rights reserved 733 
+
+ISO/DIS 32000-2
+ 
+Table 368: General inline level structure types 
+Structure Category Description 
+Type 
+Lbl 
+Inline (Label) Encloses content that distinguishes it from other content inside the same 
+Lbl
+parent element. 
+ 
+In a list item (see 14.8.4, "Standard structure types") the  structure element may 
+enclose the bullet for list items in unordered lists or digits and characters used for 
+numbering of list items in ordered lists. For headings it may be the number of the 
+chapter. For a definition list it may enclose the term to be defined. For key value 
+Lbl
+pairs it may enclose the key for which a value is provided. For an entry in a table of 
+contents there may be two  structure elements, one for a chapter number, and 
+one for the page number at which the chapter starts, whereas the actual text for the 
+chapter heading is the remaining portion of the table of contents list item.  
+Lbl
+EXAMPLE 1 The following are just a few of the possible types of content that 
+could be marked as : 
+•
+bullets for list items in an unordered list  
+ 
+•
+digits or characters used for numbering list items in an 
+ 
+ordered list,  
+•
+the number in the  for a  or  
+CaptionFigureTable
+ 
+•
+in a form, the label of a form field 
+ 
+•
+in footnotes, the number or symbol matching the 
+ 
+reference from the text 
+•
+in headings, the enumeration of the headings 
+ 
+•
+in a dictionary, the word for which a translation is 
+ 
+provided 
+•
+in a definition list, the term for which a definition is 
+ 
+provided 
+•
+in key value pairs, the key for which a value is provided 
+ 
+•
+in a question and answer sequence in an interview, visual 
+ 
+cues for designating questions and answer 
+© ISO 2017 – All rights reserved 734 
+
+ISO/DIS 32000-2
+ 
+Structure Category Description 
+Type 
+(PDF 2.0)
+Em 
+Inline  (Emphasis) Encloses content for the purpose of emphasis. 
+Em
+The level of stress that a particular piece of content has is given by its number of 
+ancestor  structure elements. 
+The placement of stress emphasis changes the meaning of the sentence. The element 
+thus forms an integral part of the content. The precise way in which stress is used in 
+this way depends on the language. 
+EXAMPLE 2 These examples show how changing the stress emphasis changes 
+the meaning. First, a general statement of fact, with no stress: 
+<P>Cats are cute animals.</P> 
+By emphasizing the first word, the statement implies that the kind 
+of animal under discussion is in question (maybe someone is 
+asserting that dogs are cute): 
+<P><Em>Cats</Em> are cute animals.</P> 
+By moving it to the adjective, the exact nature of the cats is 
+reasserted (maybe someone suggested cats were mean animals): 
+<P>Cats are <Em>cute</Em> animals.</P> 
+(PDF 2.0) 
+Strong 
+Inline Encloses content for the purpose of strong importance, seriousness or 
+urgency for its contents.  
+Strong
+EXAMPLE 3 In this example the  element is used to denote the content 
+that the user is intended to read first: 
+<P>Your tasks for today:</P> 
+<L> 
+ <LI><LBody><Strong>Turn off the oven.</Strong></LBody> 
+</LI> 
+ <LI><LBody>Put out the trash.</LBody></LI> 
+ <LI><LBody>Do the laundry.</LBody></LI> 
+</L> 
+Span 
+Inline A generic inline portion of content having no particular inherent characteristics. It 
+can be used, for example, to delimit a range of text with certain attributes. 
+SpanLang
+EXAMPLE 4 A word inside a sentence is in a different language than the 
+surrounding text, and is contained in a  with a  attribute 
+indicating the applicable language. 
+Span
+EXAMPLE 5 A custom set of structure element types defines custom inline 
+RoleMap
+structure elements which are mapped to the  structure 
+element in the  to enable a PDF processor unaware of the 
+custom set of structure element types to essentially ignore the 
+structure element. 
+LinkLink
+ Inline An association between content enclosed by the  structure element and a 
+corresponding link annotation (see 12.5.6.5, "Link annotations"). 
+© ISO 2017 – All rights reserved 735 
+
+ISO/DIS 32000-2
+ 
+Structure Category Description 
+Type 
+Annot Annot
+Inline Either an association between the content enclosed by the  structure element 
+and one or more corresponding PDF annotations (see 12.5, "Annotations"), or a 
+Annot
+mechanism to include one or more PDF annotations in the structure tree. 
+If more than one annotation is referenced in an  structure element, they shall 
+AnnotLink
+be of the same annotation type. 
+Form
+ shall not be used for link annotations (see the  structure element) or 
+widget annotations (see the  structure element). All other annotation types 
+may be referenced by this structure element. 
+Annot
+EXAMPLE 6 The following are just a couple of the possible types of content that 
+could be marked as : 
+•
+Markup annotations indicating change requests like 
+ 
+requests for deletions, modifications or insertions. 
+•
+Highlighting of certain content. 
+ 
+Form 
+Grouping, Either an association between content enclosed by the Form structure element and 
+Block or a corresponding widget annotation or a mechanism to include a widget annotation 
+Form
+Inline in the structure tree. 
+In a tagged PDF,  shall be used for each PDF widget annotation that belongs to 
+the real content of the document. 
+FormLbl
+NOTE  structure elements often include  structure elements to 
+mark up a form field’s label (if any). 
+Form
+EXAMPLE 7 The following are the possible types of content that could be 
+marked as : 
+•
+Form fields in a PDF containing a fillable form would be 
+ 
+marked as  structure element. 
+Form
+•
+Non-interactive forms, that is, content enclosed in a 
+ 
+structure element with the PrintField attribute, would be 
+marked as  structure element. 
+Form
+ 
+Link
+Tagged PDF link elements (standard structure type ) use PDF’s logical structure facilities to 
+establish the association between content items and link annotations, providing functionality 
+comparable to HTML hypertext links. The following items may be children of a link element: 
+ADestPA
+• 
+One or more content items or other ILSEs (except other links) if ,  and  keys of all of them 
+• 
+have identical values 
+One object reference (see 14.7.5.3, "PDF objects as content items") to one link annotation 
+NOTE 1 By means of the  entry the  or  action in a  annotation it is possible to link 
+SDGoToGoToRLink
+associated with the content 
+directly to a target structure element, as opposed to just targeting an area on a page. 
+14.8.4.7.3Ruby and Warichu elements 
+ 
+Ruby text
+ is a side note, written in a smaller text size and placed adjacent to the base text to which it 
+refers. It is used in Japanese and Chinese to describe the pronunciation of unusual words or to describe 
+such items as abbreviations and logos. 
+© ISO 2017 – All rights reserved 736 
+
+ISO/DIS 32000-2
+ 
+Warichu text
+ is a comment or annotation, written in a smaller text size and formatted onto two smaller 
+lines within the height of the containing text line and placed following (inline) the base text to which it 
+refers. It is used in Japanese for descriptive comments and for ruby annotation text that is too long to be 
+aesthetically formatted as a ruby. 
+"

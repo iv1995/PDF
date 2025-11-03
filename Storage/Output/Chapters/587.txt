@@ -1,0 +1,38 @@
+Table 390: Additional entries specific to a Web Capture image set" shows the  
+entries specific toImageSets. 
+Table 390: Additional entries specific to a Web Capture image set 
+Key Type Value 
+RequiredSIS
+S 
+name () The subtype of content set that this dictionary describes; shall be . 
+Required
+R 
+integer or () The reference counts for the image XObjects belonging to the image set. For an image 
+array set containing a single XObject, the value shall be the integer reference count for that XObject. 
+O
+For an image set containing multiple XObjects, the value shall be an array of reference counts 
+R
+Table 388: Entries common to all Web Capture content sets"); that 
+parallel to the  array (see "
+O
+is, each element in the  array shall hold the reference count for the image XObject at the 
+corresponding position in the  array. 
+ 
+Each image XObject in an image set has a reference count indicating the number of PDF pages referring 
+to that XObject. The reference count shall be incremented whenever Web Capture creates a new page 
+referring to the XObject (including copies of already existing pages) and decremented whenever such a 
+page is destroyed. The reference count shall be incremented or decremented only once per page, 
+regardless of the number of times the XObject may be referenced by that page. If the reference count 
+OO
+reaches 0, it shall be assumed that there are no remaining pages referring to the XObject and that the 
+R
+XObject can be removed from the image set’s  array. When removing an XObject from the  array of an 
+image set, the corresponding entry in the  array shall be removed also. 
+14.10.5Source information 
+ 
+14.10.5.1General 
+ 
+SI
+source information dictionaries
+The  entry in a content set dictionary (see "Table 388: Entries common to all Web Capture content 
+sets") shall contain one or more , (see "

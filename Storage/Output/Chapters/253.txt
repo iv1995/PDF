@@ -1,42 +1,82 @@
-Figure 90: 
-Rotation around the centre of orbit" illustrates camera positioning when orbiting around the centre of 
-orbit. 
-© ISO 2017 – All rights reserved 634 
-
-ISO/DIS 32000-2
- ![Figure 90 Rotation around the centre of orbit  .png](./Storage/Output/Images/Figure 90 Rotation around the centre of orbit  .png)
-Figure 90: Rotation around the centre of orbit 
- 
-NOTE 3 The  entry allows the lighting of the 3D artwork to be changed without changing the artwork 
-LS
-itself. This enables consumers to view a given piece of 3D artwork with a variety of lighting 
-options without requiring multiple copies of the 3D artwork stream that differ only in lighting. It 
-also enables artwork with poor lighting to be corrected in cases where the original content cannot 
-be re-authored. See 13.6.4.5, "3D lighting scheme dictionaries" 
- The  entry provides cross section information for clipping 3D artwork while its associated view 
-SA
-is active. This allows view authors to be more clear in calling out the intended areas of interest for 
-a particular view, some of which might otherwise be completely obscured. See 13.6.4.6, "3D cross 
-section dictionaries" 
- The  andentries are meant to give a more accurate representation of the 3D artwork at a 
-NR NA 
-given state. These keys give view authors finer granularity in manipulating the artwork to be 
-presented in a particular way. They also provide a means for returning node parameters to a 
-known state after potential changes by interactive features such as keyframe animations and 
-ECMAScript. See 13.6.4.7, "3D node dictionaries" 
-13.6.4.2Projection dictionaries 
- 
-projection dictionary
-A  (see "Table 316: Entries in a projection dictionary") defines the mapping of 3D 
-P
-camera coordinates onto the target coordinate system of the annotation. Each 3D view may specify a 
-projection dictionary by means of its  entry. 
-NOTE Although view nodes can specify projection information, PDF consumers ignore it in favour of 
-information in the projection dictionary. 
-© ISO 2017 – All rights reserved 635 
+Table 111: Type 3 font 
+operators" to pass width and bounding box information to the font machinery. This shall precede the 
+execution of any path construction or path-painting operators describing the glyph. 
+NOTE 3 Type 3 fonts in PDF are very similar to those in the PostScript language. Some of the information 
+provided in Type 3 font dictionaries and glyph descriptions, although seemingly redundant or 
+unnecessary, is nevertheless required for correct results when a PDF processor prints to a 
+PostScript language compatible output device. This applies particularly to the operands of the  
+d0
+and  operators, which are the equivalent of PostScript'sand . For 
+d1 setcharwidth setcachedevice
+further explanation, see clause 5.7 of the . 
+PostScript Language Reference, Third Edition
+© ISO 2017 – All rights reserved 312 
 
 ISO/DIS 32000-2
  
-near/far clippingnear planefar plane
-PDF 1.6 introduces . This type of clipping defines a  and a  (as 
-shown in "
+Table 111: Type 3 font operators 
+Operands Operator Description 
+xy
+w w  
+d0 
+Set width information for the glyph and declare that the glyph description 
+NOTE 1 This operator name ends in the digit 0. 
+specifies both its shape and its colour. 
+x
+w
+y
+w
+Widths
+ denotes the horizontal displacement in the glyph coordinate system; it shall be 
+ shall be 0 
+consistent with the corresponding width in the font’s  array. 
+(see 9.2.4, "Glyph positioning and metrics"). 
+CharProcs
+This operator shall only be permitted as the first operator in a content stream 
+appearing in a Type 3 font’s  dictionary. It is typically used only if the 
+glyph description executes operators to set the colour or other colour-related 
+NOTE 2 An image does set the colour space and colour explicitly; an image mask 
+parameters explicitly. 
+does not and requires explicit operators to do so for it. 
+xyxyx
+w w ll ll ur 
+d1 
+y
+ur  
+Set width and bounding box information for the glyph and declare that the glyph 
+NOTE 3 This operator name ends in the digit 1. 
+description specifies only shape, not colour. 
+x
+w
+y
+w
+Widths
+ denotes the horizontal displacement in the glyph coordinate system; it shall be 
+ shall be 0 
+consistent with the corresponding width in the font’s  array. 
+xyxy
+llurur
+ll
+(see 9.2.4, "Glyph positioning and metrics"). 
+ and  denote the coordinates of the lower-left corner, and  and  denote 
+the upper-right corner, of the glyph bounding box. The glyph bounding box is the 
+smallest rectangle, oriented with the axes of the glyph coordinate system, that 
+completely encloses all marks placed on the page as a result of executing the 
+glyph’s description. The declared bounding box shall be correct — in other words, 
+sufficiently large to enclose the entire glyph. If any marks fall outside this 
+d1
+bounding box, the result is implementation-dependent. 
+A glyph description that begins with the  operator should not execute any 
+operators that set the colour (or other colour-related parameters including 
+transparency) in the graphics state; any use of such operators shall be ignored 
+and the glyph stream continues to be processed without error (see 8.6.8, "Colour 
+operators"). The glyph description is executed solely to determine the glyph’s 
+shape. Its colour shall be determined by the graphics state in effect each time this 
+glyph is painted by a text-showing operator. For the same reason, the glyph 
+description shall not include an image; however, an image mask is acceptable, 
+since it merely defines a region of the page to be painted with the current colour. 
+CharProcs
+This operator shall be used only in a content stream appearing in a Type 3 font’s 
+ dictionary. 
+EXAMPLE This example shows the definition of a Type 3 font with only two glyphs — a filled square and a filled triangle, 
+selected by the character codes a and b. "

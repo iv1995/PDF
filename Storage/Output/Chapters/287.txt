@@ -1,322 +1,110 @@
-Table 368: General inline level structure types"), or use of  in 
-annotation (see "
-NOTE 4 Text that is labelled as a note – like this paragraph –but is intended to be 
-structure elements (see "Table 355: Entries in a structure element dictionary"). 
-normally read together with the enclosing content is not a footnote or 
-endnote. 
- 
-14.8.4.6Sub-block level structure type 
- 
-"Table 367: Sub-block level structure type" defines a structure type similar to block level types but 
-intended for use in an inline context. An example of this usage is provided in H.8.4, "Example of Sub 
-© ISO 2017 – All rights reserved 732 
+Table 133: Variables used in the basic compositing 
+formula". 
+NOTE This formula represents a simplified form of the compositing formula in which the shape and 
+opacity values are combined and represented as a single alpha value; the more general form is 
+presented later. This function is based on the  operation defined in the article "Compositing 
+over
+Digital Images," by Porter and Duff, extended to include a blend mode in the region of overlapping 
+coverage. 
+Table 133: Variables used in the basic compositing formula 
+Variable Meaning 
+𝑏𝑏
+𝐶𝐶 Backdrop colour 
+𝑓𝑓
+𝐶𝐶 Source colour 
+𝑟𝑟
+𝐶𝐶 Result colour 
+𝑏𝑏
+𝛼𝛼 Backdrop alpha 
+𝑓𝑓
+𝛼𝛼 Source alpha 
+𝑟𝑟
+𝛼𝛼 Result alpha 
+© ISO 2017 – All rights reserved 381 
 
 ISO/DIS 32000-2
  
-standard structure type". 
-Table 367: Sub-block level structure type 
-Structure Category Description 
-Type 
-(PDF 2.0)
-Sub 
-Inline  (Sub-division of a block level element) Encloses content typically 
-LblSub
-perceived as a sub-division inside a block level structure element.  
-A  structure element may be used inside a  structure element to enclose a 
-Sub
-line number, verse number or similar, if present. 
-Sub
-If a  structure element is used, all other content inside the same block level 
-Sub
-element that is the parent of the  structure element, should also be enclosed in 
- structure elements. 
-•
-a verse in a poem or sacred scripture 
+Variable Meaning 
+𝑏𝑏𝑓𝑓
+𝐵𝐵(𝐶𝐶,𝐶𝐶) Blend function 
  
-Examples: 
-•
-a line-numbered document 
+The following sub-clauses elaborate on the meaning and implications of this formula. 
+11.3.4Blending colour space 
  
-•
-a line of source code 
+nn
+The compositing formula shown in 11.3.3, "Basic compositing formula" represents a vector function: 
+i
+the colours it operates on are represented in the form of -element vectors, where  denotes the 
+th
+i
+number of components required by the colour space used in the compositing process. The 
  
-•
-a line in a postal address 
- 
- 
-14.8.4.7Inline level structure types 
- 
-14.8.4.7.1General 
- 
-Unless otherwise noted in 14.8.4.2, “Nesting of standard structure elements”, any inline structure 
-element is optional. It may occur once or more than once inside its parent structure element. The other 
-children of its parent structure element, if any are present, may be other inline structure elements or 
-actual content. Inline structure elements and portions of actual content inside a parent structure 
-element may occur in any combination and in any order. 
-Unless restricted by their type, structure elements and portions of actual content inside a parent 
-structure element may occur in any combination and in any order. 
-14.8.4.7.2General inline level structure types 
- 
-"Table 368: General inline level structure types" defines standard structure types for inline level 
-structure types. 
-© ISO 2017 – All rights reserved 733 
-
-ISO/DIS 32000-2
- 
-Table 368: General inline level structure types 
-Structure Category Description 
-Type 
-Lbl 
-Inline (Label) Encloses content that distinguishes it from other content inside the same 
-Lbl
-parent element. 
- 
-In a list item (see 14.8.4, "Standard structure types") the  structure element may 
-enclose the bullet for list items in unordered lists or digits and characters used for 
-numbering of list items in ordered lists. For headings it may be the number of the 
-chapter. For a definition list it may enclose the term to be defined. For key value 
-Lbl
-pairs it may enclose the key for which a value is provided. For an entry in a table of 
-contents there may be two  structure elements, one for a chapter number, and 
-one for the page number at which the chapter starts, whereas the actual text for the 
-chapter heading is the remaining portion of the table of contents list item.  
-Lbl
-EXAMPLE 1 The following are just a few of the possible types of content that 
-could be marked as : 
-•
-bullets for list items in an unordered list  
- 
-•
-digits or characters used for numbering list items in an 
- 
-ordered list,  
-•
-the number in the  for a  or  
-CaptionFigureTable
- 
-•
-in a form, the label of a form field 
- 
-•
-in footnotes, the number or symbol matching the 
- 
-reference from the text 
-•
-in headings, the enumeration of the headings 
- 
-•
-in a dictionary, the word for which a translation is 
- 
-provided 
-•
-in a definition list, the term for which a definition is 
- 
-provided 
-•
-in key value pairs, the key for which a value is provided 
- 
-•
-in a question and answer sequence in an interview, visual 
- 
-cues for designating questions and answer 
-© ISO 2017 – All rights reserved 734 
-
-ISO/DIS 32000-2
- 
-Structure Category Description 
-Type 
-(PDF 2.0)
-Em 
-Inline  (Emphasis) Encloses content for the purpose of emphasis. 
-Em
-The level of stress that a particular piece of content has is given by its number of 
-ancestor  structure elements. 
-The placement of stress emphasis changes the meaning of the sentence. The element 
-thus forms an integral part of the content. The precise way in which stress is used in 
-this way depends on the language. 
-EXAMPLE 2 These examples show how changing the stress emphasis changes 
-the meaning. First, a general statement of fact, with no stress: 
-<P>Cats are cute animals.</P> 
-By emphasizing the first word, the statement implies that the kind 
-of animal under discussion is in question (maybe someone is 
-asserting that dogs are cute): 
-<P><Em>Cats</Em> are cute animals.</P> 
-By moving it to the adjective, the exact nature of the cats is 
-reasserted (maybe someone suggested cats were mean animals): 
-<P>Cats are <Em>cute</Em> animals.</P> 
-(PDF 2.0) 
-Strong 
-Inline Encloses content for the purpose of strong importance, seriousness or 
-urgency for its contents.  
-Strong
-EXAMPLE 3 In this example the  element is used to denote the content 
-that the user is intended to read first: 
-<P>Your tasks for today:</P> 
-<L> 
- <LI><LBody><Strong>Turn off the oven.</Strong></LBody> 
-</LI> 
- <LI><LBody>Put out the trash.</LBody></LI> 
- <LI><LBody>Do the laundry.</LBody></LI> 
-</L> 
-Span 
-Inline A generic inline portion of content having no particular inherent characteristics. It 
-can be used, for example, to delimit a range of text with certain attributes. 
-SpanLang
-EXAMPLE 4 A word inside a sentence is in a different language than the 
-surrounding text, and is contained in a  with a  attribute 
-indicating the applicable language. 
-Span
-EXAMPLE 5 A custom set of structure element types defines custom inline 
-RoleMap
-structure elements which are mapped to the  structure 
-element in the  to enable a PDF processor unaware of the 
-custom set of structure element types to essentially ignore the 
-structure element. 
-LinkLink
- Inline An association between content enclosed by the  structure element and a 
-corresponding link annotation (see 12.5.6.5, "Link annotations"). 
-© ISO 2017 – All rights reserved 735 
-
-ISO/DIS 32000-2
- 
-Structure Category Description 
-Type 
-Annot Annot
-Inline Either an association between the content enclosed by the  structure element 
-and one or more corresponding PDF annotations (see 12.5, "Annotations"), or a 
-Annot
-mechanism to include one or more PDF annotations in the structure tree. 
-If more than one annotation is referenced in an  structure element, they shall 
-AnnotLink
-be of the same annotation type. 
-Form
- shall not be used for link annotations (see the  structure element) or 
-widget annotations (see the  structure element). All other annotation types 
-may be referenced by this structure element. 
-Annot
-EXAMPLE 6 The following are just a couple of the possible types of content that 
-could be marked as : 
-•
-Markup annotations indicating change requests like 
- 
-requests for deletions, modifications or insertions. 
-•
-Highlighting of certain content. 
- 
-Form 
-Grouping, Either an association between content enclosed by the Form structure element and 
-Block or a corresponding widget annotation or a mechanism to include a widget annotation 
-Form
-Inline in the structure tree. 
-In a tagged PDF,  shall be used for each PDF widget annotation that belongs to 
-the real content of the document. 
-FormLbl
-NOTE  structure elements often include  structure elements to 
-mark up a form field’s label (if any). 
-Form
-EXAMPLE 7 The following are the possible types of content that could be 
-marked as : 
-•
-Form fields in a PDF containing a fillable form would be 
- 
-marked as  structure element. 
-Form
-•
-Non-interactive forms, that is, content enclosed in a 
- 
-structure element with the PrintField attribute, would be 
-marked as  structure element. 
-Form
- 
-Link
-Tagged PDF link elements (standard structure type ) use PDF’s logical structure facilities to 
-establish the association between content items and link annotations, providing functionality 
-comparable to HTML hypertext links. The following items may be children of a link element: 
-ADestPA
+th
+𝑟𝑟
+component of the result colour 𝐶𝐶
+ shall be obtained by applying the compositing formula to the  
+𝑏𝑏s𝑏𝑏𝑓𝑓
+components of the constituent colours 𝐶𝐶
+, C, and 𝐵𝐵(𝐶𝐶,𝐶𝐶). The result of the computation thus depends 
+blending colour space
+on the colour space in which the colours are represented. For this reason, the colour space used for 
+compositing, called the , is explicitly made part of the transparent imaging model. 
+The backdrop and source colours are normally converted to the blending colour space before the 
+compositing computation. 
+Of the PDF colour spaces described in 8.6, "Colour spaces", the following shall be supported as blending 
+colour spaces: 
+DeviceGray 
 • 
-One or more content items or other ILSEs (except other links) if ,  and  keys of all of them 
+DeviceRGB
 • 
-have identical values 
-One object reference (see 14.7.5.3, "PDF objects as content items") to one link annotation 
-NOTE 1 By means of the  entry the  or  action in a  annotation it is possible to link 
-SDGoToGoToRLink
-associated with the content 
-directly to a target structure element, as opposed to just targeting an area on a page. 
-14.8.4.7.3Ruby and Warichu elements 
+DeviceCMYK 
+• 
  
-Ruby text
- is a side note, written in a smaller text size and placed adjacent to the base text to which it 
-refers. It is used in Japanese and Chinese to describe the pronunciation of unusual words or to describe 
-such items as abbreviations and logos. 
-© ISO 2017 – All rights reserved 736 
+CalGray 
+• 
+CalRGB 
+• 
+ICCBased
+• 
+Lab
+ ICCBased 
+ bi-directional  ‘GRAY’, ‘RGB ’, and ‘CMYK’ colour spaces 
+L*a*b*, L*u*v*,HSV
+The  space andspaces that represent lightness and chromaticity separately (such as 
+ and ) shall not be used as blending colour spaces because the compositing 
+ ICCBased 
+computations in such spaces do not give meaningful results when applied separately to each 
+component. In addition, anspace used as a blending colour space shall be bi-directional; that 
+is, the ICC profile shall be capable of both device to PCS and PCS to device transformations. 
+When performing blending, process colours (see 10.2, "Raster output device native colour") shall be 
+ Separation  DeviceN 
+converted to the blending colour space. Although blending may also be done on individual spot colours 
+specified in aorcolour space, such colours shall not be converted to a blending 
+colour space (except in the case where they first revert to their alternate colour space, as described 
+under 8.6.6.4, "Separation colour spaces" and 8.6.6.5, "DeviceN colour spaces"). Instead, the specified 
+colour components shall be blended individually with the corresponding components of the backdrop. 
+The blend functions for the various blend modes are defined such that the range for each colour 
+DeviceCMYKICCBasedSeparationDeviceN
+component shall be 0.0 to 1.0 and that the colour space shall be additive. When performing blending 
+operations in subtractive colour spaces (,  ‘CMYK’, , and ), 
+the colour component values shall be complemented (subtracted from 1.0) before the blend function is 
+applied and the results of the function shall then be complemented back before being used. 
+© ISO 2017 – All rights reserved 382 
 
 ISO/DIS 32000-2
  
-Warichu text
- is a comment or annotation, written in a smaller text size and formatted onto two smaller 
-lines within the height of the containing text line and placed following (inline) the base text to which it 
-refers. It is used in Japanese for descriptive comments and for ruby annotation text that is too long to be 
-aesthetically formatted as a ruby. 
-"Table 369: Ruby and Warichu structure types" defines standard structure types for Ruby and Warichu 
-text. 
-Table 369: Ruby and Warichu structure types 
-Structure Category Description 
-Type 
-Ruby 
-RBRT
-Inline Structure element that wraps around an entire ruby assembly.  
-RPRTRP
-It shall contain one  element followed by either an  element or a three-
-Ruby
-element sequence consisting of , , and . 
- structure elements and their content elements shall not break across 
-multiple lines. 
-RB RB
-Inline (Ruby base text) The full-size text to which the ruby annotation is applied.  may 
-RubyAlign
-contain text, other inline elements, or a mixture of both.  
-It may have the  attribute. 
-RT 
-Inline (Ruby annotation text) The smaller-size text that shall be placed adjacent to the 
-RubyAlignRubyPosition
-ruby base text. It may contain text, other inline elements, or a mixture of both. It 
-may have the  and  attributes. 
-RP 
-Inline (Ruby punctuation) Punctuation surrounding the ruby annotation text. It is used 
-only when a ruby annotation cannot be properly formatted in a ruby style and 
-instead is formatted as a normal comment, or when it is formatted as a warichu. It 
-contains text (usually a single LEFT PARENTHESIS or RIGHT PARENTHESIS or 
-similar bracketing character). 
-Warichu 
-WPWTWPWarichu
-Inline (Warichu) The wrapper around the entire warichu assembly. It shall contain a 
-three-element sequence consisting of , , and .  structure 
-elements (and their child structure elements) may wrap across multiple lines, 
-according to the warichu breaking rules described in the Japanese Industrial 
-Standard (JIS) X 4051-1995. 
-WT 
-WP
-Inline (Warichu text) The smaller-size text of a warichu comment that is formatted into 
-two lines and placed between surrounding  elements. 
-WP WT
-Inline (Warichu punctuation) The punctuation that surrounds the content in the  
-structure element. It typically contains text (usually a single LEFT PARENTHESIS 
-or RIGHT PARENTHESIS or similar bracketing character). According to JIS X 4051-
-1995, the parentheses surrounding a warichu may be converted to a SPACE 
-(nominally 1/4 EM in width) at the discretion of the formatter. 
+11.3.5Blend mode 
  
-© ISO 2017 – All rights reserved 737 
-
-ISO/DIS 32000-2
+11.3.5.1General 
  
-14.8.4.8Other structure types 
- 
-14.8.4.8.1General 
- 
-There are a number of other structure types that have a distinct internal structure on their own, or that 
-may be used as grouping level structure elements, as block level structure elements or as inline level 
-structure elements, depending on the context in which they are used. 
-14.8.4.8.2Standard structure types for lists 
- 
-This clause describes structure types for organising the content of lists. H.8.3, "Nested Lists" provides 
-an example of hierarchical list entries. "
+𝑟𝑟
+In principle, any function of the backdrop and source colours that yields another colour, 𝐶𝐶, for the 
+𝑏𝑏𝑓𝑓
+result may be used as a blend function 𝐵𝐵(𝐶𝐶
+,𝐶𝐶), in the compositing formula to customise the blending 
+operation. PDF defines a standard set of named blend functions, or blend modes, listed in "Table 134: 
+RGB
+Standard separable blend modes" and "Table 135: Standard non-separable blend modes". "Figure 72: 
+CMYK
+RGB blend modes" and "Figure 73: CMYK blend modes" illustrate the resulting visual effects for  
+and  colours, respectively. ![Figure 72 RGB blend modes  .jpg](./Storage/Output/Images/Figure 72 RGB blend modes  .jpg)

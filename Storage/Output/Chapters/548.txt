@@ -1,0 +1,41 @@
+Table 353: Entries in the mark 
+information dictionary". It provides additional information relevant to specialised uses of structured 
+PDF documents. 
+© ISO 2017 – All rights reserved 697 
+
+ISO/DIS 32000-2
+ 
+Table 353: Entries in the mark information dictionary 
+Key Type Value 
+Optional
+Marked 
+false
+boolean () A flag indicating whether the document conforms to tagged 
+true
+Suspects
+PDF conventions (see 14.8, "Tagged PDF"). Default value: . 
+If  is , the document may not completely conform to tagged 
+PDF conventions. 
+Optional; PDF 1.6
+UserProperties 
+boolean () A flag indicating the presence of structure elements 
+false
+that contain user properties attributes (see 14.7.6.4, "User properties"). 
+Default value: . 
+Optional; PDF 1.6; deprecated in PDF 2.0
+Suspects 
+false
+boolean () A flag indicating the presence 
+of tag suspects. Default value: .  
+ 
+14.7.2Structure hierarchy 
+ 
+structure 
+hierarchystructure treestructure 
+The logical structure of a document shall be described by a hierarchy of objects called the 
+tree root
+StructTreeRoot
+ or . At the root of the hierarchy shall be a dictionary object called the 
+, located by means of the  entry in the document catalog dictionary (see 7.7.2, 
+K
+"Document catalog dictionary"). "

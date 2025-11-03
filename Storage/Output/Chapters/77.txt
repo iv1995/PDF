@@ -1,65 +1,70 @@
-Table 60: Clipping path operators") may appear after the last path construction operator and before 
-the path-painting operator that terminates a path object. Although the clipping path operator appears 
-After
-before the painting operator, it shall not alter the clipping path at the point where it appears. Rather, it 
-shall modify the effect of the succeeding painting operator.  the path has been painted, the clipping 
-path in the graphics state shall be set to the intersection of the current clipping path and the newly 
-constructed path. 
-Table 60: Clipping path operators 
-Operands Operator Description 
-— 
-W 
-Modify the current clipping path by intersecting it with the current path, using the non-zero 
-winding number rule to determine which regions lie inside the clipping path. 
-— 
-W* 
-Modify the current clipping path by intersecting it with the current path, using the even-odd 
-rule to determine which regions lie inside the clipping path. 
- 
-© ISO 2017 – All rights reserved 173 
+Table 8: Optional parameters for LZWDecode and FlateDecode filters" shows the parameters that may 
+optionally be specified forandfilters. Except where otherwise noted, all 
+© ISO 2017 – All rights reserved 45 
 
 ISO/DIS 32000-2
  
-NOTE 1 In addition to path objects, text objects can also be used for clipping; see 9.3.6, "Text rendering 
-mode". 
-n
-The  operator (see "Table 59: Path-painting operators") is a no-op path-painting operator; it shall 
-W n
-cause no marks to be placed on the page, but can be used with a clipping path operator to establish a 
-new clipping path. That is, after a path has been constructed, the sequence  shall intersect that path 
-with the current clipping path and shall establish a new clipping path. 
-NOTE 2 There is no way to enlarge the current clipping path or to set a new clipping path without 
-reference to the current one. However, since the clipping path is part of the graphics state, its 
-effect can be localized to specific graphics objects by enclosing the modification of the clipping 
-path and the painting of those objects between a pair of and operators (see 8.4.2, "Graphics 
-q  Q
-state stack"). Execution of the  operator causes the clipping path to revert to the value that was 
-Q
-saved by the  operator before the clipping path was modified. 
-8.6Colour spaces 
-q
+values supplied to the decoding filter for any optional parameters shall match those used when the data 
+was encoded. 
+Table 8: Optional parameters for LZWDecode and FlateDecode filters 
+Key Type Value 
+Predictor 
+integer A code that selects the predictor algorithm, if any. If the value of this entry 
+is 1, the filter shall assume that the normal algorithm was used to encode 
+the data, without prediction. If the value is greater than 1, the filter shall 
+Predictor
+assume that the data was differenced before being encoded, and 
+Predictor
+ selects the predictor algorithm. For more information 
+regarding  values greater than 1, see 7.4.4.4, "LZW and Flate 
+predictor functions". Default value: 1. 
+(May be used only if  is greater than 1)
+Colors Predictor
+PDF 
+integer  The number of 
+PDF 1.3
+1.0
+interleaved colour components per sample. Valid values are 1 to 4 (
+) and 1 or greater (). Default value: 1. 
+(May be used only if  is greater than 1)
+BitsPerComponent Predictor
+integer  The number of bits used 
+PDF 1.5
+to represent each colour component in a sample. Valid values are 1, 2, 4, 8, 
+and () 16. Default value: 8. 
+(May be used only if  is greater than 1)
+Columns Predictor
+integer  The number of samples in 
+each row. Default value: 1. 
+ only
+EarlyChange LZWDecode
+integer () An indication of when to increase the code length. If 
+the value of this entry is 0, code length increases shall be postponed as 
+long as possible. If the value is 1, code length increases shall occur one 
+code early. This parameter is included because LZW sample code 
+distributed by some vendors increases the code length one code earlier 
+than necessary. Default value: 1. 
  
-8.6.1General 
+7.4.4.4LZW and Flate predictor functions 
  
-PDF includes facilities for specifying the colours of graphics objects. The colour facilities are divided 
-into two parts: 
-Colour specification
-• 
-colour spaces
-. A PDF file may specify abstract colours in a device-independent way. Colours 
-RGB, CMYK
-may be described in any of a variety of colour systems, or . Some colour spaces are 
-related to device colour representation (grayscale, ), others to human visual perception 
-(CIE-based). Certain special features are also modelled as colour spaces: patterns, colour mapping, 
-Colour rendering
-• 
-separations, and high-fidelity and multitone colour. 
-. A PDF reader shall reproduce colours on the raster output device by a multiple-
-step process that includes some combination of colour conversion, gamma correction, halftoning, 
-and scan conversion. Some aspects of this process use information that is specified in PDF. 
-However, unlike the facilities for colour specification, the colour-rendering facilities are device-
-dependent and should not be included in a page description. 
-When the device is a subtractive colour device, "rendering for separations" may be implemented (see 
-10.8.2, "Separations"). In addition, a PDF reader may optionally support "separation simulation" for any 
-device (see 10.8.3, "Separation simulation"). In both cases overprinting (see 8.6.7, "Overprint control") 
-may be enabled. "
+LZW and Flate encoding compress more compactly if their input data is highly predictable. One way of 
+increasing the predictability of many continuous-tone sampled images is to replace each sample with 
+the difference between that sample and a predictor function applied to earlier neighbouring samples. If 
+the predictor function works well, the postprediction data clusters toward 0. 
+PDF supports two groups of predictor functions. The first, the TIFF group, consists of the single function 
+that is Predictor 2 in the TIFF 6.0 specification. 
+NOTE 1 (In the TIFF 6.0 specification, Predictor 2 applies only to LZW compression, but here it applies to 
+Flate compression as well.) TIFF Predictor 2 predicts that each colour component of a sample is 
+the same as the corresponding colour component of the sample immediately to its left. 
+InternetRFC 
+The second supported group of predictor functions, the PNG group, consists of the filters of the World 
+2083, PNG (Portable Network Graphics) Specification
+Wide Web Consortium’s Portable Network Graphics recommendation, documented in  
+. 
+The term predictors is used here instead of filters to avoid confusion. 
+There are five basic PNG predictor algorithms (and a sixth that chooses the optimum predictor function 
+separately for each row). 
+© ISO 2017 – All rights reserved 46 
+
+ISO/DIS 32000-2
+ 

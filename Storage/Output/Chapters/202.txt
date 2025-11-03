@@ -1,78 +1,74 @@
-Table 225: 
-Signature flags", and 12.7.5.5, "Signature fields"). Default value: 0. 
-(Required if any fields in the document have additional-actions 
-CO 
-dictionaries containing a  entry; PDF 1.3) 
-C
-array 
-An array of indirect 
-calculation order 
-references to field dictionaries with calculation actions, defining the 
-in which their values will be recalculated when 
-the value of any field changes (see 12.6.3, "Trigger events"). 
-(Optional) 
-DR 
-dictionary A resource dictionary (see 7.8.3, "Resource 
-dictionaries") containing default resources (such as fonts, patterns, 
- Font 
-or colour spaces) that shall be used by form field appearance 
-streams. At a minimum, this dictionary shall contain aentry 
-specifying the resource name and font dictionary of the default font 
-for displaying text. 
-(Optional) 
-DA  DA 
-string A document-wide default value for theattribute of 
-variable text fields (see 12.7.4.3, "Variable text"). 
-(Optional) 
-Q 
-integer A document-wide default value for the Q attribute of 
-variable text fields (see 12.7.4.3, "Variable text"). 
-(Optional; deprecated in PDF 2.0) 
-XFA  
-resourceData Package 
- 
-stream or array A stream or array containing an
-(XDP) Specification
-XFA, whose format shall conform to the 
-. 
-See Annex K, "XFA forms" for more information. 
- 
-SigFlags
-The value of the interactive form dictionary’s  entry is an unsigned 32-bit integer containing 
-flags specifying various document-level characteristics related to signature fields (see 12.7.5.5, 
-"Signature fields"). Bit positions within the flag word shall be numbered from 1 (low-order) to 32 (high-
-order). "Table 225: Signature flags" shows the meanings of the flags; all undefined flag bits shall be 
-reserved and shall be set to 0. 
-© ISO 2017 – All rights reserved 514 
+Table 83: Additional entries specific to a Type 6 shading dictionary" shows the shading dictionary 
+entries specific to this type of shading, in addition to those common to all shading dictionaries (see 
+"Table 77: Entries common to all shading dictionaries") and stream dictionaries (see "Table 5: Entries 
+common to all stream dictionaries"). 
+Table 83: Additional entries specific to a Type 6 shading dictionary 
+Key Type Value 
+Required
+BitsPerCoordinate 
+integer () The number of bits used to represent each geometric 
+coordinate. The value shall be 1, 2, 4, 8, 12, 16, 24, or 32. 
+Required
+BitsPerComponent 
+integer () The number of bits used to represent each colour component. 
+The value shall be 1, 2, 4, 8, 12, or 16. 
+Required
+BitsPerFlag 
+integer () The number of bits used to represent the edge flag for each 
+patch (see below). The value shall be 2, 4, or 8, but only the least 
+significant 2 bits in each flag value shall be used. Valid values for the edge 
+flag shall be 0, 1, 2, and 3. 
+Required
+Decode 
+array () An array of numbers specifying how to map coordinates and 
+colour components into the appropriate ranges of values. The decoding 
+method is similar to that used in image dictionaries (see 8.9.5.2, "Decode 
+11
+xxyycc cc
+arrays"). The ranges shall be specified as follows: 
+minmaxminmaxmin,maxn,minn,max
+c
+Function
+[    , … ]  
+Only one pair of  values shall be specified if a  entry is present. 
+© ISO 2017 – All rights reserved 242 
 
 ISO/DIS 32000-2
  
-Table 225: Signature flags 
-Bit position Name Meaning 
-1 SignaturesExist If set, the document contains at least one signature field. This flag 
-allows an interactive PDF processor to enable user interface items 
-(such as menu items or push-buttons) related to signature processing 
-without having to scan the entire document for the presence of 
-signature fields. 
-2 AppendOnly If set, the document contains signatures that may be invalidated if the 
-file is saved (written) in a way that alters its previous contents, as 
-opposed to an incremental update. Merely updating the file by 
-appending new information to the end of the previous version is safe 
-H.7, "Updating example"). Interactive PDF processors may use this 
-(see 
-flag to inform a user requesting a full save that signatures will be 
-invalidated and require explicit confirmation before continuing with 
-the operation. 
+Key Type Value 
+Optionalnn
+Function 
+Function or () A 1-in, -out function or an array of  1-in, 1-out functions 
+array (where n is the number of colour components in the shading dictionary’s 
+colour space). If this entry is present, the colour data for the corner 
+n
+points of each patch shall be specified by a single parametric variable 
+rather than by  separate colour components. The designated function(s) 
+shall be called with each interpolated value of the parametric variable to 
+determine the actual colour at each point. Each input value shall be 
+Decode
+forced into the range interval specified for the corresponding colour 
+component in the shading dictionary’s  array. Each function’s 
+domain shall be a superset of that interval. If the value returned by the 
+function for a given colour component is out of range, it shall be adjusted 
+ Indexed 
+to the nearest valid value.  
+This entry shall not be used with ancolour space. 
  
-12.7.4Field dictionaries 
+The data stream provides a sequence of Bézier control points and colour values that define the shape 
+and colours of each patch. All of a patch’s control points shall be given first, followed by the colour 
+values for its corners. This differs from a triangle mesh (shading types 4 and 5), in which the 
+coordinates and colour of each vertex are given together. All control point coordinates shall be 
+expressed in the shading’s target coordinate space. See 8.7.4.5.5, "Type 4 (free-form Gouraud-shaded 
+triangle mesh) shadings" for further details on the format of the data. 
+As in free-form triangle meshes (Type 4), each patch has an edge flag that indicates which edge, if any, it 
+x
+ yxyxy
+shares with the previous patch. An edge flag of 0 begins a new patch, unconnected to any other. This 
+11221212
+shall be followed by 12 pairs of coordinates, 
+  … , which specify the Bézier control points that 
+C
+, C, D, and D
  
-12.7.4.1General 
- 
-field dictionary
-Each field in a document’s interactive form shall be defined by a , which shall be an 
-inheritable
-indirect object. The field dictionaries may be organised hierarchically into one or more tree structures. 
-Many field attributes are , meaning that if they are not explicitly specified for a given field, 
-their values are taken from those of its parent in the field hierarchy. Such inheritable attributes shall be 
-Required; inheritable
-designated as such in the "Table 226: Entries common to all field dictionaries" and "
+define the four boundary curves. "

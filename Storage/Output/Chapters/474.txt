@@ -1,0 +1,27 @@
+Algorithm: Media Player 
+ 
+NU
+ 
+a)The content type is known and the player does not support the type. 
+MU
+ 
+b)The player is found in the  array of either dictionary.  
+MU
+c)Both dictionaries have non-empty  arrays and the player is not found in both of them, or only one of 
+MU
+ 
+the dictionaries has a non-empty  array and the player is not found in it.  
+A
+d)Neither dictionary has a non-empty  array, the content type is not known, and the player is not found 
+true
+in the  array of either dictionary.  
+If none of the conditions are , the player may be used. 
+NOTE 2 A player is "found" in the , , or  arrays if it matches the information found in the  entry 
+NUMUAPID
+of one of the entries, as described by the Algorithm in 13.2.7.4, "Software identifier dictionary". 
+13.2.7.3Media player info dictionary 
+ 
+media player info dictionary
+A  shall provide a variety of information regarding a specific media player. 
+PID
+Its entries (see "

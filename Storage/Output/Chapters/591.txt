@@ -1,0 +1,61 @@
+Table 394: Web Capture command flags". Only those flags defined in "Table 394: Web Capture 
+command flags" may be set to 1; all other flags shall be 0. Flags not defined in "Table 394: Web Capture 
+command flags" are reserved for future use, and shall not be used by a PDF processor. 
+NOTE 1 The low-order bit of the flags value is referred to as being at bit-position 1. 
+Table 394: Web Capture command flags 
+Bit position Name Meaning 
+1 
+SameSite If set, pages were retrieved only from the host specified in the initial URL. 
+2 
+SamePath If set, pages were retrieved only from the path specified in the initial URL. 
+3 
+Submit If set, the command represents a form submission. 
+ 
+The SamePath flag shall be set if the retrieval of source content was restricted to source content in the 
+Relative Uniform Resource Locators
+same path as specified in the initial URL. Source content is in the same path if its scheme and network 
+  
+location components (as defined in Internet RFC 1808, ) match those 
+of the initialURLand its path component matches up to and including the last forward slash ( / ) 
+character in the initial URL. 
+    
+EXAMPLE 1 theURLhttp://www.iso.org/fiddle/faddle/foo.html is considered to be in the same path as the initialURL
+http://www.iso.org/fiddle/initial.html. 
+The comparison shall be case-insensitive for the scheme and network location components and case-
+sensitive for the path component. 
+P
+ URL P
+The Submit flag shall be set when the command represents a form submission. If no  (posted data) 
+Submit 
+entry is present, the submitted data shall be encoded in the(an HTTP GET request). If  is present, 
+the command shall be an HTTP POST request. In this case, the value of the flag shall be ignored. 
+NOTE 2 If the posted data is small enough, it can be represented by a string. For large amounts of data, a 
+stream needs to be used because it can be compressed. 
+CT
+© ISO 2017 – All rights reserved 781 
+The  (content type) entry shall only be present for POST requests. It shall describe the content type of 
+
+ISO/DIS 32000-2
+ 
+Multipurpose Internet Mail Extensions (MIME), Part 
+One: Format of Internet Message Bodies
+the posted data, as described in Internet RFC 2045, 
+. 
+H
+The  (headers) entry, if present, shall specify additional HTTP request headers that were sent in the 
+request for the URL. Each header line in the string shall be terminated with a CARRIAGE RETURN and a 
+LINE FEED, as in this example: 
+EXAMPLE 2 (Referer: http://frumble.com\015\012From:veeble@frotz.com\015\012) 
+Hypertext Transfer Protocol —
+HTTP/1.1
+The HTTP request header format is specified in Internet RFC 2616, 
+. 
+S
+The  (settings) entry specifies a command settings dictionary (see 14.10.5.4, "Command settings"). 
+Holding settings specific to the conversion engines. 
+14.10.5.4Command settings 
+ 
+S
+The  (settings) entry in a command dictionary, if present, shall contain a command settings dictionary, 
+which holds settings for conversion engines that shall be used in converting the results of the command 
+to PDF. "

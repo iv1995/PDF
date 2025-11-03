@@ -1,211 +1,148 @@
-Table 358: Entries in an object reference 
-dictionary"). 
-NOTE 1 This form of reference is used only for entire objects. If the referenced content forms only part of 
-the object’s content stream, it is instead handled as a marked-content sequence, as described in 
-14.7.5.2, "Marked-content sequences as content items". 
-Table 358: Entries in an object reference dictionary 
+Table 132: Entries in a Type 5 halftone dictionary") is a composite 
+dictionary containing independent halftone definitions for multiple colourants. Its keys shall be name 
+objects representing the names of individual colourants or colour components. The values associated 
+with these keys shall be other halftone dictionaries, each defining the halftone screen and transfer 
+function for a single colourant or colour component. The component halftone dictionaries shall not be 
+© ISO 2017 – All rights reserved 371 
+
+ISO/DIS 32000-2
+ 
+of halftone Type 5. 
+Table 132: Entries in a Type 5 halftone dictionary 
 Key Type Value 
-Required
+Optional
 Type 
-OBJR
-name () The type of PDF object that this dictionary describes; shall be 
- for an object reference. 
-Optional; shall be an indirect reference
-Pg 
-Pg
-dictionary () The page object of the page on 
-which the object shall be rendered. This entry overrides any  entry in 
-the structure element containing the object reference; it shall be used if 
-the structure element has no such entry. 
-Required; shall be an indirect reference
-Obj 
-(any) () The referenced object. 
+Halftone
+name () The type of PDF object that this dictionary describes; if present, shall be 
+ for a halftone dictionary. 
+Required
+HalftoneType 
+number () A code identifying the halftone Type that this dictionary describes; shall 
+be 5 for this Type of halftone. 
+Optional
+HalftoneName 
+byte string () The name of the halftone dictionary. 
+Required, one per colourant
+any colourant 
+name 
+dictionary or () The halftone corresponding to the colourant or colour 
+stream component named by the key. The halftone may be of any Type other than 5. 
+Required
+Default 
+dictionary or () A halftone that shall be used for any colourant or colour component that 
+stream does not have an entry of its own. The value shall not be 5. If there are any 
+nonprimary colourants, the default halftone shall have a transfer function. 
  
-NOTE 2 If the referenced object is rendered on multiple pages, each rendering requires a separate object 
-reference. However, if it is rendered multiple times on the same page, just a single object reference 
-suffices to identify all of them. (If it is important to distinguish between multiple renditions of the 
-same XObject on the same page, they need to be accessed by means of marked-content sequences 
-enclosing particular invocations of the  operator rather than through object references.) 
-Do
-14.7.5.4Finding structure elements from content items 
- 
-Because a stream cannot contain object references, there is no way for content items that are marked-
-structural parent tree
-content sequences to refer directly back to their parent structure elements (the ones to which they 
-belong as content items). Instead, a different mechanism, the , shall be provided 
-for this purpose. For consistency, content items that are entire PDF objects, such as XObjects, shall also 
-use the parent tree to refer to their parent structure elements. 
-© ISO 2017 – All rights reserved 708 
-
-ISO/DIS 32000-2
- 
-ParentTree
-The parent tree is a number tree (see 7.9.7, "Number trees"), accessed from the  entry in a 
-document’s structure tree root ("Table 354: Entries in the structure tree root"). The tree shall contain 
-an entry for each object that is a content item of at least one structure element and for each content 
-StructParentStructParents
-stream containing at least one marked-content sequence that is a content item. The key for each entry 
-shall be an integer given as the value of the  or  entry in the object (see 
-"Table 359: Additional dictionary entries for structure element access"). The values of these entries 
-shall be as follows: 
+Default
+The colourants or colour components represented in a Type 5 halftone dictionary (aside from the 
+ entry) fall into two categories: 
+GrayDeviceGray
 • 
-For an object identified as a content item by means of an object reference (see 14.7.5.3, "PDF 
+RedGreenBlueDeviceRGBCyanMagentaYellowBlackDeviceCMYK
+Primary colour components for the standard native device colour spaces ( for ; 
+ Separation  DeviceN 
 • 
-objects as content items"), the value shall be an indirect reference to the parent structure element. 
-For a content stream containing marked-content sequences that are content items, the value shall 
-be an array of indirect references to the sequences’ parent structure elements. The array element 
-corresponding to each sequence shall be found by using the sequence’s marked-content identifier 
-NOTE Because marked-content identifiers serve as indices into an array in the structural parent tree, 
-as a zero-based index into the array. 
-their assigned values need to be as small as possible to conserve space in the array. 
-ParentTreeNextKey
-The  entry in the structure tree root shall hold an integer value greater than any 
-ParentTreeNextKey
-that is currently in use as a key in the structural parent tree. Whenever a new entry is added to the 
-parent tree, the current value of  shall be used as its key. The value shall be then 
-incremented to prepare for the next new entry to be added. 
-StructParentStructParents
-To locate the relevant parent tree entry, each object or content stream that is represented in the tree 
-shall contain a special dictionary entry,  or  (see "Table 359: Additional 
-dictionary entries for structure element access"). Depending on the type of content item, this entry may 
-appear in the page object of a page containing marked-content sequences, in the stream dictionary of a 
-form or image XObject, or in an annotation dictionary. Its value shall be the integer key under which the 
-entry corresponding to the object shall be found in the structural parent tree. 
-Table 359: Additional dictionary entries for structure element access 
-Key Type Value 
-Required for all objects that are structural content items; PDF 1.3
-StructParent 
-integer () The integer key 
-of this object’s entry in the structural parent tree. 
-Required for all content streams containing marked-content sequences that are 
-StructParents 
-structural content items; PDF 1.3
-integer (
-) The integer key of this object’s entry in the 
-structural parent tree. At most one of these two entries shall be present in a given 
-object. An object may be either a content item in its entirety or a container for 
-marked-content sequences that are content items, but not both. 
+, , and  for ; , , , and  for ;). 
+Nonstandard colour components for use as spot colourants inandcolour 
+spaces. Some of these may also be used as process colourants if the native colour space is 
+nonstandard. 
+When a halftone dictionary of some other Type appears as the value of an entry in a Type 5 halftone 
+dictionary, it shall apply only to the single colourant or colour component named by that entry’s key. 
+This is in contrast to such a dictionary’s being used as the current halftone parameter in the graphics 
+state, which shall apply to all colour components. If nonprimary colourants are requested when the 
+current halftone is defined by any means other than a Type 5 halftone dictionary, the gray halftone 
+screen and transfer function shall be used for all such colourants. 
+EXAMPLE In this example, the halftone dictionaries for the colour components and for the default all use the same spot 
+function.  
+27 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 5 
+   /Cyan 31 0 R 
+   /Magenta 32 0 R 
+   /Yellow 33 0 R 
+   /Black 34 0 R 
+   /Default 35 0 R 
+  >> 
+endobj 
  
-StructParent
-For a content item identified by an object reference, the parent structure element may be found by 
-ParentTree
-using the value of the  entry in the item’s object dictionary as a retrieval key in the 
-structural parent tree (found in the  entry of the structure tree root). The corresponding 
-value in the parent tree shall be a reference to the parent structure element (see Example 1). 
-EXAMPLE 1  
-1 0 obj             %Parent structure element 
-  <</Type /StructElem 
-© ISO 2017 – All rights reserved 709 
+31 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 1 
+   /Frequency 89.827 
+   /Angle 15 
+   /SpotFunction /Round 
+© ISO 2017 – All rights reserved 372 
 
 ISO/DIS 32000-2
  
-   … 
-   /K <</Type /OBJR       %Object reference 
-     /Pg 2 0 R       %Page containing form XObject 
-     /Obj 4 0 R       %Reference to form XObject 
-    >> 
+   /AccurateScreens true 
   >> 
 endobj 
  
-2 0 obj             %Page object 
-  <</Type /Page 
-   /Resources <</XObject  <</Fm4 4 0 R>> %Resource dictionary 
-       >>        %containing form XObject 
-   /Contents 3 0 R       %Content stream 
-   … 
+32 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 1 
+   /Frequency 89.827 
+   /Angle 75 
+   /SpotFunction /Round 
+   /AccurateScreens true 
   >> 
 endobj 
  
-3 0 obj             %Page's content stream 
-  <</Length …>> 
-stream 
-  … 
-  /Fm4 Do           %Paint form XObject 
-  … 
-endstream 
-endobj 
- 
-4 0 obj             %Form XObject 
-  <</Type /XObject 
-   /Subtype /Form 
-   /Length … 
-   /StructParent 6       %Parent tree key 
-  >> 
-stream 
-  … 
-endstream 
-endobj 
- 
-100 0 obj            %Parent tree (accessed from structure tree root) 
-  <</Nums [0 101 0 R 
-     1 102 0 R 
-     … 
-     6 1 0 R        %Entry for page object 2; points back 
-     …          %to parent structure element 
-      ] 
+33 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 1 
+   /Frequency 90.714 
+   /Angle 0 
+   /SpotFunction /Round 
+   /AccurateScreens true 
   >> 
 endobj 
  
-For a content item that is a marked-content sequence, the retrieval method is similar but slightly more 
-StructParents
-complicated. Because a marked-content sequence is not an object in its own right, its parent tree key 
-shall be found in the  entry of the page object or other content stream in which the 
-sequence resides. The value retrieved from the parent tree shall not be a reference to the parent 
-structure element itself but to an array of such references — one for each marked-content sequence 
-contained within that content stream. The parent structure element for the given sequence shall be 
-found by using the sequence’s marked-content identifier as an index into this array (see Example 2). 
-EXAMPLE 2  
-1 0 obj            %Parent structure element 
-  <</Type /StructElem 
-   … 
-   /Pg 2 0 R        %Page containing marked-content sequence 
-   /K 0          %Marked-content identifier 
+34 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 1 
+   /Frequency 89.803 
+   /Angle 45 
+   /SpotFunction /Round 
+   /AccurateScreens true 
   >> 
-© ISO 2017 – All rights reserved 710 
+endobj 
+ 
+35 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 1 
+   /Frequency 90.0 
+   /Angle 45 
+   /SpotFunction /Round 
+   /AccurateScreens true 
+  >> 
+endobj 
+ 
+10.7Scan conversion details 
+ 
+10.7.1General 
+ 
+scan conversion
+The final step of rendering shall be . The PDF processor executes a scan conversion 
+algorithm to paint graphics, text, and images in the raster memory of the output device. 
+NOTE The specifics of the scan conversion algorithm are not defined as part of PDF. Different 
+implementations might perform scan conversion in different ways; techniques that are 
+appropriate for one device might be inappropriate for another. Still, it is useful to have a general 
+understanding of how scan conversion works, particularly when creating PDF files intended for 
+viewing on a display. At the low resolutions typical of displays, variations of even one pixel’s width 
+can have a noticeable effect on the appearance of painted shapes. 
+Most scan conversion details are not under program control, but a few are; the parameters for 
+controlling them are described here. 
+© ISO 2017 – All rights reserved 373 
 
 ISO/DIS 32000-2
  
-endobj 
+10.7.2Flatness tolerance 
  
-2 0 obj            %Page object 
-  <</Type /Page 
-   /Contents 3 0 R      %Content stream 
-   /StructParents 6      %Parent tree key 
-   … 
-  >> 
-endobj 
- 
-3 0 obj            %Page's content stream 
-  <</Length …>> 
-stream 
-  … 
-   
-  /P <</MCID 0>>        %Start of marked-content sequence 
-    BDC 
-     (Here is some text) TJ 
-     … 
-    EMC         %End of marked-content sequence 
-  …  
-endstream 
-endobj 
- 
-100 0 obj           %Parent tree (accessed from structure tree root) 
-  <</Nums [0 101 0 R 
-     1 102 0 R 
-     … 
-     6 [1 0 R]      %Entry for page object 2; array element at index 0 
-     …         %points back to parent structure element 
-      ] 
-  >> 
-endobj 
- 
-14.7.6Structure attributes 
- 
-14.7.6.1General 
- 
-A PDF processor that processes logical structure may attach additional information, called attributes, to 
-any structure element. The attribute information shall be held in one or more attribute objects 
-O
-associated with the structure element. An attribute object shall be a dictionary or stream that includes 
-NS
-an  entry (see "
+flatness tolerance
+The  controls the maximum permitted distance in device pixels between the 
+i
+mathematically correct path and an approximation constructed from straight line segments, as shown 
+ FL 
+in "

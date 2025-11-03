@@ -1,0 +1,13 @@
+Figure Annex K.2: Comparison of two dictionaries 
+J.3.7Stream objects 
+ 
+Given two streams, there are two things to compare - the stream data and the associated dictionary. 
+Comparison of the dictionary was addressed in the previous subclause. 
+The stream of data in a PDF may have had one or more filters applied to it ("Table 5: Entries common to 
+© ISO 2017 – All rights reserved 907 
+
+ISO/DIS 32000-2 
+all stream dictionaries") that compress or encoded the stream’s data. In order to compare the streams, 
+all filters shall be removed and the original (unfiltered) data shall be used for all comparisons. The 
+actual comparison of the data stream shall be done using a simple linear binary (byte-for-byte) 
+comparison. ![71.png](./Storage/Output/Images/71.png)

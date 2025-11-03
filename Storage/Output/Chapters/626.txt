@@ -1,0 +1,34 @@
+ 
+ 
+Example PDF Files 
+(Informative) 
+H.1General 
+ 
+This annex presents several examples showing the structure of actual PDF files: 
+• 
+A minimal file that can serve as a starting point for creating other PDF files (and that is the basis of 
+• 
+later examples) (see H.2, "Minimal PDF file") 
+A simple example that shows a text string, the classic "Hello World" (see H.3, "Simple text string 
+• 
+example") 
+• 
+A simple graphics example that draws lines and shapes (see H.4, "Simple graphics example") 
+A fragment of a PDF file that illustrates the structure of the page tree for a large document (see H.5, 
+"Page tree example") and, similarly, two fragments that illustrate the structure of an outline 
+• 
+hierarchy (see H.6, "Outline hierarchy example") 
+An example showing the structure of a PDF file as it is updated several times, illustrating multiple 
+NOTE The Length values of stream objects in the examples and the byte addresses in cross-reference 
+body sections, cross-reference sections, and trailers (see H.7, "Updating example") 
+tables are not necessarily accurate. 
+• 
+An example showing various cases of structure elements in a tagged PDF (see H.8, "Structure 
+elements examples") 
+H.2Minimal PDF file 
+ 
+The example in this clause is a PDF file that does not draw anything; it is almost the minimum 
+Contents
+acceptable PDF file. It is not strictly the minimum acceptable because it contains a page content stream 
+( in the page object), and a metadata stream. These objects were included to make this file 
+useful as a starting point for creating other, more realistic PDF files. "

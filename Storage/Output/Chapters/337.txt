@@ -1,0 +1,63 @@
+Table 173: Additional entries in an annotation dictionary specific to external data" lists annotation 
+dictionary entries that apply to external data. 
+Table 173: Additional entries in an annotation dictionary specific to external data 
+Key Type Value 
+(Optional; PDF 1.7) external data dictionary 
+ExData 
+dictionary An specifying data that shall be 
+associated with the annotation. This dictionary contains the following 
+(optional) ExData
+Type
+entries: 
+(required) 
+Subtype
+ If present, shall be . 
+ a name specifying the type of data that the 
+markup annotation shall be associated with. Possible 
+-Markup3D (PDF 1.7) 
+ 
+values include: 
+for a 3D comment. Additional entries in this 
+dictionary are listed in "Table 309: Additional entries specific to a 
+-3DM (PDF 2.0) 
+ 
+3D annotation" 
+for a 3D measurement. Additional entries in this 
+dictionary are listed in "Table 331: Additional entries in a 3D 
+measurement/markup dictionary for a 3D comment noteTable 332: 
+-MarkupGeo (PDF 2.0) 
+Subtype
+ 
+Entries in the external data dictionary of a projection annotation". 
+for geospatial markup. This  does not 
+define any additional entries. 
+ 
+ IRT 
+In PDF 1.6, a set of annotations may be grouped so that they function as a single unit when a user 
+ IRT 
+interacts with them. The group consists of a primary annotation, which shall not have anentry, and 
+one or more subordinate annotations, which shall have anentry that refers to the primary 
+© ISO 2017 – All rights reserved 467 
+
+ISO/DIS 32000-2
+ 
+Group
+ RT 
+annotation and anentry whose value is . 
+Some entries in the primary annotation are treated as "group attributes" that shall apply to the group as 
+Contents RC DSMCTPopupCreationDateSubjOpen
+a whole; the corresponding entries in the subordinate annotations shall be ignored. These entries are 
+ (orand ), , , , , , , and . Operations that manipulate 
+any annotation in a group, such as movement, cut, and copy, shall be treated by interactive PDF 
+processors as acting on the entire group. 
+NOTE 3 A primary annotation may have replies that are not subordinate annotations; that is, that do not 
+have anvalue of . 
+ RT 
+12.5.6.3Annotation states 
+ 
+Group
+Beginning with PDF 1.5, annotations may have an author-specific state associated with them. The state 
+ IRT 
+is not specified in the annotation itself but in a separate text annotation that refers to the original 
+annotation by means of its("in reply to") entry (see "Table 176: Additional entries specific to a link 
+annotation"). States shall be grouped into a number of state models, as shown in "

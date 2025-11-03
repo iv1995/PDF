@@ -1,0 +1,128 @@
+Table 287: Entries in a media clip 
+data MH/BE dictionary") shall be honoured for the media clip data to be 
+considered viable. 
+Optional
+BE 
+dictionary () A dictionary whose entries (see "Table 289: Entries in a media clip 
+section MH/BE dictionary") should only be honoured in a "best effort" sense. 
+ 
+DType
+Type
+The media clip data object is non-viable if the object referenced by the  entry does not contain a  
+entry, the  entry is unrecognised, or the referenced object is not a dictionary or stream. 
+This shall effectively exclude the use of simple file specifications (see 7.11, "File specifications"). 
+D
+Subtype
+If  references a file specification that has an embedded file stream (see 7.11.4, "Embedded file 
+CT
+streams"), the embedded file stream’s  entry shall be ignored if present, and the media clip data 
+dictionary’s  entry shall identify the type of data. 
+© ISO 2017 – All rights reserved 600 
+
+ISO/DIS 32000-2
+ 
+D
+If  references a form XObject, the associated player is implicitly the interactive PDF processor, and the 
+form XObject shall be rendered as if it were any other data type. 
+FD
+The  and  entries in the media play parameters dictionary (see "Table 290: Entries in a media play 
+parameters dictionary") apply to a form XObject just as they do to a QuickTime movie. 
+For media other than form XObjects, the media clip object shall provide enough information to allow an 
+interactive PDF processor to locate an appropriate player. This may be done by providing one or both of 
+the following entries, the first being the preferred method: 
+CT
+• 
+A  entry that specifies the content type of the media. If this entry is present, any player that is 
+PLCT
+• 
+selected shall support this content type. 
+PL
+A  entry that specifies one or more players that may be used to play the referenced media. if  
+P
+is present, there should also be a  present. 
+The  entry specifies a media permissions dictionary (see "Table 286: Entries in a media permissions 
+dictionary") specifying the manner in which the data referenced by the media may be used by an 
+interactive PDF processor. These permissions allow authors control over how their data is exposed to 
+operations that could allow it to be copied. If the dictionary contains unrecognised entries or entries 
+with unrecognised values, it is considered non-viable, and the interactive PDF processor shall not play 
+the media. 
+Table 286: Entries in a media permissions dictionary 
+Key Type Value 
+Optional
+Type 
+MediaPermissions
+name () The type of PDF object that this dictionary describes; if present, shall 
+be  for a media permissions dictionary. 
+Optional
+TF 
+ASCII string () An ASCII string indicating the circumstances under which it is 
+acceptable to write a temporary file in order to play a media clip. Valid values 
+(TEMPNEVER)
+are:  
+(TEMPEXTRACT)
+ Never allowed. 
+ Allowed only if the document permissions allow content 
+extraction; when bit 5 of the user access permissions (see 
+(TEMPACCESS)
+"Table 22: User access permissions") is set. 
+ Allowed only if the document permissions allow content 
+extraction, including for accessibility purposes; when bits 
+5 or 10 of the user access permissions (see "Table 22: 
+(TEMPALWAYS)
+User access permissions") are set, or both.  
+(TEMPNEVER).
+ Always allowed.  
+(TEMPNEVER).
+Default value:  
+An unrecognised value shall be treated as  
+ 
+(TEMPNEVER).
+An unrecognised value shall be treated as  
+BUMH BE 
+  
+The  entry in the media clip data  anddictionaries (see "Table 287: Entries in a media clip 
+BU
+data MH/BE dictionary") specifies a baseURLfor the media data. Relative URLs in the media (which 
+BU
+point to auxiliary files or are used for hyperlinking) should be resolved with respect to the value of . 
+The following are additional requirements concerning the  entry: 
+BUMH  
+• 
+If  is in the  dictionary and the baseURLis not honoured the media clip data shall be non-
+© ISO 2017 – All rights reserved 601 
+
+ISO/DIS 32000-2
+ 
+NOTE 2 An example of this is that the player does not accept base URLs. 
+viable. 
+  
+• 
+Determining the viability of the object shall not require checking whether the baseURLis valid 
+• 
+(i.e., the target host exists). 
+BU
+• 
+Absolute URls within the media shall not be affected. 
+NOTE 3 An example of this is that the <BASE> element is defined in HTML. 
+If the media itself contains a base URL, that value shall be used in preference to . 
+BU URI 
+• 
+ is completely independent of and unrelated to the value of theentry in the document 
+BU  
+• 
+catalog dictionary (see 7.7.2, "Document catalog dictionary"). 
+BU BE 
+If  is not present and the media is embedded within the document, theURLto the PDF file itself 
+shall be used as if it were the value of a  entry in thedictionary; that is, as an implicit best-
+effort base URL. 
+Table 287: Entries in a media clip data MH/BE dictionary 
+Key Type Value 
+Optional
+BU     
+ASCII string () An absoluteURLthat shall be used as the baseURLin resolving any 
+relative URLs found within the media data. 
+ 
+13.2.4.3Media clip section 
+ 
+media clip section dictionary
+A  (see "

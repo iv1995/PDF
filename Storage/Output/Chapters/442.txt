@@ -1,0 +1,73 @@
+Table 271: Entries in a projected coordinate system dictionary" lists the entries in a projected 
+ DCS 
+coordinate system dictionary. A projected coordinate system dictionary may be a value of theor 
+theentry of a geospatial measure dictionary, "Table 269: Additional entries in a geospatial measure 
+dictionary". 
+Table 271: Entries in a projected coordinate system dictionary 
+Key Type Description 
+Required; PDF 2.0
+Type 
+PROJCS
+name () The type of PDF object that this dictionary describes; 
+shall be  for a projected coordinate system dictionary. 
+Optional; PDF 2.0
+EPSG  EPSG 
+integer () Anreference code specifying the projected 
+coordinate system. 
+Optional; PDF 2.0
+WKT 
+ASCII string () A string of Well Known Text describing the projected 
+coordinate system. 
+ 
+ EPSG  WKT 
+Either ancode or astring shall be required in the projected coordinate system dictionary. 
+ WKT 
+EXAMPLE 1 Adescribing a geographic coordinate system 
+ WKT  EPSG 
+ An example ofdescription of a geographic coordinate system, formatted for readability. Thecode 
+equivalent to the GCS_North_American_1983 geographic coordinate system is 4269. 
+GEOGCS["GCS_North_American_1983", 
+  DATUM[ 
+   "D_North_American_1983", 
+   SPHEROID["GRS_1980",6378137.0,298.257222101] 
+  ], 
+  PRIMEM["Greenwich",0.0], 
+  UNIT["Degree",0.0174532925199433] 
+] 
+ WKT 
+EXAMPLE 2 Adescribing a projected coordinate system 
+ WKT  EPSG 
+ An example ofdescription of a projected coordinate system, formatted for readability. Thecode 
+equivalent to the North_American_Albers_Equal_Area_Conic projected coordinate system is 102008. 
+PROJCS["North_America_Albers_Equal_Area_Conic",  
+  GEOGCS["GCS_North_American_1983", 
+   DATUM["D_North_American_1983", 
+    SPHEROID["GRS_1980",6378137.0, 298.257222101] 
+   ], 
+   PRIMEM["Greenwich",0.0], 
+   UNIT["Degree",0.0174532925199433] 
+  ], 
+  PROJECTION["Albers"], 
+   PARAMETER["False_Easting",0.0], 
+   PARAMETER["False_Northing",0.0], 
+   PARAMETER["Central_Meridian",-96.0], 
+   PARAMETER["Standard_Parallel_1",20.0], 
+   PARAMETER["Standard_Parallel_2",60.0] 
+   PARAMETER["Latitude_Of_Origin",40.0], 
+   UNIT["Meter",1.0] 
+© ISO 2017 – All rights reserved 585 
+
+ISO/DIS 32000-2
+ 
+  ] 
+ 
+12.10.5Point data dictionary 
+ 
+  
+GEO
+   PtData 
+Any 2D object (Viewport,ImageXObject, or Form XObject) that contains a measure dictionary ("Table 
+ PtData 
+266: Entries in a measure dictionary") of subtypecan optionally include aentry. The value 
+of aentry is a point data dictionary or an array of point data dictionaries of extended data 
+associated with points in the 2D space. "

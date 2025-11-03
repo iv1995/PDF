@@ -1,139 +1,225 @@
-Table 278: Entries in a rendition MH/BE dictionary") 
-• 
-Media clip data ("Table 287: Entries in a media clip data MH/BE dictionary") 
-• 
-Media clip section ("Table 289: Entries in a media clip section MH/BE dictionary") 
-• 
-Media play parameters ("Table 291: Entries in a media play parameters MH/BE dictionary") 
-13.2.3Renditions 
+Table 
+101: Entries in a usage application dictionary" shows the entries in a usage application dictionary. 
+Table 101: Entries in a usage application dictionary 
+Key Type Value 
+Required
+Event 
+View, PrintExport
+name () A name defining the situation in which this usage application 
+dictionary should be used. Shall be one of , or . 
+Optional
+OCGs 
+array () An array listing the optional content groups that shall have 
+their states automatically managed based on information in their usage 
+dictionary (see 8.11.4.3, "Usage and usage application dictionaries"). 
+Default value: an empty array, indicating that no groups shall be affected. 
+Required
+Category 
+array () An array of names, each of which corresponds to a usage 
+dictionary entry (see "Table 100: Entries in an optional content usage 
+OCG
+dictionary"). When managing the states of the optional content groups in 
+the s array, each of the corresponding categories in the group’s usage 
+dictionary shall be considered. 
  
-Media screen parameters ("Table 294: Entries in a media screen parameters MH/BE dictionary") 
-13.2.3.1General 
- 
-There are two types of rendition objects: 
-media rendition
-• 
-A  (see 13.2.3.2, "Media renditions") is a basic media object that specifies what to 
-selector rendition
-• 
-play, how to play it, and where to play it. 
-A  (see 13.2.3.3, "Selector renditions") contains an ordered list of renditions. This 
-list may include other selector renditions, resulting in a tree whose leaves are media renditions. 
-The interactive PDF processor should play the first viable media rendition it encounters in the tree 
-NOTE 1 "Table 277: Entries common to all rendition dictionaries" shows the entries common to all 
-(see 13.2.2, "Viability"). 
-rendition dictionaries. The  entry in a rendition dictionary specifies a name that can be used to 
-N
-access the rendition object by means of name tree lookup (see "Table 32: Entries in the name 
-dictionary").ECMAScriptactions (see 12.6.4.17, "ECMAScript actions"), for example, use this 
-  
-mechanism. 
-Since the values referenced by name trees shall be indirect objects, all rendition objects should be 
-indirect objects. 
-NOTE 2 A rendition dictionary is not required to have a name tree entry. When it does, the interactive PDF 
-processor needs to ensure that the name specified in the tree is kept the same as the value of the  
-N
-entry (for example, if the user interface allows the name to be changed). As a consequence it is 
-recommended that a document not contain multiple renditions with the same name. 
-MH BE 
-C
-The  andentries are dictionaries whose entries may be present in one or the other of them, as 
-described in 13.2.2, "Viability". For renditions, these dictionaries shall have a single entry  (see "Table 
-© ISO 2017 – All rights reserved 595 
+Event
+OCGs
+The  entry specifies whether the usage settings shall be applied during viewing, printing, or 
+OCGs
+exporting the document. The  entry specifies the set of optional content groups to which usage 
+Category
+settings shall be applied. For each of the groups in , the entries in its usage dictionary (see "Table 
+recommended state
+ON
+100: Entries in an optional content usage dictionary") specified by  shall be examined to yield 
+a recommended state for the group. If all the entries yield a  of , the group’s state 
+© ISO 2017 – All rights reserved 283 
 
 ISO/DIS 32000-2
  
-278: Entries in a rendition MH/BE dictionary"), whose value shall have a media criteria dictionary 
-specifying a set of criteria that shall be met for the rendition to be considered viable (see "Table 279: 
-Entries in a media criteria dictionary"). 
-MHBE
-The media criteria dictionary behaves somewhat differently than other / entries, as they are 
-MH BE  BE 
-described in 13.2.2, "Viability". The criteria specified by all of its entries shall be met regardless of 
-whether they are in an  or adictionary. The only exception is that if an entry in adictionary is 
-MHBE
-unrecognised by the interactive PDF processor, it shall not affect the viability of the object. If a media 
-MH BE 
-criteria dictionary is present in both  and , the entries in both dictionaries shall be individually 
-evaluated, with  taking precedence (correspondingentries shall be ignored). 
-Table 277: Entries common to all rendition dictionaries 
-Key Type Value 
-Optional
-Type 
-Rendition
-name () The type of PDF object that dictionary describes; if present, shall be 
- for a rendition object. 
-RequiredMR
-S   
-SR
-  
-name () The type of rendition that this dictionary describes. May befor 
-media rendition orfor selector rendition. The rendition is non-viable if the 
-interactive PDF processor does not recognise the value of this entry. 
-Optional
-N 
-  
-text string () A Unicode-encoded text string specifying the name of the rendition 
-for use in a user interface and for name tree lookup byECMAScriptactions. 
-Optional
-MH 
-dictionary () A dictionary whose entries (see "Table 278: Entries in a rendition 
-MH/BE dictionary") shall be honoured for the rendition to be considered viable. 
-Optional
-BE 
-dictionary () A dictionary whose entries (see "Table 278: Entries in a rendition 
-MH/BE dictionary") shall only be honoured in a "best effort" sense. 
-Table 278: Entries in a rendition MH/BE dictionary 
-Key Type Value 
-Optional
-C 
-dictionary () A media criteria dictionary (see "Table 279: Entries in a media 
-MH BE 
-criteria dictionary"). 
-The media criteria dictionary behaves somewhat differently than other /
-MH BE 
-". The criteria specified by all of its entries 
-entries described in 13.2.2, "Viability
- BE 
-shall be met regardless of whether it is in a  or adictionary. The only 
-exception is that if an entry in adictionary is unrecognised by the interactive 
-PDF processor, it shall not affect the viability of the object. 
-Table 279: Entries in a media criteria dictionary 
-Key Type Value 
-Optional
-Type 
-MediaCriteria
-name () The type of PDF object that this dictionary describes; if present, shall 
-be  for a media criteria dictionary. 
-Optional
-A 
-boolean () If specified, the value of this entry shall match the user’s preference 
-NOTE 1 Equivalent to SMIL’s systemAudioDesc attribute. 
-for whether to hear audio descriptions in order for this object to be viable. 
-© ISO 2017 – All rights reserved 596 
+ONOFF
+shall be set to ; otherwise, its state shall be set to . 
+The entries in the usage dictionary shall be used as follows: 
+ViewViewState
+• 
+: The state shall be the value of the  entry. This entry allows a document to contain 
+content that is relevant only when the document is viewed interactively, such as instructions for 
+PrintPrintStatePrintState
+• 
+how to interact with the document. 
+: The state shall be the value of the  entry. If  is not present, the state of 
+ExportExportState
+• 
+the optional content group shall be left unchanged. 
+Zoommin
+• 
+: The state shall be the value of the  entry. 
+max ON  OFF 
+: If the current magnification level of the document is greater than or equal to  and less 
+UserName
+• 
+than , thestate shall be used; otherwise,shall be used. 
+TypeName
+: The  entry shall specify a name or names to match with the user’s identification. The 
+ ON  OFF 
+ entry determines how the  entry shall be interpreted (name, title, or organization). If 
+Language
+• 
+there is an exact match, thestate shall be used; otherwiseshall be used. 
+Lang
+: This category shall allow the selection of content based on the language and locale of 
+OCGs
+the application. If an exact match to the language and locale is found among the  entries of the 
+ ON 
+optional content groups in the usage application dictionary’s  list, all groups that have exact 
+ 
+matches shall receive anrecommendation. If no exact match is found, but a partial match is 
+ON
+Preferred    ON 
+found (that is, the language matches but not the locale), all partially matching groups that have
+ OFF 
+entries with a value ofshall receive anrecommendation. All other groups shall 
+Event
+receive anrecommendation. 
+There shall be no restriction on multiple entries with the same value of , in order to allow 
+OCGs
+documents with incompatible usage application dictionaries to be combined into larger documents and 
+ ON 
+have their behaviour preserved. If a given optional content group appears in more than one  array, 
+ON
+its state shall beonly if all categories in all the usage application dictionaries it appears in have a 
+state of . 
+ AS 
+Event
+EXAMPLE This example shows the use of an auto state array with usage application dictionaries. Theentry in the 
+ViewPrintExport
+default configuration dictionary is an array of three usage application dictionaries, one for each of the  
+values , , and . 
+/OCProperties          %OCProperties dictionary in document catalog dictionary 
+  <</OCGs [1 0 R 2 0 R 3 0 R 4 0 R] 
+   /D <</BaseState /OFF     %The default configuration 
+     /ON [1 0 R] 
+     /AS [        %Auto state array of usage application dictionaries 
+       <</Event /View /Category [/Zoom] /OCGs [1 0 R 2 0 R 3 0 R 4 0 R]>> 
+       <</Event /Print /Category [/Print] /OCGs [4 0 R]>> 
+       <</Event /Export /Category [/Export] /OCGs [3 0 R 4 0 R]>> 
+      ] 
+    >> 
+  >> 
+… 
+ 
+1 0 obj 
+  <</Type /OCG 
+   /Name (20000 foot view) 
+   /Usage  <</Zoom  <</max 1.0>>>> 
+  << 
+endobj 
+ 
+2 0 obj 
+   <</Type /OCG 
+   /Name (10000 foot view) 
+   /Usage  <</Zoom <</min 1.0 /max 2.0>>>> 
+© ISO 2017 – All rights reserved 284 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional
-C 
-boolean () If specified, the value of this entry shall match the user’s preference 
-NOTE 2 Equivalent to SMIL’s systemCaptions attribute. 
-for whether to see text captions in order for this object to be viable. 
-Optional
-O 
-boolean () If specified, the value of this entry shall match the user’s preference 
-for whether to hear audio overdubs in order for this object to be viable. 
-Optional
-S 
-boolean () If specified, the value of this entry shall match the user’s preference 
-for whether to see subtitles in order for this object to be viable. 
-Optional
-R 
-integer () If specified, the system’s bandwidth (in bits per second) shall be 
-greater than or equal to the value of this entry in order for this object to be 
-NOTE 3 Equivalent to SMIL’s systemBitrate attribute. 
-viable. 
-Optional
-D 
-dictionary () A dictionary (see "
+  >> 
+endobj 
+ 
+3 0 obj 
+  <</Type /OCG 
+   /Name (1000 foot view) 
+   /Usage <</Zoom  <</min 2.0 /max 20.0>> 
+   /Export <</ExportState /OFF>>>> 
+  << 
+ endobj 
+ 
+4 0 obj 
+  <</Type /OCG 
+   /Name (Copyright notice) 
+   /Usage  <</Print <</PrintState /ON>> 
+      /Export <</ExportState /ON>>>> 
+  >> 
+endobj 
+ 
+View
+In the example, the usage application dictionary with event type  specifies that all optional content 
+Zoom
+groups have their states managed based on zoom level when viewing. Three groups (objects 1, 2, and 3) 
+ OFF 
+contain  usage information. Object 4 has none; therefore, it is not affected by zoom level changes. 
+ ON 
+Object 3 receives anrecommendation when exporting. When printing or exporting, object 4 
+receives anrecommendation. 
+8.11.4.5Determining the state of optional content groups 
+ 
+This subclause summarises the rules by which PDF processors make use of the configuration and usage 
+application dictionaries to set the state of optional content groups. For purposes of this discussion, it is 
+useful to distinguish the following types of PDF processors: 
+• 
+• 
+Viewer applications which allow users to interact with the document in various ways. 
+Design applications, which offer layering features for collecting groups of graphics together and 
+NOTE 1 The following rules are not meant to apply to design applications; they can manage their states in 
+selectively hiding or viewing them. 
+an entirely different manner if they choose. 
+• 
+• 
+Aggregating applications, which import PDF files as graphics. 
+D
+Printing applications, which print PDF files. 
+OCProperties
+When a document is opened, its optional content groups shall be assigned a state based on the  
+(default) configuration dictionary in the  dictionary: 
+BaseState
+ 
+ ON  OFF BaseState
+ 
+a)The value of  shall be applied to all the groups. 
+b)The groups listed in either theorarray (depending on which one is opposite to ) shall 
+have their states adjusted.  
+This state shall be the initial state used by all PDF processors. 
+NOTE 2 Viewer applications can also provide users with an option to view documents in this state (that is, 
+to disable the automatic adjustments discussed below). This option permits an accurate preview 
+of the content as it will appear when placed into an aggregating application or sent to a stand-
+alone printing system. 
+View
+ AS Event
+The remaining discussion in this subclause applies only to interactive PDF processors. Such applications 
+shall examine thearray for usage application dictionaries that have an  of type . For each 
+© ISO 2017 – All rights reserved 285 
+
+ISO/DIS 32000-2
+ 
+OCGs
+one found, the groups listed in its  array shall be adjusted as described in 8.11.4.3, "Usage and 
+usage application dictionaries". 
+View
+Subsequently, the document is ready for interactive viewing by a user. Whenever there is a change to a 
+factor that the usage application dictionaries with event type  depend on (such as zoom level), the 
+corresponding dictionaries shall be reapplied.  
+  
+The user may manipulate optional content group states manually or by triggeringset-OCG-stateactions 
+(see 12.6.4.13, "Set-OCG-state actions") by, for example, clicking links or document outline items. 
+View
+Manual changes shall override the states that were set automatically. The states of these groups remain 
+overridden and shall not be readjusted based on usage application dictionaries with event type  as 
+long as the document is open (or until the user reverts the document to its original state). 
+Print
+When a document is printed by an interactive PDF processor, usage application dictionaries with an 
+event type  shall be applied over the current states of optional content groups. These changes shall 
+persist only for the duration of the print operation; then all groups shall revert to their prior states. 
+Export
+Similarly, when a document is exported to a format that does not support optional content, usage 
+application dictionaries with an event type  shall be applied over the current states of optional 
+content groups. Changes shall persist only for the duration of the export operation; then all groups shall 
+revert to their prior states. 
+NOTE 3 Although the event types  and  have identically named counterparts that are usage 
+categories, the corresponding usage application dictionaries are permitted to specify that other 
+PrintExport
+categories can be applied. 
+  
+© ISO 2017 – All rights reserved 286 
+
+ISO/DIS 32000-2
+ 

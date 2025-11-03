@@ -1,0 +1,29 @@
+Table 296: Entries common to all media offset dictionaries") shall specify an 
+offset into a media object. The  (subtype) entry indicates how the offset shall be specified: in terms of 
+time, frames or markers. Different media types support different types of offsets. 
+© ISO 2017 – All rights reserved 609 
+
+ISO/DIS 32000-2
+ 
+EXAMPLE Time, "10 seconds"; frames, "frame 20"; markers, "Chapter One." 
+Table 296: Entries common to all media offset dictionaries 
+Key Type Value 
+Optional
+Type 
+MediaOffset
+name () The type of PDF object that this dictionary describes; if present, shall 
+be  for a media offset dictionary. 
+Required
+S 
+T
+name () The subtype of media offset dictionary. Valid values shall be:  
+ A media offset time dictionary (see "Table 297: Additional entries in a 
+F
+media offset time dictionary") 
+ A media offset frame dictionary (see "Table 298: Additional entries in a 
+M
+media offset frame dictionary") 
+ A media offset marker dictionary (see "Table 299: Additional entries in a 
+media offset marker dictionary") 
+The rendition is non-viable if the interactive PDF processor does not recognise 
+the value of this entry. 

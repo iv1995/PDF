@@ -1,8 +1,15 @@
-document part hierarchy 
-hierarchical data structure that specifies the organization of document parts 
-4.21 
+content stream in some situations are interpreted as 
  
-document part metadata 
-metadata associated with a document part 
-4.22 
+character codes that select glyphs to be drawn on the page according to a character encoding 
+that is associated with the text font. 
+4.11 
+ 
+character set 
+defined set of characters each assigned a unique character value 
+4.12 
+ 
+content stream 
+stream object whose data consists of a sequence of instructions describing the graphical elements to be 
+painted on a page 
+4.13 
  

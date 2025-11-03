@@ -1,2 +1,4 @@
-binary data 
-sequence of 
+ASN.1 
+means of reference to ISO/IEC 8824-1:2008 / Cor 1:2012 
+4.6 
+ 

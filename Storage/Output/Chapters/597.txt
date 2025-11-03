@@ -1,0 +1,40 @@
+Table 399: 
+Additional entries specific to a printer’s mark form dictionary" in addition to the standard ones 
+common to all form dictionaries (see 8.10.2, "Form dictionaries"). 
+Table 399: Additional entries specific to a printer’s mark form dictionary 
+Key Type Value 
+Optional; PDF 1.4
+MarkStyle 
+text string () A text string representing the printer’s mark in human-readable 
+form and suitable for presentation to the user. 
+Optional; PDF 1.4
+Colorants 
+dictionary () A dictionary identifying the individual colourants associated with a 
+ Separation 
+printer’s mark, such as a colour bar. For each entry in this dictionary, the key is a 
+colourant name and the value is an array defining acolour space for that 
+colourant (see 8.6.6.4, "Separation colour spaces"). The key shall match the colourant 
+name given in that colour space. 
+ 
+14.11.4Separation dictionaries 
+ 
+The features described in this clause are deprecated with PDF 2.0. 
+In high-end printing workflows, pages are ultimately produced as sets of separations, one per colourant 
+(see 8.6.6.4, "Separation colour spaces"). Ordinarily, each page in a PDF file shall be treated as a 
+composite page that paints graphics objects using all the process colourants and perhaps some spot 
+colourants as well. In other words, all separations for a page shall be generated from a single PDF 
+description of that page. 
+In some workflows, however, pages are preseparated before generating the PDF file. In a preseparated 
+ DeviceGray 
+PDF file, the separations for a page shall be described as separate page objects, each painting only a 
+single colourant (usually specified in thecolour space). In this case, additional information 
+© ISO 2017 – All rights reserved 788 
+
+ISO/DIS 32000-2
+ 
+is needed to identify the actual colourant associated with each separation and to group together the 
+PDF 1.3
+SeparationInfo
+page objects representing all the separations for a given page. This information shall be contained in a 
+separation dictionary () in the  entry of each page object (see 7.7.3.3, "Page 
+objects"). "

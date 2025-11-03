@@ -1,57 +1,121 @@
-Table 241: Additional entries specific to a reset-form action" shows the action 
-dictionary entries specific to this type of action. 
- Flags 
-The value of the action dictionary’sentry is a non-negative containing flags specifying various 
-characteristics of the action. Bit positions within the flag word shall be numbered starting from 1 (low-
-order). Only one flag is defined for this type of action. All undefined flag bits shall be reserved and shall 
-be set to 0. 
-Table 241: Additional entries specific to a reset-form action 
-Key Type Value 
-(Required) 
-S  
-ResetForm
+Figure 48: Typical sampled image 
  
-name The type of action that this dictionary describes; shall be
-for a reset-form action. 
-© ISO 2017 – All rights reserved 538 
+An image is defined by a sequence of samples obtained by scanning the image array in row or column 
+DeviceGrayDeviceRGB
+order. Each sample in the array consists of as many colour components as are needed for the colour 
+DeviceCMYK DeviceN 
+space in which they are specified — for example, one component for , three for , 
+PDF 1.5PDF 1.5
+four for , or whatever number is required by a particularspace. Each component 
+ 
+is a 1-, 2-, 4-, 8-, or () 16-bit integer, permitting the representation of 2, 4, 16, 256, or () 
+JPXDecode 
+65536 distinct values for each component. Other component sizes can be accommodated when a
+filter is used; see 7.4.9, "JPXDecode filter". 
+PDF provides two means for specifying images: 
+image XObject
+• 
+An  (described in 8.9.5, "Image dictionaries") is a stream object whose dictionary 
+Do
+specifies attributes of the image and whose data contains the image samples. Like all external 
+  
+objects, it is painted on the page by invoking the  operator in a content stream (see 8.8, 
+"External objects").ImageXObjects have other uses as well, such as for alternate images (see 
+8.9.5.4, "Alternate images"), image masks (8.9.6, "Masked images"), and thumbnail images (12.3.4, 
+"Thumbnail images"). 
+© ISO 2017 – All rights reserved 249 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-(Optional) 
-Fields 
-array An array identifying which fields to reset or which to 
- Flags 
-exclude from resetting, depending on the setting of the Include/ 
-Exclude flag in theentry (see "Table 242: Flag for reset-form 
-(PDF 1.3) 
-actions"). Each element of the array shall be either an indirect 
-reference to a field dictionary or a text string representing 
-the fully qualified name of a field. Elements of both kinds may be 
-mixed in the same array. 
+inline image
+• 
+An  is a small image that is completely defined — both attributes and data — directly 
+inline within a content stream. The kinds of images that can be represented in this way are limited; 
+8.9.2Image parameters 
  
-If this entry is omitted, the Include/Exclude flag shall be ignored; all 
-fields in the document’s interactive form are reset.
-(Optional; inheritable) 
-Flags 
-integer A set of flags specifying various characteristics 
-of the action (see "Table 242: Flag for reset-form actions"). Default 
-value: 0. 
-Table 242: Flag for reset-form actions 
-Bit position Name Meaning 
-Fields
-1 Include/Exclude If clear, the  array (see "Table 241: Additional entries specific 
-to a reset-form action") specifies which fields to reset. (All 
-Fields
-descendants of the specified fields in the field hierarchy are reset as 
-well.) If set, the  array indicates which fields to exclude from 
-except 
-Fields
-resetting; that is, all fields in the document’s interactive form shall be 
-reset those listed in the  array. 
+see 8.9.7, "Inline images" for details. 
+The properties of an image — resolution, orientation, scanning order, and so forth — are entirely 
+independent of the characteristics of the raster output device on which the image is to be rendered. A 
+PDF processor usually renders images by a sampling technique that attempts to approximate the colour 
+values of the source as accurately as possible. The actual accuracy achieved depends on the resolution 
+and other properties of the output device. 
+To paint an image, four interrelated items shall be specified: 
+• 
+The format of the image: number of columns (width), number of rows (height), number of colour 
+• 
+components per sample, and number of bits per colour component 
+• 
+The sample data constituting the image’s visual content 
+The correspondence between coordinates in user space and those in the image’s own internal 
+• 
+coordinate space, defining the region of user space that will receive the image 
+The mapping from colour component values in the image data to component values in the image’s 
+colour space 
+All of these items shall be specified explicitly or implicitly by an image XObject or an inline image. 
+NOTE For convenience, the following subclauses refer consistently to the object defining an image as an 
+. Although this term properly refers only to the dictionary portion of the stream 
+object representing an image XObject, it can be understood to apply equally to the stream’s data 
+image dictionary
+portion or to the parameters and data of an inline image. 
+8.9.3Sample representation 
  
-12.7.6.4Import-data action 
+The source format for an image shall be described by four parameters: 
+• 
+• 
+The width of the image in samples 
+• 
+The height of the image in samples 
+• 
+The number of colour components per sample 
+The number of bits per colour component 
+The image dictionary shall specify the width, height, and number of bits per component explicitly. The 
+number of colour components shall be inferred from the colour space specified in the dictionary. 
+NOTE For images using thefilter (see 7.4.9, "JPXDecode filter"), the number of bits per 
+  
+component is determined from the image data and not specified in the image dictionary. The 
+JPXDecode
+colour space might or might not be specified in the dictionary. 
+Sample data shall be represented as a stream of bytes, interpreted as 8-bit unsigned integers in the 
+nn
+range 0 to 255. The bytes constitute a continuous bit stream, with the high-order bit of each byte first. 
+This bit stream, in turn, is divided into units of  bits each, where  is the number of bits per component. 
+Each unit encodes a colour component value, given with high-order bit first; units of 16 bits shall be 
+given with the most significant byte first. Byte boundaries shall be ignored, except that each row of 
+sample data shall begin on a byte boundary. If the number of data bits per row is not a multiple of 8, the 
+end of the row is padded with extra bits to fill out the last byte. A PDF processor shall ignore these 
+© ISO 2017 – All rights reserved 250 
+
+ISO/DIS 32000-2
  
-Upon invocation of an import-data action, a PDF processor shall import data from Forms Data Format 
-(FDF), XFDF (XML-based Forms Data Format) or any other data format that it supports into the 
-document’s interactive form from a specified file. 
+padding bits. 
+n
+n
+Decode
+Each -bit unit within the bit stream shall be interpreted as an unsigned integer in the range 0 to 2- 1, 
+scg
+with the high-order bit first. The image dictionary’s  entry maps this integer to a colour 
+RGB
+component value, equivalent to what could be used with colour operators such as  or . Colour 
+components shall be interleaved sample by sample; for example, in a three-component  image, the 
+red, green, and blue components for one sample are followed by the red, green, and blue components 
+for the next. 
+false
+ ImageMask 
+If the image dictionary'sentry is  or absent, the colour samples in an image shall be 
+ 
+interpreted according to the colour space specified in the image dictionary (see 8.6, "Colour spaces"), 
+truestencil mask
+ImageMask 
+without reference to the colour parameters in the graphics state. However, if the image dictionary’s
+entry is , the sample data shall be interpreted as a  for applying the 
+graphics state’s nonstroking colour parameters (see 8.9.6.2, "Stencil masking"). 
+8.9.4Image coordinate system 
+ 
+whwh
+Each image has its own internal coordinate system, or image space. The image occupies a rectangle in 
+image space  units wide and  units high, where  and  are the width and height of the image in 
+wh
+samples. Each sample occupies one square unit. The coordinate origin (0, 0) is at the upper-left corner 
+of the image, with coordinates ranging from 0 to  horizontally and 0 to  vertically. 
+The image’s sample data is ordered by row, with the horizontal coordinate varying most rapidly. This is 
+shown in "

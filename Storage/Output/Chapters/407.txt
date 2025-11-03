@@ -1,0 +1,33 @@
+Table 239: Additional entries specific to a submit-form action 
+Key Type Value 
+(Required) 
+S 
+SubmitForm
+  
+ 
+name The type of action that this dictionary describes; shall 
+befor a submit-form action.
+(Required) 
+F   
+file specification AURLfile specification (see 7.11.5, "URL 
+specifications") giving the uniform resource locator (URL) of the 
+script at the Web server that will process the submission. 
+(Optional) 
+Fields 
+array An array identifying which fields to include in the 
+ Flags 
+submission or which to exclude, depending on the setting of the 
+Include/Exclude flag in theentry (see "Table 240: Flags for 
+(PDF 1.3) 
+submit-form actions"). Each element of the array shall be either 
+an indirect reference to a field dictionary or a text 
+string representing the fully qualified name of a field. Elements 
+of both kinds may be mixed in the same array. 
+If this entry is omitted, the Include/Exclude flag shall be ignored, 
+and all fields in the document’s interactive form shall be 
+submitted except those whose NoExport flag (see "Table 227: 
+") is set. Fields with no 
+Field flags common to all field types
+values may also excluded, as dictated by the value of the 
+ 
+IncludeNoValueFields flag; see "

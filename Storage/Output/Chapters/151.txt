@@ -1,300 +1,121 @@
-)
-(
-SetLumC, 𝑙𝑙 
-)
-(
- 
-let 𝐵𝐵=𝑙𝑙−Lum𝐶𝐶
-redred
-𝐶𝐶=𝐶𝐶+ 𝐵𝐵
-greengreen
-𝐶𝐶=𝐶𝐶+ 𝐵𝐵
-blueblue
-𝐶𝐶=𝐶𝐶+ 𝐵𝐵
-© ISO 2017 – All rights reserved 387 
+Figure 22: Additive and subtractive colour"). 
+The most widely used forms of these two types of colour specification are known as  and , 
+respectively, for the names of the primary colours on which they are based. They correspond to the 
+following device colour spaces: 
+DeviceGray
+• 
+DeviceRGB
+• 
+ controls the intensity of achromatic light, on a scale from black to white. 
+ controls the intensities of red, green, and blue light, the three additive primary colours 
+DeviceCMYK
+• 
+used in displays. 
+ controls the concentrations of cyan, magenta, yellow, and black inks, the four 
+NOTE Although the notion of explicit colour spaces is a PDF 1.1 feature, the operators for specifying 
+subtractive process colours used in printing. 
+colours in the device colour spaces — , and — are available in all versions of PDF. 
+G, g, RG, rg, Kk 
+Beginning with PDF 1.2, colours specified in device colour spaces can optionally be remapped 
+systematically into other colour spaces; see 8.6.5.6, "Default colour spaces". 
+© ISO 2017 – All rights reserved 178 
 
 ISO/DIS 32000-2
+ ![Figure 22 Additive and subtractive colour  .png](./Storage/Output/Images/Figure 22 Additive and subtractive colour  .png)
+Figure 22: Additive and subtractive colour 
  
-return ClipColor(𝐶𝐶 )
  
-)
-(
+PDF 1.4
+In the transparent imaging model (), the use of device colour spaces is subject to special 
+treatment within a transparency group whose group colour space is CIE-based (see 11.4, "Transparency 
+groups" and 11.6.6, "Transparency group XObjects"). In particular, the device colour space operators 
+should be used only if device colour spaces have been remapped to CIE-based spaces by means of the 
+default colour space mechanism. Otherwise, the colour results are implementation-dependent and 
+unpredictable. 
+8.6.4.2DeviceGray colour space 
  
-ClipColor
-𝐶𝐶
-)
-(
+Black, white, and intermediate shades of gray are special cases of full colour. A grayscale value shall be 
+represented by a single number in the range 0.0 to 1.0, where 0.0 corresponds to black, 1.0 to white, 
+and intermediate values to different gray levels. 
+ DeviceGray 
+EXAMPLE This example shows alternative ways to select thecolour space and a specific gray level within 
+that space for stroking operations. 
+DeviceGray
+/ CS        %Set DeviceGray colour space 
+gray SC          %Set gray level 
+gray G          %Set both in one operation 
  
-let
- 𝑙𝑙=Lum𝐶𝐶
-redgreenblue
-let 𝑛𝑛=𝑚𝑚𝐷𝐷𝑛𝑛�𝐶𝐶, 𝐶𝐶, 𝐶𝐶� 
-redgreenblue
-let
- 𝑥𝑥=𝑚𝑚𝐷𝐷�𝑥𝑥𝐶𝐶, 𝐶𝐶, 𝐶𝐶� 
-if
- 𝑛𝑛<0 .0
-redred
-()()
-𝐶𝐶=𝑙𝑙+��𝐶𝐶−𝑙𝑙×𝑙𝑙�/𝑙𝑙−𝑛𝑛 �
-greengreen
-()()
-𝐶𝐶=𝑙𝑙+��𝐶𝐶−𝑙𝑙×𝑙𝑙�/𝑙𝑙−𝑛𝑛 �
-blueblue
-()()
-𝐶𝐶=𝑙𝑙+��𝐶𝐶−𝑙𝑙×𝑙𝑙�/𝑙𝑙−𝑛𝑛 �
-if
- 𝑥𝑥>1 .0
-redred
-()()()
-𝐶𝐶=𝑙𝑙+��𝐶𝐶−𝑙𝑙×1−𝑙𝑙�/𝑥𝑥−𝑙𝑙 �
-greengreen
-()()()
-𝐶𝐶=𝑙𝑙+��𝐶𝐶−𝑙𝑙×1−𝑙𝑙�/𝑥𝑥−𝑙𝑙 �
-blueblue
-()()()
-𝐶𝐶=𝑙𝑙+��𝐶𝐶−𝑙𝑙×1−𝑙𝑙�/𝑥𝑥−𝑙𝑙 �
-return
-  𝐶𝐶
- 
-redgreenblueredgreenblue
-)
-(
-𝐶𝐶=𝑚𝑚𝐷𝐷�𝑥𝑥𝐶𝐶,𝐶𝐶,𝐶𝐶�−𝑚𝑚𝐷𝐷𝑛𝑛�𝐶𝐶,𝐶𝐶,𝐶𝐶� 
-Sat
-minmidmax
-The subscripts , , and  (in the next function) refer to the colour components having the 
-minimum, middle, and maximum values upon entry to the function. 
-)
-(
- 
-SetSat𝐶𝐶,𝑠𝑠
-maxmin
-if 
-𝐶𝐶>𝐶𝐶 
-midmidminmaxmin
-)()
-(
-×𝑠𝑠�/𝐶𝐶�
-𝐶𝐶=��𝐶𝐶−𝐶𝐶−𝐶𝐶 
-max
-𝐶𝐶= 𝑠𝑠
-else 
-midmax
-𝐶𝐶=𝐶𝐶=0 .0
-min
-𝐶𝐶=0 .0
-NOTE The  algorithm has a distinct discontinuity between neutral and near neutral colours which 
-  𝐶𝐶
-return
-makes it very sensitive to variations between implementations with respect to colour management 
-SetSat
-and quantisation of colour values. Therefore the visual appearance of elements can be very 
-different between different PDF processors used for viewing or printing pages containing elements 
-that use the Hue and Saturation blend modes that use the SetSat algorithm. 
-© ISO 2017 – All rights reserved 388 
-
-ISO/DIS 32000-2
- 
-Table 135: Standard non-separable blend modes 
-Name Result 
-Hue 
-SetLumSetSatSatLum 
-𝑏𝑏𝑓𝑓𝑓𝑓𝑏𝑏𝑏𝑏
-()()()
-NOTE 1 Creates a colour with the hue of the source colour and the saturation and 
-𝐵𝐵𝐶𝐶,𝐶𝐶=��𝐶𝐶,𝐶𝐶�,𝐶𝐶�
-luminosity of the backdrop colour. 
-Saturation 
-SetLumSetSatSatLum 
-𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓𝑏𝑏
-()()()
-NOTE 2 Creates a colour with the saturation of the source colour and the hue and 
-𝐵𝐵𝐶𝐶,𝐶𝐶=��𝐶𝐶,𝐶𝐶�,𝐶𝐶�
-luminosity of the backdrop colour. Painting with this mode in an area of 
-the backdrop that is a pure gray (no saturation) produces no change. 
-Color 
-SetLumLum 
-𝑏𝑏𝑓𝑓𝑓𝑓𝑏𝑏
-NOTE 3 Creates a colour with the hue and saturation of the source colour and the 
-()()
-𝐵𝐵𝐶𝐶,𝐶𝐶=�𝐶𝐶, 𝐶𝐶�
-luminosity of the backdrop colour. This preserves the gray levels of the 
-backdrop and is useful for colouring monochrome images or tinting colour 
-images. 
-Luminosity 
-SetLumLum 
-𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
-NOTE 4 Creates a colour with the luminosity of the source colour and the hue and 
-()()
-𝐵𝐵𝐶𝐶,𝐶𝐶=�𝐶𝐶, 𝐶𝐶�
-saturation of the backdrop colour. This produces an inverse effect to that 
-of the Color mode. 
+CSSC
+Gcsscg
+The  and  operators shall select the current stroking colour space and current stroking colour 
+ DeviceGray 
+separately;  shall set them in combination. (The , , and  operators shall perform the same 
+functions for nonstroking operations.) Setting either current colour space toshall initialise 
+the corresponding current colour to 0.0. 
+8.6.4.3DeviceRGB colour space 
  
 RGB
-DeviceRGBCalRGBICCBased
-CMYKCMYK
-DeviceCMYK ICCBased
-The formulas in this sub-clause apply to  spaces (including ,  and  
-RGB). Blending in  spaces (including both and   spaces) shall be 
-CMYRGB
-• 
-handled in the following way: 
-RGB
-The ,  and  components shall be converted to their complementary ,  and  components by 
-CMY
-subtracting each from 1.0. The formulae in this sub-clause shall be applied to the  colour 
-KK
-HueSaturationColor
-• 
-values. The results shall be complemented back to ,  and  in the same way. 
-K
-Luminosity
-b
- for the , , and  
-For the  component, the result shall be the  component of C
-s
-11.3.6Interpretation of alpha 
+ DeviceRGB 
+Colours in thecolour space shall be specified according to the additive  (red-green-
+blue) colour model, in which colour values shall be defined by three components representing the 
+intensities of the additive primary colourants red, green, and blue. Each component shall be specified by 
+a number in the range 0.0 to 1.0, where 0.0 shall denote the complete absence of a primary component 
+and 1.0 shall denote maximum intensity. 
+ DeviceRGB 
+EXAMPLE This example shows alternative ways to select thecolour space and a specific colour within that 
+space for stroking operations. 
+/DeviceRGB CS       %Set DeviceRGB colour space 
+red green blue SC      %Set colour 
  
- for the  blend mode. 
-blend modes; it shall be the  component of C
-The colour compositing formula 
-𝑓𝑓𝑓𝑓
-𝛼𝛼𝛼𝛼
-𝑟𝑟𝑏𝑏𝑏𝑏𝑓𝑓𝑏𝑏𝑏𝑏𝑓𝑓
- 
-))
-((
-×𝐶𝐶� 
-=�1−�×𝐶𝐶+×�1−𝛼𝛼+𝛼𝛼×𝐵𝐵𝐶𝐶,𝐶𝐶
-𝐶𝐶
-𝑟𝑟𝑟𝑟
-𝛼𝛼𝛼𝛼
-produces a result colour that is a weighted average of the backdrop colour, the source colour, and the 
-𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
-,𝐶𝐶) term, with the weighting determined by the backdrop and source alphas 𝛼𝛼 and 𝛼𝛼.  
-blended 𝐵𝐵(𝐶𝐶
-NOTE 1 This formula represents a simplification of the following formula, which presents the relative 
-contributions of backdrop, source, and blended colours in a more straightforward way: 
-𝑟𝑟𝑟𝑟𝑓𝑓𝑏𝑏𝑏𝑏𝑏𝑏𝑓𝑓𝑓𝑓𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
-)))
-(((
-×𝛼𝛼×𝛼𝛼�� 
-𝛼𝛼×𝐶𝐶=�1−𝛼𝛼×𝐶𝐶�+��1−𝛼𝛼×𝐶𝐶�+�𝛼𝛼×𝛼𝛼×𝐵𝐵𝐶𝐶,𝐶𝐶
-Normal
-For the simplest blend mode, , defined by 
-𝑏𝑏𝑓𝑓𝑓𝑓
-(
-)
-𝐵𝐵𝐶𝐶
-=𝐶𝐶
-,𝐶𝐶 
-© ISO 2017 – All rights reserved 389 
+red green blue RG      %Set both in one operation 
+1 0 0 RG         %Set a pure red colour for stroking operations 
+© ISO 2017 – All rights reserved 179 
 
 ISO/DIS 32000-2
  
  
-the compositing formula collapses to a simple weighted average of the backdrop and source colours, 
-controlled by the backdrop and source alpha values. For more interesting blend functions, the backdrop 
-and source alphas control whether the effect of the blend mode is fully realised or is toned down by 
-mixing the result with the backdrop and source colours. 
-r
-The result alpha, α
-, actually represents a computed result, described in 11.3.7, "Shape and opacity 
-computations". The result colour shall be normalised by the result alpha, ensuring that when this colour 
-and alpha are subsequently used together in another compositing operation, the colour’s contribution is 
-correctly represented. 
-NOTE 2 If  is zero, the result colour is undefined. 
-𝑟𝑟
-𝛼𝛼
-The simplification requires a substitution based on the alpha compositing formula, which is presented 
-in 11.3.7.3, "Result shape and opacity". Thus, mathematically, the backdrop and source alphas control 
-the influence of the backdrop and source colours, respectively, while their product controls the 
-sb
- = 0.0 or α = 0.0 results in no blend mode effect; 
-influence of the blend function. An alpha value of α
-sb
- = 1.0 and α = 1.0 results in maximum blend mode effect. 
-setting α
-11.3.7Shape and opacity computations 
+CSSC
+RGcsscrg
+The  and  operators shall select the current stroking colour space and current stroking colour 
+ DeviceRGB 
+separately;  shall set them in combination. The , , and  operators shall perform the same 
+functions for nonstroking operations. Setting either current colour space toshall initialise 
+the red, green, and blue components of the corresponding current colour to 0.0. 
+8.6.4.4DeviceCMYK colour space 
  
+CMYK
+ DeviceCMYK 
+Thecolour space allows colours to be specified according to the subtractive  (cyan-
+ DeviceCMYK 
+magenta-yellow-black) model typical of printers and other paper-based output devices. The four 
+components in acolour value shall represent the concentrations of these process 
+colourants. Each component shall be a number in the range 0.0 to 1.0, where 0.0 shall denote the 
+complete absence of a process colourant and 1.0 shall denote maximum concentration (absorbs as 
+much as possible of the additive primary). 
+NOTE As much as the reflective colours (CMYK) decrease reflection with increased ink values and 
+radiant colours (RGB) increases the intensity of colours with increased values the values work in 
+an opposite manner. 
+ DeviceCMYK 
+EXAMPLE The following shows alternative ways to select thecolour space and a specific colour within that 
+space for stroking operations. 
+/DeviceCMYK CS        %Set DeviceCMYK colour space 
+cyan magenta yellow black SC   %Set colour 
+cyan magenta yellow black K   %Set both in one operation 
  
-11.3.7.1General 
+CSSC
+Kcssck
+The  and  operators shall select the current stroking colour space and current stroking colour 
+ DeviceCMYK 
+separately;  shall set them in combination. The , , and  operators shall perform the same 
+functions for nonstroking operations. Setting either current colour space toshall initialise 
+the cyan, magenta, and yellow components of the corresponding current colour to 0.0 and the black 
+component to 1.0. 
+8.6.5CIE-Based colour spaces 
  
-As stated earlier, the alpha values that control the compositing process shall be defined as the product 
-of shape and opacity: 
-𝑏𝑏𝑏𝑏𝑏𝑏
-𝛼𝛼
-=𝑓𝑓×𝑞𝑞 
+8.6.5.1General 
  
-𝑟𝑟𝑟𝑟𝑟𝑟
-=𝑓𝑓×𝑞𝑞 
-𝛼𝛼
-𝑓𝑓𝑓𝑓𝑓𝑓
-=𝑓𝑓×𝑞𝑞
-𝛼𝛼
- 
-This sub-clause examines the various shape and opacity values individually. Once again, keep in mind 
-that conceptually these values are computed for every point on the page. 
-11.3.7.2Source shape and opacity 
- 
-Shape and opacity values may come from several sources. The transparency model provides for three 
-independent sources for each. However, the PDF representation imposes some limitations on the ability 
-to specify all of these sources independently (see 11.6.4, "Specifying shape and opacity"). 
-Object shape
-• 
-. Elementary objects such as strokes, fills, and text have an intrinsic shape, whose 
-value shall be 1.0 for points inside the object and 0.0 outside. Similarly, an image with an explicit 
-mask (see 8.9.6.3, "Explicit masking") has a shape that shall be 1.0 in the unmasked portions and 
-0.0 in the masked portions. The shape of a group object shall be the union (as defined in 11.3.7.3, 
-NOTE 1 Mathematically, elementary objects have "hard" edges, with a shape value of either 0.0 or 1.0 at 
-"Result shape and opacity") of the shapes of the objects it contains. 
-every point. However, when such objects are rasterized to device pixels, the shape values along the 
-boundaries can be anti-aliased, taking on fractional values representing fractional coverage of 
-those pixels. When such anti-aliasing is performed, it is important to treat the fractional coverage 
-as shape rather than opacity. 
-Mask shape
-• 
-. Shape values for compositing an object may be taken from an additional source, or soft 
-mask, independent of the object itself, as described in 11.5, "Soft masks". 
-© ISO 2017 – All rights reserved 390 
-
-ISO/DIS 32000-2
- 
-NOTE 2 The use of a soft mask to modify the shape of an object or group, called soft clipping, can produce 
-effects such as a gradual transition between an object and its backdrop, as in a vignette. 
-Constant shape
-• 
-NOTE 3 This is merely a convenience, since the same effect could be achieved with a shape mask whose 
-. The source shape may be modified at every point by a scalar shape constant. 
-value is the same everywhere. 
-Object opacity
-• 
-. Elementary objects have an opacity of 1.0 everywhere. The opacity of a group object 
-Mask opacity
-• 
-shall be the result of the opacity computations for all of the objects it contains. 
-. Opacity values, like shape values, may be provided by a soft mask independent of the 
-Constant opacity
-• 
-object being composited. 
-NOTE 4 It is useful to think of this value as the "current opacity," analogous to the current colour used 
-. The source opacity may be modified at every point by a scalar opacity constant. 
-when painting elementary objects. 
-All of the shape and opacity inputs shall have values in the range 0.0 to 1.0 (inclusive), with a default 
-value of 1.0. 
-The three shape inputs shall be multiplied together, producing an intermediate value called the source 
-shape. 
- 
-𝑓𝑓𝑗𝑗𝑚𝑚𝑘𝑘
-𝑓𝑓
-=𝑓𝑓×𝑓𝑓×𝑓𝑓
- 
-The three opacity inputs shall be multiplied together, producing an intermediate value called the source 
-opacity. 
- 
-𝑓𝑓𝑗𝑗𝑚𝑚𝑘𝑘
-=𝑞𝑞×𝑞𝑞×𝑞𝑞
-𝑞𝑞
- 
-Where the variables have the meanings shown in "
+CIE-based
+Calibrated colour in PDF shall be defined in terms of an international standard used in the graphic arts, 
+television, and printing industries.  colour spaces enable a page description to specify colour 
+values in a way that is related to human visual perception. The goal is for the same colour specification 
+to produce consistent results on different output devices, within the limitations of each device; "

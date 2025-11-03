@@ -1,0 +1,189 @@
+Table 
+315: Entries in a 3D view dictionary". 
+Table 315: Entries in a 3D view dictionary 
+Key Type Value 
+Optional
+Type 
+3DView
+name () The type of PDF object that this dictionary describes; if present, 
+shall be  for a 3D view dictionary. 
+Required
+XN 
+text string () The external name of the view, suitable for presentation in a user 
+interface. 
+Optional
+IN 
+text string () The internal name of the view, used to refer to the view from 
+XN
+ 
+other objects, such as the Go-To-3D-View action (see 12.6.4.16, "Go-To-3D-
+View actions"). If omitted, the external name  shall be used.
+Optional
+MS 
+name () A name specifying how the 3D camera-to-world transformation 
+M
+C2W
+matrix shall be determined. The following values are valid:  
+U3D
+U3DPath
+ Indicates that the  entry shall specify the matrix 
+ Indicates that the view node selected by the  entry in the 
+NOTE 1 There is no corresponding  field value for the PRC file format, 
+MS
+3D stream object shall specify the matrix. 
+that would correspond to a 3D stream object of type PRC.  is the 
+only valid entry for 3D stream objects of type PRC (or it can be 
+M
+omitted). 
+If omitted, the view specified in the 3D artwork shall be used. 
+Optional; PDF 2.0
+MA 
+array () An array of 3D measurement/markup dictionaries, 
+where each dictionary represents an instance of a 3D measurement to be 
+displayed in the context of this view. See "Table 326: Entries in a 3D 
+measurement/markup dictionary common to all markup subtypes" for the 
+definition of a 3D measurement dictionary. 
+Required if the value of  is M, ignored otherwise
+C2W MS
+array () A 12-element 3D 
+transformation matrix that specifies a position and orientation of the 
+camera in world coordinates. 
+© ISO 2017 – All rights reserved 632 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Required if the value of  is U3D, ignored otherwise
+U3DPath MS
+view node
+text string or () A sequence of one or 
+node IDroot view node
+ 
+array more text strings used to access a  within the 3D artwork. The first 
+node ID
+ 
+string in the array is a for the , and each subsequent 
+string is the for a child of the view node specified by the prior string. 
+13.6.5, 
+Each view node specifies a 3D transformation matrix (see 
+"Coordinate systems for 3D"); the concatenation of all the matrices forms 
+the camera-to-world matrix. 
+PDF writers should specify only a single text string, not an array, for this 
+NOTE 2 Do not confuse View Nodes with nodes. A View Node is a parameter 
+entry. 
+in the 3D artwork that specifies a view; a node is a PDF dictionary 
+that specifies 3D graphic objects or collections thereof. 
+Optional; used only if  is present
+CO MS
+z
+number () A non-negative number indicating a 
+distance in the camera coordinate system along the  axis to the centre of 
+orbit for this view; see discussion following "Table 315: Entries in a 3D view 
+dictionary". If this entry is not present, the interactive PDF processor shall 
+determine the centre of orbit. 
+Optional
+P 
+dictionary () A projection dictionary (see 13.6.4.2, "Projection dictionaries") 
+that defines the projection of coordinates in the 3D artwork (already 
+transformed into camera coordinates) onto the target coordinate system of 
+Subtype
+the annotation. 
+Perspective
+FOV
+Default value: a projection dictionary where the value of  is 
+ 
+, the value of  is 90, and all other entries take their default 
+values.
+Optional; meaningful only if  and  are present
+O MSP
+stream () A form XObject that shall 
+be used to overlay 2D graphics on top of the rendered 3D artwork (see 
+13.6.6, "3D markup"). 
+Optionalbackground dictionary
+BG 
+dictionary () A  that defines the background over which 
+the 3D artwork shall be drawn (see 13.6.4.3, "3D background dictionaries"). 
+Default value: a background dictionary whose entries take their default 
+values. 
+Optional; PDF 1.7render mode dictionary
+RM 
+dictionary () A  that specifies the render mode 
+to use when rendering 3D artwork with this view (see 13.6.4.4, "3D render 
+mode dictionaries"). If omitted, the render mode specified in the 3D artwork 
+shall be used. 
+Optional; PDF 1.7lighting scheme dictionary
+LS 
+dictionary () A  that specifies the lighting 
+scheme that shall be used when rendering 3D artwork with this view (see 
+13.6.4.5, "3D lighting scheme dictionaries"). If omitted, the lighting scheme 
+specified in the 3D artwork shall be used. 
+Optional; PDF 1.7cross section dictionaries
+SA 
+array () An array that contains  (see 
+13.6.4.6, "3D cross section dictionaries"). Each cross section dictionary 
+provides parameters for applying a cross section to the 3D artwork when 
+using this view. An empty array signifies that no cross sections shall be 
+displayed. 
+Optional; PDF 1.7; meaningful only if  is present
+NA NR
+3D node dictionaries
+array () An array that contains 
+ (see 13.6.4.7, "3D node dictionaries"). Each node 
+NR
+dictionary may contain entries that change the node’s state, including its 
+opacity and its position in world space. This entry and the  entry specify 
+how the state of each node shall be changed. 
+ 
+If a node dictionary is present more than once, only the last such dictionary 
+(using a depth-first traversal) shall be used.
+© ISO 2017 – All rights reserved 633 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional; PDF 1.7
+NR  NA 
+boolean () Specifies whether nodes specified in thearray shall 
+be returned to their original states (as specified in the 3D artwork) before 
+true
+applying transformation matrices and opacity settings specified in the node 
+ NA 
+dictionaries. If , the artwork’s 3D node parameters shall be restored to 
+false
+ NA 
+their original states and then the dictionaries specified by thearray shall 
+be applied. If , the dictionaries specified by thearray shall be applied 
+to the current states of the nodes. 
+In addition to the parameters specified by a 3D node dictionary, this flag 
+should also apply to any runtime parameters used by an interactive PDF 
+false
+processor. 
+Default value:  
+ 
+O
+For any view, the PDF writer may provide 2D content specific to the view, to be drawn on top of the 3D 
+xy
+artwork. The  entry specifies a form XObject that shall be overlaid on the rendered 3D artwork. The 
+coordinate system of the form XObject shall be defined to be the same as the (, , 0) plane in the camera 
+coordinate system (see 13.6.5, "Coordinate systems for 3D"). 
+O
+Use of the  entry is subject to the following restrictions: 
+MS
+• 
+P
+It can be specified only in 3D view dictionaries in which both a camera-to-world matrix ( and 
+• 
+associated entries) and a projection dictionary (the  entry) are present. 
+The form XObject is required to be associated with a specific view (not with the camera position 
+defined by the 3D view dictionary). The interactive PDF processor shall draw it only when the user 
+navigates using the 3D view, and shall not draw it when the user happens to navigate to the same 
+• 
+orientation by manual means. 
+The interactive PDF processor shall draw it only if the user has not invoked any actions that alter 
+NOTE 2 Failure to abide by these restrictions could result in misalignment of the overlay with the rendered 
+the artwork-to-world matrix. 
+3D graphics. 
+centre of orbit
+ CO 
+Theentry specifies the distance from the camera to the  for the 3D view, which is the 
+point around which the camera shall rotate when performing an orbit-style navigation. "

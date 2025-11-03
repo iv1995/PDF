@@ -1,0 +1,62 @@
+Table 204: Additional entries specific to an embedded go-to action" 
+shows the action dictionary entries specific to embedded go-to actions. 
+NOTE Embedded go-to actions work only for files of Type PDF. 
+Embedded go-to actions provide a complete facility for linking between a file in a hierarchy of nested 
+embedded files and another file in the same or different hierarchy. The following terminology shall be 
+used: 
+source
+• 
+target
+• 
+The  is the document containing the embedded go-to action. 
+T
+• 
+The  is the document in which the destination lives. 
+The  entry in the action dictionary is a target dictionary that locates the target in relation to the 
+source, in much the same way that a relative path describes the physical relationship between two 
+files in a file system. Target dictionaries may be nested recursively to specify one or more 
+current
+intermediate targets before reaching the final one. As the hierarchy is navigated, each intermediate 
+NOTE It is an error for a target dictionary to have an infinite cycle (for example, one where a target 
+target shall be referred to as the  document. Initially, the source is the current document. 
+dictionary refers to itself). Interactive PDF processors need to attempt to detect such cases and 
+refuse to execute the action if one is found. 
+child
+• 
+parent
+• 
+A  document shall be one that is embedded within another PDF file. 
+root document
+• 
+The document in which a file is embedded shall be its . 
+A  is one that is not embedded in another PDF file. The target and source may be 
+contained in root documents or embedded documents. 
+© ISO 2017 – All rights reserved 498 
+
+ISO/DIS 32000-2
+ 
+Table 204: Additional entries specific to an embedded go-to action 
+Key Type Value 
+(Required) GoToE
+S   
+name The type of action that this dictionary describes; shall be
+for an embedded go-to action. 
+(Optional) 
+F 
+file specification The root document of the target relative to the root document 
+of the source. If this entry is absent, the source and target share the same 
+root document. 
+(Required) 
+D 
+name, byte The destination in the target to jump to (see 12.3.2, 
+string, or array "Destinations"). 
+(Optional) true
+NewWindow 
+false
+boolean If , the destination document should be opened in a new 
+window; if , the destination document should replace the current 
+document in the same window. If this entry is absent, the interactive PDF 
+processor should act according to its preference. 
+(Optional if F is present; otherwise required) target dictionary 
+T 
+dictionary A (see "

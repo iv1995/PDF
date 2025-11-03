@@ -1,0 +1,27 @@
+Table 283: 
+Additional entries specific to a selector rendition dictionary"). The renditions in this array should be 
+ordered by preference, with the most preferred rendition first. At play-time, the renditions in the array 
+shall be evaluated and the first viable media rendition, if any, shall be played. If one of the renditions is 
+itself a selector, that selector shall be evaluated in turn, yielding the equivalent of a depth-first tree 
+search. A selector rendition itself may be non-viable; in this case, none of its associated media 
+renditions shall be evaluated (in effect, this branch of the tree is skipped). 
+NOTE This mechanism can be used, for example, to specify that a large video clip need be used on high-
+bandwidth machines and a smaller clip need be used on low-bandwidth machines. 
+Table 283: Additional entries specific to a selector rendition dictionary 
+Key Type Value 
+Required
+R 
+array () An array of rendition objects. The first viable media rendition object 
+found in the array, or nested within a selector rendition in the array, should be 
+used. An empty array is legal. 
+ 
+13.2.4Media clip objects 
+ 
+13.2.4.1General 
+ 
+MCD
+S
+media clip dataMCSmedia clip section
+There are two types of media clip objects, determined by the subtype , which can be either  for 
+ (see 13.2.4.2, "Media clip data") or  for  (see 13.2.4.3, "Media clip 
+section"). The entries for media clip dictionaries are listed in "

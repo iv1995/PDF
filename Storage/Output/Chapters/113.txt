@@ -1,230 +1,178 @@
-Table 89: Entries in an alternate image dictionary" shows 
-the contents of an alternate image dictionary. 
-Table 89: Entries in an alternate image dictionary 
+Table 39: Additional entries specific to a Type 0 function 
+dictionary". 
+DomainEncodeSize
+SizeEncode
+The , , and  entries determine how the function’s input variable values are mapped 
+Encode
+into the sample table. For example, if  is [21 31], the default  array shall be [0 20 0 30], 
+which maps the entire domain into the full set of sample table entries. Other values of  may be 
+used. 
+DomainEncodeSize
+DecodeRange
+The interpolate function (7.10.1, "General") explains the relationship between , , , 
+, and . 
+© ISO 2017 – All rights reserved 125 
+
+ISO/DIS 32000-2
+ 
+Table 39: Additional entries specific to a Type 0 function dictionary 
 Key Type Value 
 Required
-Image 
-stream () The image XObject for the alternate image. 
+Size 
+array () An array of m positive integers that shall specify the number of 
+samples in each input dimension of the sample table. 
+Required
+BitsPerSample 
+ 
+integer () The number of bits that shall represent each sample. (If the 
+BitsPerSample 
+function has multiple output values, each one shall occupy
+bits.) Valid values shall be 1, 2, 4, 8, 12, 16, 24, and 32. 
 Optional
-DefaultForPrinting 
-boolean () A flag indicating whether this alternate image is the default version to be 
-false
-used for printing according to the algorithm described below. At most one alternate for 
-a given base image shall be so designated. Default value: . 
-Optional; PDF 1.5
-OC 
-dictionary () An optional content group (see 8.11.2, "Optional content groups") 
-or optional content membership dictionary (see 8.11.2.2, "Optional content 
-membership dictionaries") that facilitates the selection of which alternate image to use. 
+Order 
+integer () The order of interpolation between samples. Valid values shall 
+be 1 and 3, specifying linear and cubic spline interpolation, respectively. 
+Default value: 1. 
+Optionalm
+Encode 
+array () An array of 2 ×  numbers specifying the linear mapping of 
+SizeSize
+input values into the domain of the function’s sample table. Default value: 
+01
+[0 ( -1) 0 ( - 1)…]. 
+Optionaln
+Decode 
+array () An array of 2 ×  numbers specifying the linear mapping of 
+Range
+sample values into the range appropriate for the function’s output values. 
+Default value: same as the value of . 
+Optional
+other stream 
+attributes 
+(various) () Other attributes of the stream that shall provide the sample 
+values, as appropriate (see "Table 5: Entries common to all stream 
+dictionaries"). 
  
-In PDF 1.5, optional content (see 8.11, "Optional content") may be used to facilitate selection between 
-alternate images. The following algorithm shall be used to determine which image, if any, shall be 
-shown: 
-OC 
+i
+x
+im
+When a sampled function is called, each input value 
+, for 0 ≤  < , shall be clipped to the domain: 
+′
+i2i2i+1
+i
+))
+((
+,Domain
+=minmax x,Domain 
+x
  
-a)If the base image contains an entry that specifies that the content is not visible, then nothing shall be 
-OC
+That value shall be encoded: 
+′
+i2i2i+12i2i+1
+i
+e
+=Interpolate (x,Domain,Domain,Encode,Encode )
  
-shown. 
-b)If the base image contains an  entry that specifies that the base image is visible, then the base image 
-AlternatesDefaultForPrinting 
+That value shall be clipped to the size of the sample table in that dimension: 
+′
+ii
+i
+(())
+e
+=min maxe,0,Size−1 
  
-shall be rendered. 
-true
-c)Otherwise if the PDF is being printed and any of the  entries has set to 
-Alternates
+j
+r
+The encoded input values shall be real numbers, not restricted to integers. Interpolation shall be used to 
+jn
+determine output values from the nearest surrounding values in the sample table. Each output value 
+, 
+for 0 ≤  < , shall then be decoded: 
+′
+BitsPerSample
+j2j2j+1
+j
+r
+=Interpolate (r,0,2−1,Decode,Decode )
  
-, then that alternate image shall be printed. 
-OCOC
-d)Otherwise, the list of alternates specified by the base image  entry is examined, and the first 
-Image
-alternate not containing an  key, or containing an  entry specifying that its content should be visible 
-OCOC
-shall be shown. Furthermore if the image dictionary that forms the value of the  key of the selected 
-NOTE:  Alternate images cannot also have an key as described in "Table 87: Additional entries 
-Alternates 
-alternate contains an  entry, then that  in the image dictionary shall not be examined. 
-specific to an image dictionary". 
-EXAMPLE The following shows an image with a single alternate. The base image is a grayscale image, and the alternate 
-is a high-resolution RGB image stored on a Web server. 
-10 0 obj              %ImageXObject 
+Finally, each decoded value shall be clipped to the range: 
+′
+j2j2j+1
+j
+y
+=min(max �r,Range�,Range )
  
-  <</Type /XObject 
-   /Subtype /Image 
-© ISO 2017 – All rights reserved 259 
+Sample data shall be represented as a stream of bytes. The bytes shall constitute a continuous bit 
+ BitsPerSample 
+stream, with the high-order bit of each byte first. Each sample value shall be represented as a sequence 
+ofbits. Successive values shall be adjacent in the bit stream; there shall be no padding 
+© ISO 2017 – All rights reserved 126 
 
 ISO/DIS 32000-2
  
-   /Width 100 
-   /Height 200 
-   /ColorSpace /DeviceGray 
-   /BitsPerComponent 8 
-   /Alternates 15 0 R 
-   /Length 2167 
-   /Filter /DCTDecode 
+at byte boundaries. 
+For a function with multidimensional input (more than one input variable), the sample values in the 
+first dimension vary fastest, and the values in the last dimension vary slowest. 
+fa, b, ca, bc
+ffffffffff
+EXAMPLE 1 For a function (), where , and  vary from 0 to 9 in steps of 1, the sample values would appear in this 
+f
+order: (0, 0, 0), (1, 0, 0),…, (9, 0, 0), (0, 1, 0), (1, 1, 0),…, (9, 1, 0), (0, 2, 0), (1, 2, 0),…, (9, 9, 0), (0, 0, 1), 
+(1, 0, 1), and so on. 
+Range
+For a function with multidimensional output (more than one output value), the values shall be stored in 
+the same order as . 
+SizeRange
+BitsPerSample
+The stream data shall be long enough to contain the entire sample array, as indicated by , , 
+and ; see 7.3.8.2, "Stream extent". 
+xy
+Example 2 illustrates a sampled function with 4-bit samples in an array containing 21 columns and 31 
+zx
+rows (651 values). The function takes two arguments,  and , in the domain [-1.0 1.0], and returns one 
+y
+value, , in that same range. The  argument shall be linearly transformed by the encoding to the domain 
+z
+ BitsPerSample 
+[0 20] and the  argument to the domain [0 30]. Using bilinear interpolation between sample points, the 
+z
+function computes a value for , which (becauseis 4) will be in the range [0 15], and the 
+decoding transforms  to a number in the range [-1.0 1.0] for the result. The sample array shall be 
+stored in a string of 326 bytes, calculated as follows (rounded up): 
+326 bytes = 31 rows × 21 samples /row × 4 bits /sample ÷ 8 bits /byte 
+The first byte contains the sample for the point (-1.0, -1.0) in the high-order 4 bits and the sample for 
+the point (-0.9, -1.0) in the low-order 4 bits. 
+EXAMPLE 2 
+14 0 obj 
+  <</FunctionType 0 
+   /Domain [-1.0 1.0 -1.0 1.0] 
+   /Size [21 31] 
+   /Encode [0 20 0 30] 
+   /BitsPerSample 4 
+   /Range [-1.0 1.0] 
+   /Decode [-1.0 1.0] 
+   /Length … 
+   /Filter… 
   >> 
 stream 
-…Imagedata … 
-  
+651 sample values
+…… 
 endstream 
 endobj 
  
-15 0 obj              %Alternate images array 
-  [<</Image 16 0 R 
-   /DefaultForPrinting true 
-  >> 
-  ] 
-endobj 
- 
-16 0 obj              %Alternate image 
-  <</Type /XObject 
-   /Subtype /Image 
-   /Width 1000 
-   /Height 2000 
-   /ColorSpace /DeviceRGB 
-   /BitsPerComponent 8 
-   /Length 0          %This is an external stream 
- 
-   /F <</FS /URL 
-     /F (http://www.myserver.mycorp.com/images/exttest.jpg) 
-    >> 
-   /FFilter /DCTDecode 
-  >> 
-stream 
-endstream 
-endobj 
- 
-8.9.6Masked images 
- 
-8.9.6.1General 
- 
-Ordinarily, in the opaque imaging model, images mark all areas they occupy on the page as if with 
-opaque paint. All portions of the image, whether black, white, gray, or colour, completely obscure any 
-marks that may previously have existed in the same place on the page. In the graphic arts industry and 
-page layout applications, however, it is common to crop or mask out the background of an image and 
-then place the masked image on a different background so that the existing background shows through 
-the masked areas. A number of PDF features are available for achieving such masking effects: 
- ImageMask 
-• 
-stencil mask
-Theentry in the image dictionary, specifies that the image data shall be used as a 
-PDF 1.3
-Mask
-• 
- for painting in the current colour. 
-explicit mask
-The  entry in the image dictionary () specifies a separate image XObject which shall 
-PDF 1.3
-Mask
-• 
-be used as an  specifying which areas of the image to paint and which to mask out. 
-colour key masking
-Alternatively, the  entry () specifies a range of colours which shall be masked out 
-NOTE Earlier versions of PDF commonly simulated masking by defining a clipping path enclosing only 
-wherever they occur within the image. This technique is known as . 
-those of an image’s samples that are to be painted. However, if the clipping path is very complex 
-(or if there is more than one clipping path) not all interactive PDF processors will render the 
-results in the same way. An alternative way to achieve the effect of an explicit mask is to define the 
-© ISO 2017 – All rights reserved 260 
+NOTE 3 The  entry can be used creatively to increase the accuracy of encoded samples 
+Decode
+corresponding to certain values in the range. 
+ BitsPerSample Decode 
+EXAMPLE 3 If the range of the function is [-1.0 1.0] andis 4, the usual value of would be [-1.0 1.0] 
+and the sample values would be integers in the interval [0 15] (as shown in "Figure 8: Mapping with the 
+Decode
+Decode array"). But if these values are used, the midpoint of the range, 0.0, is not represented exactly by any 
+sample value, since it falls halfway between 7 and 8. However, if the  array is [-1.0 +1.1429] (1.1429 
+being approximately equal to 16 ÷ 14) and the sample values supplied are in the interval [0 14], the effective 
+© ISO 2017 – All rights reserved 127 
 
 ISO/DIS 32000-2
  
-image being clipped as a pattern, make it the current colour, and then paint the explicit mask as 
-an image whoseentry is . 
- ImageMask 
- 
-true
-PDF 1.4PDF 1.5
-SMask SMaskInData
-In the transparent imaging model, a fourth type of masking effect, soft masking, is available through the
-entry () or the  entry () in the image dictionary; see 11.6.5, 
-"Specifying soft masks", for further discussion. 
-8.9.6.2Stencil masking 
- 
-true
- ImageMask 
-An image mask (an image XObject whoseentry is ) is a monochrome image in which 
-each sample is specified by a single bit. However, instead of being painted in opaque black and white, 
-the image mask is treated as a stencil mask that is partly opaque and partly transparent. Sample values 
-in the image do not represent black and white pixels; rather, they designate places on the page that 
-should either be marked with the current colour or masked out (not marked at all). Areas that are 
-masked out retain their former contents. The effect is like applying paint in the current colour through a 
-cut-out stencil, which lets the paint reach the page in some places and masks it out in others. 
-An image mask differs from an ordinary image in the following significant ways: 
- ColorSpace 
-• 
-The image dictionary shall not contain aentry because sample values represent 
- BitsPerComponent 
-• 
-masking properties (1 bit per sample) rather than colours. 
-DecodeDecode
-• 
-The value of theentry shall be 1. 
-The  entry determines how the source samples shall be interpreted. If the  array is 
-Decode
-[0 1] (the default for an image mask), a sample value of 0 shall mark the page with the current 
-colour, and a 1 shall leave the previous contents unchanged. If the  array is [1 0], these 
-NOTE One of the most important uses of stencil masking is for painting character glyphs represented as 
-meanings shall be reversed. 
-bitmaps. Using such a glyph as a stencil mask transfers only its "black" bits to the page, leaving the 
-"white" bits (which are really just background) unchanged. For reasons discussed in 9.6.5.3, 
-"Encodings for Type 3 fonts", an image mask, rather than an image, need almost always be used to 
-paint glyph bitmaps. 
-If image interpolation (see 8.9.5.3, "Image interpolation") is requested during stencil masking, the effect 
-shall be to smooth the edges of the mask, not to interpolate the painted colour values. This effect can 
-minimise the jaggy appearance of a low-resolution stencil mask. 
-8.9.6.3Explicit masking 
- 
-Mask
-In PDF 1.3, the  entry in an image dictionary may be an image mask, as described in subclause 
-WidthHeight
-8.9.6.2, "Stencil masking", which serves as an explicit mask for the primary (base) image. The base 
-image and the image mask need not have the same resolution ( and  values), but since all 
-images shall be defined on the unit square in user space, their boundaries on the page will coincide; that 
-is, they will overlay each other. The image mask indicates which places on the page shall be painted and 
-which shall be masked out (left unchanged). Unmasked areas shall be painted with the corresponding 
-portions of the base image; masked areas shall not be. 
-8.9.6.4Colour key masking 
- 
-Mask
-In PDF 1.3, the  entry in an image dictionary may be an array specifying a range of colours to be 
-masked out. Samples in the image that fall within this range shall not be painted, allowing the existing 
-background to show through. 
-© ISO 2017 – All rights reserved 261 
-
-ISO/DIS 32000-2
- 
-NOTE 1 The effect is similar to that of the video technique known as chroma-key. 
-Mask
-n
-For colour key masking, the value of the  entry shall be an array of 2 × 𝑛𝑛 integers, 
-11𝑛𝑛𝑛𝑛
-[min
-max…minmax], where  is the number of colour components in the image’s colour space. 
-BitsPerComponent
-Decode
- - 1, representing colour values before decoding 
-Each integer shall be in the range 0 to 2
-c
- cmincmaxin
-with the  array. An image sample shall be masked (not painted) if all of its colour components 
-1nii
-before decoding, 
-…, fall within the specified ranges (that is, if  ≤ i ≤  for all 1 ≤  ≤ ). 
- DCTDecode  JPXDecode 
-When colour key masking is specified, the use of aor lossyfilter for the stream 
-can produce unexpected results. 
-NOTE 2  is always a lossy filter althoughhas a lossy filter option. The use of a lossy 
-DCTDecode JPXDecode 
-filter means that the output is only an approximation of the original input data. Therefore, the use 
-of this filter can lead to slight changes in the colour values of image samples, possibly causing 
-samples that were intended to be masked to be unexpectedly painted instead, in colours slightly 
-different from the mask colour. 
-8.9.7Inline images 
- 
-As an alternative to the image XObjects described in 8.9.5, "Image dictionaries", a sampled image may 
-be specified in the form of an inline image. This type of image shall be defined directly within the 
-content stream in which it will be painted rather than as a separate object. Because the inline format 
-gives the PDF processor less flexibility in managing the image data, it should be used only for small 
-images (4096 bytes or less). 
-BI
+range of [-1.0 1.0] is achieved, and the range value 0.0 is represented by the sample value 7. ![Figure 8 Mapping with the Decode array  .png](./Storage/Output/Images/Figure 8 Mapping with the Decode array  .png)

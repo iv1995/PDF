@@ -1,0 +1,23 @@
+Table 178: Additional 
+entries specific to a line annotation" shows the annotation dictionary entries specific to this type of 
+annotation. 
+Table 178: Additional entries specific to a line annotation 
+Key Type Value 
+(Required) Line
+Subtype 
+name The type of annotation that this dictionary describes; shall be  
+for a line annotation. 
+© ISO 2017 – All rights reserved 472 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+2
+(Required) xyxy
+L 
+112
+array An array of four numbers, [   ], specifying the starting and 
+ LL 
+ending coordinates of the line in default user space. 
+If theentry is present, this value shall represent the endpoints of the 
+leader lines rather than the endpoints of the line itself; see "

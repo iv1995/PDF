@@ -1,253 +1,62 @@
-Table 338: Entries in a 
-RichMediaPresentation dictionary") that contains information as to how the annotation 
-and user interface elements will be visually laid out and drawn. 
+Figure 64: Various halftoning effects" illustrates the effects of some of the predefined spot functions. ![Figure 64 Various halftoning effects  .png](./Storage/Output/Images/Figure 64 Various halftoning effects  .png)
+Figure 64: Various halftoning effects 
  
-13.7.2.2.2RichMediaDeactivation dictionary 
+10.6.4Threshold arrays 
  
-RichMediaDeactivation dictionary
-The second component of the RichMediaSettings dictionary is the , 
-which specifies the condition that causes deactivation of the annotation. 
-Table 336: Entries in a RichMediaDeactivation dictionary 
-Key Type Value 
-Optional; PDF 2.0
-Type 
-RichMediaDeactivation
-name () The type of PDF object that this dictionary describes. If 
-present, shall be . 
-Optional; PDF 2.0
-Condition 
-name () A name specifying the circumstances under which the 
-XD
-annotation shall be deactivated. The following values are valid:  
-PC
- the annotation is explicitly deactivated by a user action or script. 
- the annotation is deactivated as soon as the page that contains the 
-PI
-annotation loses focus as the current page. 
- the annotation is deactivated as soon as the entire page that contains the 
-XD
-annotation is no longer visible. 
-Default value: . 
+Another way to define a halftone screen is with a threshold array that directly controls individual device 
+pixels in a halftone cell. This technique provides a high degree of control over halftone rendering. It also 
+permits halftone cells to be arbitrary rectangles, whereas those controlled by a spot function are always 
+square. 
+A threshold array is much like a sampled image — a rectangular array of pixel values — but shall be 
+defined entirely in device space. Depending on the halftone type, the threshold values occupy 8 or 16 
+bits each. Threshold values nominally represent gray levels in the usual way, from 0 for black up to the 
+maximum (255 or 65,535) for white. The threshold array shall be replicated to tile the entire device 
+space: each pixel in device space shall be mapped to a particular sample in the threshold array. On a 
+bilevel device, where each pixel is either black or white, halftoning with a threshold array shall proceed 
+as follows: 
  
-13.7.2.2.3RichMediaAnimation dictionary 
- 
-RichMediaAnimation dictionary
-A  specifies the preferred method that interactive PDF processors should 
-Animation
-use to apply timeline scaling to keyframe animations. It can also specify that keyframe animations be 
-played repeatedly. The  entry of the RichMediaActivation dictionary ("Table 335: Entries in a 
-RichMediaActivation dictionary") can specify a RichMediaAnimation dictionary. 
-keyframe animation
-A  can be provided as part of 3D model content. "Table 337: Entries in a 
-RichMediaAnimation dictionary" shows the entries in a RichMediaAnimation dictionary. 
-© ISO 2017 – All rights reserved 678 
+a)For each device pixel that is to be painted with some gray level, consult the corresponding threshold 
+© ISO 2017 – All rights reserved 363 
 
 ISO/DIS 32000-2
  
-NOTE Keyframe animation is an interactive feature that is highly dependent on the behaviour and 
-controls provided by the interactive PDF processor. 
-Table 337: Entries in a RichMediaAnimation dictionary 
-Key Type Value 
-Optional; PDF 2.0
-Type 
-RichMediaAnimation
-name () The type of PDF object that this dictionary describes. If present, 
-the type shall be . 
-Optional; PDF 2.0
-Subtype 
-NoneLinearOscillating
-name () The animation style described by this dictionary. Valid values 
-are , , and . 
-See "Table 313: Animation styles" for descriptions of these animation styles. 
-None
-If an animation style is encountered other than those described, an animation style 
-None
  
-of  shall be used. 
-Default value: 
-Optional; PDF 2.0
-PlayCount 
-integer () An integer specifying the play count for this animation style. A 
-nonnegative integer shall represent the number of times the animation is played. A 
-None
+value from the threshold array. 
+b)If the requested gray level is less than the threshold value, paint the device pixel black; otherwise, paint it 
+white. Gray levels in the range 0.0 to 1.0 correspond to threshold values from 0 to the maximum available 
+(255 or 65,535). 
+A threshold value of 0 shall be treated as if it were 1; therefore, a gray level of 0.0 paints all pixels black, 
+regardless of the values in the threshold array. 
+This scheme easily generalizes to monochrome devices with multiple bits per pixel, where each pixel 
+can directly represent intermediate gray levels in addition to black and white. For any device pixel that 
+is specified with some in-between gray level, the halftoning algorithm shall consult the corresponding 
+value in the threshold array to determine whether to use the next-lower or next-higher representable 
+gray level. In this situation, the threshold values do not represent absolute gray levels, but rather 
+gradations between any two adjacent representable gray levels. 
+EXAMPLE If there are 2 bits per pixel, each pixel can directly represent one of four different gray levels: black, dark gray, 
+light gray, or white, encoded as 0, 1, 2, and 3, respectively. 
+NOTE A halftone defined in this way can also be used with colour displays that have a limited number of 
+values for each colour component. The red, green, and blue components are simply treated 
+independently as gray levels, applying the appropriate threshold array to each. (This technique 
+also works for a screen defined as a spot function, since the spot function is used to compute a 
+threshold array internally.) 
+10.6.5Halftone dictionaries 
  
-negative integer shall indicate that the animation is infinitely repeated. 
-This value shall be ignored for an animation subtype of type . Default value: -1
-Optional; PDF 2.0
-Speed 
-number () A positive number specifying the speed that shall be used when 
-running the animation. A value greater than one shall shorten the time it takes to 
-NOTE This allows authors to change the desired speed of animations without re-
-play the animation, or effectively speed up the animation. 
-authoring the content. 
-None
-This value shall be ignored for an animation subtype of type . Default value: 1 
-EXAMPLE A RichMediaSettings dictionary 
-20 0 obj            %RichMediaSettings dictionary 
-  <</Type /RichMediaSettings 
-  /Activation 
-  <</Type /RichMediaActivation   %RichMediaActivation Dictionary 
-   /Condition /XA 
-   /Configuration 14 0 R     %Reference to element in Configurations array 
-   /View 19 0 R        %Reference to element in Views array 
-   /Animation        %RichMediaAnimation dictionary 
-   <</Type /RichMediaAnimation 
-    /Subtype /Linear 
-    /Speed 1 
-    /PlayCount -1 
-   >> 
-   /Presentation 21 0 R 
-   /Scripts [32 0 R 33 0 R]    %References to scripts in Resources name tree 
-  >> 
-  /Deactivation        %RichMediaDeactivation dictionary 
-  <</Type /RichMediaDeactivation 
-   /Condition /XD 
-  >> 
- >> 
-endobj 
+10.6.5.1General 
  
-13.7.2.2.4RichMediaPresentation dictionary 
- 
-RichMediaPresentation dictionary
-The  contains information about how the annotation and user 
-3D
-RichMediaConfiguration
-interface elements should be visually laid out and drawn by an interactive PDF processor. The visibility 
-of the Toolbar is specified, and it will only take effect if the  subtype is . 
-© ISO 2017 – All rights reserved 679 
-
-ISO/DIS 32000-2
- 
-(See "Table 342: Entries in a RichMediaConfiguration dictionary") 
-User interface items such as a navigation panes and toolbars can be displayed or hidden by default. Such 
-user interface elements may only be implemented by those interactive PDF processors where it is 
-appropriate to do so. 
-NOTE The navigation pane is a user interface item that would be used to display the hierarchical 
-relationship of entities within the artwork. (See 13.6.2, "3D Annotations".) 
-StyleEmbedded
-The  of the annotation can be presented  within the PDF page or separately Windowed. 
-If a Windowed state is chosen, the default dimensions and position of the window may be given. "Table 
-339: Entries in a RichMediaWindow dictionary" contains a description of each element. 
-Table 338: Entries in a RichMediaPresentation dictionary 
-Type Value 
-Key 
-(Optional; PDF 2.0)
-Type 
-RichMediaPresentation
-name  The type of PDF object that this dictionary 
-describes. If present, shall be . 
-(Optional; PDF 2.0)
-Style 
-EmbeddedWindowed
-name  The style of presentation of the rich media. The 
-Embedded
-value can be  or . A interactive PDF processor shall 
-Embedded
-support the state . 
-Default value:  
-Optional;PDF 2.0
-Window 
-dictionary ( ) A RichMediaWindow Dictionary that describes the 
-Windowed
-Style
-size and position of the floating user interface window when the value 
-for  is set to . See "Table 339: Entries in a 
-RichMediaWindow dictionary" for a detailed description. 
-Optional; PDF 2.0
-Transparent 
-boolean () A flag that indicates whether the page content shall 
-true
-be displayed through the transparent areas of the rich media content 
-(where the alpha value is less than 1.0). If , the rich media artwork 
-false
-shall be composited over the page content using an alpha channel. If 
-, the rich media artwork shall be drawn over an opaque 
-false
-background prior to composition over the page content. 
-Default value:  
-Optional; PDF 2.0
-NavigationPane 
-true
-boolean () A flag that indicates the default behavior of a 
-false
-navigation pane user interface element. If , the navigation pane 
-should be visible when the content is initially activated. If , the 
-false
-navigation pane should not displayed by default. 
-Default value:  
-Optional; PDF 2.0
-Toolbar 
-true
-boolean () A flag that indicates the default behavior of an 
-interactive toolbar associated with this annotation. If , a toolbar 
-false
-should be displayed when the annotation is activated and given focus. If 
-, a toolbar should not displayed by default. 
-truefalse
-The toolbar should be positioned in proximity to the annotation.  
-Default value:  for content of Subtype 3D, and  otherwise. 
-© ISO 2017 – All rights reserved 680 
-
-ISO/DIS 32000-2
- 
-Type Value 
-Key 
-Optional; PDF 2.0
-PassContextClick 
-boolean () A flag that indicates whether a contextual click on 
-the rich media annotation is passed to the media player run time or 
-NOTE A context click is usually generated by a mouse right-click 
-shall be handled natively by the interactive PDF processor. 
-although it can be invoked by other means. This can include, 
-but is not limited to, an explicit context-menu keyboard key or 
-the combination of a mouse click and a keyboard modifier key. 
-false
-true
-If , the interactive PDF processor shall handle the context click. If 
-, the interactive PDF processor shall allow the media runtime to 
-false
-provide any user interface it wishes. 
-Default value:  
- 
-13.7.2.2.5RichMediaWindow dictionary 
- 
-RichMediaWindow dictionary
-Style
-The  stores the dimensions and position of the floating window that an 
-Windowed
-interactive PDF processor may present. It is used only if  (see "Table 339: Entries in a 
-Windowed
-RichMediaWindow dictionary") is set to . The window described is a non-printing user 
-interface element. An interactive PDF processor that supports  styles shall constrain the 
-window extent to be within the presentation area of the interactive PDF processor. 
-All coordinates shall be expressed in default user space units although do not rotate or scale the 
-window to match the orientation and magnification of the page. The expected behavior of the 
-interactive PDF processor is similar to how it presents an annotation when the flags NoZoom and 
-NoRotate are set to true. (See 12.5.3, "Annotation flags".) "Table 339: Entries in a RichMediaWindow 
-dictionary" details the contents of this dictionary. 
-Table 339: Entries in a RichMediaWindow dictionary 
-Key Type Value 
-Optional; PDF 2.0
-Type 
-RichMediaWindow
-name () The type of PDF object that this dictionary describes. If 
-present, shall be . 
-Optional; PDF 2.0
-Width DefaultMaxMin
-dictionary () A dictionary with keys , , and  describing 
-DefaultMaxMin
- 
-values for the width of the Window in default user space units. 
-Default values:  shall be 288,  shall be 576, and  shall be 72
-Optional; PDF 2.0
-Height DefaultMaxMin
-dictionary () A dictionary with keys , , and  describing 
-DefaultMaxMin
- 
-values for the width of the Window in default user space units. 
-Default values:  shall be 216,  shall be 432, and  shall be 72
-Optional; PDF 2.0
-Position 
-RichMediaWindow
-dictionary () A RichMediaPosition dictionary describing the position of the 
-. See "
+In PDF 1.2, the graphics state includes a current halftone parameter. A PDF processor may choose to use 
+this halftone to perform painting operations if required for the current output device. Alternatively the 
+PDF processor may choose to ignore some or all of the halftones specified in the PDF file and use 
+different halftones that may be better suited for that device (see Annex N, "Best practice for halftones").  
+ HT 
+The current halftone may be specified as the value of theentry in a graphics state parameter 
+dictionary; see "Table 57: Entries in a graphics state parameter dictionary". It may be defined by either 
+a dictionary or a stream, depending on the type of halftone; the term halftone dictionary is used 
+generically throughout this clause to refer to either a dictionary object or the dictionary portion of a 
+stream object. (The halftones that are defined by streams are specifically identified as such in the 
+descriptions of particular halftone types; unless otherwise stated, they are understood to be defined by 
+simple dictionaries instead.) 
+HalftoneType
+Every halftone dictionary shall have a  entry whose value shall be an integer specifying 
+the overall type of halftone definition. The remaining entries in the dictionary are interpreted according 
+to this type. PDF supports the halftone types listed in "

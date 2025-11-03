@@ -1,0 +1,30 @@
+Table 284: Entries common to all media 
+clip dictionaries". 
+Table 284: Entries common to all media clip dictionaries 
+Key Type Value 
+Optional
+Type 
+MediaClip
+name () The type of PDF object that this dictionary describes; if present, shall 
+be  for a media clip dictionary. 
+RequiredMCD
+S 
+MCS
+name () The subtype of media clip that this dictionary describes. May be  
+for media clip data (see 13.2.4.2, "Media clip data") or  for a media clip 
+section (see 13.2.4.3, "Media clip section"). The media clip is non-viable if the 
+interactive PDF processor does not recognise the value of this entry. 
+© ISO 2017 – All rights reserved 599 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional
+N 
+text string () The name of the media clip, for use in the user interface. 
+ 
+13.2.4.2Media clip data 
+ 
+media clip data dictionary
+A  defines the data for a media object that can be played. Its entries are listed 
+in "

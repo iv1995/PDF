@@ -1,105 +1,37 @@
-Table 288: Additional entries in a media clip section dictionary") 
-D
-defines a continuous section of another media clip object (known as the next-level media clip object). 
-D
-The next-level media clip object, specified by the  entry, may be either a media clip data object or 
-another media clip section object. However, the linked list formed by the  entries of media clip 
-sections shall terminate in a media clip data object. If the next-level media object is non-viable, the 
-media clip section shall be also non-viable. 
-NOTE 1 A media clip section could define a 15-minute segment of a media clip data object representing a 
-two-hour movie. 
-Table 288: Additional entries in a media clip section dictionary 
-Key Type Value 
-Required
-D 
-dictionary () The media clip section or media clip data object (the next-level media 
-object) of which this media clip section object defines a continuous section. 
-Optional
-Alt 
-array () An array that provides alternative text descriptions for the media clip 
-section in case it cannot be played; see 14.9.2.4, "Multi-language text arrays" 
-Optional
-MH 
-dictionary () A dictionary whose entries (see "Table 289: Entries in a media clip 
-section MH/BE dictionary") shall be honoured for the media clip section to be 
-considered viable. 
-Optional
-BE 
-dictionary () A dictionary whose entries (see "Table 289: Entries in a media clip 
-section MH/BE dictionary") shall only be honoured in a "best effort" sense. 
+Figure 54: Glyph metrics" shows a typical glyph outline and its metrics. ![Figure 54 Glyph metrics  .png](./Storage/Output/Images/Figure 54 Glyph metrics  .png)
+Figure 54: Glyph metrics 
  
-© ISO 2017 – All rights reserved 602 
+Tj
+The glyph origin is the point (0, 0) in the glyph coordinate system.  and other text-showing operators 
+shall position the origin of the first glyph to be painted at the origin of text space. 
+EXAMPLE 1 This code adjusts the origin of text space to (40, 50) in the user coordinate system and then places the origin 
+of the A glyph at that point: 
+BT 
+© ISO 2017 – All rights reserved 292 
 
 ISO/DIS 32000-2
  
-BEMH BE 
-The  and  entries in the media clip section’s  anddictionaries (see "Table 289: Entries in a 
-D
-media clip section MH/BE dictionary") shall define a subsection of the next-level media object 
-BE
-referenced by  by specifying beginning and ending offsets into it. Depending on the media type, the 
-offsets may be specified by time, frames, or markers (see 13.2.6.2, "Media offset dictionary").  and  
-are not required to specify the same type of offset. 
-The following rules apply to these offsets: 
-BE
-• 
-For media types where an offset makes no sense (such as JPEG images),  and  shall be ignored, 
-BE
-• 
-with no effect on viability. 
-E
-When  or  are specified by time or frames, their value shall be considered to be relative to the 
-start of the next-level media clip. However, if  specifies an offset beyond the end of the next-level 
-BE
-• 
-media clip, the end value shall be used instead, and there is no effect on viability. 
-When  or  are specified by markers, there shall be a corresponding absolute offset into the 
-underlying media clip data object. If this offset is not within the range defined by the next-level 
-media clip (if any), or if the marker is not present in the underlying media clip, the existence of the 
-B
-• 
-entry shall be ignored, and there is no effect on viability. 
-E
-If the absolute offset derived from the values of all  entries in a media clip section chain is greater 
-than or equal to the absolute offset derived from the values of all  entries, an empty range shall be 
-BEMH
-• 
-defined. An empty range is legal. 
-Any  or  entry in a media clip section’s  dictionary shall be honoured at play-time in order for 
-NOTE 2 The entry cannot be honoured if its value was not viable or if the player did not support its value; 
-the media clip section to be considered viable. 
-for example, the player did not support markers. 
-BEMHBE
-• 
-MH
-If a  or  entry is in a media clip section’s  dictionary, all  or  entries, respectively, at deeper 
- BE 
-levels (closer to the media clip data), shall be evaluated as if they were in an  dictionary (even if 
-BE BE 
-• 
-they are actually withindictionaries). 
-If  or  entry in adictionary cannot be supported, it may be ignored at play-time. 
-Table 289: Entries in a media clip section MH/BE dictionary 
-Key Type Value 
-Optional
-B 
-dictionary () A media offset dictionary (see 13.2.6.2, "Media offset dictionary") 
-that specifies the offset into the next-level media object at which the media 
-clip section begins.  
-Default: the start of the next-level media object. 
-Optional
-E 
-dictionary () A media offset dictionary (see 13.2.6.2, "Media offset dictionary") 
-that specifies the offset into the next-level media object at which the media 
-clip section ends.  
-Default: the end of the next-level media object. 
+  40 50 Td 
+  (ABC) Tj 
+ET 
  
-13.2.5Media play parameters 
- 
-media play parameters dictionary
-A  specifies how a media object should be played. It shall be referenced 
-from a media rendition (see 13.2.3.2, "Media renditions"). 
-© ISO 2017 – All rights reserved 603 
-
-ISO/DIS 32000-2
- 
+The glyph displacement is the distance from the glyph’s origin to the point at which the origin of the 
+next glyph should normally be placed when painting the consecutive glyphs of a line of text. This 
+distance is a vector (called the displacement vector) in the glyph coordinate system; it has horizontal 
+and vertical components. 
+NOTE 5 Most Western writing systems, including those based on the Latin alphabet, have a positive 
+horizontal displacement and a zero vertical displacement. Some Asian writing systems have a 
+non-zero vertical displacement. In all cases, the text-showing operators transform the 
+displacement vector into text space and then translate text space by that amount. 
+The glyph bounding box shall be the smallest rectangle (oriented with the axes of the glyph coordinate 
+system) that just encloses the entire glyph shape. The bounding box shall be expressed in terms of its 
+left, bottom, right, and top coordinates relative to the glyph origin in the glyph coordinate system. 
+In some writing systems, text is frequently aligned in two different directions. 
+NOTE 6 It is common to write Japanese and Chinese glyphs either horizontally or vertically. 
+To handle this, a font may contain a second set of metrics for each glyph. Which set of metrics to use 
+shall be selected according to a writing mode, where 0 shall specify horizontal writing and 1 shall 
+specify vertical writing. This feature is available only for composite fonts, discussed in 9.7, "Composite 
+fonts". 
+When a glyph has two sets of metrics, each set shall specify a glyph origin and a displacement vector for 
+that writing mode. In vertical writing, the glyph position shall be described by a position vector from 
+the origin used for horizontal writing (origin 0) to the origin used for vertical writing (origin 1). "

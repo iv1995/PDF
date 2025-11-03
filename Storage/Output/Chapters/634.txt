@@ -1,0 +1,117 @@
+Table Annex H.4: Object usage 
+after adding four text annotations" lists the objects involved in this update. 
+Table Annex H.4: Object usage after adding four text annotations 
+Object identifier Object type 
+Page
+4 0  (page object) 
+7 0 Annotation array 
+Annot
+8 0  (annotation dictionary) 
+Annot
+9 0  (annotation dictionary) 
+Annot
+10 0  (annotation dictionary) 
+Annot
+11 0  (annotation dictionary) 
+ 
+ Annots 
+The example in H.7.2, "Stage 1: Add four text annotations" shows the lines added to the file by this 
+ Prev 
+update. The page object is updated because anentry has been added to it. Note that the file’s 
+startxref
+trailer now contains aentry, which points to the original cross-reference section in the file, while 
+the  value at the end of the trailer points to the cross-reference section added by the update. 
+EXAMPLE  
+4 0 obj 
+  <</Type /Page 
+   /Parent 3 0 R 
+   /MediaBox [0 0 612 792] 
+   /Contents 5 0 R 
+  /Annots 7 0 R 
+>> 
+endobj 
+ 
+7 0 obj 
+   [8 0 R 
+   9 0 R 
+   10 0 R 
+   11 0 R 
+   ] 
+endobj 
+ 
+8 0 obj 
+  <</Type /Annot 
+   /Subtype /Text 
+   /Rect [44 616 162 735] 
+   /Contents (Text #1) 
+   /Open true 
+  >> 
+endobj 
+ 
+9 0 obj 
+© ISO 2017 – All rights reserved 886 
+
+ISO/DIS 32000-2
+ 
+  <</Type /Annot 
+   /Subtype /Text 
+   /Rect [224 668 457 735] 
+   /Contents (Text #2) 
+   /Open false 
+  >> 
+endobj 
+ 
+10 0 obj 
+  <</Type /Annot 
+   /Subtype /Text 
+   /Rect [239 393 328 622] 
+   /Contents (Text #3) 
+   /Open true 
+  >> 
+endobj 
+ 
+11 0 obj 
+  <</Type /Annot 
+   /Subtype /Text 
+   /Rect [34 398 225 575] 
+   /Contents (Text #4) 
+   /Open false 
+  >> 
+endobj 
+ 
+xref 
+0 1 
+0000000000 65535 f 
+4 1 
+0000000632 00000 n 
+7 5 
+0000000810 00000 n 
+0000000883 00000 n 
+0000001024 00000 n 
+0000001167 00000 n 
+0000001309 00000 n 
+trailer 
+  <</Size 12 
+   /Root 1 0 R 
+   /Prev 408 
+  >> 
+startxref 
+1452 
+%%EOF 
+ 
+H.7.3Stage 2: Modify text of one annotation 
+ 
+One text annotation is modified and the file is saved. The example in, H.7.3, "Stage 2: Modify Text of One 
+Annotation" shows the lines added to the file by this update. Note that the file now contains two copies 
+of the object with identifier 10 0 (the text annotation that was modified) and that the added cross-
+ 
+reference section points to the more recent version of the object. This added cross-reference section 
+Prev 
+contains one subsection, which contains only an entry for the object that was modified. In addition, the
+startxref
+entry in the file’s trailer has been updated to point to the cross-reference section added in the 
+previous stage, while the  value at the end of the trailer points to the newly added cross-
+reference section. 
+© ISO 2017 – All rights reserved 887 
+
+ISO/DIS 32000-2 

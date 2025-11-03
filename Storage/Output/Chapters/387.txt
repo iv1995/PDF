@@ -1,0 +1,18 @@
+Table 219: Additional entries specific 
+to a transition action"). Once this transition completes, drawing shall be suspended again. 
+Table 219: Additional entries specific to a transition action 
+Key Type Value 
+(Required) Trans
+S   
+name The type of action that this dictionary describes; shall befor a 
+transition action. 
+(Required) 
+Trans 
+dictionary The transition to use for the update of the display (see "Table 164: 
+Entries in a transition dictionary"). 
+ 
+12.6.4.16Go-To-3D-View actions 
+ 
+go-to-3D-view actionPDF 1.6
+A  () identifies a 3D annotation and specifies a view for the annotation to 
+use (see 13.6, "3D Artwork"). "

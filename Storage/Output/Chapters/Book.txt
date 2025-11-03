@@ -1,654 +1,4 @@
 
- 
- 
-#ISO/TC 171/SC 2/WG 8# 
-2017-01-09 
-ISO/FDIS 32000-2 
-Secretariat: ANSI 
- 
-#Document management — Portable Document Format — Part 2: #PDF #2.0# 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-  
-
-ISO/DIS 32000-2
- 
-Warning 
-This document is not an ISO International Standard. It is distributed for review and comment. It is subject to 
-change without notice and may not be referred to as an International Standard. 
-Recipients of this draft are invited to submit, with their comments, notification of any relevant patent rights 
-of which they are aware and to provide supporting documentation. 
-Trademarks 
-All product or company names that may be mentioned in this publication are tradenames, trademarks or 
-registered trademarks of their respective owners. 
-Copyright Notice 
-This ISO document is a working draft and is copyright-protected by ISO. Although the reproduction of 
-working drafts in any form for use by participants in the ISO standards development process is permitted 
-without prior permission from ISO, neither this document nor any extract from it may be reproduced, stored 
-or transmitted in any form for any other purpose without prior written permission from ISO. 
-Requests for permission to reproduce this document for the purpose of selling it should be addressed as 
-shown below or to ISO’s member body in the country of the requester: 
-ISO copyright office 
-Ch. de Blandonnet 8 • CP 401 
-CH-1214 Vernier, Geneva, Switzerland 
-Tel. +41 22 749 01 11 
-Fax +41 22 749 09 47 
-Reproduction for sales purposes may be subject to royalty payments or a licensing agreement. 
-Violators may be prosecuted. 
- 
-  
-© ISO 2017 – All rights reserved ii 
-
-ISO/DIS 32000-2
- 
-ContentsPage
-  
-#Foreword #..................................................................................................................................................................... 1
-Introduction ............................................................................................................................................................... 2
- 
-#Document management – Portable Document Format – Part 2: #PDF #2.0 #................................................ 7
- 
-#1Scope #............................................................................................................................................................... 7
- 
-#2Normative references #................................................................................................................................ 8
-  
-  
-#3Notation #...................................................................................................................................................... 15
-3.1Established notations ............................................................................................................................. 15
-  
-#4Terms and definitions #............................................................................................................................ 16
-  
-#5Version designations #.............................................................................................................................. 23
-  
-#6Conformance #............................................................................................................................................. 24
-  
-6.1Conforming #PDF #documents ................................................................................................................. 24
-  
-6.2#PDF #processors ......................................................................................................................................... 24
-  
-#7Syntax #.......................................................................................................................................................... 26
-  
-7.1General ........................................................................................................................................................ 26
-  
-7.2Lexical conventions ................................................................................................................................. 27
-  
-7.3#Object#s......................................................................................................................................................... 29
-  
-7.4#Filter#s .......................................................................................................................................................... 40
-  
-7.5File structure ............................................................................................................................................. 58
-  
-7.6Encryption ................................................................................................................................................. 75
-  
-7.7Document structure ................................................................................................................................ 99
-  
-7.8#Content stream#s and resources ......................................................................................................... 111
-  
-7.9Common data structures ..................................................................................................................... 115
-  
-7.10#Function#s .................................................................................................................................................. 123
-  
-7.11File specifications .................................................................................................................................. 132
-  
-7.12Extensions dictionary ........................................................................................................................... 140
-  
-#8Graphics #.................................................................................................................................................... 143
- 
- 
-8.1General ...................................................................................................................................................... 143
-  
-8.2Graphics #object#s ..................................................................................................................................... 143
-  
-8.3Coordinate systems ............................................................................................................................... 147
-  
-8.4#Graphics state #......................................................................................................................................... 154
-  
-8.5Path construction and painting ......................................................................................................... 166
-  
-8.6Colour spaces .......................................................................................................................................... 174
-  
-8.7Patterns .................................................................................................................................................... 214
-  
-8.8External #object#s ...................................................................................................................................... 248
-  
-  
-© ISO 2017 – All rights reserved iii 
-
-ISO/DIS 32000-2
- 
-8.9Images ....................................................................................................................................................... 249
-8.10Form X#Object#s......................................................................................................................................... 265
-  
-8.11Optional content .................................................................................................................................... 271
-  
-#9Text #............................................................................................................................................................ 287
-  
-9.1General ...................................................................................................................................................... 287
-  
-9.2Organization and use of fonts ............................................................................................................ 287
-  
-9.3Text state parameters and operators .............................................................................................. 294
-  
-9.4Text #object#s ............................................................................................................................................. 300
-  
-9.5Introduction to #font #data structures ................................................................................................ 305
-  
-9.6Simple #font#s ............................................................................................................................................. 306
-  
-9.7Composite #font#s ...................................................................................................................................... 320
-  
-9.8#Font #descriptors ..................................................................................................................................... 336
-  
-9.9Embedded #font #programs ................................................................................................................... 344
-  
-9.10Extraction of text content .................................................................................................................... 348
-  
-#10Rendering #................................................................................................................................................. 352
-  
-10.1General ...................................................................................................................................................... 352
-  
-10.2Raster output device native colour .................................................................................................. 353
-  
-10.3CIE-Based colour to device colour .................................................................................................... 353
-  
-10.4Conversions among device colour spaces ...................................................................................... 353
-  
-10.5Transfer #function#s ................................................................................................................................. 356
-  
-10.6Halftones .................................................................................................................................................. 357
-  
-10.7Scan conversion details ....................................................................................................................... 373
-  
-10.8Rendering for separations .................................................................................................................. 377
-  
-#11Transparency #.......................................................................................................................................... 378
-  
-11.1General ...................................................................................................................................................... 378
-  
-11.2Overview of transparency ................................................................................................................... 378
- 
- 
-11.3Basic compositing computations ...................................................................................................... 380
-  
-11.4Transparency #group#s ........................................................................................................................... 393
-  
-11.5Soft masks ................................................................................................................................................ 405
-  
-11.6Specifying transparency in #PDF #........................................................................................................ 406
-  
-11.7Colour space and rendering issues .................................................................................................. 416
-  
-#12Interactive features #............................................................................................................................... 427
-  
-12.1General ...................................................................................................................................................... 427
-  
-12.2Viewer preferences ............................................................................................................................... 427
-  
-12.3Document-level navigation ................................................................................................................. 430
-  
-12.4Page-level navigation ........................................................................................................................... 447
-  
-12.5Annotations ............................................................................................................................................. 454
-  
-12.6Actions ...................................................................................................................................................... 491
-  
-  
-© ISO 2017 – All rights reserved iv 
-
-ISO/DIS 32000-2
- 
-12.7Forms ......................................................................................................................................................... 513
-12.8Digital signatures ................................................................................................................................... 549
-  
-12.9Measurement properties..................................................................................................................... 576
-  
-12.10Geospatial features ............................................................................................................................... 582
-  
-12.11Document requirements ..................................................................................................................... 586
-  
-#13Multimedia features#.............................................................................................................................. 593
-  
-13.1General ...................................................................................................................................................... 593
-  
-13.2Multimedia ............................................................................................................................................... 593
-  
-13.3Sounds ....................................................................................................................................................... 615
-  
-13.4Movies ....................................................................................................................................................... 617
-  
-13.5Alternate presentations ....................................................................................................................... 618
-  
-13.63D Artwork .............................................................................................................................................. 620
-  
-13.7Rich media ............................................................................................................................................... 675
-  
-#14Document interchange #......................................................................................................................... 688
-  
-14.1General ...................................................................................................................................................... 688
-  
-14.2Procedure sets ........................................................................................................................................ 688
-  
-14.3Metadata ................................................................................................................................................... 689
-  
-14.4File# id#entifiers ........................................................................................................................................ 693
-  
-14.5Page-piece dictionaries ........................................................................................................................ 694
-  
-14.6Marked content ...................................................................................................................................... 695
-  
-14.7Logical structure .................................................................................................................................... 697
-  
-14.8Tagged #PDF #.............................................................................................................................................. 719
-  
-14.9Repurposing and accessi#bi#lity support .......................................................................................... 764
-  
-14.10Web capture ............................................................................................................................................ 771
-  
-14.11Prepress support ................................................................................................................................... 783
-  
-14.12#Document part#s ...................................................................................................................................... 801
- 
- 
-14.13Associated files ....................................................................................................................................... 805
-  ![0.png](./Storage/Output/Images/0.png)
-# Operator Summary #............................................................................................................................ 811
-  ![1.png](./Storage/Output/Images/1.png)
- Operators in Type 4 #Function#s ....................................................................................................... 815
- ![2.png](./Storage/Output/Images/2.png)
- Advice on Maximising Porta#bi#lity .................................................................................................. 817
- ![3.png](./Storage/Output/Images/3.png)
- #Character #Sets and Encodings......................................................................................................... 820
- ![4.png](./Storage/Output/Images/4.png)
- #PDF #Name Registry ............................................................................................................................. 844
- ![5.png](./Storage/Output/Images/5.png)
- Linearized #PDF #..................................................................................................................................... 846
- ![6.png](./Storage/Output/Images/6.png)
- Linearized #PDF #Access Strategies .................................................................................................. 868
- ![7.png](./Storage/Output/Images/7.png)
- Example #PDF #Files .............................................................................................................................. 872
- ![8.png](./Storage/Output/Images/8.png)
- #PDF #versions and compati#bi#lity ...................................................................................................... 902
- ![9.png](./Storage/Output/Images/9.png)
- X#Object #comparison ............................................................................................................................ 904
- ![10.png](./Storage/Output/Images/10.png)
-# XFA forms #.............................................................................................................................................. 910
- 
- 
-© ISO 2017 – All rights reserved v 
-
-ISO/DIS 32000-2
- ![11.png](./Storage/Output/Images/11.png)
-# Parent-child relationships between standard structure elements #..................................... 913![12.png](./Storage/Output/Images/12.png)
- Standard structure elements in the default (#PDF #1.7) namespace ..................................... 932
- ![13.png](./Storage/Output/Images/13.png)
-# Best practice for halftones #............................................................................................................... 933
- ![14.png](./Storage/Output/Images/14.png)
- Fragment# id#entifiers.......................................................................................................................... 936
- ![15.png](./Storage/Output/Images/15.png)
-# An algorithm to determine the actual blending colour space of a transparency #group##939
- 
-#Bi#bliography.......................................................................................................................................................... 941
- 
- 
- 
- 
-© ISO 2017 – All rights reserved vi 
-
-ISO/DIS 32000-2
- 
-#Foreword# 
-ISO (the International Organization for Standardization) is a worldwide federation of national 
-standards bodies (ISO member bodies). The work of preparing International Standards is normally 
-carried out through ISO technical committees. Each member body interested in a subject for which a 
-technical committee has been established has the right to be represented on that committee. 
-International organizations, governmental and non-governmental, in liaison with ISO, also take part in 
-the work. ISO collaborates closely with the International Electrotechnical Commission (IEC) on all 
-matters of electrotechnical standardization. 
-The procedures used to develop this document and those intended for its further maintenance are 
-described in the ISO/IEC Directives, Part 1. In particular the different approval criteria needed for the 
-different types of ISO documents should be noted. This document was drafted in accordance with the 
-editorial rules of the ISO/IEC Directives, Part 2 (see http://www.iso.org/directives
-). 
-Attention is drawn to the possi#bi#lity that some of the elements of this document may be the subject of 
-patent rights. ISO shall not be held responsible for# id#entifying any or all such patent rights. Details of 
-any patent rights# id#entified during the development of the document will be in the Introduction and/or 
-on the ISO list of patent declarations received (see http://www.iso.org/patents
-). 
-Any trade name used in this document is information given for the convenience of users and does not 
-constitute an endorsement. 
-For an explanation on the meaning of ISO specific terms and expressions related to conformity 
-assessment, as well as information about ISO’s adherence to the World Trade Organization (WTO) 
-principles in the Technical Barriers to Trade (TBT) (see http://ww.iso.org/iso/#foreword#.html
-). 
-The International Organization for Standardization (ISO) draws attention to the fact that it is claimed 
-that compliance with this document may involve the use of patents concerning the creation, 
-modification, display and processing of #PDF #files which are owned by Adobe Systems Incorporated, 345 
-Park Avenue, San Jose, California, 95110-2704, USA. ISO takes no position concerning the evidence, 
-validity and scope of these patent rights. The holders of these patent rights have assured the ISO that 
-they are willing to negotiate licenses under reasonable and non-discriminatory terms and conditions 
-with applicants throughout the world. In this respect, the statements of the holders of these patent 
-rights are registered with ISO. Information may be obtained from those parties listed above. 
-Attention is drawn to the possi#bi#lity that some of the elements of this document may be the subject of 
-patent rights other than those# id#entified above. ISO shall not be held responsible fo#r i#dentifying any or 
-all such patent rights. 
-.
-ISO 32000-2 was prepared #by Te#chnical Committee ISO/TC 171, Document management applications, 
-SC 2, Application issues, WG 8, #PDF#, in cooperation with ISO/TC 130, Graphic technology 
-Document Management— Portable 
-Document Format:
-ISO 32000 consists of the following parts, under the general title 
- 
-• 
-• 
-Part 1: #PDF #1.7 
- 
-Part 2: #PDF #2.0 
-Part 2 defines a newer, substantially revised and extended version of #PDF#. 
-© ISO 2017 – All rights reserved 1 
-
-ISO/DIS 32000-2
- 
-Introduction 
-#PDF# 
-#PDF #enables users to exchange and view #electronic document#s easily and reliably, independent of the 
-environment in which they were created or the environment in which they are viewed or printed.  
-At the core of #PDF #is an advanced imaging model derived from the PostScript® page description 
-language. This #PDF #Imaging Model enables the description of text and graphics in a device-independent 
-and resolution-independent manner at a complete, precise and professional level. Unlike PostScript, 
-which is a programming language, #PDF #is based on a structured #bi#nary file format that is optimised for 
-high performance in interactive viewing.  
-#PDF #includes #object#s such as annotations and hypertext links that are not part of the page content itself 
-but are useful for interactive viewing and document interchange. #PDF #also includes data structures such 
-as tagged #PDF#, XMP and an associated files mechanism, that are useful for document management and 
-content reuse. 
-#PDF #files can be created natively in# PDF# form, converted from other electronic formats. Sinc#e P#DF 
-supports a wide range of image and compression technologies, it is a suitable format for documents 
-digitised from paper, microform, or other hard copy formats. Businesses, governments, libraries, 
-archives and other institutions and individuals around the world use #PDF #to represent considerable 
-bodies of important information. Since its introduction in 1993, aided by the explosive growth of the 
-Internet, #PDF #has become widely used for the electronic exchange of documents. 
-There are several specific applications of #PDF #that have evolved in which limiting the use of some 
-features of #PDF #while requiring the use of others, enhances the usefulness of# PD#F. The following ISO 
-standards address specialised uses of #PDF#: 
-• 
-#PDF#/X (ISO 15930) is the industry standard for the intermediate representation of printed 
-• 
-material in electronic prepress systems for conventional printing applications. 
-• 
-#PDF#/A (ISO 19005) is the industry standard for the archiving of digital documents. 
-• 
-#PDF#/UA (ISO 14289) is the industry standard for accessible# PDF# documents and processors. 
-#PDF#/E (ISO 24517) provides a mechanism for representing engineering documents and 
-• 
-exchanging engineering data. 
-#PDF#/VT (ISO 16612-2) is for high volume printing of personalised documents including variable 
-data. 
-As corporations, government agencies, and educational institutions streamline their operations by 
-replacing paper-based workflows with electronic exchange of information, the impact and opportunity 
-for the application of #PDF #will continue to grow at a rapid pace. 
-#PDF#, together with software for creating, viewing, printing and processing# PDF# files in a variety of ways, 
-fulfils a set of requirements for #electronic document#s including: 
-• 
-• 
-preservation of document fidelity independent of the device, platform, and software, 
-merging of content from diverse sources — Web sites, word processing and spreadsheet 
-programs, scanned documents, photos, and graphics — into one self-contained document while 
-maintaining the integrity of all original source documents, 
-© ISO 2017 – All rights reserved 2 
-
-ISO/DIS 32000-2
- 
-• 
-• 
-an extensible metadata model at the document and #object #level, 
-• 
-collaborative editing of documents from multiple locations or platforms, 
-• 
-digital signatures to certify authenticity, 
-security and permissions to allow the creator to retain control of the document and associated 
-• 
-rights, 
-• 
-accessi#bi#lity of content to those with dis#ab#ilities, 
-• 
-extraction and reuse of content for use with other file formats and applications, and 
-#ISO 32000 and #PDF## 
-electronic forms to gather and/or represent data within business systems. 
-#PDF #was developed and specified by Adobe Systems Incorporated beginning in 1993 and continuing 
-until 2007 when Part 1 of this ISO standard was first prepared. The Adobe Systems version #PDF #1.7 was 
-the basis for ISO 32000 Part 1. ISO 32000 has been created as a multi-part document, of which this is 
-Part 2. This allows future parts to be created without rendering ISO 32000, or applications based on it, 
-obsolete. See clause 5, "Version designations" for how the version numbers of #PDF #(1.0, 1.1, 1.2, […] 2.0) 
-relate to one another. 
-The primary purpose of this document is to define well-formed #PDF #documents (conforming# PDF# files). 
-In carefully specifying what constitutes a well-defined #PDF #document, it is natural to describe why a 
-particular feature is to be included in the file and what effect it is designed to have on #PDF #processing 
-software. So, although the primary #object#ive of this document is to describe the content of conforming 
-#PDF #documents, it also serves secondary purposes of defining exactly how a# PDF# component is 
-constructed, suggesting why a producer might choose to use the various #PDF #constructs, as well as what 
-behaviour is elicited from software consuming that #PDF #file. The choice of which specific set of features 
-a particular #PDF #processor supports is not specified. 
-#PDF #files represent #electronic document#s. Over time, it was natural to add features that take advantage 
-of #PDF#’s nature, and the power of computer viewing devices. The size of the# PDF# documentation has 
-more than quadrupled since its first introduction, and the number of features that a #PDF #processor is 
-expected to support has grown to be large. 
-#Changes introduced in ISO 32000 Part 2# 
-Starting with #PDF #2.0 the term "conforming reader" is no longer used. Instead the terms "interactive 
-#PDF #processor," #"PDF# reader" and# "PD#F writer" are used and have a conditional conformance definition. 
-See 6.1, "Conforming #PDF #documents" for further discussion of this change. 
-This specification includes the following new features: 
-• 
-• 
-7.6.7, "Unencrypted wrapper document" 
-• 
-8.6.5.9, "Use of black point compensation"; 
-• 
-12.5.6.24, "Projection annotations"; 
-• 
-12.5.6.25, "3D and RichMedia annotations"; 
-12.8.3.4, "CAdES signatures as used in #PDF#"; 
-© ISO 2017 – All rights reserved 3 
-
-ISO/DIS 32000-2
- 
-• 
-• 
-12.8.4, "Long term validation of signatures"; 
-• 
-12.8.4.3, "Document Security Store (DSS)" and 12.8.5, "Document timestamp (DTS) dictionary"; 
-• 
-12.10, "Geospatial features"; 
-• 
-13.7, "Rich media" annotations; 
-• 
-14.7.4, "Namespaces" for tagged #PDF#; 
-• 
-14.9.6, "Pronunciation hints"; 
-• 
-14.12, "#Document part#s"; 
-• 
-14.13, "Associated files"; 
-• 
-Support for PRC (see 13.6, "3D Artwork"); 
-Support for UTF-8 
-#PDF #2.0 adds new capa#bi#lities to existing features in# PD#F, including: 
-• 
-• 
-Transparency and blend mode attributes for annotations; 
-• 
-Stamp Annot intent; 
-• 
-Polygon/Polyline real paths; 
-• 
-256-#bi#t AES encryption; 
-• 
-ECC-based certificates; 
-• 
-Unicode-based passwords; 
-• 
-Document requirement extensions; 
-• 
-New value for tab order of fields and annotations; 
-• 
-Page-level OutputIntents; 
-• 
-Referenced (external) OutputIntents; 
-• 
-Thumbnails for embedded files; 
-• 
-Halftone Origin (HTO); 
-• 
-Measurement & Point Data for image & form X#Object#s; 
-• 
-L (length) key for inline image data; 
-• 
-Viewer preferences enforcement (of print scaling); 
-• 
-3D measurements; 
-• 
-GoToDPart action; 
-• 
-RichMediaExecute action; 
-• 
-Extension to GoTo and GoToR to support linking to a specific structure element; 
-• 
-Extension to Signature Field Locks and Signature Seed Values; 
-• 
-Extensions to 3D viewing conditions, incl. transparency; 
-• 
-Ref (reference) structure elements; 
-• 
-PageNum and Bates artifact types; 
-• 
-New list types for structured lists; 
-“Short” (short name) attribute for table header cells 
-© ISO 2017 – All rights reserved 4 
-
-ISO/DIS 32000-2
- 
-• 
-Extensions to OutputIntents (MixingHints and SpectralData). 
-The following clauses have been substantially rewritten for #PDF #2.0: 
-• 
-• 
-7.4.7, "J#BI#G2Decode #filter#"; 
-• 
-10.1 – 10.3, "Rendering"; 
-• 
-11, "Transparency"; 
-• 
-12.8, "Digital signatures"; 
-• 
-14.3, "Metadata"; 
-• 
-14.8, "Tagged #PDF#"; 
-14.9, "Repurposing and accessi#bi#lity support". 
-#PDF #2.0 includes many important corrections, extensions and clarifications for existing features: 
-• 
-• 
-Corrections for many typing errors including bad symbols and truncated formulae. 
-• 
-Updates and changes in normative references and the #bi#bliography. 
-• 
-Improved cross referencing for clauses, tables and figures within this standard. 
-Clarification for processing dashed and degenerate lines, clarification for processing text #object#s 
-and blending colour spaces within the transparency framework, clarifications and enhancements 
-• 
-for annotation appearances, stamp annotations extension and polyline annotation enhancement. 
-Strengthened encryption including introduction of elliptic curve cryptography, more control over 
-forms tab ordering, enforced viewer preferences, rich text, improvements to digital signatures for 
-ColorBurnColorDodge
-long term signatures, 3D viewing improvements including 3D projections, revised blend formulae 
-  
-for  and , additional structure tags to improve accessi#bi#lity, requirement 
-• 
-for metadata streams to beXMPand support for hyperlinks in rich text. 
- Sub#Filter# 
-Clarification for #PDF #version numbering, resource inheritance, required and optional signature 
-dictionarykeys, artifacts, #developer#-defined extensions, word breaking and page sizes, 
-CIDToGIDMap
-which file to show when first opening a collection, scope of header attributes, precedence of CID 
-#font #widths, when a  is used with Type 2 CID# fon#ts, deprecate sound and movie 
-actions and annotations in favour of newer methods, rendering intent and ImageMask, precedence 
-of Type 1 encoding methods, the wording used to define delimiters with respect to << and >>, 
-Identity CMaps and CID#Font#s, a special case when closing and filling a path, that clipping follows 
-• 
-filling rules and that operating on an undefined path generates an error. 
-Clarification and terminology improvements among Type 1, TrueType, CFF and OpenType #font#s; 
-• 
-thumbnails for embedded files. 
-• 
-Specification of XFA used for rich text in annotations. 
-The rewrite of 14.8, "Tagged #PDF#" includes clarification of the child/parent/sibling relationships 
-between tags, simplifies and extends the standard tag set, and adds the use of namespaces for 
-custom tag sets (see also 14.7.4, "Namespaces" for new namespace #function#ality). 
-A repository of referenced documents has been established by the #PDF #Association 
-). Not all referenced documents can be found there due to 
-(https://reference.#pdf#a.org/iso/32000
-copyright restrictions. 
-Some features present in earlier versions of #PDF #have been #deprecated #in# PDF# 2.0, including: 
-• 
-• 
-XFA (incl. NeedsRendering); 
-Movie, Sound and TrapNet annotations; 
-© ISO 2017 – All rights reserved 5 
-
-ISO/DIS 32000-2
- 
-• 
-• 
-Movie and Sound actions; 
-• 
-Info dictionary; 
-• 
-Assistive technology restrictions via DRM; 
-• 
-ProcSet; 
-• 
-OS-specific file specifications; 
-• 
-OS-specific additions to Launch actions; 
-• 
-Names for X#Object#s; 
-• 
-Names for #Font#s; 
-• 
-Arrays of Blend Modes; 
-• 
-Alternate Presentations; 
-• 
-Open prepress interface (OPI); 
-• 
-CharSet (For Type 1 #font#s); 
-• 
-CIDSet (for CID #font#s); 
-• 
-Prepress viewer preferences (ViewArea, ViewClip, etc); 
-• 
-NeedAppearances; 
-• 
-adbe.pkcs7.sha1; 
-• 
-adbe.x509.rsa_sha1; 
-• 
-Encryption of FDF files; 
-• 
-Suspects flag in MarkInfo dictionary 
-UR signatures.  
-© ISO 2017 – All rights reserved 6 
-
 ISO/DIS 32000-2
  
 Document management – Portable Document Format – Part 2: 
@@ -9699,18 +9049,18 @@ values.
 #Table 53: Line cap styles# 
 Style Appearance Description 
 Butt cap
-0 ![16.png](./Storage/Output/Images/16.png)
+0 ![0.png](./Storage/Output/Images/0.png)
 . The stroke shall be squared off at the endpoint of the path. There shall be 
 no projection beyond the end of the path. 
  
 Round cap
-1 ![17.png](./Storage/Output/Images/17.png)
+1 ![1.png](./Storage/Output/Images/1.png)
 . A semicircular arc with a diameter equal to the line width shall be 
 drawn around the endpoint and shall be filled in. 
  
 Projecting square cap
 2 
-. The stroke shall continue beyond the endpoint of the path ![18.png](./Storage/Output/Images/18.png)
+. The stroke shall continue beyond the endpoint of the path ![2.png](./Storage/Output/Images/2.png)
 for a distance equal to half the line width and shall be squared off. 
  
  
@@ -9726,14 +9076,14 @@ Miter join
 0 
 . The outer edges of the strokes for the two segments shall be extended 
 until they meet at an angle, as in a picture frame. If the segments meet at too sharp 
-an angle (as defined by the miter limit parameter — see 8.4.3.5, "Miter limit"), a ![19.png](./Storage/Output/Images/19.png)
+an angle (as defined by the miter limit parameter — see 8.4.3.5, "Miter limit"), a ![3.png](./Storage/Output/Images/3.png)
 bevel join shall be used instead. 
  
 Round join
 1 
 . An arc of a circle with a diameter equal to the line width shall be drawn 
 around the point where the two segments meet, connecting the outer edges of the 
-strokes for the two segments. This pie-slice-shaped figure shall be filled in, ![20.png](./Storage/Output/Images/20.png)
+strokes for the two segments. This pie-slice-shaped figure shall be filled in, ![4.png](./Storage/Output/Images/4.png)
 producing a rounded corner. 
  
 © ISO 2017 – All rights reserved 159 
@@ -9745,7 +9095,7 @@ Bevel join
 2 
 . The two segments shall be finished with butt caps (see 8.4.3.3, "Line cap 
 style") and the resulting notch beyond the ends of the segments shall be filled with 
-a triangle. ![21.png](./Storage/Output/Images/21.png)
+a triangle. ![5.png](./Storage/Output/Images/5.png)
  
  
 A zero length dash occurring at a zero length subpath segment does not have a determinable direction 
@@ -11872,8 +11222,8 @@ industry organization that has developed standards for device-independent colour
 does not recognise the specified name, it shall use the  intent by default. 
 NOTE Note, however, that the exact set of rendering intents supported can vary from one output device 
 to another; a particular device might not support all possible intents or might support additional 
-ones beyond those listed in the table. ![22.jpg](./Storage/Output/Images/22.jpg)![23.jpg](./Storage/Output/Images/23.jpg)
-AbsoluteColorimetricRelativeColorimetric![24.jpg](./Storage/Output/Images/24.jpg)![25.jpg](./Storage/Output/Images/25.jpg)
+ones beyond those listed in the table. ![6.jpg](./Storage/Output/Images/6.jpg)![7.jpg](./Storage/Output/Images/7.jpg)
+AbsoluteColorimetricRelativeColorimetric![8.jpg](./Storage/Output/Images/8.jpg)![9.jpg](./Storage/Output/Images/9.jpg)
 SaturationPerceptual
 #Figure 28: Rendering intents# 
  
@@ -14282,11 +13632,11 @@ ISO/DIS 32000-2
  
 ends of the shading. In the third example, the shading is not extended at both ends and a 
 background colour is specified; therefore, the background colour is used for the portions of the 
-filled area beyond the ends of the shading. ![26.png](./Storage/Output/Images/26.png)
+filled area beyond the ends of the shading. ![10.png](./Storage/Output/Images/10.png)
  
-#Extend = [false false], Background not specified #![27.jpg](./Storage/Output/Images/27.jpg)
+#Extend = [false false], Background not specified #![11.jpg](./Storage/Output/Images/11.jpg)
  
-#Extend = [true true], Background not specified #![28.png](./Storage/Output/Images/28.png)
+#Extend = [true true], Background not specified #![12.png](./Storage/Output/Images/12.png)
  
 #Extend = [true true], Background specified# 
 Figure 33: Axial shading 
@@ -18613,27 +17963,27 @@ point.
 #Table 104: Text rendering modes# 
 Mode Example Description 
 0 
-Fill text. ![29.png](./Storage/Output/Images/29.png)
+Fill text. ![13.png](./Storage/Output/Images/13.png)
 1 
  
-Stroke text. ![30.png](./Storage/Output/Images/30.png)
+Stroke text. ![14.png](./Storage/Output/Images/14.png)
 2 
  
-Fill, then stroke text. ![31.png](./Storage/Output/Images/31.png)
+Fill, then stroke text. ![15.png](./Storage/Output/Images/15.png)
 3 
  
  Neither fill nor stroke text (invisible). 
 4 
-Fill text and add to path for clipping. ![32.png](./Storage/Output/Images/32.png)
+Fill text and add to path for clipping. ![16.png](./Storage/Output/Images/16.png)
 5 
  
-Stroke text and add to path for clipping. ![33.png](./Storage/Output/Images/33.png)
+Stroke text and add to path for clipping. ![17.png](./Storage/Output/Images/17.png)
 6 
  
-Fill, then stroke text and add to path for clipping. ![34.png](./Storage/Output/Images/34.png)
+Fill, then stroke text and add to path for clipping. ![18.png](./Storage/Output/Images/18.png)
 7 
  
-Add text to path for clipping. ![35.png](./Storage/Output/Images/35.png)
+Add text to path for clipping. ![19.png](./Storage/Output/Images/19.png)
  
  
 ET
@@ -22409,13 +21759,13 @@ SimpleDot
 22
 { dup mul exch dup mul add 1 exch sub }
 1−(𝑥𝑥+𝑦𝑦) 
- ![36.png](./Storage/Output/Images/36.png)
+ ![20.png](./Storage/Output/Images/20.png)
  
 InvertedSimpleDot 
 22
 { dup mul exch dup mul add 1 sub }
 𝑥𝑥+𝑦𝑦−1 
- ![37.png](./Storage/Output/Images/37.png)
+ ![21.png](./Storage/Output/Images/21.png)
  
 DoubleDot 
 ()()
@@ -22423,14 +21773,14 @@ DoubleDot
 { 360 mul sin 2 div exch 360 mul sin 2 div add }
 + 
 22
- ![38.png](./Storage/Output/Images/38.png)
+ ![22.png](./Storage/Output/Images/22.png)
  
 InvertedDoubleDot 
 ()()
 𝑠𝑠𝐷𝐷𝑛𝑛360×𝑥𝑥𝑠𝑠𝐷𝐷𝑛𝑛360×𝑦𝑦
 −�+� 
 22
-{ 360 mul sin 2 div exch 360 mul sin 2 div add neg } ![39.png](./Storage/Output/Images/39.png)
+{ 360 mul sin 2 div exch 360 mul sin 2 div add neg } ![23.png](./Storage/Output/Images/23.png)
  
 CosineDot 
 ()()
@@ -22438,7 +21788,7 @@ CosineDot
 + 
 22
 { 180 mul cos exch 180 mul cos add 2 div } 
- ![40.png](./Storage/Output/Images/40.png)
+ ![24.png](./Storage/Output/Images/24.png)
  
 Double 
 𝑥𝑥
@@ -22448,7 +21798,7 @@ Double
 2
 + 
 22
-{ 360 mul sin 2 div exch 2 div 360 mul sin 2 div add } ![41.png](./Storage/Output/Images/41.png)
+{ 360 mul sin 2 div exch 2 div 360 mul sin 2 div add } ![25.png](./Storage/Output/Images/25.png)
  
 InvertedDouble 
 𝑥𝑥
@@ -22458,7 +21808,7 @@ InvertedDouble
 2
 −�+� 
 22
-{ 360 mul sin 2 div exch 2 div 360 mul sin 2 div add neg } ![42.png](./Storage/Output/Images/42.png)
+{ 360 mul sin 2 div exch 2 div 360 mul sin 2 div add neg } ![26.png](./Storage/Output/Images/26.png)
  
 © ISO 2017 – All rights reserved 360 
 
@@ -22468,15 +21818,15 @@ Name Appearance Definition
 Line 
 ||
 −𝑦𝑦 
-{ exch pop abs neg } ![43.png](./Storage/Output/Images/43.png)
+{ exch pop abs neg } ![27.png](./Storage/Output/Images/27.png)
  
 LineX 
 𝑥𝑥 
-{ pop } ![44.png](./Storage/Output/Images/44.png)
+{ pop } ![28.png](./Storage/Output/Images/28.png)
  
 LineY 
 𝑦𝑦 
-{ exch pop } ![45.png](./Storage/Output/Images/45.png)
+{ exch pop } ![29.png](./Storage/Output/Images/29.png)
  
 Round 
 22
@@ -22486,7 +21836,7 @@ Round
 (||)(||)
 𝑚𝑚𝑙𝑙𝑠𝑠𝑚𝑚 𝑥𝑥−1+𝑦𝑦−1−1 
 { abs exch abs 
-   2 copy add 1 le  ![46.png](./Storage/Output/Images/46.png)
+   2 copy add 1 le  ![30.png](./Storage/Output/Images/30.png)
 { dup mul exch dup mul add 1 exch sub } 
  
 { 1 sub dup mul exch 1 sub dup mul add 1 sub } 
@@ -22503,7 +21853,7 @@ Ellipse
 0.75
 𝐷𝐷𝑓𝑓 𝑤𝑤<0 𝑡𝑡ℎ𝑚𝑚𝑛𝑛 1− 
 4
-2![47.png](./Storage/Output/Images/47.png)
+2![31.png](./Storage/Output/Images/31.png)
 2
 ||
 𝑦𝑦
@@ -22535,13 +21885,13 @@ EllipseA
 22
 ()
 1−𝑥𝑥+0.9×𝑦𝑦 
-{ dup mul 0.9 mul exch dup mul add 1 exch sub } ![48.png](./Storage/Output/Images/48.png)
+{ dup mul 0.9 mul exch dup mul add 1 exch sub } ![32.png](./Storage/Output/Images/32.png)
  
 InvertedEllipseA 
 22
  
 𝑥𝑥+0.9×𝑦𝑦−1 
-{ dup mul 0.9 mul exch dup mul add 1 sub }![49.png](./Storage/Output/Images/49.png)
+{ dup mul 0.9 mul exch dup mul add 1 sub }![33.png](./Storage/Output/Images/33.png)
  
 EllipseB 
 22
@@ -22549,25 +21899,25 @@ EllipseB
 �
 1−𝑥𝑥+×𝑦𝑦 
 8
- ![50.png](./Storage/Output/Images/50.png)
+ ![34.png](./Storage/Output/Images/34.png)
 { dup 5 mul 8 div mul exch dup mul exch add sqrt 1 exch sub } 
  
 EllipseC 
 22
 1−(0.9×𝑥𝑥+𝑦𝑦) 
-{ dup mul exch dup mul 0.9 mul add 1 exch sub } ![51.png](./Storage/Output/Images/51.png)
+{ dup mul exch dup mul 0.9 mul add 1 exch sub } ![35.png](./Storage/Output/Images/35.png)
  
 InvertedEllipseC 
 22
 0.9×𝑥𝑥+𝑦𝑦−1 
-{ dup mul exch dup mul 0.9 mul add 1 sub } ![52.png](./Storage/Output/Images/52.png)
+{ dup mul exch dup mul 0.9 mul add 1 sub } ![36.png](./Storage/Output/Images/36.png)
  
 Square 
 ||||
 −𝑚𝑚𝐷𝐷𝑥𝑥 (𝑥𝑥,𝑦𝑦) 
 { abs exch abs 2 copy lt  
 { exch }  
-if  ![53.png](./Storage/Output/Images/53.png)
+if  ![37.png](./Storage/Output/Images/37.png)
     pop neg } 
  
 Cross 
@@ -22575,7 +21925,7 @@ Cross
 −𝑚𝑚𝐷𝐷𝑛𝑛 (𝑥𝑥,𝑦𝑦) 
 { abs exch abs 2 copy gt  
 { exch }  
-if  ![54.png](./Storage/Output/Images/54.png)
+if  ![38.png](./Storage/Output/Images/38.png)
     pop neg } 
  
 Rhomboid 
@@ -22584,7 +21934,7 @@ Rhomboid
  
 2
  
-{ abs exch abs 0.9 mul add 2 div } ![55.png](./Storage/Output/Images/55.png)
+{ abs exch abs 0.9 mul add 2 div } ![39.png](./Storage/Output/Images/39.png)
  
 © ISO 2017 – All rights reserved 362 
 
@@ -22600,7 +21950,7 @@ Diamond
 22
 (||)(||)
 𝑚𝑚𝑙𝑙𝑠𝑠𝑚𝑚 𝑥𝑥−1+𝑦𝑦−1−1 
-{ abs exch abs 2 copy add 0.75 le ![56.png](./Storage/Output/Images/56.png)
+{ abs exch abs 2 copy add 0.75 le ![40.png](./Storage/Output/Images/40.png)
 { dup mul exch dup mul add 1 exch sub } 
  
 { 2 copy add 1.23 le 
@@ -30063,7 +29413,7 @@ midpoint, with a positive value indicating offset to the right and a negative
 value indicating offset to the left. The second value shall be the vertical offset 
 perpendicular to the annotation line, with a positive value indicating a shift 
 up and a negative value indicating a shift down. 
-Default value: [0, 0] (no offset from normal positioning) ![57.png](./Storage/Output/Images/57.png)
+Default value: [0, 0] (no offset from normal positioning) ![41.png](./Storage/Output/Images/41.png)
  
 #Figure 80: Leader lines# 
 true
@@ -30073,31 +29423,31 @@ to a line annotation, which is specified by settingto .
 © ISO 2017 – All rights reserved 474 
 
 ISO/DIS 32000-2
- ![58.png](./Storage/Output/Images/58.png)
+ ![42.png](./Storage/Output/Images/42.png)
  
 #Figure 81: Lines with captions appearing as part of the line# 
 "#Figure 82: Line with a caption appearing as part of the offset#" illustrates the effect of applying a caption 
-to a line annotation that has a leader offset. ![59.png](./Storage/Output/Images/59.png)
+to a line annotation that has a leader offset. ![43.png](./Storage/Output/Images/43.png)
  
 #Figure 82: Line with a caption appearing as part of the offset# 
 Table 179: Line ending styles 
-Name Appearance Description ![60.png](./Storage/Output/Images/60.png)
+Name Appearance Description ![44.png](./Storage/Output/Images/44.png)
  
-Square A square filled with the annotation’s interior colour, if any ![61.png](./Storage/Output/Images/61.png)
+Square A square filled with the annotation’s interior colour, if any ![45.png](./Storage/Output/Images/45.png)
  
-Circle A circle filled with the annotation’s interior colour, if any ![62.png](./Storage/Output/Images/62.png)
+Circle A circle filled with the annotation’s interior colour, if any ![46.png](./Storage/Output/Images/46.png)
  
-Diamond A diamond shape filled with the annotation’s interior colour, if any ![63.png](./Storage/Output/Images/63.png)
+Diamond A diamond shape filled with the annotation’s interior colour, if any ![47.png](./Storage/Output/Images/47.png)
  
-OpenArrow Two short lines meeting in an acute angle to form an open arrowhead ![64.png](./Storage/Output/Images/64.png)
+OpenArrow Two short lines meeting in an acute angle to form an open arrowhead ![48.png](./Storage/Output/Images/48.png)
  
 ClosedArrow Two short lines meeting in an acute angle as in the OpenArrow style and 
 interior colour
 connected by a third line to form a triangular closed arrowhead filled with 
-the annotation’s , if any ![65.jpg](./Storage/Output/Images/65.jpg)
+the annotation’s , if any ![49.jpg](./Storage/Output/Images/49.jpg)
  
 None No line ending 
-(#PDF #1.5) ![66.png](./Storage/Output/Images/66.png)
+(#PDF #1.5) ![50.png](./Storage/Output/Images/50.png)
  
 Butt A short line at the endpoint perpendicular to the line itself 
 © ISO 2017 – All rights reserved 475 
@@ -30105,14 +29455,14 @@ Butt A short line at the endpoint perpendicular to the line itself
 ISO/DIS 32000-2
  
 Name Appearance Description 
-(#PDF #1.5) ![67.png](./Storage/Output/Images/67.png)
+(#PDF #1.5) ![51.png](./Storage/Output/Images/51.png)
  
 ROpenArrow Two short lines in the reverse direction from OpenArrow 
-(#PDF #1.5) ![68.png](./Storage/Output/Images/68.png)
+(#PDF #1.5) ![52.png](./Storage/Output/Images/52.png)
  
 RClosedArrow A triangular closed arrowhead in the reverse direction from 
 ClosedArrow 
-(#PDF #1.6) ![69.png](./Storage/Output/Images/69.png)
+(#PDF #1.6) ![53.png](./Storage/Output/Images/53.png)
  
 Slash A short line at the endpoint approximately 30 degrees clockwise 
 from perpendicular to the line itself 
@@ -41041,7 +40391,7 @@ of the camera.
 ISO/DIS 32000-2
  ![Figure 91 Perspective projection of 3D artwork onto the near plane  .png](./Storage/Output/Images/Figure 91 Perspective projection of 3D artwork onto the near plane  .png)
 #Figure 91: Perspective projection of 3D artwork onto the near plane# 
- ![70.png](./Storage/Output/Images/70.png)
+ ![54.png](./Storage/Output/Images/54.png)
 Figure 92: #Object#s projected onto the near clipping plane, as seen from the position of the 
  
 camera 
@@ -41696,7 +41046,7 @@ Colour of the cutting plane is light blue: /PC [/DeviceRGB 0.75 0.86 1]
 • 
 Intersection of the cutting plane with the #object #is visible: /IV true 
 Colour of the intersection of the cutting plane and the #object #is green: 
-/IC [/DeviceRGB 0 1 0] ![71.jpg](./Storage/Output/Images/71.jpg)
+/IC [/DeviceRGB 0 1 0] ![55.jpg](./Storage/Output/Images/55.jpg)
 Figure 97: Rendering of the 3D artwork using View2 (cross section rotated around the y axis  
  
 by -30 degrees) 
@@ -41712,7 +41062,7 @@ Perpendicular to the X axis, rotated -30 degrees around the Y axis, and parallel
 © ISO 2017 – All rights reserved 649 
 
 ISO/DIS 32000-2
- ![72.jpg](./Storage/Output/Images/72.jpg)
+ ![56.jpg](./Storage/Output/Images/56.jpg)
 Figure 98: Rendering of the 3D artwork using View3 (cross section rotated around the z axis  
  
 by 30 degrees) 
@@ -41923,7 +41273,7 @@ whose node array includes three nodes, all of which shall be rendered with the a
 © ISO 2017 – All rights reserved 653 
 
 ISO/DIS 32000-2
- ![73.jpg](./Storage/Output/Images/73.jpg)
+ ![57.jpg](./Storage/Output/Images/57.jpg)
 Figure 101: Rendering of the 3D artwork using View2 (the cone is hidden and the sphere is semi-
  
 transparent) 
@@ -42243,7 +41593,7 @@ same 3D artwork. ![ Figure 102 3D artwork set to its default view  .jpg](./Stora
 annotations. 
 © ISO 2017 – All rights reserved 658 
 
-ISO/DIS 32000-2![74.jpg](./Storage/Output/Images/74.jpg)
+ISO/DIS 32000-2![58.jpg](./Storage/Output/Images/58.jpg)
  
 #Figure 103: 3D artwork set to CommentView1# 
  
@@ -51802,7 +51152,7 @@ endobj
 © ISO 2017 – All rights reserved 810 
 
 ISO/DIS 32000-2
- ![75.png](./Storage/Output/Images/75.png)
+ ![59.png](./Storage/Output/Images/59.png)
  
  
 Operator Summary 
@@ -52040,7 +51390,7 @@ line, and show text
 © ISO 2017 – All rights reserved 814 
 
 ISO/DIS 32000-2
- ![76.png](./Storage/Output/Images/76.png)
+ ![60.png](./Storage/Output/Images/60.png)
  
  
 Operators in Type 4 #Function#s 
@@ -52247,7 +51597,7 @@ roll
 
 ISO/DIS 32000-2
  
- ![77.png](./Storage/Output/Images/77.png)
+ ![61.png](./Storage/Output/Images/61.png)
  
  
 Advice on Maximising Porta#bi#lity 
@@ -52373,7 +51723,7 @@ from the required  that delimits the end of the stream).
 
 ISO/DIS 32000-2
  
- ![78.png](./Storage/Output/Images/78.png)
+ ![62.png](./Storage/Output/Images/62.png)
  
  
 #Character #Sets and Encodings 
@@ -54127,7 +53477,7 @@ a165331 a175345 a183362 a191376
    
 © ISO 2017 – All rights reserved 843 
 
-ISO/DIS 32000-2 ![79.png](./Storage/Output/Images/79.png)
+ISO/DIS 32000-2 ![63.png](./Storage/Output/Images/63.png)
  
  
 #PDF #Name Registry 
@@ -54207,7 +53557,7 @@ https://reference.#pdf#a.org/iso/32000
 Extensions dictionary denoting those uses (see 7.12, "Extensions dictionary").  
 © ISO 2017 – All rights reserved 845 
 
-ISO/DIS 32000-2 ![80.png](./Storage/Output/Images/80.png)
+ISO/DIS 32000-2 ![64.png](./Storage/Output/Images/64.png)
  
  
 Linearized #PDF# 
@@ -55361,7 +54711,7 @@ associated with the #group#.
   
 © ISO 2017 – All rights reserved 867 
 
-ISO/DIS 32000-2 ![81.png](./Storage/Output/Images/81.png)
+ISO/DIS 32000-2 ![65.png](./Storage/Output/Images/65.png)
  
  
 Linearized #PDF #Access Strategies 
@@ -55527,7 +54877,7 @@ this way is quicker than accessing it without hints or retrieving the entire fil
  
 © ISO 2017 – All rights reserved 871 
 
-ISO/DIS 32000-2 ![82.png](./Storage/Output/Images/82.png)
+ISO/DIS 32000-2 ![66.png](./Storage/Output/Images/66.png)
  
  
 Example #PDF #Files 
@@ -57631,7 +56981,7 @@ endobj
  
 © ISO 2017 – All rights reserved 901 
 
-ISO/DIS 32000-2 ![83.png](./Storage/Output/Images/83.png)
+ISO/DIS 32000-2 ![67.png](./Storage/Output/Images/67.png)
  
  
 #PDF #versions and compati#bi#lity 
@@ -57711,7 +57061,7 @@ file uses, the occurrences of those features may or may not survive.
   
 © ISO 2017 – All rights reserved 903 
 
-ISO/DIS 32000-2 ![84.png](./Storage/Output/Images/84.png)
+ISO/DIS 32000-2 ![68.png](./Storage/Output/Images/68.png)
  
  
 X#Object #comparison 
@@ -57787,7 +57137,7 @@ If at any time, two objects do not match, then the arrays are non-equal. "Figure
 two arrays" shows non-equal arrays. 
 © ISO 2017 – All rights reserved 905 
 
-ISO/DIS 32000-2 ![85.png](./Storage/Output/Images/85.png)
+ISO/DIS 32000-2 ![69.png](./Storage/Output/Images/69.png)
  
 #Figure Annex K.1: Comparing two arrays# 
 J.3.6#Dictionary #object##s 
@@ -57815,7 +57165,7 @@ Finally, since any of the values may itself be a dictionary (or an array), there
 a form of "tree comparison" (also known as breadth-first search), since processing can go from 
 dictionary to dictionary to dictionary, etc. 
 Fortunately, even with these complexities, the process for dictionary comparison can be clearly defined 
-and made standard in a way that all implementations can agree on equality. ![86.png](./Storage/Output/Images/86.png)
+and made standard in a way that all implementations can agree on equality. ![70.png](./Storage/Output/Images/70.png)
  
 #Figure Annex K.2: Comparison of two dictionaries# 
 J.3.7Stream #object#s 
@@ -57829,7 +57179,7 @@ ISO/DIS 32000-2
 all stream dictionaries") that compress or encoded the stream’s data. In order to compare the streams, 
 all #filter#s shall be removed and the original (u#nfilte#red) data shall be used for all comparisons. The 
 actual comparison of the data stream shall be done using a simple linear #bi#nary (#byte#-for#-byt#e) 
-comparison. ![87.png](./Storage/Output/Images/87.png)
+comparison. ![71.png](./Storage/Output/Images/71.png)
  
  Figure Annex K.3: Comparing two X#Object#s 
 J.4Known issues 
@@ -57862,7 +57212,7 @@ occur. However, should the recommendations in this document be used in the gener
 #PDF #processor will need to protect itself.  
 © ISO 2017 – All rights reserved 909 
 
-ISO/DIS 32000-2 ![88.png](./Storage/Output/Images/88.png)
+ISO/DIS 32000-2 ![72.png](./Storage/Output/Images/72.png)
  
  
 XFA forms 
@@ -58030,7 +57380,7 @@ resource.
 © ISO 2017 – All rights reserved 912 
 
 ISO/DIS 32000-2
- ![89.png](./Storage/Output/Images/89.png)
+ ![73.png](./Storage/Output/Images/73.png)
  
  
 Parent-child relationships between standard structure elements 
@@ -58891,7 +58241,7 @@ Warichu elements".
 structure element, see "Table 370: General inline level structure types". 
 © ISO 2017 – All rights reserved 931 
 
-ISO/DIS 32000-2 ![90.png](./Storage/Output/Images/90.png)
+ISO/DIS 32000-2 ![74.png](./Storage/Output/Images/74.png)
  
  
 Standard structure elements in the default (#PDF #1.7) namespace 
@@ -58954,7 +58304,7 @@ Artifact
 © ISO 2017 – All rights reserved 932 
 
 ISO/DIS 32000-2
- ![91.png](./Storage/Output/Images/91.png)
+ ![75.png](./Storage/Output/Images/75.png)
  
  
 Best practice for halftones 
@@ -59103,7 +58453,7 @@ used with care.
  
 © ISO 2017 – All rights reserved 935 
 
-ISO/DIS 32000-2 ![92.png](./Storage/Output/Images/92.png)
+ISO/DIS 32000-2 ![76.png](./Storage/Output/Images/76.png)
  
  
 Fragment# id#entifiers 
@@ -59251,7 +58601,7 @@ document can open directly to the appropriate view.
 
 ISO/DIS 32000-2
  
- ![93.png](./Storage/Output/Images/93.png)
+ ![77.png](./Storage/Output/Images/77.png)
  
  
 An algorithm to determine the actual blending colour space of a 
@@ -59284,96 +58634,96 @@ ISO/DIS 32000-2 ![Figure Annex P1 A possible algorithm to determine the blending
 
 ISO/DIS 32000-2
  
-#Bi#bliography ![94.png](./Storage/Output/Images/94.png)
+#Bi#bliography ![78.png](./Storage/Output/Images/78.png)
 #PDF #Reference, First Edition, version 1.0 (June 1993), Addison-Wesley, 0-201-62628-4. 
- ![95.png](./Storage/Output/Images/95.png)
+ ![79.png](./Storage/Output/Images/79.png)
 #PDF #Reference, First Edition Revised, version 1.1 (March 1996), Adobe Systems Incorporated. 
- ![96.png](./Storage/Output/Images/96.png)
+ ![80.png](./Storage/Output/Images/80.png)
 #PDF #Reference, First Edition Revised, version 1.2 (November 1996), Adobe Systems 
  
-Incorporated ![97.png](./Storage/Output/Images/97.png)
+Incorporated ![81.png](./Storage/Output/Images/81.png)
 #PDF #Reference, Second Edition, version 1.3 (July 2000), Addison-Wesley, ISBN 0-201-61588-6. 
- ![98.png](./Storage/Output/Images/98.png)
+ ![82.png](./Storage/Output/Images/82.png)
 #PDF #Reference, Third Edition, version 1.4 (November 2001), Addison-Wesley, ISBN 0-201-
  
-75839-3. ![99.png](./Storage/Output/Images/99.png)
+75839-3. ![83.png](./Storage/Output/Images/83.png)
 #PDF #Reference, Fourth Edition, version 1.5 (August 2003), Adobe Systems Incorporated (web 
  
-site only). ![100.png](./Storage/Output/Images/100.png)
+site only). ![84.png](./Storage/Output/Images/84.png)
 #PDF #Reference, Fifth Edition, version 1.6 (December 2004), Adobe Press, ISBN 0-321-30474-8. 
- ![101.png](./Storage/Output/Images/101.png)
+ ![85.png](./Storage/Output/Images/85.png)
 #PDF #Reference, Sixth Edition, version 1.7 (November 2006), Adobe Systems Incorporated (web 
  
-site only). ![102.png](./Storage/Output/Images/102.png)
+site only). ![86.png](./Storage/Output/Images/86.png)
 PostScript Language Reference, Third Edition, Addison-Wesley, Reading, MA, 1999. 
- ![103.png](./Storage/Output/Images/103.png)
+ ![87.png](./Storage/Output/Images/87.png)
 ISO 14289-1:2014, Document management applications — #Electronic document #file format 
  
-enhancement for accessi#bi#lity — Part 1: Use of ISO 32000-1 (#PDF#/UA-1) ![104.png](./Storage/Output/Images/104.png)
+enhancement for accessi#bi#lity — Part 1: Use of ISO 32000-1 (#PDF#/UA-1) ![88.png](./Storage/Output/Images/88.png)
 ISO 19005-1/Cor 1/Cor 2, Document management — #Electronic document #file format for long-
  
-term preservation – Part 1: Use of #PDF #1.4 #(PD#F/A-1) ![105.png](./Storage/Output/Images/105.png)
+term preservation – Part 1: Use of #PDF #1.4 #(PD#F/A-1) ![89.png](./Storage/Output/Images/89.png)
 ISO 19005-2, Document management — #Electronic document #file format for long-term 
  
-preservation – Part 2: Use of ISO 32000-1 (#PDF#/A-2) ![106.png](./Storage/Output/Images/106.png)
+preservation – Part 2: Use of ISO 32000-1 (#PDF#/A-2) ![90.png](./Storage/Output/Images/90.png)
 ISO 19005-3, Document management — #Electronic document #file format for long-term 
  
-preservation – Part 3: Use of ISO 32000-1 (#PDF#/A-3) ![107.png](./Storage/Output/Images/107.png)
+preservation – Part 3: Use of ISO 32000-1 (#PDF#/A-3) ![91.png](./Storage/Output/Images/91.png)
 ISO 16612-2, Graphic technology -- Variable data exchange -- Part 2: Using #PDF#/X-4 and 
  
-#PDF#/X-5 #(PD#F/VT-1 an#d P#DF/VT-2) ![108.png](./Storage/Output/Images/108.png)
+#PDF#/X-5 #(PD#F/VT-1 an#d P#DF/VT-2) ![92.png](./Storage/Output/Images/92.png)
 ISO 24517-1:2008, Document management — Engineering document format using #PDF #— 
  
-Part 1: Use of #PDF #1.6 #(PD#F/E-1) ![109.png](./Storage/Output/Images/109.png)
+Part 1: Use of #PDF #1.6 #(PD#F/E-1) ![93.png](./Storage/Output/Images/93.png)
 ISO/DIS 24517-2, Document management — Engineering document format using #PDF #— Part 
  
-2: Use of ISO 32000-2 including support for long-term preservation  (#PDF#/E-2) ![110.png](./Storage/Output/Images/110.png)
+2: Use of ISO 32000-2 including support for long-term preservation  (#PDF#/E-2) ![94.png](./Storage/Output/Images/94.png)
 International Telecommunications Union, Recommendation BT.709 (2002), available at 
  
-http://www.itu.int/rec/R-REC-BT.709/en ![111.png](./Storage/Output/Images/111.png)
+http://www.itu.int/rec/R-REC-BT.709/en ![95.png](./Storage/Output/Images/95.png)
 Technical Note #5001, PostScript Language Document Structuring Conventions Specification, 
  
-Version 3.0, (September 1992), Adobe Systems Incorporated. ![112.png](./Storage/Output/Images/112.png)
+Version 3.0, (September 1992), Adobe Systems Incorporated. ![96.png](./Storage/Output/Images/96.png)
 Technical Note #5044, Color Separation Conventions for PostScript Language Programs, (May 
  
 1996) Adobe Systems Incorporated. 
 © ISO 2017 – All rights reserved 941 
 
-ISO/DIS 32000-2 ![113.png](./Storage/Output/Images/113.png)
+ISO/DIS 32000-2 ![97.png](./Storage/Output/Images/97.png)
 Technical Note #5088, #Font #Naming Issues, (April 1993), Adobe Systems Incorporated  
- ![114.png](./Storage/Output/Images/114.png)
+ ![98.png](./Storage/Output/Images/98.png)
 FIPS PUB 140-2, Security Requirements For Cryptographic Modules, (December 2002), Federal 
  
-Information Processing Standards. ![115.png](./Storage/Output/Images/115.png)
+Information Processing Standards. ![99.png](./Storage/Output/Images/99.png)
 Aho, A. V., Hopcroft, J. E., and Ullman, J. D., Data Structures and Algorithms, Addison-Wesley, 
  
-Reading, MA, 1983. Includes a discussion of balanced trees. ![116.png](./Storage/Output/Images/116.png)
+Reading, MA, 1983. Includes a discussion of balanced trees. ![100.png](./Storage/Output/Images/100.png)
 Apple Computer, Inc., TrueType Reference Manual. Available on Apple’s Web site at 
  
-http://#developer#.apple.com/#font#s/TTRefMan/ ![117.png](./Storage/Output/Images/117.png)
+http://#developer#.apple.com/#font#s/TTRefMan/ ![101.png](./Storage/Output/Images/101.png)
 Arvo, J. (ed.), Graphics Gems II, Academic Press, 1994. The section "Geometrically Continuous 
  
 Cu#bi#c Bézier Curves" by Hans-Peter Seidel describes the mathematics used to smoothly join two 
-cu#bi#c Bézier curves. ![118.png](./Storage/Output/Images/118.png)
+cu#bi#c Bézier curves. ![102.png](./Storage/Output/Images/102.png)
 CIP4. See International Cooperation for the Integration of Processes in Prepress, Press and 
  
-Postpress. ![119.png](./Storage/Output/Images/119.png)
+Postpress. ![103.png](./Storage/Output/Images/103.png)
 Ecma International, Standard ECMA-363, Universal 3D File Format, 1st Edition. This document 
  
 is available at available at 
-http://www.ecma-international.org/ ![120.png](./Storage/Output/Images/120.png)
+http://www.ecma-international.org/ ![104.png](./Storage/Output/Images/104.png)
 Extensible Stylesheet Language (XSL) 1.0, http://www.w3.org/TR/xsl/ 
- ![121.png](./Storage/Output/Images/121.png)
+ ![105.png](./Storage/Output/Images/105.png)
 Fairchild, M. D., Color Appearance Models, Addison-Wesley, Reading, MA, 1997. Covers color 
  
 vision, basic colorimetry, color appearance models, cross-media color reproduction, and the 
 current CIE standards activities. Updates, software, and color appearance data are available at 
-http://rit-mcsl.org/fairchild/CAM.html ![122.png](./Storage/Output/Images/122.png)
+http://rit-mcsl.org/fairchild/CAM.html ![106.png](./Storage/Output/Images/106.png)
 Foley, J. D. et al., Computer Graphics: Principles and Practice, Addison-Wesley, Reading, MA, 
  
 1996. (First edition was Foley, J. D. and van Dam, A., Fundamentals of Interactive Computer 
 Graphics, Addison-Wesley, Reading, MA, 1982.) Covers many graphics-related topics, including 
-the mathematics of Bézier cu#bi#cs and Gouraud shadings. ![123.png](./Storage/Output/Images/123.png)
+the mathematics of Bézier cu#bi#cs and Gouraud shadings. ![107.png](./Storage/Output/Images/107.png)
 Glassner, A. S. (ed.), Graphics Gems, Academic Press, 1993. The section "An Algorithm for 
  
 Automatically Fitting Digitized Curves" by Philip J. Schneider describes an algorithm for 
@@ -59383,62 +58733,62 @@ language. Other sections relevant to the mathematics of Bézier curves include "
 Nearest-Point-On-Curve Problem" and "A Bézier Curve-Based Root-Finder," both by Philip J. 
 Schneider, and "Some Properties of Bézier Curves" by Ronald Goldman. The source code 
 appearing in the appendix is available via anonymous FTP, as described in the preface to 
-Graphics Gems III (Kirk, D. (ed.), Graphics Gems III, Academic Press, 1994). ![124.png](./Storage/Output/Images/124.png)
+Graphics Gems III (Kirk, D. (ed.), Graphics Gems III, Academic Press, 1994). ![108.png](./Storage/Output/Images/108.png)
 Green, Phil (Editor), Kriss, Michael (Series Editor), "Color Management: Understanding and 
  
 Using #ICC Profile#s", John Wiley & Sons,  2010 
 (Cf. 
-http://eu.wiley.com/WileyCDA/WileyTitle/productCd-0470058250.html) ![125.png](./Storage/Output/Images/125.png)
+http://eu.wiley.com/WileyCDA/WileyTitle/productCd-0470058250.html) ![109.png](./Storage/Output/Images/109.png)
 Hunt, R. W. G., The Reproduction of Colour, 5th ed., Fisher Books, England, 1996. A general 
  
-reference on color reproduction; includes an introduction to the CIE system. ![126.png](./Storage/Output/Images/126.png)
+reference on color reproduction; includes an introduction to the CIE system. ![110.png](./Storage/Output/Images/110.png)
 Institute of Electrical and Electronics Engineers, IEEE Standard for #Bi#nary Floating-Point 
  
 Arithmetic (IEEE 754-1985). 
 © ISO 2017 – All rights reserved 942 
 
 ISO/DIS 32000-2
- ![127.png](./Storage/Output/Images/127.png)
+ ![111.png](./Storage/Output/Images/111.png)
 Kirk, D. (ed.), Graphics Gems III, Academic Press, 1994. The section "Interpolation Using Bézier 
  
 Curves" by Gershon Elber contains an algorithm for calculating a Bézier curve that passes 
 through a user-specified set of points. The algorithm uses not only cu#bi#c Bézier curves, which 
 are supported in #PDF#, but also higher-order Bézier curves. The appendix contains an 
 implementation of the algorithm, written in the C programming language. The source code 
-appearing in the appendix is available via anonymous FTP. ![128.png](./Storage/Output/Images/128.png)
+appearing in the appendix is available via anonymous FTP. ![112.png](./Storage/Output/Images/112.png)
 Lunde, K., CJKV Information Processing, O’Reilly & Associates, Sebastopol, CA, 1999. Excellent 
  
-background material on CMaps, #character #sets, encodings, and the like. ![129.png](./Storage/Output/Images/129.png)
+background material on CMaps, #character #sets, encodings, and the like. ![113.png](./Storage/Output/Images/113.png)
 Microsoft Corporation, TrueType 1.0 #Font #Files Technical Specification. Available at 
  
-www.microsoft.com/typography/tt/tt.htm ![130.png](./Storage/Output/Images/130.png)
+www.microsoft.com/typography/tt/tt.htm ![114.png](./Storage/Output/Images/114.png)
 Porter, T. and Duff, T., "Compositing Digital Images," Computer Graphics, Vol. 18 No. 3, July 
  
 1984. Computer Graphics is the newsletter of the ACM’s special interest #group #SIGGRAPH; for 
 more information, see 
-http://www.acm.org ![131.png](./Storage/Output/Images/131.png)
+http://www.acm.org ![115.png](./Storage/Output/Images/115.png)
 PKCS #1 - RSA Cryptography Standard http://www.emc.com/emc-plus/rsa-labs/standards-
  
 initiatives/pkcs-rsa-cryptography-standard.htm. This document, among others related to 
 public-key cryptography and digital signatures, is available at http://www.emc.com/emc-
-plus/rsa-labs/standards-initiatives/public-key-cryptography-standards.htm ![132.png](./Storage/Output/Images/132.png)
+plus/rsa-labs/standards-initiatives/public-key-cryptography-standards.htm ![116.png](./Storage/Output/Images/116.png)
 Scalable Vector Graphics (SVG) 1.0 Specification, http://www.w3.org/TR/2001/REC-SVG-
  
-20010904/ ![133.png](./Storage/Output/Images/133.png)
+20010904/ ![117.png](./Storage/Output/Images/117.png)
 Synchronized Multimedia Integration Language (SMIL 2.0), http://www.w3.org/TR/smil20/ 
- ![134.png](./Storage/Output/Images/134.png)
+ ![118.png](./Storage/Output/Images/118.png)
 Web Content Accessi#bi#lity Guidelines 1.0, http://www.w3.org/TR/WAI-WEBCONTENT/ 
- ![135.png](./Storage/Output/Images/135.png)
+ ![119.png](./Storage/Output/Images/119.png)
 HTML 5, http://www.w3.org/TR/html5/ 
- ![136.png](./Storage/Output/Images/136.png)
+ ![120.png](./Storage/Output/Images/120.png)
 JDF Specification, Version 1.5 (September 2013). International Cooperation for the Integration 
  
 of Processes in Prepress, Press and Postpress (CIP4), 
-http://www.cip4.org ![137.png](./Storage/Output/Images/137.png)
+http://www.cip4.org ![121.png](./Storage/Output/Images/121.png)
 Unicode Standard Annex #9, Unicode #Bi#directional Algorithm. Unicode Consortium 
- ![138.png](./Storage/Output/Images/138.png)
+ ![122.png](./Storage/Output/Images/122.png)
 Unicode Standard Annex #21, Case Mappings. Unicode Consortium 
- ![139.png](./Storage/Output/Images/139.png)
+ ![123.png](./Storage/Output/Images/123.png)
 Unicode Standard Annex #29, Unicode Text Segmentation. Unicode Consortium. 
  
 © ISO 2017 – All rights reserved 943 

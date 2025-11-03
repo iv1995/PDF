@@ -1,214 +1,58 @@
-Table 340: Entries in a RichMediaPosition dictionary" 
-for a detailed description. 
- 
-RichMediaPosition
-The position of the window in the interactive PDF processor presentation area is described by the 
- dictionary. The position of the window shall remain fixed, regardless of the page 
-translation. "Table 340: Entries in a RichMediaPosition dictionary" details the contents of this 
-dictionary. 
-© ISO 2017 – All rights reserved 681 
+Table 127: PDF halftone types". 
+Table 127: PDF halftone types 
+Type Meaning 
+1 Defines a single halftone screen by a frequency, angle, and spot function. 
+© ISO 2017 – All rights reserved 364 
 
 ISO/DIS 32000-2
  
-Table 340: Entries in a RichMediaPosition dictionary 
-Key Type Value 
-Optional; PDF 2.0
-Type 
-RichMediaPosition
-name () The type of PDF object that this dictionary describes. If 
-present, it shall be . 
-Optional; PDF 2.0Near
-HAlign 
-CenterFar
-name () Describes the horizontal alignment. Valid values are , 
-Far
+Type Meaning 
+5 Defines an arbitrary number of halftone screens, one for each colourant or 
+colour component (including both primary and spot colourants). The keys 
+in this dictionary are names of colourants; the values are halftone 
+dictionaries of other types, each defining the halftone screen for a single 
+colourant. 
+6 Defines a single halftone screen by a threshold array containing 8-bit 
+sample values. 
+10 Defines a single halftone screen by a threshold array containing 8-bit 
+sample values, representing a halftone cell that may have a non-zero screen 
+angle. 
+PDF 1.3
+16 () Defines a single halftone screen by a threshold array containing 
+16-bit sample values, representing a halftone cell that may have a non-zero 
+screen angle. 
  
-, and . 
-Default value: 
-Optional; PDF 2.0Near
-VAlign 
-CenterFar
-name () Describes the vertical alignment. Valid values are , 
-Near
+NOTE 1 The dictionaries representing these halftone types contain the same entries as the corresponding 
+PostScript language halftone dictionaries (as described in clause 7.4 of the PostScript Language 
+Reference, Third Edition), with the following exceptions: 
+ The PDF dictionaries can contain a  entry with the value , identifying the type of PDF 
+Type
+object that the dictionary describes. 
+Halftone
+ Spot functions and transfer functions are represented by function objects instead of PostScript 
+language procedures. Threshold arrays are specified as streams instead of files. 
+In Type 5 halftone dictionaries, the keys for colourants shall be name objects; they cannot be strings as 
+is allowed in PostScript. 
+HalftoneName
+HalftoneType
+Halftone dictionaries have an optional entry, , that identifies the halftone by name. If this 
+entry is present, all other entries, including , are optional. At rendering time, if the output 
+device has a halftone with the specified name, that halftone may be used, overriding any other halftone 
+parameters specified in the dictionary. 
+NOTE 2 This provides a way for PDF files to select the proprietary halftones supplied by some device 
+manufacturers, which would not otherwise be accessible because they are not explicitly defined in 
+PDF. 
+HalftoneName
+If there is no  entry, or if the requested halftone name does not exist on the device, the 
+halftone’s parameters may be defined by the other entries in the dictionary, if any. If no other entries 
+are present, the default halftone may be used. 
+NOTE 3 See 11.7.5, "Rendering parameters and transparency" and, in particular, 11.7.5.2, "Halftone and 
+transfer function" for further discussion of the role of halftones in the transparent imaging model. 
+10.6.5.2Type 1 halftones 
  
-, and . 
-Default value: 
-Optional; PDF 2.0
-HOffset HAlign
-NearCenter
-HOffsetHAlign
-number () The offset from the alignment point specified by the  
-Far
-HOffset
-key. A positive value for , when  is either  or , shall 
-FarNear
-HAlign
-offset the position towards the  direction. A positive value for , when 
- 
- is , shall offset the position towards the  direction. 
-Default value: 18
-Optional; PDF 2.0
-VOffset VAlign
-NearCenter
-VOffsetVAlign
-number () The offset from the alignment point specified by the  
-Far
-VOffset
-key. A positive value for , when  is either  or , shall 
-FarNear
-VAlign
-offset the position towards the  direction. A positive value for , when 
- is , shall offset the position towards the  direction. 
-Default value: 18 
- 
-HAlignVAlign
-Lang
-The descriptions of the values of the  and  entries depend on the primary logical content 
-order as defined by the value of the  entry in the document's catalog dictionary. For left-to-right 
-reading languages, the descriptions follow. 
-NearFar
-HAlign
-:  represents the left edge of the window, and  represents the right edge of the window. 
-NearFar
-VAlign
-:  represents the top edge of the window, and  represents the bottom edge of the 
-window.  
-HAlign
-For right-to-left reading languages, the above descriptions for  are reversed. 
-EXAMPLE A RichMediaPresentation Dictionary 
-24 0 obj           %RichMediaPresentation dictionary 
- <</Type /RichMediaPresentation 
-  /Toolbar false 
-  /NavigationPane false 
-  /PassContextClick false 
-  /Style /Windowed 
-  /Window 25 0 R 
- >> 
-endobj 
- 
-25 0 obj           %RichMediaWindow dictionary 
-  <</Type /RichMediaWindow 
-  /Height 
-  <</Default 216 
-   /Max 432 
-   /Min 72 
-  >> 
-  /Width 
-  <</Default 288 
-© ISO 2017 – All rights reserved 682 
+"Table 128: Entries in a Type halftone dictionary" describes the contents of a halftone dictionary of 
+Type, which defines a halftone screen in terms of its frequency, angle, and spot function. 
+© ISO 2017 – All rights reserved 365 
 
 ISO/DIS 32000-2
  
-   /Max 576 
-   /Min 72 
-  >> 
-  /Position 
-  <</Type /RichMediaPosition   %RichMediaPosition dictionary 
-   /HAlign /Far 
-   /VAlign /Near 
-   /HOffset 18 
-   /VOffset 18 
-  >> 
- >> 
-endobj 
- 
-Context
-In the above example, the toolbar or the navigation pane shall not be displayed on initial activation of 
-the annotation.  click events shall be handled by the interactive PDF processor and shall not be 
-passed to the annotation handler. The annotation appears as a separate window with an initial width of 
-four inches and an initial height of three inches and will be aligned 0.25 inches off the top right (in left 
-to right reading languages) corner of the document area. 
-13.7.2.3RichMediaContent dictionary 
- 
-13.7.2.3.1General 
- 
-RichMediaContent dictionary
-The  contains content that is present within the annotation as referenced 
-by the RichMediaSettings dictionary (see "Table 334: Entries in a RichMediaSettings dictionary"). 
-"Table 341: Entries in a RichMediaContent dictionary" details the elements of the RichMediaContent 
-dictionary. 
-Table 341: Entries in a RichMediaContent dictionary 
-Key Type Value 
-Optional; PDF 2.0
-Type 
-RichMediaContent
-name () The type of PDF object that this dictionary describes. If 
-present, it shall be . 
-Optional; PDF 2.0
-Assets 
-name tree () A name tree of embedded file specification dictionaries as 
-detailed in 7.11.3, "File specification dictionaries". 
-Optional; PDF 2.0
-Configurations 
-array () An array where each element is an indirect object reference 
-to a RichMediaConfiguration dictionary. 
-Optional; PDF 2.0
-Views 
-array () An array where each element is an indirect object reference 
-to a 3D view dictionary. See "Table 315: Entries in a 3D view dictionary" for the 
-details of the entries of this dictionary. 
-Default value: If no views are specified, default values shall used for the 
-components of a view dictionary, including rendering/lighting modes, 
-background colour, and camera data. 
- 
-13.7.2.3.2The assets name tree 
- 
-embedded file specification dictionaries
-Assets
-The  entry takes a name tree of . (For usage, see "Table 
-341: Entries in a RichMediaContent dictionary" and "Table 343: Entries in a RichMediaInstance 
-dictionary".) 
-The text string that represents the file name in the name tree shall match the values stored for both the 
-© ISO 2017 – All rights reserved 683 
-
-ISO/DIS 32000-2
- 
-F UF  URI 
- andkeys, which shall be the same value. The file name shall be encoded as a relativeand has 
-the following naming restrictions: 
-• 
-• 
-The string shall be a PDF text string. 
-• 
-The string shall not contain any embedded NULL (U+0000) characters. 
-• 
-The number of characters in the string shall be between 1 and 255 inclusive. 
-The string shall not contain any of these six characters: COLON (U+003A) (:), ASTERISK (U+002A) 
-(*), QUOTATION MARK (U+0022) ("), LESS-THAN SIGN (U+003C) (<), GREATER-THAN SIGN 
-• 
-(U+003E) (>), and VERTICAL LINE (U+007C) (|). 
-The last character shall not be a FULL STOP (U+002E) (.). 
-EXAMPLE Assets name tree 
-29 0 obj            % Assets name tree 
- << /Names 
-  [(3D.prc) 30 0 R 
-   … more name value pairs where each value is a file specification dictionary reference … 
-  ] 
- >> 
-endobj 
- 
-30 0 obj            % File specification dictionary for 3D file 
-  <</Type /Filespec 
-  /F (3D.prc) 
-  /UF (3D.prc) 
-  /EF <</F 40 0 R>>       % Stream containing the 3D file 
- >> 
-endobj 
- 
-40 0 obj            % Embedded file stream for 3D file 
- << /Type /EmbeddedFile       % 3D.prc 
-  /Length … 
-  /Filter … 
- >> 
-stream 
-… Data for 3D.prc … 
-endstream 
-endobj 
- 
-13.7.2.3.3RichMediaConfiguration dictionary 
- 
-RichMediaConfiguration dictionary
-The  describes a set of instances that are loaded for a given scene 
-configuration. The configuration that shall be loaded when an annotation is activated is referenced by 
-the Configuration key in the RichMediaActivation dictionary specified in the RichMediaSettings 
-dictionary. "

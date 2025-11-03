@@ -1,0 +1,1741 @@
+Table Annex D.1: 
+Latin-text encodings"). Unencoded characters are indicated by a dash (—). 
+All characters listed in D.2, "Latin character set and encodings" shall be supported for the Times, 
+Helvetica, and Courier font families, as listed in 9.6.2.2, "Standard Type 1 fonts (standard 14 fonts) (PDF 
+1.0-1.7)" by a PDF processor that supports PDF 1.0 to 1.7. 
+D.3, "Expert set and MacExpert encoding" describes the "expert" character set, which contains 
+MacExpertEncoding
+additional characters useful for sophisticated typography, such as small capitals, ligatures, and 
+fractions. For each named character, an octal character code is given in . 
+NOTE The built-in encoding in an expert font program can be different from . 
+MacExpertEncoding
+D.4, "Symbol set and encoding" and D.5, "ZapfDingbats set and encoding" describe the character sets 
+and built-in encodings for the Symbol and ZapfDingbats (ITC Zapf Dingbats) font programs, which 
+belong to the standard 14 predefined fonts. These fonts have built-in encodings that are unique to each 
+font. The characters for ZapfDingbats are ordered by code instead of by name, since the names in that 
+font are meaningless. 
+Table Annex D.1: Latin-text encodings 
+Encoding Description 
+StandardEncoding 
+Standard Latin-text encoding. This is the built-in encoding defined in Type 1 Latin-
+text font programs (but generally not in TrueType font programs). PDF processors 
+shall not have a predefined encoding named StandardEncoding. However, it is 
+necessary to describe this encoding, since a font’s built-in encoding can be used as the 
+base encoding from which differences may be specified in an encoding dictionary. 
+MacRomanEncoding 
+MacRomanEncoding
+  
+Mac OS standard encoding for Latin text in Western writing systems. PDF processors 
+shall have a predefined encoding namedthat may be used with 
+both Type 1 and TrueType fonts. 
+WinAnsiEncoding 
+Windows Code Page 1252, often called the "Windows ANSI" encoding. This is the 
+TM
+WinAnsiEncoding
+  
+standard Microsoft Windows specific encoding for Latin text in Western writing 
+systems. PDF processors shall have a predefined encoding named
+that may be used with both Type 1 and TrueType fonts. 
+© ISO 2017 – All rights reserved 820 
+
+ISO/DIS 32000-2
+ 
+Encoding Description 
+PDFDocEncoding 
+Encoding for text strings in a PDF document outside the document’s content streams. 
+This is one of two encodings (the other being Unicode) that may be used to represent 
+PDFDocEncoding
+text strings; see 7.9.2.2, "Text string type". PDF does not have a predefined encoding 
+named ; it is not customary to use this encoding to show text from 
+fonts. 
+MacExpertEncoding 
+MacExpertEncoding
+An encoding for use with expert fonts — ones containing the expert character set. 
+PDF processors shall have a predefined encoding named . Despite 
+its name, it is not a platform-specific encoding; however, only certain fonts have the 
+appropriate character set for use with this encoding. No such fonts are among the 
+standard 14 predefined fonts. 
+D.2Latin character set and encodings 
+ 
+CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCTAL) 
+STD MAC WIN PDF 
+STD MAC WIN PDF 
+A Œ 
+A 101 101 101 101  OE 352 316 214 226 
+Æ Ó 
+AE 341 256 306 306  Oacute — 356 323 323 
+Á Ô 
+Aacute — 347 301 301  Ocircumflex — 357 324 324 
+Â Ö 
+Acircumflex — 345 302 302  Odieresis — 205 326 326 
+Ä Ò 
+Adieresis — 200 304 304  Ograve — 361 322 322 
+À Ø 
+Agrave — 313 300 300  Oslash 351 257 330 330 
+Å Õ 
+Aring — 201 305 305  Otilde — 315 325 325 
+Ã P 
+Atilde — 314 303 303  P 120 120 120 120 
+B Q 
+B 102 102 102 102  Q 121 121 121 121 
+C R 
+C 103 103 103 103  R 122 122 122 122 
+Ç S 
+Ccedilla — 202 307 307  S 123 123 123 123 
+D Š 
+D 104 104 104 104  Scaron — — 212 227 
+E T 
+E 105 105 105 105  T 124 124 124 124 
+É Þ 
+Eacute — 203 311 311  Thorn — — 336 336 
+Ê U 
+Ecircumflex — 346 312 312  U 125 125 125 125 
+Ë Ú 
+Edieresis — 350 313 313  Uacute — 362 332 332 
+È Û 
+Egrave — 351 310 310  Ucircumflex — 363 333 333 
+Ð Ü 
+Eth — — 320 320  Udieresis — 206 334 334 
+€ Ù 
+1
+Euro — — 200 240  Ugrave — 364 331 331 
+© ISO 2017 – All rights reserved 821 
+
+ISO/DIS 32000-2
+ 
+CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCTAL) 
+STD MAC WIN PDF 
+STD MAC WIN PDF 
+F V 
+F 106 106 106 106  V 126 126 126 126 
+G W 
+G 107 107 107 107  W 127 127 127 127 
+H X 
+H 110 110 110 110  X 130 130 130 130 
+I Y 
+I 111 111 111 111  Y 131 131 131 131 
+Í Ý 
+Iacute — 352 315 315  Yacute — — 335 335 
+Î Ÿ 
+Icircumflex — 353 316 316  Ydieresis — 331 237 230 
+Ï Z 
+Idieresis — 354 317 317  Z 132 132 132 132 
+Ì Ž 
+2
+Igrave — 355 314 314  Zcaron — — 216 231 
+J a 
+J 112 112 112 112  a 141 141 141 141 
+K á 
+K 113 113 113 113  aacute — 207 341 341 
+L â 
+L 114 114 114 114  acircumflex — 211 342 342 
+Ł ´ 
+Lslash 350 — — 225  acute 302 253 264 264 
+M ä 
+M 115 115 115 115  adieresis — 212 344 344 
+N æ 
+N 116 116 116 116  ae 361 276 346 346 
+Ñ à 
+Ntilde — 204 321 321  agrave — 210 340 340 
+O & 
+O 117 117 117 117  ampersand 046 046 046 046 
+å ð 
+aring — 214 345 345  eth — — 360 360 
+^ ! 
+asciicircum 136 136 136 136  exclam 041 041 041 041 
+~ ¡ 
+asciitilde 176 176 176 176  exclamdown 241 301 241 241 
+* f 
+asterisk 052 052 052 052  f 146 146 146 146 
+@ fi 
+at 100 100 100 100  fi 256 336 — 223 
+ã 5 
+atilde — 213 343 343  five 065 065 065 065 
+b fl 
+b 142 142 142 142  fl 257 337 — 224 
+\ ƒ 
+backslash 134 134 134 134  florin 246 304 203 206 
+| 4 
+bar 174 174 174 174  four 064 064 064 064 
+{ ⁄ 
+braceleft 173 173 173 173  fraction 244 332 — 207 
+} g 
+braceright 175 175 175 175  g 147 147 147 147 
+[ ß 
+bracketleft 133 133 133 133  germandbls 373 247 337 337 
+© ISO 2017 – All rights reserved 822 
+
+ISO/DIS 32000-2
+ 
+CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCTAL) 
+STD MAC WIN PDF 
+STD MAC WIN PDF 
+] ` 
+bracketright 135 135 135 135  grave 301 140 140 140 
+˘ > 
+breve 306 371 — 030  greater 076 076 076 076 
+¦ « 
+4
+brokenbar — — 246 246  guillemotleft 253 307 253 253 
+• » 
+3
+bullet 267 245 225 200  guillemotright273 310 273 273 
+4
+ 
+c ‹ 
+c 143 143 143 143  guilsinglleft 254 334 213 210 
+ˇ › 
+caron 317 377 — 031  guilsinglright 255 335 233 211 
+ç h 
+ccedilla — 215 347 347  h 150 150 150 150 
+¸ ˝ 
+cedilla 313 374 270 270  hungarumlaut 315 375 — 034 
+¢ - 
+5
+cent 242 242 242 242  hyphen 055 055 055 055 
+ˆ i 
+circumflex 303 366 210 032  i 151 151 151 151 
+: í 
+colon 072 072 072 072  iacute — 222 355 355 
+, î 
+comma 054 054 054 054  icircumflex — 224 356 356 
+© ï 
+copyright — 251 251 251  idieresis — 225 357 357 
+¤ ì 
+1
+currency 250 333 244 244  igrave — 223 354 354 
+d j 
+d 144 144 144 144  j 152 152 152 152 
+† k 
+dagger 262 240 206 201  k 153 153 153 153 
+‡ l 
+daggerdbl 263 340 207 202  l 154 154 154 154 
+° < 
+degree — 241 260 260  less 074 074 074 074 
+¨ ¬ 
+dieresis 310 254 250 250  logicalnot — 302 254 254 
+÷ ł 
+divide — 326 367 367  lslash 370 — — 233 
+$ m 
+dollar 044 044 044 044  m 155 155 155 155 
+˙ ¯ 
+dotaccent 307 372 — 033  macron 305 370 257 257 
+ı − 
+dotlessi 365 365 — 232  minus — — — 212 
+e µ 
+e 145 145 145 145  mu — 265 265 265 
+é × 
+eacute — 216 351 351  multiply — — 327 327 
+ê n 
+ecircumflex — 220 352 352  n 156 156 156 156 
+ë 9 
+edieresis — 221 353 353  nine 071 071 071 071 
+è ñ 
+egrave — 217 350 350  ntilde — 226 361 361 
+© ISO 2017 – All rights reserved 823 
+
+ISO/DIS 32000-2
+ 
+CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCTAL) 
+STD MAC WIN PDF 
+STD MAC WIN PDF 
+8 # 
+eight 070 070 070 070  numbersign 043 043 043 043 
+… o 
+ellipsis 274 311 205 203  o 157 157 157 157 
+— ó 
+emdash 320 321 227 204  oacute — 227 363 363 
+– ô 
+endash 261 320 226 205  ocircumflex — 231 364 364 
+= ö 
+equal 075 075 075 075  odieresis — 232 366 366 
+œ s 
+oe 372 317 234 234  s 163 163 163 163 
+˛ š 
+ogonek 316 376 — 035  scaron — — 232 235 
+ò § 
+ograve — 230 362 362  section 247 244 247 247 
+1 ; 
+one 061 061 061 061  semicolon 073 073 073 073 
+½ 7 
+onehalf — — 275 275  seven 067 067 067 067 
+¼ 6 
+onequarter — — 274 274  six 066 066 066 066 
+¹ / 
+onesuperior — — 271 271  slash 057 057 057 057 
+ª   
+6
+ordfeminine 343 273 252 252  space 040 040 040 040 
+º £ 
+ordmasculine 353 274 272 272  sterling 243 243 243 243 
+ø t 
+oslash 371 277 370 370  t 164 164 164 164 
+õ þ 
+otilde — 233 365 365  thorn — — 376 376 
+p 3 
+p 160 160 160 160  three 063 063 063 063 
+¶ ¾ 
+paragraph 266 246 266 266  threequarters — — 276 276 
+( ³ 
+parenleft 050 050 050 050  threesuperior — — 263 263 
+) ˜ 
+parenright 051 051 051 051  tilde 304 367 230 037 
+% ™ 
+percent 045 045 045 045  trademark — 252 231 222 
+. 2 
+period 056 056 056 056  two 062 062 062 062 
+· ² 
+periodcentered 264 341 267 267  twosuperior — — 262 262 
+‰ u 
+perthousand 275 344 211 213  u 165 165 165 165 
++ ú 
+plus 053 053 053 053  uacute — 234 372 372 
+± û 
+plusminus — 261 261 261  ucircumflex — 236 373 373 
+q ü 
+q 161 161 161 161  udieresis — 237 374 374 
+? ù 
+question 077 077 077 077  ugrave — 235 371 371 
+© ISO 2017 – All rights reserved 824 
+
+ISO/DIS 32000-2
+ 
+CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCTAL) 
+STD MAC WIN PDF 
+STD MAC WIN PDF 
+¿ _ 
+questiondown 277 300 277 277  underscore 137 137 137 137 
+" v 
+quotedbl 042 042 042 042  v 166 166 166 166 
+„ w 
+quotedblbase 271 343 204 214  w 167 167 167 167 
+" x 
+quotedblleft 252 322 223 215  x 170 170 170 170 
+" y 
+quotedblright 272 323 224 216  y 171 171 171 171 
+‘ ý 
+quoteleft 140 324 221 217  yacute — — 375 375 
+’ ÿ 
+quoteright 047 325 222 220  ydieresis — 330 377 377 
+‚ ¥ 
+quotesinglbase 270 342 202 221  yen 245 264 245 245 
+' z 
+quotesingle 251 047 047 047  z 172 172 172 172 
+r ž 
+2
+r 162 162 162 162  zcaron — — 236 236 
+® 0 
+registered — 250 256 256  zero 060 060 060 060 
+˚  
+ring 312 373 — 036       
+ 
+ 
+WinAnsiEncodingPDFDocEncoding
+1.In PDF 1.3, the euro character was added to the Adobe standard Latin character set. It is 
+  
+encoded as 200 in  and 240 in , assigning codes that were 
+previously unused. Apple changed theMacOS Latin-text encoding for code 333 from the 
+MacRomanEncoding
+currency character to the euro character. However, this incompatible change has not been 
+reflected in PDF’s , which continues to map code 333 to currency. If the euro 
+MacRomanEncoding
+character is desired, an encoding dictionary can be used to specify this single difference from 
+. 
+WinAnsiEncoding
+ 
+2.In PDF 1.3, the existing Zcaron and zcaron characters were added to  as the 
+previously unused codes 216 and 236. 
+WinAnsiEncoding
+ 
+3.In , all unused codes greater than 40 map to the bullet character. However, 
+only code 225 is specifically assigned to the bullet character; other codes are subject to future 
+reassignment. 
+ 
+4.The character names guillemotleft and guillemotright are misspelled. The correct spelling for 
+this punctuation character is guillemet. However, the misspelled names are the ones actually 
+used in the fonts and encodings containing these characters. 
+WinAnsiEncoding
+ 
+5.The hyphen character is also encoded as 255 in . The meaning of this duplicate 
+code is "soft hyphen," but it is typographically the same as hyphen. 
+MacRomanEncoding
+6.
+ 
+WinAnsiEncoding
+The space character is also encoded as 312 in  and as 240 in 
+ 
+. This duplicate code signifies a nonbreaking space; it is typographically the 
+same as SPACE (U+0020). 
+© ISO 2017 – All rights reserved 825 
+
+ISO/DIS 32000-2
+ 
+D.3PDFDocEncoding character set 
+ 
+The column titled Notes uses the following abbreviations: 
+• 
+• 
+U Undefined code point in PDFDocEncoding 
+SR Unicode codepoint that may require special representation in XML in some contexts. 
+ 
+Character Dec Hex Octal Unicode Unicode character name or Notes 
+(alternative alias) 
+ 
+^@
+ 
+^A
+0 0x00 0000 U+0000 (NULL) U 
+ 
+^B
+1 0x01 0001 U+0001 (START OF HEADING) U 
+ 
+^C
+2 0x02 0002 U+0002 (START OF TEXT) U 
+ 
+^D
+3 0x03 0003 U+0003 (END OF TEXT) U 
+ 
+^E
+4 0x04 0004 U+0004 (END OF TEXT) U 
+ 
+^F
+5 0x05 0005 U+0005 (END OF TRANSMISSION) U 
+ 
+^G
+6 0x06 0006 U+0006 (ACKNOWLEDGE) U 
+ 
+^H
+7 0x07 0007 U+0007 (BELL) U 
+ 
+^I
+8 0x08 0010 U+0008 (BACKSPACE) U 
+ 
+^J
+9 0x09 0011 U+0009 (CHARACTER TABULATION) SR 
+ 
+^K
+10 0x0a 0012 U+000A (LINE FEED) SR 
+ 
+^L
+11 0x0b 0013 U+000B (LINE TABULATION) U 
+ 
+^M
+12 0x0c 0014 U+000C (FORM FEED) U 
+ 
+^N
+13 0x0d 0015 U+000D (CARRIAGE RETURN) SR 
+ 
+^O
+14 0x0e 0016 U+000E (SHIFT OUT) U 
+ 
+^P
+15 0x0f 0017 U+000F (SHIFT IN) U 
+ 
+^Q
+16 0x10 0020 U+0010 (DATA LINK ESCAPE) U 
+ 
+^R
+17 0x11 0021 U+0011 (DEVICE CONTROL ONE) U 
+ 
+^S
+18 0x12 0022 U+0012 (DEVICE CONTROL TWO) U 
+ 
+^T
+19 0x13 0023 U+0013 (DEVICE CONTROL THREE) U 
+ 
+^U
+20 0x14 0024 U+0014 (DEVICE CONTROL FOUR) U 
+21 0x15 0025 U+0015 (NEGATIVE ACKNOWLEDGE) U 
+© ISO 2017 – All rights reserved 826 
+
+ISO/DIS 32000-2
+ 
+ 
+^V
+ 
+^W
+22 0x16 0026 U+0017 (SYNCRONOUS IDLE) U 
+ 
+u
+23 0x17 0027 U+0017 (END OF TRANSMISSION BLOCK) U 
+ 
+v
+24 0x18 0030 U+02D8 BREVE  
+^ 
+25 0x19 0031 U+02C7 CARON  
+26 0x1a 0032 U+02C6 MODIFIER LETTER CIRCUMFLEX  
+· 
+ACCENT 
+” 
+27 0x1b 0033 U+02D9 DOT ABOVE  
+, 
+28 0x1c 0034 U+02DD DOUBLE ACUTE ACCENT  
+° 
+29 0x1d 0035 U+02DB OGONEK  
+~ 
+30 0x1e 0036 U+02DA RING ABOVE  
+31 0x1f 0037 U+02DC SMALL TILDE  
+ 
+! 
+32 0x20 0040 U+0020 SPACE (&#32;)  
+" 
+33 0x21 0041 U+0021 EXCLAMATION MARK SR 
+# 
+34 0x22 0042 U+0022 QUOTATION MARK (&quot;) SR 
+$ 
+35 0x23 0043 U+0023 NUMBER SIGN  
+% 
+36 0x24 0044 U+0024 DOLLAR SIGN  
+& 
+37 0x25 0045 U+0025 PERCENT SIGN  
+'
+ 
+38 0x26 0046 U+0026 AMPERSAND (&amp;)  
+( 
+39 0x27 0047 U+0027 APOSTROPHE (&apos;)  
+) 
+40 0x28 0050 U+0028 LEFT PARENTHESIS  
+* 
+41 0x29 0051 U+0029 RIGHT PARENTHESIS  
++ 
+42 0x2a 0052 U+002A ASTERISK  
+, 
+43 0x2b 0053 U+002B PLUS SIGN  
+- 
+44 0x2c 0054 U+002C COMMA  
+. 
+45 0x2d 0055 U+002D HYPHEN-MINUS  
+/ 
+46 0x2e 0056 U+002E FULL STOP (period)  
+0 
+47 0x2f 0057 U+002F SOLIDUS (slash)  
+1 
+48 0x30 0060 U+0030 DIGIT ZERO  
+49 0x31 0061 U+0031 DIGIT ONE  
+© ISO 2017 – All rights reserved 827 
+
+ISO/DIS 32000-2
+ 
+2 
+3 
+50 0x32 0062 U+0032 DIGIT TWO  
+4 
+51 0x33 0063 U+0033 DIGIT THREE  
+5 
+52 0x34 0064 U+0034 DIGIT FOUR  
+6 
+53 0x35 0065 U+0035 DIGIT FIVE  
+7 
+54 0x36 0066 U+0036 DIGIT SIX  
+8 
+55 0x37 0067 U+0037 DIGIT SEVEN  
+9 
+56 0x38 0070 U+0038 DIGIT EIGJT  
+: 
+57 0x39 0071 U+0039 DIGIT NINE  
+; 
+58 0x3a 0072 U+003A COLON  
+< 
+59 0x3b 0073 U+003B SEMICOLON  
+= 
+60 0x3c 0074 U+003C LESS THAN SIGN (&lt;) SR 
+> 
+61 0x3d 0075 U+003D EQUALS SIGN  
+? 
+62 0x3e 0076 U+003E GREATER THAN SIGN (&gt;)  
+@ 
+63 0x3f 0077 U+003F QUESTION MARK  
+A 
+64 0x40 0100 U+0040 COMMERCIAL AT  
+B 
+65 0x41 0101 U+0041   
+C 
+66 0x42 0102 U+0042   
+D 
+67 0x43 0103 U+0043   
+E 
+68 0x44 0104 U+0044   
+F 
+69 0x45 0105 U+0045   
+G 
+70 0x46 0106 U+0046   
+H 
+71 0x47 0107 U+0047   
+I 
+72 0x48 0110 U+0048   
+J 
+73 0x49 0111 U+0049   
+K 
+74 0x4a 0112 U+004A   
+L 
+75 0x4b 0113 U+004B   
+M 
+76 0x4c 0114 U+004C   
+N 
+77 0x4d 0115 U+004D   
+78 0x4e 0116 U+004E   
+© ISO 2017 – All rights reserved 828 
+
+ISO/DIS 32000-2
+ 
+O 
+P 
+79 0x4f 0117 U+004F   
+Q 
+80 0x50 0120 U+0050   
+R 
+81 0x51 0121 U+0051   
+S 
+82 0x52 0122 U+0052   
+T 
+83 0x53 0123 U+0053   
+U 
+84 0x54 0124 U+0054   
+V 
+85 0x55 0125 U+0055   
+W 
+86 0x56 0126 U+0056   
+X 
+87 0x57 0127 U+0057   
+Y 
+88 0x58 0130 U+0058   
+ 
+Z
+89 0x59 0131 U+0059   
+ 
+[
+90 0x5a 0132 U+005A   
+ 
+\
+91 0x5b 0133 U+005B LEFT SQUARE BRACKET  
+ 
+]
+92 0x5c 0134 U+005C REVERSE SOLIDUS (backslash)  
+ 
+^
+93 0x5d 0135 U+005D RIGHT SQUARE BRACKET  
+ 
+_
+94 0x5e 0136 U+005E CIRCUMFLEX ACCENT (hat)  
+ 
+`
+95 0x5f 0137 U+005F LOW LINE (SPACING UNDERSCORE)  
+ 
+a
+96 0x60 0140 U+0060 GRAVE ACCENT  
+ 
+b
+97 0x61 0141 U+0061   
+ 
+c
+98 0x62 0142 U+0062   
+ 
+d
+99 0x63 0143 U+0063   
+ 
+e
+100 0x64 0144 U+0064   
+ 
+f
+101 0x65 0145 U+0065   
+ 
+g
+102 0x66 0146 U+0066   
+ 
+h
+103 0x67 0147 U+0067   
+ 
+i
+104 0x68 0150 U+0068   
+ 
+j
+105 0x69 0151 U+0069   
+ 
+k
+106 0x6a 0152 U+006A   
+107 0x6b 0153 U+006B   
+© ISO 2017 – All rights reserved 829 
+
+ISO/DIS 32000-2
+ 
+ 
+l
+ 
+m
+108 0x6c 0154 U+006C   
+ 
+n
+109 0x6d 0155 U+006D   
+ 
+o
+110 0x6e 0156 U+006E   
+ 
+p
+111 0x6f 0157 U+006F   
+ 
+q
+112 0x70 0160 U+0070   
+ 
+r
+113 0x71 0161 U+0071   
+ 
+s
+114 0x72 0162 U+0072   
+ 
+t
+115 0x73 0163 U+0073   
+ 
+u
+116 0x74 0164 U+0074   
+ 
+v
+117 0x75 0165 U+0075   
+ 
+w
+118 0x76 0166 U+0076   
+ 
+x
+119 0x77 0167 U+0077   
+ 
+y
+120 0x78 0170 U+0078   
+z 
+121 0x79 0171 U+0079   
+{ 
+122 0x7a 0172 U+007A   
+| 
+123 0x7b 0173 U+007B LEFT CURLY BRACKET  
+} 
+124 0x7c 0174 U+007C VERTICAL LINE  
+~ 
+125 0x7d 0175 U+007D RIGHT CURLY BRACKET  
+126 0x7e 0176 U+007E TILDE  
+ 
+• 
+127 0x7f 0177  Undefined U 
+† 
+128 0x80 0200 U+2022 BULLET  
+‡ 
+129 0x81 0201 U+2020 DAGGER  
+… 
+130 0x82 0202 U+2021 DOUBLE DAGGER  
+— 
+131 0x83 0203 U+2026 HORIZONTAL ELLIPSIS  
+– 
+132 0x84 0204 U+2014 EM DASH  
+ƒ 
+133 0x85 0205 U+2013 EN DASH  
+⁄
+ 
+134 0x86 0206 U+0192   
+135 0x87 0207 U+2044 FRACTION SLASH (solidus)  
+© ISO 2017 – All rights reserved 830 
+
+ISO/DIS 32000-2
+ 
+‹ 
+136 0x88 0210 U+2039 SINGLE LEFT-POINTING ANGLE  
+› 
+QUOTATION MARK 
+137 0x89 0211 U+203A SINGLE RIGHT-POINTING ANGLE  
+Š 
+QUOTATION MARK 
+‰ 
+138 0x8a 0212 U+2212   
+„ 
+139 0x8b 0213 U+2030 PER MILLE SIGN  
+140 0x8c 0214 U+201E DOUBLE LOW-9 QUOTATION MARK  
+“ 
+(quotedblbase) 
+141 0x8d 0215 U+201C LEFT DOUBLE QUOTATION MARK  
+” 
+(double quote left) 
+142 0x8e 0216 U+201D RIGHT DOUBLE QUOTATION MARK  
+‘
+ 
+(quotedblright) 
+143 0x8f 0217 U+2018 LEFT SINGLE QUOTATION MARK  
+’
+ 
+(quoteleft) 
+144 0x90 0220 U+2019 RIGHT SINGLE QUOTATION MARK  
+‚ 
+(quoteright) 
+145 0x91 0221 U+201A SINGLE LOW-9 QUOTATION MARK  
+™ 
+(quotesinglbase) 
+fi 
+146 0x92 0222 U+2122 TRADE MARK SIGN  
+ 
+fl
+147 0x93 0223 U+FB01 LATIN SMALL LIGATURE FI  
+Ł 
+148 0x94 0224 U+FB02 LATIN SMALL LIGATURE FL  
+149 0x95 0225 U+0141 LATIN CAPITAL LETTER L WITH  
+ 
+Œ
+STROKE 
+ 
+Š
+150 0x96 0226 U+0152 LATIN CAPITAL LIGATURE OE  
+151 0x97 0227 U+0160 LATIN CAPITAL LETTER S WITH  
+ 
+Ÿ
+CARON 
+152 0x98 0230 U+0178 LATIN CAPITAL LETTER Y WITH  
+ 
+Ž
+DIAERESIS 
+153 0x99 0231 U+017D LATIN CAPITAL LETTER Z WITH  
+ 
+ı
+CARON 
+ 
+ł
+154 0x9a 0232 U+0131 LATIN SMALL LETTER DOTLESS I  
+155 0x9b 0233 U+0142 LATIN SMALL LETTER L WITH  
+ 
+œ
+STROKE 
+ 
+š
+156 0x9c 0234 U+0153 LATIN SMALL LIGATURE OE  
+157 0x9d 0235 U+0161 LATIN SMALL LETTER S WITH CARON  
+© ISO 2017 – All rights reserved 831 
+
+ISO/DIS 32000-2
+ 
+ 
+ž
+ 
+158 0x9e 0236 U+017E LATIN SMALL LETTER Z WITH CARON  
+ 
+€
+159 0x9f 0237  Undefined  
+ 
+¡
+160 0xa0 0240 U+20AC EURO SIGN  
+ 
+¢
+161 0xa1 0241 U+00A1 INVERTED EXCLAMATION MARK  
+ 
+£
+162 0xa2 0242 U+00A2 CENT SIGN  
+ 
+¤
+163 0xa3 0243 U+00A3 POUND SIGN (sterling)  
+ 
+¥
+164 0xa4 0244 U+00A4 CURRENCY SIGN  
+ 
+¦
+165 0xa5 0245 U+00A5 YEN SIGN  
+ 
+§
+166 0xa6 0246 U+00A6 BROKEN BAR  
+ 
+¨
+167 0xa7 0247 U+00A7 SECTION SIGN  
+ 
+©
+168 0xa8 0250 U+00A8 DIAERESIS  
+ 
+ª
+169 0xa9 0251 U+00A9 COPYRIGHT SIGN  
+ 
+«
+170 0xaa 0252 U+00AA FEMININE ORDINAL INDICATOR  
+171 0xab 0253 U+00AB LEFT-POINTING DOUBLE ANGLE  
+ 
+¬
+QUOTATION MARK 
+ 
+172 0xac 0254 U+00AC NOT SIGN  
+ 
+®
+173 0xad 0255  Undefined  
+ 
+¯
+174 0xae 0256 U+00AE REGISTERED SIGN  
+ 
+°
+175 0xaf 0257 U+00AF MACRON  
+ 
+±
+176 0xb0 0260 U+00B0 DEGREE SIGN  
+ 
+²
+177 0xb1 0261 U+00B1 PLUS-MINUS SIGN  
+³ 
+178 0xb2 0262 U+00B2 SUPERSCRIPT TWO  
+´ 
+179 0xb3 0263 U+00B3 SUPERSCRIPT THREE  
+µ 
+180 0xb4 0264 U+00B4 ACUTE ACCENT  
+¶ 
+181 0xb5 0265 U+00B5 MICRO SIGN  
+· 
+182 0xb6 0266 U+00B6 PILCROW SIGN  
+¸ 
+183 0xb7 0267 U+00B7 MIDDLE DOT  
+1 
+184 0xb8 0270 U+00B8 CEDILLA  
+185 0xb9 0271 U+00B9 SUPERSCRIPT ONE  
+© ISO 2017 – All rights reserved 832 
+
+ISO/DIS 32000-2
+ 
+º 
+» 
+186 0xba 0272 U+00BA MASCULINE ORDINAL INDICATOR  
+187 0xbb 0273 U+00BB RIGHT-POINTING DOUBLE ANGLE  
+¼ 
+QUOTATION MARK 
+½ 
+188 0xbc 0274 U+00BC VULGAR FRACTION ONE QUARTER  
+¾ 
+189 0xbd 0275 U+00BD VULGAR FRACTION ONE HALF  
+¿ 
+190 0xbe 0276 U+00BE VULGAR FRACTION THREE QUARTERS  
+À 
+191 0xbf 0277 U+00BF INVERTED QUESTION MARK  
+Á 
+192 0xc0 0300 U+00C0   
+Â 
+193 0xc1 0301 U+00C1   
+Ã 
+194 0xc2 0302 U+00C2   
+Ä 
+195 0xc3 0303 U+00C3   
+Å 
+196 0xc4 0304 U+00C4   
+Æ 
+197 0xc5 0305 U+00C5   
+Ç 
+198 0xc6 0306 U+00C6   
+È 
+199 0xc7 0307 U+00C7   
+É 
+200 0xc8 0310 U+00C8   
+Ê 
+201 0xc9 0311 U+00C9   
+Ë 
+202 0xca 0312 U+00CA   
+Ì 
+203 0xcb 0313 U+00CB   
+Í 
+204 0xcc 0314 U+00CC   
+Î 
+205 0xcd 0315 U+00CD   
+Ï 
+206 0xce 0316 U+00CE   
+Ð 
+207 0xcf 0317 U+00CF   
+Ñ 
+208 0xd0 0320 U+00D0   
+ 
+Ò
+209 0xd1 0321 U+00D1   
+ 
+Ó
+210 0xd2 0322 U+00D2   
+ 
+Ô
+211 0xd3 0323 U+00D3   
+ 
+Õ
+212 0xd4 0324 U+00D4   
+213 0xd5 0325 U+00D5   
+© ISO 2017 – All rights reserved 833 
+
+ISO/DIS 32000-2
+ 
+ 
+Ö
+ 
+×
+214 0xd6 0326 U+00D6   
+ 
+Ø
+215 0xd7 0327 U+00D7   
+ 
+Ù
+216 0xd8 0330 U+00D8   
+ 
+Ú
+217 0xd9 0331 U+00D9   
+ 
+Û
+218 0xda 0332 U+00DA   
+ 
+Ü
+219 0xdb 0333 U+00DB   
+ 
+Ý
+220 0xdc 0334 U+00DC   
+ 
+Þ
+221 0xdd 0335 U+00DD   
+ 
+ß
+222 0xde 0336 U+00DE   
+ 
+à
+223 0xdf 0337 U+00DF   
+ 
+á
+224 0xe0 0340 U+00E0   
+ 
+â
+225 0xe1 0341 U+00E1   
+ 
+ã
+226 0xe2 0342 U+00E2   
+ 
+ä
+227 0xe3 0343 U+00E3   
+ 
+å
+228 0xe4 0344 U+00E4   
+ 
+æ
+229 0xe5 0345 U+00E5   
+ 
+ç
+230 0xe6 0346 U+00E6   
+ 
+è
+231 0xe7 0347 U+00E7   
+ 
+é
+232 0xe8 0350 U+00E8   
+ 
+ê
+233 0xe9 0351 U+00E9   
+ 
+ë
+234 0xea 0352 U+00EA   
+ 
+ì
+235 0xeb 0353 U+00EB   
+ 
+í
+236 0xec 0354 U+00EC   
+ 
+î
+237 0xed 0355 U+00ED   
+ 
+ï
+238 0xee 0356 U+00EE   
+ 
+ð
+239 0xef 0357 U+00EF   
+ 
+ñ
+240 0xf0 0360 U+00F0   
+ 
+ò
+241 0xf1 0361 U+00F1   
+242 0xf2 0362 U+00F2   
+© ISO 2017 – All rights reserved 834 
+
+ISO/DIS 32000-2
+ 
+ 
+ó
+ 
+ô
+243 0xf3 0363 U+00F3   
+ 
+õ
+244 0xf4 0364 U+00F4   
+ 
+ö
+245 0xf5 0365 U+00F5   
+ 
+÷
+246 0xf6 0366 U+00F6   
+ 
+ø
+247 0xf7 0367 U+00F7   
+ 
+ù
+248 0xf8 0370 U+00F8   
+ 
+ú
+249 0xf9 0371 U+00F9   
+ 
+û
+250 0xfa 0372 U+00FA   
+ 
+ü
+251 0xfb 0373 U+00FB   
+ 
+ý
+252 0xfc 0374 U+00FC   
+ 
+þ
+253 0xfd 0375 U+00FD   
+ 
+ÿ
+254 0xfe 0376 U+00FE   
+255 0xff 0377 U+00FF   
+D.4Expert set and MacExpert encoding 
+ 
+CHARNAMECODE CHARNAMECODE
+      
+ᴁ AEsmall 276  ᴊ Jsmall 152 
+Á
+Aacutesmall 207  ᴋ Ksmall 153 
+ 
+Â 
+Acircumflexsmall 211  ᴌ Lslashsmall 302 
+ 
+´ Acutesmall 047  Lsmall 154 
+ʟ
+Ä 
+Adieresissmall 212  ¯ Macronsmall 364 
+À 
+Agravesmall 210  ᴍ Msmall 155 
+Å 
+Aringsmall 214  ɴ Nsmall 156 
+Ñ 
+ᴀ Asmall 141  Ntildesmall 226 
+Ã 
+Atildesmall 213  ɶ OEsmall 317 
+Ó 
+˘ Brevesmall 363  Oacutesmall 227 
+Ô 
+ʙ Bsmall 142  Ocircumflexsmall 231 
+Ö 
+ˇ Caronsmall 256  Odieresissmall 232 
+Ç 
+Ccedillasmall 215  ˛ Ogoneksmall 362 
+© ISO 2017 – All rights reserved 835 
+
+ISO/DIS 32000-2
+ 
+CHARNAMECODE CHARNAMECODE
+      
+¸ Cedillasmall 311  ò Ogravesmall 230 
+ˆ Circumflexsmall 136  ø Oslashsmall 277 
+ᴄ Csmall 143  ᴏ Osmall 157 
+Õ 
+¨ Dieresissmall 254  Otildesmall 233 
+˙ Dotaccentsmall 372  ᴘ Psmall 160 
+Q 
+ᴅ Dsmall 144  Qsmall 161 
+É 
+Eacutesmall 216  ˚ Ringsmall 373 
+R 
+Ê 
+Ecircumflexsmall 220  Rsmall 162 
+Š 
+Ë 
+Edieresissmall 221  Scaronsmall 247 
+S 
+È 
+Egravesmall 217  Ssmall 163 
+þ 
+ᴇ Esmall 145  Thornsmall 271 
+ᴆ Ethsmall 104  ˜ Tildesmall 176 
+F 
+Fsmall 146  ᴛ Tsmall 164 
+Ú 
+` Gravesmall 140  Uacutesmall 234 
+Û 
+G
+Gsmall 147  Ucircumflexsmall 236 
+ 
+Ü 
+ʜ Hsmall 150  Udieresissmall 237 
+Ù 
+˝ Hungarumlautsmall 042  Ugravesmall 235 
+Í 
+Iacutesmall 222  ᴜ Usmall 165 
+Î 
+Icircumflexsmall 224  ᴠ Vsmall 166 
+Ï 
+Idieresissmall 225  ᴡ Wsmall 167 
+X 
+Ì 
+Igravesmall 223  Xsmall 170 
+Ý 
+I 
+Ismall 151  Yacutesmall 264 
+Ÿ 
+Ydieresissmall 330  4 fouroldstyle 064 
+Y 
+Ysmall 171  ⁴ foursuperior 335 
+Ž 
+Zcaronsmall 275  ⁄ fraction 057 
+z Zsmall 172  - hyphen 055 
+& 
+- 
+ampersandsmall 046  hypheninferior 137 
+a 
+- 
+asuperior 201  hyphensuperior 321 
+b 
+i 
+bsuperior 365  isuperior 351 
+© ISO 2017 – All rights reserved 836 
+
+ISO/DIS 32000-2
+ 
+CHARNAMECODE CHARNAMECODE
+      
+l 
+ 
+¢
+centinferior 251  lsuperior 361 
+m 
+¢ centoldstyle 043  msuperior 367 
+ 
+¢
+centsuperior 202  ₉ nineinferior 273 
+: colon 072  9 nineoldstyle 071 
+₡ colonmonetary 173  ⁹ ninesuperior 341 
+, comma 054  ⁿ nsuperior 366 
+․
+, 
+commainferior 262  onedotenleader 053 
+ 
+, 
+commasuperior 370  ⅛ oneeighth 112 
+$ 
+dollarinferior 266  1 onefitted 174 
+$ dollaroldstyle 044  ½ onehalf 110 
+$ 
+dollarsuperior 045  ₁ oneinferior 301 
+d dsuperior 353  1 oneoldstyle 061 
+₈ eightinferior 245  ¼ onequarter 107 
+8 eightoldstyle 070  ¹ onesuperior 332 
+⁸ eightsuperior 241  ⅓ onethird 116 
+O 
+e esuperior 344  osuperior 257 
+¡ exclamdownsmall 326  ₍ parenleftinferior 133 
+! exclamsmall 041  ⁽ parenleftsuperior 050 
+ﬀ ff 126  ₎ parenrightinferior 135 
+ﬃ ffi 131  ⁾ parenrightsuperior 051 
+ﬄ ffl 132  . period 056 
+ﬁ fi 127  . periodinferior 263 
+‒ figuredash 320  . periodsuperior 371 
+¿ 
+⅝ fiveeighths 114  questiondownsmall 300 
+? 
+₅ fiveinferior 260  questionsmall 077 
+r 
+5 fiveoldstyle 065  rsuperior 345 
+⁵ fivesuperior 336  Rp rupiah 175 
+ﬂ fl 130  ; semicolon 073 
+₄ fourinferior 242  ⅞ seveneighths 115 
+© ISO 2017 – All rights reserved 837 
+
+ISO/DIS 32000-2
+ 
+CHARNAMECODE CHARNAMECODE
+      
+₇ seveninferior 246  — threequartersemdash 075 
+7 sevenoldstyle 067  ³ threesuperior 334 
+t 
+⁷ sevensuperior 340  tsuperior 346 
+‥
+₆ sixinferior 244  twodotenleader 052 
+ 
+6 sixoldstyle 066  ₂ twoinferior 252 
+⁶ sixsuperior 337  2 twooldstyle 062 
+ space 040  ² twosuperior 333 
+S 
+ssuperior 352  ⅔ twothirds 117 
+⅜ threeeighths 113  ₀ zeroinferior 274 
+₃ threeinferior 243  0 zerooldstyle 060 
+3 threeoldstyle 063  ⁰ zerosuperior 342 
+ 
+¾ threequarters 111     
+ 
+© ISO 2017 – All rights reserved 838 
+
+ISO/DIS 32000-2
+ 
+D.5Symbol set and encoding 
+ 
+ 
+CHAR NAME CODE CHAR NAME CODE 
+Α Alpha 101  ↔ arrowboth 253 
+Β Beta 102  arrowdblboth 333 
+⇔ 
+Χ Chi 103  arrowdbldown 337 
+⇓ 
+∆ Delta 104  arrowdblleft 334 
+⇐ 
+Ε Epsilon 105  arrowdblright 336 
+⇒ 
+Η Eta 110  arrowdblup 335 
+⇑ 
+€ Euro 240  ↓ arrowdown 257 
+Γ Gamma 107  arrowhorizex 276 
+⎯ 
+Ifraktur 301  ← arrowleft 254 
+ℑ 
+Ι Iota 111  → arrowright 256 
+Κ Kappa 113  ↑ arrowup 255 
+⏐
+Λ Lambda 114  arrowvertex 275 
+ 
+Μ Mu 115  asteriskmath 052 
+∗ 
+Ν Nu 116  | bar 174 
+Ω Omega 127  β beta 142 
+Ο Omicron 117  { braceleft 173 
+Φ Phi 106  } braceright 175 
+Π Pi 120  bracelefttp 354 
+⎧ 
+Ψ Psi 131  braceleftmid 355 
+⎨ 
+Rfraktur 302  braceleftbt 356 
+ℜ ⎩ 
+Ρ Rho 122  bracerighttp 374 
+⎫ 
+Σ Sigma 123  bracerightmid 375 
+⎬ 
+Τ Tau 124  bracerightbt 376 
+⎭ 
+Θ Theta 121  braceex 357 
+⎪ 
+Υ Upsilon 125  [ bracketleft 133 
+ϒ Upsilon1 241  ] bracketright 135 
+Ξ Xi 130  bracketlefttp 351 
+⎡ 
+Ζ Zeta 132  bracketleftex 352 
+⎢ 
+aleph 300  bracketleftbt 353 
+ℵ ⎣ 
+α alpha 141  bracketrighttp 371 
+⎤ 
+& ampersand 046  bracketrightex 372 
+⎥ 
+angle 320  bracketrightbt 373 
+∠ ⎦ 
+angleleft 341  • bullet 267 
+〈 
+angleright 361  carriagereturn 277 
+〉 ↵ 
+≈ approxequal 273  χ  chi 143 
+circlemultiply 304  ⌡ integralbt 365 
+⊗ 
+© ISO 2017 – All rights reserved 839 
+
+ISO/DIS 32000-2
+ 
+ 
+CHAR NAME CODE CHAR NAME CODE 
+circleplus 305  ∩ intersection 307 
+⊕ 
+♣
+club 247  ι iota 151 
+ 
+: colon 072  κ kappa 153 
+, comma 054  λ lambda 154 
+© 
+congruent 100  < less 074 
+≅ 
+copyrightsans 343  ≤ lessequal 243 
+© copyrightserif 323  logicaland 331 
+∧ 
+° degree 260  ¬ logicalnot 330 
+δ delta 144  logicalor 332 
+∨ 
+♦
+diamond 250  ◊ lozenge 340 
+ 
+÷ divide 270  − minus 055 
+dotmath 327  ′ minute 242 
+⋅ 
+8 eight 070  µ mu 155 
+element 316  × multiply 264 
+∈ 
+… ellipsis 274  9 nine 071 
+emptyset 306  notelement 317 
+∅ ∉ 
+ε epsilon 145  ≠ notequal 271 
+= equal 075  notsubset 313 
+⊄ 
+≡ equivalence 272  ν nu 156 
+η eta 150  # numbersign 043 
+! exclam 041  ω omega 167 
+existential 044  ϖ omega1 166 
+∃ 
+5 five 065  ο omicron 157 
+ƒ florin 246  1 one 061 
+4 four 064  ( parenleft 050 
+⁄ fraction 244  ) parenright 051 
+γ gamma 147  parenlefttp 346 
+⎛ 
+gradient 321  parenleftex 347 
+∇ ⎜ 
+> greater 076  parenleftbt 350 
+⎝ 
+≥ greaterequal 263  parenrighttp 366 
+⎞ 
+♥
+heart 251  parenrightex 367 
+ 
+⎟ 
+∞ infinity 245  parenrightbt 370 
+⎠ 
+∫ integral 362  ∂ partialdiff 266 
+⌠ integraltp 363  % percent 045 
+integralex 364  . period 056 
+⎮ 
+perpendicular 136  similar 176 
+⊥ ∼ 
+ϕ phi 146  6 six 066 
+φ phi1 152  / slash 057 
+π pi 160   space 040 
+♠
++ plus 053  spade 252 
+ 
+± plusminus 261  suchthat 047 
+∋ 
+© ISO 2017 – All rights reserved 840 
+
+ISO/DIS 32000-2
+ 
+ 
+CHAR NAME CODE CHAR NAME CODE 
+∏ product 325  ∑ summation 345 
+propersubset 314  τ tau 164 
+⊂ 
+propersuperset 311  therefore 134 
+⊃ ∴ 
+proportional 265  θ theta 161 
+∝ 
+ψ psi 171  ϑ theta1 112 
+? question 077  3 three 063 
+™ 
+√ radical 326  trademarksans 344 
+™ 
+radicalex 140  trademarkserif 324 
+⎯ 
+reflexsubset 315  2 two 062 
+⊆ 
+® 
+reflexsuperset 312  _ underscore 137 
+⊇ 
+registersans 342  union 310 
+∪ 
+® registerserif 322  universal 042 
+∀ 
+ρ rho 162  upsilon 165 
+υ 
+″ second 262  weierstrass 303 
+℘ 
+; semicolon 073  ξ xi 170 
+7 seven 067  0 zero 060 
+σ sigma 163  ζ zeta 172 
+ς sigma1 126     
+ 
+ 
+© ISO 2017 – All rights reserved 841 
+
+ISO/DIS 32000-2
+ 
+D.6ZapfDingbats set and encoding 
+ 
+CHAR NAME CODE  CHAR NAME CODE  CHAR NAME CODE  CHAR NAME CODE 
+✣❆
+space040 a30103 a65146 ♠a109253 
+ 
+    
+  
+   
+ 
+✁✤❇
+a1041 a31104 a66147 a120254 
+    
+ 
+   
+   
+✂✥❈
+a2042 a32105 a67150 a121255 
+    
+ 
+   
+①
+   
+✃✦❉
+a202043 a33106 a68151 a122256 
+    
+ 
+   
+②
+   
+✄✧❊
+a3044 a34107 a69152 a123257 
+    
+ 
+   
+③
+   
+☎★❋
+a4045 a35110 a70153 a124260 
+    
+ 
+   
+④
+   
+✆✩
+a5046 a36111 ●a71154 a125261 
+ 
+    
+ 
+  
+⑤
+   
+✇✪❍
+a119047 a37112 a72155 a126262 
+    
+ 
+   
+⑥
+   
+✈✫
+a118050 a38113 ■a73156 a127263 
+ 
+    
+ 
+  
+⑦
+   
+✉✬❏
+a117051 a39114 a74157 a128264 
+    
+ 
+   
+⑧
+   
+☛✭❐
+a11052 a40115 a203160 a129265 
+    
+ 
+   
+⑨
+   
+☞✮❑
+a12053 a41116 a75161 a130266 
+    
+ 
+   
+⑩
+   
+✌✯❒
+a13054 a42117 a204162 a131267 
+    
+ 
+   
+❶
+   
+✍✰
+a14055 a43120 ▲a76163 a132270 
+ 
+    
+ 
+  
+❷
+   
+✎✱
+a15056 a44121 ▼a77164 a133271 
+ 
+    
+ 
+  
+❸
+   
+✏✲◆
+a16057 a45122 a78165 a134272 
+    
+ 
+   
+❹
+   
+✐✳❖
+a105060 a46123 a79166 a135273 
+    
+ 
+   
+❺
+   
+✑✴◗
+a17061 a47124 a81167 a136274 
+    
+ 
+   
+❻
+   
+✒✵❘
+a18062 a48125 a82170 a137275 
+    
+ 
+   
+❼
+   
+✓✶❙
+a19063 a49126 a83171 a138276 
+    
+ 
+   
+❽
+   
+✔✷❚
+a20064 a50127 a84172 a139277 
+    
+ 
+   
+❾
+   
+❿
+© ISO 2017 – All rights reserved 842 
+
+ISO/DIS 32000-2
+ 
+CHAR NAME CODE  CHAR NAME CODE  CHAR NAME CODE  CHAR NAME CODE 
+✕✸❛➀
+a21065 a51130 a97173 a140300 
+    
+    
+   
+✖✹❜➁
+a22066 a52131 a98174 a141301 
+    
+    
+   
+✗✺❝➂
+a23067 a53132 a99175 a142302 
+    
+    
+   
+✘✻❞➃
+a24070 a54133 a100176 a143303 
+    
+    
+   
+✙✼❡➄
+a25071 a55134 a101241 a144304 
+    
+    
+   
+✚✽❢➅
+a26072 a56135 a102242 a145305 
+    
+    
+   
+✛✾❣➆
+a27073 a57136 a103243 a146306 
+    
+    
+   
+✜✿❤➇
+a28074 a58137 a104244 a147307 
+    
+    
+   
+✝❀❥➈
+a6075 a59140 a106245 a148310 
+    
+    
+   
+✞❁❦➉
+a7076 a60141 a107246 a149311 
+    
+    
+   
+✟❂❧➊
+a8077 a61142 a108247 a150312 
+    
+    
+   
+✠❃➋
+a9100 a62143 ♣a112250 a151313 
+ 
+    
+   
+   
+✡❄➌
+a10101 a63144 ♦a111251 a152314 
+ 
+    
+   
+   
+✢❅➍
+a29102 a64145 ♥a110252 a153315 
+ 
+    
+   
+   
+➎➚➦➳
+a154316 a192332 a176346 a184363 
+    
+    
+   
+➏➛➧➴
+a155317 a166333 a177347 a197364 
+    
+    
+   
+➐➜➨➵
+a156320 a167334 a178350 a185365 
+    
+    
+   
+➑➝➩➶
+a157321 a168335 a179351 a194366 
+    
+    
+   
+➒➞➪➷
+a158322 a169336 a193352 a198367 
+    
+    
+   
+➓➟➫➸
+a159323 a170337 a180353 a186370 
+    
+    
+   
+➔➠➬➹
+a160324 a171340 a199354 a195371 
+    
+    
+   
+➡➭➺
+→a161325 a172341 a181355 a187372 
+ 
+    
+   
+   
+➢➮➻
+↔a163326 a173342 a200356 a188373 
+ 
+    
+   
+   
+➣➯➼
+↕a164327 a162343 a182357 a189374 
+ 
+    
+   
+   
+➘➤➱➽
+a196330 a174344 a201361 a190375 
+    
+    
+   
+➙➥➲➾
+a165331 a175345 a183362 a191376 
+    
+    
+   
+© ISO 2017 – All rights reserved 843 
+
+ISO/DIS 32000-2 ![63.png](./Storage/Output/Images/63.png)

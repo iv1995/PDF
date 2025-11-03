@@ -1,0 +1,27 @@
+Thus, the trailer has the overall structure 
+  trailer 
+   <</Root c 0 R 
+    key2 value2 
+    … 
+    keyn valuen 
+   >> 
+  %%EOF 
+ 
+where c is the object number of the file’s catalog dictionary. 
+ 
+12.7.8.3FDF catalog 
+ 
+12.7.8.3.1General 
+ 
+   Root 
+The root node of anFDFfile’s object hierarchy is the catalog dictionary, located by means of the
+FDF 
+FDF
+entry in the file’s trailer dictionary (see 12.7.8.2.4, "FDF trailer"). As shown in "Table 244: Entry in the 
+dictionary
+FDF trailer dictionary", the only required entry in the catalog dictionary is ; its value shall be an 
+Version
+ ("Table 246: Entries in the FDF dictionary"), which in turn shall contain references to other 
+  
+objects describing the file’s contents. The catalog dictionary may also contain an optional  entry 
+identifying the version of the PDF specification to which thisFDFfile conforms. 

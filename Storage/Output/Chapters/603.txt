@@ -1,0 +1,11 @@
+Table 405: Entry in 
+an OPI version dictionary") identifying the version of OPI to which the proxy corresponds. This 
+dictionary consists of a single entry, whose key is the name 1.3 or 2.0 and whose value is the OPI 
+dictionary defining the proxy’s OPI attributes. 
+Table 405: Entry in an OPI version dictionary 
+Key Type Value 
+Required; PDF 1.2
+version 
+number 
+dictionary () An OPI dictionary specifying the attributes of this proxy (see 
+"

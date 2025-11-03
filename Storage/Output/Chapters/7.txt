@@ -3,7 +3,3 @@ American Standard Code for Information Interchange, a widely used convention for
 set of 128 characters as binary numbers defined in ANSI X3.4-1986 
 4.5 
  
-ASN.1 
-means of reference to ISO/IEC 8824-1:2008 / Cor 1:2012 
-4.6 
- 

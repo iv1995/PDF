@@ -1,0 +1,56 @@
+Table 209: Additional entries specific to a thread action" shows 
+the action dictionary entries specific to this type of action. 
+Table 209: Additional entries specific to a thread action 
+Key Type Value 
+(Required) 
+S 
+Thread
+name The type of action that this dictionary describes; shall be 
+ for a thread action. 
+(Optional) 
+F 
+file specification The file containing the thread. If this entry is absent, the thread 
+is in the current file. 
+(Required) 
+D 
+dictionary, integer, or The destination thread, specified in one of the following forms: 
+text string 
+An indirect reference to a thread dictionary (see 12.4.3, "Articles"). In this 
+Threads
+case, the thread shall be in the current file. 
+The index of the thread within the  array of its document’s 
+catalog dictionary (see 7.7.2, "Document catalog dictionary"). The first 
+thread in the array has index 0. 
+The title of the thread as specified in its thread information dictionary 
+"). If two or more threads 
+(see "Table 162: Entries in a thread dictionary
+Threads
+ 
+have the same title, the one appearing first in the document catalog’s 
+ array shall be used.
+(Optional) 
+B 
+dictionary or integer The bead in the destination thread, specified in one of the 
+following forms: 
+An indirect reference to a bead dictionary (see 12.4.3, "Articles"). In this 
+case, the thread shall be in the current file. 
+The index of the bead within its thread. The first bead in a thread has 
+index 0. 
+ 
+ 
+The title of the thread as specified in its thread information dictionary (see "Table 162: Entries in a 
+ Threads 
+thread dictionary"). If two or more threads have the same title, the one appearing first in the document
+catalog’sarray shall be used. 
+12.6.4.8URI actions 
+ 
+uniform resource identifier
+A  (URI) is a string that identifies (resolves to) a resource on the Internet 
+Internet RFC 3986Uniform Resource Identifiers (URI): Generic 
+— typically a file that is the destination of a hypertext link, although it may also resolve to a query or 
+Syntax
+other entity. (URIs are described in , 
+.) 
+URI action
+   
+A causes aURIto be resolved. "

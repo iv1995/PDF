@@ -1,124 +1,137 @@
-Table 103: Text state 
-operators". All text state parameters shall apply to Type 3 fonts unless otherwise stated. 
-NOTE Negative text font size is permitted. 
-T
-TK
-gs
-k
-The text knockout parameter, , shall be set through the  entry in a graphics state parameter 
-dictionary by using the  operator (see 8.4.5, "Graphics state parameter dictionaries"). There is no 
-specific operator for setting this parameter. 
-The text state operators may appear outside text objects, and the values they set are retained across 
-text objects in a single content stream. Like other graphics state parameters, these parameters shall be 
-initialised to their default values at the beginning of each page. 
-© ISO 2017 – All rights reserved 294 
+8Graphics 
+ 
+8.1General 
+ 
+The graphics operators used in PDF content streams describe the appearance of pages that are to be 
+reproduced on an output device. The facilities described in this clause are intended for both printer and 
+display applications. 
+The graphics operators form six main groups: 
+Graphics state operatorsgraphics state
+• 
+ manipulate the data structure called the , the global 
+current transformation matrix
+framework within which the other graphics operators execute. The graphics state includes the 
+current colourcurrent 
+ (CTM), which maps user space coordinates used within a PDF 
+clipping path
+content stream into output device coordinates. It also includes the , the 
+Path construction operatorspaths
+• 
+, and many other parameters that are implicit operands of the painting operators. 
+ specify , which define shapes, line trajectories, and regions of 
+various sorts. They include operators for beginning a new path, adding line segments and curves to 
+Path-painting operators
+• 
+it, and closing it. 
+ fill a path with a colour, paint a stroke along it, or use it as a clipping 
+Other painting operators
+• 
+boundary. 
+ paint certain self-describing graphics objects. These include sampled 
+images, geometrically defined shadings, and entire content streams that in turn contain sequences 
+Text operatorscharacter glyphsfonts
+• 
+of graphics operators. 
+ select and show  from  (descriptions of typefaces for 
+representing text characters). Because PDF treats glyphs as general graphical shapes, many of the 
+text operators could be grouped with the graphics state or painting operators. However, the data 
+structures and mechanisms for dealing with glyph and font descriptions are sufficiently specialised 
+Marked-content operators
+• 
+that clause 9, "Text" focuses on them. 
+ associate higher-level logical information with objects in the content 
+stream. This information does not affect the rendered appearance of the content (although it may 
+determine if the content should be presented at all; see 8.11, "Optional content"); it is useful to 
+applications that use PDF for document interchange. Marked content is described in 14.6, "Marked 
+content". 
+Rendering 
+This clause presents general information about device-independent graphics in PDF: how a PDF content 
+stream describes the abstract appearance of a page. — the device-dependent part of graphics 
+— is covered in clause 10, "Rendering". The Bibliography lists a number of books that give details of 
+these computer graphics concepts and their implementation. 
+8.2Graphics objects 
+ 
+As discussed in 7.8.2, "Content streams", the data in a content stream shall be interpreted as a sequence 
+of operators and their operands, expressed as basic data objects according to standard PDF syntax. A 
+content stream can describe the appearance of a page, or it can be treated as a graphical element in 
+certain other contexts. 
+The operands and operators shall be written sequentially using postfix notation. Although this notation 
+graphics objects
+resembles the sequential execution model of the PostScript language, a PDF content stream is not a 
+program to be interpreted; rather, it is a static description of a sequence of . There are 
+© ISO 2017 – All rights reserved 143 
 
 ISO/DIS 32000-2
  
-Table 103: Text state operators 
-Operands Operator Description 
-charSpace TcharSpace
-Tc  
-TjTJ'
-c
-Set the character spacing, , to , which shall be a number expressed in 
-unscaled text space units. Character spacing shall be used by the , , and  
-operators. Initial value: 0. 
-wordSpace wordSpace
-Tw  Tw
-TjTJ'
-Set the word spacing, , to , which shall be a number expressed in 
-unscaled text space units. Word spacing shall be used by the , , and  operators. 
-Initial value: 0. 
-scale Tscale
-Tz  
-h
-Set the horizontal scaling, , to (scale ÷ 100).  shall be a number specifying 
-the percentage of the normal width. Initial value: 100 (normal width). 
-leading Tleading
-TL  
-T*'"
-l
-Set the text leading, , to , which shall be a number expressed in unscaled 
-text space units. Text leading shall be used only by the , , and  operators. Initial 
-value: 0. 
-font size  fontTsize
-Tf  Tf
-fs
- Font 
-Set the text font, , to  and the text font size, , to . font shall be the name 
-of a font resource in thesubdictionary of the current resource dictionary; 
-fontsize
-Tf
-size shall be a number representing a scale factor. There is no initial value for 
-either  or ; they shall be specified explicitly by using  before any text is 
-shown. Zero sized text shall not mark or clip any pixels (depending on text render 
-mode). 
-render Trender
-Tr 
-mode
-Set the text rendering mode, , to , which shall be an integer. 
-Initial value: 0. 
-rise Trise
-Ts  
-rise
-Set the text rise, , to , which shall be a number expressed in unscaled text 
-space units. Initial value: 0. 
- 
-T
-Some of these parameters are expressed in unscaled text space units. This means that they shall be 
-T
-m
-specified in a coordinate system that shall be defined by the text matrix, 
- but shall not be scaled by 
-fs
-the font size parameter, 
- . 
-9.3.2Character spacing 
- 
-T
-c
-T
-The character-spacing parameter, , shall be a number specified in unscaled text space units (although 
-T
-h
- parameter if the writing mode is horizontal). When the glyph for 
-it shall be subject to scaling by the 
-c
-each character in the string is rendered, 
- shall be added to the horizontal or vertical component of the 
-glyph’s displacement, depending on the writing mode. See 9.2.4, "Glyph positioning and metrics", for a 
-discussion of glyph displacements. In the default coordinate system, horizontal coordinates increase 
-T
-from left to right and vertical coordinates from bottom to top. Therefore, for horizontal writing, a 
-c
-T
-positive value of 
- has the effect of expanding the distance between glyphs (see "Figure 56: Character 
-c
- has this effect. 
-spacing in horizontal writing"), whereas for vertical writing, a negative value of 
-© ISO 2017 – All rights reserved 295 
+specific rules, described below, for writing the operands and operators that describe a graphics object. 
+PDF provides five types of graphics objects: 
+path object
+• 
+A  is an arbitrary shape made up of straight lines, rectangles, and cubic Bézier curves. A 
+path may intersect itself and may have disconnected sections and holes. A path object ends with 
+one or more painting operators that specify whether the path shall be stroked, filled, used as a 
+text object
+• 
+clipping boundary, or some combination of these operations. 
+A  consists of one or more character strings that identify sequences of glyphs to be 
+external object (XObject)
+• 
+painted. Like a path, text can be stroked, filled, or used as a clipping boundary. 
+An  is an object defined outside the content stream and referenced as a 
+image XObjectform 
+named resource (see 7.8.3, "Resource dictionaries"). The interpretation of an XObject depends on 
+XObject
+its type. An  defines a rectangular array of colour samples to be painted; a 
+reference XObjects
+ is an entire content stream to be treated as a single graphics object. Specialised types of 
+group XObjects
+form XObjects shall be used to import content from one PDF file into another () 
+transparency groups
+and to group graphical elements together as a unit for various purposes (). In 
+transparency group XObjects
+particular, the latter are used to define  for use in the transparent imaging 
+inline image
+• 
+model (, discussed in detail in clause 11, "Transparency"). 
+An  object uses a special syntax to express the data for a small image directly within 
+shading object
+• 
+the content stream. 
+A  describes a geometric shape whose colour is an arbitrary function of position 
+within the shape. (A shading can also be treated as a colour when painting other graphics objects; 
+opaque imaging model
+it is not considered to be a separate graphics object in that case.) 
+PDF 1.3 and earlier versions use an  in which each graphics object is painted in 
+transparent imaging model
+sequence, completely obscuring any previous marks it may overlay on the page. PDF 1.4 introduced a 
+opacity
+ in which objects can be less than fully opaque, allowing previously painted 
+marks to show through. Each object is painted on the page with a specified , which may be 
+backdropcomposited
+constant at every point within the object’s shape or may vary from point to point. The previously 
+existing contents of the page form a  with which the new object is , producing 
+transparency stack
+results that combine the colours of the object and backdrop according to their respective opacity 
+characteristics. The objects at any given point on the page form a , where the stacking 
+order is defined to be the order in which the objects shall be specified, bottommost object first. All 
+objects in the stack can potentially contribute to the result, depending on their colours, shapes, and 
+opacities. 
+PDF’s graphics parameters are so arranged that objects shall be painted by default with full opacity, 
+reducing the behaviour of the transparent imaging model to that of the opaque model. Accordingly, the 
+material in this clause applies to both the opaque and transparent models except where explicitly stated 
+otherwise; the transparent model is described in its full generality in clause 11, "Transparency". 
+Although the painting behaviour described above is often attributed to individual operators making up 
+an object, it is always the object as a whole that is painted. "Figure 9: Graphics Objects" shows the 
+page 
+ordering rules for the operations that define graphics objects. Some operations shall be permitted only 
+description level
+in certain types of graphics objects or in the intervals between graphics objects (called the 
+ in the figure). Every content stream begins at the page description level, where changes 
+may be made to the graphics state, such as colours and text attributes, as discussed in the following 
+subclauses. 
+In "Figure 9: Graphics Objects", arrows indicate the operators that mark the beginning or end of each 
+© ISO 2017 – All rights reserved 144 
 
 ISO/DIS 32000-2
- ![Figure 56 Character spacing in horizontal writing  .png](./Storage/Output/Images/Figure 56 Character spacing in horizontal writing  .png)
-Figure 56: Character spacing in horizontal writing 
  
- 
-9.3.3Word spacing 
- 
-T
-Word spacing works the same way as character spacing but shall apply only to the ASCII SPACE 
-w
-T
-character (20h). The word-spacing parameter, 
-, shall be added to the glyph’s horizontal or vertical 
-w
-T
- has the 
-displacement (depending on the writing mode). For horizontal writing, a positive value for 
-w
- decreases 
-effect of increasing the spacing between words. For vertical writing, a positive value for 
-the spacing between words (and a negative value increases it), since vertical coordinates increase from 
-bottom to top. "
+type of graphics object. Some operators are identified individually, others by general category. "

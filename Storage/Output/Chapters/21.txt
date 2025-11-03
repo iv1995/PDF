@@ -1,9 +1,4 @@
-ICC specification [ISO 15076-1:2010] 
-4.32 
+direct object 
+any object that has not been made into an indirect object 
+4.19 
  
-ICC specification 
-Cross-platform profile format for the creation and interpretation of colour data [ISO 15076-1:2010] 
-4.33 
- 
-indirect object 
-object that is labelled with a positive 

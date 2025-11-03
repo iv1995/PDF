@@ -1,0 +1,66 @@
+Table 276: Entries 
+in a requirement handler dictionary" describes the entries in an alternative requirement handler 
+dictionary. 
+A requirement handler is a program that verifies certain requirements are satisfied. "Table 276: Entries 
+in a requirement handler dictionary" describes the entries in a requirement handler dictionary. 
+© ISO 2017 – All rights reserved 591 
+
+ISO/DIS 32000-2
+ 
+Table 276: Entries in a requirement handler dictionary 
+Key Type Description 
+(Optional) 
+Type  
+ReqHandler
+ 
+name The type of PDF object that this dictionary describes. If present, shall be
+for a requirement handler dictionary. 
+(Required) 
+S 
+JS
+  
+name The type of requirement handler that this dictionary describes. Valid 
+NoOp
+requirement handler types shall be(for ECMAScript requirement handlers) and 
+NoOp
+  
+. 
+ 
+A value ofallows older PDF processors to ignore unrecognised requirements. 
+This value does not add any specific entry to the requirement handler dictionary.
+Optional; valid only if the  entry has a value of JS
+Script S 
+ 
+text string () The name of a document-level
+ECMAScriptaction stored in the document name dictionary (see 7.7.4, "Name 
+dictionary"). If the PDF processor understands the parent document requirements 
+dictionary and can verify the requirement specified in that dictionary, it shall 
+disable execution of the requirement handler identified in this dictionary. 
+ 
+S
+If an alternative requirement handler dictionary has an  entry with an unrecognised type, it shall be 
+ignored. 
+12.11.6Requirements processing 
+ 
+ 
+Requirements 
+Document requirements can be presented for an individual document as the value of the
+key in that document's catalog. Document requirements shall be evaluated before 
+execution of any document ECMAScripts. If requirements cannot be met, as determined by the 
+computation of the penalty value as described in 12.11.3, "Requirement penalty values", then the 
+processing of the document shall not continue. 
+For PDFs that are acceptable for processing, all subsequent processing shall occur without regard for 
+the outcome of the requirements computation. 
+NOTE 1 That is, there is no formal connection between the requirement type and the operation of the 
+associated feature(s). 
+If the reader encounters an unsupported feature (whether or not that feature was declared as a 
+requirement), it shall take the normal fallback actions. 
+NOTE 2 The most common fallback is to do nothing — that is, to ignore the use of the unsupported feature. 
+Other common fallbacks might include presenting a static annotation appearance in place of a 
+dynamic annotation. 
+ 
+ 
+© ISO 2017 – All rights reserved 592 
+
+ISO/DIS 32000-2
+ 

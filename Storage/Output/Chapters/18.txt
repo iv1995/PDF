@@ -1,13 +1,5 @@
-font 
-identified collection of graphics that may be glyphs or other graphical elements 
-© ISO 2017 – All rights reserved 18 
-
-ISO/DIS 32000-2
- 
-4.27 
- 
-font program 
-software program written in a special-purpose language, such as the Type 1, TrueType, or OpenType 
-font format, that is understood by a specialized font interpreter 
-4.28 
+developer 
+entities, including individuals, companies, non-profits, standards bodies, open source groups, etc., 
+developing standards or software to use and extend this part of ISO 32000 
+4.16 
  

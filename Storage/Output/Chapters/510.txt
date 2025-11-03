@@ -1,0 +1,160 @@
+Table 324: Entries in an external data dictionary used to markup 3D annotations" 
+describes the entries in an external data dictionary used to markup 3D annotations. 
+Table 324: Entries in an external data dictionary used to markup 3D annotations 
+Key Type Value 
+Required
+Type 
+ExData
+  
+name () The type of PDF object that this dictionary describes; if present, shall 
+befor an external data dictionary. 
+Required
+Subtype  
+Markup3D
+Markup3D
+ 
+name () The type of external data that this dictionary describes; shall be
+for a 3D comment. The only defined value is . 
+Required
+3DA 
+dictionary or () The 3D annotation to which this markup annotation applies. The 3D 
+ NM 
+text string annotation may be specified as a child dictionary or as the name of a 3D 
+annotation, as specified by itsentry. In the latter case, the 3D annotation 
+and the markup annotation shall be on the same page of the document. 
+Required
+3DV 
+dictionary () The 3D view that this markup annotation is associated with. The 
+3DA
+annotation will be hidden unless this view is currently being used for the 3D 
+annotation specified by . 
+Optional
+MD5 
+byte string () A 16-byte string that contains the checksum of the bytes of the 3D 
+stream data that this 3D comment shall be associated with. The checksum shall 
+The MD5 Message-Digest Algorithm
+be calculated by applying the standard MD5 message-digest algorithm 
+(described in Internet RFC 1321, ) to the 
+bytes of the stream data. This value shall be used to determine if artwork data 
+NOTE This is strictly a checksum, and is not used for security purposes. 
+has changed since this 3D comment was created. 
+ 
+ ExData 3DA
+In a Markup3Ddictionary, the  entry identifies the 3D annotation to which the markup 
+ Annots 
+shall be associated. Even though the markup annotation exists alongside the associated annotation in 
+the page’sarray, the markup may be thought of as a child of the 3DA annotation. 
+3DV
+The  entry specifies the markup’s associated 3D view. The markup shall only be printed and 
+displayed when the specified view is the current view of its parent 3D annotation. This ensures that the 
+proper context is preserved when the markup is displayed. 
+NOTE An equivalent view is not sufficient; if more than one markup specify equivalent views represented 
+by different objects, the markups will not display simultaneously. 
+The MD5 entry gives interactive PDF processors a means to detect whether or not the 3D stream of the 
+© ISO 2017 – All rights reserved 656 
+
+ISO/DIS 32000-2
+ 
+3DA
+3DV
+3D annotation specified by  has changed. If the 3D stream has changed, the context provided by the 
+ entry may no longer apply, and the markup may no longer be useful. Any action taken as a 
+response to such a situation is dependent on the interactive PDF processor, but a warning shall be 
+issued to the user. 
+EXAMPLE The following example shows how markup annotations can be associated with particular views. 
+2 0 obj           %3D stream data with two named views 
+  << 
+   /Type /3D 
+   /Subtype /U3D 
+   /VA [4 0 R 5 0 R] 
+   … 
+  >> 
+stream 
+  … 
+endstream 
+endobj 
+ 
+3 0 obj           %3D annotation 
+  << 
+   /Type /Annot 
+   /Subtype /3D 
+   /3DD 2 0 R 
+   … 
+  >> 
+endobj 
+ 
+4 0 obj           %CommentView1 
+  << 
+   /Type /3DView 
+   /XN (CommentView1) 
+   … 
+  >> 
+endobj 
+ 
+5 0 obj           %CommentView2 
+  << 
+   /Type /3DView 
+   /XN (CommentView2) 
+   … 
+  >> 
+endobj 
+ 
+6 0 obj           %Cloud comment with no ExData 
+ << 
+  /Type /Annot 
+  /Subtype /Polygon 
+  /IT /PolygonCloud 
+  … 
+ >> 
+endobj 
+ 
+7 0 obj           %Callout comment on CommentView1 
+ << 
+  /Type /Annot 
+  /Subtype /FreeText 
+  /IT /FreeTextCallout 
+  /ExData << 
+   /Type /Markup3D 
+   /3DA 3 0 R 
+   /3DV 4 0 R 
+ 
+  >> 
+ … 
+© ISO 2017 – All rights reserved 657 
+
+ISO/DIS 32000-2
+ 
+>> 
+endobj 
+ 
+8 0 obj           %Dimension comment on CommentView2 
+  << 
+   /Type /Annot 
+   /Subtype /Line 
+   /IT /LineDimension 
+   /ExData  
+    << 
+     /Type /Markup3D 
+     /3DA 3 0 R 
+     /3DV 5 0 R 
+    >> 
+   … 
+  >> 
+endobj 
+ 
+9 0 obj           %Stamp comment on CommentView2 
+  << 
+   /Type /Annot 
+   /Subtype /Stamp 
+   /ExData  
+    << 
+     /Type /Markup3D 
+     /3DA 3 0 R 
+     /3DV 5 0 R 
+    >> 
+   … 
+  >> 
+endobj 
+ 
+The following illustrations show the placement of markup on annotations on different views of the 
+same 3D artwork. ![ Figure 102 3D artwork set to its default view  .jpg](./Storage/Output/Images/ Figure 102 3D artwork set to its default view  .jpg)

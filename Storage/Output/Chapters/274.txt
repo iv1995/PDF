@@ -1,95 +1,107 @@
-Table 342: Entries in a RichMediaConfiguration dictionary" details the elements of the 
-RichMediaConfiguration dictionary. 
-Table 342: Entries in a RichMediaConfiguration dictionary 
+Table 128: Entries in a Type 1 halftone dictionary 
 Key Type Value 
-Optional; PDF 2.0
+Optional
 Type 
-RichMediaConfiguration
-name () The type of PDF object that this dictionary describes. If present, it shall be 
-. 
-© ISO 2017 – All rights reserved 684 
+Halftone
+name () The type of PDF object that this dictionary describes; if present, shall be 
+ for a halftone dictionary. 
+Required
+HalftoneType 
+integer () A code identifying the halftone type that this dictionary describes; shall 
+be 1 for this type of halftone. 
+Optional
+HalftoneName 
+byte string () The name of the halftone dictionary. 
+Required
+Frequency 
+number () The screen frequency, measured in halftone cells per inch in device 
+space. 
+Required
+Angle 
+number () The screen angle, in degrees of rotation counterclockwise with respect 
+NOTE Most output devices have left-handed device spaces. On such devices, a 
+to the device coordinate system. 
+counterclockwise angle in device space corresponds to a clockwise angle 
+in default user space and on the physical medium. 
+Required
+SpotFunction 
+function, name or () A function object defining the order in which device pixels within a 
+array screen cell shall be adjusted for different gray levels, or the name of a spot 
+function, or an array of names of spot functions. A name should be one of the 
+SpotFunction
+Table 126: Predefined spot functions"). If the 
+predefined spot functions (see "
+value of  is an array the PDF processor shall use the first name 
+within the array that it recognizes. If a name is provided that is not defined in 
+"Table 126: Predefined spot functions" and the PDF processor does not 
+Table 
+understand that name, or if none of the names in an array are defined in "
+126: Predefined spot functions" or are understood by the PDF processor, the 
+processor shall use the default halftone. 
+Optional
+AccurateScreens 
+boolean () A flag specifying whether to invoke a special halftone algorithm that is 
+false
+extremely precise but computationally expensive; see Note 1 for further 
+discussion. Default value: . 
+Optional
+TransferFunction 
+function or name () A transfer function, which overrides the current transfer function in the 
+graphics state for the same component. This entry shall be present if the 
+dictionary is a component of a Type 5 halftone (see 10.6.5.6, "Type 5 halftones") 
+Identity
+and represents either a nonprimary or nonstandard primary colour component 
+TransferFunction
+"). The name  may be used to specify the 
+(see 10.5, "Transfer functions
+identity function. The  key should only be used to convey tone 
+reproduction compensation (sometimes called gamma curve correction); it should 
+not be used to specify artistic intent. If the key is required by some other clause in 
+Identity
+this International Standard but no compensation is necessary then the value 
+should be the name . 
+ 
+true
+AccurateScreens
+false
+AccurateScreens
+If the  entry has a value of , a highly precise halftoning algorithm shall be 
+substituted in place of the standard one. If  is  or not present, ordinary halftoning 
+shall be used. 
+NOTE 1 Accurate halftoning achieves the requested screen frequency and angle with very high accuracy, 
+whereas ordinary halftoning adjusts them so that a single screen cell is quantised to device pixels. 
+High accuracy is important mainly for making colour separations on high-resolution devices. 
+However, it might be computationally expensive and therefore is ordinarily disabled. 
+NOTE 2 In principle, PDF permits the use of halftone screens with arbitrarily large cells — in other words, 
+arbitrarily low frequencies. However, cells that are very large relative to the device resolution or 
+that are oriented at unfavourable angles can exceed the capacity of available memory. If this 
+© ISO 2017 – All rights reserved 366 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional; PDF 2.0
-Subtype 
-3DSoundVideo
-name () A name specifying the primary content type for the configuration. Valid 
-values are , , and . 
-Instances
- 
-Default value: If no value is specified, the run time shall determines the scene type by 
-referring to the type of asset file specified by the first element in the  array.
-Optional; PDF 2.0
-Name 
-text tree () A unique name for the configuration. 
-Optional; PDF 2.0
-Instances   
-array () An array of indirect object references toRichMediaInstancedictionaries. 
-(See "Table 343: Entries in a RichMediaInstance dictionary".) 
- 
-RichMediaConfiguration
-  
-Subtype 
-A  may be an aggregate of severalRichMediaInstancedictionaries with different 
- 
-values for subtype. The  entry helps to describe the behavior for the collection of those
-RichMediaInstancedictionaries. 
-Subtype
-Setting the  suggests the author’s intended use of the assets, which better informs the choices 
-when presenting content-specific user interfaces during the authoring or editing process. 
-13.7.2.3.4RichMediaInstance dictionary 
- 
-RichMediaInstance dictionary
- Instances
-The, referenced by the  entry of the RichMediaConfiguration 
-dictionary ("Table 342: Entries in a RichMediaConfiguration dictionary"), describes a single instance of 
-an asset with settings to populate the artwork of an annotation, as described in "Table 343: Entries in a 
-RichMediaInstance dictionary". 
-Table 343: Entries in a RichMediaInstance dictionary 
-Key Type Value 
-(Optional; PDF 2.0)
-Type 
-RichMediaInstance
-name  The type of PDF object that this dictionary describes. If 
-present, it shall be . 
-(Required; PDF 2.0)
-Subtype 
-3DSoundVideo
-name  A name specifying the content type for the instance. 
-Valid values are , , and . The subtype shall match the asset file 
-type of the instance. 
-(Required; PDF 2.0)
-Asset 
-Assets
-dictionary  A dictionary that shall be an indirect object reference to a 
-file specification dictionary that is also referenced in the  name tree 
-specified in the RichMediaContent dictionary of the annotation. 
- 
-EXAMPLE 1 RichMediaInstance dictionaries 
-15 0 obj            %RichMediaInstances array 
- [16 0 R 
-  … more references to RichMediaInstance dictionaries … 
- ] 
+happens, an error occurs. The AccurateScreens feature often requires very large amounts of 
+memory to achieve the highest accuracy. 
+EXAMPLE The following shows a halftone dictionary for a Type halftone. 
+28 0 obj 
+   <</Type /Halftone 
+   /HalftoneType 1 
+   /Frequency 120 
+   /Angle 30 
+   /SpotFunction /CosineDot 
+   /TransferFunction /Identity 
+  >> 
 endobj 
  
-16 0 obj            %RichMediaInstance dictionary 
- <</Type /RichMediaInstance 
-  /Subtype /3D 
-  /Asset 30 0 R         %Reference to 3D filespec in Assets 
- >> 
-© ISO 2017 – All rights reserved 685 
-
-ISO/DIS 32000-2
+10.6.5.3Type 6 halftones 
  
-endobj 
- 
-13.7.2.3.5View dictionary 
- 
-View dictionaries
- specify a unique view of the artwork that may be used when the annotation is 
-3DV
-activated or selected. A View dictionary entry in a rich media annotation contains a superset of the 
-information present in a 3D view () dictionary as specified in "Table 315: Entries in a 3D view 
-dictionary". "
+A Type 6 halftone defines a halftone screen with a threshold array. The halftone shall be represented as 
+a stream containing the threshold values; the parameters defining the halftone shall be specified by 
+entries in the stream dictionary. This dictionary may contain the entries shown in "Table 129: 
+WidthHeight
+Additional entries specific to a Type 6 halftone dictionary" in addition to the usual entries common to 
+all streams (see "Table 5: Entries common to all stream dictionaries"). The  and  entries 
+shall specify the dimensions of the threshold array in device pixels; the stream shall contain 
+𝑙𝑙𝐷𝐷𝐵𝐵𝑡𝑡ℎ × 𝐻𝐻𝑚𝑚𝐷𝐷𝑔𝑔ℎ𝑡𝑡 bytes, each representing a single threshold value. Threshold values are defined in 
+device space in the same order as image samples in image space (see "Figure 49: Source image 
+coordinate system"), with the first value at device coordinates (0, 0) and horizontal coordinates 
+changing faster than vertical coordinates. 

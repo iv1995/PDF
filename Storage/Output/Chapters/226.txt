@@ -1,511 +1,232 @@
-Table 269: 
-Additional entries in a geospatial measure dictionary" lists and describes these additional entries in a 
-geospatial measure dictionary. 
-Number format arrays specify all the units that shall be used when expressing a specific measurement. 
-XYX
-Each array shall contain one or more number format dictionaries, in descending order of granularity. If 
-Y
-one unit of measurement  is larger than one unit of measurement  then  has a larger order of 
-granularity than . All the elements in the array shall contain text strings that, concatenated together, 
-specify how the units shall be displayed. 
-NOTE 2 For example, a measurement of 1.4505 miles might be expressed as "1.4505 mi", which would 
-require one number format dictionary for miles, or as "1 mi 2,378 ft 7 5/8 in", which would 
-require three dictionaries (for miles, feet, and inches). 
-NOTE 3 A number format dictionary specifying feet needs to precede one specifying inches. 
-Table 267: Additional entries in a rectilinear measure dictionary 
+Table 97: Entries in an optional content membership dictionary". 
+NOTE 1 8.11.3, "Making graphical content optional" describes how content declares its membership in a 
+group or membership dictionary. 
+Table 97: Entries in an optional content membership dictionary 
 Key Type Value 
-(Required) scale ratio 
-R 
-text string A text string expressing the of the drawing in the region 
-corresponding to this dictionary. Universally recognised unit abbreviations 
-should be used, either matching those of the number format arrays in this 
-dictionary or those of commonly used scale ratios. 
-EXAMPLE 1 A common scale in architectural drawings is "1/4 in = 1 ft", 
-indicating that 1/4 inches in default user space is equivalent to 
-1 foot in real-world measurements. 
-x y 
-If the scale ratio differs in the and directions, both scales should be specified. 
- 
-EXAMPLE 2  "in X 1 cm = 1 m, in Y 1 cm = 30 m".
-© ISO 2017 – All rights reserved 578 
-
-ISO/DIS 32000-2
- 
-Key Type Value 
-(Required) x 
-X 
-y 
-Y
-array A number format array for measurement of change along the axis 
-and, if  is not present, along the axis as well. The first element in the array 
-shall contain the scale factor for converting from default user space units to the 
-x y 
-largest units in the measuring coordinate system along that axis. 
-The directions of the and axes are in the measuring coordinate system and 
- BBox 
-are independent of the page rotation. These directions shall be determined by 
- 
-theentry of the containing viewport (see "Table 265: Entries in a viewport 
-dictionary").
-(Required when the x and y scales have different units or conversion factors) 
-Y 
-y 
-array A 
-number format array for measurement of change along the axis. The first 
-element in the array shall contain the scale factor for converting from default 
-y 
-user space units to the largest units in the measuring coordinate system along 
-the axis. 
-(Required) 
-D 
-array A number format array for measurement of distance in any direction. 
-XXY
-The first element in the array shall specify the conversion to the largest distance 
- CYX Y
-unit from units represented by the first element in . The scale factors from ,  
-(if present) and(if  is present) shall be used to convert from default user 
-space to the appropriate units before applying the distance function. 
-(Required) 
-A 
-array A number format array for measurement of area. The first element in 
-XXY
-the array shall specify the conversion to the largest area unit from units 
- CYX Y
-represented by the first element in , squared. The scale factors from ,  (if 
-present) and(if  is present) shall be used to convert from default user 
-space to the appropriate units before applying the area function. 
-(Optional) 
-T 
-array A number format array for measurement of angles. The first element 
- CYX 
-in the array shall specify the conversion to the largest angle unit from degrees. 
-The scale factor from(if present) shall be used to convert from default user 
-space to the appropriate units before applying the angle function. 
-(Optional) 
-S 
-array A number format array for measurement of the slope of a line. The 
-YX
-first element in the array shall specify the conversion to the largest slope unit 
-XY CYX Y
-from units represented by the first element in  divided by the first element in . 
-The scale factors from ,  (if present) and(if  is present) shall be used to 
-convert from default user space to the appropriate units before applying the 
-slope function. 
-(Optional) 
-O 
-array An array of two numbers that shall specify the origin of the 
-x y 
-measurement coordinate system in default user space coordinates. The 
- BBox 
-directions by which and increase in value from this origin shall be 
-Table 265: Entries in a viewport 
-determined by the viewport’sentry (see "
-dictionary"). 
- BBox 
- 
-Default value: the first coordinate pair (lower-left corner) of the rectangle 
-specified by the viewport’sentry.
-(Optional; meaningful only when  is present) 
-CYX Y
-y x 
-number A factor that shall be used to 
-convert the largest units along the axis to the largest units along the axis. It 
-shall be used for calculations (distance, area, and angle) where the units are be 
-x y 
-equivalent; if not specified, these calculations may not be performed (which 
-xy
-would be the case in situations such as representing time and representing 
-temperature). Other calculations (change in , change in , and slope) shall not 
-require this value. 
- 
-XY
-xy
-The  and  entries in a measure dictionary shall be number format arrays that shall specify the units 
-xy
-Y
-used for measurements in the  and  directions, respectively, and the ratio between user space units 
-and the specified units.  is present only when the  and  measurements are in different units or have 
-© ISO 2017 – All rights reserved 579 
-
-ISO/DIS 32000-2
- 
-yx
- CYX 
-different ratios; in this case, theentry shall be used to convert  values to  values when 
-appropriate. 
-Table 268: Entries in a number format dictionary 
-Key Type Value 
-(Optional) 
-Type  
-NumberFormat
- 
-name The type of PDF object that this dictionary describes; shall be
-for a number format dictionary. 
-(Required) 
-U 
-text string A text string specifying a label for displaying the units represented by 
-this dictionary in a user interface; the label should use a universally recognised 
-abbreviation. 
-(Required) 
-C 
-number The conversion factor used to multiply a value in partial units of the 
-previous number format array element to obtain a value in the units of this 
-dictionary. When this entry is in the first number format dictionary in the array, 
-its meaning (that is, what it shall be multiplied by) depends on which entry in 
-the rectilinear measure dictionary (see "Table 267: Additional entries in a 
-rectilinear measure dictionary") references the number format array. 
-(Optional; meaningful only for the last dictionary in a number format array) 
-F 
-name A 
-C
-name indicating whether and in what manner to display a fractional value from 
-the result of converting to the units of this dictionary by means of the  entry. 
-D 
-D
-Valid values shall be: 
-F 
-D
-Show as decimal to the precision specified by the  entry. 
-R 
-Show as a fraction with denominator specified by the  entry. 
-T 
-No fractional part; round to the nearest whole unit.  
-D
- 
-No fractional part; truncate to achieve whole units.  
-Default value: .
-(Optional; meaningful only for the last dictionary in a number format array) 
-D 
-integer A 
-positive integer that shall specify the precision or denominator of a fractional 
-D
-F
-amount: 
-true
- FD 
-When the value of  is , this entry shall be the precision of a decimal display; it 
-shall be a multiple of 10. Low-order zeros may be truncated unlessis . 
-F
-F
-Default value: 100 (hundredths, corresponding to two decimal digits). 
-true
- FD 
-When the value of  is , this entry shall be the denominator of a fractional 
- 
-display. The fraction may be reduced unless the value ofis . Default 
-value: 16.
-(Optional; meaningful only for the last dictionary in a number format array) 
-FD 
-true
-D
-boolean If 
-, a fractional value formatted according to the  entry may not have its 
-false
- 
-denominator reduced or low-order zeros truncated. 
-Default value: .
-(Optional) 
-RT 
-text string Text that shall be used between orders of thousands in display of 
- 
-numerical values. An empty string indicates that no text shall be added. 
-Default value: COMMA (2Ch).
-(Optional) 
-RD 
-text string Text that shall be used as the decimal position in displaying numerical 
- 
-values. An empty string indicates that the default shall be used. 
-Default value: PERIOD (2Eh).
-(Optional) 
-PS U
-text string Text that shall be concatenated to the left of the label specified by . 
-An empty string indicates that no text shall be added. Default value: A single 
-ASCII SPACE character (20h). 
-© ISO 2017 – All rights reserved 580 
-
-ISO/DIS 32000-2
- 
-Key Type Value 
-(Optional) 
-SS U
-text string Text that shall be concatenated after the label specified by . An 
- 
-empty string indicates that no text shall be added. 
-Default value: A single ASCII SPACE character (20h).
-(Optional) 
-O U
-name A name indicating the position of the label specified by  with respect 
-S 
-to the calculated unit value. Valid values shall be: 
-P 
-The label is a suffix to the value. 
- PS  SS 
-The label is a prefix to the value. 
-The characters specified byandshall be concatenated before considering 
-S
-this entry. 
-Default value: . 
- 
-To use a number format array to create a text string containing the appropriately formatted units for 
-display in a user interface, apply the following algorithm: 
-Algorithm: Use of a number format array to create a formatted text string 
- 
-a)The entry in the rectilinear measure dictionary (see "Table 267: Additional entries in a rectilinear 
-XT
-measure dictionary") that references the number format array determines the meaning of the initial 
-C
- 
-measurement value. For example, the  entry specifies user space units, and the  entry specifies degrees. 
-b)Multiply the value specified previously by the  entry of the first number format dictionary in the array, 
-RT
-which converts the measurement to units of the largest granularity specified in the array. Apply the value 
-U
- 
-of  as appropriate.  
-OPSSS
-c)If the result contains no non-zero fractional portion, concatenate the label specified by the  entry in the 
- 
-order specified by , after adding spacing from  and . The formatting is then complete.  
-RDFDFDU
-d)If there is a non-zero fractional portion and no more elements in the array, format the fractional portion 
-OPSSS
-as specified by the , , , and  entries of the last dictionary. Concatenate the label specified by the  
- 
-entry in the order specified by , after adding spacing from  and . The formatting is then complete.  
-C
-e)If there is a non-zero fractional portion and more elements in the array, proceed to the next number 
-RT
-format dictionary in the array. Multiply its  entry by the fractional result from the previous step. Apply 
-the value of  as appropriate. Then proceed to step 3.  
-The concatenation of elements in this process assumes left-to-right order. Documents using right-to-left 
-languages may modify the process and the meaning of the entries as appropriate to produce the correct 
-results. 
-xy
-EXAMPLE 2 The following example shows a measure dictionary that specifies that changes in  or  are expressed in miles; 
-distances are expressed in miles, feet, and inches; and area is expressed in acres. Given a sample distance in 
-scaled units of 1.4505 miles, the formatted text produced by applying the number format array would be "1 
-mi 2,378 ft 7 5/8 in". 
- << 
-  /Type /Measure 
-  /Subtype /RL 
-  /R (1in = 0.1 mi) 
-  /X [<</U (mi)       %x offset represented in miles 
-    /C .00139      %Conversion from user space units to miles 
-    /D 100000 
-   ] 
-  /D [<</U (mi) /C 1>>     %Distance: initial unit is miles; no conversion needed 
-    <</U (ft) /C 5280>>    %Conversion from miles to feet 
-    <</U (in) /C 12     %Conversion from feet to inches 
-© ISO 2017 – All rights reserved 581 
-
-ISO/DIS 32000-2
- 
-    /F /F /D 8>>     %Fractions of inches rounded to nearest 1/8 
-   ] 
-  /A [<</U (acres)      %Area: measured in acres 
-    /C 640>>       %Conversion from square miles to acres 
-   ] 
- >> 
- 
-12.10Geospatial features 
- 
-12.10.1General 
- 
-PDF is a common delivery mechanism for map and satellite imagery data. In PDF 2.0, a geospatial 
-coordinate system is introduced ("Table 266: Entries in a measure dictionary") along with a number of 
-PDF constructs, as explained in this clause, to support geospatially registered content. 
-12.10.2Geospatial measure dictionary 
- 
-GEO
-When the subtype of a measurement dictionary ("Table 266: Entries in a measure dictionary") is , 
-additional entries are defined through a geospatial measure dictionary. 
-A geospatial measure dictionary, "Table 269: Additional entries in a geospatial measure dictionary", 
-contains a description of the earth-based coordinate system associated with the PDF object, and 
-Bounds
-corresponding arrays of points in that coordinate system and the local object coordinate system. It may 
- PDU 
-contain a bounding polygon (the  entry), which defines the region of the PDF object for which 
- DCS 
-the geographic associations are valid. It may also contain a choice of default units (theentry) for 
-user displays of positions, distances and areas. An optional display coordinate system (theentry) 
-allows a document to be authored to display values in a coordinate system other than that associated 
-with the source data. For example, a map may be created in a state planar coordinate system based on a 
-1927 datum, but it is possible to display its latitude and longitude values in the WGS84 datum 
-corresponding to values reported by a GPS device. 
-The entries of a geospatial measure dictionary are shown in "Table 269: Additional entries in a 
-geospatial measure dictionary". 
-Table 269: Additional entries in a geospatial measure dictionary 
-Key Type Description 
-(Optional; PDF 2.0) 
-Bounds 
-array An array of numbers that shall be taken pairwise to define a series 
-of points that describes the bounds of an area for which geospatial transformations 
-are valid. 
- BBox  
-For maps, this bounding polygon is known as a neatline. These numbers are 
-   
-expressed relative to a unit square that describes theassociated with a
-Viewportor Form XObject, or the bounds of anImageXObject. If not present, the 
-default values shall define a rectangle describing the full unit square, with values of 
-NOTE 1 The polygon description need not be explicitly closed by repeating the first 
-[0.0 0.0 0.0 1.0 1.0 1.0 1.0 0.0]. 
-point values as a final point.
- 
-(Required; PDF 2.0) 
-GCS 
-dictionary A projected or geographic coordinate system dictionary. 
-© ISO 2017 – All rights reserved 582 
-
-ISO/DIS 32000-2
- 
-Key Type Description 
-(Optional; PDF 2.0) 
-DCS 
-dictionary A projected or geographic coordinate system that shall be used for 
-the display of position values, such as latitude and longitude. Formatting the 
-displayed representation of these values is controlled by the interactive PDF 
-processor. 
-(Optional; PDF 2.0)Preferred Display Units
-PDU  
-array . An array of three names that identify in 
-order a linear display unit, an area display unit, and an angular display unit. 
- 
-M 
-The following are valid linear display units: 
-KM 
-a metre 
-FT 
-a kilometre 
-USFT 
-an international foot  
-MI 
-a U.S. Survey foot  
-NM 
-an international mile 
-an international nautical mile 
- 
-SQM 
-The following are valid area display units: 
-HA 
-a square metre 
-SQKM 
-a hectare (10,000 square metres) 
-SQFT 
-a square kilometre 
-A 
-a square foot (US Survey) 
-SQMI 
-an acre 
-a square mile (international) 
- 
-DEG 
-The following are valid angular display units: 
-GRD 
- 
-a degree 
-a grad (1/400 of a circle, or 0.9 degrees)
-(Required; PDF 2.0) 
-GPTS 
-array An array of numbers that shall be taken pairwise, defining points 
-in geographic space as degrees of latitude and longitude, respectively when defining a 
- GCS 
-geographic coordinate system. These values shall be based on the geographic 
-coordinate system described in thedictionary. When defining a projected 
-Geospatial3D
-coordinate system, this array contains values in a planar projected coordinate space 
-Geospatial3DGPTS
-as eastings and northings. For , when Geospatial feature information is 
-present (requirement type ) in a 3D annotation, the  array is 
-required to hold 3D point coordinates as triples rather than pairwise where the third 
-NOTE 2 Any projected coordinate system includes an underlying geographic 
-value of each tripe is an elevation value. 
-coordinate system. 
-(Optional; PDF 2.0) 
-LPTS 
-array An array of numbers that shall be taken pairwise to define points 
-in a 2D unit square. The unit square is mapped to the rectangular bounds of the 
- GPTS 
-Viewport, image XObject, or forms XObject that contains the measure dictionary. This 
-array shall contain the same number of number pairs as thearray; each 
- GPTS Geospatial3D
-number pair is the unit square object position corresponding to the geospatial 
-Geospatial3DLPTS
-position in thearray. For , when Geospatial feature information 
-GPTS
-is present in a 3D annotation (requirement type ), the  array is 
-required to hold 3D point coordinates as triples corresponding to the  array in 
-the 3D annotation view world coordinate space. 
-© ISO 2017 – All rights reserved 583 
-
-ISO/DIS 32000-2
- 
-Key Type Description 
-(Optional; PDF 2.0) 
-PCSM 
-array A 12-element transformation matrix of real numbers, defining the 
-GCSGCSPCSM
-transformation from Xobject position coordinates to projected coordinate system. If 
-GPTSPCSMGPTSGPTS
- specifies  (geographical) then  should be ignored and always used 
-. If  is present, it has priority over , and  values may be ignored. 
-PCSM
-This priority provides backward compatibility. 
- acronym = "Projected Coordinate System Matrix" 
- 
-12.10.3Geographic coordinate system dictionary 
- 
-A geographic coordinate system (GEOGCS) specifies an ellipsoidal object in geographic coordinates: 
- EPSG 
-angular units of latitude and longitude. The geographic coordinate system shall be described in either or 
-both of two well-established standards: as a numericreference code, or as a Well KnownText 
-(WKT) string, which contains a description of algorithms and parameters needed for transformations. 
- GCS 
-"Table 270: Entries in a geographic coordinate system dictionary" lists the entries in a geographic 
- DCS 
-coordinate system dictionary. A geographic coordinate system dictionary may be a value of theor 
-theentry of a geospatial measure dictionary. (See "Table 269: Additional entries in a geospatial 
-measure dictionary".) 
-Table 270: Entries in a geographic coordinate system dictionary 
-Key Type Description 
-(Required; PDF 2.0) 
+Required
 Type 
-GEOGCS
-  
-name The type of PDF object that this dictionary describes. If 
-present, shall befor a geographic coordinate system dictionary. 
-(Optional; PDF 2.0) 
-EPSG  EPSG 
-integer Anreference code specifying the geographic 
-coordinate system. 
-(Optional; PDF 2.0) 
-WKT 
-ASCII string A string of Well Known Text describing the geographic 
-coordinate system. 
+OCMD
+name () The type of PDF object that this dictionary describes; shall be 
+ for an optional content membership dictionary. 
+Optional
+OCGs 
+dictionary or () A dictionary or array of dictionaries specifying the optional 
+array content groups whose states shall determine the visibility of content 
+controlled by this membership dictionary. 
+Null values or references to deleted objects shall be ignored. 
+P
+If this entry is not present, is an empty array, or contains references only to 
+null or deleted objects, the  entry shall have no effect on the visibility of any 
+content. 
+Optional
+P 
+name () A name specifying the visibility policy for content belonging to 
+AllOn
+OCGs ON  
+this membership dictionary. Valid values shall be: 
+AnyOn
+OCGsON
+  visible only if all of the entries in  are
+AnyOff
+OCGsOFF
+  visible if any of the entries in  are  
+AllOff
+OCGs OFF 
+  visible if any of the entries in  are  
+AnyOn
+  visible only if all of the entries in  are
+Default value:  
+Optional; PDF 1.6
+VE 
+array () An array specifying a visibility expression, used to 
+compute visibility of content based on a set of optional content groups; see 
+discussion below. 
  
- EPSG  WKT 
-Either ancode or astring shall be present in a geographic coordinate system dictionary. 
- EPSG 
-Thereference codes are described in a database available through http://www.epsg.org
- as 
-administered by the International Association of Oil and Gas Producers (OGP).  
-WKT
-The  (Well Known Text) format is specified in ISO 19162. 
-12.10.4Projected coordinate system dictionary 
- 
-GEOGCS
-A projected coordinate system (PROJCS), which includes an embedded , specifies the algorithms 
-and associated parameters used to transform points between geographic coordinates and a two-
-dimensional (projected) coordinate system. Any transformation between a three-dimensional curved 
-geographic coordinate system and a two-dimensional coordinate system introduces distortions. For 
-small areas, this distortion may be small enough to allow direct mapping between geographic 
-coordinates and PDF object coordinates without requiring the use of a projected coordinate system. 
-© ISO 2017 – All rights reserved 584 
+© ISO 2017 – All rights reserved 272 
 
 ISO/DIS 32000-2
  
- EPSG 
-The projected coordinate system shall be described in either or both of two well-established standards: 
-as a numericreference code, or as a Well KnownText (WKT) string, which contains a description 
-of algorithms and parameters needed for transformations. 
- GCS 
-"
+An optional content membership dictionary may express its visibility policy in two ways: 
+P
+• 
+OCGs
+The  entry may specify a simple boolean expression indicating how the optional content groups 
+specified by the  entry determine the visibility of content controlled by the membership 
+VE
+• 
+dictionary. 
+PDF 1.6 introduced the  entry, which is a visibility expression that may be used to specify an 
+arbitrary boolean expression for computing the visibility of content from the states of optional 
+VEOCGsP
+content groups. 
+OCGsP
+If the  key is present it shall be used in preference to the  and  keys. For compatibility 
+VE
+purposes PDF writers should provide  and  entries where possible, and especially in cases where 
+the use of  is necessary to express the intended behaviour. 
+A visibility expression is an array with the following characteristics: 
+AndOrNot
+• 
+• 
+Its first element shall be a name representing a boolean operator (, , or ). 
+NotAnd
+• 
+Subsequent elements shall be either optional content groups or other visibility expressions. 
+Or
+If the first element is , it shall have only one subsequent element. If the first element is  or 
+ ON 
+• 
+, it shall have one or more subsequent elements. 
+truefalse
+ OFF 
+In evaluating a visibility expression, thestate of an optional content group shall be equated to 
+the boolean value ;shall be equated to . 
+Membership dictionaries are useful in cases such as these: 
+ ON OFF
+• 
+OCGs
+Some content may choose to be invisible when a group isand visible when it is . In this 
+AnyOffAllOff
+P
+case, the content would belong to a membership dictionary whose  entry consists of a single 
+NOTE 2 It is legal to have an  entry consisting of a single group and a  entry that is  or . 
+OCGsP
+optional content group and whose  entry is  or . 
+However, in this case it is preferable to use an optional content group directly because it uses 
+AnyOnAllOn
+fewer objects. 
+• 
+Some content may belong to more than one group and needs to specify its policy when the groups 
+OCGsP
+are in conflicting states. In this case, the content would belong to a membership dictionary whose 
+ entry consists of an array of optional content groups and whose  entry specifies the 
+visibility policy, as illustrated in Example 1 in this subclause. Example 2 in this subclause shows 
+OCGs
+the equivalent policy using visibility expressions. 
+P
+EXAMPLE 1 This example shows content belonging to a membership dictionary whose  entry consists of an array of 
+optional content groups and whose  entry specifies the visibility policy. 
+<</Type /OCMD           %Content belonging to this optional content 
+               %membership dictionary is controlled by the 
+states 
+ /OCGs [12 0 R 13 0 R 14 0 R]     %of three optional content groups. 
+ /P /AllOn           %Content is visible only if the state of all 
+three 
+>>               %groups is ON; otherwise it’s hidden. 
+ 
+EXAMPLE 2 This example shows a visibility expression equivalent to Example 1 in this subclause 
+<</Type /OCMD 
+ /VE [/And 12 0 R 13 0 R 14 0 R]    %Visibility expression equivalent to Example 1. 
+>> 
+EXAMPLE 3 This example shows a more complicated visibility expression based on five optional content groups, 
+© ISO 2017 – All rights reserved 273 
+
+ISO/DIS 32000-2
+ 
+represented by objects 1 through 5. It is equivalent to 
+ 
+"OCG 1" OR (NOT "OCG 2") OR ("OCG 3" AND "OCG 4" AND "OCG 5") 
+<</Type /OCMD 
+  /VE [/Or           %Visibility expression: OR 
+    1 0 R          %OCG 1 
+    [/Not 2 0 R]       %NOT OCG 2 
+    [/And 3 0 R 4 0 R 5 0 R]   %OCG 3 AND OCG 4 AND OCG 5 
+    ] 
+>> 
+ 
+8.11.2.3Intent 
+ 
+Design
+View
+PDF defines two specific intents: , which may be used to represent a document designer’s 
+structural organization of artwork, and , which may be used for interactive PDF processors. 
+NOTE The  entry in "Table 96: Entries in an optional content group dictionary" provides a way to 
+Intent
+distinguish between different intended uses of optional content. For example, many document 
+design applications, such as CAD packages, offer layering features for collecting groups of 
+graphics together and selectively hiding or viewing them for the convenience of the author. 
+However, this layering can be different (at a finer granularity, for example) than would be useful 
+to consumers of the document. Therefore, it is possible to specify different intents for optional 
+content groups within a single document. A PDF processor can decide to use only groups that are 
+of a specific intent. 
+Intent
+Configuration dictionaries (see 8.11.4.3, "Optional content configuration dictionaries") may also contain 
+an  entry. If one or more of a group’s intents is contained in the current configuration’s set of 
+intents, the group shall be used in determining visibility. If there is no match, the group shall have no 
+effect on visibility. 
+Intent
+If the configuration’s  is an empty array, no groups shall be used in determining visibility; 
+therefore, all content shall be considered visible. 
+8.11.3Making graphical content optional 
+ 
+8.11.3.1General 
+ 
+Graphical content in a PDF file may be made optional by specifying membership in an optional content 
+group or optional content membership dictionary. Two primary mechanisms exist for defining 
+membership: 
+• 
+Sections of content streams delimited by marked-content operators may be made optional, as 
+• 
+described in 8.11.3.2, "Optional content in content streams". 
+Form and image XObjects and annotations may be made optional in their entirety by means of a 
+dictionary entry, as described in 8.11.3.3, "Optional content in XObjects and annotations". 
+When it is determined that a piece of optional content in a PDF file is to be hidden, the following shall 
+occur: 
+• 
+• 
+The content shall not be drawn. 
+Graphics state operations, such as setting the colour, transformation matrix, and clipping, shall still 
+be applied. In addition, graphics state side effects that arise from drawing operators shall be 
+applied; in particular, the current text position shall be updated even for text wrapped in optional 
+© ISO 2017 – All rights reserved 274 
+
+ISO/DIS 32000-2
+ 
+content. In other words, graphics state parameters that persist past the end of a marked-content 
+NOTE 1 Hiding a section of optional content does not change the colour of objects that do not belong to the 
+section shall be the same whether the optional content is visible or not. 
+same optional content group. 
+• 
+BXEX
+This rule shall also apply to operators that set state that is not strictly graphics state; for example, 
+• 
+ and . 
+Objects such as form XObjects and annotations that have been made optional may be skipped 
+entirely, because their contents are encapsulated such that no changes to the graphics state (or 
+other state) persist beyond the processing of their content stream. 
+Other features in interactive PDF processors, such as searching and editing, may be affected by the 
+ability to selectively show or hide content. An interactive PDF processor may choose whether to use the 
+document’s current state of optional content groups (and, correspondingly, the document’s visible 
+graphics) or to supply their own states of optional content groups to control the graphics they process. 
+NOTE 2 Tools to select and move annotations need to honour the current on-screen visibility of 
+annotations when performing cursor tracking and mouse-click processing. A full text search 
+engine, however, might need to process all content in a document, regardless of its current 
+visibility on-screen. Export filters might choose the current on-screen visibility, the full content, or 
+present the user with a selection of optional content groups to control visibility. 
+NOTE 3 A PDF processor that does not support optional content, such as one that only supports PDF 1.4 
+functionality, will draw and process all content in a document. 
+8.11.3.2Optional content in content streams 
+ 
+CharProcs
+Sections of content in a content stream (including a page's content stream, a form or pattern’s content 
+BDC
+stream, glyph descriptions of a Type 3 font as specified by its  entry, or an annotation’s 
+OC
+EMC DP 
+appearance) may be made optional by enclosing them between the marked-content operators  and 
+ (see 14.6, "Marked content") with a marked-content tag of . In addition, amarked-content 
+operator may be placed in a page’s content stream to force a reference to an optional content group or 
+groups on the page, even when the page has no current content in that layer. 
+The property list associated with the marked content shall specify either an optional content group or 
+optional content membership dictionary to which the content belongs. Because a group shall be an 
+Properties
+indirect object and a membership dictionary contains references to indirect objects, the property list 
+shall be a named resource listed in the  subdictionary of the current resource dictionary (see 
+14.6.2, "Property lists"), as shown in Example 1 and Example 2 in this subclause. 
+OC
+OCOC
+Although the marked-content tag shall be , other applications of marked content are not precluded 
+OCGs
+from using  as a tag. The marked content is optional content only if the tag is  and the dictionary 
+operand is a valid optional content group that is included in the  array of the optional content 
+properties dictionary (see "

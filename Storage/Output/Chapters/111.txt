@@ -1,59 +1,127 @@
-Figure 49: Source image coordinate system", where the numbers inside the squares indicate 
-the order of the samples, counting from 0. The upper-left corner of the first sample is at coordinates (0, 
-ww
-0), the second at (1, 0), and so on through the last sample of the first row, whose upper-left corner is at 
-wh
-( - 1, 0) and whose upper-right corner is at (, 0). The next samples after that are at coordinates (0, 1), 
-wh
-(1, 1), and so on to the final sample of the image, whose upper-left corner is at ( - 1,  - 1) and whose 
-lower-right corner is at (, ). 
-NOTE The image coordinate system and scanning order imposed by PDF do not preclude using different 
-conventions in the actual image. Coordinate transformations can be used to map from other 
-conventions to the PDF convention. 
-The correspondence between image space and user space is constant: the unit square of user space, 
-bounded by user coordinates (0, 0) and (1, 1), corresponds to the boundary of the image in image space 
-h
-(see "Figure 50: Mapping the source image"). Following the normal convention for user space, the 
-coordinate (0, 0) is at the lower-left corner of this square, corresponding to coordinates (0, ) in image 
-wh
-space. The implicit transformation from image space to user space, if specified explicitly, would be 
-described by the matrix [1⁄ 0 0 -1⁄ 0 1]. 
-© ISO 2017 – All rights reserved 251 
-
-ISO/DIS 32000-2
- ![Figure 49 Source image coordinate system  .png](./Storage/Output/Images/Figure 49 Source image coordinate system  .png)
-Figure 49: Source image coordinate system 
- ![Figure 50 Mapping the source image  .png](./Storage/Output/Images/Figure 50 Mapping the source image  .png)
-Figure 50: Mapping the source image 
- 
-cm
-An image can be placed on the output page in any position, orientation, and size by using the  
-operator to modify the current transformation matrix (CTM) so as to map the unit square of user space 
-q  Q
-to the rectangle or parallelogram in which the image shall be painted. Typically, this is done within a 
-pair of and operators to isolate the effect of the transformation, which can include translation, 
-rotation, reflection, and skew (see 8.3, "Coordinate systems"). 
-XObject
-EXAMPLE If the  subdictionary of the current resource dictionary defines the name Image1 to denote an image 
-XObject, the code shown in this example paints the image in a rectangle whose lower-left corner is at 
-coordinates (100, 200), that is rotated 45 degrees counter clockwise, and that is 150 units wide and 80 units 
-high. 
-q                %Save graphics state 
-  1 0 0 1 100 200 cm        %Translate 
-  0. 7071 0.7071 -0.7071 0.7071 0 0 cm  %Rotate 
-  150 0 0 80 0 0 cm         %Scale 
-  /Image1 Do           %Paint image 
-Q                %Restore graphics state 
- As discussed in 8.3.4, "Transformation matrices", these three transformations could be combined into one. Of 
-course, if the aspect ratio (width to height) of the original image in this example is different from 150:80, the 
-© ISO 2017 – All rights reserved 252 
+Table 
+37: Entries in a number tree node dictionary" shows the entries in a number tree’s node dictionaries. 
+© ISO 2017 – All rights reserved 122 
 
 ISO/DIS 32000-2
  
-result will be distorted. 
-8.9.5Image dictionaries 
+Table 37: Entries in a number tree node dictionary 
+Key Type Value 
+(Root and intermediate nodes only; required in intermediate nodes; present in the root 
+Kids 
+node if and only if  is not present)
+Nums
+array 
+ Shall be an array of indirect references to the 
+immediate children of this node. The children may be intermediate or leaf nodes. 
+(Root and leaf nodes only; shall be required in leaf nodes; present in the root node if and 
+Nums 
+only if  is not present)
+Kids
+array 
+key value key value …key value
+ Shall be an array of the form: 
+1122nn
+keyvalue
+[] 
+ii
+where each  is an integer and the corresponding  shall be the object 
  
-8.9.5.1General 
+associated with that key. The keys shall be sorted in numerical order, analogously to 
+the arrangement of keys in a name tree as described in 7.9.6, "Name trees".
+(Shall be present in Intermediate and leaf nodes only
+Limits 
+array ) Shall be an array of two 
+NumsNums
+integers, that shall specify the (numerically) least and greatest keys included in the 
+ array of a leaf node or in the  arrays of any leaf nodes that are 
+descendants of an intermediate node. 
  
-An image dictionary — that is, the dictionary portion of a stream representing an image XObject — may 
-contain the entries listed in "
+7.10Functions 
+ 
+7.10.1General 
+ 
+function objectsPDF 1.2
+PDF is not a programming language, and a PDF file is not a program. However, PDF provides several 
+types of  () that represent parameterised classes of functions, including 
+mathematical formulas and sampled representations with arbitrary resolution. 
+NOTE 1 Functions can be used in various ways in PDF, including device-dependent rasterization 
+information for high-quality printing (halftone spot functions and transfer functions), colour 
+transform functions for certain colour spaces, and specification of colours as a function of position 
+for smooth shadings. 
+Functions in PDF represent static, self-contained numerical transformations. 
+NOTE 2 A function to add two numbers has two input values and one output value: 
+0101
+)
+(
+=𝑥𝑥
+𝑓𝑓𝑥𝑥,𝑥𝑥+𝑥𝑥 
+ 
+Similarly, a function that computes the arithmetic and geometric mean of two numbers can be viewed 
+as a function of two input values and two output values: 
+01
+𝑥𝑥
++𝑥𝑥
+0101
+mn
+)
+(
+=
+𝑓𝑓𝑥𝑥,𝑥𝑥,𝑥𝑥×𝑥𝑥 
+�
+2
+In general, a function can take any number () of input values and produce any number () of output 
+values: 
+0𝑚𝑚−10𝑛𝑛−1
+)
+(
+=𝑦𝑦
+𝑓𝑓𝑥𝑥
+,…,𝑥𝑥,…,𝑦𝑦 
+ 
+In PDF functions, all the input values and all the output values shall be numbers, and functions shall 
+have no side effects. 
+Each function definition includes a domain, the set of legal values for the input. Some types of functions 
+© ISO 2017 – All rights reserved 123 
+
+ISO/DIS 32000-2
+ 
+also define a range, the set of legal values for the output. Input values passed to the function shall be 
+clipped to the domain, and output values produced by the function shall be clipped to the range. 
+EXAMPLE Suppose the following function is defined with a domain of [-1 1]. If the function is called with the input value 
+6, that value is replaced with the nearest value in the defined domain, 1, before the function is evaluated; the 
+resulting output value is therefore 3. 
+()
+𝑓𝑓𝑥𝑥=𝑥𝑥+2 
+Similarly, if the following function is defined with a range of [0 100], and if the input values -6 and 4 are 
+passed to the function (and are within its domain), then the output value produced by the function, -14, 
+is replaced with 0, the nearest value in the defined range. 
+0101
+(
+)
+𝑓𝑓𝑥𝑥
+=3×𝑥𝑥
+,𝑥𝑥+𝑥𝑥 
+A function object may be a dictionary or a stream, depending on the type of function. The term function 
+dictionary is used generically in this subclause to refer to either a dictionary object or the dictionary 
+portion of a stream object. A function dictionary specifies the function’s representation, the set of 
+FunctionType
+attributes that parameterize that representation, and the additional data needed by that representation. 
+Four types of functions are available, as indicated by the dictionary’s  entry: 
+PDF 1.2sampled functionsample values
+• 
+() A  (Type 4) uses a table of  to define the function. Various 
+techniques are used to interpolate values between the sample values; see 7.10.2, "Type 0 
+PDF 1.3exponential interpolation function
+• 
+(sampled) functions" 
+() An  (Type 2) defines a set of coefficients for an 
+PDF 1.3stitching function
+• 
+exponential function; see 7.10.3, "Type 2 (exponential interpolation) functions" 
+() A  (Type 3) is a combination of other functions, partitioned across a 
+PDF 1.3PostScript calculator function
+• 
+domain; see 7.10.4, "Type 3 (stitching) functions" 
+() A  (Type 4) uses operators from the PostScript language to 
+describe an arithmetic expression; see 7.10.5, "Type 4 (PostScript calculator) functions" 
+All function dictionaries shall share the entries listed in "

@@ -1,0 +1,65 @@
+Figure 117: Trapping example" shows an example of trapping. The light and medium grays 
+represent two different colourants, which are used to paint the background and the glyph 
+denoting the letter A. The first figure shows the intended result, with the two colourants properly 
+registered. The second figure shows what happens when the colourants are misregistered. In the 
+third figure, traps have been overprinted along the boundaries, obscuring the artifacts caused by 
+the misregistration. (For emphasis, the traps are shown here in dark gray; in actual practice, their 
+colour will be similar to one of the adjoining colours.) 
+© ISO 2017 – All rights reserved 793 
+
+ISO/DIS 32000-2
+ ![Figure 117 Trapping example  .jpg](./Storage/Output/Images/Figure 117 Trapping example  .jpg)
+Figure 117: Trapping example 
+ 
+Trapping may be implemented by the application generating a PDF file, by some intermediate 
+application that adds traps to a PDF document, or by the raster image processor (RIP) that produces 
+final output. In the last two cases, the trapping process is controlled by a set of trapping instructions, 
+which define two kinds of information: 
+Trapping zones
+• 
+Trapping parameters
+• 
+ within which traps should be created 
+ specifying the nature of the traps within each zone 
+Trapping zones and trapping parameters are discussed fully in subcluases 6.3.2 and 6.3.3, respectively, 
+of the PostScript Language Reference, Third Edition. Trapping instructions are not directly specified in a 
+PDF file (as they are in a PostScript file). Instead, they shall be specified in a job ticket that accompanies 
+the PDF file or is embedded within it.  
+NOTE The primary standard for the format of job tickets is JDF (Job Definition Format) described in the 
+CIP4 document JDF Specification. 
+When trapping is performed before the production of final output, the resulting traps shall be placed in 
+the PDF file for subsequent use. The traps themselves shall be described as a content stream in a trap 
+network annotation (see 14.11.6.2, "Trap network annotations"). The stream dictionary may include 
+additional entries describing the method that was used to produce the traps and other information 
+about their appearance. 
+14.11.6.2Trap network annotations 
+ 
+PDF 1.3
+A complete set of traps generated for a given page under a specified set of trapping instructions is called 
+a trap network (). It is a form XObject containing graphics objects for painting the required traps 
+on the page. A page may have more than one trap network based on different trapping instructions, 
+presumably intended for different output devices. All of the trap networks for a given page shall be 
+ Annots 
+contained in a single trap network annotation (see 12.5, "Annotations"). There may be at most one trap 
+network annotation per page, which shall be the last element in the page’sarray (see 7.7.3.3, 
+"Page objects"). This ensures that the trap network shall be printed after all of the page’s other contents. 
+The form XObject defining a trap network shall be specified as an appearance stream in the N (normal) 
+N
+entry of the trap network annotation’s appearance dictionary (12.5.5, "Appearance streams"). If more 
+ AS 
+than one trap network is defined for the same page, the  entry holds a subdictionary containing the 
+alternate trap networks, each identified by an arbitrary key. The(appearance state) entry in the 
+annotation dictionary designates one of them as the current trap network to be displayed or printed. 
+© ISO 2017 – All rights reserved 794 
+
+ISO/DIS 32000-2
+ 
+NOTE 1 The trap network annotation’s appearance dictionary can include  (rollover) or  (down) 
+entries, but appearances defined in either of these entries are never printed. 
+RD
+TrapNet AP  AS 
+Like all annotations, a trap network annotation shall be defined by an annotation dictionary (see 12.5.2, 
+F
+"Annotation dictionaries"); its annotation type is . The(appearances),(appearance 
+state), and  (flags) entries (which ordinarily are optional) shall be present, with the Print and 
+ReadOnly flags set and all others clear (see 12.5.3, "Annotation flags"). "

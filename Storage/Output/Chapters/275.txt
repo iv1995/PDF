@@ -1,74 +1,46 @@
-Table 344: Additional entry in a 3D view dictionary" describes the entries in addition to 
-those present within a 3D view dictionary. 
-Table 344: Additional entry in a 3D view dictionary 
+Table 129: Additional entries specific to a Type 6 halftone dictionary 
 Key Type Value 
-Optional; PDF 2.0
-Snapshot 
-stream () A stream that shall contains an image XObject (see 8.9, 
-"Images") to be displayed when the view is invoked. 
+Optional
+Type 
+Halftone
+name () The type of PDF object that this dictionary describes; if present, shall be 
+ for a halftone dictionary. 
+Required
+HalftoneType 
+integer () A code identifying the halftone type that this dictionary describes; shall be 
+6 for this type of halftone. 
+Optional
+HalftoneName 
+byte string () The name of the halftone dictionary. 
+Required
+Width 
+integer () The width of the threshold array, in device pixels. 
+Required
+Height 
+integer () The height of the threshold array, in device pixels. 
+Optional
+TransferFunction 
+Identity
+function or () A transfer function, which overrides the current transfer function in the 
+name graphics state for the same component. The name  may be used to specify the 
+NOTE PDF versions to 1.7 required that this entry be present if the dictionary is a 
+identity function (see 10.5, "Transfer functions").  
+component of a Type 5 halftone (see 10.6.5.6, "Type 5 halftones") and 
+represents either a non-primary or non-standard primary colour component. 
  
-Default value: No image shall be used, the currently active rich media content is 
-displayed.
+10.6.5.4Type 10 halftones 
  
-Snapshot
-If the  entry exists, the image it describes shall be displayed in place of the current artwork. 
-Because the snapshot image should be integrated by the player with other elements, such as user 
-interface controls for video playback, the colour space of the image may be modified by the interactive 
-PDF processor. 
-13.7.2.3.6View params dictionary 
- 
-13.7.2.3.6.1General 
- 
-View Params dictionary
-  
-InstancesData
-The  provides a reference to aRichMediaInstancedictionary within the 
- array, and additional  that is passed to the instance. This data may be formatted to serve 
-the individual purpose of the content being referenced. 
-Table 345: Entries in a View Params dictionary 
-Key Type Value 
-Required; PDF 2.0
-Instance  
- Instances
-dictionary () A dictionary that shall be an indirect object reference to a
-RichMediaInstancedictionary that is also present in the  array of the 
-annotation. 
-Required; PDF 2.0
-Data 
-text string () A text string or stream containing state data that shall be 
-or stream passed to the instance when the view is triggered. 
- 
-Data
-InstanceView
-The  entry ("Table 345: Entries in a View Params dictionary") is used to store and load opaque 
-data specific to the  referenced in the same dictionary when a  is activated. 
-NOTE This system allows content-specific state information to be stored when a view is created, such as 
-during a comment or drawing markup. 
-© ISO 2017 – All rights reserved 686 
+Type 6 halftones specify a threshold array with a zero screen angle; they make no provision for other 
+© ISO 2017 – All rights reserved 367 
 
 ISO/DIS 32000-2
  
-13.7.2.3.6.2Saving state data 
- 
-View
-StateEvent
- 
-When the  is created, the run time shall iterate through all active instances for the current 
-configuration and query them for state data. For 3D content, an ECMAScript is invoked with 
-Data
-the type property set to the value save. After the event is handled, the value for the data property, if it is 
-present and can be interpreted as a string, shall be stored as the value for . 
-13.7.2.3.6.3Loading state data 
- 
-View
-StateEvent
-,  
-When the  is activated, the run time shall iterate through each View Params dictionary and load 
-Data
-the state data for each instance referenced. For 3D contentan ECMAScript is invoked with 
-the type property set to the value load and the data property set to the value stored for . 
-  
-© ISO 2017 – All rights reserved 687 
-
-ISO/DIS 32000-2
- 
+angles. The Type 10 halftone removes this restriction and allows the use of threshold arrays for 
+halftones with non-zero screen angles as well. 
+Halftone cells at non-zero angles can be difficult to specify because they may not line up well with scan 
+lines and because it may be difficult to determine where a given sampled point goes. The Type 10 
+halftone addresses these difficulties by dividing the halftone cell into a pair of squares that line up at 
+zero angles with the output device’s pixel grid. The squares contain the same information as the original 
+cell but are much easier to store and manipulate. In addition, they can be mapped easily into the 
+internal representation used for all rendering. 
+NOTE 1 "

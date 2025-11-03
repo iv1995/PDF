@@ -1,84 +1,106 @@
-Table 211: Entry in a URI dictionary"). 
-Table 211: Entry in a URI dictionary 
+Table 82: Additional entries specific to a Type 5 shading dictionary" shows the shading dictionary 
+entries specific to this type of shading, in addition to those common to all shading dictionaries (see 
+"Table 77: Entries common to all shading dictionaries") and stream dictionaries (see "Table 5: Entries 
+common to all stream dictionaries"). 
+The data stream for a Type 5 shading has the same format as for Type 4, except that Type 5 does not use 
+edge flags to define the geometry of the triangle mesh. The data for each vertex thus consists of the 
+following values, in the order shown: 
+1
+xyc
+ c
+n
+  
+… 
+where 
+xy
+1
+c
+ c
+ and  shall be the vertex’s horizontal and vertical coordinates 
+n
+… shall be its colour components 
+Table 82: Additional entries specific to a Type 5 shading dictionary 
 Key Type Value 
-(Optional) base URI
-Base 
-ASCII string The  that shall be used in resolving relative URI references. 
+Required
+BitsPerCoordinate 
+integer () The number of bits used to represent each vertex coordinate. 
+The value shall be 1, 2, 4, 8, 12, 16, 24, or 32. 
+Required
+BitsPerComponent 
+integer () The number of bits used to represent each colour component. 
+The value shall be 1, 2, 4, 8, 12, or 16. 
+Required
+VerticesPerRow 
+integer () The number of vertices in each row of the lattice; the value 
+shall be greater than or equal to 2. The number of rows need not be 
+specified. 
+Required
+Decode 
+array () An array of numbers specifying how to map vertex 
+coordinates and colour components into the appropriate ranges of 
+values. The decoding method is similar to that used in image dictionaries 
+11
+cc cc
+8.9.5.2, "Decode arrays"). The ranges shall be specified as follows: 
+(see 
+minmaxminmaxmin,maxn,minn,max
+c
+Function
+[x x y y , … ]  
+Only one pair of  values shall be specified if a  entry is present. 
+Optionalnn
+Function 
+n
+function or array () A 1-in, -out function or an array of  1-in, 1-out functions 
+(where  is the number of colour components in the shading dictionary’s 
+n
+colour space). If this entry is present, the colour data for each vertex shall 
+be specified by a single parametric variable rather than by  separate 
+colour components. The designated function(s) shall be called with each 
+interpolated value of the parametric variable to determine the actual 
+colour at each point. Each input value shall be forced into the range 
+Decode
+interval specified for the corresponding colour component in the shading 
+dictionary’s  array. Each function’s domain shall be a superset of 
+that interval. If the value returned by the function for a given colour 
+ Indexed 
+component is out of range, it shall be adjusted to the nearest valid value. 
+This entry shall not be used with ancolour space. 
  
-URI actions within the document may specify URIs in partial form, to be 
-interpreted relative to this base address. If no base URIis specified, such partial 
-URIs shall be interpreted relative to the location of the document itself. The use of 
-HTML 4.01 Specification
-this entry is parallel to that of the body element <BASE>, as described in the 
-. 
-NOTE The  entry allows theURIof the document to be recorded in situations in which the document 
-Base  
-is accessed out of context. For example, if a document has been moved to a new location but 
-contains relative links to other documents that have not been moved, the  entry could be used 
-Base
-to refer such links to the true location of the other documents, rather than that of the moved 
-document. 
-© ISO 2017 – All rights reserved 504 
+t
+Function
+All vertex coordinates shall be expressed in the shading’s target coordinate space. If the shading 
+c
+ c
+dictionary includes a  entry, only a single parametric value, , shall be specified for each vertex 
+1n
+in place of the colour components 
+….  
+VerticesPerRow
+© ISO 2017 – All rights reserved 238 
+The  entry in the shading dictionary gives the number of vertices in each row of the 
 
 ISO/DIS 32000-2
  
-12.6.4.9Sound actions 
+mk
+lattice. All of the vertices in a row shall be specified sequentially, followed by those for the next row. 
+Given  rows of  vertices each, the triangles of the mesh shall be constructed using the following 
+triplets of vertices, as shown in "Figure 41: Lattice-form triangle meshes": 
+𝑚𝑚,𝑗𝑗𝑚𝑚,𝑗𝑗+1𝑚𝑚+1,𝑗𝑗
+(𝑉𝑉, 𝑉𝑉,𝑉𝑉) for 0≤𝐷𝐷≤𝑚𝑚−2,0≤𝑗𝑗≤𝑘𝑘−2 
+𝑚𝑚,𝑗𝑗+1𝑚𝑚+1,𝑗𝑗𝑚𝑚+1,𝑗𝑗+1
  
-The features described in this subclause are deprecated with PDF 2.0. They are superseded by the 
-general multimedia framework described in 13.2, "Multimedia". 
-sound actionPDF 1.2
-A  () plays a sound through the computer’s speakers. "Table 212: Additional entries 
-specific to a sound action" shows the action dictionary entries specific to this type of action. Sounds are 
-discussed in 13.3, "Sounds". 
-Table 212: Additional entries specific to a sound action 
-Key Type Value 
-(Required) Sound
-S 
-name The type of action that this dictionary describes; shall be  
-for a sound action. 
-(Required) 
-Sound 
-stream A sound object defining the sound that shall be played (see 
-13.3, "Sounds"). 
-(Optional) 
-Volume 
-number The volume at which to play the sound, in the range -1.0 to 1.0. 
-Default value: 1.0. 
-(Optional) 
-Synchronous 
-true
-boolean A flag specifying whether to play the sound synchronously or 
-asynchronously. If this flag is , the interactive PDF processor retains 
-false
-control, allowing no further user interaction other than cancelling the 
-sound, until the sound has been completely played. Default value: . 
-(Optional) 
-Repeat 
- Synchronous 
-boolean A flag specifying whether to repeat the sound indefinitely. If 
-false
-this entry is present, theentry shall be ignored. Default 
-value: . 
-(Optional) 
-Mix 
-false
-boolean A flag specifying whether to mix this sound with any other 
-sound already playing. If this flag is , any previously playing sound 
-false
-Repeat
-shall be stopped before starting this sound; this can be used to stop a 
-repeating sound (see ). Default value: . 
+�𝑉𝑉, 𝑉𝑉,𝑉𝑉� 
  
-12.6.4.10Movie actions 
+See 8.7.4.5.5, "Type 4 (free-form Gouraud-shaded triangle mesh) shadings" for further details on the 
+format of the vertex data. 
+8.7.4.5.7Type 6 (Coons patch mesh) shadings 
  
-The features described in this subclause are deprecated with PDF 2.0. They are superseded by the 
-general multimedia framework described in 13.2, "Multimedia". 
-movie actionPDF 1.2
-A  () can be used to play a movie in a floating window or within the annotation 
-rectangle of a movie annotation (see 12.5.6.17, "Movie annotations" and 13.4, "Movies"). The movie 
-annotation shall be associated with the page that is the destination of the link annotation or outline item 
-containing the movie action, or with the page object with which the action is associated. 
-NOTE A movie action by itself does not guarantee that the page the movie is on will be displayed before 
-attempting to play the movie; such page change actions shall be done explicitly. 
-The contents of a movie action dictionary are identical to those of a movie activation dictionary (see 
-"Table 307: Entries in a movie activation dictionary"), with the additional entries shown in "
+Type 6 (Coons patch mesh) shadings are constructed from one or more colour patches, each bounded 
+by four cubic Bézier curves. Degenerate Bézier curves are allowed and are useful for certain graphical 
+effects. At least one complete patch shall be specified. 
+A Coons patch generally has two independent aspects: 
+• 
+Colours are specified for each corner of the unit square, and bilinear interpolation is used to fill in 
+• 
+colours over the entire unit square (see the upper figure in "

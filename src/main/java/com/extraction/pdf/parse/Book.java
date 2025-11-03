@@ -94,7 +94,7 @@ public class Book {
 		
 		int images = 0;
 		
-		for(int i = 1; i <= pdf.getNumberOfPages(); i++) {
+		for(int i = 13; i <= pdf.getNumberOfPages(); i++) {
 			Page page = new Page(processPage(reader, pdf, i, tagged));
 			pages.add(page);
 			
@@ -148,12 +148,13 @@ public class Book {
 		}
 		
 		ArrayList<String> chpt = getBookTitles(pages);
+		ArrayList<String> unique = makeUnique(chpt);
 		
-		for(String c : chpt) {
+		for(String c : unique) {
 			System.out.println(c);
 		}
 		
-		ArrayList<String> chapters = Chapters.chapters(all.toString(), chpt);
+		ArrayList<String> chapters = Chapters.chapters(all.toString(), unique);
 		
 		for(int i = 0; i < chapters.size(); i++) {
 			File dest = new File("./Storage/Output/Chapters/" + i + ".txt");
@@ -174,6 +175,30 @@ public class Book {
 		writer.write(txt);
 		writer.flush();
 		writer.close();
+	}
+	
+	public ArrayList<String> makeUnique(ArrayList<String> phrases){
+		ArrayList<String> unique = new ArrayList<>();
+		
+		int count = 0;
+		
+		do {
+			unique.add(phrases.get(0));
+			
+			do {
+				int index = phrases.indexOf(unique.get(count));
+				
+				if(index < 0) {
+					break;
+				}
+				
+				phrases.remove(index);
+			} while(true);
+			
+			count++;
+		} while(phrases.size() > 0);
+		
+		return unique;
 	}
 	
 	/**

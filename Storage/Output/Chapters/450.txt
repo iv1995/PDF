@@ -1,0 +1,21 @@
+Table 278: Entries in a rendition 
+MH/BE dictionary") shall be honoured for the rendition to be considered viable. 
+Optional
+BE 
+dictionary () A dictionary whose entries (see "Table 278: Entries in a rendition 
+MH/BE dictionary") shall only be honoured in a "best effort" sense. 
+Table 278: Entries in a rendition MH/BE dictionary 
+Key Type Value 
+Optional
+C 
+dictionary () A media criteria dictionary (see "Table 279: Entries in a media 
+MH BE 
+criteria dictionary"). 
+The media criteria dictionary behaves somewhat differently than other /
+MH BE 
+". The criteria specified by all of its entries 
+entries described in 13.2.2, "Viability
+ BE 
+shall be met regardless of whether it is in a  or adictionary. The only 
+exception is that if an entry in adictionary is unrecognised by the interactive 
+PDF processor, it shall not affect the viability of the object. 

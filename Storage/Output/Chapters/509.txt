@@ -1,0 +1,163 @@
+Figure 100: Rendering of the 3D artwork using View1 (all shapes visible and opaque) 
+ 
+"Figure 100: Rendering of the 3D artwork using View1 (all shapes visible and opaque)" shows a view 
+whose node array includes three nodes, all of which shall be rendered with the appearance opaque (/O 
+1) and visible (/V true). 
+© ISO 2017 – All rights reserved 653 
+
+ISO/DIS 32000-2
+ ![57.jpg](./Storage/Output/Images/57.jpg)
+Figure 101: Rendering of the 3D artwork using View2 (the cone is hidden and the sphere is semi-
+ 
+transparent) 
+"Figure 101: Rendering of the 3D artwork using View2 (the cone is hidden and the sphere is semi-
+transparent)" shows a view with a node array that specifies the same three nodes used in "Figure 100: 
+Rendering of the 3D artwork using View1 (all shapes visible and opaque)". These nodes have the 
+following display characteristics: 
+• 
+• 
+The node named Sphere is partially transparent (/O 0.5) and visible (/V true) 
+• 
+The node named Cone is opaque (/O 1) and invisible (/V false) 
+13.6.5Coordinate systems for 3D 
+ 
+The node named Cube is opaque (/O 1) and visible (/V true) 
+3D artwork is a collection of objects whose positions and geometry shall be specified using three-
+dimensional coordinates. 8.3, "Coordinate systems" discusses the concepts of two-dimensional 
+coordinate systems, their geometry and transformations. This subclause extends those concepts to 
+include the third dimension. 
+xy
+x
+As described in 8.3, "Coordinate systems" positions shall be defined in terms of pairs of  and  
+yz
+coordinates on the Cartesian plane. The origin of the plane specifies the location (0, 0);  values increase 
+z
+to the right and  values increase upward. For three-dimensional graphics, a third axis, the  axis, shall 
+be used. The origin shall be at (0, 0, 0); positive  values increase going into the page. 
+In two-dimensional graphics, the transformation matrix transforms the position, size, and orientation of 
+objects in a plane. It is a 3-by-3 matrix, where only six of the elements may be changed; therefore, the 
+matrix shall be expressed in PDF as an array of six numbers: 
+ 
+𝐷𝐷𝑏𝑏0
+𝑐𝑐𝐵𝐵0
+[𝐷𝐷𝑏𝑏𝑐𝑐𝐵𝐵𝑡𝑡𝑥𝑥𝑡𝑡𝑦𝑦]
+�
+�=
+𝑡𝑡𝑥𝑥𝑡𝑡𝑦𝑦1
+In 3D graphics, a 4-by-4 matrix shall be used to transform the position, size, and orientations of objects 
+in a three-dimensional coordinate system. Only the first three columns of the matrix may be changed; 
+therefore, the matrix shall be expressed in PDF as an array of 12 numbers: 
+𝐷𝐷𝑏𝑏𝑐𝑐0
+𝐵𝐵𝑚𝑚𝑓𝑓0
+[𝐷𝐷𝑏𝑏𝑐𝑐𝐵𝐵𝑚𝑚𝑓𝑓𝑔𝑔ℎ𝐷𝐷𝑡𝑡𝑥𝑥𝑡𝑡𝑦𝑦𝑡𝑡𝑧𝑧]
+�= 
+�
+𝑔𝑔ℎ𝐷𝐷0
+𝑡𝑡𝑥𝑥𝑡𝑡𝑦𝑦𝑡𝑡𝑧𝑧1
+ 
+© ISO 2017 – All rights reserved 654 
+
+ISO/DIS 32000-2
+ 
+3D coordinate transformations shall be expressed as matrix transformations: 
+𝐷𝐷𝑏𝑏𝑐𝑐0
+′′′
+𝐵𝐵𝑚𝑚𝑓𝑓0
+𝑥𝑥𝑦𝑦𝑧𝑧1
+[
+][]
+𝑥𝑥
+𝑦𝑦𝑧𝑧1
+� 
+=×�
+𝑔𝑔ℎ𝐷𝐷0
+𝑡𝑡𝑥𝑥𝑡𝑡𝑦𝑦𝑡𝑡𝑧𝑧1
+ 
+Carrying out the multiplication has the following results: 
+′
+𝑥𝑥
+=𝐷𝐷×𝑥𝑥+𝐵𝐵×𝑦𝑦+𝑔𝑔×𝑧𝑧+𝑡𝑡𝑥𝑥 
+′
+=𝑏𝑏×𝑥𝑥+𝑚𝑚×𝑦𝑦+ℎ×+𝑡𝑡𝑦𝑦 
+𝑦𝑦
+′
+=𝑐𝑐×𝑥𝑥+𝑓𝑓×𝑦𝑦+𝐷𝐷×𝑧𝑧+𝑡𝑡𝑧𝑧 
+𝑧𝑧
+ 
+Position and orientation of 3D artwork typically involves translation (movement) and rotation along 
+any axis. The virtual camera represents the view of the artwork. The relationship between camera and 
+artwork may be thought of in two ways: 
+• 
+The 3D artwork is in a fixed position and orientation, and the camera moves to different positions 
+• 
+and orientations. 
+The camera is in a fixed location, and the 3D artwork is translated and rotated. 
+Both approaches may achieve the same visual effects; in practice, 3D systems typically use a 
+combination of both. Conceptually, there are three distinct coordinate systems: 
+artwork coordinatesystem
+• 
+camera coordinate system
+• 
+The  . 
+zxy
+The , in which the camera shall be positioned at (0, 0, 0) facing out along 
+world coordinate system
+• 
+the positive  axis, with the positive  axis to the right and the positive  axis going straight up. 
+An intermediate system called the . 
+Two 3D transformation matrices shall be used in coordinate conversions: 
+artwork-to-world matrix
+• 
+The  specifies the position and orientation of the artwork in the world 
+camera-to-world matrix
+• 
+coordinate system. This matrix shall be contained in the 3D stream. 
+C2WU3DPath
+The  specifies the position and orientation of the camera in the world 
+coordinate system. This matrix shall be specified by either the  or  entries of the 3D 
+view dictionary. 
+When drawing 3D artwork in a 3D annotation’s target coordinate system, the following transformations 
+take place: 
+Artwork coordinates shall be transformed to world coordinates: 
+wwwaaa
+[
+][]
+𝑥𝑥
+ 𝑦𝑦 𝑧𝑧 1=𝑥𝑥 𝑦𝑦 𝑧𝑧 1×aw 
+ 
+World coordinates shall be transformed to camera coordinates: 
+−1
+cccwww
+[
+)
+][](
+𝑥𝑥
+ 
+ 𝑦𝑦 𝑧𝑧 1=𝑥𝑥 𝑦𝑦 𝑧𝑧 1×cw
+ 
+The first two steps can be expressed as a single equation, as follows: 
+−1
+cccaaa
+[
+)
+][](
+𝑥𝑥
+ 
+ 𝑦𝑦 𝑧𝑧 1=𝑥𝑥 𝑦𝑦 𝑧𝑧 1×aw×cw
+© ISO 2017 – All rights reserved 655 
+
+ISO/DIS 32000-2
+ 
+z
+ 
+Finally, the camera coordinates shall be projected into two dimensions, eliminating the  coordinate, 
+then scaled and positioned within the annotation’s target coordinate system. 
+13.6.63D markup 
+ 
+Beginning with PDF 1.7, users may comment on specific views of 3D artwork by using markup 
+annotations (see 12.5.6.2, "Markup annotations"). Markup annotations (as other annotations) are 
+ ExData 
+normally associated with a location on a page. To associate the markup with a specific view of a 3D 
+annotation, the annotation dictionary for the markup annotation contains anentry (see "Table 
+173: Additional entries in an annotation dictionary specific to external data") that specifies the 3D 
+annotation and view. "

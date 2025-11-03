@@ -1,290 +1,266 @@
-Table 96: Entries in an optional content group dictionary" shows the entries in an 
-optional content group dictionary. 
-Table 96: Entries in an optional content group dictionary 
+Table 43: Entries in a file specification dictionary 
 Key Type Value 
-RequiredOCG
-Type 
-name () The type of PDF object that this dictionary describes; shall be  
-for an optional content group dictionary. 
-Required
-Name 
-text string () The name of the optional content group, suitable for presentation 
-in an interactive PDF processor’s user interface. 
-Optional
-Intent 
-ViewDesign
-name or array () A single name or an array of names that represent the intended use 
-of the graphics in the group. The values  and , or any second class 
-name may be used (see Annex E, "PDF Name Registry"). A PDF processor may 
-View
-choose to use only groups that have a specific intent and ignore others. 
-Default value: . See 8.11.2.3, "Intent" for more information. 
-Optional
-Usage 
-dictionary () A usage dictionary describing the nature of the content controlled 
-by the group. It may be used by features that automatically control the state of 
-the group based on outside factors. See 8.11.4.3, "Usage and usage application 
-dictionaries" for more information. 
- 
-TypeName
-Intent
-In its simplest form, each dictionary shall contain a  entry and a  for presentation in a user 
-Usage
-interface. It may have an  entry that describes its intended use (see 8.11.2.3, "Intent"), and a 
- entry that describes the nature of its content (see 8.11.4.3, "Usage and usage application 
-dictionaries"). 
-© ISO 2017 – All rights reserved 271 
-
-ISO/DIS 32000-2
- 
-Individual content elements in a document may specify the optional content group or groups that affect 
-their visibility (see 8.11.3, "Making graphical content optional"). Any content whose visibility is affected 
-by a given optional content group belongs to that group. 
- ON OFF
-A group shall be assigned a state, which is eitheror . States themselves are not part of the PDF 
-document but may be set programmatically or through the interactive PDF processor’s user interface to 
-change the visibility of content. When a document is first opened by a PDF processor, the groups’ states 
-shall be initialised based on the document’s default configuration dictionary (see 8.11.4.3, "Optional 
-content configuration dictionaries"). 
-ONOFF
-Content belonging to a single group shall be visible when the group is  and invisible when it is . 
-Content may, however, belong to multiple groups, when its group is nested inside of another (parent) 
-group. In such a case, the content shall only be visible if this group and all its parent groups indicate 
-visibility. In other words, if the visibility state of an outer level indicates that the content needs to be 
-hidden, all inner levels shall be hidden regardless of their individual visibility states. 
-8.11.2.2Optional content membership dictionaries 
- 
-To express more complex visibility policies, content shall not declare itself to belong directly to an 
-optional content group but rather to an optional content membership dictionary, whose entries are 
-shown in "Table 97: Entries in an optional content membership dictionary". 
-NOTE 1 8.11.3, "Making graphical content optional" describes how content declares its membership in a 
-group or membership dictionary. 
-Table 97: Entries in an optional content membership dictionary 
-Key Type Value 
-Required
-Type 
-OCMD
-name () The type of PDF object that this dictionary describes; shall be 
- for an optional content membership dictionary. 
-Optional
-OCGs 
-dictionary or () A dictionary or array of dictionaries specifying the optional 
-array content groups whose states shall determine the visibility of content 
-controlled by this membership dictionary. 
-Null values or references to deleted objects shall be ignored. 
-P
-If this entry is not present, is an empty array, or contains references only to 
-null or deleted objects, the  entry shall have no effect on the visibility of any 
-content. 
-Optional
-P 
-name () A name specifying the visibility policy for content belonging to 
-AllOn
-OCGs ON  
-this membership dictionary. Valid values shall be: 
-AnyOn
-OCGsON
-  visible only if all of the entries in  are
-AnyOff
-OCGsOFF
-  visible if any of the entries in  are  
-AllOff
-OCGs OFF 
-  visible if any of the entries in  are  
-AnyOn
-  visible only if all of the entries in  are
-Default value:  
-Optional; PDF 1.6
-VE 
-array () An array specifying a visibility expression, used to 
-compute visibility of content based on a set of optional content groups; see 
-discussion below. 
- 
-© ISO 2017 – All rights reserved 272 
-
-ISO/DIS 32000-2
- 
-An optional content membership dictionary may express its visibility policy in two ways: 
-P
-• 
-OCGs
-The  entry may specify a simple boolean expression indicating how the optional content groups 
-specified by the  entry determine the visibility of content controlled by the membership 
-VE
-• 
+Required if an  or  entry is present; recommended always
+Type EF EPRF
+Filespec
+name (,) The type of 
+PDF object that this dictionary describes; shall be  for a file specification 
 dictionary. 
-PDF 1.6 introduced the  entry, which is a visibility expression that may be used to specify an 
-arbitrary boolean expression for computing the visibility of content from the states of optional 
-VEOCGsP
-content groups. 
-OCGsP
-If the  key is present it shall be used in preference to the  and  keys. For compatibility 
-VE
-purposes PDF writers should provide  and  entries where possible, and especially in cases where 
-the use of  is necessary to express the intended behaviour. 
-A visibility expression is an array with the following characteristics: 
-AndOrNot
-• 
-• 
-Its first element shall be a name representing a boolean operator (, , or ). 
-NotAnd
-• 
-Subsequent elements shall be either optional content groups or other visibility expressions. 
-Or
-If the first element is , it shall have only one subsequent element. If the first element is  or 
- ON 
-• 
-, it shall have one or more subsequent elements. 
-truefalse
- OFF 
-In evaluating a visibility expression, thestate of an optional content group shall be equated to 
-the boolean value ;shall be equated to . 
-Membership dictionaries are useful in cases such as these: 
- ON OFF
-• 
-OCGs
-Some content may choose to be invisible when a group isand visible when it is . In this 
-AnyOffAllOff
-P
-case, the content would belong to a membership dictionary whose  entry consists of a single 
-NOTE 2 It is legal to have an  entry consisting of a single group and a  entry that is  or . 
-OCGsP
-optional content group and whose  entry is  or . 
-However, in this case it is preferable to use an optional content group directly because it uses 
-AnyOnAllOn
-fewer objects. 
-• 
-Some content may belong to more than one group and needs to specify its policy when the groups 
-OCGsP
-are in conflicting states. In this case, the content would belong to a membership dictionary whose 
- entry consists of an array of optional content groups and whose  entry specifies the 
-visibility policy, as illustrated in Example 1 in this subclause. Example 2 in this subclause shows 
-OCGs
-the equivalent policy using visibility expressions. 
-P
-EXAMPLE 1 This example shows content belonging to a membership dictionary whose  entry consists of an array of 
-optional content groups and whose  entry specifies the visibility policy. 
-<</Type /OCMD           %Content belonging to this optional content 
-               %membership dictionary is controlled by the 
-states 
- /OCGs [12 0 R 13 0 R 14 0 R]     %of three optional content groups. 
- /P /AllOn           %Content is visible only if the state of all 
-three 
->>               %groups is ON; otherwise it’s hidden. 
+Optional
+FS 
+name () The name of the file system that shall be used to interpret this file 
+specification. If this entry is present, all other entries in the dictionary shall be 
+URL
+interpreted by the designated file system. PDF shall define only one standard file 
+7.11.5, "URL specifications"); an application can register 
+system name,  (see 
+FUF
+other names (see Annex E, "PDF Name Registry"). This entry shall be independent 
+of the  and  entries. 
+Required if the DOS, Mac, and Unix entries are all absent; amended with the
+F UF
+entry for PDF 1.7
+string (  
+URL
+) A file specification string of the form described in 7.11.2, "File 
+specification strings" or (if the file system is ) a uniform resource locator, as 
+UFFUF
+described in 7.11.5, "URL specifications". 
+F
+The  entry should be used in addition to the  entry. The  entry provides 
+UF
+cross-platform and cross-language compatibility and the  entry provides 
+F
+backwards compatibility. A PDF reader shall use the value of the  key, when 
+(PDF 2.0)
+present, instead of the  key. 
+F
+ For unencrypted wrapper documents for an encrypted payload 
+") the  entry shall not 
+document (see 7.6.7, "Unencrypted wrapper document
+contain or be derived from the encrypted payload’s actual file name. This is to 
+F
+avoid potential disclosure of sensitive information in the original filename. The 
+value of  for encrypted payload documents should include the name of the 
  
-EXAMPLE 2 This example shows a visibility expression equivalent to Example 1 in this subclause 
-<</Type /OCMD 
- /VE [/And 12 0 R 13 0 R 14 0 R]    %Visibility expression equivalent to Example 1. 
->> 
-EXAMPLE 3 This example shows a more complicated visibility expression based on five optional content groups, 
-© ISO 2017 – All rights reserved 273 
+cryptographic filter needed to decrypt the document. See the example in 7.6.7, 
+"Unencrypted wrapper document".
+Optional, but recommended if the  entry exists in the dictionary; PDF 1.7
+UF F
+text string () A 
+Unicode text string that provides file specification of the form described in 7.11.2, 
+F
+"File specification strings". This is a text string as defined in 7.9.2.2, "Text string 
+ UF 
+type". The  entry should be included along with this entry for backwards 
+F
+compatibility reasons. A PDF reader shall use the value of thekey, when 
+present, instead of the  key. 
+UF
+(PDF 2.0) For unencrypted wrapper documents for an encrypted payload 
+document (see 7.6.6, "Unencrypted wrapper document") the  entry shall not 
+contain or be derived from the encrypted payload’s actual file name. This is to 
+avoid potential disclosure of sensitive information in the original filename. 
+© ISO 2017 – All rights reserved 134 
 
 ISO/DIS 32000-2
  
-represented by objects 1 through 5. It is equivalent to 
+Key Type Value 
+Optional; deprecated in PDF 2.0
+DOS 
+byte string () A file specification string (see 7.11.2, "File 
+specification strings") representing a DOS file name. 
+Optional; deprecated in PDF 2.0
+Mac 
+   
+byte string () A file specification string (see 7.11.2, "File 
+specification strings") representing aMacOS file name.
+Optional; deprecated in PDF 2.0
+Unix 
  
-"OCG 1" OR (NOT "OCG 2") OR ("OCG 3" AND "OCG 4" AND "OCG 5") 
-<</Type /OCMD 
-  /VE [/Or           %Visibility expression: OR 
-    1 0 R          %OCG 1 
-    [/Not 2 0 R]       %NOT OCG 2 
-    [/And 3 0 R 4 0 R 5 0 R]   %OCG 3 AND OCG 4 AND OCG 5 
-    ] 
->> 
+byte string () A file specification string (see 7.11.2, "File 
+specification strings") representing a UNIX file name.
+Optional
+ID 
+array () An array of two byte strings constituting a file identifier (see 14.4, "File 
+NOTE The use of this entry improves a PDF processor’s chances of finding the 
+identifiers") that should be included in the referenced file. 
+intended file, and allows a PDF processor to warn the user if the file has 
+changed since the link was made.
  
-8.11.2.3Intent 
+Optional; PDF 1.2
+V 
+boolean () A flag indicating whether the file referenced by the file 
+specification is volatile (changes frequently with time). If the value is true, 
+ URL 
+applications shall not cache a copy of the file. For example, a movie annotation 
+referencing ato a live video camera could set this flag to true to notify the 
+false
+PDF reader that it should re-acquire the movie each time it is played. Default 
+value: . 
+Required if  is present; PDF 1.3; amended to include thekey in PDF 1.7
+EF RF UF 
+F UF 
+dictionary () A 
+dictionary containing a subset of the  andkeys corresponding to the entries 
+by those names in the file specification dictionary. The value of each such key 
+Type
+7.11.4, "Embedded file streams") containing 
+shall be an embedded file stream (see 
+the corresponding file. If this entry is present, the  entry is required and the 
+(PDF2.0) 
+file specification dictionary shall be indirectly referenced. 
+EF
+For unencrypted wrapper documents for an encrypted payload 
  
-Design
-View
-PDF defines two specific intents: , which may be used to represent a document designer’s 
-structural organization of artwork, and , which may be used for interactive PDF processors. 
-NOTE The  entry in "Table 96: Entries in an optional content group dictionary" provides a way to 
-Intent
-distinguish between different intended uses of optional content. For example, many document 
-design applications, such as CAD packages, offer layering features for collecting groups of 
-graphics together and selectively hiding or viewing them for the convenience of the author. 
-However, this layering can be different (at a finer granularity, for example) than would be useful 
-to consumers of the document. Therefore, it is possible to specify different intents for optional 
-content groups within a single document. A PDF processor can decide to use only groups that are 
-of a specific intent. 
-Intent
-Configuration dictionaries (see 8.11.4.3, "Optional content configuration dictionaries") may also contain 
-an  entry. If one or more of a group’s intents is contained in the current configuration’s set of 
-intents, the group shall be used in determining visibility. If there is no match, the group shall have no 
-effect on visibility. 
-Intent
-If the configuration’s  is an empty array, no groups shall be used in determining visibility; 
-therefore, all content shall be considered visible. 
-8.11.3Making graphical content optional 
- 
-8.11.3.1General 
- 
-Graphical content in a PDF file may be made optional by specifying membership in an optional content 
-group or optional content membership dictionary. Two primary mechanisms exist for defining 
-membership: 
-• 
-Sections of content streams delimited by marked-content operators may be made optional, as 
-• 
-described in 8.11.3.2, "Optional content in content streams". 
-Form and image XObjects and annotations may be made optional in their entirety by means of a 
-dictionary entry, as described in 8.11.3.3, "Optional content in XObjects and annotations". 
-When it is determined that a piece of optional content in a PDF file is to be hidden, the following shall 
-occur: 
-• 
-• 
-The content shall not be drawn. 
-Graphics state operations, such as setting the colour, transformation matrix, and clipping, shall still 
-be applied. In addition, graphics state side effects that arise from drawing operators shall be 
-applied; in particular, the current text position shall be updated even for text wrapped in optional 
-© ISO 2017 – All rights reserved 274 
+document (see 7.6.7, "Unencrypted wrapper document") the  dictionary is 
+required for the file stream containing the encrypted payload.
+Optional; PDF 1.3
+RF EF
+dictionary () A dictionary with the same structure as the  dictionary, 
+EF
+which shall be present. For each key in this dictionary, the same key shall appear 
+in the  dictionary of this file specification dictionary. Each value shall be a 
+EF
+7.11.4.2, "Related files arrays") identifying files that are 
+related files array (see 
+Type
+related to the corresponding file in the  dictionary. If this entry is present, the 
+ entry is required and the file specification dictionary shall be indirectly 
+referenced. 
+Optional; PDF 1.6
+Desc 
+ EmbeddedFiles 
+text string () Descriptive text associated with the file specification. It shall 
+be used for file specification dictionaries referenced from the
+name tree (see 7.7.4, "Name dictionary"). 
+Optional; shall be indirect reference; PDF 1.7
+CI 
+dictionary () A collection item dictionary, which 
+shall be used to create the user interface for portable collections (see 7.11.6, 
+"Collection items"). 
+Optional; PDF 2.0
+Thumb 
+stream () A stream object defining the thumbnail image for the file 
+specification. (See 12.3.4, "Thumbnail images") 
+© ISO 2017 – All rights reserved 135 
 
 ISO/DIS 32000-2
  
-content. In other words, graphics state parameters that persist past the end of a marked-content 
-NOTE 1 Hiding a section of optional content does not change the colour of objects that do not belong to the 
-section shall be the same whether the optional content is visible or not. 
-same optional content group. 
-• 
-BXEX
-This rule shall also apply to operators that set state that is not strictly graphics state; for example, 
-• 
- and . 
-Objects such as form XObjects and annotations that have been made optional may be skipped 
-entirely, because their contents are encapsulated such that no changes to the graphics state (or 
-other state) persist beyond the processing of their content stream. 
-Other features in interactive PDF processors, such as searching and editing, may be affected by the 
-ability to selectively show or hide content. An interactive PDF processor may choose whether to use the 
-document’s current state of optional content groups (and, correspondingly, the document’s visible 
-graphics) or to supply their own states of optional content groups to control the graphics they process. 
-NOTE 2 Tools to select and move annotations need to honour the current on-screen visibility of 
-annotations when performing cursor tracking and mouse-click processing. A full text search 
-engine, however, might need to process all content in a document, regardless of its current 
-visibility on-screen. Export filters might choose the current on-screen visibility, the full content, or 
-present the user with a selection of optional content groups to control visibility. 
-NOTE 3 A PDF processor that does not support optional content, such as one that only supports PDF 1.4 
-functionality, will draw and process all content in a document. 
-8.11.3.2Optional content in content streams 
+Key Type Value 
+Optional; PDF 2.0
+AFRelationship 
+name () A name value that represents the relationship between the 
+component of this PDF document that refers to this file specification and the 
+associated file denoted by this file specification dictionary. See 14.13, "Associated 
+Source
  
-CharProcs
-Sections of content in a content stream (including a page's content stream, a form or pattern’s content 
-BDC
-stream, glyph descriptions of a Type 3 font as specified by its  entry, or an annotation’s 
-OC
-EMC DP 
-appearance) may be made optional by enclosing them between the marked-content operators  and 
- (see 14.6, "Marked content") with a marked-content tag of . In addition, amarked-content 
-operator may be placed in a page’s content stream to force a reference to an optional content group or 
-groups on the page, even when the page has no current content in that layer. 
-The property list associated with the marked content shall specify either an optional content group or 
-optional content membership dictionary to which the content belongs. Because a group shall be an 
-Properties
-indirect object and a membership dictionary contains references to indirect objects, the property list 
-shall be a named resource listed in the  subdictionary of the current resource dictionary (see 
-14.6.2, "Property lists"), as shown in Example 1 and Example 2 in this subclause. 
-OC
-OCOC
-Although the marked-content tag shall be , other applications of marked content are not precluded 
-OCGs
-from using  as a tag. The marked content is optional content only if the tag is  and the dictionary 
-operand is a valid optional content group that is included in the  array of the optional content 
-properties dictionary (see "
+files" for more details. These values represent the following relationships: 
+shall be used if this file specification is the original source 
+Data
+ 
+material for the associated content. 
+shall be used if this file specification represents 
+information used to derive a visual presentation – such as 
+Alternative
+ 
+for a table or a graph. 
+shall be used if this file specification is an alternative 
+Supplement
+ 
+representation of content, for example audio. 
+shall be used if this file specification represents a 
+supplemental representation of the original source or data 
+that may be more easily consumable (e.g., A MathML 
+EncryptedPayload
+version of an equation). 
+ shall be used if this file specification is an encrypted 
+payload document that should be displayed to the user if 
+the PDF processor has the cryptographic filter needed to 
+FormData
+decrypt the document. 
+ shall be used if this file specification is the data associated 
+with the AcroForm (see 12.7.3, "Interactive form 
+Schema
+ 
+dictionary") of this PDF. 
+shall be used if this file specification is a schema definition 
+for the associated object (e.g. an XML schema associated 
+Unspecified
+ 
+with a metadata stream). 
+shall be used when the relationship is not known or cannot 
+NOTE 1 Unspecified is to be used only when no other value correctly reflects the 
+be described using one of the other values. 
+relationship. 
+Second-class names (see Annex E, "PDF Name Registry") should be used to 
+Unspecified
+represent other types of relationships. 
+NOTE 2 The value of  does not explicitly provide any processing 
+AFRelationship
+Default:  
+instructions for a PDF processor. It is provided for information and 
+semantic purposes for those processors that are able to use such 
+additional information. 
+(PDF 2.0; Required if this file specification references an encrypted payload 
+EP 
+")
+document as described in 7.6.7, "
+dictionary 
+Unencrypted wrapper document The value of 
+EF
+this key is an encrypted payload dictionary which identifies that the file specified 
+in the  dictionary is an encrypted payload. 
+ 
+7.11.4Embedded file streams 
+ 
+7.11.4.1General 
+ 
+If a PDF file contains file specifications that refer to an external file and the PDF file is archived or 
+transmitted, some provision should be made to ensure that the external references will remain valid. 
+PDF 1.3
+One way to do this is to arrange for copies of the external files to accompany the PDF file. Embedded file 
+streams () address this problem by allowing the contents of referenced files to be embedded 
+directly within the body of the PDF file. This makes the PDF file a self-contained unit that can be stored 
+or transmitted as a single entity. (The embedded files are included purely for convenience and need not 
+© ISO 2017 – All rights reserved 136 
+
+ISO/DIS 32000-2
+ 
+be directly processed by any PDF reader.) 
+NOTE 1 If the file contains OPI (Open Prepress Interface) dictionaries that refer to externally stored high-
+resolution images (see 14.11.7, "Open prepress interface (OPI)"), the image data can be 
+incorporated into the PDF file with embedded file streams. 
+An embedded file stream shall be included in a PDF document in one of the following ways: 
+EF
+• 
+Any file specification dictionary in the document may have an  entry that specifies an embedded 
+file stream. The stream data shall still be associated with a location in the file system. In particular, 
+this method shall be used for file attachment annotations (see 12.5.6.15, "File attachment 
+ 
+• 
+annotations"), which associate the embedded file with a location on a page in the document. 
+PDF 1.4
+EmbeddedFiles 
+Embedded file streams may be associated with the document as a whole through the
+entry () in the PDF document’s name dictionary (see 7.7.4, "Name 
+EF
+dictionary"). The associated name tree shall map name strings to file specifications that refer to 
+ Desc 
+embedded file streams through their  entries. 
+Beginning with PDF 1.6, theentry of the file specification dictionary (see "Table 43: Entries in a 
+file specification dictionary") should be used to provide a textual description of the embedded file, 
+which can be displayed in the user interface of an interactive PDF processor. Previously, it was 
+  
+necessary to identify document-level embedded files by the name string provided in the name 
+  
+dictionary associated with an embedded file stream in much the same way that theECMAScriptname 
+  
+tree associates name strings with document-levelECMAScriptactions (see 12.6.4.17, "ECMAScript 
+actions").JavaScriptis formally known as ISO/IEC 16262:2011 – ECMAScript – ECMA-262, and is 
+referred to as ECMAScript in this International Standard. For backwards compatibility reasons the term 
+JavaScript is retained in keywords. 
+LengthFilter
+The stream dictionary describing an embedded file shall contain the standard entries for any stream, 
+such as  and  (see "Table 5: Entries common to all stream dictionaries"), as well as the 
+additional entries shown in "

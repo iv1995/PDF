@@ -1,0 +1,66 @@
+Table 343: Entries in a RichMediaInstance dictionary".) 
+ 
+RichMediaConfiguration
+  
+Subtype 
+A  may be an aggregate of severalRichMediaInstancedictionaries with different 
+ 
+values for subtype. The  entry helps to describe the behavior for the collection of those
+RichMediaInstancedictionaries. 
+Subtype
+Setting the  suggests the author’s intended use of the assets, which better informs the choices 
+when presenting content-specific user interfaces during the authoring or editing process. 
+13.7.2.3.4RichMediaInstance dictionary 
+ 
+RichMediaInstance dictionary
+ Instances
+The, referenced by the  entry of the RichMediaConfiguration 
+dictionary ("Table 342: Entries in a RichMediaConfiguration dictionary"), describes a single instance of 
+an asset with settings to populate the artwork of an annotation, as described in "Table 343: Entries in a 
+RichMediaInstance dictionary". 
+Table 343: Entries in a RichMediaInstance dictionary 
+Key Type Value 
+(Optional; PDF 2.0)
+Type 
+RichMediaInstance
+name  The type of PDF object that this dictionary describes. If 
+present, it shall be . 
+(Required; PDF 2.0)
+Subtype 
+3DSoundVideo
+name  A name specifying the content type for the instance. 
+Valid values are , , and . The subtype shall match the asset file 
+type of the instance. 
+(Required; PDF 2.0)
+Asset 
+Assets
+dictionary  A dictionary that shall be an indirect object reference to a 
+file specification dictionary that is also referenced in the  name tree 
+specified in the RichMediaContent dictionary of the annotation. 
+ 
+EXAMPLE 1 RichMediaInstance dictionaries 
+15 0 obj            %RichMediaInstances array 
+ [16 0 R 
+  … more references to RichMediaInstance dictionaries … 
+ ] 
+endobj 
+ 
+16 0 obj            %RichMediaInstance dictionary 
+ <</Type /RichMediaInstance 
+  /Subtype /3D 
+  /Asset 30 0 R         %Reference to 3D filespec in Assets 
+ >> 
+© ISO 2017 – All rights reserved 685 
+
+ISO/DIS 32000-2
+ 
+endobj 
+ 
+13.7.2.3.5View dictionary 
+ 
+View dictionaries
+ specify a unique view of the artwork that may be used when the annotation is 
+3DV
+activated or selected. A View dictionary entry in a rich media annotation contains a superset of the 
+information present in a 3D view () dictionary as specified in "Table 315: Entries in a 3D view 
+dictionary". "

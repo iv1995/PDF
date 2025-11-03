@@ -1,14 +1,5 @@
-object 
-either an integer object or a real object 
-4.44 
- 
-object 
-basic data structure from which PDF files are constructed and includes these types: array, boolean, 
-dictionary, integer, name, null, real, stream and string 
-4.45 
- 
-object reference 
-object value used to allow one object to refer to another; that has the form "<n> <m> R" where <n> is an 
-indirect object number, <m> is its generation number and R is the uppercase letter R 
-4.46 
+FDF file 
+File conforming to the Forms Data Format containing form data or annotations that may be imported 
+into a PDF file (see 12.7.8, "Forms data format") 
+4.25 
  

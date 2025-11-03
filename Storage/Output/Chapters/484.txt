@@ -1,0 +1,50 @@
+Table 309: Additional entries specific to a 3D annotation" shows the entries specific to a 3D annotation 
+dictionary. "Table 166: Entries common to all annotation dictionaries" describes the entries common to 
+all annotation dictionaries. 
+ AP 
+N
+In addition to these entries, a 3D annotation shall provide an appearance stream in itsentry (see 
+"Table 166: Entries common to all annotation dictionaries") that has a normal appearance (the  entry 
+in "Table 170: Entries in an appearance dictionary"). This appearance may be used by applications that 
+do not support 3D annotations and by all applications for the initial display of the annotation. 
+Table 309: Additional entries specific to a 3D annotation 
+Key Type Value 
+Required3D
+Subtype 
+name () The type of annotation that this dictionary describes; shall be  
+for a 3D annotation. 
+© ISO 2017 – All rights reserved 621 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Required
+3DD 
+stream or () A 3D stream (see 13.6.3, "3D streams") or 3D reference dictionary 
+dictionary (see 13.6.3.3, "3D reference dictionaries") that specifies the 3D artwork to be 
+shown. 
+Optional
+3DV 
+(various) () An object that specifies the default initial view of the 3D artwork 
+that shall be used when the annotation is activated. It may be either a 3D 
+ VA 
+view dictionary (see 13.6.4, "3D views") or one of the following types 
+specifying an element in thearray in the 3D stream (see "Table 311: 
+ VA 
+• 
+Entries in a 3D stream dictionary"):  
+ IN  VA 
+• 
+An integer specifying an index into thearray. 
+FLD
+ 
+• 
+A text string matching theentry in one of the views in thearray. 
+VA 
+A name that indicates the first (), last (), or default () entries in the
+3DD
+array. 
+Default value: the default view in the 3D stream object specified by . 
+Optionalactivation dictionary
+3DA 
+dictionary () An  (see "

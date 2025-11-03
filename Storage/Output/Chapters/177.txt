@@ -1,83 +1,60 @@
-Table 178: Additional 
-entries specific to a line annotation" shows the annotation dictionary entries specific to this type of 
-annotation. 
-Table 178: Additional entries specific to a line annotation 
+Table 75: Entries in a Type 2 pattern dictionary" shows the contents of this type of 
+dictionary. 
+Table 75: Entries in a Type 2 pattern dictionary 
 Key Type Value 
-(Required) Line
-Subtype 
-name The type of annotation that this dictionary describes; shall be  
-for a line annotation. 
-© ISO 2017 – All rights reserved 472 
+Optional
+Type 
+Pattern
+name () The type of PDF object that this dictionary describes; if present, shall be 
+ for a pattern dictionary. 
+Required
+PatternType 
+integer () A code identifying the type of pattern that this dictionary describes; 
+shall be 2 for a shading pattern. 
+Required
+Shading 
+dictionary () A shading object (see below) defining the shading pattern’s gradient fill. 
+or stream The contents of the dictionary shall consist of the entries in "Table 77: Entries 
+common to all shading dictionaries" and those in one of Table 78 to Table 83. 
+Optional
+Matrix 
+array () An array of six numbers specifying the pattern matrix (see 8.7.2, 
+"General properties of patterns"). Default value: the identity matrix [1 0 0 1 0 0]. 
+Optional
+ExtGState 
+dictionary () A graphics state parameter dictionary (see 8.4.5, "Graphics state 
+parameter dictionaries") containing graphics state parameters to be put into effect 
+temporarily while the shading pattern is painted. Any parameters that are not so 
+specified shall be inherited from the graphics state that was in effect at the 
+beginning of the pattern’s parent content stream, and as modified by clause 11.6.7, 
+"Patterns and transparency". 
+ 
+shading object
+Shading
+gradient fill
+The most significant entry is , whose value shall be a  defining the properties of 
+the shading pattern’s . This is a complex "paint" that determines the type of colour transition 
+© ISO 2017 – All rights reserved 223 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-2
-(Required) xyxy
-L 
-112
-array An array of four numbers, [   ], specifying the starting and 
- LL 
-ending coordinates of the line in default user space. 
-If theentry is present, this value shall represent the endpoints of the 
-leader lines rather than the endpoints of the line itself; see "Figure 80: Leader 
-lines". 
-(Optional) 
-BS 
-dictionary A border style dictionary (see "Table 168: Entries in a border style 
-dictionary") specifying the width and dash pattern that shall be used in 
-drawing the line. 
-(Optional; PDF 1.4) 
-LE 
-array An array of two names specifying the line ending styles 
-that shall be used in drawing the line. The first and second elements of the 
-2
-yxy
-x
-array shall specify the line ending styles for the endpoints defined, 
-L
-112
-,  ) and (,  ), 
-respectively, by the first and second pairs of coordinates, (
-in the  array. "Table 179: Line ending styles" shows the possible values. 
-Default value: [/None /None]. 
-(Optional; PDF 1.4) 
-IC 
-interior colour 
-array An array of numbers in the range 0.0 to 1.0 specifying the 
-that shall be used to fill the annotation’s line endings (see 
-"Table 179: Line ending styles"). The number of array elements shall 
-determine the colour space in which the colour is defined: 
-DeviceGray
-0 No colour; transparent 
-DeviceRGB
-1  
-DeviceCMYK
+shading dictionary
+the shading pattern produces when painted across an area. A shading object shall be a dictionary or a 
+stream, depending on the type of shading; the term  is used generically throughout 
+this subclause to refer to either a dictionary object or the dictionary portion of a stream object. (Those 
+shading objects that are streams are specifically identified as such in the descriptions of particular 
+shading types; unless otherwise stated, they are understood to be simple dictionaries instead.) 
+fSTjDo
+By setting a shading pattern as the current colour in the graphics state, a PDF content stream may use it 
+with painting operators such as  (fill),  (stroke),  (show text), or  (paint external object) with an 
+image mask to paint a path, character glyph, or mask with a smooth colour transition. When a shading is 
+used in this way, the geometry of the gradient fill is independent of that of the object being painted. 
+8.7.4.2Shading operator 
  
-3   
-4  
-(Required ifis present, otherwise optional; PDF 1.6) leader 
-LL  LLE 
-lines 
-number The length of 
-in default user space that extend from each endpoint of the line 
-perpendicular to the line itself, as shown in "Figure 80: Leader lines". A 
-positive value shall mean that the leader lines appear in the direction that is 
-L
-clockwise when traversing the line from its starting point to its ending point 
- 
-(as specified by ); a negative value shall indicate the opposite direction. 
-Default value: 0 (no leader lines).
-(Optional; PDF 1.6) 
-LLE 
-leader line extensions 
-number A non-negative number that shall represents the length of 
-that extend from the line proper 180 degrees from the 
- 
-leader lines, as shown in "Figure 80: Leader lines". 
-Default value: 0 (no leader line extensions).
-(Optional; PDF 1.6) true
-Cap ContentsRC
-boolean If , the text specified by the  or  entries 
-shall be replicated as a caption in the appearance of the line, as shown in 
-"
+sh sh
+When the area to be painted is a relatively simple shape whose geometry is the same as that of the 
+gradient fill itself, the  operator may be used instead of the usual painting operators. accepts a 
+shading dictionary as an operand and applies the corresponding gradient fill directly to current user 
+sh
+space. This operator does not require the creation of a pattern dictionary or a path and works without 
+reference to the current colour in the graphics state. "

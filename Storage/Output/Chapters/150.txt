@@ -1,248 +1,64 @@
-Figure 73: CMYK blend modes" illustrate the resulting visual effects for  
-and  colours, respectively. ![Figure 72 RGB blend modes  .jpg](./Storage/Output/Images/Figure 72 RGB blend modes  .jpg)
-Figure 72: RGB blend modes 
+Figure 21: Colour rendering 
  
-© ISO 2017 – All rights reserved 383 
-
-ISO/DIS 32000-2
- ![Figure 73 CMYK blend modes  .jpg](./Storage/Output/Images/Figure 73 CMYK blend modes  .jpg)
-Figure 73: CMYK blend modes 
- 
-11.3.5.2Separable blend modes 
- 
-separable
-A blend mode is termed  if each component of the result colour is completely determined by 
-the corresponding components of the constituent backdrop and source colours — that is, if the blend 
-mode function B is applied separately to each set of corresponding components: 
- 
-𝑟𝑟𝑏𝑏𝑓𝑓
-)
-(
-𝑐𝑐=𝐵𝐵𝑐𝑐,𝑐𝑐
- 
-𝑟𝑟𝑏𝑏𝑓𝑓𝑟𝑟𝑏𝑏
-where the lowercase variables 𝑐𝑐
-, 𝑐𝑐, and 𝑐𝑐 denote corresponding components of the colours 𝐶𝐶, 𝐶𝐶, 
-𝑓𝑓
-and 𝐶𝐶
-, expressed in additive form. A separable blend mode may be used with any colour space, since it 
-applies independently to any number of components. Only white-preserving separable blend modes 
-© ISO 2017 – All rights reserved 384 
-
-ISO/DIS 32000-2
- 
-shall be used for blending spot colours as discussed in 11.7.3, "Spot colours and transparency". 
-NOTE Theoretically, a blend mode could have a different function for each colour component and still be 
-separable; however, none of the standard PDF blend modes have this property. 
-"Table 134: Standard separable blend modes" lists the standard separable blend modes available in PDF 
-and the algorithms/formulas that shall be used in the calculation of blended colours. 
-Table 134: Standard separable blend modes 
-Name Result 
-Normal 
-𝑏𝑏𝑓𝑓𝑓𝑓
-NOTE 1 Selects the source colour, ignoring the backdrop. 
-()
-𝐵𝐵𝑐𝑐,𝑐𝑐=𝑐𝑐 
-Compatible Normal
-(Deprecated) Same as . This mode was introduced in an earlier PDF version 
-and shall not be used by PDF writers. 
-Multiply  
-𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
-NOTE 2 Multiplies the backdrop and source colour values. 
-()
-𝐵𝐵𝑐𝑐,𝑐𝑐=𝑐𝑐×𝑐𝑐
-NOTE 3 The result colour is always at least as dark as either of the two constituent 
-colours. When working with additive colours, multiplying any colour with 
-black produces black while multiplying with white leaves the original colour 
-unchanged. For subtractive colours, the maximum tint value used for all 
-colourants of the colour space acts as black does for additive spaces. Painting 
-successive overlapping objects with a colour other than black or white 
-produces progressively darker colours. 
-Screen 
-𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
-NOTE 4 Multiplies the complements of the backdrop and source colour values, then 
-()()()()
-𝐵𝐵𝑐𝑐,𝑐𝑐=1−�1−𝑐𝑐×1−𝑐𝑐�=𝑐𝑐+𝑐𝑐−𝑐𝑐×𝑐𝑐 
-complements the result. 
-NOTE 5 The result colour is always at least as light as either of the two constituent 
-colours. When working with additive colours, screening any colour with white 
-produces white while screening with black leaves the original colour 
-unchanged. For subtractive colours, the maximum tint value of all colourants 
-of the color space acts as black does for additive spaces. The effect is similar to 
-projecting multiple photographic slides simultaneously onto a single screen. 
-Darken 
-𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
-NOTE 6 Selects the darker of the backdrop and source colours. 
-()()
-𝐵𝐵𝑐𝑐,𝑐𝑐=𝑚𝑚𝐷𝐷𝑛𝑛𝑐𝑐,𝑐𝑐 
-NOTE 7 The backdrop is replaced with the source where the source is darker; 
-otherwise, it is left unchanged. 
-Lighten 
-𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
-NOTE 8 Selects the lighter of the backdrop and source colours. 
-()()
-𝐵𝐵𝑐𝑐,𝑐𝑐=𝑚𝑚𝐷𝐷𝑥𝑥𝑐𝑐,𝑐𝑐 
-NOTE 9 The backdrop is replaced with the source where the source is lighter; 
-otherwise, it is left unchanged. 
-© ISO 2017 – All rights reserved 385 
-
-ISO/DIS 32000-2
- 
-Name Result 
-ColorDodge 
-𝑏𝑏
-0if 𝑐𝑐=0
-𝑏𝑏𝑓𝑓
-𝑏𝑏𝑓𝑓
-()1if 𝑐𝑐≥1−𝑐𝑐
-𝐵𝐵𝑐𝑐,𝑐𝑐=� 
-𝑏𝑏𝑓𝑓
-NOTE 10Brightens the backdrop colour to reflect the source colour. Painting with black 
-𝑐𝑐/(1−𝑐𝑐)  otherwise
-produces no change. 
-NOTE 11This function is formulated in a different way here than it is in ISO 32000-
-1:2008. However, it produces the same results except in one special edge case. 
- = 0 and  = 1, where the result is now 0 
-For , the special case is 
-ColorDodge
-bs
-, the result 
-instead of 1. The rationale for the change is that for any given 
-b
-c
-c
-. 
-should be a continuous function of 
-s
-c
-c
-ColorBurn 
-𝑏𝑏
-1if 𝑐𝑐=1
-𝑏𝑏𝑓𝑓
-𝑏𝑏𝑓𝑓
-()0if 1−𝑐𝑐≥𝑐𝑐
-𝐵𝐵𝑐𝑐,𝑐𝑐=� 
-𝑏𝑏𝑓𝑓
-NOTE 12Darkens the backdrop colour to reflect the source colour. Painting with white 
-1−((1−𝑐𝑐)/𝑐𝑐)  otherwise
-produces no change. 
-NOTE 13This function is formulated in a different way here than it is in ISO 32000-
-1:2008. However, it produces the same results except in one special edge case. 
- = 1 and  = 0, where the result is now 1 
-For , the special case is 
-ColorBurn
-bs
-, the result 
-instead of 0. The rationale for the change is that for any given 
-b
-c
-c
-. 
-should be a continuous function of 
-s
-c
-c
-HardLight 
-𝑏𝑏𝑓𝑓𝑓𝑓
-()
-Multiply𝑐𝑐,2×𝑐𝑐if 𝑐𝑐≤0.5
-𝑏𝑏𝑓𝑓
-()
-𝐵𝐵𝑐𝑐,𝑐𝑐=� 
-𝑏𝑏𝑓𝑓𝑓𝑓
-NOTE 14Multiplies or screens the colours, depending on the source colour value. The 
-()
-Screen𝑐𝑐,2×𝑐𝑐−1  if 𝑐𝑐>0.5
-effect is similar to shining a harsh spotlight on the backdrop. 
-SoftLight 
- 
-𝑏𝑏𝑓𝑓𝑏𝑏𝑏𝑏𝑓𝑓
-()()
-𝑐𝑐−1−2×𝑐𝑐×𝑐𝑐×1−𝑐𝑐  if 𝑐𝑐≤0.5
-𝑏𝑏𝑓𝑓
-()
-𝐵𝐵𝑐𝑐,𝑐𝑐=�
-𝑏𝑏𝑓𝑓𝑏𝑏𝑏𝑏𝑓𝑓
-))
-()((
-−𝑐𝑐  if 𝑐𝑐
-𝑐𝑐+2×𝑐𝑐−1×𝐷𝐷𝑐𝑐>0.5
- 
-()
-�16×𝑥𝑥−12×𝑥𝑥+4�×𝑥𝑥  if 𝑥𝑥≤ 0.25
-()
-𝐷𝐷𝑥𝑥=�
-NOTE 15Darkens or lightens the colours, depending on the source colour value. The 
-  if 𝑥𝑥> 0.25
-𝑥𝑥
-√
-effect is similar to shining a diffused spotlight on the backdrop. 
-Overlay 
-𝑏𝑏𝑓𝑓𝑓𝑓𝑏𝑏
-NOTE 16Multiplies or screens the colours, depending on the backdrop colour value. 
-()()
-𝐵𝐵𝑐𝑐,𝑐𝑐=HardLight𝑐𝑐,𝑐𝑐 
-Source colours overlay the backdrop while preserving its highlights and 
-shadows. The backdrop colour is not replaced but is mixed with the source 
-colour to reflect the lightness or darkness of the backdrop. 
- 
-Difference 
-𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
-NOTE 17Subtracts the darker of the two constituent colours from the lighter colour: 
-()||
-𝐵𝐵𝑐𝑐,𝑐𝑐=𝑐𝑐−𝑐𝑐
- Painting with white inverts the backdrop colour; painting with black produces 
-no change. For subtractive colours, the maximum tint value for all colourants 
-of the colour space acts as black does for additive spaces. 
-NOTE 18This blend mode is not white-preserving. 
-© ISO 2017 – All rights reserved 386 
-
-ISO/DIS 32000-2
- 
-Name Result 
- 
-Exclusion 
-𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
-NOTE 19Produces an effect similar to that of the Difference mode but lower in contrast. 
-()
-𝐵𝐵𝑐𝑐,𝑐𝑐=𝑐𝑐+𝑐𝑐−2×𝑐𝑐×𝑐𝑐
-Painting with white inverts the backdrop colour; painting with black produces 
-no change.  
- For subtractive colours, the maximum tint value for all colourants of the 
-colour space acts as black does for additive spaces. 
-NOTE 20This blend mode is not white-preserving. 
- 
-11.3.5.3Non-separable blend modes 
- 
-"Table 135: Standard non-separable blend modes" lists the standard non-separable blend modes. Since 
-the non-separable blend modes consider all colour components in combination, their computation 
-depends on the blending colour space in which the components are interpreted. They may be applied to 
-all colour spaces that are allowed as blending colour spaces (see 11.3.4, "Blending colour space"). 
-All of the non-separable blend modes conceptually entail the following steps: 
+  
+A colour space shall be defined by anarray objectwhose first element is a name object identifying the 
+colour space family. The remaining array elements, if any, are parameters that further characterise the 
+colour space; their number and types vary according to the particular family. For families that do not 
+require parameters, the colour space may be specified simply by the family name itself instead of an 
+array. 
+A colour space shall be specified in one of two ways: 
+CScs
 • 
-Convert the backdrop and source colours from the blending colour space to an intermediate HSL 
-• 
-(hue-saturation-luminosity) representation. 
-Create a new colour from some combination of hue, saturation, and luminosity components 
-• 
-selected from the backdrop and source colours. 
-Convert the result back to the (blending) colour space. 
-However, the following formulas do not actually perform these conversions. Instead, they start with 
-whichever colour (backdrop or source) is providing the hue for the result; then they adjust this colour 
-to have the proper saturation and luminosity. 
-The non-separable blend mode formulas make use of several auxiliary functions. These functions 
-DeviceGrayCalGrayICCBased
-operate on colours that are assumed to have red, green, and blue components. Blending in gray colour 
-CMYK
-spaces (,  and  gray) shall be done by conversion to RGB, blending in RGB, 
-DeviceRGB
-and then converting back to gray. Blending of  colour spaces requires special treatment, and is 
-CalRGBICCBased
-described later in this sub-clause. The following formulas apply to RGB spaces (including , 
- and  'RGB '): 
-These functions shall have the following definitions: 
+Within a content stream, the  or  operator establishes the current colour space parameter in 
+DeviceGrayDeviceRGBDeviceCMYK
+the graphics state. The operand shall always be name object, which either identifies one of the 
+Pattern ColorSpace 
+colour spaces that need no additional parameters (, , , or 
+some cases of ) or shall be used as a key in thesubdictionary of the current 
+© ISO 2017 – All rights reserved 177 
+
+ISO/DIS 32000-2
  
-red greenblue
-()
- LumC = 0.3 × C + 0.59 × C + 0.11 × C 
+resource dictionary (see 7.8.3, "Resource dictionaries"). In the latter case, the value of the 
+dictionary entry in turn shall be a colour space array or name. A colour space array shall never be 
+• 
+inline within a content stream. 
+ColorSpace
+Outside a content stream, certain objects, such as image XObjects, shall specify a colour space as an 
+ ColorSpace 
+explicit parameter, often associated with the key . In this case, the colour space array 
+or name shall always be defined directly as a PDF object, not by an entry in the
+resource subdictionary. This convention also applies when colour spaces are defined in terms of 
+other colour spaces. 
+The following operators shall set the current colour space and current colour parameters in the 
+graphics state: 
+CScs
+• 
+SCSCNscscn
+• 
+ shall set the stroking colour space;  shall set the nonstroking colour space. 
+ and  shall set the stroking colour;  and  shall set the nonstroking colour. Depending on 
+the colour space, these operators shall have one or more operands, each specifying one component 
+, 
+GRGK
+• 
+of the colour value. 
+, 
+grgk
+, and  shall set the stroking colour space implicitly and the stroking colour as specified by 
+8.6.4Device colour spaces 
+ 
+the operands; , and  do the same for the nonstroking colour space and colour. 
+8.6.4.1General 
+ 
+The device colour spaces enable a page description to specify colour values that are directly related to 
+their representation on an output device. Colour values in these spaces map directly (or by simple 
+conversions) to the application of device colourants, such as quantities of ink or intensities of display 
+phosphors. This enables a PDF writer to control colours precisely for a particular device, but the results 
+might not be consistent from one device to another. 
+Output devices form colours either by adding light sources together or by subtracting light from an 
+illuminating source. Computer displays and film recorders typically add colours; printing inks typically 
+additivesubtractive
+subtract them. These two ways of forming colours give rise to two complementary methods of colour 
+RGBCMYK
+specification, called  and  colour (see "

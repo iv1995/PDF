@@ -1,205 +1,117 @@
-Figure 113: Defining a radial dimension for an arc" for a 
-visual representation of . 
-Required for arcs only; PDF 2.0
-A4 
-array () A three-element array of numbers that defines the 
-end of the arc being measured. This entry is required if the geometry being measured 
-A4
-is an arc. See "Figure 113: Defining a radial dimension for an arc" for a visual 
-representation of . 
-Required; PDF 2.0
-TP 
-array () A three-element array of numbers specifying the text anchor 
-point for the measurement value string. 
-© ISO 2017 – All rights reserved 671 
+Table 124: Embedded font organization for various font types" summarises the ways in which font 
+programs shall be embedded in a PDF file, depending on the representation of the font program. The 
+Subtype
+key shall be the name used in the font descriptor to refer to the font file stream; the subtype shall be the 
+value of the  key, if present, in the font file stream dictionary. Further details of specific font 
+program representations are given below. 
+© ISO 2017 – All rights reserved 344 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Required; PDF 2.0
-TX 
-array () A three-element array of numbers specifying the horizontal 
-direction vector for the text string presenting the measurement value string. 
-Required; PDF 2.0
-TY 
-array () A three-element array of numbers specifying the up direction 
-vector for the text string presenting the measurement value string. 
-Optional; PDF 2.0
-EL 
-number () The length of the extension line in points. The default is 60 points. 
-Optional; PDF 2.0
-TS 
-number () A number representing the measurement text string height 
-defined in points in the default user space. The measurement text shall be zoom 
+Table 124: Embedded font organization for various font types 
+Key Subtype Description 
+Adobe Type 
+FontFile 
+1 Font Format
+Type1
+— Type 1 font program, in the original (noncompact) format described in 
+MMType1
+. This entry may appear in the font descriptor for a  or 
+Adobe Type 
+ font dictionary. 
+1 Font Format
  
-invariant. 
-The default is 12 points.
-Optional; PDF 2.0
-C  
-DeviceRGB 
-array () An array of three numbers in the range 0.0 to 1.0, representing the
+The font program provided as the value of this key shall conform to the 
+.
+PDF 1.1TrueType Reference Manual
+FontFile2 
+TrueType
+— () TrueType font program, as described in the . 
+PDF 1.3
+CIDFontType2
+This entry may appear in the font descriptor for a  font dictionary or 
+TrueType 
+() for a  CIDFont dictionary. 
+Reference Manual
+The font program provided as the value of this key shall conform to the 
+. The font program shall include these tables: "glyf", "head", 
+"hhea", "hmtx", "loca", and "maxp". The "cvt " (notice the trailing SPACE), "fpgm", 
  
-colour of the measurement markup. 
-The default value is the array [1 1 1], representing the colour white.
-Required; PDF 2.0
-V 
-number () A numeric value representing a measurement value. This value is 
-converted to a text string and displayed as part of the measurement text string. 
-Required; PDF 2.0
-U 
-text string () A string representing the units for the measurement. 
-Optional; PDF 2.0
-P 
-V
-integer () The number of decimal digits, which represents the precision, 
-P
- 
-shown for the measurement value (). 
-The default to 3, if  is not specified.
-Optional; PDF 2.0
-UT 
-text string () A string defined by the user that is appended to the end of 
-measurement value string. If omitted, no string is appended. 
-Optional; PDF 2.0
-SC 
-true
-boolean () A flag that indicates whether the underlying circle, or arc, is 
-C
-shown or not. If , the underlying circle associated with a radial dimension is 
-false
- 
-displayed. The circle or arc shall be redrawn in the markup colour (). 
-The default is , not to show the circle.
-Optional; PDF 2.0
-R 
-true
-boolean () A flag that indicates whether the measurement value is for a 
-radius or a diameter. If , the measurement value associated with a radial 
-true
- 
-measurement represents a radius, as opposed to a diameter value. 
-The default is , the measurement value represents a radius.
-Optional; PDF 2.0
-S 
-dictionary () A comment reference is an indirect reference to a projection 
-annotation that may be associated with this 3D measurement. See 13.6.7.4, "3D 
-measurements and projection annotations". 
- 
-The parameters for defining the radial measurement for a circle are shown in "Figure 112: Defining the 
-radial measurement for a circle". 
-© ISO 2017 – All rights reserved 672 
-
-ISO/DIS 32000-2
- ![Figure 112 Defining the radial measurement for a circle  .png](./Storage/Output/Images/Figure 112 Defining the radial measurement for a circle  .png)
-Figure 112: Defining the radial measurement for a circle 
- 
-A1
-A2TP
-The circle being measured is defined by two points lying on the annotation plane, a circle centre , and 
-TP
-a point on the circle . For radial measurement, the text position () controls the text string position, 
-the arrow line orientation, and the extension line. The arrow line is drawn from the text position () to 
-TPTX
-the intersection point between the circle and a line from text position to the circle centre. The extension 
- EL 
-line will be drawn from the text position () in the direction of the text string's X-axis (). The length 
- TX 
-of the extension line is defined by theparameter. The left centre of measure value string will begin at 
-the end of the extension line. Note that the vectoris expected to be orthogonal with the annotation 
- TY 
-plane normal. The text's up direction is defined as the cross product of the annotation plane normal and 
-the text X-axis, in the direction defined by theparameter. 
-The parameters for defining a radial dimension for an arc are very similar, as shown in "Figure 113: 
-Defining a radial dimension for an arc". ![Figure 113 Defining a radial dimension for an arc  .png](./Storage/Output/Images/Figure 113 Defining a radial dimension for an arc  .png)
-Figure 113: Defining a radial dimension for an arc 
- 
-V
-UUT
-There are three parts to the text string displayed with the measurement: a numeric value (), a units 
-P
-string (), and an optional user string (). The display of the numeric value field number is also 
-controlled by the precision value (), which indicates how many digits to display to the right of the 
-decimal point. The viewer should convert the numeric value to a string and combine it with the units 
-string and user text as appropriate. This process is viewer dependent. 
-13.6.7.3.53D comment note 
- 
-3D comment notes let users connect a comment to a specific piece of geometry in the 3D model. The 
-markup consists of a leader line that connects the model to a text box placed in the 3D scene. The text 
-box is rendered so that the text is always facing the user. 
-Commenting functionality is specified by creating a projection annotation that represents the 3D 
-© ISO 2017 – All rights reserved 673 
-
-ISO/DIS 32000-2
- 
-measurement/ markup within the commenting system. See 13.6.7.4, "3D measurements and projection 
-annotations" for additional details. 
-In addition to the entries in "Table 326: Entries in a 3D measurement/markup dictionary common to all 
-Subtype3DC
-markup subtypes", "Table 331: Additional entries in a 3D measurement/markup dictionary for a 3D 
-comment note" lists entries defined for a 3D measurement dictionary with a  value of  for 
-3D comment notes. 
-Table 331: Additional entries in a 3D measurement/markup dictionary for a 3D comment note 
-Key Type Value 
-Required; PDF 2.0
-A1 
-array () A three-element array of numbers specifying the model space position of the first 
-NOTE It is assumed that this is a position on the 3D model associated with this view. 
-anchor point in world space. 
-Optional; PDF 2.0
-N1 A1
-text string () The name of the part (or model tree node) associated with anchor point 1 (). The 
-part name is used to verify that the part exists and is visible. If not, the measurement is not displayed. If 
-omitted, no validation occurs. 
-Required; PDF 2.0
-TP 
-array () A three-element array of numbers specifying the text anchor point for the 
-measurement value string. 
-Optional; PDF 2.0xy
-TB 
-xx
-UT
-array () A two-element integer array defining the  and  size of the text box to contain the 
-y
-user text string (). The  value is defined as a number of characters shown in the  direction (the top 
-row); the  value is the number of rows of text. The interactive PDF processor is free to flow the text in 
-the text box as appropriate. If the entire string does not fit, it may be truncated. The interactive PDF 
-processor may also choose any font in which to render the content, though a monospaced font is 
-recommended. 
-Optional; PDF 2.0
-TS 
-number () The text size – a number representing the measurement text string height defined in 
- 
-points in the default user space. The measurement text shall be zoom invariant. 
-The default is 12 points.
-Optional; PDF 2.0
-C  DeviceRGB 
-array () An array of three numbers in the range 0.0 to 1.0, representing the
- 
-colour of the measurement markup. 
-The default value is the array [1 1 1], representing the colour white.
-Optional; PDF 2.0
-UT 
-text string () The text string displayed as the contents of the 3D comment note. 
-Optional; PDF 2.0
-S 
-dictionary () A comment reference is an indirect reference to a projection annotation that may be 
-associated with this 3D measurement. See "Table 341: Entries in a RichMediaContent dictionary". 
- 
-A1 TP 
-A1
-The first anchor point () defines the connection to the model. The model space text positionfield 
-defines placement of the corner of the text box that lies closest to anchor point 1 () in the current 
-view. The user string field contains the text to be fitted into the text box. 
-13.6.7.43D measurements and projection annotations 
- 
-Associations between a 3D measurement and a projection annotation are created by defining an 
-indirect reference to a dictionary in both the projection annotation and the 3D measurement. 
+and "prep" tables shall also be included if they are required by the font 
+instructions.
+PDF 1.2
+FontFile3   
+Adobe Technical Note #5176The Compact Font 
+Type1C () Type 1–equivalent font program represented in the CompactFont
+Format Specification
+Type1
+Format (CFF), as described in , 
+MMType1
+. This entry may appear in the font descriptor for a  or 
+Adobe 
+ font dictionary. 
+Technical Note #5176
+The font program provided as the value of this key shall conform to 
+. 
+PDF 1.3
+FontFile3   
+Adobe Technical Note #5176The Compact Font Format 
+CIDFontType0C () Type 0 CIDFont program represented in the CompactFontFormat (CFF), 
+Specification
+CIDFontType0
+as described in , 
+. This entry may appear in the font descriptor for a  
+Adobe 
+CIDFont dictionary. 
+Technical Note #5176
+The font program provided as the value of this key shall conform to 
+. 
+PDF 1.6ISO/IEC 14496-22
+FontFile3 
+OpenType () OpenType font program, as described in . OpenType is 
+  
+an extension of TrueType that allows inclusion of font programs that use the 
+TrueTypeCIDFontType2
 • 
- ExData 
-Projection annotation: When the projection annotation (see 12.5.6.24, "Projection annotations") is 
-created, theentry (an external data dictionary) is defined and used to manage the 
-© ISO 2017 – All rights reserved 674 
+CompactFontFormat (CFF). 
+A  font dictionary or a  CIDFont dictionary, if the 
+embedded font program contains a "glyf" table. In addition to the "glyf" 
+table, the font program shall include these tables: "head", "hhea", "hmtx", 
+"loca", and "maxp". The "cvt " (notice the trailing SPACE), "fpgm", and "prep" 
+CIDFontType0
+• 
+tables shall also be included if they are required by the font instructions. 
+A  CIDFont dictionary, if the embedded font program 
+CIDFontType0C
+contains a "CFF " table (notice the trailing SPACE) with a Top DICT that uses 
+CIDFont operators (this is equivalent to subtype ). In 
+Type1CIDFontType0
+• 
+addition to the "CFF " table, the font program shall include the "cmap" table. 
+A  font dictionary or  CIDFont dictionary, if the 
+embedded font program contains a "CFF " table without CIDFont operators. 
+In addition to the "CFF " table, the font program shall include the "cmap" 
+ FontFile3 OpenType
+table. 
+Aentry with an  subtype may appear in the font descriptor 
+ISO/IEC 14496-22
+for these types of font dictionaries. 
+ describes a set of required tables; however, not all tables are 
+required in the font file, as described for each type of font dictionary that can 
+ISO/IEC 
+include this entry. 
+14496-22
+The font program provided as the value of this key shall conform to 
+NOTE The absence of some optional tables (such as those used for advanced line 
+. 
+layout) can prevent editing of text containing the font. 
+ 
+© ISO 2017 – All rights reserved 345 
 
 ISO/DIS 32000-2
  
-association between the 3D measurement and the comment. "
+Length
+Filter
+The stream dictionary for a font file shall contain the normal entries for a stream, such as  and 
+ (listed in "Table 5: Entries common to all stream dictionaries"), plus the additional entries listed 
+in "

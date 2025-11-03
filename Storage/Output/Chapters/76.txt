@@ -1,47 +1,46 @@
-Figure 18: Non-zero winding number rule". For a path consisting of a five-pointed 
-star, drawn with five connected straight line segments intersecting each other, the rule considers the 
-inside to be the entire area enclosed by the star, including the pentagon in the centre. For a path 
-composed of two concentric circles, the areas enclosed by both circles are considered to be inside, 
-provided that both are drawn in the same direction. If the circles are drawn in opposite directions, only 
-the doughnut shape between them is inside, according to the rule; the doughnut hole is outside. ![Figure 18 Non-zero winding number rule  .png](./Storage/Output/Images/Figure 18 Non-zero winding number rule  .png)
-Figure 18: Non-zero winding number rule 
- 
- 
-8.5.3.3.3Even-odd rule 
- 
-even-odd rule
-An alternative to the non-zero winding number rule is the . This rule determines whether 
-a point is inside a path by drawing a ray from that point in any direction and simply counting the 
-number of path segments that cross the ray, regardless of direction. If this number is odd, the point is 
-inside; if even, the point is outside. This yields the same results as the non-zero winding number rule for 
-paths with simple shapes, but produces different results for more complex shapes. 
-"Figure 19: Even-odd rule" shows the effects of applying the even-odd rule to complex paths. For the 
-© ISO 2017 – All rights reserved 172 
+Table 7: Typical LZW encoding 
+sequence". 
+© ISO 2017 – All rights reserved 44 
 
 ISO/DIS 32000-2
  
-five-pointed star, the rule considers the triangular points to be inside the path, but not the pentagon in 
-the centre. For the two concentric circles, only the doughnut shape between the two circles is 
-considered inside, regardless of the directions in which the circles are drawn. ![Figure 19 Even-odd rule  .png](./Storage/Output/Images/Figure 19 Even-odd rule  .png)
-Figure 19: Even-odd rule 
+Table 7: Typical LZW encoding sequence 
+Input Output code Code added Sequence 
+sequence to table represented by 
+new code 
+– 256 (clear-table) – – 
+45 45 258 45 45 
+45 45 258 259 45 45 45 
+45 45 258 260 45 45 65 
+65 65 261 65 45 
+45 45 45 259 262 45 45 45 66 
+66 66 – – 
+– 257 (EOD) – – 
  
-8.5.4Clipping path operators 
+Codes shall be packed into a continuous bit stream, high-order bit first. This stream shall then be 
+divided into bytes, high-order bit first. Thus, codes may straddle byte boundaries arbitrarily. After the 
+EOD marker (code value 257), any leftover bits in the final byte shall be set to 0. 
+In the example above, all the output codes are 9 bits long; they would pack into bytes as follows 
+(represented in hexadecimal): 
+EXAMPLE 2 
+80 0B 60 50 22 0C 0C 85 01 
  
-current clipping path
-The graphics state shall contain a  that limits the regions of the page affected by 
-painting operators. The closed subpaths of this path shall define the area that can be painted. Marks 
-falling inside this area shall be applied to the page; those falling outside it shall not be. Subclause 8.5.3.3, 
-f
-"Filling" defines what is inside a path as well as stating rules for closing paths and for degenerate paths. 
-For a given path definition, the same area that would be filled by the  operator is the area that would be 
-used for a clip. 
-PDF 1.4
-In the context of the transparent imaging model (), the current clipping path constrains an 
-object’s shape (see 11.2, "Overview of transparency"). The effective shape is the intersection of the 
-object’s intrinsic shape with the clipping path; the source shape value shall be 0.0 outside this 
-intersection. Similarly, the shape of a transparency group (defined as the union of the shapes of its 
-constituent objects) shall be influenced both by the clipping path in effect when each of the objects is 
-painted and by the one in effect at the time the group’s results are painted onto its backdrop. 
-WW*
-The initial clipping path shall include the entire page. A clipping path operator ( or , shown in 
+To adapt to changing input sequences, the encoder may at any point issue a clear-table code, which 
+causes both the encoder and the decoder to restart with initial tables and a 9-bit code length. The 
+encoder shall begin by issuing a clear-table code. It shall issue a clear-table code when the table 
+becomes full; it may do so sooner. 
+7.4.4.3LZWDecode and FlateDecode parameters 
+ 
+ LZWDecode  FlateDecode 
+Theandfilters shall accept optional parameters to control the decoding 
+process. 
+NOTE Most of these parameters are related to techniques that reduce the size of compressed sampled 
+images (rectangular arrays of colour values, described in 8.9, "Images"). For example, image data 
+typically changes very little from sample to sample. Therefore, subtracting the values of adjacent 
+samples (a process called differencing), and encoding the differences rather than the raw sample 
+values, can reduce the size of the output data. Furthermore, when the image data contains several 
+colour components (red-green-blue or cyan-magenta-yellow-black) per sample, taking the 
+difference between the values of corresponding components in adjacent samples, rather than 
+between different colour components in the same sample, often reduces the output data size. 
+ LZWDecode  FlateDecode 
 "

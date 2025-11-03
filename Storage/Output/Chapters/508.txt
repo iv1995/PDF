@@ -1,0 +1,159 @@
+Table 323: Entries in a 3D node dictionary" shows the entries in a 3D node dictionary. 
+Table 323: Entries in a 3D node dictionary 
+Key Type Value 
+Optional
+Type 
+3DNode
+name () The type of PDF object that this dictionary describes; if present, shall be 
+ for a 3D node dictionary. 
+Required
+N 
+Subtype
+text string () The name of the node being described by the node dictionary. Interpretation 
+of this entry shall depend upon the 3D format specified in the  entry in "Table 
+U3DU3D
+Subtype
+311: Entries in a 3D stream dictionary" as described below:  
+ If the  of the corresponding 3D Stream is , this entry 
+shall correspond to the field Node block name, specified in the 
+PRCPDF 2.0PRC
+Subtype
+Universal 3D file format. 
+ () If the  of the corresponding 3D Stream is , this 
+entry shall be constructed from fields stored in the PRC stream. 
+When comparing this entry to node names for a particular 
+convention (such as Universal 3D), interactive PDF processors shall 
+translate between the PDF text encoding used by PDF and the 
+NOTE For information on deriving names from PRC fields, see the documentation 
+character encoding specified in the 3D stream. 
+module "Naming PRC entities for outside PDF referencing" in the PRC Format.
+ 
+Optional
+O 
+number () A number in the range [0, 1] indicating the opacity of the geometry supplied 
+by this node using a standard additive blend mode. 
+ 
+If this entry is absent, the viewer shall use the opacity specified for the parent node or 
+for the 3D artwork (in ascending order).
+Optionaltrue
+V 
+false
+boolean () A flag indicating the visibility of this node. If , then the node is visible. If 
+, then the node shall not be visible. 
+ 
+If this entry is absent, the viewer shall use the visibility specified for the parent node or 
+for the 3D artwork (in ascending order).
+Optional
+M 
+array () A 12-element 3D transformation matrix that specifies the position and 
+orientation of this node, relative to its parent, in world coordinates (see 13.6.5, 
+"Coordinate systems for 3D"). 
+Required if data is present; PDF 2.0
+Instance  
+RichMediaInstance 
+dictionary () An indirect object reference to a
+dictionary (see "Table 343: Entries in a RichMediaInstance 
+dictionary") that is also referenced by an entry in the Instances array. 
+Optional; PDF 2.0
+Data 
+text string () A text string or stream that contains state data to be passed to the 
+Data
+or stream instance when the view is triggered. 
+ 
+See the extended description of the  key in "Table 345: Entries in a View Params 
+dictionary".
+© ISO 2017 – All rights reserved 651 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional; PDF 2.0
+RM 
+dictionary () A render mode dictionary that shall specify the render mode and 
+related properties for this node. If omitted, the render mode specified in the 3D view is 
+used, and if that is not present, the render mode of the 3D artwork is used. 
+The render mode dictionary shall be identical to that used by the 3D view dictionary. 
+See "Table 318: Entries in a render mode dictionary". 
+ 
+N
+The  entry specifies which node in the 3D stream corresponds to this node dictionary. 
+OV
+The  entry describes the opacity that shall be used when rendering this node, and the  entry shall 
+determine whether or not the node is rendered at all. While a node with an opacity of 0 shall be 
+rendered in the same way as a non-visible node, having a separate value for the visibility of a node 
+allows interactive PDF processors to show/hide partially transparent nodes, without overwriting the 
+intended opacity of those nodes. 
+M
+The  entry specifies the node’s matrix relative to its parent, in world coordinates. If an hierarchy of 
+ 
+nodes is intended to be repositioned while still maintaining its internal structure, then only the node at 
+the root of the hierarchy needs to be adjusted.
+InstanceDataInstances
+Data
+The  and  entries provide a reference to an instance array dictionary within the  
+array. The content of  shall be passed to and from the appropriate media run time engine by the 
+interactive PDF processor in a rich media context. 
+RM
+The  provides the facility of specifying a change in render mode for each node. In PDF 1.7, render 
+mode could be specified globally or per view. See 13.6.4, "3D views". 
+RM
+The  entry to the 3D node dictionary is applicable both for the 3D node structure within a rich media 
+InstancesData
+context (see 13.7.2, "RichMedia annotations") and within the existing 3D annotations structure (see 
+13.6.2, "3D Annotations"). The  array and additional  entries are applicable only to 3D 
+nodes within a rich media context. 
+EXAMPLE The following example shows a 3D view specifying an array of node parameters. 
+3 0 obj          %Default node params with all shapes visible and opaque 
+ [<</Type /3DNode 
+   /N (Sphere) 
+   /O 1 
+   /V true 
+   /M […]>> 
+   <</Type /3DNode 
+   /N (Cone) 
+   /O 1 
+   /V true>> 
+   <</Type /3DNode 
+   /N (Cube) 
+   /O 1 
+   /V true>> 
+ ] 
+ 
+4 0 obj          %Params with the cone hidden and the sphere semi-transparent 
+ [<</Type /3DNode 
+   /N (Sphere) 
+   /O 0.5 
+   /V true>> 
+© ISO 2017 – All rights reserved 652 
+
+ISO/DIS 32000-2
+ 
+   <</Type /3DNode 
+   /N (Cone) 
+   /O 1 
+   /V false>> 
+   <</Type /3DNode 
+   /N (Cube) 
+   /O 1 
+   /V true>> 
+ ] 
+endobj 
+ 
+5 0 obj          %View1, using the default set of node params 
+ << 
+  /Type /3DView 
+  /XN (View1) 
+  /NA 3 0 R 
+  … 
+ >> 
+endobj 
+ 
+6 0 obj          %View2, using the alternative set of node params 
+ << 
+  /Type /3DView 
+  /XN (View2) 
+  /NA 4 0 R 
+  … 
+ >> 
+endobj 
+ ![Figure 100 Rendering of the 3D artwork using View1 (all shapes visible and opaque)  .jpg](./Storage/Output/Images/Figure 100 Rendering of the 3D artwork using View1 (all shapes visible and opaque)  .jpg)

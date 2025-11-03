@@ -1,13 +1,5 @@
-integer object number followed by a non-negative integer 
-generation number followed by keyword obj and having keyword endobj after it 
-4.34 
- 
-integer object 
-mathematical integers with an implementation specified interval centred at 0 and written as one or 
-more decimal digits optionally preceded by a sign 
-4.35 
- 
-interactive PDF processor 
-special case of a PDF processor that responds to interactive user controls defined in this document 
-4.36 
+document part 
+set of related pages and/or related sets of pages. For example, the chapter pages of a book or all sets of 
+pages intended for a recipient 
+4.20 
  

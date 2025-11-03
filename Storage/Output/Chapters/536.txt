@@ -1,0 +1,30 @@
+Table 342: Entries in a RichMediaConfiguration dictionary" details the elements of the 
+RichMediaConfiguration dictionary. 
+Table 342: Entries in a RichMediaConfiguration dictionary 
+Key Type Value 
+Optional; PDF 2.0
+Type 
+RichMediaConfiguration
+name () The type of PDF object that this dictionary describes. If present, it shall be 
+. 
+© ISO 2017 – All rights reserved 684 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional; PDF 2.0
+Subtype 
+3DSoundVideo
+name () A name specifying the primary content type for the configuration. Valid 
+values are , , and . 
+Instances
+ 
+Default value: If no value is specified, the run time shall determines the scene type by 
+referring to the type of asset file specified by the first element in the  array.
+Optional; PDF 2.0
+Name 
+text tree () A unique name for the configuration. 
+Optional; PDF 2.0
+Instances   
+array () An array of indirect object references toRichMediaInstancedictionaries. 
+(See "

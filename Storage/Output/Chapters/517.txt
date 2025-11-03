@@ -1,0 +1,36 @@
+Figure 106: Parameters for a 3D linear measurement" depicts some of the parameters for a 3D linear 
+measurement. 
+AP
+A1A2TY
+The value text should be drawn on the annotation plane () where the horizontal text path is defined 
+TP
+by the vector from  to  with the text up direction defined by the vector . The lower left corner of 
+the text box is positioned at the text anchor point (). 
+NOTE 1 A PDF viewer can choose to display the text aligned to the viewing plane, if it makes more sense in 
+a particular use such as printing a legend. ![Figure 106 Parameters for a 3D linear measurement  .png](./Storage/Output/Images/Figure 106 Parameters for a 3D linear measurement  .png)
+Figure 106: Parameters for a 3D linear measurement 
+ 
+ AP A2A1 TY 
+The actual Y-axis shall be formed by taking the cross product ofand ( - ). The vectorshall 
+be used only to determine the orientation of this Y-axis. 
+ TP A1A2
+ TP 
+If the text positionis outside the area between  and , an extension line collinear to the measure 
+line connectingto the closest anchor point is generated. 
+V
+UUT
+There are three parts to the text string displayed with the measurement, a numeric value (), a units 
+P
+string (), and an optional user string (). The display of the numeric value field number is also 
+controlled by the precision value (), which indicates how many digits to display to the right of the 
+decimal point. The viewer should convert the numeric value to a string and combine it with the units 
+string and user text as appropriate. This process is viewer dependent. 
+13.6.7.3.23D perpendicular dimension measurement 
+ 
+perpendicular measurement
+A  is used to denote the perpendicular distance between two geometric 
+entities (normally two lines or a point and a line) as illustrated here. 
+© ISO 2017 – All rights reserved 665 
+
+ISO/DIS 32000-2
+ ![Figure 107 Perpendicular measurement  .jpg](./Storage/Output/Images/Figure 107 Perpendicular measurement  .jpg)

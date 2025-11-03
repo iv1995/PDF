@@ -1,14 +1,5 @@
-character 
-numeric code representing an abstract symbol according to some defined character encoding rule 
-NOTE 1 There are three manifestations of characters in PDF, depending on context: 
-•
-A PDF file is represented as a sequence of 8-bit bytes, some of which are interpreted as 
+boolean objects 
+truefalse
+either the keyword  or the keyword  
+4.8 
  
-character codes in the ASCII character set and some of which are treated as arbitrary binary 
-data depending upon the context. 
-•
-The contents (data) of a string or stream object in some contexts are interpreted as character 
- 
-codes in the PDFDocEncoding, UTF-8 or UTF-16 character set. 
-•
-The contents of a string within a PDF 

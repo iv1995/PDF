@@ -1,39 +1,45 @@
-Table 64: Entries in a Lab colour space 
-dictionary"). Component values falling outside the specified range shall be adjusted to the nearest valid 
-value without error indication. 
-Table 64: Entries in a Lab colour space dictionary 
+Table 14: Optional parameters for Crypt filters") shall 
+Crypt Filter
+specify which of the named crypt filters in the document (see 7.6.6, "Crypt filters") shall be used. The
+filter shall be the first filter in the  array entry. 
+Table 14: Optional parameters for Crypt filters 
 Key Type Value 
-WWW
-RequiredX Y Z
-WhitePoint 
-array () An array of three numbers [] that shall specify the tristimulus value, in the 
-WWW
-X
-CIE 1931 XYZ space, of the diffuse white point; see 8.6.5.3, "CalRGB colour spaces" for further 
-discussion. The numbers  and Z shall be positive, and Y shall be 1.0. 
-BBB
-OptionalX Y Z
-BlackPoint 
-XYZ
-array () An array of three numbers [] that shall specify the tristimulus value, in the CIE 
-1931  space, of the diffuse black point; see 8.6.5.3, "CalRGB colour spaces" for further 
-discussion. All three of these numbers shall be non-negative. Default value: [0.0 0.0 0.0]. 
-Optionala a b b
-Range 
-a*b* 
-minmaxminmax
-array () An array of four numbers [] that shall specify the range of valid values 
-for the  and (B and C) components of the colour space — that is, 
-𝑚𝑚𝑚𝑚𝑛𝑛𝑚𝑚𝑚𝑚𝑥𝑥
-𝐷𝐷≤𝐷𝐷∗≤𝐷𝐷 
-and 
+Optional
+Type CryptFilterDecodeParms Crypt 
  
-𝑚𝑚𝑚𝑚𝑛𝑛𝑚𝑚𝑚𝑚𝑥𝑥
-𝑏𝑏≤𝑏𝑏∗≤𝑏𝑏 
-Component values falling outside the specified range shall be adjusted to the nearest valid value 
-without error indication. 
-Default value: [-100 100 -100 100] 
+name () If present, shall be  for afilter 
+decode parameter dictionary.
+Optional
+Name 
+CF
+name () The name of the crypt filter that shall be used to decrypt this 
+stream. The name shall correspond to an entry in the  entry of the 
+encryption dictionary (see "Table 20: Entries common to all encryption 
+Table 26: Standard 
+dictionaries") or one of the standard crypt filters (see "
+Identity
+crypt filter names"). 
+Default value: . 
  
-Lab
- L*a*b*, RGBCMYK
-"Figure 26: Lab colour space" illustrates the coordinates of a typical  colour space; "
+In addition, the decode parameters dictionary may include entries that are private to the security 
+handler. Security handlers may use information from both the crypt filter decode parameters dictionary 
+and the crypt filter dictionaries (see "Table 25: Entries common to all crypt filter dictionaries") when 
+decrypting data or providing a key to decrypt data. 
+© ISO 2017 – All rights reserved 57 
+
+ISO/DIS 32000-2
+ 
+NOTE When adding private data to the decode parameters dictionary, security handlers will need to 
+name these entries in conformance with the PDF name registry (see Annex E, "PDF Name 
+Registry"). 
+If a stream specifies a crypt filter, then the security handler does not apply "Algorithm 1: Encryption of 
+data using the RC4 or AES algorithms" in 7.6.3, "General encryption algorithm" to the key prior to 
+decrypting the stream. Instead, the security handler shall decrypt the stream using the key as is. 7.4, 
+"Filters" explains how a stream specifies filters. 
+7.5File structure 
+ 
+7.5.1General 
+ 
+This subclause describes how objects are organised in a PDF file for efficient random access and 
+incremental update. A basic conforming PDF file shall be constructed of the following four elements (see 
+"

@@ -1,0 +1,50 @@
+Figure 85: FDF file structure"): 
+header
+• 
+A one-line  identifying the version number of the PDF specification to which the file 
+body
+• 
+conforms 
+cross-reference table
+• 
+A  containing the objects that make up the content of the file 
+trailer
+• 
+An optional  containing information about the indirect objects in the file 
+An optional  giving the location of the cross-reference table and of certain special objects 
+within the body of the file 
+© ISO 2017 – All rights reserved 540 
+
+ISO/DIS 32000-2
+ ![Figure 85 FDF file structure  .png](./Storage/Output/Images/Figure 85 FDF file structure  .png)
+Figure 85: FDF file structure 
+ 
+12.7.8.2.2FDF header 
+ 
+  
+The first line of anFDFfile shall be a header, which shall contain 
+%FDF-1.2 
+ 
+Version  
+The version number is given by the  entry in theFDFcatalog dictionary (see 12.7.8.3, "FDF 
+catalog"). 
+12.7.8.2.3FDF body 
+ 
+  
+The body of anFDFfile shall consist of a sequence of indirect objects representing the file’s catalog 
+dictionary (see 12.7.8.3, "FDF catalog") and any additional objects that the catalog dictionary 
+references. The objects are of the same basic types described in 7.5, "File structure" (other than the 
+  
+%PDF–n.m and %%EOF comments described in 7.5, "File structure") have no semantics. They are not 
+necessarily preserved by PDF processors. Just as in PDF, objects inFDFcan be direct or indirect. 
+12.7.8.2.4FDF trailer 
+ 
+  
+The trailer of anFDFfile enables an interactive PDF processor to find significant objects quickly within 
+  trailer
+the body of the file. The last line of the file contains only the end-of-file marker, %%EOF. This marker 
+shall be preceded by theFDFtrailer dictionary, consisting of the keyword  followed by a series of 
+Root
+one or more key-value pairs enclosed in double angle brackets (<<…>>) (using LESS-THAN SIGNs (3Ch) 
+and GREATER-THAN SIGNs (3Eh)). The only required key is  whose value shall be an indirect 
+reference to the file’s catalog dictionary (see "

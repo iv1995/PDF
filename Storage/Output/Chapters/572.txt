@@ -1,0 +1,249 @@
+Table 378: Standard layout attributes common to all standard 
+structure types" may apply to structure elements of any of the standard at the block level (BLSEs) or the 
+inline level (ILSEs). 
+© ISO 2017 – All rights reserved 746 
+
+ISO/DIS 32000-2
+ 
+Table 378: Standard layout attributes common to all standard structure types 
+Key Type Value 
+(Optional; not inheritable)
+Placement 
+name  The positioning of the element with respect to the 
+Block
+enclosing reference area and other content: 
+ Stacked in the block-progression direction within an enclosing 
+Inline
+reference area or parent BLSE. 
+Before
+  Packed in the inline-progression direction within an enclosing BLSE. 
+  Placed so that the before edge of the element’s allocation rectangle 
+(see 14.8.5.4.5, "Content and Allocation Rectangles") coincides with 
+that of the nearest enclosing reference area. The element may float, if 
+necessary, to achieve the specified placement. The element shall be 
+treated as a block occupying the full extent of the enclosing reference 
+area in the inline direction. Other content shall be stacked so as to 
+Start
+begin at the after edge of the element’s allocation rectangle. 
+  Placed so that the start edge of the element’s allocation rectangle (see 
+14.8.5.4.5, "Content and Allocation Rectangles") coincides with that of 
+the nearest enclosing reference area. The element may float, if 
+necessary, to achieve the specified placement. Other content that 
+would intrude into the element’s allocation rectangle shall be laid out 
+End
+as a runaround. 
+  Placed so that the end edge of the element’s allocation rectangle (see 
+14.8.5.4.5, "Content and Allocation Rectangles") coincides with that of 
+the nearest enclosing reference area. The element may float, if 
+necessary, to achieve the specified placement. Other content that 
+would intrude into the element’s allocation rectangle shall be laid out 
+Inline
+as a runaround. 
+When applied to an ILSE, any value except  shall cause the element to be 
+BlockInline
+treated as a BLSE instead.  
+BeforeStartEnd
+Placement
+Default value:  for BLSEs,  for ILSEs. 
+Elements with  values of , , or  shall be removed from 
+the normal stacking or packing process and allowed to float to the specified 
+edge of the enclosing reference area or parent BLSE. Multiple such floating 
+elements may be positioned adjacent to one another against the specified edge 
+of the reference area or placed serially against the edge, in the order 
+encountered. Complex cases such as floating elements that interfere with each 
+other or do not fit on the same page may be handled differently by different 
+PDF processors. Tagged PDF merely identifies the elements as floating and 
+indicates their desired placement. 
+© ISO 2017 – All rights reserved 747 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; inheritable)
+WritingMode 
+Name  Indicates the directions of layout progression inside 
+WritingMode
+Block Level Structure Elements (BLSEs) (inline progression) and regarding the 
+sequence of BLSEs (block progression).  may be used as an 
+LrTb
+attribute for any structure element. The value shall be one of the following: 
+ Inline progression from left to right; block progression from top to 
+RlTb
+bottom. This is the typical writing mode for Western writing systems. 
+ Inline progression from right to left; block progression from top to 
+bottom. This is the typical writing mode for Arabic and Hebrew 
+TbRl
+writing systems. 
+ Inline progression from top to bottom; block progression from right 
+to left. This is the typical writing mode for Chinese and Japanese 
+TbLr
+writing systems. 
+ Inline progression from top to bottom; block progression from left to 
+right. This is the typical writing mode for writing systems like 
+LrBt
+classical Mongolian. 
+ Inline progression from left to right; block progression from bottom 
+to top. There is currently no known writing system to which this 
+RlBt
+writing mode applies. 
+ Inline progression from right to left; block progression from bottom 
+to top. There is currently no known writing system to which this 
+BtRl
+writing mode applies. 
+ Inline progression from bottom to top; block progression from right 
+to left. This is the typical writing mode for the Ancient Berber writing 
+BtLr
+system. 
+ Inline progression from bottom to top; block progression from left to 
+right. This is the typical writing mode for the Batak writing system. 
+The specified layout directions shall apply to the given structure element and 
+LrTb
+all of its descendants.  
+Default value: . 
+For elements that are represented in multiple columns, the writing mode 
+defines the direction of column progression within the reference area: the 
+inline direction determines the stacking direction for columns and the default 
+flow order of text from column to column.  
+TR
+For tables, the writing mode controls the layout of rows and columns: table 
+THTD
+rows (structure type ) shall be stacked in the block direction, cells within a 
+row (structure types  and ) in the inline direction. 
+Unicode Standard 
+The inline-progression direction specified by the writing mode is subject to 
+Annex #9, Unicode Bidirectional Algorithm
+local override within the text being laid out, as described in 
+, available from the Unicode 
+Consortium.  
+(Optional; not inheritable; PDF 1.5)
+BackgroundColor 
+array  The colour to be used to fill the background 
+of a table cell or any element’s content rectangle (possibly adjusted by the 
+Padding attribute). The value shall be an array of three numbers in the range 
+0.0 to 1.0, representing the red, green, and blue values, respectively, of an RGB 
+colour space. If this attribute is not specified, the element shall be treated as if 
+its background were transparent. 
+© ISO 2017 – All rights reserved 748 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; inheritable; PDF 1.5)
+BorderColor 
+array  The colour of the border drawn on the edges of 
+Padding
+a table cell or any element’s content rectangle (possibly adjusted by the 
+ attribute). The value of each edge shall be an array of three numbers 
+in the range 0.0 to 1.0, representing the red, green, and blue values, 
+• 
+respectively, of an RGB colour space. There are two forms: 
+A single array of three numbers representing the RGB values to apply to 
+• 
+all four edges. 
+An array of four arrays, each specifying the RGB values for one edge of 
+the border, in the order of the before, after, start, and end edges. A value 
+of null for any of the edges means that it shall not be drawn. 
+If this attribute is not specified, the border colour for this element shall be the 
+current text fill colour in effect at the start of its associated content. 
+(Optional; not inheritable; PDF 1.5)
+BorderStyle 
+array or  The style of an element’s border. Specifies 
+Padding
+name the stroke pattern of each edge of a table cell or any element’s content 
+• 
+rectangle (possibly adjusted by the  attribute). There are two forms: 
+An array of four entries, each entry specifying the style for one edge of 
+the border in the order of the before, after, start, and end edges. A value 
+• 
+of null for any of the edges means that it shall not be drawn. 
+A name from the list below representing the border style to apply to all 
+None
+BorderThickness
+four edges.  
+HiddenNone
+  No border. Forces the computed value of  to be 0. 
+  Same as , except in terms of border conflict resolution for table 
+ 
+Dotted
+elements. 
+Dashed
+  The border is a series of dots. 
+Solid
+  The border is a series of short line segments.  
+Double
+  The border is a single line segment. 
+BorderThickness
+  The border is two solid lines. The sum of the two lines and the space 
+Groove
+between them equals the value of . 
+Ridge
+  The border looks as though it were carved into the canvas. 
+Groove
+  The border looks as though it were coming out of the canvas (the 
+Inset
+opposite of ). 
+  The border makes the entire box look as though it were embedded in 
+Outset
+the canvas. 
+Inset
+  The border makes the entire box look as though it were coming out of 
+None
+the canvas (the opposite of ). 
+Default value:  
+Groove, Ridge, InsetOutset
+All borders shall be drawn on top of the box’s background. The colour of 
+BorderColor
+borders drawn for values of , and  shall depend on 
+the structure element’s  attribute and the colour of the 
+Dotted, Dashed, Double, 
+background over which the border is being drawn. 
+Outset
+Groove, Ridge, Inset,
+NOTE  Conforming HTML applications may interpret 
+ and  to be Solid. 
+© ISO 2017 – All rights reserved 749 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; inheritable; PDF 1.5)
+BorderThickness 
+number or  The thickness of the border drawn on the edges 
+Padding
+array of a table cell or any element’s content rectangle (possibly adjusted by the 
+ attribute). The value of each edge shall be a positive number in 
+default user space units representing the border’s thickness (a value of 0 
+• 
+indicates that the border shall not be drawn). There are two forms: 
+• 
+A number representing the border thickness for all four edges. 
+An array of four entries, each entry specifying the thickness for one edge 
+of the border, in the order of the before, after, start, and end edges. A 
+value of null for any of the edges means that it shall not be drawn. 
+Default value: 0. 
+(Optional; not inheritable; PDF 1.5)
+Padding 
+number or  Specifies an offset to account for the 
+array separation between the element’s content rectangle and the surrounding 
+border (see 14.8.5.4.5, "Content and Allocation Rectangles"). A positive value 
+enlarges the background area; a negative value trims it, possibly allowing the 
+border to overlap the element’s text or graphic. 
+• 
+There are two forms: 
+• 
+A number representing the width of the padding for all four edges. 
+An array of four entries, each entry specifying the width of the padding 
+for one edge, in the order of the before, after, start and end edges. 
+Default value: 0. 
+(Optional; inheritable; PDF 1.5)
+Color 
+array  The colour to be used for drawing text and the 
+default value for the colour of table borders and text decorations. The value 
+shall be an array of three numbers in the range 0.0 to 1.0, representing the red, 
+green, and blue values, respectively, of an RGB colour space. If this attribute is 
+not specified, the border colour for this element shall be the current text fill 
+colour in effect at the start of its associated content. 
+ 
+14.8.5.4.3Layout Attributes for BLSEs 
+ 
+"

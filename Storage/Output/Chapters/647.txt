@@ -1,0 +1,33 @@
+ 
+ Figure Annex K.3: Comparing two XObjects 
+J.4Known issues 
+ 
+J.4.1Equal vs. equivalent 
+ 
+One issue with this particular solution for comparison of XObject equality is that it does not provide for 
+the comparison of two functionally equivalent but binary different XObjects. 
+Consider the case where a PDF optimisation process has optimised the data of the stream itself - for 
+example, converting all the end of line characters (e.g. CARRIAGE RETURN or LINE FEED) in the data of 
+the stream to simpler SPACE characters in order to improve compression. The streams are equivalent - 
+in that they will produce the exact same content on the page but they will never compare correctly via 
+binary comparison or hash generation. 
+© ISO 2017 – All rights reserved 908 
+
+ISO/DIS 32000-2
+ 
+In addition, a similar optimisation process may remove any private data or metadata associated with an 
+object. Doing so would leave an object with the same data stream but with a different dictionary, and 
+thus a different object. 
+J.4.2Recursion in dictionaries 
+ 
+As noted in J.3.6, "Dictionary objects", it is possible that when processing a dictionary, the value of one 
+or more keys may itself be a dictionary that needs to be processed, then that dictionary may refer to 
+another dictionary, and so on. Should one of those dictionaries reference an object "higher up" in the 
+document’s object structure, this has the potential to lead to an infinite recursive situation when doing 
+the comparison. 
+For the specific use case of this document - comparison of XObjects - it is not expected that this will 
+occur. However, should the recommendations in this document be used in the general case, then the 
+PDF processor will need to protect itself.  
+© ISO 2017 – All rights reserved 909 
+
+ISO/DIS 32000-2 ![72.png](./Storage/Output/Images/72.png)

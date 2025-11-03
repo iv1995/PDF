@@ -1,125 +1,600 @@
-Table 396: Entries in a box colour information dictionary", the box colour information 
-dictionary may contain an optional entry for each of the possible page boundaries other than the media 
-box. The value of each entry is a box style dictionary, whose contents are shown in "Table 397: Entries 
-in a box style dictionary". If a given entry is absent, the interactive PDF processor shall use its own 
-current default settings instead. 
-Table 396: Entries in a box colour information dictionary 
-Key Type Value 
-Optional
-CropBox 
-dictionary () A box style dictionary (see "Table 397: Entries in a box style dictionary") 
-specifying the visual characteristics for displaying guidelines for the page’s crop box. 
-This entry shall be ignored if no crop box is defined in the page object. 
-Optional
-BleedBox 
-dictionary () A box style dictionary (see "Table 397: Entries in a box style dictionary") 
-specifying the visual characteristics for displaying guidelines for the page’s bleed box. 
-This entry shall be ignored if no bleed box is defined in the page object. 
-Optional
-TrimBox 
-dictionary () A box style dictionary (see "Table 397: Entries in a box style dictionary") 
-specifying the visual characteristics for displaying guidelines for the page’s trim box. 
-This entry shall be ignored if no trim box is defined in the page object. 
-Optional
-ArtBox 
-dictionary () A box style dictionary (see "Table 397: Entries in a box style dictionary") 
-specifying the visual characteristics for displaying guidelines for the page’s art box. 
-This entry shall be ignored if no art box is defined in the page object. 
- 
-Table 397: Entries in a box style dictionary 
-Key Type Value 
-Optional
-C 
- DeviceRGB 
-array () An array of three numbers in the range 0.0 to 1.0, representing the 
-components in thecolour space of the colour that shall be used for 
-displaying the guidelines. Default value: [0.0 0.0 0.0]. 
-Optional
-W 
-number () The guideline width in default user space units. Default value: 1. 
-© ISO 2017 – All rights reserved 786 
+Table 
+145: Additional entries specific to a transparency group attributes dictionary". 
+ Group 
+A page object (see 7.7.3.3, "Page objects") may also have aentry, whose value is a group 
+attributes dictionary specifying the attributes of the page group (see 11.4.7, "Page group"). Some of the 
+dictionary entries are interpreted slightly differently for a page group than for a transparency group 
+XObject; see their descriptions in the table for details. 
+© ISO 2017 – All rights reserved 412 
 
 ISO/DIS 32000-2
  
+Table 145: Additional entries specific to a transparency group attributes dictionary 
 Key Type Value 
-Optional
+Requiredgroup subtype
 S 
-S(Solid) 
- 
-name () The guideline style: 
-DDashed) 
- D
-A solid rectangle. 
-S
-(A dashed rectangle. The dash pattern shall be specified by the  entry. 
-Other guideline styles may be defined in the future. Default value: . 
+Transparency
+name () The , which identifies the type of group whose attributes this dictionary 
+describes; shall be  for a transparency group. 
+Required for  groups, otherwise optional
+CS 
+name or (Luminosity) The group colour space, which is used for 
+• 
+array the following purposes: 
+• 
+As the colour space into which colours shall be converted when painted into the group 
+As the blending colour space in which objects shall be composited within the group (see 
+• 
+11.3.4, "Blending colour space") 
+As the colour space of the group as a whole when it in turn is painted as an object onto its 
+backdrop 
+The group colour space shall be any device or CIE-based colour space that treats its components 
+Lab
+as independent additive or subtractive values in the range 0.0 to 1.0, subject to the restrictions 
+ ICCBased PatternIndexed
+described in 11.3.4, "Blending colour space". These restrictions exclude  and lightness-
+SeparationDeviceN
+chromaticitycolour spaces, as well as the special colour spaces , , 
+DefaultGrayDefaultRGBDefaultCMYK ColorSpace 
+, and . Device colour spaces shall be subject to remapping according to the 
+, , and  entries in thesubdictionary of the 
+CSI
+current resource dictionary (see 8.6.5.6, "Default colour spaces"). 
+true
+Ordinarily, the  entry may be present only for isolated transparency groups (those for which  
+is ), and even then it is optional. However, this entry shall be present in the group attributes 
+G
+dictionary for any transparency group XObject that has no parent group or page from which to 
+Luminosity
+inherit — in particular, one that is the value of the  entry in a soft-mask dictionary of subtype 
+CS
+ (see 11.6.5.1, "Soft-mask dictionaries"). 
+false
+I
+Additionally, the  entry may be present in the group attributes dictionary associated with a 
+I
+page object, even if  is  or absent. In the normal case in which the page is imposed directly 
+CS
+on the output medium, the page group is effectively isolated regardless of the  value, and the 
+specified  value shall therefore be honoured. 
+Default value: the colour space of the parent group or page into which this transparency group is 
+painted. (The parent’s colour space in turn may be either explicitly specified or inherited.) 
+Appearance 
+For a transparency group XObject used as an annotation appearance (see 12.5.5, "
+streams"), the default colour space shall be inherited from the page on which the annotation 
+appears. 
 Optional
-D 
-D
-array () A dash array defining a pattern of dashes and gaps that shall be used in 
-drawing dashed guidelines (guideline style ). The dash array shall be specified in 
-default user space units, in the same format as in the line dash pattern parameter of the 
-8.4.3.6, "Line dash pattern"). The dash phase shall not be specified 
-graphics state (see 
-and shall be assumed to be 0. 
-D
-EXAMPLE A  entry of [3 2] specifies guidelines drawn with 3-unit dashes 
-alternating with 2-unit gaps. 
-Default value: [3]. 
+I 
+boolean () A flag specifying whether the transparency group is isolated (see 11.4.5, "Isolated 
+false
+groups"). If this flag is true, objects within the group shall be composited against a fully 
+false
+transparent initial backdrop; if , they shall be composited against the group’s backdrop. 
+Default value: . 
+In the group attributes dictionary for a page, the interpretation of this entry shall be slightly 
+I
+altered. In the normal case in which the page is imposed directly on the output medium, the page 
+group is effectively isolated and the specified  value shall be ignored.  
+Optional
+K 
+false
+boolean () A flag specifying whether the transparency group is a knockout group (see 11.4.6, 
+true
+"Knockout groups"). If this flag is , later objects within the group shall be composited with 
+false
+earlier ones with which they overlap; if , they shall be composited with the group’s initial 
+backdrop and shall overwrite ("knock out") any earlier overlapping objects. Default value: . 
  
-14.11.3Printer’s marks 
- 
-Printer’s marks
- are graphic symbols or text added to a page to assist production personnel in identifying 
-components of a multiple-plate job and maintaining consistent output during production. Examples 
-commonly used in the printing industry include: 
-Registration targets
+Do
+The transparency group XObject’s content stream shall define the graphics objects belonging to the 
+group. When applied to a transparency group XObject, the  operator shall execute its content stream 
+Do
+and shall composite the resulting group colour, shape, and opacity into the group’s parent group or 
+page as if they had come from an elementary graphics object.  shall perform the following actions in 
+addition to the normal ones for a form XObject (as described in 8.10, "Form XObjects"): 
 • 
-Gray rampscolour bars
-• 
- for aligning plates 
-Cut marks
-• 
- and  for measuring colours and ink densities 
- showing where the output medium is to be trimmed 
-Although PDF writers traditionally include such marks in the content stream of a document, they are 
-logically separate from the content of the page itself and typically appear outside the boundaries (the 
-crop box, trim box, and art box) defining the extent of that content (see 14.11.2, "Page boundaries"). 
-Printer’s mark annotationsPDF 1.4
- () provide a mechanism for incorporating printer’s marks into the 
-PDF representation of a page, while keeping them separate from the actual page content. Each page in a 
-PDF document may contain any number of such annotations, each of which represents a single printer’s 
-mark. The annotation rectangle should not intersect the TrimBox. 
-NOTE 1 Because printer’s marks typically fall outside the page’s content boundaries, each mark is 
-represented as a separate annotation. Otherwise — if, for example, the cut marks at the four 
-corners of the page were defined in a single annotation — the annotation rectangle would 
-encompass the entire contents of the page and could interfere with the user’s ability to select 
-content or interact with other annotations on the page. Defining printer’s marks in separate 
-annotations also facilitates the implementation of a drag-and-drop user interface for specifying 
-them. 
-N
-The visual presentation of a printer’s mark shall be defined by a form XObject specified as an 
-appearance stream in the  (normal) entry of the printer’s mark annotation’s appearance dictionary 
-(see 12.5.5, "Appearance streams"). More than one appearance may be defined for the same printer’s 
-N
-mark to meet the requirements of different regions or production facilities. In this case, the appearance 
- AS 
-dictionary’s  entry holds a subdictionary containing the alternative appearances, each identified by an 
-arbitrary key. The(appearance state) entry in the annotation dictionary designates one of them to 
-be displayed or printed. 
-© ISO 2017 – All rights reserved 787 
+Initial backdrop: If the transparency group is non-isolated, its initial backdrop, within the 
+© ISO 2017 – All rights reserved 413 
 
 ISO/DIS 32000-2
  
-NOTE 2 The printer’s mark annotation’s appearance dictionary can include  (rollover) or  (down) 
-RD
-entries, but appearances defined in either of these entries are never displayed or printed. 
-PrinterMark AP F
-Like all annotations, a printer’s mark annotation shall be defined by an annotation dictionary (see 
- AS 
-12.5.2, "Annotation dictionaries"); its annotation type is . The(appearances) and  
- AP PrintReadOnly
-(flags) entries (which ordinarily are optional) shall be present, as shall the(appearance state) entry 
-F
-if the appearance dictionarycontains more than one appearance stream. The  and  
-flags in the  entry shall be set and all others clear (see 12.5.3, "Annotation flags"). "
+ BBox 
+bounding box specified by the XObject’sentry, shall be defined to be the accumulated colour 
+and alpha of the parent group or page — that is, the result of everything that has been painted in 
+true
+I
+the parent up to that point. However, if the immediate parent is a knockout group, the initial 
+backdrop shall be the same as that of the parent. If the group is isolated ( is ), its initial 
+• 
+backdrop shall be defined to be transparent. 
+Normal
+Initial blend mode: Before execution of the transparency group XObject’s content stream, the 
+None
+current blend mode in the graphics state shall be initialised to , the current stroking and 
+NOTE 1 The purpose of initializing these graphics state parameters at the beginning of execution is to 
+nonstroking alpha constants to 1.0, and the current soft mask to . 
+ensure that they are not applied twice: once when member objects are painted into the group and 
+again when the group is painted into the parent group or page.  
+• 
+Compositing: Objects painted by operators in the transparency group XObject’s content stream 
+K
+shall be composited into the group according to the rules described in 11.3.3, "Basic compositing 
+formula" The knockout flag () in the group attributes dictionary and the transparency-related 
+• 
+parameters of the graphics state shall be honoured during this computation. 
+CS
+ 
+o
+Group colour space:  
+For isolated groups, if a group colour space () is specified in the group attributes 
+dictionary, all painting operators shall convert source colours in a colour space (that are 
+not equivalent to the group colour space) to the group colour space before compositing 
+SeparationDeviceN
+objects into the group. The resulting colour at each point shall be interpreted in the group 
+colour space. Rules for handling  and  colour spaces are described in 
+ 
+o
+11.7.3, "Spot colours and transparency". 
+For non-isolated groups, or if no group colour space is specified, the group colour space 
+shall be inherited from the parent group or page. If not otherwise specified, the page 
+group’s colour space shall be defined as described in 11.4.7, "Page group". All painting 
+operators shall convert source colours in a colour space that is not equivalent to the 
+inherited colour space, to that inherited colour space before compositing objects onto the 
+• 
+backdrop. 
+Do
+Final compositing: After execution of the transparency group XObject’s content stream, the 
+graphics state shall revert to its former state before the invocation of the  operator (as it does 
+for any form XObject). The group’s shape — the union of all objects painted into the group, clipped 
+by the group XObject’s bounding box — shall then be painted into the parent group or page, using 
+the group’s accumulated colour and opacity at each point. If colour conversion needs to take place 
+Do
+in order to composite the group into its parent, the rendering intent and black point compensation 
+from the graphics state at the point of invocation of the  operator shall be used for the 
+Do
+conversion. 
+If the  operator is invoked more than once for a given transparency group XObject, each invocation 
+shall be treated as a separate transparency group. That is, the result shall be as if the group were 
+independently composited with the backdrop on each invocation. 
+NOTE 2 Applications that perform caching of rendered form XObjects need to take this requirement into 
+account. 
+ Group S
+The actions described previously shall occur only for a transparency group XObject — a form XObject 
+Transparency
+ Group Group
+having aentry that contains a group attributes subdictionary whose group subtype () is 
+Transparency
+. An ordinary form XObject — one having noentry — or having a  entry with 
+a subtype other than  — shall not be subject to any grouping behaviour for transparency 
+purposes. 
+© ISO 2017 – All rights reserved 414 
+
+ISO/DIS 32000-2
+ 
+11.6.7Patterns and transparency 
+ 
+In the transparent imaging model, the graphics objects making up the pattern cell of a tiling pattern (see 
+8.7.3, "Tiling patterns") may include transparent objects and transparency groups. Transparent 
+compositing may occur both within the pattern cell and between it and the backdrop wherever the 
+sh
+pattern is painted. Similarly, a shading pattern (8.7.4, "Shading patterns") composites with its backdrop 
+as if the shading dictionary were applied with the  operator. 
+In both cases, the pattern definition shall be treated as if it were implicitly enclosed in a non-isolated 
+transparency group: a non-knockout group for tiling patterns, a knockout group for shading patterns. 
+The definition shall not inherit the current values of the graphics state parameters at the time it is 
+evaluated; those parameters shall take effect only when the resulting pattern is later used to paint an 
+object. Instead, the graphics state parameters shall be initialised as follows: 
+• 
+As always for transparency groups, those parameters related to transparency (blend mode, soft 
+• 
+mask, and alpha constant) shall be initialised to their standard default values. 
+Any parameters that are not so specified shall be inherited from the graphics state that was in 
+sh
+effect at the beginning of the content stream in which the shading pattern is set to be the current 
+ 
+• 
+colour in the graphics state or in which the  operator is used and as modified by clause 11.6.7. 
+ExtGState 
+In the case of a shading pattern, the parameter values may be augmented by the contents of the
+sh
+entry in the pattern dictionary (see 8.7.4, "Shading patterns"). Only those parameters 
+that affect the  operator, such as the current transformation matrix, black point compensation 
+sh
+and rendering intent, shall be used. Parameters that affect path-painting operators shall not be 
+Background
+• 
+used, since the execution of  does not entail painting a path. 
+sh
+If the shading dictionary has a  entry, the pattern’s implicit transparency group shall 
+be filled with the specified background colour before the  operator is invoked. 
+When the pattern is later used to paint a graphics object, the colour, shape, and opacity values resulting 
+ji
+f
+q
+𝑓𝑓
+), object 
+from the evaluation of the pattern definition shall be used as the object’s source colour (𝐶𝐶
+shape (
+), and object opacity () in the transparency compositing formulas. This painting operation is 
+subject to the values of the graphics state parameters in effect at the time, just as in painting an object 
+with a constant colour. 
+NOTE 1 Unlike the opaque imaging model, in which the pattern cell of a tiling pattern can be evaluated 
+once and then replicated indefinitely to fill the painted area, the effect in the general transparent 
+case is as if the pattern definition were re-executed independently for each tile, taking into 
+account the colour of the backdrop at each point. However, in the common case in which the 
+pattern consists entirely of objects painted with the  blend mode, this behaviour can be 
+Normal
+optimised by treating the pattern cell as if it were an isolated group. Since in this case the results 
+depend only on the colour, shape, and opacity of the pattern cell and not on those of the backdrop, 
+the pattern cell can be evaluated once and then replicated, just as in opaque painting. 
+NOTE 2 In a raster-based implementation of tiling, it is advisable to treat all tiles as a single transparency 
+group. This avoids artifacts due to multiple marking of pixels along the boundaries between 
+adjacent tiles. 
+PaintTypePaintType
+The foregoing discussion applies to both coloured ( 1) and uncoloured ( 2) tiling 
+patterns. In the latter case, the restriction that an uncoloured pattern’s definition shall not specify 
+colours extends as well to any transparency group that the definition may include. There are no 
+corresponding restrictions, however, on specifying transparency-related parameters in the graphics 
+state. 
+© ISO 2017 – All rights reserved 415 
+
+ISO/DIS 32000-2
+ 
+11.7Colour space and rendering issues 
+ 
+11.7.1General 
+ 
+This sub-clause describes the interactions between transparency and other aspects of colour 
+specification and rendering in the PDF imaging model. 
+11.7.2Colour spaces for transparency groups 
+ 
+As discussed in 11.6.6, "Transparency group XObjects", an isolated transparency group shall either have 
+an explicitly declared colour space or inherit that of its parent group. If the colour space of the 
+transparency group is a device colour space, and some ancestor of the group has a CIE-based colour 
+space with the same number of colourants, then the colour space of this group shall be the CIE-based 
+space of the nearest such ancestor. 
+ICCBasedDeviceCMYK
+If an isolated transparency group or page has an  ‘CMYK’ colour space,  shall be 
+CyanMagentaYellowBlack
+redefined within the transparency group to be the same as the blending colour space and references to 
+the process colourants , ,  and  are defined to be references to the 
+corresponding colorants in the blending colour space, even where the actual or simulated output device 
+is not CMYK. 
+Non-isolated groups shall inherit their colour space from the nearest ancestor isolated parent group 
+(subject to special treatment for the page group, as described in 11.4.7, "Page group"). 
+NOTE 1 This is because the use of an explicit colour space in a non-isolated group would require 
+converting colours from the backdrop’s colour space to that of the group in order to perform the 
+compositing computations. Such conversion is not always possible (since some colour conversions 
+can be performed only in one direction), and even if possible, it would entail an excessive number 
+of colour conversions. 
+If the colour space of a graphics object within the group is not equivalent to the group’s blending colour 
+space, then it shall be converted to the group’s colour space, and all blending and compositing 
+computations shall be done in that space (see 11.3.4, "Blending colour space"). The resulting colours 
+shall then be interpreted in the group’s colour space when the group is subsequently composited with 
+its backdrop. 
+When converting colours, if the colour space of any graphics object is a device colour space, and the 
+current group or an ancestor of the current group is defined with a CIE-based colour space with the 
+same number of colourants, then, for compositing purposes only, the colour space of the graphics object 
+DeviceCMYKDeviceCMYK
+shall be the CIE-based space of the nearest such ancestor. Nevertheless for graphics objects that are 
+specified in , the full semantics of  shall still apply, including overprinting. 
+The choice of a group colour space has significant effects on the results that are produced because the 
+result of compositing in a device colour space is device-dependent. For the compositing computations 
+to work in a device-independent way, the group’s colour space should be CIE-based. 
+NOTE 2 A consequence of choosing a CIE-based group colour space is that only CIE-based spaces can be 
+used to predictably specify the colours of objects within the group. This is because conversion from 
+device to CIE-based colours is implementation-dependent. See further discussion subsequently. 
+NOTE 3 The compositing computations and blend functions generally compute linear combinations of 
+colour component values, on the assumption that the component values themselves are linear. For 
+© ISO 2017 – All rights reserved 416 
+
+ISO/DIS 32000-2
+ 
+this reason, it is usually best to choose a group colour space that has a linear gamma function. If a 
+nonlinear colour space is chosen, the results are still well-defined, but the appearance might not 
+match the user’s expectations. 
+NOTE 4 The CIE-based  colour space (see 8.6.5, "CIE-Based colour spaces") is nonlinear and hence 
+can be unsuitable for use as a group colour space. 
+sRGB
+NOTE 5 To minimise the accumulation of round off errors and avoid additional errors arising from the use 
+of linear group colour spaces, more precision is needed for intermediate results than is typically 
+used to represent either the original source data or the final rasterized results. 
+If a group’s colour space — whether specified explicitly or inherited from the parent group — is CIE-
+based, any use for painting objects of device colour spaces with a different number of colourants than 
+the group’s colour space shall be subject to special treatment. These device colours cannot be painted 
+directly into such a group, since there is no generally defined method for converting them to the CIE-
+based colour space. This problem arises in the following cases: 
+DeviceGrayDeviceRGB DeviceCMYK 
+• 
+, , andcolour spaces, unless remapped to default CIE-based 
+rg
+• 
+colour spaces (see 8.6.5.6, "Default colour spaces") 
+• 
+Operators (such as ) that specify a device colour space implicitly, unless that space is remapped 
+Special colour spaces whose base or underlying space is a device colour space, unless that space is 
+remapped 
+The default colour space remapping mechanism should always be employed when defining a 
+transparency group whose colour space is CIE-based. If a device colour is specified and is not remapped, 
+it shall be converted or mapped to a CIE-based colour space in an implementation-dependent fashion. 
+DeviceCMYK
+The restrictions concerning device colourants do not apply if the group’s colour space is implicitly 
+converted to , as discussed in 8.6.5.7, "Implicit conversion of CIE-Based colour spaces". 
+NOTE 6 See Annex P, "An algorithm to determine the actual blending colour space of a transparency 
+group" for a diagram that illustrates an algorithm to determine the actual blending colour space 
+for a transparency group. 
+11.7.3Spot colours and transparency 
+ 
+The foregoing discussion of colour spaces has been concerned with process colours — those produced 
+DeviceCMYK
+by combinations of an output device’s process colourants. Process colours may be specified directly in 
+CalRGBICCBased
+the device’s native colour space (such as ), or they may be produced by conversion from 
+some other colour space, such as a CIE-based ( or ) space. Whatever means is used to 
+specify them, process colours may be subject to conversion to and from the group’s colour space. 
+A spot colour is an additional colour component, independent of those used to produce process colours. 
+It may represent either an additional separation to be produced or an additional colourant to be applied 
+to the composite page (see 8.6.6.4, "Separation colour spaces" and 8.6.6.5, "DeviceN colour spaces"). 
+The colour component value, or tint, for a spot colour specifies the concentration of the corresponding 
+spot colourant. Tints are conventionally represented as subtractive, rather than additive, values. 
+ Separation  DeviceN 
+Spot colours are inherently device-dependent and are not always available. In the opaque imaging 
+tint transformation function
+model, each use of a spot colour component in aorcolour space is accompanied 
+by an alternate colour space and a  for mapping tint values into that space. 
+This enables the colour to be approximated with process colourants when the corresponding spot 
+colourant is not available on the device. 
+© ISO 2017 – All rights reserved 417 
+
+ISO/DIS 32000-2
+ 
+Spot colours can be accommodated straightforwardly in the transparent imaging model (except for 
+issues relating to overprinting, discussed in 11.7.4, "Overprinting and transparency"). When an object is 
+painted transparently with a spot colour component that is available in the output device, that colour 
+shall be composited with the corresponding spot colour component of the backdrop, independently of 
+the compositing that is performed for process colours. A spot colour retains its own identity; it shall not 
+be subject to conversion to or from the colour space of the enclosing transparency group or page. If the 
+object is an element of a transparency group, one of two things should happen: 
+• 
+The group shall maintain a separate colour value for each spot colour component, independently 
+of the group’s colour space. In effect, the spot colour passes directly through the group hierarchy 
+to the device, with no colour conversions performed. However, it shall still be subject to blending 
+• 
+and compositing with other objects that use the same spot colour. 
+The spot colour shall be converted to its alternate colour space. The resulting colour shall then be 
+subject to the usual compositing rules for process colours. In particular, spot colours shall not be 
+available in a transparency group XObject that is used to define a soft mask; the alternate colour 
+space shall always be substituted in that case. 
+Only a single shape value and opacity value shall be maintained at each point in the computed group 
+results; they shall apply to both process and spot colour components. In effect, every object paints every 
+existing colour component, both process and spot. Where no value has been explicitly specified for a 
+ DeviceCMYK  ICCBased 
+given component in a given object, an additive value of 1.0 (or a subtractive tint value of 0.0) shall be 
+assumed. For instance, when painting an object with a colour specified in aor
+colour space, the process colour components shall be painted as specified and the spot colour 
+ Separation 
+components shall be painted with an additive value of 1.0. Likewise, when painting an object with a 
+colour specified in acolour space, the named spot colour shall be painted as specified and 
+all other components (both process colours and other spot colours) shall be painted with an additive 
+value of 1.0. The consequences of this are discussed in 11.7.4, "Overprinting and transparency". 
+ Separation  DeviceN 
+Under the opaque imaging model, aorcolour space may specify the individual 
+process colour components of the output device, as if they were spot colours. However, within a 
+transparency group, this should be done only if the group inherits the native colour space of the output 
+ Separation  
+device (or is implicitly converted to DeviceCMYK, as discussed in 8.6.5.7, "Implicit conversion of CIE-
+DeviceN 
+Based colour spaces"). If any other colour space has been specified for the group, theor
+colour space shall be converted to its alternate colour space. 
+NOTE 1 In general, within a transparency group containing an explicitly specified colour space, the 
+group's process colour components are different from the device's process colour components. 
+Conversion to the device's process colour components occurs only after all colour compositing 
+computations for the group have been completed. Consequently, the device's process colour 
+components are not accessible within the group. 
+ For instance, outside of any transparency group, a device whose native colour space is
+ 
+has a  component that can be specified in aorcolour 
+DeviceCMYK Cyan Separation  DeviceN 
+space. On the other hand, within a transparency group whose colour space is , the group 
+ICCBased
+has no  component available to be painted. 
+Cyan
+NOTE 2 The special colourant  is defined as applying tint values to all available colourants at once (see 
+All
+8.6.6.4). When  is used inside a transparency group, "all available colourants" is no longer the 
+All
+same as "all colourants available on the output device." Painting  inside a transparency group 
+All
+can only apply tint values to the process colourants that are defined by the group blending colour 
+space and to the spot colourants available on the output device (as the spot colours are 
+maintained separate from the group blending colour space). Indeed, inside a transparency group, 
+© ISO 2017 – All rights reserved 418 
+
+ISO/DIS 32000-2
+ 
+the process colourants of the output device are irrelevant and unknown, only the colourants of the 
+group blending colour space (and the spot colours of the output device) are available. 
+ Once a tint ofSeparation has been applied to all colourants available in the transparency 
+  All
+group, this result is then subject to the usual colour conversion rules when the group as a whole is 
+composited on its own backdrop. The practical implication of this is that applying  inside a 
+All
+transparency group does not necessarily result in an equal tint percentage for all process colour 
+components on that location on the page. 
+11.7.4Overprinting and transparency 
+ 
+11.7.4.1General 
+ 
+In the opaque imaging model, overprinting is controlled by two parameters of the graphics state: the 
+overprint parameter and the overprint mode (see 8.6.7, "Overprint control"). Painting an object causes 
+some specific set of device colourants to be marked, as determined by the current colour space and 
+falsetrue
+current colour in the graphics state. The remaining colourants shall be either erased or left unchanged, 
+DeviceCMYK
+depending on whether the overprint parameter is  or . When the current colour space is 
+, the overprint mode parameter additionally enables this selective marking of colourants 
+to be applied to individual colour components according to whether the component value is zero or 
+nonzero. 
+NOTE 1 Because this model of overprinting deals directly with the painting of device colourants, 
+independently of the colour space in which source colours have been specified, it is highly device-
+dependent and primarily addresses production needs rather than design intent. Overprinting is 
+usually reserved for opaque colourants or for very dark colours, such as black. It is also invoked 
+during late-stage production operations such as trapping (see 14.11.6, "Trapping support"), when 
+the actual set of device colourants has already been determined. 
+NOTE 2 Consequently, it is best to think of transparency as taking place in appearance space, but 
+overprinting of device colourants in device space. This means that colourant overprint decisions 
+are made at output time, based on the actual resultant colourants of any transparency 
+compositing operation. On the other hand, effects similar to overprinting can be achieved in a 
+device-independent manner by taking advantage of blend modes, as described in the next sub-
+clause. 
+11.7.4.2Blend modes and overprinting 
+ 
+As stated in 11.7.3, "Spot colours and transparency", each graphics object that is painted shall affect all 
+existing colour components: all process colourants in the transparency group’s colour space as well as 
+Normal
+any available spot colourants. For colour components whose value has not been specified, a source 
+colour value of 1.0 shall be assumed; when objects are fully opaque and the  blend mode is used, 
+false
+this shall have the effect of erasing those components. This treatment is consistent with the behaviour 
+of the opaque imaging model with the overprint parameter set to . 
+Darken
+Darken
+The transparent imaging model defines some blend modes, such as , that may be used to 
+achieve effects similar to overprinting. The blend function for  is: 
+bsbs
+(
+)()
+Bc
+=minc 
+,c,c
+ 
+In this blend mode, the result of compositing shall always be the same as the backdrop colour when the 
+source colour is 1.0, as it is for all unspecified colour components. When the backdrop is fully opaque, 
+this shall leave the result colour unchanged from that of the backdrop. This is consistent with the 
+© ISO 2017 – All rights reserved 419 
+
+ISO/DIS 32000-2
+ 
+true
+behaviour of the opaque imaging model with the overprint parameter set to . 
+If the object or backdrop is not fully opaque, the actions described previously are altered accordingly. 
+That is, the erasing effect shall be reduced, and overprinting an object with a colour value of 1.0 may 
+affect the result colour. While these results may or may not be useful, they lie outside the realm of the 
+overprinting and erasing behaviour defined in the opaque imaging model. 
+When process colours are overprinted or erased (because a spot colour is being painted), the blending 
+computations described previously shall be done independently for each component in the group’s 
+colour space. If the group colour space is different from the native colour space of the output device, its 
+components are not the device’s actual process colourants; the blending computations shall affect the 
+process colourants only after the group’s results have been converted to the device colour space. Thus 
+the effect is different from that of overprinting or erasing the device’s process colourants directly. On 
+the other hand, this is a fully general operation that works uniformly, regardless of the type of object or 
+of the computations that produced the source colour. 
+NOTE 1 The discussion so far has focused on those colour components whose values are not specified and 
+that are to be either erased or left unchanged. However, the  or  blend modes used 
+NormalDarken
+for these purposes are not always suitable for use on those components whose colour values are 
+specified. In particular, using the  blend mode for such components would preclude 
+Darken
+overprinting a dark colour with a lighter one. Moreover, some other blend mode could be 
+specifically desired for those components. 
+The PDF graphics state specifies only one current blend mode parameter, which shall always apply to 
+process colourants and sometimes to spot colourants as well. Specifically, only separable, white-
+Normal
+preserving blend modes shall be used for spot colours. If the specified blend mode is not separable or 
+not white-preserving, it shall apply only to process colour components, and the  blend mode 
+shall be substituted for spot colours. 
+white-preservingB
+()
+A blend mode is  if its blend function  has the property that 𝐵𝐵1.0,1.0=1.0. 
+NOTE 2 Of the standard separable blend modes listed in "Table 134: Standard separable blend modes" in 
+11.3.5, "Blend mode" all except  and  are white-preserving. This ensures that 
+DifferenceExclusion
+when objects accumulate in an isolated transparency group, the accumulated values for 
+unspecified components remain 1.0 as long as only white-preserving blend modes are used. The 
+group’s results can then be overprinted using  (or other useful modes) while avoiding 
+Darken
+unwanted interactions with components whose values were never specified within the group. 
+11.7.4.3Compatibility with opaque overprinting 
+ 
+For compatibility with the methods of overprint control used in the opaque imaging model, a PDF 
+processor may consider implementing a special blend mode that consults the overprint-related 
+graphics state parameters to compute its result. This mode shall apply only when painting elementary 
+graphics objects (fills, strokes, text, images, and shadings). It shall not be invoked explicitly; rather, it 
+true
+may be implicitly invoked whenever an elementary graphics object is painted while overprinting is 
+enabled (that is, when the overprint parameter in the graphics state is ). 
+NOTE 1 Earlier designs of the transparent imaging model included an additional blend mode named 
+, which explicitly invoked the blend mode described here. Because this mode can be 
+Compatible
+invoked implicitly whenever appropriate, it is never necessary to specify the  blend 
+Compatible
+mode for use in compositing. 
+𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
+The value of the blend function 𝐵𝐵(𝐶𝐶,𝐶𝐶) in the this mode shall be either 𝐶𝐶 or 𝐶𝐶, depending on the 
+© ISO 2017 – All rights reserved 420 
+
+ISO/DIS 32000-2
+ 
+setting of the overprint mode parameter, the current and group colour spaces, and the source colour 
+𝑓𝑓
+value 𝐶𝐶
+: 
+• 
+DeviceCMYK
+If the overprint mode is 1 (nonzero overprint mode) and the current colour space and group 
+colour space are both , then process colour components with nonzero values shall 
+replace the corresponding component values of the backdrop; components with zero values leave 
+C
+DeviceCMYK
+𝑏𝑏𝑓𝑓
+the existing backdrop value unchanged. That is, the value of the blend function 𝐵𝐵(𝐶𝐶
+,𝐶𝐶) shall be 
+s
+the source component  for any process () colour component whose (subtractive) 
+𝑏𝑏
+. For spot colour 
+colour value is nonzero; otherwise it shall be the backdrop component 𝐶𝐶
+𝑏𝑏
+• 
+. 
+components, the value shall always be 𝐶𝐶
+𝑏𝑏𝑓𝑓𝑓𝑓
+,𝐶𝐶) shall be 𝐶𝐶 for all colour components specified in the 
+In all other cases, the value of 𝐵𝐵(𝐶𝐶
+𝑏𝑏
+ DeviceCMYK 
+current colour space, otherwise 𝐶𝐶. 
+ Separation 
+𝑓𝑓
+EXAMPLE 1 If the current colour space isor equivalent, the value of the blend function is 𝐶𝐶 for process 
+𝑏𝑏
+ for spot components. On the other hand, if the current colour space is a
+colour components and 𝐶𝐶
+𝑓𝑓𝑏𝑏
+ for that spot component and 𝐶𝐶 for all process 
+space representing a spot colour component, the value is 𝐶𝐶
+components and all other spot components. 
+NOTE 2 In the previous descriptions, the term current colour space refers to the colour space used for a 
+painting operation. This can be specified by the current colour space parameter in the graphics 
+state (see 8.6.2, "Colour values"), implicitly by colour operators such as rg (8.6.8, "Colour 
+operators"), or by theentry of an image XObject (8.9.5, "Image dictionaries"). In the 
+ ColorSpace 
+case of anspace, it refers to the base colour space (see 8.6.6.3, "Indexed colour spaces"); 
+ Indexed 
+likewise forandspaces that revert to their alternate colour space, as 
+ Separation  DeviceN 
+described under 8.6.6.4, "Separation colour spaces" and 8.6.6.5, "DeviceN colour spaces". 
+Normal
+If the current blend mode is any mode other than  when invoking this special overprinting 
+blend mode, the object being painted shall be implicitly treated as if it were defined in a non-isolated, 
+non-knockout transparency group, and painted using the this special blend mode. The group’s results 
+shall then be painted using the current blend mode in the graphics state. 
+NOTE 3 It is not necessary to create such an implicit transparency group if the current blend mode is 
+; simply substituting the special blend mode while painting the object produces equivalent 
+Normal
+results. There are some additional cases in which the implicit transparency group can be 
+optimised out. 
+© ISO 2017 – All rights reserved 421 
+
+ISO/DIS 32000-2
+ ![Figure 75 Blending and overprinting  .png](./Storage/Output/Images/Figure 75 Blending and overprinting  .png)

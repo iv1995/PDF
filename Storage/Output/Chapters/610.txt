@@ -1,0 +1,207 @@
+ 
+ 
+Operators in Type 4 Functions 
+(Normative) 
+B.1General 
+ 
+This annex summarises the PostScript language operators that may appear in a Type 4 function, as 
+PostScript Language Reference
+discussed in 7.10.5, "Type 4 (PostScript calculator) functions". For details on these operators, see the 
+, Third Edition. 
+B.2Arithmetic operators 
+ 
+numnumsum numnum
+add  
+   
+121 2
+numnumdifference numnum
+sub 
+Return plus 
+   
+121 2
+numnumproduct numnum
+mul 
+Return minus 
+   
+121 2
+numnumquotient  numnum
+div 
+Return times 
+   
+121 2
+intintquotientintint
+idiv 
+Return divided by 
+ 
+1 21 2 
+intintremainderintint
+mod 
+ Return divided by as an integer 
+  
+1 21 2
+numnumnum
+neg 
+ Return remainder after dividing by 
+   
+121
+numnumnum
+abs 
+Return negative of 
+   
+121
+numnumnum
+ceiling 
+Return absolute value of 
+   
+121
+numnumnum
+floor 
+Return ceiling of 
+   
+121
+numnumnum
+round 
+Return floor of 
+  
+121 
+numnumnum
+truncate 
+Round to nearest integer 
+   
+121
+num real  num
+sqrt 
+Remove fractional part of 
+anglereal angle
+sin 
+ Return square root of  
+anglereal angle
+cos 
+ Return sine of  degrees 
+num denangle num den
+atan 
+ Return cosine of  degrees 
+base exponentreal 
+exp 
+ Return arc tangent of / in degrees 
+numreal e
+ln 
+ Raise base to exponent power 
+num real  
+log 
+ Return natural logarithm (base ) 
+numint integer 
+ cvi 
+Return common logarithm (base 10)
+num real real
+cvr 
+Convert to 
+Convert to  
+ 
+ 
+© ISO 2017 – All rights reserved 815 
+
+ISO/DIS 32000-2
+ 
+B.3Relational, boolean, and bitwise operators 
+ 
+anyanybool
+eq
+ 
+1  2
+anyanybool
+ne
+  Test equal 
+ 
+1  2
+numnumbool
+gt
+  Test not equal 
+ 
+1  2
+numnumbool
+ge
+  Test greater than 
+ 
+1  2
+numnumbool
+lt
+  Test greater than or equal 
+ 
+1  2
+numnumbool
+le
+  Test less than 
+ 
+1  2
+boolintboolintboolint
+and
+  Test less than or equal 
+  
+1 1  2 23 3
+boolintboolintboolint
+or
+| | |  Perform logical | bitwise and 
+  
+1 1  2 23 3
+boolintboolintboolint
+xor
+| | |  Perform logical | bitwise inclusive or 
+  
+1 1  2 23 3
+boolintboolint
+not
+| | |  Perform logical | bitwise exclusive or 
+ 
+1 1 2 2
+intintint
+bitshift
+|  |  Perform logical | bitwise not 
+ 
+1  21 
+truetrue
+true 
+shift  Perform bitwise shift of (positive is left) 
+false false
+false 
+–   Return boolean value  
+– Return boolean value  
+B.4Conditional operators 
+ 
+boolexprexprbool
+if  
+boolexpr1expr2expr1boolexpr2
+ifelse 
+ {  } – Execute  if  is true 
+ {  }  {  } – Execute  if  is true,  if false 
+B.5Stack operators 
+ 
+any
+pop
+any  anyanyany
+exch
+  – Discard top element 
+1 221
+anyanyany
+dup
+     Exchange top two elements 
+anyanynanyanyanyanyn
+copy
+    Duplicate top element 
+1 n1n1n
+anyanynanyanyany
+index
+…      …    …  Duplicate top  elements 
+n0n0n
+nnjn
+anyanyn janyanyanyanyn
+roll
+ …      …    Duplicate arbitrary element 
+-10(j-1) mod n0  mod 
+ …      …   …  Roll  elements up j times   
+  
+© ISO 2017 – All rights reserved 816 
+
+ISO/DIS 32000-2
+ 
+ ![61.png](./Storage/Output/Images/61.png)

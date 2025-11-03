@@ -1,168 +1,210 @@
- 
- 
-Example PDF Files 
-(Informative) 
-H.1General 
- 
-This annex presents several examples showing the structure of actual PDF files: 
-• 
-A minimal file that can serve as a starting point for creating other PDF files (and that is the basis of 
-• 
-later examples) (see H.2, "Minimal PDF file") 
-A simple example that shows a text string, the classic "Hello World" (see H.3, "Simple text string 
-• 
-example") 
-• 
-A simple graphics example that draws lines and shapes (see H.4, "Simple graphics example") 
-A fragment of a PDF file that illustrates the structure of the page tree for a large document (see H.5, 
-"Page tree example") and, similarly, two fragments that illustrate the structure of an outline 
-• 
-hierarchy (see H.6, "Outline hierarchy example") 
-An example showing the structure of a PDF file as it is updated several times, illustrating multiple 
-NOTE The Length values of stream objects in the examples and the byte addresses in cross-reference 
-body sections, cross-reference sections, and trailers (see H.7, "Updating example") 
-tables are not necessarily accurate. 
-• 
-An example showing various cases of structure elements in a tagged PDF (see H.8, "Structure 
-elements examples") 
-H.2Minimal PDF file 
- 
-The example in this clause is a PDF file that does not draw anything; it is almost the minimum 
-Contents
-acceptable PDF file. It is not strictly the minimum acceptable because it contains a page content stream 
-( in the page object), and a metadata stream. These objects were included to make this file 
-useful as a starting point for creating other, more realistic PDF files. "Table Annex H.1: Objects in 
-minimal example" lists the objects in this example. 
-Table Annex H.1: Objects in minimal example 
-Object number Object type 
-Catalog
-1  (document catalog) 
-Pages
-2  (page tree node) 
-Page
-3  (page object) 
-Content
-4  stream 
-Metadata
-5  (metadata stream) 
- 
-© ISO 2017 – All rights reserved 872 
+Table 159: Entries in a folder dictionary 
+Key Type Value 
+Optional; PDF 2.0
+Type 
+Folder
+name () The type of PDF object that this dictionary describes; 
+if present, shall be  for a folder dictionary. 
+© ISO 2017 – All rights reserved 442 
 
 ISO/DIS 32000-2
  
-NOTE When using the example in H.2, "Minimal PDF file" as a starting point for creating other files, 
-remember that the cross-reference table entries might need to have a trailing SPACE (see 7.5.4, 
-"Cross-reference table"). 
+Key Type Value 
+(Required; PDF 2.0) 
+ID 
+integer A non-negative integer value representing the unique 
+ ID 
+folder identification number. Two folders, in the same PDF document, 
+ ID 
+shall not share the samevalue. 
+The foldervalue appears as part of the name tree key of any file 
  
-EXAMPLE 
-%PDF-2.0 
-…             %at least four binary characters > 127 
-1 0 obj            %Catalog (root) object used to locate everything else 
-  <</Type /Catalog 
-   /Pages 2 0 R 
-   /Metadata 5 0 R 
-  >> 
-endobj 
+associated with this folder. A detailed description of the association 
+between folder and files can be found after this table.
+(Required; PDF 2.0) 
+Name 
+text string A file name representing the name of the folder. Two 
+sibling folders shall not share the same name following case 
+NOTE Descriptions of file name and case normalization follow this 
+normalization. 
+table. 
+(Required for child folders; PDF 2.0) 
+Parent 
+dictionary An indirect reference to the parent 
  
-2 0 obj            %Pages catalog, containing a single page 
-  <</Type /Pages 
-   /Kids [3 0 R] 
-  >> 
-endobj 
-3 0 obj            %Page dictionary 
-  <</Type /Page 
-   /Parent 2 0 R 
-   /MediaBox [0 0 612 792] 
-   /Contents 4 0 R 
-  >> 
-endobj 
+folder of this folder. 
+This entry shall be absent for a root folder.
+(Required if the folder has any descendents; PDF 2.0) 
+Child 
+dictionary An indirect reference 
+to the first child folder of this folder. 
+(Required for all but the last item at each level; PDF 2.0) 
+Next 
+dictionary An indirect 
+Sort
+reference to the next sibling folder at this level. 
+Siblings should be ordered according to the collection  key ("Table 
+Sort
  
-4 0 obj            %Page contents for page 1 
-… number of bytes in page marking operators …
-  <</Length  
-  >> 
-stream 
-… Page-marking operators … 
-endstream 
-endobj 
+153: Entries in a collection dictionary") or by folder name if no collection 
+ key is present.
+(Optional; PDF 2.0) 
+CI 
+(uppercase ci)
  
-5 0 obj           %Document metadata 
-  <</Type /Metadata 
-   /Subtype /XML 
-… number of bytes in metadata …  
-   /Length 
-  >> 
-stream 
-UTF-8 value of U+FEFF (efbbbf)
-<?xpacket begin="… …" id="W5M0MpCehiHzreSzNTczkc9d"?> 
-<x:xmpmeta xmlns:x="adobe:ns:meta/"> 
- <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"> 
-  <rdf:Description rdf:about="" xmlns:pdf="http://ns.adobe.com/pdf/1.3/"> 
-name of software which generates the PDF 
-   <pdf:Producer>… …</pdf:Producer> 
-  </rdf:Description> 
-  <rdf:Description rdf:about="" xmlns:xmp="http://ns.adobe.com/xap/1.0/"> 
-name of tool used to create the document 
-   <xmp:CreatorTool>… …</xmp:CreatorTool> 
- timestamp, like 2012-12-25T12:34:56Z 
-   <xmp:CreateDate>……</xmp:CreateDate> 
- timestamp, like 2012-12-25T12:34:56Z 
-   <xmp:ModifyDate>……</xmp:ModifyDate> 
-  </rdf:Description> 
-  <rdf:Description rdf:about="" xmlns:dc="http://purl.org/dc/elements/1.1/"> 
-   <dc:format>application/pdf</dc:format>  
-   <dc:title><rdf:Alt> 
-document title 
-    <rdf:li xml:lang="x-default">… …</rdf:li> 
-    </rdf:Alt></dc:title> 
-   <dc:creator><rdf:Seq> 
- document author’s personal name 
-    <rdf:li>……</rdf:li> 
-    </rdf:Seq></dc:creator> 
-  </rdf:Description> 
-  <rdf:Description rdf:about="" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"> 
-unique GUID of document 
-   <xmpMM:DocumentID>… …</xmpMM:DocumentID> 
-GUID changed for each save 
-   <xmpMM:InstanceID>… …</xmpMM:InstanceID> 
-© ISO 2017 – All rights reserved 873 
+dictionary The collection item dictionary (Beginning with PDF 
+1.7, a collection item dictionary shall contain the data described by the 
+collection schema dictionary for a particular file in a collection (see 
+12.3.5, "Collections"). "Table 46: Entries in a collection item dictionary" 
+describes the entries in a collection item dictionary. 
+(Optional; PDF 2.0) 
+Desc 
+text string A text description associated with this folder. 
+(Optional; PDF 2.0) 
+CreationDate 
+date  The date the folder was first created. 
+(Optional; PDF 2.0) 
+ModDate 
+date  The date of the most recent change to immediate 
+child files or folders of this folder. 
+(Optional; PDF 2.0) 
+Thumb 
+stream A stream object defining the thumbnail image for the 
+folder See 12.3.4, "Thumbnail images". 
+(Optional; only used by root folder; PDF 2.0) 
+Free  ID 
+array An array containingvalues 
+that are not currently in use by the folder structure. The array shall 
+contains zero or more pairs of numbers, a low value followed by a high 
+value. Each pair represents an endpoint-inclusive range of values that are 
+available for use when a new folder is added. Each low value shall be less 
+than or equal to its corresponding high value. 
+ 
+ ID Free
+ ID Free
+New values for thekey shall be obtained by an interactive PDF processor by accessing the  entry 
+in the root folder. If anvalue is used from the  entry array, the array shall be updated. 
+Name
+As previously described, the  entry is a file name for a folder. A folder, as well as its associated 
+files, have naming restrictions. Strings that conform to these restrictions are known as file names. A 
+valid file name conforms to the following requirements: 
+© ISO 2017 – All rights reserved 443 
 
-ISO/DIS 32000-2 
-  </rdf:Description> 
- </rdf:RDF> 
-</x:xmpmeta> 
-white-space padding to permit in-place updating of metadata  
-… …
-<?xpacket end="w"?> 
-endstream 
-endobj 
+ISO/DIS 32000-2
  
-%Cross reference and trailer 
-xref 
-0 7 
-Note that the 10 digit byte offsets here must be recalculated by the software producing the PDF  
-… …
-and that the entries must each occupy 20 bytes including white-space  
-… …
-0000000000 65535 f 
-0000000009 00000 n 
-byte offset for object 2, exactly 10 digits 
-… … 00000 n 
-byte offset for object 3, exactly 10 digits 
-… … 00000 n 
-0000000179 00000 n 
-0000000300 00000 n 
-byte offset for object 6, exactly 10 digits 
-… … 00000 n 
-trailer <</Size 7 /Root 1 0 R>> 
-startxref 
- needs to be the exact offset of the word xref from the start of the file. No comment allowed  
-408 ……
-%%EOF 
-H.3Simple text string example 
+• 
+• 
+The string shall be a PDF text string. 
+• 
+The string shall not contain any embedded NULL (U+0000) characters. 
+• 
+The number of characters in the string shall be between 1 and 255 inclusive. 
+The string shall not contain any of the eight special characters: SOLIDUS (U+002F) (/), REVERSE 
+SOLIDUS (U+005C) (\), COLON (U+003A) (:), ASTERISK (U+002A) (*), QUOTATION MARK 
+(U+0022) ("), LESS-THAN SIGN (U+003C) (<), GREATER-THAN SIGN (U+003E) (>) and VERTICAL 
+• 
+LINE (U+007C) (|). 
+The last character shall not be a FULL STOP (U+002E) (.). 
+An interactive PDF processor may choose to support invalid names or not. If not, an appropriate error 
+message shall be provided. 
+In addition to the restriction on naming folders, as just described, it is further required that two file 
+names in the same folder do not map to the same string following case normalization. Two file names 
+that differ only in case are disallowed within the same folder. See "Unicode Standard Annex #21, Case 
+Mappings" for information on case normalization. 
+ CI 
+Theentry, a collection item dictionary, allows user-defined metadata to be associated with a folder, 
+just as it does for embedded files in a collection. 
+Parent
+ChildNext
+Folders are indirect objects, and relationships between folders in the tree are specified using , 
+, and  keys. 
+ EmbeddedFiles 
+When folders are used, all files in thename tree (see "Table 32: Entries in the name 
+dictionary") shall be treated as members of the folder structure by an interactive PDF processor. The 
+association between files and folders is accomplished using a special naming convention on the key 
+strings of the name tree. See 7.9.6, "Name trees", for a discussion of the key strings. If no folder 
+structure is specified, interactive PDF processors should show all files in the collection in a flat list. 
+ EmbeddedFiles 
+As previously mentioned, files in thename tree are associated with folders by a special 
+naming convention applied to the name tree key strings. Strings that conform to the following rules 
+serve to associate the corresponding file with a folder: 
+• 
+• 
+The name tree keys are PDF text strings. 
+• 
+The first character, excluding any byte order marker, is LESS-THAN SIGN (U+003C) (<). 
+The following characters shall be one or more digits (0 to 9) followed by the closing GREATER-
+• 
+THAN SIGN (U+003E) (>) 
+The remainder of the string is a file name. 
+ ID 
+The section of the string enclosed by LESS-THAN SIGN GREATER-THAN SIGN(<>) is interpreted as a 
+ ID 
+numeric value that specifies thevalue of the folder with which the file is associated. The value shall 
+correspond to a folder ID. The section of the string following the foldertag shall represent the file 
+name of the embedded file. 
+ EmbeddedFiles 
+Files in thename tree that do not conform to these rules shall be treated as associated 
+with the root folder. 
+EXAMPLE 1 This example shows a collection dictionary representing an email in-box, where each item in the collection is 
+an email message. The actual email messages are contained in file specification dictionaries. The 
+organisational data associated with each email is described in a collection schema dictionary. Most actual 
+© ISO 2017 – All rights reserved 444 
+
+ISO/DIS 32000-2
  
-The example in H.3, "Simple text string example" is the classic "Hello World" example built from the 
-preceding example. It shows a single line of text consisting of the string Hello 32000-2 World, 
-illustrating the use of fonts and several text-related PDF operators. The string is displayed in 24-point 
-Helvetica. 
-"
+organisational data (from, to, date, and subject) is provided in a collection item dictionary, but the size data 
+comes from the embedded file parameter dictionary. 
+   /Collection << 
+    /Type /Collection 
+    /Schema << 
+     /Type /CollectionSchema 
+     /from <</Subtype /S /N (From) /O 1 /V true /E false>> 
+     /to <</Subtype /S /N (To) /O 2 /V true /E false>> 
+     /date <</Subtype /D /N (Date received) /O 3 /V true /E false>> 
+     /subject <</Subtype /S /N (Subject) /O 4 /V true /E false>> 
+     /size <</Subtype /Size /N (Size) /O 5 /V true /E false>> 
+        >> 
+   /D (Doc1) 
+   /View /D 
+   /Sort <</S /date /A false>> 
+       >> 
+EXAMPLE 2 This example shows a collection item dictionary and a collection subitem dictionary. These dictionaries 
+contain entries that correspond to the schema entries specified in the Example in 12.4.2, "Page labels". 7.11.6, 
+"Collection items" specifies the collection item and collection subitem dictionaries. 
+   /CI << 
+    /Type /CollectionItem 
+    /from (Tom Jones) 
+    /to (Marry Jones) 
+    /subject << 
+     /Type /CollectionSubitem 
+     /P (Re:) 
+     /D (Let's have lunch on Friday!) 
+       >> 
+    /date (D:20050621094703-07’00) 
+     >> 
+ 
+12.3.6Navigators 
+ 
+presentation
+navigator
+A portable collection can include an interactive layout, or , for the collection contents (PDF 
+2.0) called a . When a navigator is specified, a PDF processor should display that interactive 
+layout and allow it to drive the presentation of the collection. 
+Navigators are specified by identifying a named layout, used to identify a presentation for the content 
+View
+within a collection. These interactive layouts provide more choice in presenting the collection contents 
+than the simple views specified by the  key in the collection dictionary (see "Table 153: Entries in a 
+Layout
+collection dictionary"). When a navigator dictionary is present, a PDF processor should use the value of 
+the  entry to present the collection to the user. 
+Named layouts
+ provide a number of options for presenting the contents of the collection to a user. These 
+Layout
+options are provided to allow the choice of a navigator that is best suited to presenting the collection’s 
+contents, including the folder structures and file attachments. The  key may consist of a single 
+name value, to specify the named layout, or an array of names. When an array of names is provided, a 
+Layout
+PDF processor should select the first named layout it recognises. This mechanism is inherently 
+extensible and allows inclusion of custom named layouts, but at least one of the values of the  
+entry shall be one of the values listed in the entry (see "

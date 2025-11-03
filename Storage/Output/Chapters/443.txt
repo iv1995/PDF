@@ -1,0 +1,53 @@
+Table 272: Entries in a point data dictionary" lists the entries of 
+a point data dictionary. 
+Table 272: Entries in a point data dictionary 
+Key Type Description 
+(Required; PDF 2.0) 
+Type  
+PtData
+ 
+name The type of PDF object that this dictionary describes; shall be
+for a point data dictionary. 
+Required; PDF 2.0Cloud
+Subtype 
+name () Shall be . 
+(Required; PDF 2.0) 
+Names 
+ XPTS 
+array An array of names that identify the internal data elements of the 
+individual point arrays in thearray. 
+LAT 
+ XPTS 
+There are three predefined names: 
+LON 
+ XPTS 
+latitude in degrees. Thevalue is a number type. 
+ALT 
+ XPTS 
+longitude in degrees. Thevalue is a number type. 
+NOTE These names are, in effect, column headers for the array ofvalues. 
+ XPTS 
+altitude in metres. Thevalue is a number type. 
+(Required; PDF 2.0) 
+XPTS 
+Names
+array An array of arrays of values. The number of members in each 
+Names
+interior array shall correspond to the size of the  array; each member in the 
+ XPTS 
+interior arrays is of a type defined by the corresponding name in the  array. 
+Thearray is a collection of tuples without any guaranteed ordering or 
+relationship from point to point. 
+ 
+LATLONALT
+The names , , and  are predefined, and shall be used to associate altitude information with 
+latitude and longitude positions. 
+12.11Document requirements 
+ 
+12.11.1General 
+ 
+A PDF processor that supports document requirements shall evaluate them before execution of any 
+ECMAScripts. 
+ Requirements 
+Theentry in the document catalog (see 7.7.2, "Document catalog dictionary") shall be an 
+array of requirement dictionaries, whose entries are shown in "

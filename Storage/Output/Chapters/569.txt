@@ -1,0 +1,66 @@
+Table 375: standard structure type Artifact" defines the artifact standard structure type.  
+Table 375: standard structure type Artifact 
+Structure Category Description 
+Type 
+(PDF 2.0) 
+Artifact 
+Grouping, Encloses content for which semantics require a reference in the 
+Artifact
+Block or Inline structure tree even when such content is not part of the document’s real content. 
+The  structure type may be used to enclose content that would not 
+otherwise be tagged based on the rules of tagged PDF. 
+Artifact
+A processor of tagged PDF should normally ignore any content items and 
+structure elements that are direct or indirect descendants of an  structure 
+element. 
+EXAMPLE  Some documents include pages with line numbers. Whereas for 
+Artifact
+tagged PDF such line numbers would typically be considered 
+artifacts, the  structure element allows authors to 
+ensure context is maintained by making it possible to place the 
+line numbers in the logical structure without forcing end users 
+to consume them as part of the logical content order. 
+ 
+14.8.5Standard structure attributes 
+ 
+14.8.5.1General 
+ 
+In addition to the standard structure types, PDF defines standard structure attributes for standard 
+structure elements in addition to those attributes in a structure element dictionary that are already 
+defined in "Table 355: Entries in a structure element dictionary". 
+The example in 14.7.7, "Example of logical structure" illustrates the use of standard structure attributes.  
+© ISO 2017 – All rights reserved 742 
+
+ISO/DIS 32000-2
+ 
+As discussed in 14.7.6, "Structure attributes" attributes shall be defined in attribute objects, which are 
+dictionaries or streams attached to a structure element in either of two ways: 
+A
+The  entry in the structure element dictionary identifies an attribute object or an array of such objects.  
+C
+ClassMap
+The  entry in the structure element dictionary gives the name of an attribute class or an array of such 
+names. The class name is in turn looked up in the class map, a dictionary identified by the  
+entry in the structure tree root, yielding an attribute object or array of objects corresponding to the 
+class.  
+Lang, Alt, ActualTextE
+In addition to the standard structure attributes described in 14.8.5.2, "Standard Attribute Owners" 
+there are several other optional entries – , and  – that are described in 14.9, 
+"Repurposing and accessibility support" but are useful to other PDF consumers as well. They appear in 
+the following places in a PDF file (rather than in attribute dictionaries):  
+• 
+As entries in the structure element dictionary (see "Table 355: Entries in a structure element 
+Span
+• 
+dictionary");  
+As entries in property lists attached to marked-content sequences with a  structure element 
+14.8.5.2Standard attribute owners 
+ 
+(see 14.6, "Marked content"). 
+NSO
+OO
+NS
+Each attribute object has an owner, specified by the object’s  entry, or, if the value of  is , by the 
+object’s  entry, which determines the interpretation of the attributes defined in the object’s 
+dictionary. Multiple owners may define like-named attributes with different value types or 
+interpretations. Tagged PDF defines a set of standard attribute owners as shown in "

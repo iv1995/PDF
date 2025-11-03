@@ -1,274 +1,224 @@
-Table 261: Entries in the document security store (DSS) dictionary 
-Key Type Value 
-(Optional) DSS
-Type   
-name If present, shall befor a document security store dictionary. 
-(Optional) 
-VRI   
-dictionary This dictionary contains SignatureVRIdictionaries (see 12.8.4.4, 
+Table 92: Additional abbreviations in an inline image object" 
+may be used in place of the full names. Entries other than those listed shall be ignored. 
+LengthL
+IDEI
+The value of the  (or ) key, which shall be present on all inline images, is the length of the data 
+Length
+between the  and  operators excluding the white-space delimiting those operators. The value of the 
+ key should not exceed 4096 bytes.  
+NOTE 1 Because the  (or ) key is new to PDF 2.0, PDF processors will not encounter this key in 
+LengthL
+older versions of PDF.  
+NOTE 2 The  key permits PDF processors to efficiently skip inline images if they do not need to display 
+L
+them. To skip an image a processor can advance beyond the single white-space character 
+following the  operator, then if the final or only filter is  or  
+IDASCIIHexDecodeASCII85Decode
+skip any further white-space. The number of characters expressed by the  key is then skipped, and 
+L
+the  operator is expected following optional white-space. 
+EI
+"Table 92: Additional abbreviations in an inline image object" shows additional abbreviations that can 
+be used for the names of colour spaces and filters. 
+JBIG2Decode Crypt  JPXDecode 
+These abbreviations are valid only in inline images; they shall not be used in image XObjects. 
+,andare not listed in "Table 92: Additional abbreviations in an inline 
+image object", because those filters shall not be used with inline images. 
+Table 91: Entries in an inline image object 
+Full Name Abbreviation 
+BitsPerComponent BPC 
+ColorSpace CS 
+Decode D 
+DecodeParms DP 
+Filter F 
+Height H 
+ImageMask IM 
+PDF 1.1
+Intent () 
+No abbreviation 
+Interpolate I
+ (uppercase I) 
+PDF 2.0
+Length () L
   
-"Validation-related information (VRI)"). The key of each entry in this dictionary is 
-a
-  
-the base-16-encoded (uppercase)SHA1digest of the signature to which it applies 
-and the value is the SignatureVRIdictionary which contains the validation-related 
-information for that signature. 
-(Optional) 
-Certs 
-array An array of indirect reference to streams, each containing one DER-
-encoded X.509 certificate (see RFC 5280). This array contains certificates that may 
-be used in the validation of any signatures in the document. 
-© ISO 2017 – All rights reserved 567 
+Width W 
+© ISO 2017 – All rights reserved 263 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-(Optional) 
-OCSPs 
-array An array of indirect references to streams, each containing a DER-
- OCSPs 
-encoded Online Certificate Status Protocol (OCSP) response (see RFC 6960). This 
-array containsthat may be used in the validation of the signatures in the 
-document. 
-(Optional) 
-CRLs 
+Table 92: Additional abbreviations in an inline image object 
+Full Name Abbreviation 
+DeviceGray G 
+DeviceRGB RGB 
+DeviceCMYK CMYK 
+Indexed I
+ (uppercase i) 
+ASCIIHexDecode AHx 
+ASCII85Decode A85 
+LZWDecode LZW 
+PDF 1.2
+FlateDecodeFl 
+ () (uppercase F, lowercase L) 
+RunLengthDecode RL 
+CCITTFaxDecode CCF 
+DCTDecode DCT 
  
-array An array of indirect references to streams, each containing a DER-
-CRLs 
-encoded Certificate Revocation List (CRL) (see RFC 5280). This array contains
-that may be used in the validation of the signatures in the document. 
-a 
-Contents
-For a document signature or document timestamp signatures, the bytes that are hashed are those of the 
-complete hexadecimal string, including zero padding, in the  entry of the associated signature 
-CRLsOCSP
-dictionary, containing the signature's DER-encoded binary data object (e.g. CMS or CAdES objects). 
-For the signatures of  and  responses, the bytes that are hashed are the respective signature object 
-represented as a BER-encoded OCTET STRING encoded with primitive encoding. 
+ ColorSpace CS
+DeviceGrayDeviceRGBDeviceCMYK ImageMask IM
+The colour space specified by the(or ) entry shall be one of the standard device colour 
+true
+spaces (, , or ) and shall be present unless() is 
+ Indexed 
+present and has the value of . It shall not be a CIE-based colour space or a special colour space, with 
+the exception of a limited form ofcolour space whose base colour space is a device space and 
+ ColorSpace  ColorSpace 
+whose colour table is specified by a byte string (see 8.6.6.3, "Indexed colour spaces"). Beginning with 
+PDF 1.2, the value of theentry may also be the name of a colour space in the
+subdictionary of the current resource dictionary (see 7.8.3, "Resource dictionaries"). In this case, the 
+name may designate any colour space that can be used with an image XObject. 
+NOTE 3 The names , , and(as well as their abbreviations , , and 
+DeviceGrayDeviceRGB DeviceCMYK GRGB
+) always identify the corresponding colour spaces directly; they never refer to resources in 
+CMYK
+thesubdictionary. 
+ ColorSpace 
+JPXDecode Crypt JBIG2Decode ID 
+The image data in an inline image may be encoded by using any of the standard PDF filters except 
+EI
+,and . The bytes between theoperator and a whitespace token, but 
+before the  operator shall be treated the same as a stream object’s data (see 7.3.8, "Stream objects"), 
+even though they do not follow the standard stream syntax. 
+NOTE 4 This is an exception to the usual rule that the data in a content stream is interpreted according to 
+the standard PDF syntax for objects. Accordingly, this does not permit comments (see 7.2.4, 
+"Comments") within the image data. 
+ DeviceRGB 
+cm
+EXAMPLE This example shows an inline image 17 samples wide by 17 high with 8 bits per component in the
+q  
+colour space. The image has been encoded using LZW and ASCII base-85 encoding. The  operator is used 
+Qcm
+to scale it to a width and height of 17 units in user space and position it at coordinates (298, 388). The and
+ operators encapsulate the  operation to limit its effect to resizing the image. 
+q                %Save graphics state 
+17 0 0 17 298 388 cm          %Scale and translate coordinate space 
  
-12.8.4.4Validation-related information (VRI) 
+© ISO 2017 – All rights reserved 264 
+
+ISO/DIS 32000-2
  
-  
-A signatureVRIdictionary shall contain validation-related information (VRI) for one signature in the 
-  
-document that a given signature handler or PDF processor has used to successfully validate the given 
-signature. A signatureVRIdictionary shall reference: 
+BI                %Begin inline image object 
+ /W 17              %Width in samples 
+ /H 17              %Height in samples 
+ /CS /RGB             %Colour space 
+ /BPC 8             %Bits per component 
+ /L 763 
+ /F [/A85 /LZW]           %Filters 
  
+ID                %Begin image data 
+J1/gKA>.]AN&J?]-<HW]aRVcg*bb.\eKAdVV%/PcZ 
+… Image data representing 289 samples … 
+R.s(4KE3&d&7hb*7[%Ct2HCqC~> 
+EI                %End inline image object 
+Q                %Restore graphics state 
+8.10Form XObjects 
+ 
+8.10.1General 
+ 
+form XObject
+A  is a PDF content stream that is a self-contained description of any sequence of graphics 
+objects (including path objects, text objects, and sampled images). A form XObject may be painted 
+multiple times — either on several pages or at several locations on the same page — and produces the 
+same results each time, subject only to the graphics state at the time it is invoked. Not only is this 
+shared definition economical to represent in the PDF file, but under suitable circumstances the PDF 
+processor can optimise execution by caching the results of rendering the form XObject for repeated 
+reuse. 
+NOTE 1 The term form also refers to a completely different kind of object, an  (sometimes 
+called an ), discussed in 12.7, "Forms". Whereas the form XObjects described in this 
+interactive form
+subclause correspond to the notion of forms in the PostScript language, interactive forms are the 
+AcroForm
+PDF equivalent of the familiar paper instrument. Any unqualified use of the word  is 
+understood to refer to an interactive form; the type of form described here is always referred to 
+form
+explicitly as a . 
+form XObject
+Form XObjects have various uses: 
 • 
-aselection of certificates (Cert) from the certificates list (Certs) in the DSS dictionary applicable to 
- CRLs CRL  
+As its name suggests, a form XObject may serve as the template for an entire page. 
+EXAMPLE A program that prints filled-in tax forms can first paint the fixed template as a form XObject and then paint the 
+variable information on top of it. 
 • 
-this signature; 
- OCSP responses OCSP  
+Any graphical element that is to be used repeatedly, such as a company logo or a standard 
 • 
-a selection offrom the  list in theDSSdictionary applicable to this signature, if any; 
-a selection offrom the  response list in theDSSdictionary applicable to this 
-Cert, CRL OCSP
-signature.  
-If any of the  or arrays is empty that entry in the dictionary shall be omitted. 
-A VRI dictionary may also contain the time at which the data placed in the VRI dictionary was created 
-or/and a timestamp token which contains the UTC time at which the VRI dictionary was created. 
-  
-A signatureVRIdictionary shall not be used to record the information used in an unsuccessful 
-validation attempt. 
-Table 262: Entries in the signature validation-related information (VRI) dictionary 
-Key Type Value 
-(Optional) VRI
-Type   
-name If present, shall befor a validation-related information dictionary. 
-(Optional) 
-Cert 
-array An array of (indirect references to) streams, each containing one DER-
-encoded X.509 certificate (see RFC 5280). This array contains certificates that were used 
-in the validation of this signature. 
-(Required, if a CRL is present) 
-CRL  CRLs 
-array An array of indirect references to streams that are all
-CRL CRLs   
-used to determine the validity of the certificates in the chains related to this signature. 
-Each stream shall reference a  that is an entry in thearray in theDSS
-dictionary. 
-© ISO 2017 – All rights reserved 568 
+component in the output from a computer-aided design system, may be defined as a form XObject. 
+Certain document elements that are not part of a page’s contents, such as annotation appearances 
+group XObjectPDF 1.4
+• 
+(see 12.5.5, "Appearance streams"), shall be represented as form XObjects. 
+A specialised type of form XObject, called a  (), can be used to group graphical 
+elements together as a unit for various purposes (see 8.10.3, "Group XObjects"). In particular, 
+group XObjects shall be used to define transparency groups and soft masks for use in the 
+11.6.5.1, "Soft-mask dictionaries" and 11.6.6, "Transparency 
+transparent imaging model (see 
+reference XObjectPDF 1.4
+• 
+group XObjects"). 
+Another specialised type of form XObject, a  (), may be used to import 
+content from one PDF document into another (see 8.10.4, "Reference XObjects"). 
+A PDF writer shall perform the following two specific operations in order to use a form XObject: 
+Define the appearance of the form XObject.
+ 
+a) A form XObject is a PDF content stream. The dictionary portion 
+© ISO 2017 – All rights reserved 265 
+of the stream (called the form dictionary) shall contain descriptive information about the form XObject; 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-(Required, if an OCSP is present) 
-OCSP  
-OCSPs 
-array An array of indirect references to streams that are all
- OCSPs  
-used to determine the validity of the certificates in the chains related to this 
+the body of the stream shall describe the graphics objects that produce its appearance. The contents of 
+Paint the form XObject.
+Do
  
-signature. Each stream shall reference an OCSP that is an entry in thearray in the
-DSSdictionary. 
-(Optional) 
-TU   TU 
-date The date/time at which this signatureVRIdictionary was created. shall be 
-a date string as defined in 7.9.4, "Dates". 
-(Optional) 
-TS 
- VRI 
-stream A stream containing the DER-encoded timestamp (see RFC 3161 as updated 
-by RFC 5816) that contains the date/time at which this signaturedictionary was 
-NOTE 1 The date/time contained in the timestamp token can be used for audit purposes. 
-created.  
-NOTE 2 The hash value to be contained in the timestamp token is left undefined. For 
-PKCS#7 signatures the datum that is hashed and included in the messageImprint 
-field of the DER encoded timestamp stored in the TS entry (see Internet RFC 3161 
-as updated by Internet RFC 5816) is the encryptedDigest field in the signature's 
-PKCS#7 object (as defined in Internet RFC 2315). 
-EXAMPLE 1 DSS dictionary (and associated objects) 
-100 0 obj 
-  << 
-   /Type /Catalog 
-   /DSS 101 0 R 
-   … other stuff here … 
-  >> 
-endobj 
+the form dictionary are described in 8.10.2, "Form dictionaries". 
+XObject
+b) The  operator (see 8.8, "External objects") shall paint a form XObject whose 
+name is supplied as an operand. The name shall be defined in the  subdictionary of the current 
+resource dictionary. Before invoking this operator, the content stream in which it appears should set 
+appropriate parameters in the graphics state. In particular, it should alter the current transformation 
+ BBox 
+matrix to control the position, size, and orientation of the form XObject in user space. 
+Each form XObject is defined in its own coordinate system, called form space. Theentry in the 
+Matrix
+form dictionary shall be expressed in form space, as shall be any coordinates used in the form XObject’s 
+Do
+content stream, such as path coordinates. The  entry in the form dictionary shall specify the 
+mapping from form space to the current user space. Each time the form XObject is painted by the  
+operator, this matrix shall be concatenated with the current transformation matrix to define the 
+mapping from form space to device space. 
+NOTE 2 This differs from the  entry in a pattern dictionary, which maps pattern space to the initial 
+Matrix
+user space of the content stream in which the pattern is used. 
+Do
+When the  operator is applied to a form XObject, a PDF processor shall perform the following tasks: 
+q
  
-101 0 obj 
-  << 
-   /VRI 102 0 R 
-   /OCSPs [103 0 R] 
-   /CRLs [104 0 R] 
-   /Certs [105 0 R 106 0 R] 
-  >> 
-endobj 
+Matrix
  
-102 0 obj 
-  << 
-   /4B783B9A6D0D69E4E881BFDF080835E896735416  <</OCSP [103 0 R] /CRL [104 0 R]>> 
-  >> 
-endobj 
+a)Saves the current graphics state, as if by invoking the  operator (see 8.4.4, "Graphics state operators") 
+b)Concatenates the matrix from the form dictionary’s  entry with the current transformation matrix 
+ BBox 
  
-103 0 obj 
-  << 
-   /Length …        %whatever the length of the stream is 
-  >> 
-stream 
-… OCSP data goes here … 
-endstream 
+(CTM)  
  
-104 0 obj 
-  << 
-   /Length …        %whatever the length of the stream is 
-  >> 
-stream 
-… %CRL data goes here … 
-endstream 
+c)Clips according to the form dictionary’sentry 
+Q
  
-105 0 obj 
-  << 
-© ISO 2017 – All rights reserved 569 
-
-ISO/DIS 32000-2
+d)Paints the graphics objects specified in the form’s content stream 
+e)Restores the saved graphics state, as if by invoking the  operator (see 8.4.4, "Graphics state operators") 
+Do
+Except as described above, the initial graphics state for the form shall be inherited from the graphics state 
+8.10.2Form dictionaries 
  
-   /Length …        %whatever the length of the stream is 
-  >> 
-stream 
-… Certificate data goes here  
-…
-endstream 
- 
-106 0 obj 
-  << 
-   /Length …        %whatever the length of the stream is 
-  >> 
-stream 
-… Certificate data goes here … 
-endstream 
-DSS
-EXAMPLE 2  sample with Two Signatures 
-101 0 obj 
-  << 
-   /VRI 102 0 R 
-   /OCSPs [103 0 R 107 0 R] 
-   /CRLs [104 0 R] 
-   /Certs [105 0 R 106 0 R] 
-  >> 
-endobj 
- 
-102 0 obj 
-  << 
-   /4B783B9A6D0D69E4E881BFDF080835E896735416  <</OCSP [103 0 R] /CRL [104 0 R]>> 
-   /123456789ABCDEF987654321FEDCBA1234567890  <</OCSP [107 0 R]>> 
- 
-  >> 
- 
-107 0 obj 
-  << 
-   /Length …        %whatever the length of the stream is 
-  >> 
-stream 
-… OCSP data goes here … 
-endstream 
- 
-12.8.4.5Usage of the DSS VRI 
- 
- 
-The validation data contained in the DSS dictionary and those embedded in the signature itself may be 
- VRI 
-used by another party later relying on the signature. The applicability of thevalidation data in the 
-DSS
-   
-signaturedictionary is subject to external conditions such as a set of validation parameters. In the 
-presence ofin a PDF document the preferred order of the search forvalidation data should be as 
-follows: 
-VRI
- 
-DSS
- 
-a)Validation data referenced in the  dictionary 
- 
-b)Validation data in  
-12.8.5Document timestamp (DTS) dictionary 
- 
-c)Validation data embedded in the signature. 
-12.8.5.1General 
- 
-  
-Adocument timestamp dictionaryestablishes the exact contents of the complete PDF file at the time 
-indicated in the timestamp token. 
-© ISO 2017 – All rights reserved 570 
-
-ISO/DIS 32000-2
- 
-12.8.5.2Initial document timestamp dictionary 
- 
-The timestamp token shall be an RFC 3161 TimeStampToken, as updated by RFC 5816, obtained from a 
-trusted timestamp authority. A Document Timestamp dictionary is a standard signature dictionary as 
-described in "Table 255: Entries in a signature dictionary". 
-ByteRange
-The  key shall cover the entire file, including the signature dictionary but excluding the 
-Contents value. The hash value computed over that byte range shall be sent to a timestamping authority 
-and the TimeStampToken which is received shall be placed in the Contents key. 
-  
-The existence of one or more document timestamps shall be determined by examining signature fields 
-(see 12.7.5.5, "Signature fields"). Adocument level timestampis treated as a digital signature in most 
-respects. It normally would not have any visual appearance within the document content. 
-NOTE When a document level timestamp is validated, using the same procedures as for other signatures 
-using its own set of validation parameters, one can determine that the contents of the document 
-have not been changed since a given past date.  
-12.8.5.3Subsequent document timestamp dictionaries 
- 
-A timestamp token present either in a signature timestamp attribute or in a document timestamp 
-dictionary may expire due to the expiry of its certificate or the cryptographic strength of some of their 
-algorithms may not be resistant any longer to some new cryptographic attack. 
-It is thus necessary to apply a new timestamp token before the expiry of the certificate and/or before a 
-cryptographic attack may succeed but it is also necessary to be able to demonstrate that the certificates 
-related to the certification path of the timestamp authority certificate were not revoked for a reason 
-which is either "keyCompromise" or "cACompromise" at the time when the new timestamp token has 
-been applied to the document. 
-The certificates, CRLs or OCSP responses used to demonstrate that the certificates related to the 
-certification path of the previous timestamp token was not revoked for a reason which is either 
-"keyCompromise" or "cACompromise" just before the time the new timestamp token has been 
-requested shall be included into the DSS dictionary. 
-Then the new timestamp token shall be placed into a new document timestamp dictionary which will 
-protect the whole structure. 
-© ISO 2017 – All rights reserved 571 
-
-ISO/DIS 32000-2
- 
-The process may be repeated several times as long as there is a need to reverify the signatures included 
-in the document. ![Figure 86 Illustration of a PDF Document with repeated LTV  .png](./Storage/Output/Images/Figure 86 Illustration of a PDF Document with repeated LTV  .png)
+that is in effect at the time  is invoked.  
+Every form XObject shall have a form type, which determines the format and meaning of the entries in 
+its form dictionary. This specification only defines one form type, Type 1. Form XObject dictionaries 
+may contain the entries shown in "

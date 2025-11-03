@@ -1,11 +1,8 @@
-PDF imaging model 
-derived from the PostScript page description language and enables the description of high quality text 
-and graphics in a device-independent and resolution-independent manner 
-4.49 
+font 
+identified collection of graphics that may be glyphs or other graphical elements 
+© ISO 2017 – All rights reserved 18 
+
+ISO/DIS 32000-2
  
-PDF processor 
-any software, hardware or any other active agent that writes, reads, updates or otherwise processes a 
-PDF file which conforms to this part of ISO 32000 and does so in a manner that conforms to this part of 
-ISO 32000 
-4.50 
+4.27 
  

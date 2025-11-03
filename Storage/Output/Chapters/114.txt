@@ -1,18 +1,20 @@
- ID 
-EI
-An inline image object shall be delimited in the content stream by the operators  (begin image),
-BI ID 
-(image data), and  (end image). These operators are summarised in "Table 90: Inline image 
- ID EI
-operators".  andshall bracket a series of key-value pairs specifying the characteristics of the 
-image, such as its dimensions and colour space; the image data shall follow between theand  
-BI 
-operators. The format is thus analogous to that of a stream object such as an image XObject: 
-Key-value pairs
-  
-ID 
-  …  … 
-Image data
-  
-EI 
-  …  …
+Figure 8: Mapping with the Decode array 
+ 
+Size
+Size
+The  value for an input dimension can be 1, in which case all input values in that dimension shall be 
+Order
+mapped to the single allowed value. If  is less than 4, cubic spline interpolation is not possible and 
+ 3 shall be ignored if specified. 
+7.10.3Type 2 (exponential interpolation) functions 
+ 
+PDF 1.3
+Type 2 functions () include a set of parameters that define an exponential interpolation of one 
+input value and n output values: 
+0𝑛𝑛−1
+()
+𝑓𝑓𝑥𝑥=𝑦𝑦
+,…,𝑦𝑦 
+ 
+In addition to the entries in "Table 38: Entries common to all function dictionaries", a Type 2 function 
+dictionary shall include those listed in "

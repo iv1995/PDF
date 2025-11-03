@@ -1,463 +1,201 @@
-Table 408: Entries in a DPartRoot dictionary" defines entries in a DPartRoot dictionary. 
-Table 408: Entries in a DPartRoot dictionary 
-Key Type Value 
-Optional; PDF 2.0DPartRoot
-Type 
-name () If present, it shall have the value  to identify the 
-dictionary as a DPartRoot dictionary. 
-Required; PDF 2.0
-DPartRootNode 
-dictionary () Shall be an indirect reference to the DPart dictionary that is the 
-root node of the document part tree structure. 
-Optional; PDF 2.0
-RecordLevel 
-integer () This attribute may be used when a single PDF file encodes 
-multiple documents.  It identifies the zero based level of the document part 
-hierarchy where each DPart node of that level corresponds to a component or 
-hierarchy of components. 
-Optional; PDF 2.0
-NodeNameList 
-array () An array of names where each name entry shall correspond to 
-DPartRootNode
-a DPart node level of the document part hierarchy beginning with the DPart 
-dictionary identified by the value of the DPartRoot dictionary's  
-key. 
-If present, the number of entries present in this array shall be equal to the number 
-  
-of DPart node levels in the document part hierarchy. 
-Each name in this array shall conform to the rules for anXMLName token. 
- 
-"Table 409: Entries in a DPart dictionary" defines entries in a DPart dictionary. 
-© ISO 2017 – All rights reserved 803 
+Table 149: Destination syntax" shows the allowed syntactic forms for specifying a destination explicitly 
+left, right, topbottom
+in a PDF file. In each case,  is an indirect reference to a page object (except in a remote go-to action; 
+bounding box
+see 12.6.4.3, "Remote Go-To actions"). All coordinate values (, and ) shall be 
+expressed in the default user space coordinate system. The page’s  is the smallest rectangle 
+enclosing all of its contents. (If any side of the bounding box lies outside the page’s crop box, the 
+corresponding side of the crop box shall be used instead; see 14.11.2, "Page boundaries" for further 
+discussion of the crop box.) 
+No page object can be specified for a destination associated with a remote go-to action (see 12.6.4.3, 
+page
+"Remote Go-To actions") because the destination page is in a different PDF document. In this case, the 
+ parameter specifies an integer page number within the remote document instead of a page object 
+in the current document. 
+Table 149: Destination syntax 
+Syntax Meaning 
+pagelefttopzoompagelefttop
+XYZ
+[ /   ] Display the page designated by , with the coordinates (, ) 
+zoom
+positioned at the upper-left corner of the window and the contents of the 
+lefttopzoom 
+page magnified by the factor . A null value for any of the parameters 
+zoom 
+, , or specifies that the current value of that parameter shall be 
+retained unchanged. A value of 0 has the same meaning as a null 
+value. 
+page page
+Fit
+[/] Display the page designated by , with its contents magnified just 
+enough to fit the entire page within the window both horizontally and 
+vertically. If the required horizontal and vertical magnification factors are 
+different, use the smaller of the two, centring the page within the window 
+in the other dimension. 
+© ISO 2017 – All rights reserved 431 
 
 ISO/DIS 32000-2
  
-Table 409: Entries in a DPart dictionary 
-Key Type Value 
-Optional; PDF 2.0DPart
-Type 
-name () If present, it shall have the value  to identify the dictionary as a DPart 
+Syntax Meaning 
+page top]pagetop 
+FitH
+[/  Display the page designated by , with the vertical coordinate 
+positioned at the top edge of the window and the contents of the page 
+top 
+magnified just enough to fit the entire width of the page within the 
+window. A null value for specifies that the current value of that 
+parameter shall be retained unchanged. 
+pageleftpageleft 
+FitV
+[ / ] Display the page designated by , with the horizontal coordinate 
+positioned at the left edge of the window and the contents of the page 
+left 
+magnified just enough to fit the entire height of the page within the 
+window. A null value for specifies that the current value of that 
+parameter shall be retained unchanged. 
+pageleft bottom right toppage
+FitR
+leftbottomright
+[ / ] Display the page designated by , with its contents magnified just 
+top 
+enough to fit the rectangle specified by the coordinates , , , 
+and entirely within the window both horizontally and vertically. If the 
+required horizontal and vertical magnification factors are different, use 
+the smaller of the two, centring the rectangle within the window in the 
+other dimension. 
+page (PDF 1.1) page
+FitB
+[/] Display the page designated by , with its contents magnified 
+just enough to fit its bounding box entirely within the window both 
+horizontally and vertically. If the required horizontal and vertical 
+magnification factors are different, use the smaller of the two, centring the 
+bounding box within the window in the other dimension. 
+page top](PDF 1.1) page
+FitBH
+top 
+[/  Display the page designated by , with the vertical 
+coordinate positioned at the top edge of the window and the contents 
+top 
+of the page magnified just enough to fit the entire width of its bounding 
+box within the window. A null value for specifies that the current 
+value of that parameter shall be retained unchanged. 
+page left](PDF 1.1) page
+FitBV
+left 
+[/  Display the page designated by , with the horizontal 
+coordinate positioned at the left edge of the window and the contents 
+left 
+of the page magnified just enough to fit the entire height of its bounding 
+box within the window. A null value for specifies that the current 
+value of that parameter shall be retained unchanged. 
+ 
+12.3.2.3Structure destinations 
+ 
+A destination provides a view within a given document, however there is no direct connection between 
+structure 
+the location of the view on the page and the content displayed. Structure elements (see 14.7.2, 
+destination
+"Structure hierarchy") allow specific sequences of content on a page to be identified. A 
+ provides the same view mechanism as a destination, but references a structure element 
+instead of a page. A structure destination shall use the same syntax as a destination (see "Table 149: 
+Destination syntax"), except that the first entry in the array shall be an indirect reference to a structure 
+element dictionary instead of to a page dictionary. 
+page /FitH 500
+elem /FitH 500elem
+EXAMPLE  A regular destination of the following syntax [] could be represented as a structure destination 
+with the following syntax [] where  represents an indirect reference to a structure element 
 dictionary. 
-Required; PDF 2.0
-Parent DPartRootNode
-Parent
-dictionary () If this DPart dictionary is referenced from the  key of the 
-Parent
-DPartRoot dictionary, then the value of this  key shall be an indirect reference to the 
-DPartRoot dictionary. In all other cases the value of this  key shall be an indirect 
-reference to the DPart dictionary that is its immediate ancestor in the hierarchy. 
-Shall not be present if a  key is present; PDF 2.0
-DParts Start
-array () An array of arrays. Each element in the 
-array is an array of indirect references to immediate descendant DPart dictionaries. The array 
-shall not be empty. 
-Shall not be present if a  key is present; shall be an indirect reference; PDF 2.0
-Start DParts
-Start
-dictionary () If 
-present, the  key shall be an indirect reference to the page object that defines the first 
-page of the range of pages belonging to this DPart dictionary. 
-Required if there is a  key and the page range has more than one page, not present 
-End Start
-otherwise; shall be an indirect reference; PDF 2.0
-End
-dictionary (
-) If present, the  key shall be an indirect 
-reference to the page object that defines the last PDF page of the range of pages belonging to 
-this DPart dictionary. 
-Optional; PDF 2.0
-DPM 
-NOTE See 14.12.4.2, "Document part metadata" for a description of the use of DPM 
-dictionary () If present shall specify a document part metadata dictionary. 
-dictionaries for specifying . 
-DPM
-Optional; PDF 2.0
-AF 
-array of () An array of one or more file specification dictionaries (7.11.3, "File 
-dictionaries specification dictionaries") which denote the associated files for this document part (DPart). 
-See 14.13, "Associated files" and 14.13.8, "Associated files linked to DParts". 
-Optional; PDF 2.0; shall be an indirect reference
-Metadata 
-stream () A metadata stream that shall contain 
-metadata for this document part (see 14.3.2, "Metadata streams"). 
- 
-NOTE The use of the  key, to refer to a descendant DPart dictionary, and the use of the  and 
-DPartsStart
- keys, to refer to a range of pages, are exclusive. The restrictions on the use of the  and 
-EndStart
- keys only permit DPart dictionary leaf nodes to refer to a range of one or more PDF pages. 
-End
-Non-leaf DPart dictionary nodes of the hierarchy cannot refer to a range of PDF pages, only to 
-descendent DPart dictionaries. 
-14.12.4.2Document part metadata 
- 
-Document Part Metadata
-.
- (DPM) is a means by which PDF writers, such as PDF authoring applications, 
-communicate information about the various document parts to a downstream production workflow 
-NOTE 1 Job ticket formats such as JDF have specific constructs designed for use with structured page 
-description language formats that contain metadata in their document part structure. In support 
-of that, PDF provides document part metadata (DPM) that may occur as a DPM dictionary entry 
-in any DPart dictionary of the document part hierarchy. 
-DPM is application-specific information communicated between the creator of PDF data and a receiving 
-system, and may be used to classify the PDF file and its various document parts. The receiving system 
-may, for example, use this information in the purposing of page content to print or to some other 
-messaging channel. The DPM may also be referenced in a job definition, such as a JDF job ticket, to vary 
-processing control as necessary for print production. 
-© ISO 2017 – All rights reserved 804 
+The structure element shall be used to identify the page to which the content belongs and, using that 
+page, the structure destination shall behave identically to a destination. To identify the page to which a 
+structure destination refers, the following algorithm shall be used. The kids of the structure element 
+shall be processed in linear array order. If the first kid is a marked content reference or an object 
+© ISO 2017 – All rights reserved 432 
 
 ISO/DIS 32000-2
  
-The DPM specified within a DPM dictionary shall only apply to the DPart node in which it is defined. 
-  
-The name of all keys present in the DPM dictionary or any other dictionaries contained within a DPM 
-dictionary shall conform to the rules of anXMLname token as well as the rules for PDF name objects. 
-NOTE 2 This ensures that the representativeXMLname for the PDF key is a sequence ofXMLcharacters 
-    
-where all PDF name # escape sequences present in the PDF key name are expanded. For more 
-information on # escape sequences refer to 7.3.5, "Name objects". 
-  
-The values of keys present in the DPM dictionary, or of any dictionary orarray objectpresent in the 
-DPM dictionary, shall only be of type text string, date string, array, dictionary, boolean or numeric as 
-defined in 7.3, "Objects". Other PDF value types shall not be used. 
-14.13Associated files 
+reference (see 14.6, "Marked content"), then the page to which that reference belongs shall be used as 
+the page. If the first kid is a structure element, then processing shall continue down to that element 
+using the same algorithm recursively. If no content or object reference is found under the first entry, 
+processing should proceed to next entry, repeating the process. This shall continue until all entries have 
+been processed or until the first page is identified. In the case where no page content is identified, then 
+the page reference shall be assumed to be the first page in the document. 
+No structure element dictionary can be specified for a structure destination associated with a remote 
+go-to action (see 12.6.4.3, "Remote Go-To actions") because the destination structure element is in a 
+ ID 
+different PDF document. In this case, the indirect reference to the structure element dictionary shall be 
+replaced by a byte string representing a structure element(see "Table 354: Entries in a structure 
+element dictionary"). 
+NOTE There is no requirement that a given structure element will have anassociated with it, nor that 
+ ID 
+it will remain consistent across edits to a PDF document. For remote go-to actions which rely on a 
+target PDF having an , it is important that such anexist and that it remain consistent across 
+ID ID 
+versions of the target document. 
+12.3.2.4Named destinations 
  
-14.13.1General 
- 
-Associated files
-file specification 
- provide a means to associate content in other formats with objects of a PDF file and to 
-dictionaries 
-AF
-identify the relationship between them. Such associated files are designated using 
-(see 7.11.3, "File specification dictionaries"), and  keys are used in object dictionaries to 
-AF
-connect the associated file’s specification dictionaries with those objects. Some PDF objects that can 
-provide the  keys are: 
-• 
-the PDF document catalog dictionary (14.13.3, "Associated files linked to the PDF document’s 
-• 
-catalog") 
-• 
-a page dictionary (14.13.4, "Associated files linked to a page dictionary") 
-a graphics object (using a marked content property list dictionary, 14.13.5, "Associated files linked 
-• 
-to graphics objects") 
-• 
-a structure element dictionary (14.13.6, "Associated files linked to structure elements") 
-• 
-an XObject dictionary (14.13.7, "Associated files linked to XObjects") 
-• 
-a DParts dictionary (14.13.8, "Associated files linked to DParts") 
-• 
-an annotation dictionary (14.13.9, "Associated files linked to an annotation dictionary") 
-AFRelationship
-a metadata stream dictionary (14.3.2, "Metadata streams") 
-For associated files their associated file specification dictionaries shall include the  key 
-indicating one of several possible relationships that the file has to the associated PDF object (See 7.11.3, 
-"File specification dictionaries"). 
-14.13.2Embedded associated files 
- 
-The file specification for an associated file represents either a file external to the PDF file or an 
-embedded file stream (see 7.11.4, "Embedded file streams") within the PDF file. 
-NOTE 1 A file specification dictionary allows for both embedded data (via the  key) and 
-EF
-referenced/external data (via the  andkeys). Both types are allowed for associated files but 
-F UF 
-the embedded form is recommended. 
-Params
- ModDate 
-When using an embedded file stream as an associated file, its dictionary should contain a  key 
-whose value shall be a dictionary containing at least akey whose value shall be the latest 
-modification date of the source file. (See "
-Table 44: Additional entries in an embedded file stream 
-© ISO 2017 – All rights reserved 805 
+Instead of being defined directly with the explicit syntax shown in "Table 149: Destination syntax", a 
+destination may be referred to indirectly by means of a name object (PDF 1.1) or a byte string (PDF 1.2). 
+This capability is especially useful when the destination is located in another PDF document. 
+NOTE 1 A link to the beginning of Chapter 6 in another document might refer to the destination by a 
+name, such as Chap6 . begin, instead of by an explicit page number in the other document. Then, 
+the location of the chapter in the other document could change without invalidating the link. If an 
+annotation or outline item that refers to a named destination has an associated action, such as a 
+remote go-to action (see 12.6.4.3, "Remote Go-To actions") or a thread action (12.6.4.7, "Thread 
+actions"), the destination is in the file specified by the action’s  entry, if any; if there is no  entry, 
+FF
+the destination is in the current file. 
+ Dests 
+In PDF 1.1, the correspondence between name objects and destinations shall be defined by the
+entry in the document catalog dictionary (see 7.7.2, "Document catalog dictionary"). The value of this 
+entry shall be a dictionary in which each key is a destination name and the corresponding value is either 
+DSD
+an array defining the destination, using the syntax shown in "Table 149: Destination syntax", or a 
+dictionary with a  entry whose value is such an array and may optionally contain an  entry as 
+defined in "Table 201: Action types". 
+NOTE 2 The latter form allows additional attributes to be associated with the destination, as well as 
+enabling a go-to action (see 12.6.4.2, "Go-To actions") that shall be used as the target of a named 
+destination. 
+ Dests 
+In PDF 1.2 and later, the correspondence between strings and destinations may alternatively be defined 
+by theentry in the document’s name dictionary (see 7.7.4, "Name dictionary"). The value of this 
+entry shall be a name tree (7.9.6, "Name trees") mapping name strings to destinations. (The keys in the 
+name tree may be treated as text strings for display purposes.) The destination value associated with a 
+key in the name tree may be either an array or a dictionary, as described in the preceding paragraph. 
+NOTE 3 The use of strings as destination names is a PDF 1.2 feature. If compatibility with versions of PDF 
+prior to PDF 1.2 is required, only name objects can be used to refer to named destinations. A 
+document that supports PDF 1.2 or later can contain both types. However, if backward 
+© ISO 2017 – All rights reserved 433 
 
 ISO/DIS 32000-2
  
-Subtype
-dictionary" and "Table 45: Entries in an embedded file parameter dictionary"). The embedded file 
-application/octet-stream
-stream dictionary shall include a valid MIME type value for the  key. If the MIME type is not 
-known, the value "" shall be used. 
-NOTE 2 As described in RFC 2046, 4.5.1, the "" subtype is used to indicate arbitrary binary 
-data. 
-octet-stream
- EmbeddedFiles 
- EmbeddedFiles 
-In addition, an embedded file stream may be referenced from the document’snames 
-tree (see thekey in 7.7.4, "Name dictionary"). 
-NOTE 3 Doing so will enable a user to extract the file directly as any other attachment to the document 
-and also allow it to be considered when doing an "attachments only" encryption. 
-EXAMPLE A PDF document is to be created from a text processing application file that contains textual content, a 
-mathematical equation, and a chart derived from a spreadsheet application. In this case the resulting PDF 
-document might contain the following embedded files: 
-
-Source
-AFRelationship
+compatibility to PDF 1.2 is not a consideration, it is recommended that applications use the string 
+form of representation in thename tree. 
+ Dests 
+12.3.3Document outline 
  
-Text processing application file embedded with an  value  and associated with 
-
-Supplement
-AFRelationship
+document outline
+A PDF document may contain a  that the interactive PDF processor may display on the 
+outline itemsbookmarks
+screen, allowing the user to navigate interactively from one part of the document to another. The 
+outline consists of a tree-structured hierarchy of  (sometimes called ), which 
+serve as a visual table of contents to display the document’s structure to the user. The user may 
+interactively open and close individual items by clicking them with the mouse. When an item is open, its 
+immediate children in the hierarchy shall become visible on the screen; each child may in turn be open 
+activates
+or closed, selectively revealing or hiding further parts of the hierarchy. When an item is closed, all of its 
+descendants in the hierarchy shall be hidden. Clicking the text of any visible item  the item, 
+causing the interactive PDF processor to jump to a destination or trigger an action associated with the 
+item. 
+outline dictionary
+ Outlines 
+The root of a document’s outline hierarchy is an  specified by theentry in the 
+document catalog dictionary (see 7.7.2, "Document catalog dictionary"). "Table 150: Entries in the 
+outline item dictionary
+outline dictionary" shows the contents of this dictionary. Each individual outline item within the 
  
-the document catalog 
-MathML version of the equation embedded with an  value , and associated 
-using a structure element or a Form XObject depending on how the equation is rendered in the page’s 
-
-Source
-AFRelationship 
- 
-content stream. 
- 
-Spreadsheet application file embedded with a  value  and associated with the
-
-Data
-AFRelationship  
- 
-Imageor Form XObject presenting the chart. 
-CSV file embedded with a  value  and associated with theImageor Form XObject 
-for presenting the chart. 
-14.13.3Associated files linked to the PDF document’s catalog 
- 
-One or more files may be associated with the PDF document as a whole by including a file specification 
-AF
-dictionary (7.11.3, "File specification dictionaries") for each file as one of the members of the array 
-AFRelationship
-value of the  key in the document catalog (7.7.2, "Document catalog dictionary"). The relationship 
-that the associated files have to the PDF document is supplied by the  key in each file 
-specification dictionary. 
-14.13.4Associated files linked to a page dictionary 
- 
-AF
-One or more files may be associated with any PDF page by including a file specification dictionary 
-(7.11.3, "File specification dictionaries") for each file as one of the members of the array value of the  
-AFRelationship
-key in the appropriate page dictionary (14.13.4, "Associated files linked to a page dictionary"). The 
-relationship that the associated files have to the page is supplied by the  key in each file 
-specification dictionary. 
-NOTE Associated files serve not only as alternative to  (which is vendor specific) but also 
-PieceInfo
-enable richer semantic content when doing page/document merging or conversion of simple 
-page-based elements (e.g., images). 
-14.13.5Associated files linked to graphics objects 
- 
-BDCEMC
-One or more files may be associated with sections of content in a content stream by enclosing those 
-AF
-sections between the marked content operators  and  (see 14.6, "Marked content") with a 
-marked content tag of .  
-© ISO 2017 – All rights reserved 806 
-
-ISO/DIS 32000-2
- 
-NOTE 1 This applies to a page’s content stream, a form or pattern’s content stream, glyph descriptions in a 
-Type 3 font as specified by its  entry, or an annotation’s appearance (). 
-CharProcsAP
-NOTE 2 The  operator does not take properties and therefore cannot be used with the  key. 
-BMCAF
-DPMP
-AF
-Unlike other types of marked content tags, the  or  marked-content operators shall not be used 
-with the  tag when that tag is used to refer to a file specification dictionary. 
-NOTE 3 The combination of aor  operator with an  tag (when used to refer to a file specification 
- DP MPAF
-dictionary) is forbidden, as these operators only mark a single point and thus don’t enable 
-connections between any specific sequence of content operators and their associated file. 
-Property List
-The property list associated with the marked content shall specify an array of file specification 
-dictionaries to which the content is associated. The named resource in the  (see 14.6.2, 
-"Property lists") shall specify an array of file specification dictionaries to which the content is 
-AFRelationship
-associated. The relationship that the associated files have to the PDF content is supplied by the 
- key in each file specification dictionary. 
-AF
-AFAF
-Although the marked-content tag shall be , other applications of marked content are not precluded 
-from using  as a tag. The marked content is connected with associated files only if the tag is  and 
-the property list is defined as a valid array of file specification dictionaries. To avoid conflict with other 
-features that use marked content, such as 14.7, "Logical structure", where content is to be tagged with 
-source content markers as well as other markers, the other markers should be nested inside the source 
-content markers. 
-AF
-When writing a PDF, the use of structure and associating the  with the structure element (see 
-14.13.6, "Associated files linked to structure elements") is preferred instead of the use of explicit 
-marked content. 
-14.13.6Associated files linked to structure elements 
- 
-One or more files may be associated with structure elements (see 14.7.2, "Structure hierarchy") to 
-accommodate content that spans pages such as in an article, section or table, in which cases logical 
-structural elements should be used to make an association with files. This entry represents the 
-AF
-associated files for the entire structure element. To associate files with structure elements, the structure 
-element dictionary shall contain an  entry which represents the associated files for that structure 
-AFRelationship
-element. The relationship that the associated files have to the structure element is supplied by the 
- key in each file specification dictionary. 
-14.13.7Associated files linked to XObjects 
- 
-  
-AF
-One or more files may be associated with Type 1 Form XObjects andImageXObjects (see 8.8, "External 
-objects"). To associate files with XObjects, the XObject stream dictionary shall contain an  entry 
-whose value is an array of file specification dictionaries. This entry represents the associated files for 
-AFRelationship
-the entire XObject. The relationship that the associated files have to the XObject is supplied by the 
- key in each file specification dictionary. 
-14.13.8Associated files linked to DParts 
- 
-AF
-One or more files may be associated with any DPart (see 14.12, "Document parts"). To associate files 
-with a DPart, the appropriate DPart dictionary shall contain an  entry whose value is an array of file 
-specification dictionaries. This entry represents the associated files for the entire DPart. The 
-© ISO 2017 – All rights reserved 807 
-
-ISO/DIS 32000-2
- 
-AFRelationship
-relationship that the associated files have to the DPart is supplied by the  key in each 
-file specification dictionary. 
-NOTE This could be useful when merging multiple documents together, the original PDF or even the 
-original source material could be embedded here. 
-14.13.9Associated files linked to an annotation dictionary 
- 
-One or more files may be associated with annotations. 
-NOTE For some annotation types (such as 13.7.2, "RichMedia annotations") it is useful to have the data 
-used for dynamic rendering be easily identifiable by a reader. 
-AF
-To associate files with annotations, the annotation dictionary shall contain an  entry which 
-AFRelationship
-represents the associated files for that annotation. The relationship that the associated files have to the 
-annotation is supplied by the  key in each file specification dictionary. 
-14.13.10Associated file examples 
- 
-EXAMPLE 1 Associated file linked to the PDF document as a whole 
-19 0 obj            %Document Catalog 
-<< 
-  /Type /Catalog 
-  /Pages 6 0 R 
-  /Names 30 0 R 
-  /Metadata 11 0 R 
-  /AF [20 0 R] 
->> 
- 
-20 0 obj            %File Specification Dictionary 
-  << 
-   /Type /Filespec 
-   /F (My Presentation.ppt) 
-   /UF (My Presentation.ppt) 
-   /AFRelationship /Source 
-   /EF <</F 21 0 R>> 
-  >> 
-endobj 
- 
-21 0 obj            %embedded file stream 
-  << 
-   /Filter /FlateDecode 
-   /Length 1975 
-   /Type /EmbeddedFile 
-   /Subtype /application#2Fvnd.ms-powerpoint 
-   /Params 
-   << 
-    /CheckSum <ad032d7a6ea930489df4bfd6acb585b9> 
-    /Size 3979 
-    /CreationDate (D:20010727133719) 
-    /ModDate (D:20010727133720) 
-   >> 
-  >> 
-stream 
-… 
-endstream 
-endobj 
- 
-© ISO 2017 – All rights reserved 808 
-
-ISO/DIS 32000-2
- 
-EXAMPLE 2 Associated file linked to a Content Stream 
-…              %Within a content stream 
-/AF /AF1 BDC           %Begin content marked with an associated file 
-BT 
- /F1 1 Tf 
- 12 0 0 12 100 600 Tm 
- (Hello) Tj 
-ET 
-EMC             %End of associated content 
- … 
-<<              %This dictionary maps the name AF1 to an 
- /Properties  <</AF1 [12 0 R]>>   %embedded file specification (object 12) 
->> 
- 
-12 0 obj            %file specification dictionary 
-<< 
-  /Type /Filespec 
-  /F (datatable.doc) 
-  /UF (datatable.doc) 
-  /AFRelationship /Data 
-  /EF  <</F 5 0 R>> 
->> 
-endobj 
- 
-5 0 obj            %embedded file stream 
-<< 
-  /Filter /FlateDecode 
-  /Length 20000 
-  /Type /EmbeddedFile 
-  /Subtype /application#2Fvnd.ms-word 
-  /Params 
-  << 
-   /CheckSum <ad032d7a6ea930489df4bfd6acb585b9> 
-   /Size 32000 
-   /CreationDate (D:200504 16133719) 
-   /ModDate (D:20050908133720) 
-  >> 
->> 
-stream 
- … 
-endstream 
-endobj 
-EXAMPLE 3 Associated file linked to an XObject 
-19 0 obj            %some XObject 
-<< 
-  /Type /XObject 
-  /Subtype /Form 
-  … 
-  /AF [20 0 R] 
->> 
- 
-20 0 obj            %File Specification Dictionary 
-<< 
-  /Type /Filespec 
-  /F (equation.mathml) 
-  /UF (equation.mathml) 
-  /AFRelationship /Supplement 
-  /EF <</F 21 0 R>> 
->> 
-endobj 
- 
-21 0 obj            %embedded file stream 
-<< 
-© ISO 2017 – All rights reserved 809 
-
-ISO/DIS 32000-2
- 
-  /Filter /FlateDecode 
-  /Length 1975 
-  /Type /EmbeddedFile 
-  /Subtype /application#2Fxhtml+xml 
-  /Params 
-  << 
-   /CheckSum <ad032d7a6ea930489df4bfd6acb585b9> 
-   /Size 3979 
-   /CreationDate (D:20010727133719) 
-   /ModDate (D:20010727133720) 
-  >> 
->> 
-stream 
-… 
-endstream 
-endobj  
-© ISO 2017 – All rights reserved 810 
-
-ISO/DIS 32000-2
- ![75.png](./Storage/Output/Images/75.png)
+hierarchy shall be defined by an  ("Table 151: Entries in an outline item 
+Prev NextFirstLast
+dictionary"). The items at each level of the hierarchy form a linked list, chained together through their
+and  entries and accessed through the  and  entries in the parent item (or in the 
+outline dictionary in the case of top-level items). When displayed on the screen, the items at a given 
+level shall appear in the order in which they occur in the linked list. 

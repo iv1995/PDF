@@ -1,125 +1,191 @@
-Table 271: Entries in a projected coordinate system dictionary" lists the entries in a projected 
- DCS 
-coordinate system dictionary. A projected coordinate system dictionary may be a value of theor 
-theentry of a geospatial measure dictionary, "Table 269: Additional entries in a geospatial measure 
-dictionary". 
-Table 271: Entries in a projected coordinate system dictionary 
-Key Type Description 
-Required; PDF 2.0
-Type 
-PROJCS
-name () The type of PDF object that this dictionary describes; 
-shall be  for a projected coordinate system dictionary. 
-Optional; PDF 2.0
-EPSG  EPSG 
-integer () Anreference code specifying the projected 
-coordinate system. 
-Optional; PDF 2.0
-WKT 
-ASCII string () A string of Well Known Text describing the projected 
-coordinate system. 
- 
- EPSG  WKT 
-Either ancode or astring shall be required in the projected coordinate system dictionary. 
- WKT 
-EXAMPLE 1 Adescribing a geographic coordinate system 
- WKT  EPSG 
- An example ofdescription of a geographic coordinate system, formatted for readability. Thecode 
-equivalent to the GCS_North_American_1983 geographic coordinate system is 4269. 
-GEOGCS["GCS_North_American_1983", 
-  DATUM[ 
-   "D_North_American_1983", 
-   SPHEROID["GRS_1980",6378137.0,298.257222101] 
-  ], 
-  PRIMEM["Greenwich",0.0], 
-  UNIT["Degree",0.0174532925199433] 
-] 
- WKT 
-EXAMPLE 2 Adescribing a projected coordinate system 
- WKT  EPSG 
- An example ofdescription of a projected coordinate system, formatted for readability. Thecode 
-equivalent to the North_American_Albers_Equal_Area_Conic projected coordinate system is 102008. 
-PROJCS["North_America_Albers_Equal_Area_Conic",  
-  GEOGCS["GCS_North_American_1983", 
-   DATUM["D_North_American_1983", 
-    SPHEROID["GRS_1980",6378137.0, 298.257222101] 
-   ], 
-   PRIMEM["Greenwich",0.0], 
-   UNIT["Degree",0.0174532925199433] 
-  ], 
-  PROJECTION["Albers"], 
-   PARAMETER["False_Easting",0.0], 
-   PARAMETER["False_Northing",0.0], 
-   PARAMETER["Central_Meridian",-96.0], 
-   PARAMETER["Standard_Parallel_1",20.0], 
-   PARAMETER["Standard_Parallel_2",60.0] 
-   PARAMETER["Latitude_Of_Origin",40.0], 
-   UNIT["Meter",1.0] 
-© ISO 2017 – All rights reserved 585 
+Table 98: Entries in the optional content properties dictionary"), or a valid 
+optional content membership dictionary. 
+To avoid conflict with other features that used marked content (such as logical structure; see 14.7, 
+"Logical structure"), the following strategy is recommended: 
+• 
+Where content is to be tagged with optional content markers as well as other markers, the optional 
+• 
+content markers should be nested inside the other marked content. 
+Where optional content and the other markers would overlap but there is not strict containment, 
+© ISO 2017 – All rights reserved 275 
 
 ISO/DIS 32000-2
  
-  ] 
+BDCEMC
+the optional content should be broken up into two or more / sections, nesting the 
+NOTE Breaking up optional content spans does not damage the nature of the visibility of the content, 
+optional content sections inside the others as necessary.  
+whereas the same guarantee cannot be made for all other uses of marked content. 
+ON
+In the following example, the state of the Show Greeting optional content group directly controls the 
+OFF
+visibility of the text string "Hello" on the page. When the group is , the text is visible; when the group 
+is , the text is hidden. 
+EXAMPLE 1  
+%Within a content stream 
+… 
+/OC /oc1 BDC          %Optional content follows 
+  BT 
+   /F1 1 Tf 
+   12 0 0 12 100 600 Tm 
+   (Hello) Tj 
+  ET 
+EMC             %End of optional content 
+… 
  
-12.10.5Point data dictionary 
+<<              %In the resources dictionary 
+  /Properties <</oc1 5 0 R>>    %This dictionary maps the name oc1 to an 
+…              %optional content group (object 5) 
+>> 
  
-  
-GEO
-   PtData 
-Any 2D object (Viewport,ImageXObject, or Form XObject) that contains a measure dictionary ("Table 
- PtData 
-266: Entries in a measure dictionary") of subtypecan optionally include aentry. The value 
-of aentry is a point data dictionary or an array of point data dictionaries of extended data 
-associated with points in the 2D space. "Table 272: Entries in a point data dictionary" lists the entries of 
-a point data dictionary. 
-Table 272: Entries in a point data dictionary 
-Key Type Description 
-(Required; PDF 2.0) 
-Type  
-PtData
+5 0 obj            %The OCG controlling the visibility 
+<<              %of the text. 
+  /Type /OCG 
+  /Name (Show Greeting) 
+>> 
+endobj 
  
-name The type of PDF object that this dictionary describes; shall be
-for a point data dictionary. 
-Required; PDF 2.0Cloud
-Subtype 
-name () Shall be . 
-(Required; PDF 2.0) 
-Names 
- XPTS 
-array An array of names that identify the internal data elements of the 
-individual point arrays in thearray. 
-LAT 
- XPTS 
-There are three predefined names: 
-LON 
- XPTS 
-latitude in degrees. Thevalue is a number type. 
-ALT 
- XPTS 
-longitude in degrees. Thevalue is a number type. 
-NOTE These names are, in effect, column headers for the array ofvalues. 
- XPTS 
-altitude in metres. Thevalue is a number type. 
-(Required; PDF 2.0) 
-XPTS 
-Names
-array An array of arrays of values. The number of members in each 
-Names
-interior array shall correspond to the size of the  array; each member in the 
- XPTS 
-interior arrays is of a type defined by the corresponding name in the  array. 
-Thearray is a collection of tuples without any guaranteed ordering or 
-relationship from point to point. 
+The example above shows one piece of content associated with one optional content group. There are 
+other possibilities: 
+• 
+More than one section of content may refer to the same group or membership dictionary, in which 
+• 
+case the visibility of both sections is always the same. 
+OCGP
+Equivalently, although less space-efficient, different sections may have separate membership 
+dictionaries with the same s and  entries. The sections shall have identical visibility 
+• 
+behaviour. 
+PPP
+Two sections of content may belong to membership dictionaries that refer to the same group(s) 
+AllOff
+but with different  settings. For example, if one section has no  entry, and the other has a  entry 
+of , the visibility of the two sections of content shall be opposite. That is, the first section shall 
+be visible when the second is hidden, and vice versa. 
+The following example demonstrates both the direct use of optional content groups and the indirect use 
+    
+of groups through a membership dictionary. The content (a black rectangle frame) is drawn if either of 
+the images controlled by the groups namedImageA orImageB is shown. If both groups are hidden, the 
+rectangle frame is hidden. 
+EXAMPLE 2  
+%Within a content stream 
+… 
+/OC /OC2 BDC            %Draws a black rectangle frame 
+  0 g 
+© ISO 2017 – All rights reserved 276 
+
+ISO/DIS 32000-2
  
-LATLONALT
-The names , , and  are predefined, and shall be used to associate altitude information with 
-latitude and longitude positions. 
-12.11Document requirements 
+  4 w 
+  100 100 412 592 re s 
+EMC 
+/OC /OC3 BDC            %Draws an image XObject 
+  q 
+  412 0 0 592 100 100 cm 
+  /Im3 Do 
+  Q 
+EMC 
+/OC /OC4 BDC            %Draws an image XObject 
+  q 
+  412 0 0 592 100 100 cm 
+  /Im4 Do 
+  Q 
+EMC 
+… 
+<<                %The resource dictionary 
+   /Properties <</OC2 20 0 R /OC3 30 0 R /OC4 40 0 R>> 
+   /XObject <</lm3 50 0 R /lm4 /60 0 R>> 
+>> 
  
-12.11.1General 
+20 0 obj 
+<<                %Optional content membership dictionary 
+   /Type /OCMD 
+   /OCGs [30 0 R 40 0 R] 
+   /P /AnyOn 
+>> 
+endobj 
  
-A PDF processor that supports document requirements shall evaluate them before execution of any 
-ECMAScripts. 
- Requirements 
-Theentry in the document catalog (see 7.7.2, "Document catalog dictionary") shall be an 
-array of requirement dictionaries, whose entries are shown in "
+30 0 obj              %Optional content group "Image A" 
+  << 
+   /Type /OCG 
+   /Name (Image A) 
+>> 
+endobj 
+ 
+40 0 obj              %Optional content group "Image B" 
+<< 
+   /Type /OCG 
+   /Name (Image B) 
+>> 
+endobj 
+ 
+8.11.3.3Optional content in XObjects and annotations 
+ 
+OC
+In addition to marked content within content streams, form XObjects and image XObjects (see 8.8, 
+"External objects") and annotations (see 12.5, "Annotations") may contain an  entry, which shall be 
+an optional content group or an optional content membership dictionary. 
+PVE
+A form or image XObject's visibility shall be determined by the state of the group or those of the groups 
+referenced by the membership dictionary in conjunction with its  (or ) entry, along with the current 
+visibility state in the context in which the XObject is invoked (that is, whether objects are visible in the 
+content stream at the place where the Do operation occurred). 
+OC
+Annotations have various flags controlling on-screen and print visibility (see 12.5.3, "Annotation flags"). 
+If an annotation contains an  entry, it shall be visible for screen or print only if the flags have the 
+appropriate settings and the group or membership dictionary indicates it shall be visible. 
+© ISO 2017 – All rights reserved 277 
+
+ISO/DIS 32000-2
+ 
+8.11.4Configuring optional content 
+ 
+8.11.4.1General 
+ 
+A PDF document containing optional content may specify the default states for the optional content 
+groups in the document and indicate which external factors shall be used to alter the states. The 
+following subclauses describe the PDF structures that are used to specify this information. 
+8.11.4.2, "Optional content properties dictionary" describes the structure that lists all the optional 
+content groups in the document and their possible configurations. 
+8.11.4.3, "Optional content configuration dictionaries" describes the structures that specify initial state 
+settings and other information about the groups in the document. 
+8.11.4.4, "Usage and usage application dictionaries" and 8.11.4.5, "Determining the state of optional 
+content groups" describe how the states of groups can be affected based on external factors. 
+8.11.4.2Optional content properties dictionary 
+ 
+OCProperties
+The optional  entry in the document catalog dictionary (see 7.7.2, "Document catalog 
+dictionary") shall contain, when present, the optional content properties dictionary, which contains a 
+list of all the optional content groups in the document, as well as information about the default and 
+alternate configurations for optional content. This dictionary shall be present if the file contains any 
+optional content; if it is missing, a PDF processor shall ignore any optional content structures in the 
+document. 
+This dictionary contains the following entries: 
+Table 98: Entries in the optional content properties dictionary 
+Key Type Value 
+Required
+OCGs 
+array () An array of indirect references to all the optional content 
+groups in the document (see 8.11.2, "Optional content groups"), in any 
+order. Every optional content group shall be included in this array. 
+Required
+D 
+dictionary () The default viewing optional content configuration dictionary 
+(see 8.11.4.3, "Optional content configuration dictionaries"). 
+Optional
+Configs 
+array () An array of alternate optional content configuration 
+dictionaries (see 8.11.4.3, "Optional content configuration dictionaries"). 
+ 
+8.11.4.3 Optional content configuration dictionaries 
+ 
+DConfigs
+configuration dictionaries
+The  and  entries in "Table 98: Entries in the optional content properties dictionary" are 
+D
+, which represent different presentations of a document’s optional content 
+Configs
+groups for use by PDF processors. The  configuration dictionary shall be used to specify the initial 
+state of the optional content groups when a document is opened.  lists other configurations that 
+may be used under particular circumstances. The entries in a configuration dictionary are shown in 
+"

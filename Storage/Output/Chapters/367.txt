@@ -1,0 +1,32 @@
+Table 199: Entries in a form field’s additional-actions dictionary 
+Key Type Value 
+(Optional; PDF 1.3) 
+K  
+dictionary An ECMAScriptaction that shall be performed when the user 
+modifies a character in a text field or combo box or modifies the selection in a 
+scrollable list box. This action may check the added text for validity and reject or 
+modify it. 
+(Optional; PDF 1.3) 
+F  
+dictionary An ECMAScriptaction that shall be performed before the field is 
+formatted to display its value. This action may modify the field’s value before 
+formatting. 
+(Optional; PDF 1.3) 
+V  
+V
+dictionary An ECMAScriptaction that shall be performed when the field’s 
+value is changed. This action may check the new value for validity. (The name  
+stands for "validate.") 
+(Optional; PDF 1.3) 
+C  
+C
+dictionary An ECMAScriptaction that shall be performed to recalculate the 
+value of this field when that of another field changes. (The name  stands for 
+ CO 
+"calculate.") The order in which the document’s fields are recalculated shall be 
+defined by theentry in the interactive form dictionary (see 12.7.3, "Interactive 
+form dictionary"). 
+© ISO 2017 – All rights reserved 494 
+
+ISO/DIS 32000-2
+ 

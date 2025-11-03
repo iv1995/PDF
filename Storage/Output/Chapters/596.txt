@@ -1,0 +1,16 @@
+Table 398: 
+Additional entries specific to a printer’s mark annotation" shows an additional annotation dictionary 
+entry specific to this type of annotation. 
+Table 398: Additional entries specific to a printer’s mark annotation 
+Key Type Value 
+RequiredPrinterMark
+Subtype   
+name () The type of annotation that this dictionary describes; shall befor a 
+printer’s mark annotation. 
+OptionalColorBar
+MN 
+RegistrationTarget
+name () An arbitrary name identifying the type of printer’s mark, such as  or 
+. 
+ 
+The form dictionary defining a printer’s mark may contain the optional entries shown in "

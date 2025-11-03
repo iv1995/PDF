@@ -1,40 +1,157 @@
-Figure 66: Angled halftone cell divided into two squares" shows how the halftone cell can be 
-divided into two squares. If the squares and the original cell are tiled across device space, the area 
-to the right of the upper square maps exactly into the empty area of the lower square, and vice 
-versa (see "Figure 67: Halftone cell and two squares tiled across device space"). The last row in the 
-first square is immediately adjacent to the first row in the second square and starts in the same 
-column. ![Figure 66 Angled halftone cell divided into two squares  .png](./Storage/Output/Images/Figure 66 Angled halftone cell divided into two squares  .png)
-Figure 66: Angled halftone cell divided into two squares 
+Table 59: Path-painting operators" lists all the path-painting 
+operators. 
+Table 59: Path-painting operators 
+Operands Operator Description 
+— 
+S 
+Stroke the path. 
+— 
+s h S
+Close and stroke the path. This operator shall have the same effect as the sequence . 
+— 
+f 
+Fill the path, using the non-zero winding number rule to determine the region to fill (see 
+8.5.3.3.2, "Non-zero winding number rule"). Any subpaths that are open shall be implicitly 
+closed before being filled. 
+— 
+F f
+f
+Equivalent to ; deprecated in PDF 2.0 and included only for compatibility. Although PDF 
+readers shall be able to accept this operator, PDF writers should use  instead. 
+— 
+f* 
+Fill the path, using the even-odd rule to determine the region to fill (see 8.5.3.3.3, "Even-odd 
+rule"). 
+— 
+B 
+Fill and then stroke the path, using the non-zero winding number rule to determine the region 
+fS
+to fill. This operator shall produce the same result as constructing two identical path objects, 
+NOTE The filling and stroking portions of the operation consult different values of several 
+painting the first with  and the second with . 
+graphics state parameters, such as the current colour. See also 11.7.4.4, "Special path-
+painting considerations". 
+— 
+B* 
+Bf*
+Fill and then stroke the path, using the even-odd rule to determine the region to fill. This 
+f
+operator shall produce the same result as , except that the path is filled as if with  instead of 
+. See also 11.7.4.4, "Special path-painting considerations". 
+— 
+b 
+h B
+Close, fill, and then stroke the path, using the non-zero winding number rule to determine the 
+region to fill. This operator shall have the same effect as the sequence . See also 11.7.4.4, 
+"Special path-painting considerations". 
+— 
+b* 
+h B*
+Close, fill, and then stroke the path, using the even-odd rule to determine the region to fill. This 
+operator shall have the same effect as the sequence . See also 11.7.4.4, "Special path-
+painting considerations". 
+— 
+n 
+End the path object without filling or stroking it. This operator shall be a path-painting no-op, 
+used primarily for the side effect of changing the current clipping path (see 8.5.4, "Clipping 
+path operators"). 
  
-© ISO 2017 – All rights reserved 368 
+8.5.3.2Stroking 
+ 
+S
+The  operator shall paint a line along the current path. The stroked line shall follow each straight or 
+curved segment in the path, centred on the segment with sides parallel to it. Each of the path’s subpaths 
+shall be treated separately. 
+S
+The results of the  operator shall depend on the current settings of various parameters in the graphics 
+state (see 8.4, "Graphics state", for further information on these parameters): 
+• 
+• 
+The width of the stroked line is defined by the current line width parameter (8.4.3.2, "Line width"). 
+The colour or pattern of the line is defined by the current colour and colour space for stroking 
+© ISO 2017 – All rights reserved 170 
 
 ISO/DIS 32000-2
- ![Figure 67 Halftone cell and two squares tiled across device space  .png](./Storage/Output/Images/Figure 67 Halftone cell and two squares tiled across device space  .png)
-Figure 67: Halftone cell and two squares tiled across device space 
  
-NOTE 3 Any halftone cell can be divided in this way. The side of the upper square (X) is equal to the 
-horizontal displacement from a point in one halftone cell to the corresponding point in the 
-adjacent cell, such as those marked by asterisks in "Figure 67: Halftone cell and two squares tiled 
-". The side of the lower square (Y) is the vertical displacement between the 
-across device space
-same two points. The frequency of a halftone screen constructed from squares with sides X and Y is 
-thus given by 
-resolution
-22
-frequency= 
- and the angle by 
-𝑋𝑋
-+𝑌𝑌
-√
-𝑌𝑌
-angle=𝐷𝐷𝑡𝑡𝐷𝐷𝑛𝑛�� 
-𝑋𝑋
+• 
+operations. 
+The line may be painted either solid or with a dash pattern, as specified by the current line dash 
+• 
+pattern (8.4.3.6, "Line dash pattern"). 
+If a subpath is open, the unconnected ends shall be treated according to the current line cap style, 
+• 
+which may be butt, rounded, or square (see 8.4.3.3, "Line cap style"). 
+line join
+Wherever two consecutive segments are connected, the joint between them shall be treated 
+according to the current  style, which may be mitered, rounded, or beveled (see 8.4.3.4, 
+"Line join style"). Mitered joins shall be subject to the current miter limit (see 8.4.3.5, "Miter 
+limit"). 
+lh
+Points at which unconnected segments happen to meet or intersect receive no special treatment. In 
+particular, using an explicit  operator to give the appearance of closing a subpath, rather than using , 
+may result in a messy corner, because line caps are applied instead of a line join. 
+stroke adjustmentPDF 1.2
+• 
+The  parameter () specifies that coordinates and line widths be adjusted 
+automatically to produce strokes of uniform thickness despite rasterization effects (see 10.7.5, 
+• 
+"Automatic stroke adjustment"). 
+For transparency compositing purposes a path shall be treated as a single graphics object as 
+described in 11.6.2, "Specifying source and backdrop colours". 
+S
+If a subpath is degenerate (consists of a single-point closed path or of two or more points at the same 
+S
+coordinates), the  operator shall paint it only if round line caps have been specified, producing a filled 
+circle centred at the single point. If butt or projecting square line caps have been specified,  shall 
+produce no output, because the orientation of the caps would be indeterminate. This rule shall apply 
+only to zero-length subpaths of the path being stroked, and not to zero-length dashes in a dash pattern 
+of a non-degenerate subpath. In the latter case, the line caps shall always be painted, since their 
+m
+orientation is determined by the direction of the underlying path except in the case of a degenerate 
+subpath. A single-point open subpath (specified by a trailing  operator) shall produce no output. 
+8.5.3.3Filling 
  
-Like a type 6 halftone, a type 10 halftone shall be represented as a stream containing the threshold 
-values, with the parameters defining the halftone specified by entries in the stream dictionary. This 
-dictionary may contain the entries shown in "Table 130: Additional entries specific to a Type 10 
-XsquareYsquare
-halftone dictionary" in addition to the usual entries common to all streams (see "Table 5: Entries 
-WidthHeight
-common to all stream dictionaries"). The  and  entries replace the Type 6 halftone’s 
- and  entries. 
+8.5.3.3.1General 
+ 
+f
+f
+The  operator shall use the current nonstroking colour to paint the entire region enclosed by the 
+current path. If the path consists of several disconnected subpaths,  shall paint the insides of all 
+subpaths, considered together. 
+m
+Any subpaths that are open shall be implicitly closed before being filled, except that if the last subpath 
+in the path is a single-point open subpath (specified by a trailing  operator), it shall be disregarded 
+and not considered to be part of the path. If a subpath is degenerate (consists entirely of one or more 
+points at the same coordinates), the subpath shall be considered to enclose the single device pixel lying 
+under that point; the result is device-dependent and not generally useful. 
+For a simple path, it is intuitively clear what region lies inside. However, for a more complex path, it is 
+not always obvious which points lie inside the path. For more detailed information, see 10.7.4, "Scan 
+conversion rules". 
+EXAMPLE A path that intersects itself or has one subpath that encloses another. 
+The path machinery shall use one of two rules for determining which points lie inside a path: the non-
+© ISO 2017 – All rights reserved 171 
+
+ISO/DIS 32000-2
+ 
+f
+zero winding number rule and the even-odd rule, both discussed in detail below. The non-zero winding 
+W
+number rule is more versatile than the even-odd rule and shall be the standard rule the  operator uses. 
+Similarly, the  operator shall use this rule to determine the inside of the current clipping path. The 
+f*W*
+even-odd rule is occasionally useful for special effects or for compatibility with other graphics systems; 
+the  and  operators invoke this rule. 
+8.5.3.3.2Non-zero winding number rule 
+ 
+non-zero winding number rule
+The  determines whether a given point is inside a path by conceptually 
+drawing a ray from that point to infinity in any direction and then examining the places where a 
+segment of the path crosses the ray. Starting with a count of 0, the rule adds 1 each time a path segment 
+crosses the ray from left to right and subtracts 1 each time a segment crosses from right to left. After 
+counting all the crossings, if the result is 0, the point is outside the path; otherwise, it is inside. 
+The method just described does not specify what to do if a path segment coincides with or is tangent to 
+the chosen ray. Since the direction of the ray is arbitrary, the rule simply chooses a ray that does not 
+encounter such problem intersections. 
+For simple convex paths, the non-zero winding number rule defines the inside and outside as one would 
+intuitively expect. The more interesting cases are those involving complex or self-intersecting paths like 
+the ones shown in "

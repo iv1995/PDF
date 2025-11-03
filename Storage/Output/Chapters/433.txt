@@ -1,0 +1,71 @@
+Figure 86: Illustration of a PDF Document with repeated LTV 
+ 
+ DocMDP 
+ DSS 
+When evaluating therestrictions (see 12.8.2.2, "DocMDP") the presence of a document 
+timestamp and/orinformation shall be ignored. 
+EXAMPLE Document timestamp 
+1 0 obj 
+  << 
+   /Type /Catalog /Pages 2 0 R 
+   /AcroForm 5 0 R 
+  >> 
+endobj 
+ 
+2 0 obj 
+  << 
+   /Kids [3 0 R] 
+   /Count 1 
+   /Type /Pages 
+  >> 
+endobj 
+ 
+3 0 obj 
+  << 
+   /Type /Page 
+© ISO 2017 – All rights reserved 572 
+
+ISO/DIS 32000-2
+ 
+   /Parent 2 0 R 
+   /MediaBox [0 0 612 792] 
+   /Annots 4 0 R 
+  … other keys go here … 
+  >> 
+endobj 
+ 
+4 0 obj 
+  << 
+   /Type /Annot /Subtype /Widget 
+   /Rect [0 0 0 0] 
+   /F 4 /P 3 0 R 
+FT
+ /Sig /T (Sig) 
+   /
+   /V 6 0 R 
+  >> 
+endobj 
+ 
+5 0 obj 
+  << 
+   /Fields [4 0 R] 
+   /SigFlags 3 
+  >> 
+endobj 
+ 
+6 0 obj 
+  << 
+   /Type /DocTimeStamp 
+   /Filter /Adobe.PPKLite 
+   /SubFilter /ETSI.RFC3161 
+   /Contents <00000>       %values go here inside of <> 
+   /ByteRange [0 0 0 0]      %values go here inside of [] 
+  >> 
+endobj 
+ 
+12.8.6Permissions 
+ 
+ Perms 
+PDF 1.5
+Theentry in the document catalog dictionary (see "Table 29: Entries in the catalog dictionary") 
+shall specify a permissions dictionary (). Each entry in this dictionary (see "

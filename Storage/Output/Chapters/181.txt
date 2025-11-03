@@ -1,91 +1,132 @@
-Table 183: 
-Additional entries specific to a caret annotation" lists the entries specific to caret annotations. 
-Table 183: Additional entries specific to a caret annotation 
-Key Type Value 
-(Required) 
-Subtype 
-Caret
-name The type of annotation that this dictionary describes; shall be 
- for a caret annotation. 
-(Optional; PDF 1.5) 
-RD 
-Rect
-rectangle A set of four numbers that shall describe the numerical 
-differences between two rectangles: the  entry of the annotation and the 
-Sy
-actual boundaries of the underlying caret. Such a difference can occur. When 
-a paragraph symbol specified by  is displayed along with the caret. 
-Rect
-The four numbers shall correspond to the differences in default user space 
-between the left, top, right, and bottom coordinates of  and those of the 
-Rect
-caret, respectively. Each value shall be greater than or equal to 0. The sum of 
-Rect
- 
-the top and bottom differences shall be less than the height of , and the 
-sum of the left and right differences shall be less than the width of .
-© ISO 2017 – All rights reserved 479 
+Table 79: Additional entries 
+specific to a Type 2 shading dictionary" shows the shading dictionary entries specific to this type of 
+shading, in addition to those common to all shading dictionaries (see "Table 77: Entries common to all 
+shading dictionaries"). 
+ Indexed 
+This type of shading shall not be used with ancolour space. 
+© ISO 2017 – All rights reserved 228 
 
 ISO/DIS 32000-2
  
+Table 79: Additional entries specific to a Type 2 shading dictionary 
 Key Type Value 
-(Optional) 
-Sy 
-P 
-name A name specifying a symbol that shall be associated with the caret: 
-None 
-A new paragraph symbol (¶) shall be associated with the caret. 
-None
-No symbol shall be associated with the caret.  
-Default value: . 
+Requiredxyxy
+Coords 
+0011
+array () An array of four numbers [   ] specifying the starting and ending 
+coordinates of the axis, expressed in the shading’s target coordinate space. If the 
+0101
+starting and ending coordinates are coincident (x=x and y=y) nothing shall be 
+painted. 
+Optionaltt
+Domain 
+t
+01
+array () An array of two numbers [ ] specifying the limiting values of a 
+parametric variable . The variable is considered to vary linearly between these 
+t
+two values as the colour gradient varies between the starting and ending points of 
+the axis. The variable  becomes the input argument to the colour function(s). 
+Default value: [0.0 1.0]. 
+Requirednnn
+Function 
+Function or () A 1-in, -out function or an array of  1-in, 1-out functions (where  is 
+t
+array the number of colour components in the shading dictionary’s colour space). The 
+Domain
+function(s) shall be called with values of the parametric variable  in the domain 
+defined by the  entry. Each function’s domain shall be a superset of that of 
+the shading dictionary. If the value returned by the function for a given colour 
+component is out of range, it shall be adjusted to the nearest valid value. 
+Optional
+Extend 
+array () An array of two boolean values specifying whether to extend the 
+falsefalse
  
-12.5.6.12Rubber stamp annotations 
+shading beyond the starting and ending points of the axis, respectively. Default 
+value: []. 
  
-rubber stamp annotationPDF 1.3
-A  () displays text or graphics intended to look as if they were stamped 
-on the page with a rubber stamp. When opened, it shall display a popup window containing the text of 
-the associated note. "Table 184: Additional entries specific to a rubber stamp annotation" shows the 
-annotation dictionary entries specific to this type of annotation. 
-Table 184: Additional entries specific to a rubber stamp annotation 
-Key Type Value 
-(Required) 
-Subtype 
-Stamp 
-name The type of annotation that this dictionary describes; shall be 
-for a rubber stamp annotation. 
-(Optional) 
-Name 
-name The name of an icon that shall be used in displaying the 
-annotation. PDF writers should include this entry and PDF readers should 
-provide predefined icon appearances for at least the following standard 
-Approved, Experimental, NotApproved, AsIs, Expired, 
-names: 
-NotForPublicRelease, Confidential, Final, Sold, Departmental, 
+xy
+x
+yxy
+The colour blend shall be accomplished by linearly mapping each point (, ) along the axis between the 
+x
+y
+Domain
+0011
+endpoints (
+, ) and (, ) to a corresponding point in the domain specified by the shading 
+x
+00
+dictionary’s  entry. The points (0, 0) and (1, 0) in the domain correspond respectively to (
+, ) 
+x
+11
+and (
+, y) on the axis. Since all points along a line in domain space perpendicular to the line from (0, 0) 
+to (1, 0) have the same colour, only the new value of  needs to be computed: 
+100100
+′
+()()()()
+𝑥𝑥×𝑥𝑥−𝑥𝑥+𝑦𝑦×𝑦𝑦−𝑦𝑦
+−𝑥𝑥−𝑦𝑦
+22
+𝑥𝑥
+= 
+1010
+(
+))
+(
+𝑥𝑥
+−𝑥𝑥+𝑦𝑦−𝑦𝑦
+′′
+010
+)
+(
+×𝑥𝑥
+For 0≤𝑥𝑥
+≤1,t=t+t−t. 
+x′ 
  
-ForComment, TopSecret, Draft, ForPublicRelease 
-Draft
-Stamp
-ITName
-Additional names may be supported as well. Default value: . 
+The value of the parametric variable t is then determined from  as follows:
+• 
+010
+xtruett
+t
+Extend
+• 
+For 0 ≤ x′ ≤ 1, 𝑡𝑡 = 𝑡𝑡
+ + (𝑡𝑡 − 𝑡𝑡 ) × x′. 
+0
+For ′ < 0, if the first element of the  array is , then  = 
+ ; otherwise,  is undefined and 
+t
+xtruett
+Extend
+• 
+the point shall be left unpainted. 
+1
+ ; otherwise,  is undefined 
+For ′> 1, if the second element of the  array is , then  = 
+t
+and the point shall be left unpainted. 
+xy
+Function
+The resulting value of  shall be passed as input to the function(s) defined by the shading dictionary’s 
+ entry, yielding the component values of the colour with which to paint the point (, ). 
+NOTE "Figure 33: Axial shading" shows three examples of the use of an axial shading to fill a rectangle 
+and display text. The area to be filled extends beyond the shading’s bounding box. The shading is 
+the same in all three cases, except for the values of the  and  entries in the 
+BackgroundExtend
+shading dictionary. In the first example, the shading is not extended at either end and no 
+background colour is specified; therefore, the shading is clipped to its bounding box at both ends. 
+The second example still has no background colour specified, but the shading is extended at both 
+ends; the result is to fill the remaining portions of the filled area with the colours defined at the 
+© ISO 2017 – All rights reserved 229 
+
+ISO/DIS 32000-2
  
-If the  key is present and its value is not , this  key shall not be 
-present.
-(Optional; PDF 2.0) 
-IT 
-name A name that shall describe the intent of the stamp. The 
-StampSnapshot 
-following values shall be valid: 
-The appearance of this annotation has been taken 
-StampImage 
-from preexisting PDF content. 
-Stamp 
-The appearance of this annotation is an Image. 
-Stamp
-The appearance of this annotation is a rubber stamp. 
-Default value:  
+ends of the shading. In the third example, the shading is not extended at both ends and a 
+background colour is specified; therefore, the background colour is used for the portions of the 
+filled area beyond the ends of the shading. ![10.png](./Storage/Output/Images/10.png)
  
-12.5.6.13Ink annotations 
- 
-ink annotationPDF 1.3
-An  () represents a freehand "scribble" composed of one or more disjoint paths. 
-When opened, it shall display a popup window containing the text of the associated note. "

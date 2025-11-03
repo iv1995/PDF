@@ -1,42 +1,44 @@
-Table 244: Entry in the FDF trailer dictionary"). The 
-trailer may optionally contain additional entries for objects that are referenced from within the catalog 
-dictionary. 
-© ISO 2017 – All rights reserved 541 
+Figure 50: Mapping the source image"). Following the normal convention for user space, the 
+coordinate (0, 0) is at the lower-left corner of this square, corresponding to coordinates (0, ) in image 
+wh
+space. The implicit transformation from image space to user space, if specified explicitly, would be 
+described by the matrix [1⁄ 0 0 -1⁄ 0 1]. 
+© ISO 2017 – All rights reserved 251 
+
+ISO/DIS 32000-2
+ ![Figure 49 Source image coordinate system  .png](./Storage/Output/Images/Figure 49 Source image coordinate system  .png)
+Figure 49: Source image coordinate system 
+ ![Figure 50 Mapping the source image  .png](./Storage/Output/Images/Figure 50 Mapping the source image  .png)
+Figure 50: Mapping the source image 
+ 
+cm
+An image can be placed on the output page in any position, orientation, and size by using the  
+operator to modify the current transformation matrix (CTM) so as to map the unit square of user space 
+q  Q
+to the rectangle or parallelogram in which the image shall be painted. Typically, this is done within a 
+pair of and operators to isolate the effect of the transformation, which can include translation, 
+rotation, reflection, and skew (see 8.3, "Coordinate systems"). 
+XObject
+EXAMPLE If the  subdictionary of the current resource dictionary defines the name Image1 to denote an image 
+XObject, the code shown in this example paints the image in a rectangle whose lower-left corner is at 
+coordinates (100, 200), that is rotated 45 degrees counter clockwise, and that is 150 units wide and 80 units 
+high. 
+q                %Save graphics state 
+  1 0 0 1 100 200 cm        %Translate 
+  0. 7071 0.7071 -0.7071 0.7071 0 0 cm  %Rotate 
+  150 0 0 80 0 0 cm         %Scale 
+  /Image1 Do           %Paint image 
+Q                %Restore graphics state 
+ As discussed in 8.3.4, "Transformation matrices", these three transformations could be combined into one. Of 
+course, if the aspect ratio (width to height) of the original image in this example is different from 150:80, the 
+© ISO 2017 – All rights reserved 252 
 
 ISO/DIS 32000-2
  
-Table 244: Entry in the FDF trailer dictionary 
-Key Type Value 
-(Required; shall be an indirect reference) 
-Root  
+result will be distorted. 
+8.9.5Image dictionaries 
  
-dictionary The catalog dictionary object for this
-FDFfile (see 12.7.8.3, "FDF catalog"). 
+8.9.5.1General 
  
-Thus, the trailer has the overall structure 
-  trailer 
-   <</Root c 0 R 
-    key2 value2 
-    … 
-    keyn valuen 
-   >> 
-  %%EOF 
- 
-where c is the object number of the file’s catalog dictionary. 
- 
-12.7.8.3FDF catalog 
- 
-12.7.8.3.1General 
- 
-   Root 
-The root node of anFDFfile’s object hierarchy is the catalog dictionary, located by means of the
-FDF 
-FDF
-entry in the file’s trailer dictionary (see 12.7.8.2.4, "FDF trailer"). As shown in "Table 244: Entry in the 
-dictionary
-FDF trailer dictionary", the only required entry in the catalog dictionary is ; its value shall be an 
-Version
- ("Table 246: Entries in the FDF dictionary"), which in turn shall contain references to other 
-  
-objects describing the file’s contents. The catalog dictionary may also contain an optional  entry 
-identifying the version of the PDF specification to which thisFDFfile conforms. 
+An image dictionary — that is, the dictionary portion of a stream representing an image XObject — may 
+contain the entries listed in "

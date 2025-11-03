@@ -1,104 +1,129 @@
-Table Annex C.1: Architectural considerations" discusses some architectural limits that may be 
-reasonably accommodated by most PDF processors running across a wide variety of devices. By 
-appreciating these limits, PDF writers can ensure the PDF files they produce have the greatest chance of 
-successful portability across a wide variety of PDF processors. 
-NOTE Memory limits are often exceeded before architectural limits are reached. 
-© ISO 2017 – All rights reserved 817 
+Table 152: Outline item flags"). 
+Default value: 0.  
+ 
+PDF 1.4
+F
+The value of the outline item dictionary’s  entry () shall be an integer interpreted as one-bit 
+flags specifying style characteristics for displaying the item. Bit positions within the flag word are 
+numbered from low-order to high-order bits, with the lowest-order bit numbered 1. "Table 152: Outline 
+item flags" shows the meanings of the flags; all other bits of the integer shall be 0. 
+© ISO 2017 – All rights reserved 435 
 
 ISO/DIS 32000-2
  
-Table Annex C.1: Architectural considerations 
-Quantity Description 
-Integers 
-Integer values (such as object numbers) can often be expressed within 32 bits. 
-Real numbers 
-Modern computers often represent and process real numbers using IEEE 
-Standard for Floating-Point Arithmetic (IEEE 754) single or double precision.  
-Size of arrays 
-Although a PDF array object (7.3.6, "Array objects") can theoretically contain 
-any number of elements, PDF processors are likely to have some limitations. 
-Size of dictionaries 
-Although a PDF dictionary object (7.3.7, "Dictionary objects") can theoretically 
-contain any number of key/value pairs, PDF processors are likely to have some 
-limitations. 
-Number of spot colours 
-DeviceN
-In previous versions of the PDF, it was recommended that the maximum 
-number of colourants or tint components in a single  colour space 
-(8.6.6.5, "DeviceN colour spaces") be limited to 32. 
-Nested objects 
-qQ
-As described in this PDF standard, many constructs can be nested including 
-stitching functions, / operators, XObjects, article threads, etc. However PDF 
-processors may implement recursive algorithms which may cause issues for 
-excessively nested constructs. 
-qQqQ
-NOTE In previous versions of PDF, a maximum depth of graphics state 
-nesting by  and  operators was 28. This arose from the fact that  and  can 
-be implemented by the PostScript language gsave and grestore operators when 
-generating PostScript language output. 
-Name objects 
-In previous versions of PDF, it was recommended that the maximum length of 
-the internal representation of a name object was limited 127 bytes. 
-Length of a string object in a 
-content stream 
-In previous versions of PDF, it was recommended that the maximum length of a 
-string in a content stream was limited to 32,767. This restriction applied only 
-to strings in content streams. There were no effective restrictions on other 
-strings in PDF files. 
-CID 
-In previous versions of PDF, it was recommended that the maximum value of a 
-CID (character identifier) was limited to 65,535. 
-C.3Memory limits 
+Table 152: Outline item flags 
+Bit position Name Meaning 
+1 Italic If set to 1, display the item in italic. 
+2 Bold If set to 1, display the item in bold. 
  
-Memory limits cannot be characterised as precisely as architectural limits because the amount of 
-available memory and the ways in which it is allocated vary from one PDF processor to another. 
-Available memory is often much less in mobile devices than desktop computers and PDF writers may be 
-able to avoid issues by using techniques such as limiting the size of individual PDF objects, such as 
-images, paths or array objects, or using balanced trees (as noted in 7.7.3.1, "General"). 
-C.4File Limits 
+EXAMPLE The following example shows a typical outline dictionary and outline item dictionary. See H.6, "Outline 
+hierarchy example" for an example of a complete outline hierarchy. 
+21 0 obj 
+  <</Count 6 
+   /First 22 0 R 
+   /Last 29 0 R 
+  >> 
+endobj 
  
-A PDF cross-reference table (see 7.5.4, "Cross-reference table") allocates ten digits to represent byte 
-10
-offsets, which limits the size of a PDF file to 10
- bytes (approximately 10 gigabytes). However cross-
-reference streams (see 7.5.8, "Cross-reference streams") allow PDF files to be even larger. 
-© ISO 2017 – All rights reserved 818 
+22 0 obj 
+  <</Title ( Chapter 1 ) 
+   /Parent 21 0 R 
+   /Next 26 0 R 
+   /First 23 0 R 
+   /Last 25 0 R 
+   /Count 3 
+   /Dest [3 0 R /XYZ 0 792 0] 
+  >> 
+endobj 
+ 
+12.3.4Thumbnail images 
+ 
+thumbnail 
+A PDF document may contain images representing the contents of its pages in miniature 
+form. An interactive PDF processor may display these images on the screen, allowing the user to 
+navigate to a page by clicking its thumbnail image: 
+NOTE Thumbnail images are not required, and can be included for some pages and not for others. 
+Thumb
+The thumbnail image for a page shall be an image XObject specified by the  entry in the page 
+WidthHeightColorSpaceBitsPerComponentDecode
+object (see 7.7.3, "Page tree"). It has the usual structure for an image dictionary (8.9.5, "Image 
+dictionaries"), but only the , , , , and  entries are 
+Image
+Subtype
+significant; all of the other entries listed in "Table 87: Additional entries specific to an image dictionary" 
+ DeviceGray DeviceRGB Indexed  
+shall be ignored if present. (If a  entry is specified, its value shall be .) The image’s colour 
+space shall be eitheror , or ancolourspace based on one of these. 
+EXAMPLE This example shows a typical thumbnail image definition. 
+12 0 obj 
+  <</Width 76 
+   /Height 99 
+   /ColorSpace /DeviceRGB 
+   /BitsPerComponent 8 
+   /Length 13 0 R 
+   /Filter [/ASCII85Decode /DCTDecode] 
+  >> 
+stream 
+s4IA>!"M;*Ddm8XA,lT0!!3,S!/(=R!<E3%!<N<(!WrK*!WrN, 
+… Omitted data … 
+endstream 
+endobj 
+© ISO 2017 – All rights reserved 436 
 
 ISO/DIS 32000-2
  
-PDF writers creating large PDF documents need to realise that not all PDF processors may be able to 
-handle large files. PDF writers can use various compression formats (see 7.4, "Filters") to help reduce 
-file size. PDF is also a binary format intended for automatic processing and, although the use of 
-whitespace characters makes PDF more readable to humans, unnecessary whitespace can make PDF 
-files larger than necessary. 
-NOTE: Examples shown in this PDF standard deliberately use whitespace to aid understanding. 
-When a PDF processor reads a PDF file with a damaged or missing cross-reference table, it may attempt 
-to rebuild the table by scanning all the objects in the file. However, the generation numbers of deleted 
-endobjendstream
-entries are lost if the cross-reference table is missing or severely damaged. To help facilitate such 
-endstream
-reconstruction, object identifiers, the  keyword, and the  keyword can be placed at 
-endstream
-the start of a line. Also avoid data within streams beginning a line with the keyword  (aside 
-from the required  that delimits the end of the stream). 
-  
-© ISO 2017 – All rights reserved 819 
+ 
+13 0 obj              %Length of stream 
+… 
+endobj 
+ 
+12.3.5Collections 
+ 
+12.3.5.1General 
+ 
+collections of file attachments
+Beginning with PDF 1.7, PDF documents may specify how an interactive PDF processor’s user interface 
+presents , where the attachments are related in structure or content. Such 
+a presentation is called a portable collection. 
+NOTE 1 The intent of portable collections is to present, sort, and search collections of related documents 
+embedded in the containing PDF document, such as email archives, photo collections, and 
+engineering bid sets. There is no requirement that documents in a collection have an implicit 
+relationship or even a similarity; however, showing differentiating characteristics of related 
+documents can be helpful for document navigation. 
+collection dictionary
+A  specifies the viewing and organisational characteristics of portable collections. If 
+ EmbeddedFiles 
+this dictionary is present in a PDF document, the interactive PDF processor shall present the document 
+as a portable collection. Thename tree specifies file attachments (see "Table 32: 
+Entries in the name dictionary"). 
+View
+When an interactive PDF processor first opens a PDF document containing a collection, it shall display 
+D
+the contents according to the  key of the collection dictionary. The initial document may be the 
+container PDF or one of the embedded documents as specified by the  key in the collection dictionary. 
+NOTE 2 The page content in the initial document needs to contain information that helps the user 
+understand what is contained in the collection, such as a title and an introductory paragraph. 
+ EmbeddedFiles 
+The file attachments comprising a collection shall be located in thename tree. All 
+attachments in that tree are in the collection; any attachments not in that tree are not. For a PDF 
+EmbeddedFiles
+document that is an unencrypted wrapper for an encrypted payload document (See 7.6.7, "Unencrypted 
+wrapper document", the  name tree shall contain exactly one entry, for the encrypted 
+payload document. 
+navigator
+Beginning with PDF 2.0, a portable collection may include an interactive layout, or presentation, of the 
+collection contents. The collection layout or presentation is called a . For more information 
+about navigators, see 12.3.6, "Navigators". 
+Navigator
+When a navigator is used the collection dictionary shall contain some entries that support navigators. 
+Colors
+The  entry shall be an indirect reference to a navigator dictionary that describes the 
+Folders
+interactive layout. The value of the  entry shall be a collection colors dictionary that specifies a 
+suggested set of colours for use by a collection layout. The  entry shall be an indirect reference 
+to the root folder of the collection’s folder structure. 
+The table below describes the entries in a collection dictionary. 
+© ISO 2017 – All rights reserved 437 
 
 ISO/DIS 32000-2
  
- ![78.png](./Storage/Output/Images/78.png)
- 
- 
-Character Sets and Encodings 
-(Normative) 
-D.1General 
- 
-This annex lists the character sets and encodings that shall be predefined in any PDF processor. Simple 
-fonts, encompassing Latin text and some symbols, are described here. See 9.7.5.2, "Predefined CMaps" 
-for a list of predefined CMaps for CID-keyed fonts. 
-D.2, "Latin character set and encodings" describes the entire character set for the Standard Latin-text 
-StandardEncodingMacRomanEncodingWinAnsiEncodingPDFDocEncoding
-  
-fonts. For each named character, an octal character code is defined for four different encodings: 
-, , , and(see "

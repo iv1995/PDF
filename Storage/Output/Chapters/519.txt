@@ -1,0 +1,39 @@
+Figure 108: Parameters associated with the perpendicular dimension" illustrates the parameters 
+associated with the perpendicular dimension. ![Figure 108 Parameters associated with the perpendicular dimension  .png](./Storage/Output/Images/Figure 108 Parameters associated with the perpendicular dimension  .png)
+Figure 108: Parameters associated with the perpendicular dimension 
+ 
+AP
+"Figure 108: Parameters associated with the perpendicular dimension" shows the measure markup and 
+parameters. All the markup items are drawn on the annotation plane (as defined by ). The text layout 
+TP
+is defined in a similar manner as for linear dimensions. The lower-left corner of the text box is 
+A1A2
+positioned at the text anchor point (), and the text's X-axis is aligned with the measure line. The text 
+ TY 
+will flow in the direction defined by a vector from  to . The text's up direction is defined as the 
+cross product of the annotation plane normal and the text X-axis, in the direction defined by the
+parameter. 
+TP
+In addition to controlling text position, the text anchor point () also controls the lengths of the leader 
+lines and the placement of the measure line. Because the leader lines are parallel and the measure line 
+is required to be perpendicular to both leader lines, the intersection of the leader lines and the measure 
+line is easily computed. 
+ TP A1A2
+ TP 
+If the text positionis outside the area between  and , an extension line collinear to the measure 
+line connectingto the closest anchor point is generated. 
+© ISO 2017 – All rights reserved 667 
+
+ISO/DIS 32000-2
+ 
+V
+UUT
+There are three parts to the text string displayed with the measurement: a numeric value (), a units 
+P
+string (), and an optional user string (). The display of the numeric value field number is also 
+controlled by the precision value (), which indicates how many digits to display to the right of the 
+decimal point. The viewer should convert the numeric value to a string and combine it with the units 
+string and user text as appropriate. This process is viewer dependent. 
+13.6.7.3.33D angular dimension measurement 
+ 
+An angular measurement is used to denote the angle between two linear entities, as shown in "

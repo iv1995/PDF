@@ -1,0 +1,90 @@
+Table 259: Entries in the FieldMDP 
+transform parameters dictionary". 
+© ISO 2017 – All rights reserved 557 
+
+ISO/DIS 32000-2
+ 
+Table 259: Entries in the FieldMDP transform parameters dictionary 
+Key Type Value 
+(Optional) 
+Type  
+TransformParams
+ 
+name The type of PDF object that this dictionary describes; if present, shall be
+for a transform parameters dictionary. 
+(Required) 
+Action Fields
+name A name that, along with the  array, describes which form fields 
+do not permit changes after the signature is applied. 
+All 
+Valid values shall be: 
+Include 
+Fields
+All form fields. 
+Exclude 
+Fields
+ 
+Only those form fields specified in . 
+Only those form fields not specified in .
+(Required if  is Include or Exclude) 
+Fields Action
+array An array of text strings containing field 
+names. 
+(Optional PDF 1.5 required
+V 
+name :) The transform parameters dictionary version. The 
+NOTE This value is a name object, not a number. 
+value for PDF 1.5 and later shall be 1.2. 
+Default value: 1.2. 
+ 
+On behalf of a document author creating a document containing both form fields and signatures the 
+following shall be supported by PDF writers: 
+• 
+P DocMDP 
+The author specifies that form fields shall be filled in without invalidating the approval or 
+certification signature. The  entry of thetransform parameters dictionary shall be set to 
+• 
+either 2 or 3 (see "Table 257: Entries in the DocMDP transform parameters dictionary"). 
+The author can also specify that after a specific recipient has signed the document, any 
+modifications to specific form fields shall invalidate that recipient’s signature. There shall be a 
+separate signature field for each designated recipient, each having an associated signature field 
+lock dictionary (see "Table 236: Entries in a signature field lock dictionary") specifying the form 
+• 
+fields that shall be locked for that user. 
+ActionFields
+When the recipient signs the field, the signature, signature reference, and transform parameters 
+dictionaries shall be created. The  and  entries in the transform parameters 
+NOTE This copying is done because all objects in a signature dictionary shall be direct objects if the 
+dictionary shall be copied from the corresponding fields in the signature field lock dictionary. 
+dictionary contains a byte range signature. Therefore, the transform parameters dictionary 
+cannot reference the signature field lock dictionary indirectly. 
+FieldMDP DocMDP 
+ signatures shall be validated in a similar manner tosignatures. See 12.8.2.2.2, 
+"Validating signatures that use the DocMDP transform method" for details. 
+12.8.3Signature interoperability 
+ 
+12.8.3.1General 
+ 
+It is intended that PDF processors allow interoperability between signature handlers; that is, a PDF file 
+signed with a handler from one vendor should be able to be validated with a handler from a different 
+vendor when they use the same set of validation parameters. PDF 2.0 defines new signature formats for 
+PAdES signatures (PDF Advanced Electronic Signatures) as defined in ETSI EN 319 142.  
+© ISO 2017 – All rights reserved 558 
+
+ISO/DIS 32000-2
+ 
+ SubFilter 
+Filter
+If present, theentry in the signature dictionary shall specify the encoding of the signature 
+value and key information, while the  entry shall specify the preferred handler that should be 
+ SubFilter 
+used to validate the signature. When handlers are being registered according to Annex E, "PDF Name 
+Registry" they shall specify theencodings they support enabling handlers other than the 
+preferred handler to validate the signatures that the preferred handler creates. 
+ SubFilter 
+There are several defined values for theentry, all based on public-key cryptographic 
+standards published by RSA Security and also as part of the standards issued by the Internet 
+Engineering Task Force (IETF) Public Key Infrastructure (PKIX) working group and the European 
+Telecommunications Standards Institute (ETSI). 
+SubFilter
+"

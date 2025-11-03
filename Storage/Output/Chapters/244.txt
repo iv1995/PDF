@@ -1,97 +1,85 @@
-Algorithm: software identifier 
-U
- 
-LHLIHI
- 
-a)The software name shall match the name specified by the  entry (see 13.2.7.4.2, "Software URIs"). 
-b)The software version shall be within the interval specified by the , , , and  entries (see 13.2.7.4.3, 
- 
-"Version arrays"). 
-c)The machine’s operating system name shall be an exact match for one present in the OS array. If the array 
-is not present or empty, a match shall also be considered to exist.  
-Table 303: Entries in a software identifier dictionary 
-Key Type Value 
-Optional
-Type 
-SoftwareIdentifier
-name () The type of PDF object that this dictionary describes; if present, shall 
-be  for a software identifier dictionary. 
-Required
-U   
-ASCII string () AURIthat identifies a piece of software (see 13.2.7.4.2, "Software 
-URIs"). 
-Optional
-L 
-array () The lower bound of the range of software versions that this software 
-identifier dictionary specifies (see 13.2.7.4.3, "Version arrays"). Default value: 
-the array [0]. 
-Optionaltrue
-LI LH
-L
-boolean () If , the lower bound of the interval defined by  and  is inclusive; 
-falsetrue
- 
-that is, the software version shall be greater than or equal to  (see 13.2.7.4.3, 
-"Version arrays"). If , it shall not be inclusive. Default value: .
-Optional
-H 
-array () The upper bound of the range of software versions that this software 
-identifier dictionary specifies (see 13.2.7.4.3, "Version arrays"). Default value: an 
-empty array []. 
-Optionaltrue
-HI LH
-H
-boolean () If , the upper bound of the interval defined by  and  is 
-falsetrue
- 
-inclusive; that is, the software version shall be less than or equal to  (see 
-13.2.7.4.3, "Version arrays"). If , it shall not be inclusive. Default value: .
-© ISO 2017 – All rights reserved 613 
+Table 104: Text rendering modes". In the examples, a 
+stroke colour of black and a fill colour of light gray are used. For the clipping modes (4 to 7), a 
+series of lines has been drawn through the glyphs to show where the clipping occurs. 
+If the text rendering mode calls for filling, the current nonstroking colour in the graphics state shall be 
+used; if it calls for stroking, the current stroking colour shall be used. In modes that perform both filling 
+and stroking, the effect shall be as if each glyph outline were filled and then stroked in separate 
+operations. If any of the glyphs overlap, the result shall be equivalent to filling and stroking them one at 
+a time, producing the appearance of stacked opaque glyphs, rather than first filling and then stroking 
+them all at once. In the transparent imaging model, these combined filling and stroking modes shall be 
+subject to further considerations; see 11.7.4.4, "Special path-painting considerations". 
+The behaviour of the clipping modes requires further explanation. Glyph outlines shall begin 
+© ISO 2017 – All rights reserved 297 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional
-OS 
-array () An array of byte strings representing operating system identifiers 
-systemOperatingSystem
-that shall indicate to which operating systems this object applies. The defined 
-values are the same as those defined for SMIL 2.0’s  
-attribute. There may not be multiple copies of the same identifier in the array. 
-An empty array represents all operating systems. Default value: an empty array. 
+BT
+accumulating if a  operator is executed while the text rendering mode is set to a clipping mode or if it 
+ET
+is set to a clipping mode within a text object. Glyphs shall accumulate until the text object is ended by an 
+ operator; the text rendering mode shall not be changed back to a nonclipping mode before that 
+point. 
+Table 104: Text rendering modes 
+Mode Example Description 
+0 
+Fill text. ![13.png](./Storage/Output/Images/13.png)
+1 
  
-13.2.7.4.2Software URIs 
+Stroke text. ![14.png](./Storage/Output/Images/14.png)
+2 
  
-U 
-vnd.adobe.swname
-The  entry is aURI (universal resource identifier) that identifies a piece of software. It shall be 
-interpreted according to its scheme; the only presently defined scheme is . The 
-scheme name is case-insensitive; if it is not recognised by the interactive PDF processor, the software 
-shall be considered a non-match. The syntax of URIs of this scheme is 
-software_name
-software_nameUniform Resource Identifiers 
-"vnd.adobe.swname:"  
-(URI): Generic Syntaxsoftware_name
-where  shall be reg_name as defined in Internet RFC 3986, 
-  
-. Also,  shall be a sequence of UTF-8-encoded characters that have 
-software name, software_name
-been escaped with one pass ofURLescaping (see 14.10.3.2, "URL strings"). That is, to recover the 
-original  shall be unescaped and then treated as a sequence of UTF-8 
-characters. The actual software names shall be compared in a case-sensitive fashion. 
-Software names shall be second-class names (see Annex E, "PDF Name Registry"). 
+Fill, then stroke text. ![15.png](./Storage/Output/Images/15.png)
+3 
  
-EXAMPLE TheURI for Adobe Acrobat is  
-vnd.adobe.swname:ADBE_Acrobat. 
+ Neither fill nor stroke text (invisible). 
+4 
+Fill text and add to path for clipping. ![16.png](./Storage/Output/Images/16.png)
+5 
  
-13.2.7.4.3Version arrays 
+Stroke text and add to path for clipping. ![17.png](./Storage/Output/Images/17.png)
+6 
  
-version 
-LHLIHILH
-arrays
-The , , , and  entries shall be used to specify a range of software versions.  and  shall be 
-H
- containing zero or more non-negative integers representing subversion numbers. The first 
-L
-integer shall be the major version numbers, and subsequent integers shall be increasingly minor.  
-shall be greater than or equal to , according to the following rules for comparing version arrays: 
+Fill, then stroke text and add to path for clipping. ![18.png](./Storage/Output/Images/18.png)
+7 
+ 
+Add text to path for clipping. ![19.png](./Storage/Output/Images/19.png)
+ 
+ 
+ET
+At the end of the text object identified by the  operator the accumulated glyph outlines, if any, shall 
+be combined into a single path, treating the individual outlines as subpaths of that path and applying 
+the non-zero winding number rule (see 8.5.3.3.2, "Non-zero winding number rule"). The current 
+clipping path in the graphics state shall be set to the intersection of this path with the previous clipping 
+path. As is the case for path objects, this clipping shall occur after all filling and stroking operations for 
+Q
+the text object have occurred. It remains in effect until a previous clipping path is restored by an 
+invocation of the  operator. 
+NOTE 2 Due to the use of non-zero winding number rule, the direction of the paths comprising each glyph 
+can cause different output for overlapping glyphs. 
+If no glyphs are shown or if the only glyphs shown have no outlines (for example, if they are ASCII 
+SPACE characters (20h)), no clipping shall occur. 
+NOTE 3 Certain degenerate glyph sub-paths may not be visible when filled however they may become 
+apparent when stroking, e.g., a zero line with round end caps will paint a circle according to the 
+current stroke width. 
+ef
+Tm
+The  and  components of  shall be updated for each glyph drawn when using text rendering mode 3 
+© ISO 2017 – All rights reserved 298 
+
+ISO/DIS 32000-2
+ 
+or 7 in exactly the same way as would be done for other text rendering modes. 
+Where text is drawn using a Type 3 font: 
+• 
+• 
+if text rendering mode is set to a value of 3 or 7, the text shall not be rendered. 
+if text rendering mode is set to a value other than 3 or 7, the text shall be rendered using the glyph 
+• 
+descriptions in the Type 3 font. 
+9.3.7Text rise 
+ 
+If text rendering mode is set to a value of 4, 5, 6 or 7, nothing shall be added to the clipping path. 
+T
+rise
+Text rise, , shall specify the distance, in unscaled text space units, to move the baseline up or down 
+from its default location. Positive values of text rise shall move the baseline up. "

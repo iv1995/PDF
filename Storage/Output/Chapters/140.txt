@@ -1,800 +1,339 @@
-Table 125: Additional entries in an embedded font stream dictionary". 
-Table 125: Additional entries in an embedded font stream dictionary 
+Table 57: Entries in a graphics state parameter dictionary". All entries need not be present 
+gs
+for every invocation of theoperator; the supplied parameter dictionary may include any combination 
+of parameter entries. The results of  shall be cumulative; parameter values established in previous 
+invocations persist until explicitly overridden. 
+NOTE Note that some parameters appear in both "Table 56: Graphics state operators" and "Table 57: 
+Entries in a graphics state parameter dictionary"; these parameters can be set either with 
+individual graphics state operators or with . It is expected that any future extensions to the 
+graphics state will be implemented by adding new entries to the graphics state parameter 
+gs
+dictionary rather than by introducing new graphics state operators. 
+Table 57: Entries in a graphics state parameter dictionary 
 Key Type Value 
-Required for Type 1 and TrueType font programs
-Length1 
-integer  () The length in bytes of the clear-
-Filter
-text portion of the Type 1 font program, or the entire TrueType font program, after it 
-has been decoded using the filters specified by the stream’s  entry, if any. 
-Required for Type 1 font programs
-Length2 
-integer () The length in bytes of the encrypted portion of 
-Filter
-the Type 1 font program after it has been decoded using the filters specified by the 
-stream’s  entry. 
-Required for Type 1 font programs
-Length3 
-integer  () The length in bytes of the fixed-content portion 
-FilterLength3
-of the Type 1 font program after it has been decoded using the filters specified by the 
- FontFile 
-cleartomark
-stream’s  entry. If  is 0, it indicates that the 512 zeros and 
- have not been included in thefont program and shall be 
-added by the PDF processor. 
-Required if referenced from ; PDF 1.2
-Subtype 
-Type1C
-name  (FontFile3) A name specifying the format of the 
-CIDFontType0COpenType
-embedded font program. The name shall be  for Type 1 compact fonts, 
- for Type 0 compact CIDFonts, or  for OpenType fonts. 
- 
-NOTE 2 A standard Type 1 font program, as described in the , 
-consists of three parts: a clear-text portion (written using PostScript syntax), an encrypted 
-Adobe Type 1 Font Format specification
-portion, and a fixed-content portion. The fixed-content portion contains 512 ASCII zeros followed 
-by a  operator, and perhaps followed by additional data. Although the encrypted 
-cleartomark
-portion of a standard Type 1 font may be in binary or ASCII hexadecimal format, PDF supports 
-only the binary format. However, the entire font program can be encoded using any filters. 
-EXAMPLE This code shows the structure of an embedded standard Type 1 font. 
-12 0 obj 
-  <</Filter /ASCII85Decode 
-   /Length 41116 
-   /Length1 2526 
-   /Length2 32393 
-   /Length3 570 
-  >> 
-stream 
-,p>`rDKJj'E+LaU0eP.@+AH9dBOu$hFD55nC 
-… Omitted data… 
-JJQ&Nt')<=^p&mGf(%:%h1%9c//K(/*o=.C>UXkbVGTrr~> 
-endstream 
-endobj 
- 
-  
-As noted in "Table 124: Embedded font organization for various font types", a Type 1–equivalent font 
-Length1Length2Length3
-program or a Type 0 CIDFont program may be represented in the CompactFontFormat (CFF). The 
-, , and  entries are not needed in that case and shall not be present. Although 
-CFF enables multiple font or CIDFont programs to be bundled together in a single file, an embedded CFF 
-font file in PDF shall consist of exactly one font or CIDFont (as appropriate for the associated font 
-dictionary). 
-Adobe Type 1 Font Format specification
-According to the , a Type 1 font program may contain a 
-© ISO 2017 – All rights reserved 346 
+Optional
+Type  
+ExtGState 
+name () The type of PDF object that this dictionary describes; shall be
+for a graphics state parameter dictionary. 
+Optional; PDF 1.3
+LW 
+number () The line width (see 8.4.3.2, "Line width"). 
+Optional; PDF 1.3
+LC 
+integer () The line cap style (see 8.4.3.3, "Line cap style"). 
+Optional; PDF 1.3
+LJ 
+integer () The line join style (see 8.4.3.4, "Line join style"). 
+Optional; PDF 1.3
+ML 
+number () The miter limit (see 8.4.3.5, "Miter limit"). 
+Optional; PDF 1.3
+D 
+dashArray dashPhasedashArraydashPhase
+array () The line dash pattern, expressed as an array of the form 
+[], where  shall be itself an array and  
+shall be a number (see 8.4.3.6, "Line dash pattern"). 
+Optional; PDF 1.3
+RI 
+name () The name of the rendering intent (see 8.6.5.8, "Rendering 
+intents"). 
+Optional
+OP 
+boolean () A flag specifying whether to apply overprint (see 8.6.7, "Overprint 
+control"). In PDF 1.2 and earlier, there is a single overprint parameter that 
+applies to all painting operations. Beginning with PDF 1.3, two separate 
+ OP 
+overprint parameters were defined: one for stroking and one for all other 
+op
+painting operations. Specifying anentry shall set both parameters unless 
+ OP 
+there is also an  entry in the same graphics state parameter dictionary, in 
+which case theentry shall set only the overprint parameter for stroking. 
+Optional; PDF 1.3
+op 
+boolean () A flag specifying whether to apply overprint (see 8.6.7, 
+ OP 
+"Overprint control") for painting operations other than stroking. If this entry is 
+absent, theentry, if any, shall also set this parameter. 
+Optional; PDF 1.3
+OPM 
+integer () The overprint mode (see 8.6.7, "Overprint control"). 
+Optional; PDF 1.3font size
+Font 
+array () An array of the form [], where font shall be an 
+Tf 
+indirect reference to a font dictionary and size shall be a number expressed in 
+text space units. These two objects correspond to the operands of the 
+operator (see 9.3, "Text state parameters and operators"); however, the first 
+operand shall be an indirect object reference instead of a resource name. 
+Optional
+BG 
+function () The black-generation function, which maps the interval [0.0 1.0] to 
+the interval [0.0 1.0] (see 10.4.2.3, "Conversion from DeviceRGB to 
+DeviceCMYK"). 
+© ISO 2017 – All rights reserved 163 
 
 ISO/DIS 32000-2
  
-PaintType
- entry specifying whether the glyphs’ outlines are to be filled or stroked. For fonts embedded 
-in a PDF file, this entry shall be ignored; the decision whether to fill or stroke glyph outlines is entirely 
-determined by the PDF text rendering mode parameter (see 9.3.6, "Text rendering mode"). This shall 
-also apply to Type 1 compact fonts and Type 0 compact CIDFonts. 
-A TrueType font program may be used as part of either a font or a CIDFont. Although the basic font file 
-format is the same in both cases, there are different requirements for what information shall be present 
-in the font program. These TrueType tables shall always be present if present in the original TrueType 
-font program: "head", "hhea", "loca", "maxp", "cvt ", "prep", "glyf", "hmtx", and "fpgm". If used with a 
-simple font dictionary, the font program shall additionally contain a "cmap" table defining one or more 
-encodings, as discussed in 9.6.5.4, "Encodings for TrueType fonts". If used with a CIDFont dictionary, 
-the "cmap" table is not needed and shall not be present, since the mapping from character codes to 
-glyph descriptions is provided separately. 
-DW2W2
-The "vhea" and "vmtx" tables that specify vertical metrics shall never be used by a PDF processor. The 
-only way to specify vertical metrics in PDF shall be by means of the  and  entries in a CIDFont 
-dictionary. 
-NOTE 3 Beginning with PDF 1.6, font programs can be embedded using the OpenType format, which is an 
-extension of the TrueType format that allows inclusion of font programs using the CompactFont
-  
-Format (CFF). It also allows inclusion of data to describe glyph substitutions, kerning, and 
-baseline adjustments. In addition to rendering glyphs, PDF processors can use the data in 
-OpenType fonts to do advanced line layout, automatically substitute ligatures, provide selections 
-of alternative glyphs to users, and handle complex writing scripts. 
-The process of finding glyph descriptions in OpenType fonts by a PDF processor shall be the following: 
-• 
-For Type 1 fonts using "CFF " tables, the process shall be as described in 9.6.5.2, "Encodings for 
-• 
-Type 1 fonts". 
-For TrueType fonts using "glyf" tables, the process shall be as described in 9.6.5.4, "Encodings for 
-Identity-H
-TrueType fonts". Since this process sometimes produces ambiguous results, PDF writers, instead 
-of using a simple font, should use a Type 0 font with an  encoding and use the glyph 
-CIDFontType0
-• 
-indices as character codes, as described following "Table 116: Predefined CJK CMap names". 
-For  fonts using "CFF " tables, the process shall be as described in the discussion of 
-CIDFontType2
-• 
-embedded Type 0 CIDFonts in 9.7.4.2, "Glyph selection in CIDFonts". 
-For  fonts using "glyf" tables, the process shall be as described in the discussion of 
-9.9.2Font subsets 
- 
-embedded Type 2 CIDFonts in 9.7.4.2, "Glyph selection in CIDFonts". 
-Type1TrueTypeOpenType
-Subtype
-PDF documents may include subsets of PDF fonts whose  is ,  or . The 
-font and font descriptor that describe a font subset are slightly different from those of ordinary fonts. 
-These differences allow a PDF processor to recognise font subsets and to merge documents containing 
-different subsets of the same font. (For more information on font descriptors, see 9.8, "Font 
-descriptors".) 
-BaseFont
-FontName
-For a font subset, the PostScript name of the font, that is, the value of the font’s  entry and the 
-font descriptor’s  entry, shall begin with a tag followed by a plus sign (+) followed by the 
-PostScript name of the font from which the subset was created. The tag shall consist of exactly six 
-uppercase letters; the choice of letters is arbitrary, but different subsets of the same font in the same 
-PDF file shall have different tags. The glyph name .notdef shall be defined in the font subset. 
-© ISO 2017 – All rights reserved 347 
-
-ISO/DIS 32000-2
- 
-NOTE It is recommended that PDF processors treat multiple subset fonts as completely independent 
-entities, even if they appear to have been created from the same original font. 
-EXAMPLE EOODIA+Poetica is the name of a subset of Poetica®, a Type 1 font. 
-9.10Extraction of text content 
- 
-9.10.1General 
- 
-The preceding subclauses describe all the facilities for showing text and causing glyphs to be painted on 
-the page. In addition to rendering text, PDF processors often need to determine the information content 
-of text — that is, its meaning according to some standard character identification as opposed to its 
-rendered appearance. This need arises during operations such as searching, indexing, and exporting of 
-text to other file formats. 
-Unicode defines a system for numbering all of the common characters used in a large number of 
-languages. It is a suitable scheme for representing the information content of text, but not its 
-appearance, since Unicode values identify characters, not glyphs. For information about Unicode, see 
-the Unicode Standard by the Unicode Consortium. 
-When extracting character content, a PDF processor can easily convert text to Unicode values if a font’s 
-characters are identified according to a standard character set that is known to the PDF processor. This 
-character identification can occur if either the font uses a standard named encoding or the characters in 
-the font are identified by standard character names or CIDs in a well-known collection. 9.10.2, "Mapping 
-character codes to Unicode values", describes in detail the overall algorithm for mapping character 
-codes to Unicode values. 
-If a font is not defined in one of these ways, the glyphs can still be shown, but the characters cannot be 
-converted to Unicode values without additional information using the following methods: 
-ToUnicode
-• 
-This information can be provided as an optional  entry in the font dictionary (PDF 1.2; 
-see 9.10.3, "ToUnicode CMaps"), whose value shall be a stream object containing a special kind of 
-ActualText
-• 
-CMap file that maps character codes to Unicode values. 
-An  entry for a structure element or marked-content sequence (see 14.9.4, 
-9.10.2Mapping character codes to Unicode values 
- 
-"Replacement text") may be used to specify the text content directly. 
-A PDF processor can use these methods, in the priority given, to map a character code to a Unicode 
-value. Tagged PDF documents, in particular, shall provide at least one of these methods (see 14.8.2.6, 
-"Unicode mapping in tagged PDF"): 
-• 
-If the font dictionary contains a ToUnicode CMap (see 9.10.3, "ToUnicode CMaps"), use that CMap 
-• 
-to convert the character code to Unicode. 
-If the font is a simple font and the glyph selection algorithm (see 9.6.5, "Character encoding") uses 
-a glyph name, that name can be looked up in the Adobe Glyph List to obtain the corresponding 
-• 
-Unicode value. 
-Identity–HIdentity–V
-If the font is a composite font that uses one of the predefined CMaps listed in "Table 116: 
-Predefined CJK CMap names" (except  and ) or whose descendant CIDFont 
-uses the Adobe-GB1, Adobe-CNS1, Adobe-Japan1, or Adobe-Korea1 character collection: 
-© ISO 2017 – All rights reserved 348 
-
-ISO/DIS 32000-2
- 
- 
- 
-a.Map the character code to a character identifier (CID) according to the font’s CMap. 
-b.Obtain the registry and ordering of the character collection used by the font’s CMap (for example, 
- 
-Adobe and Japan1) from its CIDSystemInfo dictionary. 
-c.Construct a second CMap name by concatenating the registry and ordering obtained in step (b) in 
- 
-the format registry–ordering–UCS2 (for example, Adobe–Japan1–UCS2). 
-d.Obtain the CMap with the name constructed in step (c) (available from a variety of online sources, 
- 
-). 
-e.g., http://sourceforge.net/adobe/cmap/wiki/Home/
-e.Map the CID obtained in step (a) according to the CMap obtained in step (d), producing a Unicode 
-value. 
-Type 0 fonts whose descendant CIDFonts use the Adobe-GB1, Adobe-CNS1, Adobe-Japan1, or Adobe-
-Korea1 character collection (as specified in the CIDSystemInfo dictionary) shall have a supplement 
-number corresponding to the version of PDF supported by the PDF processor. See "Table 117: 
-Character collections for predefined CMaps, by PDF version" for a list of the character collections 
-corresponding to a given PDF version. Other supplements of these character collections may be used, 
-but if the supplement is higher-numbered than the one corresponding to the supported PDF version, 
-only the CIDs in the latter supplement are considered to be standard CIDs. 
-If these methods fail to produce a Unicode value, there is no way to determine what the character code 
-represents in which case a PDF processor may choose a character code of their choosing. 
-9.10.3ToUnicode CMaps 
- 
-ToUnicode
-, Adobe CMap and 
-The CMap defined in the  entry of the font dictionary shall follow the syntax for CMaps 
-CIDFont Files Specification
-introduced in 9.7.5, "CMaps" and fully documented in Adobe Technical Note #5014
-. This CMap differs from an ordinary one in these ways: 
-• 
-UseCMap
-The only pertinent entry in the CMap stream dictionary (see "Table 118: Additional entries in a 
-ToUnicode
-CMap stream dictionary") is , which may be used if the CMap is based on another 
-begincodespacerangeendcodespacerange
-• 
- CMap. 
-The CMap file shall contain  and  operators that are 
-consistent with the encoding that the font uses. In particular, for a simple font, the codespace shall 
-beginbfcharendbfcharbeginbfrangeendbfrange
-• 
-be one byte long. 
-It shall use the , , , and  operators to define the 
-mapping from character codes to Unicode character sequences expressed in UTF-16BE encoding. 
-For simple fonts, character codes shall be written as 1 byte in the ToUnicode CMap. 
-For CID keyed fonts character codes may have 1 byte, 2 bytes, or more than 2 bytes in the ToUnicode 
-CMap. 
-Identity-H
-Identity
-EXAMPLE 1 This example illustrates a Type 0 font that uses the  CMap to map from character codes to CIDs and 
-ToUnicode
-whose descendant CIDFont uses the  mapping from CIDs to TrueType glyph indices. Text strings 
-shown using this font simply use a 2-byte glyph index for each glyph. In the absence of a  entry, no 
-information would be available about what the glyphs mean. 
-14 0 obj 
-  <</Type /Font 
-   /Subtype /Type0 
-   /BaseFont /Ryumin-Light 
-   /Encoding /Identity-H 
-   /DescendantFonts [15 0 R] 
-   /ToUnicode 16 0 R 
-© ISO 2017 – All rights reserved 349 
-
-ISO/DIS 32000-2
- 
-  >> 
-endobj 
- 
-15 0 obj 
-  <</Type /Font 
-   /Subtype /CIDFontType2 
-   /BaseFont /Ryumin-Light 
-   /CIDSystemInfo 17 0 R 
-   /FontDescriptor 18 0 R 
-   /CIDToGIDMap /Identity 
-  >> 
-endobj 
-ToUnicode
-EXAMPLE 2 In this example, the value of the  entry is a stream object that contains the definition of the CMap. 
-begincodespacerangeendcodespacerange
- The  and  operators define the source character code range to be 
-the 2-byte character codes from <00 00> to <FF FF>. The specific mappings for several of the character codes 
-are shown. 
-16 0 obj 
-<< 
- /Type /CMap  
- /CMapName /Adobe-Identity-UCS2  
- /CIDSystemInfo << /Registry (Adobe) /Ordering (UCS2) /Supplement 0 >>  
- /Length 433  
->> 
-stream 
-/CIDInit /ProcSet findresource begin 
-12 dict begin 
-begincmap 
-/CIDSystemInfo 
- <</Registry (Adobe) 
-/Ordering (UCS2) 
-/Supplement 0 
->> def 
-/CMapName /Adobe-Identity-UCS2 def 
-/CMapType 2 def 
-1 begincodespacerange 
-<0000>  <FFFF> 
-endcodespacerange 
-2 beginbfrange 
-<0000>  <005E>  <0020> 
-<005F>  <0061>  [<00660066> <00660069> <00660066006C>] 
-endbfrange 
-1 beginbfchar 
-<3A51>  <D840DC3E> 
-endbfchar 
-endcmap 
-CMapName currentdict /CMap defineresource pop 
-end 
-end 
-endstream 
-endobj 
- <00 00> to <00 5E> are mapped to the Unicode values SPACE (U+0020) to TILDE (U+007E) This is followed 
-by the definition of a mapping where each character code represents more than one Unicode value: 
- <005F> <0061> [<00660066> <00660069> <00660066006C>] 
- In this case, the original character codes are the glyph indices for the ligatures ff, fi, and ffl. The entry defines 
-the mapping from the character codes <00 5F>, <00 60>, and <00 61> to the strings of Unicode values with a 
-Unicode scalar value for each character in the ligature: LATIN SMALL LETTER F (U+0066) LATIN SMALL 
-LETTER F (U+0066) are the Unicode values for the character sequence f f, LATIN SMALL LETTER F (U+0066) 
-LATIN SMALL LETTER I (U+0069) for f i, and LATIN SMALL LETTER F (U+0066) LATIN SMALL LETTER F 
-© ISO 2017 – All rights reserved 350 
-
-ISO/DIS 32000-2
- 
-(U+0066) LATIN SMALL LETTER L (U+006c) for f f l. 
- Finally, the character code <3A 51> is mapped to the Unicode value UNICODE HAN CHARACTER ‘U+2003E’ 
-(U+2003E), which is expressed by the byte sequence <D840DC3E> in UTF-16BE encoding. 
-Example 2 in this subclause illustrates several extensions to the way destination values may be defined. 
-beginbfchar
-To support mappings from a source code to a string of destination codes, this extension has been made 
-n
-to the ranges defined after a  operator: 
-   
-beginbfchar
-srcCode dstString  
-endbfchar 
- 
-beginbfrange
-where dstString may be a string of up to 512 bytes. Likewise, mappings after the  
-n
-operator may be defined as: 
-  
-beginbfrange
-srcCode1 srcCode2 dstString 
-endbfrange 
- 
-In this case, the last byte of the string shall be incremented for each consecutive code in the source code 
-range. 
-srcCode2 - srcCode1
-When defining ranges of this type, the value of the last byte in the string shall be less than or equal to 
-255 - (). This ensures that the last byte of the string shall not be incremented past 
-255; otherwise, the result of mapping is undefined. 
-ToUnicode
-To support more compact representations of mappings from a range of source character codes to a 
-discontiguous range of destination codes, the CMaps used for the  entry may use this syntax 
-n
-for the mappings following a beginbfrange definition. 
-  
-beginbfrange
-srcCode1 srcCode2 [dstString1 dstString2…dstStringm] 
-endbfrange 
-srcCode1srcCode2
-dstString1dstStringm
-Consecutive codes starting with  and ending with  shall be mapped to the destination 
-strings in the array starting with  and ending with  . The value of dstString can be a 
-string of up to 512 bytes. The value of m represents the number of continuous character codes in the 
-source character code range. 
-NOTE If number of dstString in array is different from m, the result of mapping is undefined. 
-21
-𝑚𝑚 = 𝑠𝑠𝑚𝑚𝑐𝑐𝐶𝐶𝐷𝐷𝐵𝐵𝑚𝑚
- − 𝑠𝑠𝑚𝑚𝑐𝑐𝐶𝐶𝐷𝐷𝐵𝐵𝑚𝑚 + 1 
- 
- 
-© ISO 2017 – All rights reserved 351 
-
-ISO/DIS 32000-2
- 
-10Rendering 
- 
-10.1General 
- 
-raster output device
-The PDF imaging model separates the specification of graphics objects (defining shapes and colours) 
-from the process of rendering them on a .  
-NOTE 1 "Figure 20: Colour specification" and "Figure 21: Colour rendering" in clause 8.6.3, "Colour space 
-families" illustrate this division.  
-Clause 10 defines how the shape and colour of graphics objects are rendered on a raster output device. 
-Depending on the current colour space and on the characteristics of the raster output device, one or 
-more of the following steps may be necessary: 
-• 
-Convert colour that is not already in the native colour space of the raster output device, into that 
-colour space; see "10.3, CIE-Based colour to device colour" and "10.4, Conversions among device 
-• 
-colour spaces" for details. 
-For any object for which transfer functions are in effect, apply those transfer functions; see "10.5, 
-• 
-Transfer functions" for details. Note that transfer functions are deprecated with PDF 2.0. 
-Perform a scan conversion algorithm to mark the appropriate pixels of the raster output device; 
-• 
-see "10.7, Scan conversion details" for details. 
-If the raster output device supports PDF-defined halftoning, apply halftoning according to "10.6, 
-"Halftones". 
-For the purpose of clause 10, it is irrelevant whether a raster output device physically exists and is 
-actually used for rendering, or is just assumed (for example to simulate the colour appearance of PDF 
-output on one raster output device by using some other raster output device).  
-NOTE 2 Any raster output device – printer or monitor – can in principle be used to simulate the colour 
-appearance produced by some other raster output device. In this case, the output colour values in 
-the colour space of the simulated raster output device become source colour values to be rendered 
-on the simulating raster output device. Usually the simulating raster output device will have to be 
-more capable regarding colour reproduction than the simulated device in order to be useful. 
-NOTE 3 Managing colour from digital description all the way to creating a rendered reproduction on a 
-digital display or printed output is a complex topic. The International Color Consortium (ICC) 
-) is a good source of information. The publication "Color management: 
-(http://www.color.org
-understanding and using ICC profiles" provides a good introductory overview. 
-A PDF document may specify very little about the properties of the physical medium on which the 
-output will be produced; that information may be obtained from the following sources by a PDF 
-processor: 
-• 
-• 
-The media box and other entries in the page dictionary (see 14.11.2, "Page boundaries"). 
-• 
-An interactive dialogue conducted when the user requests viewing or printing. 
-A job ticket, either embedded in the PDF document or provided separately, may specify detailed 
-instructions for placing (imposing) PDF pages onto media and for controlling special features of 
-NOTE 4 A widely used standard for the format of vendor neutral job tickets is the JDF (Job Definition 
-the output device. 
-Format) described in the CIP4 document JDF Specification. 
-© ISO 2017 – All rights reserved 352 
-
-ISO/DIS 32000-2
- 
-10.2Raster output device native colour 
- 
-native colour space
-Each raster output device has a , which often matches one of the following process 
-colour models: gray (monochrome), RGB (red-green-blue) or CMYK (cyan-magenta-yellow-black). 
-Process colours
- are ones that are produced by combinations of one or more process colourants. Colours 
-specified in any device or CIE-based colour space shall be rendered as process colours.  
-SeparationDeviceN
-A device may also support additional spot colourants, which shall be painted only by means of 
- or  colour spaces that define such spot colourants. 
-10.3CIE-Based colour to device colour 
- 
-10.3.1General 
- 
-To render CIE-based colours on a raster output device, it is necessary to convert from the specified CIE-
-based colour space to the device’s native colour space taking into account the known properties of the 
-raster output device. 
-destination colour 
-space
-For accurately rendering a CIE-based colour on a raster output device, a CIE-based 
- that is suitable for representing the native colour space of the raster output device (for example, 
-by means of a monitor or printer ICC profile) needs to be established. The specific method by which the 
-CIE-based destination colour space is established is beyond the scope of this part of ISO 32000, but may 
-include the use of Output Intents (see 14.11.5, "Output intents").  
-NOTE Establishing a CIE-based destination colour space for a raster output device can happen based on 
-a user-driven configuration, by assumptions made by the PDF processor software, by a job ticket, 
-by settings in an output device, by built-in colour measurements, or by other mechanisms. 
-Conversion from a CIE-based source colour to a CIE-based destination colour shall be performed based 
-on ISO 15076-1:2010 (ICC.1:2010). 
-10.3.2Establishing CIE-based colour space definitions 
- 
-DeviceGray
-DeviceRGBDeviceCMYK
-A PDF processor should establish CIE-based colour specifications for device colour spaces (, 
-, or ), and thus implicitly remap device colour spaces into CIE-based colour 
-DeviceGray
-spaces, when those device colour spaces do not match that of the raster output device. If the native 
-device colour space is CMYK, then converting colours in the  colour space to that CMYK 
-should follow the method described in 10.4.2.2, "Conversion between DeviceGray and DeviceCMYK". 
-NOTE Establishing a CIE-based source colour space can happen based on a user-driven configuration, by 
-assumptions made by the PDF processor software, by analysis of the colour values and other 
-properties, or by other mechanisms. 
-10.4Conversions among device colour spaces 
- 
-10.4.1General 
- 
-DeviceGray
-DeviceRGBDeviceGrayDeviceCMYKDeviceRGBDeviceCMYK
-This subclause describes the methods of classic colour conversion between  and 
-,  and , and  and . 
-© ISO 2017 – All rights reserved 353 
-
-ISO/DIS 32000-2
- 
-10.4.2Classic colour conversion methods 
- 
-Although ICC enabled PDF processors should always follow the provisions and recommendations 
-provided in 10.3, "CIE-Based colour to device colour", a less-capable PDF processor may choose to use 
-the algorithms specified in the following subclauses 10.4.2.1 through 10.4.2.4. These algorithms are, 
-however, very simple and as perceived by a human viewer they produce only crude approximations of 
-the original colours. 
-10.4.2.1Conversion between DeviceGray and DeviceRGB 
- 
-RGB
-Black, white, and intermediate shades of gray can be considered special cases of  colour. A grayscale 
-value shall be described by a single number: 0.0 corresponds to black, 1.0 to white, and intermediate 
-values to different gray levels. 
-RGB
-RGB
-A gray level shall be equivalent to an  value with all three components the same. In other words, the 
- colour value equivalent to a specific gray value shall be: 
-𝑚𝑚𝑚𝑚𝐵𝐵=𝑔𝑔𝑚𝑚𝑚𝑚𝑦𝑦  
-𝑔𝑔𝑚𝑚𝑚𝑚𝑚𝑚𝑛𝑛=𝑔𝑔𝑚𝑚𝑚𝑚𝑦𝑦  
-RGB
-𝑏𝑏𝑙𝑙𝐵𝐵𝑚𝑚=𝑔𝑔𝑚𝑚𝑚𝑚𝑦𝑦 
-The gray value for a given  value shall be computed according to the NTSC video standard, which 
-determines how a colour television signal is rendered on a black-and-white television set: 
-10.4.2.2Conversion between DeviceGray and DeviceCMYK 
- 
-𝑔𝑔𝑚𝑚𝐷𝐷𝑦𝑦=0.3×𝑚𝑚𝑚𝑚𝐵𝐵+0.59×𝑔𝑔𝑚𝑚𝑚𝑚𝑚𝑚𝑛𝑛+0.11×𝑏𝑏𝑙𝑙𝐵𝐵𝑚𝑚 
-CMYKCMYK
-Nominally, a gray level is the complement of the black component of . Therefore, the  colour 
-value equivalent to a specific gray level shall be 
-𝑐𝑐𝑦𝑦𝐷𝐷𝑛𝑛=0.0 
-𝑚𝑚𝐷𝐷𝑔𝑔𝑚𝑚𝑛𝑛𝑡𝑡𝐷𝐷=0.0 
-𝑦𝑦𝑚𝑚𝑙𝑙𝑙𝑙𝐷𝐷𝑤𝑤=0.0 
-CMYK
-𝑏𝑏𝑙𝑙𝐷𝐷𝑐𝑐𝑘𝑘=1.0−𝑔𝑔𝑚𝑚𝑚𝑚𝑦𝑦 
-To obtain the equivalent gray level for a given  value, the contributions of all components shall be 
-taken into account: 
-()
-𝑔𝑔𝑚𝑚𝐷𝐷𝑦𝑦=1.0−min1.0,0.3×𝑐𝑐𝑦𝑦𝐷𝐷𝑛𝑛+0.59×𝑚𝑚𝐷𝐷𝑔𝑔𝑚𝑚𝑛𝑛𝑡𝑡𝐷𝐷+0.11×𝑦𝑦𝑚𝑚𝑙𝑙𝑙𝑙𝐷𝐷𝑤𝑤+𝑏𝑏𝑙𝑙𝐷𝐷𝑐𝑐𝑘𝑘 
-The interactions between the black component and the other three are elaborated in 10.4.2.3, 
-"Conversion from DeviceRGB to DeviceCMYK". 
-10.4.2.3Conversion from DeviceRGB to DeviceCMYK 
- 
-RGBCMYK
-Conversion of a colour value from  to  is a two-step process. The first step shall be to convert 
-the red-green-blue value to equivalent cyan, magenta, and yellow components. The second step shall be 
-to generate a black component and alter the other components to produce a better approximation of 
-the original colour. 
-NOTE 1 The subtractive colour primaries cyan, magenta, and yellow are the complements of the additive 
-primaries red, green, and blue. 
-© ISO 2017 – All rights reserved 354 
-
-ISO/DIS 32000-2
- 
-EXAMPLE A cyan ink subtracts the red component of white light. In theory, the conversion is very simple: 
-cyan=1.0−red 
-magenta=1.0−green 
-yellow=1.0−blue 
- A colour that is 0.2 red, 0.7 green, and 0.4 blue can also be expressed as 1.0−0.2=0.8 cyan
-, 1.0−0.7=
-, and 1.0−0.4=0.6 yellow. 
-0.3 magenta
-NOTE 2 Logically, only cyan, magenta, and yellow are needed to generate a printing colour. An equal level 
-of cyan, magenta, and yellow could be expected to create the equivalent level of black. In practice, 
-however, coloured printing inks do not mix perfectly; such combinations often form dark brown 
-shades instead of true black. To obtain a truer colour rendition on a printer, true black ink is often 
-substituted for the mixed-black portion of a colour. Most colour printers support a black 
-component (the  component of ). Computing the quantity of this component requires some 
-additional steps: 
-KCMYK
-•
-Black generation calculates the amount of black to be used when trying to reproduce a 
- 
-particular colour. 
-•
-Undercolour removal reduces the amounts of the cyan, magenta, and yellow components to 
- 
-compensate for the amount of black that was added by black generation. 
-RGBCMYKBGkUCRk
-    
-The complete conversion from  to  shall be as follows, where() and() are 
-invocations of the black-generation and undercolour-removal functions, respectively: 
-𝑐𝑐=1.0−𝑚𝑚𝑚𝑚𝐵𝐵 
-𝑚𝑚=1.0−𝑔𝑔𝑚𝑚𝑚𝑚𝑚𝑚𝑛𝑛 
-𝑦𝑦=1.0−𝑏𝑏𝑙𝑙𝐵𝐵𝑚𝑚 
-𝑘𝑘=𝑚𝑚𝐷𝐷𝑛𝑛 (𝑐𝑐,𝑚𝑚,𝑦𝑦) 
-()
-𝑐𝑐𝑦𝑦𝐷𝐷𝑛𝑛=𝑚𝑚𝐷𝐷𝑛𝑛�1.0,𝑚𝑚𝐷𝐷𝑥𝑥�0.0,𝑐𝑐−𝑈𝑈𝐶𝐶𝑅𝑅𝑘𝑘�� 
-()
-𝑚𝑚𝐷𝐷𝑔𝑔𝑚𝑚𝑛𝑛𝑡𝑡𝐷𝐷=𝑚𝑚𝐷𝐷𝑛𝑛�1.0,𝑚𝑚𝐷𝐷𝑥𝑥�0.0,𝑚𝑚−𝑈𝑈𝐶𝐶𝑅𝑅𝑘𝑘�� 
-()
-𝑦𝑦𝑚𝑚𝑙𝑙𝑙𝑙𝐷𝐷𝑤𝑤=𝑚𝑚𝐷𝐷𝑛𝑛�1.0,𝑚𝑚𝐷𝐷𝑥𝑥�0.0,𝑦𝑦−𝑈𝑈𝐶𝐶𝑅𝑅𝑘𝑘�� 
-()
-𝑏𝑏𝑙𝑙𝐷𝐷𝑐𝑐𝑘𝑘=𝑚𝑚i𝑛𝑛�1.0,𝑚𝑚𝐷𝐷𝑥𝑥�0.0,𝐵𝐵𝐵𝐵𝑘𝑘�� 
- 
-The black-generation and undercolour-removal functions shall be defined as PDF function dictionaries 
- BG  UCR  BG2 UCR2
-(see 7.10, "Functions") that are parameters in the graphics state. They shall be specified as the values of 
-theand(orand ) entries in a graphics state parameter dictionary (see "Table 57: 
-Entries in a graphics state parameter dictionary"). Each function shall be called with a single numeric 
-operand and shall return a single numeric result. 
-k
-cmyredgreen
-The input of both the black-generation and undercolour-removal functions shall be , the minimum of 
-blue
-the intermediate , , and  values that have been computed by subtracting the original , , and 
- components from 1.0. 
-NOTE 3 Nominally,  is the amount of black that can be removed from the cyan, magenta, and yellow 
-components and substituted as a separate black component. 
-k
-k
-k
-The black-generation function shall compute the black component as a function of the nominal  value. 
-It may simply return its  operand unchanged, or it may return a larger value for extra black, a smaller 
-value for less black, or 0.0 for no black at all. 
-cmyk
-The undercolour-removal function shall compute the amount to subtract from each of the intermediate 
-, , and  values to produce the final cyan, magenta, and yellow components. It may simply return its  
-© ISO 2017 – All rights reserved 355 
-
-ISO/DIS 32000-2
- 
-operand unchanged, or it may return 0.0 (so that no colour is removed), some fraction of the black 
-amount, or even a negative amount, thereby adding to the total amount of colourant. 
-The final component values that result after applying black generation and undercolour removal should 
-be in the range 0.0 to 1.0. If a value falls outside this range, the nearest valid value shall be substituted 
-automatically without error indication. 
-NOTE 4 This substitution is indicated explicitly by the  and  operations in the preceding formulas. 
-minmax
-The correct choice of black-generation and undercolour-removal functions depends on the 
-characteristics of the output device. Each device shall be configured with default values that are 
-appropriate for that device. 
-NOTE 5 See 11.7.5, "Rendering parameters and transparency" and, in particular, 11.7.5.3, "Rendering 
-intent, black point compensation and colour conversions" for further discussion of the role of 
-black-generation and undercolour-removal functions in the transparent imaging model. 
-10.4.2.4Conversion from DeviceCMYK to DeviceRGB 
- 
-CMYKRGB
-Conversion of a colour value from  to  is a simple operation that does not involve black 
-generation or undercolour removal: 
-()
-𝑚𝑚𝑚𝑚𝐵𝐵=1.0−𝑚𝑚𝐷𝐷𝑛𝑛1.0,𝑐𝑐𝑦𝑦𝐷𝐷𝑛𝑛+𝑏𝑏𝑙𝑙𝐷𝐷𝑐𝑐𝑘𝑘 
-𝑔𝑔𝑚𝑚𝑚𝑚𝑚𝑚𝑛𝑛=1.0−𝑚𝑚𝐷𝐷𝑛𝑛 (1.0,𝑚𝑚𝐷𝐷𝑔𝑔𝑚𝑚𝑛𝑛𝑡𝑡𝐷𝐷+𝑏𝑏𝑙𝑙𝐷𝐷𝑐𝑐𝑘𝑘) 
-()
-𝑏𝑏𝑙𝑙𝐵𝐵𝑚𝑚=1.0−𝑚𝑚𝐷𝐷𝑛𝑛1.0,𝑦𝑦𝑚𝑚𝑙𝑙𝑙𝑙𝐷𝐷𝑤𝑤+𝑏𝑏𝑙𝑙𝐷𝐷𝑐𝑐𝑘𝑘 
-The black component shall be added to each of the other components, which shall then be converted to 
-their complementary colours by subtracting them each from 1.0. 
-10.5Transfer functions 
- 
-Starting with PDF 1.2, transfer functions shall be defined as PDF function objects (see 7.10, 
-"Functions"). There are two ways to specify transfer functions: 
-current transfer function
-• 
-The  (deprecated with PDF 2.0) parameter in the graphics state shall 
-consist of either a single transfer function or an array of four separate transfer functions, one each 
-RGB
-for red, green, blue, and gray or their complements cyan, magenta, yellow, and black. If only a 
-CMYK
-single function is specified, it shall apply to all components. An  device shall use the first three, 
+Key Type Value 
+Optional; PDF 1.3
+BG2  BG 
+function or name () Same asexcept that the value may also be the name 
+ BG  BG2 
+Default, denoting the black-generation function that was in effect at the start of 
+ BG2 
+the page. If bothandare present in the same graphics state parameter 
+dictionary,shall take precedence. 
+Optional
+UCR 
+() The undercolour-removal function, which maps the interval [0.0 1.0] 
+function 
+to the interval [−1.0 1.0] (see 10.4.2.3, "Conversion from DeviceRGB to 
+DeviceCMYK"). 
+Optional; PDF 1.3
+UCR2  UCR 
+Default
+function or name () Same asexcept that the value may also be the name 
+ UCR  UCR2 
+, denoting the undercolour-removal function that was in effect at the 
+ UCR2 
+start of the page. If bothandare present in the same graphics state 
+parameter dictionary,shall take precedence. 
+Optional, deprecated in PDF 2.0
+TR 
+function, array, or () The transfer function, which maps the interval 
+name [0.0 1.0] to the interval [0.0 1.0] (see 10.5, "Transfer functions"). The value shall 
+be either a single function (which applies to all process colourants) or an array 
+IdentityIdentity
+of four functions (which apply to the process colourants individually). The 
+name  may be used to represent the  function. 
+Optional; PDF 1.3, deprecated in PDF 2.0
+TR2  TR 
+Default
+function, array, or () Same asexcept that the value may 
  TR TR2
-a monochrome device shall use the gray transfer function only, and a  device shall use all 
-four. The current transfer function may be specified as the value of theor  entry in a 
-graphics state parameter dictionary; see "Table 57: Entries in a graphics state parameter 
-current halftone
+name also be the name , denoting the transfer function that was in effect at 
+TR2
+the start of the page. If bothand  are present in the same graphics state 
+parameter dictionary,  shall take precedence. 
+Optional
+HT 
+Default
+dictionary, stream, () The halftone dictionary or stream (see 10.6, "Halftones") or the name 
+or name , denoting the halftone that was in effect at the start of the page. 
+Optional; PDF 1.3
+FL 
+number () The flatness tolerance (see 10.7.2, "Flatness tolerance"). 
+Optional; PDF 1.3
+SM 
+number () The smoothness tolerance (see 10.7.3, "Smoothness 
+tolerance"). 
+Optional
+SA 
+boolean () A flag specifying whether to apply automatic stroke adjustment (see 
+10.7.5, "Automatic stroke adjustment"). 
+Optional; PDF 1.4; array is deprecated in PDF 2.0
+BM 
+array is deprecated 
+name or array  () The current blend mode that 
+in PDF 2.0
+shall be used in the transparent imaging model (see 11.3.5, "Blend mode"). 
+(
+) 
+Optional; PDF 1.4
+SMask 
+dictionary or name () The current soft mask, specifying the mask shape or mask 
+opacity values that shall be used in the transparent imaging model (see 11.3.7.2, 
+"Source shape and opacity" and 11.6.4.3, "Mask shape and opacity"). 
+gs
+Although the current soft mask is sometimes referred to as a "soft clip," altering 
+it with the  operator completely replaces the old value with the new one, 
+rather than intersecting the two as is done with the current clipping path 
+parameter (see 8.5.4, "Clipping path operators"). 
+Optional; PDF 1.4
+CA 
+number () The current stroking alpha constant, specifying the constant 
+shape or constant opacity value that shall be used for stroking operations in the 
+transparent imaging model (see 11.3.7.2, "Source shape and opacity" and 
+11.6.4.4, "Constant shape and opacity"). 
+Optional; PDF 1.4
+ca CA
+number () Same as , but for nonstroking operations. 
+Optional; PDF 1.4
+AIS 
+boolean () The alpha source flag ("alpha is shape"), specifying whether 
+truefalse
+ 
+the current soft mask and alpha constant shall be interpreted as shape values 
+SMask 
+() or opacity values (). This flag also governs the interpretation of the
+entry, if any, in an image dictionary (see 8.9.5, "Image dictionaries"). 
+© ISO 2017 – All rights reserved 164 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional; PDF 1.4
+TK 
+boolean () The text knockout flag, shall determine the behaviour of 
+overlapping glyphs within a text object in the transparent imaging model (see 
+9.3.8, "Text knockout"). This flag controls the behavior of glyphs obtained from 
+any font type, including Type 3. 
+Optional; PDF 2.0
+UseBlackPtComp 
+name () This graphics state parameter controls whether black point 
+OFFONDefaultDefault
+  
+compensation is performed while doing CIE-based colour conversions. It shall 
+be set to either ,or . The semantics of  are up to the PDF 
+Default
+processor. See 8.6.5.9, "Use of black point compensation". 
+The default value is: . 
+Optional; PDF 2.0
+HTO 
+array () Halftone origin, specified as an array of two numbers 
+specifying the X and Y location of the halftone origin in the current coordinate 
+NOTE: The  key is very similar to the  key defined in PDF versions up 
+HTOHTP
+system.  
+st
+ Edition), but differs in the coordinate system used. 
+to 1.3 (1
+EXAMPLE The following shows two graphics state parameter dictionaries. In the first, automatic stroke adjustment is 
+turned on, and the dictionary includes a transfer function that inverts its value, 𝑓𝑓 (𝑥𝑥) = 1 − 𝑥𝑥. In the second, 
+2
+, with a 
+overprint is turned off, and the dictionary includes a parabolic transfer function, 𝑓𝑓 (𝑥𝑥) = (2𝑥𝑥 − 1)
+sample of 21 values. The domain of the transfer function, [0.0 1.0], is mapped to [0 20], and the range of the 
+sample values, [0 255], is mapped to the range of the transfer function, [0.0 1.0]. 
+10 0 obj            %Page object 
+  <</Type /Page 
+   /Parent 5 0 R 
+   /Resources 20 0 R 
+   /Contents 40 0 R 
+  >> 
+endobj 
+ 
+20 0 obj            %Resource dictionary for page 
+  <</Font <</F1 25 0 R>> 
+   /ExtGState <</GS1 30 0 R 
+       /GS2 35 0 R 
+       >> 
+  >> 
+endobj 
+ 
+30 0 obj            %First graphics state parameter dictionary 
+  <</Type /ExtGState 
+   /SA true 
+   /TR 31 0 R 
+  >> 
+endobj 
+ 
+31 0 obj            %First transfer function 
+  <</FunctionType 0 
+   /Domain [0.0 1.0] 
+   /Range [0.0 1.0] 
+   /Size 2 
+   /BitsPerSample 8 
+   /Length 7 
+   /Filter /ASCIIHexDecode 
+  >> 
+stream 
+01 00> 
+endstream 
+endobj 
+ 
+35 0 obj            %Second graphics state parameter dictionary 
+© ISO 2017 – All rights reserved 165 
+
+ISO/DIS 32000-2
+ 
+  <</Type /ExtGState 
+   /OP false 
+   /TR 36 0 R 
+  >> 
+endobj 
+ 
+36 0 obj            %Second transfer function 
+  <</FunctionType 0 
+   /Domain [0.0 1.0] 
+   /Range [0.0 1.0] 
+   /Size 21 
+   /BitsPerSample 8 
+   /Length 63 
+   /Filter /ASCIIHexDecode 
+  >> 
+stream 
+FF CE A3 7C 5B 3F 28 16 0A 02 00 02 0A 16 28 3F 5B 7C A3 CE FF> 
+endstream 
+endobj 
+ 
+8.5Path construction and painting 
+ 
+8.5.1General 
+ 
+Paths
+ define shapes, trajectories, and regions of all sorts. They shall be used to draw lines, define the 
+current clipping path
+shapes of filled areas, and specify boundaries for clipping other graphics. The graphics state shall 
+include a  that shall define the clipping boundary for the current page. At the 
+beginning of each page, the clipping path shall be initialised to the size of the MediaBox. 
+connect
+A path may contain any combination of zero or more line segments, which may be straight or curved. 
+Paths may connect to one another or may be disconnected. A pair of segments shall be said to  
+only if they are defined consecutively, with the second segment starting where the first one ends. Thus, 
+the order in which the segments of a path are defined shall be significant. Nonconsecutive segments that 
+meet or intersect fortuitously shall not be considered to connect. 
+NOTE A path is made up of one or more disconnected subpaths, each comprising a sequence of connected 
+segments. The topology of the path is unrestricted: it can be concave or convex, can contain 
+multiple subpaths representing disjoint areas, and can intersect itself in arbitrary ways. 
+h
+The  operator explicitly shall connect the end of a subpath back to its starting point; such a subpath is 
+said to be closed. A subpath that has not been explicitly closed is said to be open. 
+As discussed in 8.2, "Graphics objects", a path object is defined by a sequence of operators to construct 
+the path, followed by one or more operators to paint the path or to use it as a clipping boundary. PDF 
+path operators fall into three categories: 
+Path construction operators
 • 
-dictionary". This type of function is deprecated. 
-halftone dictionaries
-The  parameter in the graphics state may specify transfer functions as optional 
-entries in  (see 10.6.5, "Halftone dictionaries"). This is the only way to set 
-transfer functions for nonprimary colour components or for any component in devices whose 
-native colour space uses components other than the ones listed previously. A transfer function 
-specified in a halftone dictionary shall override the corresponding one specified by the current 
-transfer function parameter in the graphics state. 
-In the sequence of steps for processing colours, the PDF processor shall apply the transfer function after 
-performing any needed conversions between colour spaces. If the output is to be halftoned the transfer 
-function shall be applied before halftoning. Each colour component shall have its own separate transfer 
-function; there shall not be interaction between components. 
-© ISO 2017 – All rights reserved 356 
+ (8.5.2, "Path construction operators") define the geometry of a path. A 
+Path-painting operators
+• 
+path is constructed by sequentially applying one or more of these operators. 
+ (8.5.3, "Path-painting operators") end a path object, usually causing the 
+Clipping path operators
+• 
+object to be painted on the current page in any of a variety of ways. 
+ (8.5.4, "Clipping path operators"), invoked immediately before a path-
+painting operator, cause the path object also to be used for clipping of subsequent graphics objects. 
+ 
+© ISO 2017 – All rights reserved 166 
 
 ISO/DIS 32000-2
  
-NOTE 1 Starting with PDF 1.2, a transfer function can be used to adjust the values of colour components to 
-compensate for nonlinear response in an output device and in the human eye. Each component of 
-a device colour space — for example, the red component of thespace — is intended to 
- DeviceRGB 
-represent the perceived lightness or intensity of that colour component in proportion to the 
-component’s numeric value. 
-NOTE 2 Many devices do not actually behave this way, however; the purpose of a transfer function is to 
-compensate for the device’s actual behaviour. This operation is sometimes called gamma 
-correction (not to be confused with the CIE-based gamut mapping function performed as part of 
-CIE-based colour rendering). 
-CMYK
-Transfer functions shall always operate in the native colour space of the output device, regardless of the 
-colour space in which colours were originally specified. (For example, for a  device, the transfer 
- DeviceRGB  CalRGB 
-functions apply to the device’s cyan, magenta, yellow, and black colour components, even if the colours 
-were originally specified in, for example, aorcolour space.) The transfer function 
-shall be called with a numeric operand in the range 0.0 to 1.0 and shall return a number in the same 
-range. The input shall be the value of a colour component in the device’s native colour space, either 
-specified directly or produced by conversion from some other colour space. The output shall be the 
-transformed component value to be transmitted to the device (after halftoning, if necessary). 
-Both the input and the output of a transfer function shall always be interpreted as if the corresponding 
-colour component were additive (red, green, blue, or gray): the greater the numeric value, the lighter 
-the colour. If the component is subtractive (cyan, magenta, yellow, black, or a spot colour), it shall be 
-converted to additive form by subtracting it from 1.0 before it is passed to the transfer function. The 
-output of the function shall always be in additive form and shall be passed on to the halftone function in 
-that form. 
-Because transfer functions produce device-dependent effects, a page description that is intended to be 
-TransferFunction
-device-independent should not define a current transfer function in the graphics state, or define 
- in any halftone dictionaries. 
- DeviceGray 
-DeviceCMYK 
-When the current colour space isand the output device’s native colour space is 
-DeviceGray  DeviceCMYK 
-, a PDF processor shall use only the gray transfer function. The normal conversion from
-toproduces 0.0 for the cyan, magenta, and yellow components. These 
-components shall not be passed through their respective transfer functions but are rendered directly, 
-producing output containing no coloured inks. This special case exists for compatibility with existing 
- DeviceGray 
-PDF processors that use a transfer function to obtain special effects on monochrome devices, and shall 
-apply only to colours specified in thecolour space. 
-NOTE 3 See 11.7.5, "Rendering parameters and transparency" and, in particular, 11.7.5.2, "Halftone and 
-transfer function" for further discussion of the role of transfer functions in the transparent 
-imaging model. 
-10.6Halftones 
+8.5.2Path construction operators 
  
-10.6.1General 
+8.5.2.1General 
  
-Halftoning is a process by which continuous-tone colours are approximated on an output device that 
-can achieve only a limited number of discrete colours. Colours that the device cannot produce directly 
-are simulated by using patterns of pixels in the colours available. 
-© ISO 2017 – All rights reserved 357 
-
-ISO/DIS 32000-2
- 
-NOTE 1 Perhaps the most familiar example is the rendering of gray tones with black and white pixels, as in 
-a newspaper photograph. 
-Some output devices can reproduce continuous-tone colours directly. Halftoning is not required for 
-such devices; after gamma correction by the transfer functions, the colour components shall be 
-transmitted directly to the device. On devices that do require halftoning, it shall occur after all colour 
-components have been transformed by the applicable transfer functions. The input to the halftone 
-function shall consist of continuous-tone, gamma-corrected colour components in the device’s native 
-colour space. Its output shall consist of pixels in colours the device can reproduce. 
-PDF provides a high degree of control over details of the halftoning process. 
-NOTE 2 When rendering on low-resolution displays, fine control over halftone patterns is needed to 
-achieve the best approximations of gray levels or colours and to minimise visual artifacts. 
-NOTE 3 In colour printing, independent halftone screens can be specified for each of several colourants. 
-NOTE 4 Remember that everything pertaining to halftones is, by definition, device-dependent. In general, 
-when a PDF file provides its own halftone specifications, it sacrifices portability. Associated with 
-every output device is a default halftone definition that is appropriate for most purposes. Only 
-relatively sophisticated files need to define their own halftones to achieve special effects. For 
-correct results, a PDF file that defines a new halftone depends on certain assumptions about the 
-resolution and orientation of device space. The best choice of halftone parameters often depends 
-on specific physical properties of the output device, such as pixel shape, overlap between pixels, 
-and the effects of electronic or mechanical noise. 
-All halftones are defined in device space, and shall be unaffected by the current transformation matrix. 
-10.6.2Halftone screens 
- 
-In general, halftoning methods are based on the notion of a halftone screen, which divides the array of 
-device pixels into cells that may be modified to produce the desired halftone effects. A screen is defined 
-by conceptually laying a uniform rectangular grid over the device pixel array. Each pixel belongs to one 
-cell of the grid; a single cell typically contains many pixels. The screen grid shall be defined entirely in 
-device space and shall be unaffected by modifications to the current transformation matrix. 
-NOTE This property is essential to ensure that adjacent areas coloured by halftones are properly stitched 
-together without visible seams. 
-On a bilevel (black-and-white) device, each cell of a screen may be made to approximate a shade of gray 
-n
-by painting some of the cell’s pixels black and some white. Numerically, the gray level produced within 
-ng
-a cell shall be the ratio of white pixels to the total number of pixels in the cell. A cell containing  pixels 
-i
-can render  + 1 different gray levels, ranging from all pixels black to all pixels white. A gray value  in 
-the range 0.0 to 1.0 shall be produced by making  pixels white, where 𝐷𝐷= 𝑓𝑓𝑙𝑙𝐷𝐷𝐷𝐷𝑚𝑚 (𝑔𝑔× 𝑛𝑛). 
-The foregoing description also applies to colour output devices whose pixels consist of primary colours 
-that are either completely on or completely off. Most colour printers, but not colour displays, work this 
-way. Halftoning shall be applied to each colour component independently, producing shades of that 
-colour. 
-RGBCMYK
-Colour components shall be presented to the halftoning machinery in additive form, regardless of 
-whether they were originally specified additively ( or gray) or subtractively ( or tint). Larger 
-values of a colour component represent lighter colours — greater intensity in an additive device such as 
-a display or less ink in a subtractive device such as a printer. Transfer functions produce colour values 
-© ISO 2017 – All rights reserved 358 
-
-ISO/DIS 32000-2
- 
-in additive form; see 10.5, "Transfer functions". 
-10.6.3Spot functions 
- 
-frequencyanglespot function
-A common way of defining a halftone screen is by specifying a , , and . The 
-frequency indicates the number of halftone cells per inch; the angle indicates the orientation of the grid 
-lines relative to the device coordinate system. As a cell’s desired gray level varies from black to white, 
-individual pixels within the cell change from black to white in a well-defined sequence: if a particular 
-gray level includes certain white pixels, lighter grays will include the same white pixels along with some 
-additional ones. The order in which pixels change from black to white for increasing gray levels is 
-determined by a spot function, which specifies that order in an indirect way that minimises interactions 
-with the screen frequency and angle. 
-Consider a halftone cell to have its own coordinate system: the centre of the cell is the origin and the 
-corners are at coordinates ± 1.0 horizontally and vertically. Each pixel in the cell is centred at horizontal 
-and vertical coordinates that both lie in the range -1.0 to +1.0. For each pixel, the spot function shall be 
-invoked with the pixel’s coordinates as input and shall return a single number in the range -1.0 to +1.0, 
-defining the pixel’s position in the whitening order. 
-The specific values the spot function returns are not significant; all that matters are the relative values 
-returned for different pixels. As a cell’s gray level varies from black to white, the first pixel whitened 
-shall be the one for which the spot function returns the lowest value, the next pixel shall be the one with 
-the next higher spot function value, and so on. If two pixels have the same spot function value, their 
-relative order shall be chosen arbitrarily. 
-PDF provides built-in definitions for many of the most commonly used spot functions. A halftone may 
-simply specify any of these predefined spot functions by name instead of giving an explicit function 
-definition. 
-SimpleDot
-EXAMPLE The name  designates a spot function whose value is inversely related to a pixel’s distance from the 
-Line
-centre of the halftone cell. This produces a "dot screen" in which the black pixels are clustered within a circle 
-whose area is inversely proportional to the gray level. The name  designates a spot function whose value 
-is the distance from a given pixel to a line through the centre of the cell, producing a "line screen" in which the 
-white pixels grow away from that line. 
+A path description is built up through the invocation of one or more path construction operators that 
+mre
+add segments to it. The path construction operators may be invoked in any sequence, but the first one 
+Sf b 
+invoked shall be  or  to begin a new subpath. The path definition may conclude with the application 
+WW*
+of a path-painting operator such as , , or(see 8.5.3, "Path-painting operators"); this operator may 
+optionally be preceded by one of the clipping path operators  or  (8.5.4, "Clipping path operators"). 
+NOTE Note that the path construction operators do not place any marks on the page; only the painting 
+operators do that. A path definition is not complete until a path-painting operator has been 
+applied to it. 
+The path currently under construction is called the current path. In PDF (unlike PostScript), the current 
+path is not part of the graphics state and is not saved and restored along with the other graphics state 
+parameters. PDF paths shall be strictly internal objects with no explicit representation. After the 
+mre
+current path has been painted, it shall become no longer defined; there is then no current path until a 
+new one is begun with the  or  operator. 
+The trailing endpoint of the segment most recently added to the current path is referred to as the 
+current point. If the current path is empty, the current point shall be undefined. Most operators that add 
+a segment to the current path start at the current point; if the current point is undefined, an error shall 
+be generated. 
 "

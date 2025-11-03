@@ -1,32 +1,47 @@
+Table 40: Additional entries specific to a Type 2 function 
+dictionary". 
+Table 40: Additional entries specific to a Type 2 function dictionary 
+Key Type Value 
+Optionaln
+C0 
+array () An array of  numbers that shall define the function result when 𝑥𝑥 = 0.0. 
+Default value: [0.0]. 
+Optionaln
+C1 
+array () An array of  numbers that shall define the function result when 𝑥𝑥= 1.0. 
+Default value: [1.0]. 
+Requiredxn
+N 
+24T
+number () The interpolation exponent. Each input value  shall return  values, given 
+N
+jjjj
+by y=C0+x×�C1−C0�, for 0≤j<n. 
  
-  
-Table 90: Inline image operators 
-Operands Operator Description 
-— 
-BI 
-Begin an inline image object. 
-— 
-ID 
-Begin the image data for an inline image object. 
-— 
-EI 
-End an inline image object. 
+xx
+Domain
+x
+NDomainN
+Values of  shall constrain  in such a way that if N is not an integer, all values of  will be non-
+Range
+negative, and if  is negative, no value of  will be zero. Typically,  is declared as [0.0 1.0], and  
+is a positive number. To clip the output to a specified range the  attribute shall be used. 
+NOTE When  is 1, the function performs a linear interpolation between  and ; therefore, the 
+NC0C1
+function can also be expressed as a sampled function (Type 4). 
+7.10.4Type 3 (stitching) functions 
  
-BI
-E ID BI
-Inline image objects shall not be nested; that is, two  operators shall not appear without an 
-EI ASCIIHexDecode  ASCII85Decode  ID 
-intervening I to close the first object. Similarly, anoperator shall only appear between a  and its 
-balancing . Unless the image usesoras one of its filters, the
-operator shall be followed by a single white-space character, and the next character shall be interpreted 
-© ISO 2017 – All rights reserved 262 
+PDF 1.3
+Type 3 functions () define a stitching of the subdomains of several 1-input functions to produce 
+© ISO 2017 – All rights reserved 128 
 
 ISO/DIS 32000-2
  
-as the first byte of image data. 
-BI ID 
-The key-value pairs appearing between the  andoperators (as listed in "Table 91: Entries in an 
-inline image object") are analogous to their respective key-value pairs in an image XObject dictionary 
-(see "Table 87: Additional entries specific to an image dictionary") or a stream dictionary (see "Table 5: 
-Entries common to all stream dictionaries"). For convenience, the abbreviations shown in "Table 91: 
-Entries in an inline image object" and "
+Domain
+Domain
+a single new 1-input function. Since the resulting stitching function is a 1-input function, the domain is 
+01
+given by a two-element array, [
+ ]. 
+In addition to the entries in "Table 38: Entries common to all function dictionaries", a Type 3 function 
+dictionary shall include those listed in "

@@ -1,54 +1,429 @@
-Table 334: Entries in a RichMediaSettings dictionary". 
-those states. See "
-Default value: If no RichMediaSettings dictionary is present, the first 
-configuration is loaded. 
+10Rendering 
  
-  
-As with 3D annotations defined in 13.6.2, "3D Annotations",RichMediaannotations can be in one of two 
-states, 
-Inactive
-• 
-: (the default initial state) The annotation displays the normal appearance of the 
-NOTE 2 Typically, the normal appearance is a 2D bitmap portraying a rendering of the default view of the 
-annotation. 
-artwork within theannotation. 
- RichMedia 
-Active
-• 
-: The annotation displays a rendering of the artwork. This rendering is specified by the 
-annotation’s RichMediaSettings entry. (See "Table 334: Entries in a RichMediaSettings 
-dictionary".) 
-The subsequent clauses describe the structural components of a rich media annotation, beginning with 
-the RichMediaSettings dictionary and its subcomponents, followed by the RichMediaContent dictionary, 
-and its subcomponents. See Example 3 for a detailed and comprehensive example of a rich media 
-annotation. 
-13.7.2.2RichMediaSettings dictionary 
+10.1General 
  
-RichMediaSettings dictionary
-  
-The  has a purpose similar to that of the 3D activation dictionary ("Table 
-310: Entries in a 3D activation dictionary") with the 3DAnnotationdescribed in 13.6.2, "3D 
-Annotations". The RichMediaSettings dictionary stores the conditions and responses that occur in 
-response to certain events, such as activation and deactivation of the annotation, and contains two 
-dictionaries. "Table 334: Entries in a RichMediaSettings dictionary" gives the details of the content of 
-this dictionary. 
-© ISO 2017 – All rights reserved 676 
+raster output device
+The PDF imaging model separates the specification of graphics objects (defining shapes and colours) 
+from the process of rendering them on a .  
+NOTE 1 "Figure 20: Colour specification" and "Figure 21: Colour rendering" in clause 8.6.3, "Colour space 
+families" illustrate this division.  
+Clause 10 defines how the shape and colour of graphics objects are rendered on a raster output device. 
+Depending on the current colour space and on the characteristics of the raster output device, one or 
+more of the following steps may be necessary: 
+• 
+Convert colour that is not already in the native colour space of the raster output device, into that 
+colour space; see "10.3, CIE-Based colour to device colour" and "10.4, Conversions among device 
+• 
+colour spaces" for details. 
+For any object for which transfer functions are in effect, apply those transfer functions; see "10.5, 
+• 
+Transfer functions" for details. Note that transfer functions are deprecated with PDF 2.0. 
+Perform a scan conversion algorithm to mark the appropriate pixels of the raster output device; 
+• 
+see "10.7, Scan conversion details" for details. 
+If the raster output device supports PDF-defined halftoning, apply halftoning according to "10.6, 
+"Halftones". 
+For the purpose of clause 10, it is irrelevant whether a raster output device physically exists and is 
+actually used for rendering, or is just assumed (for example to simulate the colour appearance of PDF 
+output on one raster output device by using some other raster output device).  
+NOTE 2 Any raster output device – printer or monitor – can in principle be used to simulate the colour 
+appearance produced by some other raster output device. In this case, the output colour values in 
+the colour space of the simulated raster output device become source colour values to be rendered 
+on the simulating raster output device. Usually the simulating raster output device will have to be 
+more capable regarding colour reproduction than the simulated device in order to be useful. 
+NOTE 3 Managing colour from digital description all the way to creating a rendered reproduction on a 
+digital display or printed output is a complex topic. The International Color Consortium (ICC) 
+) is a good source of information. The publication "Color management: 
+(http://www.color.org
+understanding and using ICC profiles" provides a good introductory overview. 
+A PDF document may specify very little about the properties of the physical medium on which the 
+output will be produced; that information may be obtained from the following sources by a PDF 
+processor: 
+• 
+• 
+The media box and other entries in the page dictionary (see 14.11.2, "Page boundaries"). 
+• 
+An interactive dialogue conducted when the user requests viewing or printing. 
+A job ticket, either embedded in the PDF document or provided separately, may specify detailed 
+instructions for placing (imposing) PDF pages onto media and for controlling special features of 
+NOTE 4 A widely used standard for the format of vendor neutral job tickets is the JDF (Job Definition 
+the output device. 
+Format) described in the CIP4 document JDF Specification. 
+© ISO 2017 – All rights reserved 352 
 
 ISO/DIS 32000-2
  
-Table 334: Entries in a RichMediaSettings dictionary 
-Key Type Value 
-Optional; PDF 2.0
-Type 
-RichMediaSettings
-name () The type of PDF object that this dictionary describes. If 
-present, shall be . 
-Optional; PDF 2.0
-Activation 
-dictionary () A RichMediaActivation dictionary (see "Table 335: Entries in 
-a RichMediaActivation dictionary") that specifies the style of presentation, 
-default script behavior, default view information, and animation style when the 
-annotation is activated. 
-Optional; PDF 2.0
-Deactivation 
-dictionary () A RichMediaDeactivation dictionary (see "
+10.2Raster output device native colour 
+ 
+native colour space
+Each raster output device has a , which often matches one of the following process 
+colour models: gray (monochrome), RGB (red-green-blue) or CMYK (cyan-magenta-yellow-black). 
+Process colours
+ are ones that are produced by combinations of one or more process colourants. Colours 
+specified in any device or CIE-based colour space shall be rendered as process colours.  
+SeparationDeviceN
+A device may also support additional spot colourants, which shall be painted only by means of 
+ or  colour spaces that define such spot colourants. 
+10.3CIE-Based colour to device colour 
+ 
+10.3.1General 
+ 
+To render CIE-based colours on a raster output device, it is necessary to convert from the specified CIE-
+based colour space to the device’s native colour space taking into account the known properties of the 
+raster output device. 
+destination colour 
+space
+For accurately rendering a CIE-based colour on a raster output device, a CIE-based 
+ that is suitable for representing the native colour space of the raster output device (for example, 
+by means of a monitor or printer ICC profile) needs to be established. The specific method by which the 
+CIE-based destination colour space is established is beyond the scope of this part of ISO 32000, but may 
+include the use of Output Intents (see 14.11.5, "Output intents").  
+NOTE Establishing a CIE-based destination colour space for a raster output device can happen based on 
+a user-driven configuration, by assumptions made by the PDF processor software, by a job ticket, 
+by settings in an output device, by built-in colour measurements, or by other mechanisms. 
+Conversion from a CIE-based source colour to a CIE-based destination colour shall be performed based 
+on ISO 15076-1:2010 (ICC.1:2010). 
+10.3.2Establishing CIE-based colour space definitions 
+ 
+DeviceGray
+DeviceRGBDeviceCMYK
+A PDF processor should establish CIE-based colour specifications for device colour spaces (, 
+, or ), and thus implicitly remap device colour spaces into CIE-based colour 
+DeviceGray
+spaces, when those device colour spaces do not match that of the raster output device. If the native 
+device colour space is CMYK, then converting colours in the  colour space to that CMYK 
+should follow the method described in 10.4.2.2, "Conversion between DeviceGray and DeviceCMYK". 
+NOTE Establishing a CIE-based source colour space can happen based on a user-driven configuration, by 
+assumptions made by the PDF processor software, by analysis of the colour values and other 
+properties, or by other mechanisms. 
+10.4Conversions among device colour spaces 
+ 
+10.4.1General 
+ 
+DeviceGray
+DeviceRGBDeviceGrayDeviceCMYKDeviceRGBDeviceCMYK
+This subclause describes the methods of classic colour conversion between  and 
+,  and , and  and . 
+© ISO 2017 – All rights reserved 353 
+
+ISO/DIS 32000-2
+ 
+10.4.2Classic colour conversion methods 
+ 
+Although ICC enabled PDF processors should always follow the provisions and recommendations 
+provided in 10.3, "CIE-Based colour to device colour", a less-capable PDF processor may choose to use 
+the algorithms specified in the following subclauses 10.4.2.1 through 10.4.2.4. These algorithms are, 
+however, very simple and as perceived by a human viewer they produce only crude approximations of 
+the original colours. 
+10.4.2.1Conversion between DeviceGray and DeviceRGB 
+ 
+RGB
+Black, white, and intermediate shades of gray can be considered special cases of  colour. A grayscale 
+value shall be described by a single number: 0.0 corresponds to black, 1.0 to white, and intermediate 
+values to different gray levels. 
+RGB
+RGB
+A gray level shall be equivalent to an  value with all three components the same. In other words, the 
+ colour value equivalent to a specific gray value shall be: 
+𝑚𝑚𝑚𝑚𝐵𝐵=𝑔𝑔𝑚𝑚𝑚𝑚𝑦𝑦  
+𝑔𝑔𝑚𝑚𝑚𝑚𝑚𝑚𝑛𝑛=𝑔𝑔𝑚𝑚𝑚𝑚𝑦𝑦  
+RGB
+𝑏𝑏𝑙𝑙𝐵𝐵𝑚𝑚=𝑔𝑔𝑚𝑚𝑚𝑚𝑦𝑦 
+The gray value for a given  value shall be computed according to the NTSC video standard, which 
+determines how a colour television signal is rendered on a black-and-white television set: 
+10.4.2.2Conversion between DeviceGray and DeviceCMYK 
+ 
+𝑔𝑔𝑚𝑚𝐷𝐷𝑦𝑦=0.3×𝑚𝑚𝑚𝑚𝐵𝐵+0.59×𝑔𝑔𝑚𝑚𝑚𝑚𝑚𝑚𝑛𝑛+0.11×𝑏𝑏𝑙𝑙𝐵𝐵𝑚𝑚 
+CMYKCMYK
+Nominally, a gray level is the complement of the black component of . Therefore, the  colour 
+value equivalent to a specific gray level shall be 
+𝑐𝑐𝑦𝑦𝐷𝐷𝑛𝑛=0.0 
+𝑚𝑚𝐷𝐷𝑔𝑔𝑚𝑚𝑛𝑛𝑡𝑡𝐷𝐷=0.0 
+𝑦𝑦𝑚𝑚𝑙𝑙𝑙𝑙𝐷𝐷𝑤𝑤=0.0 
+CMYK
+𝑏𝑏𝑙𝑙𝐷𝐷𝑐𝑐𝑘𝑘=1.0−𝑔𝑔𝑚𝑚𝑚𝑚𝑦𝑦 
+To obtain the equivalent gray level for a given  value, the contributions of all components shall be 
+taken into account: 
+()
+𝑔𝑔𝑚𝑚𝐷𝐷𝑦𝑦=1.0−min1.0,0.3×𝑐𝑐𝑦𝑦𝐷𝐷𝑛𝑛+0.59×𝑚𝑚𝐷𝐷𝑔𝑔𝑚𝑚𝑛𝑛𝑡𝑡𝐷𝐷+0.11×𝑦𝑦𝑚𝑚𝑙𝑙𝑙𝑙𝐷𝐷𝑤𝑤+𝑏𝑏𝑙𝑙𝐷𝐷𝑐𝑐𝑘𝑘 
+The interactions between the black component and the other three are elaborated in 10.4.2.3, 
+"Conversion from DeviceRGB to DeviceCMYK". 
+10.4.2.3Conversion from DeviceRGB to DeviceCMYK 
+ 
+RGBCMYK
+Conversion of a colour value from  to  is a two-step process. The first step shall be to convert 
+the red-green-blue value to equivalent cyan, magenta, and yellow components. The second step shall be 
+to generate a black component and alter the other components to produce a better approximation of 
+the original colour. 
+NOTE 1 The subtractive colour primaries cyan, magenta, and yellow are the complements of the additive 
+primaries red, green, and blue. 
+© ISO 2017 – All rights reserved 354 
+
+ISO/DIS 32000-2
+ 
+EXAMPLE A cyan ink subtracts the red component of white light. In theory, the conversion is very simple: 
+cyan=1.0−red 
+magenta=1.0−green 
+yellow=1.0−blue 
+ A colour that is 0.2 red, 0.7 green, and 0.4 blue can also be expressed as 1.0−0.2=0.8 cyan
+, 1.0−0.7=
+, and 1.0−0.4=0.6 yellow. 
+0.3 magenta
+NOTE 2 Logically, only cyan, magenta, and yellow are needed to generate a printing colour. An equal level 
+of cyan, magenta, and yellow could be expected to create the equivalent level of black. In practice, 
+however, coloured printing inks do not mix perfectly; such combinations often form dark brown 
+shades instead of true black. To obtain a truer colour rendition on a printer, true black ink is often 
+substituted for the mixed-black portion of a colour. Most colour printers support a black 
+component (the  component of ). Computing the quantity of this component requires some 
+additional steps: 
+KCMYK
+•
+Black generation calculates the amount of black to be used when trying to reproduce a 
+ 
+particular colour. 
+•
+Undercolour removal reduces the amounts of the cyan, magenta, and yellow components to 
+ 
+compensate for the amount of black that was added by black generation. 
+RGBCMYKBGkUCRk
+    
+The complete conversion from  to  shall be as follows, where() and() are 
+invocations of the black-generation and undercolour-removal functions, respectively: 
+𝑐𝑐=1.0−𝑚𝑚𝑚𝑚𝐵𝐵 
+𝑚𝑚=1.0−𝑔𝑔𝑚𝑚𝑚𝑚𝑚𝑚𝑛𝑛 
+𝑦𝑦=1.0−𝑏𝑏𝑙𝑙𝐵𝐵𝑚𝑚 
+𝑘𝑘=𝑚𝑚𝐷𝐷𝑛𝑛 (𝑐𝑐,𝑚𝑚,𝑦𝑦) 
+()
+𝑐𝑐𝑦𝑦𝐷𝐷𝑛𝑛=𝑚𝑚𝐷𝐷𝑛𝑛�1.0,𝑚𝑚𝐷𝐷𝑥𝑥�0.0,𝑐𝑐−𝑈𝑈𝐶𝐶𝑅𝑅𝑘𝑘�� 
+()
+𝑚𝑚𝐷𝐷𝑔𝑔𝑚𝑚𝑛𝑛𝑡𝑡𝐷𝐷=𝑚𝑚𝐷𝐷𝑛𝑛�1.0,𝑚𝑚𝐷𝐷𝑥𝑥�0.0,𝑚𝑚−𝑈𝑈𝐶𝐶𝑅𝑅𝑘𝑘�� 
+()
+𝑦𝑦𝑚𝑚𝑙𝑙𝑙𝑙𝐷𝐷𝑤𝑤=𝑚𝑚𝐷𝐷𝑛𝑛�1.0,𝑚𝑚𝐷𝐷𝑥𝑥�0.0,𝑦𝑦−𝑈𝑈𝐶𝐶𝑅𝑅𝑘𝑘�� 
+()
+𝑏𝑏𝑙𝑙𝐷𝐷𝑐𝑐𝑘𝑘=𝑚𝑚i𝑛𝑛�1.0,𝑚𝑚𝐷𝐷𝑥𝑥�0.0,𝐵𝐵𝐵𝐵𝑘𝑘�� 
+ 
+The black-generation and undercolour-removal functions shall be defined as PDF function dictionaries 
+ BG  UCR  BG2 UCR2
+(see 7.10, "Functions") that are parameters in the graphics state. They shall be specified as the values of 
+theand(orand ) entries in a graphics state parameter dictionary (see "Table 57: 
+Entries in a graphics state parameter dictionary"). Each function shall be called with a single numeric 
+operand and shall return a single numeric result. 
+k
+cmyredgreen
+The input of both the black-generation and undercolour-removal functions shall be , the minimum of 
+blue
+the intermediate , , and  values that have been computed by subtracting the original , , and 
+ components from 1.0. 
+NOTE 3 Nominally,  is the amount of black that can be removed from the cyan, magenta, and yellow 
+components and substituted as a separate black component. 
+k
+k
+k
+The black-generation function shall compute the black component as a function of the nominal  value. 
+It may simply return its  operand unchanged, or it may return a larger value for extra black, a smaller 
+value for less black, or 0.0 for no black at all. 
+cmyk
+The undercolour-removal function shall compute the amount to subtract from each of the intermediate 
+, , and  values to produce the final cyan, magenta, and yellow components. It may simply return its  
+© ISO 2017 – All rights reserved 355 
+
+ISO/DIS 32000-2
+ 
+operand unchanged, or it may return 0.0 (so that no colour is removed), some fraction of the black 
+amount, or even a negative amount, thereby adding to the total amount of colourant. 
+The final component values that result after applying black generation and undercolour removal should 
+be in the range 0.0 to 1.0. If a value falls outside this range, the nearest valid value shall be substituted 
+automatically without error indication. 
+NOTE 4 This substitution is indicated explicitly by the  and  operations in the preceding formulas. 
+minmax
+The correct choice of black-generation and undercolour-removal functions depends on the 
+characteristics of the output device. Each device shall be configured with default values that are 
+appropriate for that device. 
+NOTE 5 See 11.7.5, "Rendering parameters and transparency" and, in particular, 11.7.5.3, "Rendering 
+intent, black point compensation and colour conversions" for further discussion of the role of 
+black-generation and undercolour-removal functions in the transparent imaging model. 
+10.4.2.4Conversion from DeviceCMYK to DeviceRGB 
+ 
+CMYKRGB
+Conversion of a colour value from  to  is a simple operation that does not involve black 
+generation or undercolour removal: 
+()
+𝑚𝑚𝑚𝑚𝐵𝐵=1.0−𝑚𝑚𝐷𝐷𝑛𝑛1.0,𝑐𝑐𝑦𝑦𝐷𝐷𝑛𝑛+𝑏𝑏𝑙𝑙𝐷𝐷𝑐𝑐𝑘𝑘 
+𝑔𝑔𝑚𝑚𝑚𝑚𝑚𝑚𝑛𝑛=1.0−𝑚𝑚𝐷𝐷𝑛𝑛 (1.0,𝑚𝑚𝐷𝐷𝑔𝑔𝑚𝑚𝑛𝑛𝑡𝑡𝐷𝐷+𝑏𝑏𝑙𝑙𝐷𝐷𝑐𝑐𝑘𝑘) 
+()
+𝑏𝑏𝑙𝑙𝐵𝐵𝑚𝑚=1.0−𝑚𝑚𝐷𝐷𝑛𝑛1.0,𝑦𝑦𝑚𝑚𝑙𝑙𝑙𝑙𝐷𝐷𝑤𝑤+𝑏𝑏𝑙𝑙𝐷𝐷𝑐𝑐𝑘𝑘 
+The black component shall be added to each of the other components, which shall then be converted to 
+their complementary colours by subtracting them each from 1.0. 
+10.5Transfer functions 
+ 
+Starting with PDF 1.2, transfer functions shall be defined as PDF function objects (see 7.10, 
+"Functions"). There are two ways to specify transfer functions: 
+current transfer function
+• 
+The  (deprecated with PDF 2.0) parameter in the graphics state shall 
+consist of either a single transfer function or an array of four separate transfer functions, one each 
+RGB
+for red, green, blue, and gray or their complements cyan, magenta, yellow, and black. If only a 
+CMYK
+single function is specified, it shall apply to all components. An  device shall use the first three, 
+ TR TR2
+a monochrome device shall use the gray transfer function only, and a  device shall use all 
+four. The current transfer function may be specified as the value of theor  entry in a 
+graphics state parameter dictionary; see "Table 57: Entries in a graphics state parameter 
+current halftone
+• 
+dictionary". This type of function is deprecated. 
+halftone dictionaries
+The  parameter in the graphics state may specify transfer functions as optional 
+entries in  (see 10.6.5, "Halftone dictionaries"). This is the only way to set 
+transfer functions for nonprimary colour components or for any component in devices whose 
+native colour space uses components other than the ones listed previously. A transfer function 
+specified in a halftone dictionary shall override the corresponding one specified by the current 
+transfer function parameter in the graphics state. 
+In the sequence of steps for processing colours, the PDF processor shall apply the transfer function after 
+performing any needed conversions between colour spaces. If the output is to be halftoned the transfer 
+function shall be applied before halftoning. Each colour component shall have its own separate transfer 
+function; there shall not be interaction between components. 
+© ISO 2017 – All rights reserved 356 
+
+ISO/DIS 32000-2
+ 
+NOTE 1 Starting with PDF 1.2, a transfer function can be used to adjust the values of colour components to 
+compensate for nonlinear response in an output device and in the human eye. Each component of 
+a device colour space — for example, the red component of thespace — is intended to 
+ DeviceRGB 
+represent the perceived lightness or intensity of that colour component in proportion to the 
+component’s numeric value. 
+NOTE 2 Many devices do not actually behave this way, however; the purpose of a transfer function is to 
+compensate for the device’s actual behaviour. This operation is sometimes called gamma 
+correction (not to be confused with the CIE-based gamut mapping function performed as part of 
+CIE-based colour rendering). 
+CMYK
+Transfer functions shall always operate in the native colour space of the output device, regardless of the 
+colour space in which colours were originally specified. (For example, for a  device, the transfer 
+ DeviceRGB  CalRGB 
+functions apply to the device’s cyan, magenta, yellow, and black colour components, even if the colours 
+were originally specified in, for example, aorcolour space.) The transfer function 
+shall be called with a numeric operand in the range 0.0 to 1.0 and shall return a number in the same 
+range. The input shall be the value of a colour component in the device’s native colour space, either 
+specified directly or produced by conversion from some other colour space. The output shall be the 
+transformed component value to be transmitted to the device (after halftoning, if necessary). 
+Both the input and the output of a transfer function shall always be interpreted as if the corresponding 
+colour component were additive (red, green, blue, or gray): the greater the numeric value, the lighter 
+the colour. If the component is subtractive (cyan, magenta, yellow, black, or a spot colour), it shall be 
+converted to additive form by subtracting it from 1.0 before it is passed to the transfer function. The 
+output of the function shall always be in additive form and shall be passed on to the halftone function in 
+that form. 
+Because transfer functions produce device-dependent effects, a page description that is intended to be 
+TransferFunction
+device-independent should not define a current transfer function in the graphics state, or define 
+ in any halftone dictionaries. 
+ DeviceGray 
+DeviceCMYK 
+When the current colour space isand the output device’s native colour space is 
+DeviceGray  DeviceCMYK 
+, a PDF processor shall use only the gray transfer function. The normal conversion from
+toproduces 0.0 for the cyan, magenta, and yellow components. These 
+components shall not be passed through their respective transfer functions but are rendered directly, 
+producing output containing no coloured inks. This special case exists for compatibility with existing 
+ DeviceGray 
+PDF processors that use a transfer function to obtain special effects on monochrome devices, and shall 
+apply only to colours specified in thecolour space. 
+NOTE 3 See 11.7.5, "Rendering parameters and transparency" and, in particular, 11.7.5.2, "Halftone and 
+transfer function" for further discussion of the role of transfer functions in the transparent 
+imaging model. 
+10.6Halftones 
+ 
+10.6.1General 
+ 
+Halftoning is a process by which continuous-tone colours are approximated on an output device that 
+can achieve only a limited number of discrete colours. Colours that the device cannot produce directly 
+are simulated by using patterns of pixels in the colours available. 
+© ISO 2017 – All rights reserved 357 
+
+ISO/DIS 32000-2
+ 
+NOTE 1 Perhaps the most familiar example is the rendering of gray tones with black and white pixels, as in 
+a newspaper photograph. 
+Some output devices can reproduce continuous-tone colours directly. Halftoning is not required for 
+such devices; after gamma correction by the transfer functions, the colour components shall be 
+transmitted directly to the device. On devices that do require halftoning, it shall occur after all colour 
+components have been transformed by the applicable transfer functions. The input to the halftone 
+function shall consist of continuous-tone, gamma-corrected colour components in the device’s native 
+colour space. Its output shall consist of pixels in colours the device can reproduce. 
+PDF provides a high degree of control over details of the halftoning process. 
+NOTE 2 When rendering on low-resolution displays, fine control over halftone patterns is needed to 
+achieve the best approximations of gray levels or colours and to minimise visual artifacts. 
+NOTE 3 In colour printing, independent halftone screens can be specified for each of several colourants. 
+NOTE 4 Remember that everything pertaining to halftones is, by definition, device-dependent. In general, 
+when a PDF file provides its own halftone specifications, it sacrifices portability. Associated with 
+every output device is a default halftone definition that is appropriate for most purposes. Only 
+relatively sophisticated files need to define their own halftones to achieve special effects. For 
+correct results, a PDF file that defines a new halftone depends on certain assumptions about the 
+resolution and orientation of device space. The best choice of halftone parameters often depends 
+on specific physical properties of the output device, such as pixel shape, overlap between pixels, 
+and the effects of electronic or mechanical noise. 
+All halftones are defined in device space, and shall be unaffected by the current transformation matrix. 
+10.6.2Halftone screens 
+ 
+In general, halftoning methods are based on the notion of a halftone screen, which divides the array of 
+device pixels into cells that may be modified to produce the desired halftone effects. A screen is defined 
+by conceptually laying a uniform rectangular grid over the device pixel array. Each pixel belongs to one 
+cell of the grid; a single cell typically contains many pixels. The screen grid shall be defined entirely in 
+device space and shall be unaffected by modifications to the current transformation matrix. 
+NOTE This property is essential to ensure that adjacent areas coloured by halftones are properly stitched 
+together without visible seams. 
+On a bilevel (black-and-white) device, each cell of a screen may be made to approximate a shade of gray 
+n
+by painting some of the cell’s pixels black and some white. Numerically, the gray level produced within 
+ng
+a cell shall be the ratio of white pixels to the total number of pixels in the cell. A cell containing  pixels 
+i
+can render  + 1 different gray levels, ranging from all pixels black to all pixels white. A gray value  in 
+the range 0.0 to 1.0 shall be produced by making  pixels white, where 𝐷𝐷= 𝑓𝑓𝑙𝑙𝐷𝐷𝐷𝐷𝑚𝑚 (𝑔𝑔× 𝑛𝑛). 
+The foregoing description also applies to colour output devices whose pixels consist of primary colours 
+that are either completely on or completely off. Most colour printers, but not colour displays, work this 
+way. Halftoning shall be applied to each colour component independently, producing shades of that 
+colour. 
+RGBCMYK
+Colour components shall be presented to the halftoning machinery in additive form, regardless of 
+whether they were originally specified additively ( or gray) or subtractively ( or tint). Larger 
+values of a colour component represent lighter colours — greater intensity in an additive device such as 
+a display or less ink in a subtractive device such as a printer. Transfer functions produce colour values 
+© ISO 2017 – All rights reserved 358 
+
+ISO/DIS 32000-2
+ 
+in additive form; see 10.5, "Transfer functions". 
+10.6.3Spot functions 
+ 
+frequencyanglespot function
+A common way of defining a halftone screen is by specifying a , , and . The 
+frequency indicates the number of halftone cells per inch; the angle indicates the orientation of the grid 
+lines relative to the device coordinate system. As a cell’s desired gray level varies from black to white, 
+individual pixels within the cell change from black to white in a well-defined sequence: if a particular 
+gray level includes certain white pixels, lighter grays will include the same white pixels along with some 
+additional ones. The order in which pixels change from black to white for increasing gray levels is 
+determined by a spot function, which specifies that order in an indirect way that minimises interactions 
+with the screen frequency and angle. 
+Consider a halftone cell to have its own coordinate system: the centre of the cell is the origin and the 
+corners are at coordinates ± 1.0 horizontally and vertically. Each pixel in the cell is centred at horizontal 
+and vertical coordinates that both lie in the range -1.0 to +1.0. For each pixel, the spot function shall be 
+invoked with the pixel’s coordinates as input and shall return a single number in the range -1.0 to +1.0, 
+defining the pixel’s position in the whitening order. 
+The specific values the spot function returns are not significant; all that matters are the relative values 
+returned for different pixels. As a cell’s gray level varies from black to white, the first pixel whitened 
+shall be the one for which the spot function returns the lowest value, the next pixel shall be the one with 
+the next higher spot function value, and so on. If two pixels have the same spot function value, their 
+relative order shall be chosen arbitrarily. 
+PDF provides built-in definitions for many of the most commonly used spot functions. A halftone may 
+simply specify any of these predefined spot functions by name instead of giving an explicit function 
+definition. 
+SimpleDot
+EXAMPLE The name  designates a spot function whose value is inversely related to a pixel’s distance from the 
+Line
+centre of the halftone cell. This produces a "dot screen" in which the black pixels are clustered within a circle 
+whose area is inversely proportional to the gray level. The name  designates a spot function whose value 
+is the distance from a given pixel to a line through the centre of the cell, producing a "line screen" in which the 
+white pixels grow away from that line. 
+"

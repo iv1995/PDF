@@ -1,5 +1,9 @@
 
+ISO/DIS 32000-2
  
- 
-ISO/TC 171/SC 2/WG 8 
-2017-01-09 
+Document management – Portable Document Format – Part 2: 
+PDF 2.0 
+IMPORTANT
+ — The electronic file of this document contains colours which are considered to be useful 
+for the correct understanding of the document. Users who need a paper copy of this document will 
+therefore benefit from using a colour printer. 

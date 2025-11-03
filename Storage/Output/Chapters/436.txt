@@ -1,0 +1,48 @@
+Table 265: Entries in a viewport dictionary". Viewports allow different measurement 
+scales (specified by the  entry) to be used in different areas of a page, if necessary. 
+ VP 
+The dictionaries in thearray shall be in drawing order. Since viewports might overlap, to determine 
+ BBox 
+the viewport to use for any point on a page, the dictionaries in the array shall be examined, starting with 
+the last one and iterating in reverse, and the first one whoseentry contains the point shall be 
+chosen. 
+NOTE 1 Any measurement that potentially involves multiple viewports, such as one specifying the distance 
+between two points, shall use the information specified in the viewport of the first point. 
+© ISO 2017 – All rights reserved 576 
+
+ISO/DIS 32000-2
+ 
+Table 265: Entries in a viewport dictionary 
+Key Type Value 
+(Optional) 
+Type  
+Viewport
+ 
+name The type of PDF object that this dictionary describes; shall be
+for a viewport dictionary. 
+(Required) 
+BBox 
+rectangle A rectangle in default user space coordinates specifying the location 
+of the viewport on the page. 
+The two coordinate pairs of the rectangle shall be specified in normalised form; 
+that is, lower-left followed by upper-right, relative to the measuring coordinate 
+x y 
+system. This ordering shall determine the orientation of the measuring 
+coordinate system (that is, the direction of the positive and axes) in this 
+viewport, which may have a different rotation from the page. 
+ 
+O
+The coordinates of this rectangle are independent of the origin of the measuring 
+Table 267: Additional entries in 
+coordinate system, specified in the entry (see "
+Measure
+ 
+a rectilinear measure dictionary") of the measurement dictionary specified by 
+.
+(Optional) 
+Name 
+text string A descriptive text string or title of the viewport, intended for use in a 
+user interface. 
+(Optional) 
+Measure 
+dictionary A measure dictionary (see "

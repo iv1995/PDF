@@ -1,6 +1,6 @@
-number tree 
-similar to a dictionary that associates keys and values but the keys in a number tree are integers and are 
-ordered 
-4.43 
+end-of-line marker (EOL marker) 
+one or two character sequence marking the end of a line of text, consisting of a CARRIAGE RETURN 
+character (0Dh) or a LINE FEED character (0Ah) or a CARRIAGE RETURN followed immediately by a 
+LINE FEED 
+4.24 
  
-numeric 

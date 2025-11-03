@@ -1,36 +1,42 @@
-Figure 57: Word spacing in horizontal writing" illustrates the effect of word spacing in 
-horizontal writing. ![Figure 57 Word spacing in horizontal writing  .png](./Storage/Output/Images/Figure 57 Word spacing in horizontal writing  .png)
-Figure 57: Word spacing in horizontal writing 
- 
-Word spacing shall be applied to every occurrence of the single-byte character code 32 in a string when 
-using a simple font (including Type 3) or a composite font that defines code 32 as a single-byte code. It 
-shall not apply to occurrences of the byte value 32 in multiple-byte codes. 
-9.3.4Horizontal scaling 
- 
-T
-h
-The horizontal scaling parameter, , adjusts the width of glyphs by stretching or compressing them in 
-the horizontal direction. Its value shall be specified as a percentage of the normal width of the glyphs, 
-with 100 being the normal width. The scaling shall apply to the horizontal coordinate in text space, 
-independently of the writing mode. It shall affect both the glyph’s shape and its horizontal displacement 
-T
-T
-TJ
-(that is, its displacement vector). If the writing mode is horizontal, it shall also affect the spacing 
-cw
-parameters 
- and , as well as any positioning adjustments performed by the  operator. "Figure 58: 
-Horizontal scaling" shows the effect of horizontal scaling. 
-© ISO 2017 – All rights reserved 296 
+Table 
+50: Operator categories" summarises these categories for all PDF operators. 
+Table 50: Operator categories 
+Operators Location 
+Category 
+w, J, j, M, d, ri, i, gs 
+General graphics state "Table 56: Graphics state operators" 
+q, Q, cm 
+Special graphics state "Table 56: Graphics state operators" 
+m, l, c, v, y, h, re 
+Path construction "Table 58: Path construction operators" 
+S, s, f, F, f*, B, B*, b, b*, n 
+Path painting "Table 59: Path-painting operators" 
+W, W* 
+Clipping paths "Table 60: Clipping path operators" 
+BT, ET 
+Text objects "Table 105: Text object operators" 
+Tc, Tw, Tz, TL, Tf, Tr, Ts 
+Text state "Table 103: Text state operators" 
+Td, TD, Tm, T* 
+Text positioning "Table 106: Text-positioning operators" 
+Tj, TJ, ', " 
+Text showing "Table 107: Text-showing operators" 
+d0, d1 
+Type 3 fonts "Table 111: Type 3 font operators" 
+CS, cs, SC, SCN, sc, scn, G, 
+g, RG, rg, K, k 
+Color "Table 73: Colour operators" 
+sh 
+Shading patterns "Table 76: Shading operator" 
+BI, ID, EI 
+Inline images "Table 90: Inline image operators" 
+Do 
+XObjects "Table 86: XObject operator" 
+MP, DP, BMC, BDC, EMC 
+Marked content "Table 351: Marked-content operators" 
+BX, EX 
+Compatibility "Table 33: Compatibility operators" 
+© ISO 2017 – All rights reserved 145 
 
 ISO/DIS 32000-2
- ![Figure 58 Horizontal scaling  .png](./Storage/Output/Images/Figure 58 Horizontal scaling  .png)
-Figure 58: Horizontal scaling 
- 
- 
-9.3.5Leading 
- 
-T
-l
-The leading parameter, , shall be specified in unscaled text space units. It specifies the vertical 
-distance between the baselines of adjacent lines of text, as shown in "
+ ![Figure 9 Graphics Objects  .png](./Storage/Output/Images/Figure 9 Graphics Objects  .png)

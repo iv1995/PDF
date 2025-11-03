@@ -1,0 +1,3 @@
+Table 396: Entries in a box colour information dictionary", the box colour information 
+dictionary may contain an optional entry for each of the possible page boundaries other than the media 
+box. The value of each entry is a box style dictionary, whose contents are shown in "

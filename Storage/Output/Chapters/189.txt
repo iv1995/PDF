@@ -1,98 +1,69 @@
-Table 199: Entries in a form field’s additional-actions dictionary 
-Key Type Value 
-(Optional; PDF 1.3) 
-K  
-dictionary An ECMAScriptaction that shall be performed when the user 
-modifies a character in a text field or combo box or modifies the selection in a 
-scrollable list box. This action may check the added text for validity and reject or 
-modify it. 
-(Optional; PDF 1.3) 
-F  
-dictionary An ECMAScriptaction that shall be performed before the field is 
-formatted to display its value. This action may modify the field’s value before 
-formatting. 
-(Optional; PDF 1.3) 
-V  
-V
-dictionary An ECMAScriptaction that shall be performed when the field’s 
-value is changed. This action may check the new value for validity. (The name  
-stands for "validate.") 
-(Optional; PDF 1.3) 
-C  
-C
-dictionary An ECMAScriptaction that shall be performed to recalculate the 
-value of this field when that of another field changes. (The name  stands for 
- CO 
-"calculate.") The order in which the document’s fields are recalculated shall be 
-defined by theentry in the interactive form dictionary (see 12.7.3, "Interactive 
-form dictionary"). 
-© ISO 2017 – All rights reserved 494 
+Figure 37: Radial shading 
+effect" (8.7.4.5.4, "Type 3 (radial) shadings"). Each leaf is filled with the same radial shading (object number 
+5). The colour function (object 10) is a stitching function (described in 7.10.4, "Type 3 (stitching) functions") 
+whose two subfunctions (objects 11 and 12) are both exponential interpolation functions (see 7.10.3, "Type 2 
+(exponential interpolation) functions"). 
+5 0 obj              %Shading dictionary 
+  <</ShadingType 3 
+   /ColorSpace /DeviceCMYK 
+   /Coords [0.0 0.0 0.096 0.0 0.0 1.0]  %Concentric circles 
+   /Function 10 0 R 
+   /Extend [true true] 
+  >> 
+endobj 
+ 
+10 0 obj              %Colour function 
+  <</FunctionType 3 
+   /Domain [0.0 1.0] 
+   /Functions [11 0 R 12 0 R] 
+   /Bounds [0.708] 
+   /Encode [1.0 0.0 0.0 1.0] 
+  >> 
+endobj 
+ 
+11 0 obj              %First subfunction 
+  <</FunctionType 2 
+   /Domain [0.0 1.0] 
+   /C0 [0.929 0.357 1.0 0.298] 
+   /C1 [0.631 0.278 1.0 0.027] 
+   /N 1.048 
+  >> 
+endobj 
+ 
+12 0 obj              %Second subfunction 
+   <</FunctionType 2 
+   /Domain [0.0 1.0] 
+   /C0 [0.929 0.357 1.0 0.298] 
+   /C1 [0.941 0.400 1.0 0.102] 
+   /N 1.374 
+  >> 
+endobj 
+EXAMPLE 2 This example shows how each leaf shown in "Figure 37: Radial shading effect" is drawn as a path and then 
+filled with the shading (where the name Sh1 is associated with object 5 by the Shading subdictionary of the 
+current resource dictionary; see 7.8.3, "Resource dictionaries"). 
+316.789 140.311 m            %Move to start of leaf 
+© ISO 2017 – All rights reserved 233 
 
 ISO/DIS 32000-2
  
-Table 200: Entries in the document catalog’s additional-actions dictionary 
-Key Type Value 
-(Optional; PDF 1.4) 
-WC  
- WC 
-dictionary An ECMAScriptaction that shall be performed before closing a 
-document. (The namestands for "will close.") 
-(Optional; PDF 1.4) 
-WS  
- WS 
-dictionary An ECMAScriptaction that shall be performed before saving a 
-document. (The namestands for "will save.") 
-(Optional; PDF 1.4) 
-DS  
- DS 
-dictionary An ECMAScriptaction that shall be performed after saving a 
-document. (The namestands for "did save.") 
-(Optional; PDF 1.4) 
-WP  
- WP 
-dictionary An ECMAScriptaction that shall be performed before printing a 
-document. (The namestands for "will print.") 
-(Optional; PDF 1.4) 
-DP  
- DP 
-dictionary An ECMAScriptaction that shall be performed after printing a 
-document. (The namestands for "did print.") 
+303.222 146.388 282.966 136.518 279.122 121.983 c  %Curved segment 
+277.322 120.182 l            %Straight line 
+285.125 122.688 291.441 121.716 298.156 119.386 c  %Curved segment 
+336.448 119.386 l            %Straight line 
+331.072 128.643 323.346 137.376 316.789 140.311 c  %Curved segment 
+W n                %Set clipping path 
+q                 %Save graphics state 
+27.7843 0.00 0.00 -27.7843 310.2461 121.1521 cm  %Set matrix 
+/Sh1 sh               %Paint shading 
+Q                 %Restore graphics state 
+ ![Figure 37 Radial shading effect  .jpg](./Storage/Output/Images/Figure 37 Radial shading effect  .jpg)
+Figure 37: Radial shading effect 
  
-Interactive PDF processors shall ensure the presence of such a device, or equivalent controls for 
-simulating one, for the corresponding actions to be executed correctly. Mouse-related trigger events are 
-subject to the following constraints: 
-E
-• 
-XE
-• 
-An  (enter) event may occur only when the mouse button is up. 
-UED
-• 
-An  (exit) event may not occur without a preceding  event. 
-• 
-A  (up) event may not occur without preceding  and  events. 
-X
-In the case of overlapping or nested annotations, entering a second annotation’s active area causes 
-NOTE 2 The field-related trigger events  (keystroke),  (format), V (validate), and  (calculate) are not 
-KFC
-an  event to occur for the first annotation. 
-defined for button fields (see 12.7.5.2, "Button fields"). The effects of an action triggered by one of 
-these events are limited only by the action itself and can occur outside the described scope of the 
-event. For example, even though the  event is used to trigger actions that format field values 
-F
-prior to display, it is possible for an action triggered by this event to perform a calculation or 
-make any other modification to the document. 
- NeedAppearances 
-These field-related trigger events can occur either through user interaction or programmatically, such 
- FDF 
-as in response to theentry (deprecated in PDF 2.0) in the interactive form 
- ECMAScript 
-dictionary (see 12.7.3, "Interactive form dictionary"), importation ofdata (12.7.8, "Forms data 
-format"), oractions (12.6.4.17, "ECMAScript actions"). For example, the user’s modifying a 
-field value can trigger a cascade of calculations and further formatting and validation for other fields in 
-the document. 
-12.6.4Action types 
  
-12.6.4.1General 
+8.7.4.5.5Type 4 (free-form Gouraud-shaded triangle mesh) shadings 
  
-PDF supports the standard action types listed in "
+Type 4 (free-form Gouraud-shaded triangle mesh) shadings are commonly used to represent complex 
+coloured and shaded three-dimensional shapes. The area to be shaded is defined by a path composed 
+Gouraud interpolation
+entirely of triangles. The colour at each vertex of the triangles is specified, and a technique known as 
+ is used to colour the interiors. "

@@ -1,0 +1,87 @@
+Table 218: Additional entries specific to a rendition action" lists the entries in a rendition action 
+dictionary. 
+Table 218: Additional entries specific to a rendition action 
+Key Type Value 
+(Required) Rendition
+S 
+name The type of action that this dictionary describes; shall be  for a 
+rendition action. 
+Required whenis present with a value of 0 or 4; otherwise optional
+R  OP 
+dictionary () A rendition 
+object (see 13.2.3, "Renditions"). 
+Required ifis present with a value of 0, 1, 2, 3 or 4; otherwise optional
+AN  OP 
+dictionary () An 
+indirect reference to a screen annotation (see 12.5.6.18, "Screen annotations"). 
+Required ifis not present; otherwise optional
+OP  JS 
+integer () The operation to perform when 
+AN
+the action is triggered. Valid values shall be: 
+R
+0 If no rendition is associated with the annotation specified by , play the 
+rendition specified by , associating it with the annotation. If a rendition is 
+already associated with the annotation, it shall be stopped, and the new 
+rendition shall be associated with the annotation. 
+AN
+1 Stop any rendition being played in association with the annotation specified 
+by , and remove the association. If no rendition is being played, there is no 
+effect. 
+y
+AN
+2 Pause any rendition being played in association with the annotation 
+specified b  . If no rendition is being played, there is no effect. 
+AN
+3 Resume any rendition being played in association with the annotation 
+specified by . If no rendition is being played or the rendition is not 
+R
+paused, there is no effect. 
+AN
+4 Play the rendition specified by , associating it with the annotation specified 
+ 
+by . If a rendition is already associated with the annotation, resume the 
+rendition if it is paused; otherwise, do nothing.
+Required ifis not present; otherwise optional
+JS   
+  
+text string (OP) A text string or stream 
+or stream containing anECMAScriptscript that shall be executed when the action is 
+triggered. 
+ 
+ JS  OP  OP 
+ OP 
+Either theentry or theentry shall be present. If both are present,is considered a fallback that 
+ JS 
+shall be executed if the interactive PDF processor is unable to execute ECMAScripts. Ifhas an 
+unrecognised value and there is noentry, the action is invalid. 
+OPOP
+In some situations, a pause ( value of 2) or resume ( value of 3) operation may not make sense or 
+the player may not support it. In such cases, the user should be notified of the failure to perform the 
+operation. 
+EXAMPLE A JPEG image. 
+P
+Before a rendition action is executed, the interactive PDF processor shall make sure that the  entry of 
+© ISO 2017 – All rights reserved 509 
+
+ISO/DIS 32000-2
+ 
+ Annots 
+the screen annotation dictionary references a valid page object and that the annotation is present in the 
+page object’sarray (see "Table 31: Entries in a page object"). 
+HiddenNoView
+  
+A rendition may play in the rectangle occupied by a screen annotation, even if the annotation itself is 
+not visible; for example, if its  orflags (see "Table 167: Annotation flags") are set. If a 
+screen annotation is not visible because its location on the page is not being displayed by the viewer, 
+the rendition is not visible. However, it may become visible if the view changes, such as by scrolling. 
+12.6.4.15Transition actions 
+ 
+transition actionPDF 1.5
+Next
+A  () may be used to control drawing during a sequence of actions. As discussed 
+in 12.6.2, "Action dictionaries" the  entry in an action dictionary may specify a sequence of actions. 
+interactive PDF processors shall normally suspend drawing when such a sequence begins and resume 
+drawing when it ends. If a transition action is present during a sequence, the interactive PDF processor 
+shall render the state of the page viewing area as it exists after completion of the previous action and 
+display it using a transition specified in the action dictionary (see "

@@ -1,297 +1,286 @@
-Table 114: Entries in a CIDSystemInfo dictionary 
-Key Type Value 
-Required
-Registry 
-ASCII string  () A string identifying the issuer of the character collection. The 
-string shall begin with the 4 or 5 characters of a registered developer 
-prefix followed by a LOW LINE (5Fh) followed by any other identifying 
-characters chosen by the issuer. See Annex E, "PDF Name Registry", for 
-how to obtain a unique developer prefix. 
-Required
-Ordering 
-ASCII string  () A string that uniquely names the character collection within 
-the specified registry. 
-Required
-Supplement 
-integer  () The supplement number of the character collection. An 
-original character collection has a supplement number of 0. Whenever 
-additional CIDs are assigned in a character collection, the supplement 
-number shall be increased. Supplements shall not alter the ordering of 
-existing CIDs in the character collection. This value shall not be used in 
-determining compatibility between character collections. 
- 
-9.7.4CIDFonts 
- 
-9.7.4.1General 
- 
-A CIDFont program contains glyph descriptions that are accessed using a CID as the character selector. 
-There are two types of CIDFonts: 
-• 
-A Type 0 CIDFont contains glyph descriptions based on CFF 
-© ISO 2017 – All rights reserved 322 
+Table 52: Device-dependent graphics state parameters" control 
+details of the rendering (scan conversion) process and are device-dependent; a page description that is 
+intended to be device-independent should not be written to modify these parameters. 
+Table 51: Device-independent graphics state parameters 
+Parameter Type Value 
+current transformation matrix
+CTM 
+array The , which maps positions from user coordinates to 
+cm
+device coordinates (see 8.3, "Coordinate systems"). This matrix is modified by each 
+application of the coordinate transformation operator, . Initial value: a matrix that 
+transforms default user coordinates to device coordinates. 
+current clipping path
+clipping path 
+(internal) The , which defines the boundary against which all output shall 
+be cropped (see 8.5.4, "Clipping path operators"). Initial value: the size of the 
+MediaBox. 
+current colour space
+color space 
+name or The  in which colour values shall be interpreted (see 8.6, "Colour 
+DeviceGray
+array spaces"). There are two separate colour space parameters: one for stroking and one 
+for all other painting operations. Initial value: . 
+current colour
+color 
+(various) The  that shall be used during painting operations (see 8.6, "Colour 
+spaces"). The type and interpretation of this parameter depend on the current colour 
+space; for most colour spaces, a colour value consists of one to four numbers. There 
+black
+are two separate colour parameters: one for stroking and one for all other painting 
+operations. Initial value: . 
+text state 
+(various) A set of nine graphics state parameters that pertain only to the painting of text. These 
+include parameters that select the font, scale the glyphs to an appropriate size, and 
+accomplish other effects. The text state parameters are described in 9.3, "Text state 
+parameters and operators". 
+line width 
+number The thickness, in user space units, of paths to be stroked (see 8.4.3.2, "Line width"). 
+Initial value: 1.0. 
+line cap 
+integer A code specifying the shape of the start and endcaps for an open stroked path or the 
+caps at both ends of dashes in a stroked path (see 8.4.3.3, "Line cap style"). Initial 
+value: 0, for butt caps. 
+line join 
+integer A code specifying the shape of joints between connected segments of a stroked path 
+("see 8.4.3.4, "Line join style"). Initial value: 0, for mitered joins. 
+miter limit 
+number The miter limit imposes a maximum on the ratio of the miter length to the line width. 
+When the limit is exceeded, the join is converted from a miter to a bevel (see 8.4.3.5, 
+"Miter limit"). This parameter limits the length of "spikes" produced when line 
+segments join at sharp angles. Initial value: 10.0, for a miter cutoff below 
+approximately 11.5 degrees. 
+dash pattern 
+array and A description of the dash pattern that shall be used when paths are stroked (see 
+number 8.4.3.6, "Line dash pattern"). Initial value: [] 0, a solid line. 
+rendering intent 
+RelativeColorimetric
+name The rendering intent that shall be used when converting CIE-based colours to device 
+colours (see 8.6.5.8, "Rendering intents"). Initial value: . 
+© ISO 2017 – All rights reserved 155 
 
 ISO/DIS 32000-2
  
-NOTE The term "Type 0" when applied to a CIDFont has a different meaning than for a "Type 0 font". 
-• 
-A Type 2 CIDFont contains glyph descriptions based on the TrueType glyph technology. 
-Font
-TypeEncoding
-A CIDFont dictionary is a PDF object that contains information about a CIDFont program. Although its 
- Font Tf
- value is , a CIDFont is not actually a font. It does not have an  entry, it may not be 
-listed in thesubdictionary of a resource dictionary, and it may not be used as the operand of the  
-operator. It shall be used only as a descendant of a Type 0 font. The CMap in the Type 0 font shall be 
-what defines the encoding that maps character codes to CIDs in the CIDFont. "Table 115: Entries in a 
-CIDFont dictionary" lists the entries in a CIDFont dictionary. 
-Table 115: Entries in a CIDFont dictionary 
-Key Type Value 
-Required
-Type  
-Font
+Parameter Type Value 
+PDF 1.2
+stroke adjustment 
+boolean () A flag specifying whether to compensate for possible rasterization effects 
+when stroking a path with a line width that is small relative to the pixel resolution of 
+NOTE This is considered a device-independent parameter, even though the details of 
+the output device (see 10.7.5, "Automatic stroke adjustment"). 
+its effects are device-dependent. 
+false
+Initial value: . 
+PDF 1.4, array is deprecated in PDF 2.0
+blend mode 
+name or () The current blend mode that shall be used in 
+array is 
+array the transparent imaging model (see 11.3.5, "Blend mode"). A PDF reader shall 
+deprecated 
+implicitly reset this parameter to its initial value at the beginning of execution of a 
+(
+in PDF 2.0
+11.6.6, "Transparency group XObjects"). 
+transparency group XObject (see 
+The value shall be either a name object, designating one of the standard blend modes 
+) 
+listed in "Table 134: Standard separable blend modes" and "Table 135: Standard non-
+", or an array of such names. In the 
+separable blend modes" in 11.3.5, "Blend mode
+Normal
+latter case, the PDF reader shall use the first blend mode in the array that it 
+Normal
+recognises (or  if it recognises none of them). 
+Initial value: . 
+PDF 1.4
+soft mask 
+dictionary () A soft-mask dictionary (see 11.6.5.1, "Soft-mask dictionaries") specifying 
+or name the mask shape or mask opacity values that shall be used in the transparent imaging 
+None
+model (see 11.3.7.2, "Source shape and opacity" and 11.6.4.3, "Mask shape and 
+"), or the name  if no such mask is specified. A PDF reader shall implicitly 
+opacity
+None
+reset this parameter to its initial value at the beginning of execution of a transparency 
+group XObject (see 11.6.6, "Transparency group XObjects"). Initial value: . 
+PDF 1.4
+alpha constant 
+number () The constant shape or constant opacity value that shall be used in the 
+transparent imaging model (see 11.3.7.2, "Source shape and opacity" and 11.6.4.4, 
+"Constant shape and opacity"). There are two separate alpha constant parameters: 
+one for stroking and one for all other painting operations. A PDF reader shall 
+implicitly reset this parameter to its initial value at the beginning of execution of a 
+transparency group XObject (see 11.6.6, "Transparency group XObjects"). Initial 
+value: 1.0. 
+PDF 1.4
+alpha source 
+truefalse
+boolean () A flag specifying whether the current soft mask and alpha constant 
+ SMask 
+parameters shall be interpreted as shape values () or opacity values (). This 
+false
+.
+flag also governs the interpretation of theentry, if any, in an image dictionary 
+(see 8.9.5, "Image dictionaries"). Initial value:  
+(PDF 2.0)
+black point compensation 
+name  The black point compensation algorithm that shall be used when converting 
+Default
+CIE-based colours (see 8.6.5.9, "Use of black point compensation"). Initial value: 
+. 
  
-name () The type of PDF object that this dictionary describes; shall be
-for a CIDFont dictionary. 
-RequiredCIDFontType0CIDFontType2
-Subtype 
-name () The type of CIDFont shall be  or . 
-Required
-BaseFont 
-CIDFontName
-name () The PostScript name of the CIDFont. For Type 0 CIDFonts, this 
-shall be the value of the  entry in the CIDFont program. 
-For Type 2 CIDFonts, it shall be derived the same way as for a simple 
-TrueType font; see 9.6.3, "TrueType fonts". In either case, the name may 
-have a subset prefix if appropriate; see 9.9.2, "Font subsets". 
-Required
-CIDSystemInfo 
-dictionary  () A dictionary containing entries that define the character 
-collection of the CIDFont. See "Table 114: Entries in a CIDSystemInfo 
-dictionary". 
-Required; shall be an indirect reference
-FontDescriptor 
-dictionary  () A font descriptor describing the 
-CIDFont’s default metrics other than its glyph widths (see 9.8, "Font 
-descriptors"). 
-Optional
-DW 
-number  () The default width for glyphs in the CIDFont (see 9.7.4.3, 
-"Glyph metrics in CIDFonts"). Default value: 1000. 
-Optional
-W 
-NOTE The array’s elements have a variable format that can specify 
-array () A description of the widths for the glyphs in the CIDFont.  
-individual widths for consecutive CIDs or one width for a range 
-of CIDs (see 9.7.4.3, "Glyph metrics in CIDFonts"). 
-DW
-Default value: none (the  value shall be used for all glyphs). 
-Optional; applies only to CIDFonts used for vertical writing
-DW2 
-array  () An array of 
-two numbers specifying the default metrics for vertical writing (see 
-9.7.4.3, "Glyph metrics in CIDFonts"). Default value: [880 -1000]. 
-Optional; applies only to CIDFonts used for vertical writing
-W2 
-array  () A description 
-DW2
-of the metrics for vertical writing for the glyphs in the CIDFont (see 
-9.7.4.3, "Glyph metrics in CIDFonts"). Default value: none (the  value 
-shall be used for all glyphs). 
-© ISO 2017 – All rights reserved 323 
+Table 52: Device-dependent graphics state parameters 
+Parameter Type Value 
+PDF 1.2
+overprint 
+boolean () A flag specifying (on output devices that support the 
+overprint control feature) whether painting in one set of 
+falsetrue
+colourants should cause the corresponding areas of other 
+colourants to be erased () or left unchanged (); see 
+8.6.7, "Overprint control". PDF 1.3, introduced two separate 
+false
+overprint parameters: one for stroking and one for all other 
+painting operations. Initial value: . 
+© ISO 2017 – All rights reserved 156 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Required for Type 2 CIDFonts with embedded font programs
-CIDToGIDMap 
-stream or () A 
-name specification of the mapping from CIDs to glyph indices. If the value is a 
-c
-stream, the bytes in the stream shall contain the mapping from CIDs to 
-glyph indices: the glyph index for a particular CID value  shall be a 2-
-CIDToGIDMap
-byte value stored in bytes 2 × 𝑐𝑐 and 2 × 𝑐𝑐+ 1, where the first byte shall 
-Identity
-be the high-order byte. If the value of  is a name, it shall be 
-, indicating that the mapping between CIDs and glyph indices is 
-the identity mapping. 
+Parameter Type Value 
+PDF 1.3
+overprint mode 
+ DeviceCMYK 
+number () A code specifying whether a colour component value 
+of 0 in acolour space should erase that component 
+(0) or leave it unchanged (1) when overprinting (see 8.6.7, 
+"Overprint control"). Initial value: 0. 
+PDF 1.2
+black generation 
+function or name () A function that calculates the level of the black colour 
+component to use when converting RGB colours to CMYK (see 
+10.4.2.3, "Conversion from DeviceRGB to DeviceCMYK"). Initial 
+value: a PDF reader shall initialise this to a suitable device 
+dependent value. 
+PDF 1.2
+undercolor removal 
+function or name () A function that calculates the reduction in the levels of 
+the cyan, magenta, and yellow colour components to 
+compensate for the amount of black added by black generation 
+10.4.2.3, "Conversion from DeviceRGB to DeviceCMYK"). 
+(see 
+Initial value: a PDF reader shall initialise this to a suitable device 
+dependent value. 
+PDF 1.2
+transfer 
+function, array, or () A function that adjusts device gray or colour 
+name component levels to compensate for nonlinear response in a 
+particular output device (see 10.5, "Transfer functions"). Initial 
+value: a PDF reader shall initialise this to a suitable device 
+dependent value. 
+PDF 1.2
+halftone  
+dictionary, stream, or () A halftone screen for gray and colour rendering, 
+name specified as a halftone dictionary or stream (see 10.6, 
+"Halftones"). Initial value: a PDF reader shall initialise this to a 
+suitable device dependent value. 
+flatness 
+number The precision with which curves shall be rendered on the output 
+device (see 10.7.2, "Flatness tolerance"). The value of this 
+parameter (positive number) gives the maximum error 
+tolerance, measured in output device pixels; smaller numbers 
+give smoother curves at the expense of more computation and 
+memory use. Initial value: 1.0. 
+smoothness 
+number (PDF 1.3) The precision with which colour gradients are to be 
+rendered on the output device (see 10.7.3, "Smoothness 
+tolerance"). The value of this parameter (0 to 1.0) gives the 
+maximum error tolerance, expressed as a fraction of the range of 
+each colour component; smaller numbers give smoother colour 
+transitions at the expense of more computation and memory 
+use. Initial value: a PDF reader shall initialise this to a suitable 
+device dependent value. 
  
-9.7.4.2Glyph selection in CIDFonts 
- 
-Type 0 and Type 2 CIDFonts handle the mapping from CIDs to glyph descriptions in somewhat different 
-CIDSystemInfo
-ways. For Type 0, the CIDFont program contains glyph descriptions that are identified by CIDs. The 
-CIDFont program identifies the character collection by a  dictionary, which should be 
-copied into the PDF CIDFont dictionary. CIDs shall be interpreted uniformly in all CIDFont programs 
-supporting a given character collection, whether the program is embedded in the PDF file or obtained 
-from an external source. 
-  
- FontFile3 
-When the CIDFont contains an embedded font program that is represented in the CompactFontFormat 
-CIDFontType0COpenType
-(CFF), theentry in the font descriptor (see "Table 124: Embedded font organization for 
-various font types") shall be either  or . There are two cases, depending on the 
-contents of the font program: 
-• 
-The "CFF" font program has a Top DICT that uses CIDFont operators: The CIDs shall be used to 
-determine the GID value for the glyph procedure using the charset table in the CFF program. The 
-NOTE Although in many fonts the CID value and GID value are the same, the CID and GID values can 
-GID value shall then be used to look up the glyph procedure using the CharStrings INDEX table. 
-differ. 
-• 
-The "CFF" font program has a Top DICT that does not use CIDFont operators: The CIDs shall be 
-used directly as GID values, and the glyph procedure shall be retrieved using the CharStrings 
-INDEX. 
-glyph index
-For Type 2, the CIDFont program is actually a TrueType font program, which has no native notion of 
-CIDs. In a TrueType font program, glyph descriptions are identified by  values. Glyph indices 
-are internal to the font and are not defined consistently from one font to another. Instead, a TrueType 
-font program contains a "cmap" table that provides mappings directly from character codes to glyph 
-indices for one or more predefined encodings. 
-TrueType font programs are integrated with the CID-keyed font architecture in one of two ways, 
-depending on whether the font program is embedded in the PDF file: 
-• 
-CIDToGIDMap
-If the TrueType font program is embedded, the Type 2 CIDFont dictionary shall contain a 
- entry that maps CIDs to the glyph indices for the appropriate glyph descriptions in 
-• 
-that font program. 
-CIDToGIDMapCIDToGIDMap
-If the TrueType font program is not embedded but is referenced by name, and the Type 2 CIDFont 
-dictionary contains a  entry, the  entry shall be ignored, since it is 
-not meaningful to refer to glyph indices in an external font program. In this case, CIDs shall not 
-participate in glyph selection, and only predefined CMaps may be used with this CIDFont (see 
-9.7.5, "CMaps"). The PDF processor shall select glyphs by translating characters from the encoding 
-© ISO 2017 – All rights reserved 324 
-
-ISO/DIS 32000-2
- 
-specified by the predefined CMap to one of the encodings in the TrueType font’s "cmap" table. The 
-means by which this is accomplished are implementation-dependent. 
-Even though the CIDs are not used to select glyphs in a Type 2 CIDFont, they shall always be used to 
-determine the glyph metrics, as described in the next subclause. 
-Every CIDFont shall contain a glyph description for CID 0, which is analogous to the . notdef character 
-name in simple fonts (see 9.7.6.3, "Handling undefined characters"). 
-9.7.4.3Glyph metrics in CIDFonts 
- 
-As discussed in 9.2.4, "Glyph positioning and metrics", the width of a glyph refers to the horizontal 
-displacement between the origin of the glyph and the origin of the next glyph when writing in 
-DWW
-horizontal mode. In this mode, the vertical displacement between origins shall be 0. Widths for a 
-CIDFont are defined using the  and  entries in the CIDFont dictionary. These widths shall be 
-consistent with the actual widths given in the CIDFont program. 
-WW
-The  array allows the definition of widths for individual CIDs. The elements of the  array shall be 
-numbers organised in groups of two or three, where each group shall be in one of these two formats: 
-12n
-c [w
- w… w] 
-firstlast
-c
- c w 
-c
-nnc
-In the first format,  shall be an integer specifying a starting CID value; it shall be followed by an array of 
-wc
-c
- numbers that shall specify the widths for  consecutive CIDs, starting with . The second format shall 
-firstlast
-define the same width, , as a number, for all CIDs in the range 
- to . Specifying a given CID value 
-more than once should not be done. In the case where it is done, the first specification is the one that 
-shall be used. 
-EXAMPLE 1 In this example, the glyphs having CIDs 120, 121, and 122 are 400, 325, and 500 units wide, respectively. CIDs 
-in the range 7080 through 8032 inclusive all have a width of 1000 units. 
-W
-  entry example: 
-/W [120 [400 325 500] 
-   7080 8032 1000 
-  ] 
- 
-WMode
-Glyphs from a CIDFont may be shown in vertical writing mode. This is selected by the  entry in 
-the associated CMap dictionary; see 9.7.5, "CMaps". To be used in this way, the CIDFont shall define the 
-vertical displacement for each glyph and the position vector that relates the horizontal and vertical 
-writing origins. 
-DW2
-v
-DW2
-The default position vector and vertical displacement vector shall be specified by the  entry in the 
-w1
-CIDFont dictionary.  shall be an array of two values: the vertical component of the position vector  
-and the vertical component of the displacement vector  (see "Figure 55: Metrics for horizontal and 
-vertical writing modes"). The horizontal component of the position vector shall be half the glyph width, 
-and that of the displacement vector shall be 0. 
-DW2
-EXAMPLE 2 If the  entry is 
-  / DW2 [880 -1000] 
-© ISO 2017 – All rights reserved 325 
-
-ISO/DIS 32000-2
- 
-then a glyph’s position vector and vertical displacement vector are 
- 
-0
-v=(𝑤𝑤÷2,880)
-w1=(0,−1000)  
+NOTE 1 Some graphics state parameters are set with specific PDF operators, some are set by including a 
+particular entry in a graphics state parameter dictionary, and some can be specified either way. 
 w
-0
-where  is the width (horizontal displacement) for the same glyph. 
-NOTE A negative value for the vertical component places the origin of the next glyph below the current 
-glyph because vertical coordinates in a standard coordinate system increase from bottom to top. 
-W2
-The  array shall define vertical metrics for individual CIDs. The elements of the array shall be 
-1y1x1y2y2x2y
-organised in groups of two or five, where each group shall be in one of these two formats: 
-c [w168TR v68TR v68TR w168TR v68TR v68TR …] 
-firstlast1y1x1y 
- c68TR w168TR v68TR v68TR
-c68TR
- 
-c
-In the first format,  is a starting CID and shall be followed by an array containing numbers interpreted 
-w1
-in groups of three. Each group shall consist of the vertical component of the vertical displacement 
-v
-vector  (whose horizontal component shall be 0) followed by the horizontal and vertical components 
-c
-for the position vector . Successive groups shall define the vertical metrics for consecutive CIDs 
-starting with . The second format defines a range of CIDs from cfirst to clast, that shall be followed by 
-three numbers that define the vertical metrics for all CIDs in this range. 
-W2
-EXAMPLE 3 This  entry defines the vertical displacement vector for the glyph with CID 120 as (0, -1000) and the 
-position vector as (250, 772). It also defines the displacement vector for CIDs in the range 7080 through 8032 
-as (0, -1000) and the position vector as (500, 900). 
-/W2 [120 [-1000 250 772] 
-  7080 8032 -1000 500 900 
- 
-  ] 
-9.7.5CMaps 
- 
-9.7.5.1General 
- 
-A CMap shall specify the mapping from character codes to character selectors. In PDF, the character 
-Encoding
-selectors shall be CIDs in a CIDFont (as mentioned earlier, PostScript CMaps can use names or codes as 
-well). A CMap serves a function analogous to the  dictionary for a simple font. The CMap shall 
-not refer directly to a specific CIDFont; instead, it shall be combined with it as part of a CID-keyed font, 
-font number
-represented in PDF as a Type 0 font dictionary (see 9.7.6, "Type 0 font dictionaries"). Within the CMap, 
-the character mappings shall refer to the associated CIDFont by , which in PDF shall be 0. 
-PDF also uses a special type of CMap to map character codes to Unicode values (see 9.10.3, "ToUnicode 
-CMaps"). 
-A CMap shall specify the writing mode — horizontal or vertical — for any CIDFont with which the CMap 
-is combined. The writing mode determines which metrics shall be used when glyphs are painted from 
-that font. 
-NOTE Writing mode is specified as part of the CMap because, in some cases, different shapes are used 
-when writing horizontally and vertically. In such cases, the horizontal and vertical variants of a 
-CMap specify different CIDs for a given character code. 
-A CMap shall be specified in one of two ways: 
-© ISO 2017 – All rights reserved 326 
+LW
+EXAMPLE 2 The current line width can be set either with the  operator or (in PDF 1.3) with the  entry in a graphics 
+state parameter dictionary, whereas the current colour is set only with specific operators, and the current 
+halftone is set only with a graphics state parameter dictionary. 
+In general, a PDF reader, when interpreting the operators that set graphics state parameters, shall 
+simply store them unchanged for later use when interpreting the painting operators. However, some 
+parameters have special properties or call for behaviour that a PDF reader shall handle: 
+• 
+Most parameters shall be of the correct type or have values that fall within a certain range. 
+© ISO 2017 – All rights reserved 157 
 
 ISO/DIS 32000-2
  
 • 
-As a name object identifying a predefined CMap, whose value shall be one of the predefined CMap 
+Parameters that are numeric values, such as the current colour, line width, and miter limit, shall be 
+clipped into valid range, if necessary. However, they shall not be adjusted to reflect capabilities of 
+the raster output device, such as resolution or number of distinguishable colours. Painting 
+operators perform such adjustments, but the adjusted values shall not be stored back into the 
 • 
-names defined in "
+graphics state. 
+NOTE 2 As indicated in "Table 51: Device-independent graphics state parameters" and "Table 52: Device-
+Paths shall be internal objects that shall not be directly represented in PDF. 
+dependent graphics state parameters", some of the parameters — colourspace, colour, and 
+overprint — have two values, one used for stroking (of paths and text objects) and one for all 
+other painting operations. The two parameter values can be set independently, allowing for 
+operations such as combined filling and stroking of the same path with different colours. Except 
+where noted, a term such as current colour is to be interpreted to refer to whichever colour 
+parameter applies to the operation being performed. When necessary, the individual colour 
+parameters are distinguished explicitly as the stroking colour and the nonstroking colour. 
+8.4.2Graphics state stack 
+ 
+A PDF document typically contains many graphical elements that are independent of each other and 
+nested to multiple levels. The graphics state stack allows these elements to make local changes to the 
+graphics state without disturbing the graphics state of the surrounding environment. The stack is a 
+LIFO (last in, first out) data structure in which the contents of the graphics state may be saved and later 
+restored using the following operators: 
+q
+  
+• 
+Q
+  
+• 
+Theoperator shall push a copy of the entire graphics state onto the stack. 
+Theoperator shall restore the entire graphics state to its former value by popping it from the 
+NOTE These operators can be used to encapsulate a graphical element so that it can modify parameters 
+stack. 
+of the graphics state and later restore them to their previous values. 
+qQ
+    
+Contents
+Occurrences of theandoperators shall be balanced within a given content stream (or within the 
+sequence of streams specified in a page dictionary’s  array). 
+8.4.3Details of graphics state parameters 
+ 
+8.4.3.1General 
+ 
+This subclause gives details of several of the device-independent graphics state parameters listed in 
+"Table 51: Device-independent graphics state parameters". 
+8.4.3.2Line width 
+ 
+The line width parameter specifies the thickness of the line used to stroke a path. It shall be a non-
+negative number expressed in user space units; stroking a path shall entail painting all points whose 
+perpendicular distance from the path in user space is less than or equal to half the line width. The effect 
+produced in device space depends on the current transformation matrix (CTM) in effect at the time the 
+path is stroked. If the CTM specifies scaling by different factors in the horizontal and vertical 
+dimensions, the thickness of stroked lines in device space shall vary according to their orientation. The 
+actual line width achieved can differ from the requested width by as much as 2 device pixels, depending 
+on the positions of lines with respect to the pixel grid. Automatic stroke adjustment may be used to 
+ensure uniform line width; see 10.7.5, "Automatic stroke adjustment". 
+© ISO 2017 – All rights reserved 158 
+
+ISO/DIS 32000-2
+ 
+A line width of 0 shall denote the thinnest line that can be rendered at device resolution: 1 device pixel 
+wide. However, some devices cannot reproduce 1-pixel lines, and on high-resolution devices, they are 
+nearly invisible. Since the results of rendering such zero-width lines are device-dependent, they should 
+not be used. 
+8.4.3.3Line cap style 
+ 
+The line cap style shall specify the shape that shall be used at both ends of open subpaths (and dashes 
+8.4.3.6, "Line dash pattern") when they are stroked. "

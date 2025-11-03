@@ -1,105 +1,216 @@
+Table 166: Entries 
+common to all annotation dictionaries" shows the required and optional entries that are common to all 
+annotation dictionaries. The dictionary may contain additional entries specific to a particular 
+ Annots 
+annotation type; see the descriptions of individual annotation types in 12.5.6, "Annotation types" for 
+details. A given annotation dictionary shall be referenced from thearray of only one page. This 
+requirement applies only to the annotation dictionary itself, not to subsidiary objects, which may be 
+shared among multiple annotations. 
+Table 166: Entries common to all annotation dictionaries 
+Key Type Value 
+(Optional) Annot
+Type   
+name The type of PDF object that this dictionary describes; if present, shall be
+for an annotation dictionary. 
+(Required) 
+Subtype 
+name The type of annotation that this dictionary describes; see "Table 171: 
+Annotation types" for specific values. 
+(Required) annotation rectangle
+Rect 
+rectangle The , defining the location of the annotation on the page 
+in default user space units. 
+(Optional) 
+Contents 
+text string Text that shall be displayed for the annotation or, if this type of annotation 
+does not display text, an alternative description of the annotation’s contents in human-
+readable form. In either case, this text is useful when extracting the document’s contents 
+14.9.3, 
+in support of accessibility to users with disabilities or for other purposes (see 
+"Alternate descriptions"). See 12.5.6, "Annotation types" for more details on the meaning 
+of this entry for each annotation type. 
+(Optional except as noted below; PDF 1.3; not used infiles) 
+P  FDF 
+dictionary An indirect reference to the 
+PDF 
+page object with which this annotation is associated. 
+1.5
  
- 
-XObject comparison 
-(Normative) 
-J.1Background 
- 
-A PDF document, as defined in 7.3, "Objects" can contain 8 different types of objects - Boolean, Numeric, 
-String, Name, Array, Dictionary, Stream, and Null. These objects may be direct or indirect, as described 
-in 7.3.10, "Indirect objects", but for the purposes of comparison, this aspect of the object is not 
-considered. 
-NOTE 1 Clause 8.8, "External objects", defines the two types of external objects (XObjects) that can be 
-present in a PDF - Image, and Form - as self-contained streams. These stream objects, like all other 
-stream objects, actually consist of a stream of data preceded by a dictionary (7.3.8, "Stream 
-objects"). 
-This proposal, therefore, will describe how to generally compare two objects of stream type, though it is 
-expected that such comparison will be used strictly for the purpose of determining uniqueness among a 
-pair of XObjects. 
-J.2Introduction 
- 
-Because a stream object also contains a dictionary object, and a dictionary is a collection of key/value 
-pairs - where a value can be of any other PDF object type, a more complete discussion of the 
-comparison of any PDF object type is required. 
-In order to compare two PDF objects, it should first be determined if the objects are of the same type 
-(e.g. stream). Once that determination has been made, then the actual comparison process differs based 
-on the type of object. 
-J.3Object comparisons 
- 
-J.3.1Boolean objects 
- 
-truefalse
-Clause 7.3.2, "Boolean objects" clearly states that the keywords shall be "" and "". Comparison 
-is a simple boolean logic test. See 4, "Notation", for information regarding the notation of these 
-keywords throughout this International Standard. 
-J.3.2Numeric objects 
- 
-As described in 7.3.3, "Numeric objects", PDF supports two types of numeric objects - integer and real. 
-Integers are well defined and their comparison should be done using standard integer mathematical 
-principles. Real numbers shall be interpreted and compared using the internal representation of the 
-PDF processor. In the case where an integer is being compared to a real, the integer shall be promoted 
-to a real and then real comparison shall take place. 
-© ISO 2017 – All rights reserved 904 
+This entry shall be present in screen annotations associated with rendition actions (
+; see 12.5.6.18, "Screen annotations" and 12.6.4.14, "Rendition actions").
+(Optional; PDF 1.4) annotation name
+NM 
+text string The , a text string uniquely identifying it among all 
+the annotations on its page. 
+(Optional; PDF 1.1) 
+M 
+date or text The date and time when the annotation was most recently modified. 
+string The format should be a date string as described in 7.9.4, "Dates" but interactive PDF 
+processors shall accept and display a string in any format. 
+(Optional; PDF 1.1) 
+F 
+integer A set of flags specifying various characteristics of the annotation (see 
+12.5.3, "Annotation flags"). Default value: 0. 
+(Optional; PDF 1.2) appearance dictionary 
+AP 
+dictionary An specifying how the annotation shall be 
+presented visually on the page (see 12.5.5, "Appearance streams"). A PDF writer shall 
+include an appearance dictionary when writing or updating the PDF file except for the 
+Widget
+Subtype
+two cases listed below. 
+Every annotation (including those whose  value is , as used for form 
+fields), except for the two cases listed below, shall have at least one appearance 
+ Rect 
+• 
+dictionary. 
+Annotations where the value of thekey consists of an array where the value at 
+index 1 is equal to the value at index 3 or the value at index 2 is equal to the value 
+Popup, ProjectionLink
+Subtype
+• 
+at index 4 
+Annotations whose  value is  or . 
+© ISO 2017 – All rights reserved 456 
 
 ISO/DIS 32000-2
  
-J.3.3String objects 
+Key Type Value 
+(Required if the appearance dictionarycontains one or more subdictionaries; PDF 1.2) 
+AS  AP 
+appearance state
+name 
+The annotation’s , which selects the applicable appearance stream from 
+an appearance subdictionary (see 12.5.5, "Appearance streams"). 
+(Optional) 
+Border 
+array An array specifying the characteristics of the annotation’s border, which shall 
+(PDF 1.0) 
+be drawn as a rounded rectangle. 
+The array consists of three numbers defining the horizontal corner radius, 
+vertical corner radius, and border width, all in default user space units. If the corner radii 
+are 0, the border has square (not rounded) corners; if the border width is 0, no border is 
+(PDF 1.1) dash array 
+drawn. 
+The array may have a fourth element, an optional defining a pattern 
+of dashes and gaps that shall be used in drawing the border. The dash array shall be 
+specified in the same format as in the line dash pattern parameter of the graphics state 
+(see 8.4.3.6, "Line dash pattern"). The dash phase shall not be specified and shall be 
+assumed to be 0. 
+ Border 
+EXAMPLE Avalue of [0 0 1 [3 2]] specifies a border 1 unit wide, with 
+square corners, drawn with 3-unit dashes alternating with 2- unit gaps. 
+NOTE (PDF 1.2)The dictionaries for some annotation types (such as free text and 
+polygon annotations) can include theentry. That entry specifies a border style 
+ BS 
  
-Although 7.3.4, "String objects", defines two types of strings (literal and hexadecimal), when processing 
-them for comparison they should be first processed into a single canonical form and then compared in a 
-simple binary comparison. 
-Literal strings shall be processed looking for any escape characters ("Table 3: Escape sequences in 
-literal strings", in 7.3.4.2, "Literal strings") and replacing them with their meanings. Any strings that are 
-split across multiple lines shall be processed as per instructions to "disregard the REVERSE SOLIDUS 
-and the end-of-line marker following it when reading the string (i.e., the resulting string value shall be 
-identical to that which would be read if the string were not split)". Finally, any octal characters 
-described using the \ddd escape sequence shall be expanded to their proper value. The result of these 
-expansions shall be the value to be used for binary comparison. 
-Hexadecimal strings shall be simply converted from hexadecimal format to literal format and that value 
-shall be used for the binary comparison. 
-J.3.4Name objects 
+dictionary that has more settings than the array specified for theentry. If 
+ Border 
+an annotation dictionary includes theentry, then theentry is ignored. 
+ BS  Border 
+Default value: [0 0 1]. 
+(Optional; PDF 1.1) 
+C 
+array An array of numbers in the range 0.0 to 1.0, representing a colour 
+used for the following purposes: 
+The background of the annotation’s icon when closed 
+The title bar of the annotation’s popup window 
+The border of a link annotation 
+The number of array elements determines the colour space in which the colour shall be 
+defined: 
+DeviceGray
+0 No colour; transparent 
+DeviceRGB
+1  
+DeviceCMYK
  
-A Name object is a special type of string object, where the string is defined as being sequence of any 
-characters (8-bit values) except null (character code 0), with any values outside the range of 
-EXCLAMATION MARK to TILDE being escaped using a NUMBER SIGN and hexadecimal digits (See 7.3.5, 
-"Name objects"). All such escaping shall be expanded and the result shall form a sequences of bytes that 
-shall be used for binary comparison. 
-J.3.5Array objects 
- 
-Comparison on two array objects is quite straightforward, in that each object (N) of the first array shall 
-be compared with the same indexed object in the second array. Since any of the objects in the array may 
-be a dictionary or an array, there is the need to be able to do a form of "tree comparison" (also known as 
-breadth-first search), since processing can go from array to dictionary to array, etc. 
-If at any time, two objects do not match, then the arrays are non-equal. "Figure Annex K.1: Comparing 
-two arrays" shows non-equal arrays. 
-© ISO 2017 – All rights reserved 905 
-
-ISO/DIS 32000-2 ![85.png](./Storage/Output/Images/85.png)
- 
-Figure Annex K.1: Comparing two arrays 
-J.3.6Dictionary objects 
- 
-Comparison of dictionaries is a relatively complex operation because of the flexibility of dictionary 
-objects in PDF. 
-First, the order of keys in a dictionary is not defined - they may be alphabetically sorted, sorted by entry 
-into the dictionary, or any other ordering that a producer chooses. This, of course, leads to the 
-possibility that the same key/value pair exists in both dictionaries but in a different order - so a binary 
-compare or crypto-hash won’t be successful. 
-This lack of a standard ordering to keys in a dictionary requires that comparison be done by ensuring 
-that the number of keys is equal and then iterating over each key in the first dictionary and comparing 
-its value to the value of the key of the same name in dictionary 2. If a key from dictionary 1 cannot be 
-found in dictionary 2, then the dictionaries are not equal - but if each key exists in both and they have 
-the same associated values, then the dictionaries are equal. 
-Second, unlike PostScript, where a dictionary value of null is considered as a valid value, PDF instead 
-stipulates that "A dictionary entry whose value is null shall be treated the same as if the entry does not 
-© ISO 2017 – All rights reserved 906 
+3  
+4 
+(Required if the annotation is a structural content item; PDF 1.3) 
+StructParent 
+integer The integer key of the 
+annotation’s entry in the structural parent tree (see 14.7.5.4, "Finding structure elements 
+from content items"). 
+(Optional; PDF 1.5) 
+OC 
+dictionary An optional content group or optional content membership dictionary 
+(see 8.11, "Optional content") specifying the optional content properties for the 
+F
+annotation. Before the annotation is drawn, its visibility shall be determined based on 
+12.5.3, "Annotation 
+this entry as well as the annotation flags specified in the  entry (see 
+flags"). If it is determined to be invisible, the annotation shall not be drawn. (See 8.11.3.3, 
+"Optional content in XObjects and annotations".) 
+(Optional; PDF 2.0) 
+AF 
+array of An array of one or more file specification dictionaries (7.11.3, "File 
+dictionaries specification dictionaries") which denote the associated files for this annotation). See 
+14.13, "Associated files" and 14.13.9, "Associated files linked to an annotation dictionary" 
+for more details. 
+© ISO 2017 – All rights reserved 457 
 
 ISO/DIS 32000-2
  
-exist" (see 7.3.7, "Dictionary objects"). To ease comparison, any such key/value pairs shall be removed 
-from a dictionary prior to processing. 
-Finally, since any of the values may itself be a dictionary (or an array), there is the need to be able to do 
-a form of "tree comparison" (also known as breadth-first search), since processing can go from 
-dictionary to dictionary to dictionary, etc. 
-Fortunately, even with these complexities, the process for dictionary comparison can be clearly defined 
-and made standard in a way that all implementations can agree on equality. ![86.png](./Storage/Output/Images/86.png)
+Key Type Value 
+(Optional; PDF 2.0) 
+ca 
+number When regenerating the annotation's appearance stream, this is the 
+opacity value (11.2, "Overview of transparency") that shall be used for all nonstroking 
+operations on all visible elements of the annotation in its closed state (including its 
+background and border) but not the popup window that appears when the annotation is 
+opened. 
+Default value: 1.0 
+The specified value shall not be used if the annotation has an appearance stream (see 
+12.5.5, "Appearance streams"); in that case, the appearance stream shall specify any 
+transparency. 
+If no explicit appearance stream is defined for the annotation, and the processor is not 
+able to regenerate the appearance, the annotation may be painted by implementation-
  
+dependent means that do not necessarily conform to the PDF imaging model; in this case, 
+the effect of this entry is implementation-dependent as well.
+(Optional; PDF 2.0) 
+CA 
+number When regenerating the annotation's appearance stream, this is the 
+opacity value (11.2, "Overview of transparency") that shall be used for stroking all visible 
+elements of the annotation in its closed state, including its background and border, but 
+ ca  CA 
+not the popup window that appears when the annotation is opened. 
+If aentry is not present in this dictionary, then the value of thisentry shall also be 
+used for nonstroking operations as well. Default Value: 1.0 
+The specified value shall not be used if the annotation has an appearance stream (12.5.5, 
+"Appearance streams"); in that case, the appearance stream shall specify any 
+transparency. 
+If no explicit appearance stream is defined for the annotation, and the processor is not 
+able to regenerate the appearance, the annotation may be painted by implementation-
+ 
+dependent means that do not necessarily conform to the PDF imaging model; in this case, 
+the effect of this entry is implementation-dependent as well.
+(Optional; PDF 2.0) 
+BM 
+name  The blend mode that shall be used when painting the annotation onto 
+Normal
+the page (see 11.3.5, "Blend Mode" and 11.6.3, "Specifying Blending Colour Space and 
+Blend Mode"). If this key is not present, blending shall take place using the  blend 
+mode. The value shall be a name object, designating one of the standard blend modes 
+listed in "Table 134: Standard separable blend modes" and "Table 135: Standard non-
+separable blend modes" in 11.3.5, "Blend mode". 
+Optional; PDF 2.0
+Lang 
+text string () A language identifier overriding the document’s language identifier to 
+ 
+specify the natural language for all text in the annotation except where overridden by 
+other explicit language specifications (see 14.9.2, "Natural language specification").
+ 
+C, IC, Border, BS, BE, BM, CA, ca, H, DA, Q, DS, 
+A PDF reader shall render the appearance dictionary without regard to any other keys and values in the 
+LE, LL, LLE, Sy 
+annotation dictionary and shall ignore the values of the 
+ andkeys. 
+NOTE Requiring an appearance dictionary for each annotation ensures the reliable rendering of the 
+annotations. 
+12.5.3Annotation flags 
+ 
+F
+The value of the annotation dictionary’s  entry is an integer interpreted as one-bit flags specifying 
+various characteristics of the annotation. Bit positions within the flag word shall be numbered from 
+low-order to high-order, with the lowest-order bit numbered 1. "

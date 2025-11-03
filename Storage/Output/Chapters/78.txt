@@ -1,162 +1,18 @@
-Figure 20: Colour specification" and "Figure 21: Colour rendering" illustrate the 
-division between PDF’s (device-independent) colour specification and (device-dependent) colour-
-rendering facilities. This subclause describes the colour specification features, covering everything that 
-PDF documents need to specify colours. The facilities for controlling colour rendering are described in 
-clause 10, "Rendering"; a PDF processor should use these facilities only to configure or calibrate an 
-output device or to achieve special device-dependent effects. 
-8.6.2Colour values 
+Table 9: PNG predictor algorithms 
+PNG Predictor Algorithms Description 
+None 
+No prediction 
+Sub 
+Predicts the same as the sample to the left 
+Up 
+Predicts the same as the sample above 
+Average 
+Predicts the average of the sample to the left and the 
+sample above 
+Paeth 
+A nonlinear function of the sample above, the sample to 
+the left, and the sample to the upper left 
  
-fS
-current colour
-As described in 8.5.3, "Path-painting operators", marks placed on the page by operators such as  and  
-colour components
-shall have a colour that is determined by the  parameter of the graphics state. A colour 
-value consists of one or more , which are usually numbers. A gray level shall be 
-specified by a single number ranging from 0.0 (black) to 1.0 (white). Full colour values may be specified 
-in any of several ways; a common method uses three numeric values to specify red, green, and blue 
-components. 
-© ISO 2017 – All rights reserved 174 
-
-ISO/DIS 32000-2
- 
-CS
-Colour values shall be interpreted according to the current colour space, another parameter of the 
-cs
-graphics state. A PDF content stream first selects a colour space by invoking the  operator (for the 
-SCsc
-stroking colour) or the  operator (for the nonstroking colour). It then selects colour values within that 
-, , , — 
-GgRGrgKk 
-colour space with the  operator (stroking) or the  operator (nonstroking). There are also 
-convenience operators — , , and that select both a colour space and a colour value 
-within it in a single step. "Table 73: Colour operators" lists all the colour-setting operators. 
-Sampled images (see 8.9, "Images") specify the colour values of individual samples with respect to a 
-colour space designated by the image object itself. While these values are independent of the current 
-SCsc
-colour space and colour parameters in the graphics state, all later stages of colour processing shall treat 
-them in exactly the same way as colour values specified with the  or  operator. 
-8.6.3Colour space families 
- 
-colour space families
-Colour spaces are classified into . Spaces within a family share the same general 
-characteristics; they shall be distinguished by parameter values supplied at the time the space is 
-specified. The families fall into three broad categories: 
-Device colour spaces
-• 
-RGB
- directly specify colours or shades of gray that the output device shall produce. 
-CMYK
-DeviceGray
-They provide a variety of colour specification methods, including grayscale,  (red-green-blue), 
-DeviceRGBDeviceCMYK
-and  (cyan-magenta-yellow-black), corresponding to the colour space families , 
-DeviceGrayDeviceRGB DeviceCMYK 
-, and . Since each of these families consists of just a single colour space 
-with no parameters, they may be referred to as the , , and
-CIE-based colour spaces
-• 
-colour spaces. 
- shall be based on an international standard for colour specification created 
-by the Commission Internationale de l’Éclairage (International Commission on Illumination). 
-CalGrayCalRGBLabICCBased
-These spaces specify colours in a way that is independent of the characteristics of any particular 
-output device. Colour space families in this category include , , , and . 
-Individual colour spaces within these families shall be specified by means of dictionaries 
-Special colour spaces
-• 
-containing the parameter values needed to define the space. 
- add features or properties to an underlying colour space. They include 
-PatternIndexedSeparationDeviceN
-facilities for patterns, colour mapping, separations, and high-fidelity and multitone colour. The 
-corresponding colour space families are , , , and . Individual 
-colour spaces within these families shall be specified by means of additional parameters. 
-"Table 61: Colour space families" summarises the colour space families in PDF. 
-Table 61: Colour space families 
-Device CIE-based Special 
-PDF 1.1PDF 1.1PDF 1.1
-DeviceGrayCalGrayIndexed
- ()  ()  () 
-PDF 1.1PDF 1.1PDF 1.2
-DeviceRGBCalRGBPattern
- ()  ()  () 
-PDF 1.2
-DeviceCMYKLabSeparation
- (PDF 1.1)  (PDF 1.1)  () 
-PDF 1.3PDF 1.3
-ICCBasedDeviceN
-  ()  () 
- 
-© ISO 2017 – All rights reserved 175 
-
-ISO/DIS 32000-2
- ![Figure 20 Colour specification  .png](./Storage/Output/Images/Figure 20 Colour specification  .png)
-Figure 20: Colour specification 
- 
-© ISO 2017 – All rights reserved 176 
-
-ISO/DIS 32000-2
- ![Figure 21 Colour rendering  .png](./Storage/Output/Images/Figure 21 Colour rendering  .png)
-Figure 21: Colour rendering 
- 
-  
-A colour space shall be defined by anarray objectwhose first element is a name object identifying the 
-colour space family. The remaining array elements, if any, are parameters that further characterise the 
-colour space; their number and types vary according to the particular family. For families that do not 
-require parameters, the colour space may be specified simply by the family name itself instead of an 
-array. 
-A colour space shall be specified in one of two ways: 
-CScs
-• 
-Within a content stream, the  or  operator establishes the current colour space parameter in 
-DeviceGrayDeviceRGBDeviceCMYK
-the graphics state. The operand shall always be name object, which either identifies one of the 
-Pattern ColorSpace 
-colour spaces that need no additional parameters (, , , or 
-some cases of ) or shall be used as a key in thesubdictionary of the current 
-© ISO 2017 – All rights reserved 177 
-
-ISO/DIS 32000-2
- 
-resource dictionary (see 7.8.3, "Resource dictionaries"). In the latter case, the value of the 
-dictionary entry in turn shall be a colour space array or name. A colour space array shall never be 
-• 
-inline within a content stream. 
-ColorSpace
-Outside a content stream, certain objects, such as image XObjects, shall specify a colour space as an 
- ColorSpace 
-explicit parameter, often associated with the key . In this case, the colour space array 
-or name shall always be defined directly as a PDF object, not by an entry in the
-resource subdictionary. This convention also applies when colour spaces are defined in terms of 
-other colour spaces. 
-The following operators shall set the current colour space and current colour parameters in the 
-graphics state: 
-CScs
-• 
-SCSCNscscn
-• 
- shall set the stroking colour space;  shall set the nonstroking colour space. 
- and  shall set the stroking colour;  and  shall set the nonstroking colour. Depending on 
-the colour space, these operators shall have one or more operands, each specifying one component 
-, 
-GRGK
-• 
-of the colour value. 
-, 
-grgk
-, and  shall set the stroking colour space implicitly and the stroking colour as specified by 
-8.6.4Device colour spaces 
- 
-the operands; , and  do the same for the nonstroking colour space and colour. 
-8.6.4.1General 
- 
-The device colour spaces enable a page description to specify colour values that are directly related to 
-their representation on an output device. Colour values in these spaces map directly (or by simple 
-conversions) to the application of device colourants, such as quantities of ink or intensities of display 
-phosphors. This enables a PDF writer to control colours precisely for a particular device, but the results 
-might not be consistent from one device to another. 
-Output devices form colours either by adding light sources together or by subtracting light from an 
-illuminating source. Computer displays and film recorders typically add colours; printing inks typically 
-additivesubtractive
-subtract them. These two ways of forming colours give rise to two complementary methods of colour 
-RGBCMYK
-specification, called  and  colour (see "
+The predictor algorithm to be used, if any, shall be indicated by the Predictor filter parameter (see 
+"Table 8: Optional parameters for LZWDecode and FlateDecode filters"), whose value shall be one of 
+those listed in "

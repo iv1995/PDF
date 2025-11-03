@@ -1,12 +1,4 @@
-electronic document 
-electronic representation of a page-oriented aggregation of text, image and graphic data, and metadata 
-useful to identify, understand and render that data, that can be reproduced on paper or displayed 
-without significant loss of its information content 
-4.23 
- 
-end-of-line marker (EOL marker) 
-one or two character sequence marking the end of a line of text, consisting of a CARRIAGE RETURN 
-character (0Dh) or a LINE FEED character (0Ah) or a CARRIAGE RETURN followed immediately by a 
-LINE FEED 
-4.24 
+cross reference table 
+data structure that contains the byte offset start for each of the indirect objects within the file 
+4.14 
  

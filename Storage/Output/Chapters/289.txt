@@ -1,93 +1,29 @@
-Table 372: Standard structure type Caption", encloses 
-content that serves as a caption for tables, lists, images, formulas, media objects or other types of 
-content. 
-Table 372: Standard structure type Caption 
-Structure Category Description 
-Type 
-Caption CaptionL
-TableCaption
-Grouping or For lists and tables a  structure element may be used as defined for the  
-block level, (list) and  structure elements. In addition a  may be used for a 
-Caption
-depending on structure element or several structure elements. 
-Caption
-use / context 
-A structure element is understood to be "captioned" when a  structure 
-element exists as an immediate child of that structure element. The  shall 
-be the first or the last structure element inside its parent structure element. The 
-number of captions cannot exceed 1. 
-While captions are often used with figures or formulas, they may be associated 
-NOTE In principle, captions can appear in a nested fashion. For example, 
-with any type of content.  
-several smaller images belonging to a group of images can each be 
-accompanied by a caption, and the group of these images as a whole is 
-accompanied by a caption as well. 
-Caption
-EXAMPLE The following are just a few of the possible types of content that 
-could be marked as : 
-•
-Caption for an image, list, table, or formula 
+Figure 73: CMYK blend modes 
  
-•
-Caption for a group of images or a sequence of 
+11.3.5.2Separable blend modes 
  
-graphics 
-•
-Group of images with a caption, plus a caption for each 
+separable
+A blend mode is termed  if each component of the result colour is completely determined by 
+the corresponding components of the constituent backdrop and source colours — that is, if the blend 
+mode function B is applied separately to each set of corresponding components: 
  
-of the images inside the group of images 
+𝑟𝑟𝑏𝑏𝑓𝑓
+)
+(
+𝑐𝑐=𝐵𝐵𝑐𝑐,𝑐𝑐
  
-14.8.4.8.5Figure structure type 
- 
-Figure
-"Table 373: Standard structure type Figure" defines the  standard structure type. 
-Figure
-BTET
-The standard structure type  encloses content that represents one or more complete graphics 
-objects. It shall not appear between the  and  operators delimiting a text object (see 9.4, "Text 
-objects").  
-© ISO 2017 – All rights reserved 740 
+𝑟𝑟𝑏𝑏𝑓𝑓𝑟𝑟𝑏𝑏
+where the lowercase variables 𝑐𝑐
+, 𝑐𝑐, and 𝑐𝑐 denote corresponding components of the colours 𝐶𝐶, 𝐶𝐶, 
+𝑓𝑓
+and 𝐶𝐶
+, expressed in additive form. A separable blend mode may be used with any colour space, since it 
+applies independently to any number of components. Only white-preserving separable blend modes 
+© ISO 2017 – All rights reserved 384 
 
 ISO/DIS 32000-2
  
-FigureFigure
-A  element may have logical substructure, including other  elements. For repurposing 
-BBox
-purposes it may be treated as visually static, without examining its internal contents. It should have a 
- attribute (see 14.8.5, "Standard structure attributes"). 
-FigureAlt
-ActualText
-For repurposing and accessibility purposes, a  element should have either an  entry or an 
- entry in its structure element dictionary (see 14.9.3, "Alternate descriptions" and 14.9.4, 
-"Replacement text"). 
-NOTE  is a description of the graphics objects enclosed by the  element, whereas  
-AltFigureActualText
-gives the exact text equivalent of a graphical illustration that has the appearance of text. 
-Table 373: Standard structure type Figure 
-Structure Category Description 
-Type 
-Figure 
-BBox
-Grouping, Encloses graphical content.  
-Block or Inline  
-The  attribute (see 14.8.5, "Standard structure attributes") should be 
-present for a figure appearing in its entirety on a single page to indicate the area 
-of the figure on the page. 
- Figure
-EXAMPLE 1 Some examples of content that would be marked as 
-include: 
-•
-an image 
- 
-•
-a drawing 
- 
-•
-a chart, including the text that denotes values on each 
- 
-axis 
- 
-14.8.4.8.6Formula structure type 
- 
-Formula 
+shall be used for blending spot colours as discussed in 11.7.3, "Spot colours and transparency". 
+NOTE Theoretically, a blend mode could have a different function for each colour component and still be 
+separable; however, none of the standard PDF blend modes have this property. 
 "

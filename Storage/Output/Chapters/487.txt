@@ -1,0 +1,10 @@
+Table 312: Entries in an 3D animation style dictionary 
+Key Type Value 
+Optional
+Type 
+3DAnimationStyle
+name (). The type of PDF object that this dictionary describes; if present, 
+shall be . 
+Optional
+Subtype 
+name () The animation style described by this dictionary; see "

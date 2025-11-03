@@ -1,35 +1,164 @@
-Figure 24: Component transformations in a CIE-based ABC colour space"). 
-© ISO 2017 – All rights reserved 181 
+Table 11: Optional parameters for the 
+CCITTFaxDecode filter") may be used to cause each encoded scan line to be filled to a byte 
+NOTE 3 Although this is not prescribed by the CCITT standard and fax machines never do this, some 
+boundary. 
+software packages find it convenient to encode data this way. 
+• 
+When a filter reaches EOD, it shall always skip to the next byte boundary following the encoded 
+© ISO 2017 – All rights reserved 48 
 
 ISO/DIS 32000-2
- ![Figure 24 Component transformations in a CIE-based ABC colour space  .png](./Storage/Output/Images/Figure 24 Component transformations in a CIE-based ABC colour space  .png)
-Figure 24: Component transformations in a CIE-based ABC colour space 
  
-Colour spaces in the CIE-based families shall be defined by an array 
-[name dictionary] 
-namedictionary
-where  is the name of the family and  is a dictionary containing parameters that further 
-characterise the space. The entries in this dictionary have specific interpretations that depend on the 
-colour space; some entries are required and some are optional. See the subclauses on specific colour 
-space families for details. 
-Setting the current stroking or nonstroking colour space to any CIE-based colour space shall initialise 
-all components of the corresponding current colour to 0.0 (unless the range of valid values for a given 
-component does not include 0.0, in which case the nearest valid value shall be substituted.) 
-NOTE 3 The model and terminology used here — CIE-based  (above) and  (below) — are 
-derived from the PostScript language, which supports these colour space families in their full 
-ABCCIE-based A
-generality. PDF supports specific useful cases of CIE-based  and CIE-based  spaces; most 
-others can be represented asspaces. 
- ICCBased 
-ABCA
-8.6.5.2CalGray colour spaces 
+data. 
+DamagedRowsBeforeError
+The filter shall not perform any error correction or resynchronization, except as noted for the 
+ parameter in "Table 11: Optional parameters for the CCITTFaxDecode 
+filter". 
+"Table 11: Optional parameters for the CCITTFaxDecode filter" lists the optional parameters that may 
+be used to control the decoding. Except where noted otherwise, all values supplied to the decoding filter 
+by any of these parameters shall match those used when the data was encoded. 
+Table 11: Optional parameters for the CCITTFaxDecode filter 
+Key Type Value 
+K 
+Integer A code identifying the encoding scheme used: 
+< 0 Pure two-dimensional encoding (Group 4) 
+= 0 Pure one-dimensional encoding (Group 3, 1-D) 
+> 0 Mixed one- and two-dimensional encoding (Group 3, 
+2-D), in which a line encoded one-dimensionally may be 
+followed by at most K-1 lines encoded two-dimensionally 
+K
+The filter shall distinguish among negative, zero, and positive 
+K
+values of  to determine how to interpret the encoded data; 
+however, it shall not distinguish between different positive  
+values. Default value: 0. 
+EndOfLine 
+ CCITTFaxDecode 
+boolean A flag indicating whether end-of-line bit patterns shall be present in the 
+true
+EndOfLine
+encoding. Thefilter shall always accept end-of-line 
+false
+bit patterns. If  is  end-of-line bit patterns shall be 
+present. Default value: . 
+EncodedByteAlign 
+true
+boolean A flag indicating whether the filter shall expect extra 0 bits before each 
+encoded line so that the line begins on a byte boundary. If , the 
+false
+filter shall skip over encoded bits to begin decoding each line at a byte 
+false
+boundary. If , the filter shall not expect extra bits in the encoded 
+representation. Default value: . 
+Columns 
+integer The width of the image in pixels. If the value is not a multiple of 8, the 
+filter shall adjust the width of the unencoded image to the next multiple 
+of 8 so that each line starts on a byte boundary. Default value: 1728. 
+Rows 
+integer The height of the image in scan lines. If the value is 0 or absent, the 
+image’s height is not predetermined, and the encoded data shall be 
+terminated by an end-of-block bit pattern or by the end of the filter’s 
+data. Default value: 0. 
+EndOfBlock 
+Rows
+boolean A flag indicating whether the filter shall expect the encoded data to be 
+false
+terminated by an end-of-block pattern, overriding the  parameter. 
+Rows
+If , the filter shall stop when it has decoded the number of lines 
+indicated by  or when its data has been exhausted, whichever 
+occurs first. The end-of-block pattern shall be the CCITT end-of-
+true
+K
+facsimile-block (EOFB) or return-to-control (RTC) appropriate for the 
+ parameter. Default value: . 
+BlackIs1 
+boolean A flag indicating whether bits with a value of 1 shall be interpreted as 
+false
+black pixels and 0 bits as white pixels, the reverse of the normal PDF 
+convention for image data. Default value: . 
+© ISO 2017 – All rights reserved 49 
+
+ISO/DIS 32000-2
  
-PDF 1.1
- CalGray 
-CIE-based A 
-Acolour space () is a special case of a single-component CIE-based colour space, known 
-ABCA
-as a colour space. This type of space is the one-dimensional (and usually achromatic) analog 
-of CIE-based  spaces. Colour values in a CIE-based  space shall have a single component, arbitrarily 
-AXYZXYZ
-named A. "
+Key Type Value 
+DamagedRowsBeforeError 
+true
+EndOfLineK
+integer The number of damaged rows of data that shall be tolerated before an 
+error occurs. This entry shall apply only if  is  and  is 
+EndOfLine
+non-negative. Tolerating a damaged row shall mean locating its end in 
+the encoded data by searching for an  pattern and then 
+substituting decoded data from the previous row if the previous row 
+was not damaged, or a white scan line if the previous row was also 
+damaged. Default value: 0. 
+ 
+NOTE 4 The compression achieved using CCITT encoding depends on the data, as well as on the value of 
+various optional parameters. For Group 3 one-dimensional encoding, in the best case (all zeros), 
+each scan line compresses to 4 bytes, and the compression factor depends on the length of a scan 
+line. If the scan line is 300 bytes long, a compression ratio of approximately 75:1 is achieved. The 
+worst case, an image of alternating ones and zeros, produces an expansion of 2:9. 
+7.4.7JBIG2Decode filter 
+ 
+JBIG2Decode
+The  filter (PDF 1.4) decodes bitonal (1 bit per pixel) image data that has been encoded 
+according to the JBIG2 standard as defined by ISO/IEC 14492 and its amendments 1 and 2, excluding 
+amendment 3. 
+NOTE 1 The JBIG2 standard defines a coding method for bi-level images (e.g. black and white printed 
+matter). These are images consisting of a single rectangular bit plane, with each pixel taking on 
+one of just two possible colours. It has been drafted by the Joint Bi-level Image Experts Group 
+(JBIG), a committee established in 1988 that reports both to ISO/IEC JTC 1/SC29/WG1 and to ITU-
+T. 
+NOTE 2 An identical version of ISO/IEC 14492 is published as ITU-T Recommendation T.88. 
+JBIG2, which supports both lossy and lossless compression, is useful only for bitonal image data. JBIG2 
+explicitly defines the requirements of a compliant bitstream, and thus defines decoder behaviour. JBIG2 
+does not explicitly define a standard encoder, but instead is flexible enough to allow various approaches 
+to encoder design. 
+In general, JBIG2 provides considerably better compression than the CCITT standard (discussed in 
+7.4.6, "CCITTFaxDecode filter"). The compression it achieves depends strongly on the nature of the 
+image. Images of pages containing text in any language compress particularly well. Where JBIG2 is used 
+for lossy compression based on symbol dictionaries, care should be taken to avoid mismatches leading 
+to character substitution (see 0.2.1 "Symbol coding" in ISO/IEC 14492 for more details). While best 
+compression is achieved for images of text, the JBIG2 standard also includes algorithms for representing 
+regions of an image that contain dithered halftone images (for example, photographs) or line art. 
+While the JBIG2 compression method may also be used for encoding multiple images into a single JBIG2 
+bit stream, use of JBIG2 for PDF image XObjects shall be limited to using only page 1 in a JBIG2 coded bit 
+stream. This does not preclude the shared use of global segments across several JBIG2 encoded PDF 
+image XObjects. 
+NOTE 3 Typically, these images are scanned pages of a multiple-page document. Since a single table of 
+symbol bitmaps can be used to match symbols across multiple pages, this type of encoding can 
+result in higher compression ratios than if each of the pages had been individually encoded using 
+JBIG2. 
+In general, an image can be specified in PDF as either an image XObject or an inline image (as described 
+© ISO 2017 – All rights reserved 50 
+
+ISO/DIS 32000-2
+ 
+JBIG2Decode
+in 8.9, "Images"); however, the  filter shall not be used with inline images. 
+Both single-page and multiple-page JBIG2 bit streams can be represented in PDF by encoding each 
+JBIG2 page as one PDF image XObject, as follows: 
+• 
+The filter shall use the embedded file organization of JBIG2 as defined in ISO/IEC 14492, Annex 
+• 
+D.3, "Embedded organization".  
+The optional 2-byte combination (marker) defined in ISO/IEC 14492, Annex D.3, "Embedded 
+• 
+organization" shall not be present.  
+JBIG2 bit streams shall be represented in sequential organization as defined in ISO/IEC 14492, 
+• 
+Annex D.1, "Sequential organisation". 
+NOTE 4 It is recommended that segments appear in increasing order. 
+The JBIG2 file header, end-of-page segments, and end-of-file segment shall not be present.  
+JBIG2Decode
+• 
+The image XObject to which the  filter is applied shall contain all segments that are 
+associated with the JBIG2 page represented by that image; that is, all segments whose segment 
+page association field contains the page number of the JBIG2 page represented by the image. In the 
+image XObject, however, the segment’s page number shall always be 1; that is, when each such 
+• 
+segment is written to the XObject, the value of its segment page association field shall be set to 1. 
+If the bit stream contains global segments (segments whose segment page association field 
+contains 0), these segments shall be placed in a separate PDF stream, and the filter parameter 
+listed in "

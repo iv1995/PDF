@@ -1,9 +1,5 @@
-running text 
-the body of text, as distinct from headings, footnotes, diagrams, call-outs and other non-textual material 
-4.57 
- 
-signature handler 
-software module that implements a specific form of signing and/or augmentation and/or verification of 
-digital signatures. 
-4.58 
+graphics state 
+top of a push down stack of the graphics control parameters that defines the current global framework 
+within which the graphics operators execute 
+4.31 
  

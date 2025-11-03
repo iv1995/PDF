@@ -1,212 +1,192 @@
-ijijij
-Since each point 
- is actually a pair of coordinates (, ), the surface can also be expressed as 
-33
-ijij
-()()
-()
-u×Bv
-×B 
-𝑥𝑥u,v=��𝑥𝑥
-i=0j=0
-33
-ijij
-()()
-()
-u×Bv
-𝑦𝑦u,v=��𝑦𝑦×B 
-i=0j=0
+Figure 7: Relationship between string types". ![Figure 7 Relationship between string types  .png](./Storage/Output/Images/Figure 7 Relationship between string types  .png)
+Figure 7: Relationship between string types 
  
-The geometry of the tensor-product patch can be visualized in terms of a cubic Bézier curve moving 
-ppp
-p
-from the bottom boundary of the patch to the top. At the bottom and top, the control points of this curve 
-00300333
-…) and top (…) boundary curves, respectively. As 
-coincide with those of the patch’s bottom (
-the curve moves from the bottom edge of the patch to the top, each of its four control points follows a 
-trajectory that is in turn a cubic Bézier curve defined by the four control points in the corresponding 
-column of the array. That is, the starting point of the moving curve follows the trajectory defined by 
-© ISO 2017 – All rights reserved 246 
+7.9.2.2Text string type 
+ 
+The text string type shall be used for character strings that contain information intended to be human-
+readable, such as text annotations, document outline item names, article names, and so forth. 
+NOTE 1 Text string type is a subtype of string type and represents data encoded using specific conventions. 
+,
+The text string type shall be used for character strings that shall be encoded in PDFDocEncoding the 
+  
+UTF-16BE Unicode character encoding scheme, or (PDF 2.0) the UTF-8 Unicode character encoding 
+scheme.PDFDocEncodingcan encode all of the ISO Latin 1 character set and is documented in Annex D, 
+"Character Sets and Encodings". UTF-16BE and UTF-8 can encode all Unicode characters. UTF-16BE, 
+© ISO 2017 – All rights reserved 116 
 
 ISO/DIS 32000-2
  
-ppp
-p
-00033033
-ppp
-p
-…, the trajectory of the ending point is defined by points …, and those of the two 
-control points 
-10132023
-… and …. Equivalently, the patch can be considered to be traced 
-intermediate control points by 
-by a cubic Bézier curve moving from the left edge to the right, with its control points following the 
-trajectories defined by the rows of the coordinate array instead of the columns. 
-p p
-p
-The Coons patch (Type 6) is actually a special case of the tensor-product patch (Type 7) in which the 
-11122122
-, ,p, ) are implicitly defined by the boundary curves. The values 
-four internal control points (
-of the internal control points are given by these equations 
-1
-110001100330311333
-()()())
-(
-𝑝𝑝−4×𝑝𝑝−2×𝑝𝑝+3×𝑝𝑝−1×𝑝𝑝 
-=+6×𝑝𝑝+𝑝𝑝+𝑝𝑝+𝑝𝑝
-9
-1
-120302130033321030
-()()())
-(
-𝑝𝑝
-−4×𝑝𝑝−2×𝑝𝑝+3×𝑝𝑝−1×𝑝𝑝 
-=+6×𝑝𝑝+𝑝𝑝+𝑝𝑝+𝑝𝑝
-9
-1
-213031203300012303
-()()())
-(
-𝑝𝑝
-−4×𝑝𝑝−2×𝑝𝑝+3×𝑝𝑝−1×𝑝𝑝 
-=+6×𝑝𝑝+𝑝𝑝+𝑝𝑝+𝑝𝑝
-9
-1
-223332233003022000
-()()())
-(
-𝑝𝑝
-−4×𝑝𝑝−2×𝑝𝑝+3×𝑝𝑝−1×𝑝𝑝 
-=+6×𝑝𝑝+𝑝𝑝+𝑝𝑝+𝑝𝑝
-9
+The Unicode Standard
+UTF-8 and Unicode character encoding are described in  by the Unicode 
+Consortium. 
+EXAMPLE 1 A PDF dictionary containing key ‘Key’ with the value that is the text string "text‰" will look like 
+<</Key(text?)>> 
  
-In the more general tensor-product patch, the values of these four points are unrestricted. 
-The coordinates of the control points in a tensor-product patch shall be specified in the shading’s data 
-stream in the following order: 
-4 5 6 7 
-3 14 15 8 
-2 13 16 9 
-1 12 11 10 
+where the character ‘?’ after the ‘text’ is represented by the hex code 8B (octal code 213 - that is according to 
+NOTE 2  does not support all Unicode characters whereas UTF-16BE and UTF-8 do. 
+PDFDocEncoding
+"D.2 Latin character set and encodings")." 
+For text strings encoded in UTF-16BE, the first two bytes shall be 254 followed by 255. These two bytes 
+represent the Unicode byte order marker, ZERO WIDTH NO-BREAK SPACE (U+FEFF), indicating that 
+the string is encoded in the UTF-16BE (big-endian) encoding scheme specified in Unicode. 
+EXAMPLE 2 A PDF dictionary containing key ‘Key’ with the value that is the text string "тест" (that is what the word in 
+Russian with the translation to English as ‘test’) will look like 
+<</Key(??????????)>> 
+where the characters in parentheses is the sequence of bytes with hex codes FE, FF, 04, 42, 
+04, 35, 04, 41, 04, 42. 
+NOTE 3 This mechanism precludes beginning a string usingPDFDocEncodingwith the two characters 
+  
+thorn ydieresis, which is unlikely to be a meaningful beginning of a word or phrase. 
+For text strings encoded in UTF-8, the first three bytes shall be 239 followed by 187, followed by 191. 
+These three bytes represent the Unicode byte order marker indicating that the string is encoded in the 
+UTF-8 encoding scheme specified in Unicode. 
+NOTE 4 This mechanism precludes beginning a string using PDFDocEncoding with the three characters 
+dieresis, guillemotright, questiondown, which is unlikely to be a meaningful beginning of a word 
+or phrase. 
+PDF readers that process PDF files containing Unicode text strings shall be prepared to handle 
+supplementary characters; that is, characters requiring more than two bytes to represent. 
+NOTE 5 UTF-16BE must not be confused with UCS2 (i.e., wchar_t). UTF-16 is not a fixed width encoding 
+scheme. 
+7.9.2.2.1Text string language escape sequences 
  
-All control point coordinates shall be expressed in the shading’s target coordinate space. These shall be 
-f
-followed by the colour values for the four corners of the patch, in the same order as the corners 
-f
-themselves. If the patch’s edge flag  is 0, all 16 control points and four corner colours shall be explicitly 
-specified in the data stream. If  is 1, 2, or 3, the control points and colours for the patch’s shared edge 
-are implicitly understood to be the same as those along the specified edge of the previous patch and 
-f
-shall not be repeated in the data stream. "Table 85: Data values in a tensor-product patch mesh" 
-summarises the data values for various values of the edge flag , expressed in terms of the row and 
-column indices used in "Figure 47: Control points in a tensor-product patch". See 8.7.4.5.5, "Type 4 
-(free-form Gouraud-shaded triangle mesh) shadings" for further details on the format of the data. 
-Table 85: Data values in a tensor-product patch mesh 
-Edge Flag Next Set of Data Values 
-00000101020203031313232333333232
-𝑓𝑓=0 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦𝑥𝑥𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
-31313030202010101111121222222121
-𝑥𝑥𝑦𝑦 𝑥𝑥𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
-00033330
-c c c c  
+Escape sequences may appear anywhere in a Unicode text string to indicate the language in which 
+subsequent text shall be written. 
+NOTE 6 This is useful when the language cannot be determined from the character codes used in the text. 
+The escape sequence shall consist of the following elements, in order: 
  
-New patch; no implicit values 
-© ISO 2017 – All rights reserved 247 
+a)The Unicode value ESCAPE (U+001B) (that is, for strings encoded in UTF-16BE, the byte sequence 0 
+ 
+followed by 27; for strings encoded in UTF-8 the byte value 27). 
+b)A 2- byte BCP 47 language code. 
+EXAMPLE 3 en for English or ja for Japanese encoded as ASCII characters. 
+Optional
+ 
+c)() A 2-byte BCP 47 country code.  
+© ISO 2017 – All rights reserved 117 
 
 ISO/DIS 32000-2
  
-Edge Flag Next Set of Data Values 
-131323 23 3333323231313030
-𝑓𝑓=1 𝑥𝑥 𝑦𝑦 𝑥𝑥𝑦𝑦𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
-202010101111121222222121
-𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
-3330
-c c  
-Implicit values: 
-000003030003
+EXAMPLE 4 US for the United States or JP for Japan encoded as ASCII characters. 
+ 
+NOTE 7 The complete list of codes defined by BCP 47 can be obtained from the Internet Engineering Task 
+d)The Unicode value ESCAPE (U+001B).  
+Force and the International Organization for Standardization, respectively. 
+NOTE 8 Since Unicode defines an escape sequence for indicating the language of the text, this mechanism 
+enables the alternate description to change from the language specified by the prevailing  
+Lang
+entry. 
+7.9.2.3PDFDocEncoded string type 
+ 
+PDFDocEncoding
+A PDFDocEncoded string is a character string in which the characters shall be represented in a single 
+byte using . 
+NOTE  does not support all Unicode characters whereas UTF-16BE or UTF-8 do. 
+PDFDocEncoding
+7.9.2.4Byte string type 
+ 
+The byte string type shall be used for binary data that shall be represented as a series of bytes, where 
+each byte may be any value representable in 8 bits. Byte string type is a subtype of string type. For 
+example, byte strings are used to define a file identifier (see 14.4, "File identifiers") that is specified in 
+ID entry of PDF file trailer (see "Table 15: Entries in the file trailer dictionary"). In such case byte string 
+is written in hexadecimal form (see 7.3.4.3, "Hexadecimal strings") and looks like 
+<B6FB54F3F8554D478DC874F11DAD0F11> 
+NOTE The string can represent characters but the encoding is not known. The bytes of the string might 
+not represent characters. 
+7.9.3Text streams 
+ 
+text streamPDF 1.5
+A  () shall be a PDF stream object (7.3.8, "Stream objects") whose unencoded bytes 
+shall meet the same requirements as a text string (7.9.2.2, "Text string type") with respect to encoding, 
+byte order, and lead bytes. 
+7.9.4Dates 
+ 
+Date values used in a PDF shall conform to a standard date format, which closely follows that of the 
+international standard ASN.1 (Abstract Syntax Notation One), defined in ISO/IEC 8824. A date shall be a 
+text string containing no whitespace, of the form 
+YYYYMMDDHHmmSSOHH'mm
+(D:) 
+where: 
+YYYY
+MM
+ shall be the year 
+DD
+ shall be the month (01–12) 
+HH
+ shall be the day (01–31)  
+mm
+ shall be the hour (00–23)  
+ shall be the minute (00–59)  
+© ISO 2017 – All rights reserved 118 
+
+ISO/DIS 32000-2
+ 
+SS
+O
+ shall be the second (00–59) 
+ shall be the relationship of local time to Universal Time (UT), and shall be denoted by one of the 
+characters PLUS SIGN (U+002B) (+), HYPHEN-MINUS (U+002D) (-), or LATIN CAPITAL LETTER Z 
+HH
+(U+005A) (Z) (see below) 
+ followed by APOSTROPHE (U+0027) (') shall be the absolute value of the offset from UT in hours 
+mm
+(00–23) 
+ shall be the absolute value of the offset from UT in minutes (00–59) 
+The prefix D: shall be present, the year field (YYYY) shall be present and all other fields may be present 
+but only if all of their preceding fields are also present. The APOSTROPHE following the hour offset field 
+(HH) shall only be present if the HH field is present. The minute offset field (mm) shall only be present if 
+the APOSTROPHE following the hour offset field (HH) is present. The default values for MM and DD 
+shall be both 01; all other numerical fields shall default to zero values. A PLUS SIGN as the value of the O 
+field signifies that local time is now and later than UT, a HYPHEN-MINUS signifies that local time is 
+earlier than UT, and the LATIN CAPITAL LETTER Z signifies that local time is equal to UT. If no UT 
+information is specified, the relationship of the specified time to UT shall be considered to be GMT. 
+Regardless of whether the time zone is specified, the rest of the date shall be specified in local time. 
+EXAMPLE For example, December 23, 1998, at 7:52 PM, U.S. Pacific Standard Time, is represented by the string: 
+D:199812231952-08'00 
+NOTE PDF versions up to and including 1.7 defined a date string to include a terminating apostrophe. 
+PDF processors are recommended to accept date strings that still follow that convention. 
+7.9.5Rectangles 
+ 
+Rectangles are used to describe locations on a page and bounding boxes for a variety of objects. A 
+rectangle shall be written as an array of four numbers giving the coordinates of a pair of diagonally 
+opposite corners. 
+Typically, the array takes the form 
+xyxy
+ll
+llurur
+[
+   ] 
+xyxy
+xy
+ll
+ur
+specifying the lower-left , lower-left , upper-right , and upper-right  coordinates of the rectangle, in 
+xy
+ur
+ll
+that order. The other two corners of the rectangle are then assumed to have coordinates (
+, ) and 
 (
-)()
-𝑥𝑥
-=𝑥𝑥 previous  𝑐𝑐
-,𝑦𝑦,𝑦𝑦=𝑐𝑐 previous 
-010113130333
-()()
-𝑥𝑥=𝑥𝑥 previous  𝑐𝑐
-,𝑦𝑦,𝑦𝑦=𝑐𝑐 previous 
-02022323
-()()
-𝑥𝑥,𝑦𝑦=𝑥𝑥,𝑦𝑦 previous 
+, ). 
+7.9.6Name trees 
  
-03033333
-()
-(𝑥𝑥,𝑦𝑦)=𝑥𝑥,𝑦𝑦 previous
-131323233333323231313030
-𝑓𝑓=2 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
-202010101111121222222121
-𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
-3330
-𝑐𝑐 𝑐𝑐 
-Implicit values: 
-000033330033
-)()
-(
-=𝑥𝑥 previous  𝑐𝑐
-𝑥𝑥
-,𝑦𝑦,𝑦𝑦=𝑐𝑐 previous 
-010132320330
-()()
-𝑥𝑥=𝑥𝑥 previous  𝑐𝑐
-,𝑦𝑦,𝑦𝑦=𝑐𝑐 previous 
-02023131
-()
-(𝑥𝑥,𝑦𝑦)=𝑥𝑥,𝑦𝑦 previous 
-03033030
-()
-(𝑥𝑥,𝑦𝑦)=𝑥𝑥,𝑦𝑦 previous 
-131323233333323231313030
-𝑓𝑓=3 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
-202010101111121222222121
-𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
-3330
-𝑐𝑐 𝑐𝑐 
-Implicit values: 
-000030300030
-(
-)()
-𝑥𝑥
-=𝑥𝑥 previous  𝑐𝑐
-,𝑦𝑦,𝑦𝑦=𝑐𝑐 previous 
-010120200300
-()()
-𝑥𝑥=𝑥𝑥 previous  𝑐𝑐
-,𝑦𝑦,𝑦𝑦=𝑐𝑐 previous 
-02021010
-()
-(𝑥𝑥,𝑦𝑦)=𝑥𝑥,𝑦𝑦 previous 
-03030000
-()
-(𝑥𝑥,𝑦𝑦)=𝑥𝑥,𝑦𝑦 previous 
- 
-8.8External objects 
- 
-8.8.1General 
- 
-external objectXObject
-An  (commonly called an ) is a graphics object whose contents are defined by a 
-self-contained stream, separate from the content stream in which it is used. There are two types of 
-external objects: 
-image XObject
+A name tree serves a similar purpose to a dictionary — associating keys and values — but by different 
+means. A name tree differs from a dictionary in the following important ways: 
 • 
-An  (8.9.5, "Image dictionaries") represents a sampled visual image such as a 
-form XObject
 • 
-photograph. 
-A  (8.10, "Form XObjects") is a self-contained description of an arbitrary sequence of 
-group XObjectsreference XObjects
-graphics objects. 
-Two further categories of external objects,  and  (both PDF 1.4), are 
-actually specialised types of form XObjects with additional properties. See 8.10.3, "Group XObjects" and 
-8.10.4, "Reference XObjects" for additional information. 
-Do
-Any XObject can be painted as part of another content stream by means of the  operator (see "
+Unlike the keys in a dictionary, which are name objects, those in a name tree are strings. 
+• 
+The keys are ordered. 
+The values associated with the keys may be objects of any type. Stream objects shall be specified 
+by indirect object references (7.3.8, "Stream objects"). The dictionary, array, and string objects 
+should be specified by indirect object references, and other PDF objects (nulls, numbers, booleans, 
+and names) should be specified as direct objects. 
+© ISO 2017 – All rights reserved 119 
+
+ISO/DIS 32000-2
+ 
+• 
+The data structure can represent an arbitrarily large collection of key-value pairs, which can be 
+looked up efficiently without requiring the entire data structure to be read from the PDF file. (In 
+contrast, a dictionary can be subject to an implementation limit on the number of entries it can 
+contain.) 
+A name tree shall be constructed of nodes, each of which shall be a dictionary object. "

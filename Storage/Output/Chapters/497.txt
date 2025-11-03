@@ -1,0 +1,5 @@
+Figure 93: Positioning and scaling the near 
+plane onto the annotation’s 3D view box"). Although the diameter of the circle determines the scaling 
+factor, graphics outside the circle shall also be displayed, providing they fit within the view box, as seen 
+in the figure. 
+"

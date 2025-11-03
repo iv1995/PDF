@@ -1,0 +1,56 @@
+Table 292: Entries 
+in a media duration dictionary". It specifies a temporal duration. 
+NOTE 1 The  entry dictionary temporal duration corresponds to the notion of a simple duration in SMIL. 
+D
+intrinsic 
+duration
+The duration may be a specific amount of time, it may be infinity, or it may be the media’s 
+. 
+© ISO 2017 – All rights reserved 605 
+
+ISO/DIS 32000-2
+ 
+EXAMPLE The intrinsic duration of a two-hour QuickTime movie is two hours. 
+The intrinsic duration may be modified when a media clip section (see 13.2.4.3, "Media clip section") is 
+used: the intrinsic duration shall be the difference between the absolute begin and end offsets. For a 
+media type having no notion of time (such as a JPEG image), the duration shall be considered to be 
+infinity. 
+If the simple duration is longer than the intrinsic duration, the player shall freeze the media in its final 
+state until the simple duration has elapsed. For visual media types, the last appearance (frame) shall be 
+displayed. For aural media types, the media is logically frozen but shall not continue to produce sound. 
+NOTE 2 In this case, theentry, which specifies a repeat count, applies to the simple duration; therefore, 
+ RC 
+the entire play-pause sequence is repeatedtimes. 
+ RC 
+Table 292: Entries in a media duration dictionary 
+Key Type Value 
+Optional
+Type 
+MediaDuration
+name () The type of PDF object that this dictionary describes; if present, shall 
+be  for a media duration dictionary. 
+Required
+S 
+I
+name () The subtype of media duration dictionary. Valid values are:  
+F
+ The duration is the intrinsic duration of the associated media 
+T
+T
+ The duration is infinity 
+ The duration shall be specified by the  entry 
+The media duration dictionary is non-viable if the interactive PDF processor 
+does not recognise the value of this entry. 
+Required if the value of  is T otherwise ignored
+T S;
+dictionary () A timespan dictionary 
+specifying an explicit duration (see "Table 300: Entries in a timespan 
+dictionary"). A negative duration shall not be permitted. 
+ 
+13.2.6Media screen parameters 
+ 
+13.2.6.1General 
+ 
+media screen parameters dictionary
+MH BE 
+A  (see "

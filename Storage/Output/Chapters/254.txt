@@ -1,153 +1,116 @@
-Figure 91: Perspective projection of 3D artwork onto the near plane"). Objects, or parts of 
-objects, that are beyond the far plane or closer to the camera than the near plane are not drawn. 3D 
-objects shall be projected onto the near plane and then scaled and positioned within the annotation’s 
-target coordinate system, as described in "Table 316: Entries in a projection dictionary". 
-Table 316: Entries in a projection dictionary 
-Key Type Value 
-RequiredOP
-Subtype 
-name () The type of projection. Valid values shall be  (orthographic) or  
-(perspective). 
-OptionalXNFANF
-CS 
-ANF
-name () The clipping style. Valid values shall be  (explicit near/far) or  
-(automatic near/far). Default value: . 
-Optional; meaningful only if the value of  is XNF
-F CS
-z
-number () The far clipping distance, 
-expressed in the camera coordinate system. No parts of objects whose  coordinates 
-are greater than the value of this entry are drawn. If this entry is absent, no far 
-clipping occurs. 
-XNFP
-N CSSubtype
-number (Meaningful only if the value of  is ; required if the value of  is ) The 
-zP
-Subtype
-near clipping distance, expressed in the camera coordinate system. No parts of objects 
-O
-Subtype
-whose  coordinates are less than the value of this entry are drawn. If  is , 
-the value shall be positive; if  is , the value shall be non-negative, and the 
-default value is 0. 
-Required if  is P, ignored otherwise
-FOV Subtype
-number () A number between 0 and 180, inclusive, 
-z
-specifying the field of view of the virtual camera, in degrees. It defines a cone in 3D 
-PS
-space centred around the  axis and a circle where the cone intersects the near 
-clipping plane. The circle, along with the value of , specify the scaling of the 
-projected artwork when rendered in the 2D plane of the annotation. 
-Optional; meaningful only if  is P
-PS Subtype
-number or () An object that specifies the scaling used 
-name when projecting the 3D artwork onto the annotation’s target coordinate system. It 
-FOV
-defines the diameter of the circle formed by the intersection of the near plane and the 
-• 
-cone specified by . The value may be one of the following:  
-A positive number that explicitly specifies the diameter as a distance in the 
-WH
-• 
-annotation’s target coordinate system. 
-MinMax
-A name specifying that the diameter shall be set to the width (), height (), 
-minimum of width and height (), or maximum of width and height () of 
-the annotation’s 3D view box. 
-Default value: W. 
-Optional; meaningful only if  is O
-OS Subtype
-xy
-number () A positive number that specifies the scale 
-z
-factor to be applied to both the  and  coordinates when projecting onto the 
-annotation’s target coordinate system (the  coordinate is discarded). Default value: 1. 
-© ISO 2017 – All rights reserved 636 
+Figure 62: Output from the example in 9.6.5, "Type 3 fonts" shows 
+© ISO 2017 – All rights reserved 313 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional; PDF 1.7; meaningful only if  is O
-OB Subtype
-xy
-name () A name that specifies a strategy for 
-binding (scaling to fit) the near plane’s  and  coordinates onto the annotation’s 
-OS
-target coordinate system. The scaling specified in this entry shall be applied in 
-addition to the scaling factor specified by the  entry. The value may be one of the 
-W
-following:  
-H
- Scale to fit the width of the annotation 
-Min
- Scale to fit the height of the annotation 
-Max
- Scale to fit the lesser of width or height of the annotation 
-Absolute
- Scale to fit the greater of width or height of the annotation  
-Absolute
- No scaling should occur due to binding. 
-Default value: . 
+the result of showing the string ( ababab ) using this font. ![Figure 62 Output from the example in 965, Type 3 fonts  .png](./Storage/Output/Images/Figure 62 Output from the example in 965, Type 3 fonts  .png)
+Figure 62: Output from the example in 9.6.5, "Type 3 fonts" 
  
-XNF
-CSN
-zANF
-FCS
-The  entry defines how the near and far planes are determined. A value of  means that the  and 
- entries explicitly specify the  coordinate of the near and far planes, respectively. A value of  for  
-means that the near and far planes shall be determined automatically based on the objects in the 
-artwork. 
-Subtype
-Oorthographic projectionPperspective 
-The  entry specifies the type of projection, which determines how objects are projected onto 
-projection
-the near plane and scaled. The possible values are  for  and  for 
-. 
-z
-For orthographic projection, objects shall be projected onto the near plane by simply discarding their  
-OSOB
-value. They shall be scaled from units of the near plane’s coordinate system to those of the annotation’s 
-target coordinate system by the combined factors specified by the  entry and the  entry. 
-xyz
-For perspective projection, a given coordinate (, , ) shall be projected onto the near plane, defining a 
-11
-2D coordinate (x
-, y) using the following formulas: 
-𝑛𝑛
-1
-𝑥𝑥
-=𝑥𝑥× 
-𝑧𝑧
-𝑛𝑛
-1
-nz
-𝑦𝑦
-=𝑦𝑦× 
-𝑧𝑧
-where  is the  coordinate of the near plane. 
-FOV
-z
-Scaling with perspective projection is more complicated than for orthographic projection. The  
-entry specifies an angle that defines a cone centred along the  axis in the camera coordinate system 
-(see "Figure 91: Perspective projection of 3D artwork onto the near plane"). The cone intersects with 
-the near plane, forming a circular area on the near plane. "Figure 92: Objects projected onto the near 
-clipping plane, as seen from the position of the camera" shows this circle and graphics from the position 
-of the camera. 
-© ISO 2017 – All rights reserved 637 
+ 
+%Snippet of page content stream that places several Type 3 font strings onto the page 
+ … 
+ 0.2 0.8 0.0 rg 
+ 0.1 0.4 0.0 RG 
+ BT 
+  /FT3 15 Tf 
+  300 400 Td 
+  (ab) Tj 
+  0.8 0.2 0.0 rg 
+  0.4 0.1 0.0 RG 
+  (ab) Tj 
+  0.8 0.8 0.2 rg 
+  0.4 0.4 0.1 RG 
+  (ab) Tj 
+ ET 
+ … 
+ 
+ 
+%Type 3 font definition encoding two glyphs, 'a' and 'b'. 
+4 0 obj 
+ << 
+  /Type /Font 
+  /Subtype /Type3 
+  /FontBBox [-36 -36 786 786] 
+  /FontMatrix [0.001 0 0 0.001 0 0] 
+  /CharProcs 10 0 R 
+  /Encoding 9 0 R 
+  /FirstChar 97 
+  /LastChar 104 
+  /Widths [1000 1000] 
+ >> 
+endobj 
+ 
+9 0 obj 
+ << 
+  /Type /Encoding 
+  /Differences [97 /square /triangle] 
+ >> 
+endobj 
+ 
+10 0 obj 
+ << 
+  /square 11 0 R 
+  /triangle 12 0 R 
+ >> 
+endobj 
+ 
+%Type 3 "square" glyph description 
+© ISO 2017 – All rights reserved 314 
 
 ISO/DIS 32000-2
- ![Figure 91 Perspective projection of 3D artwork onto the near plane  .png](./Storage/Output/Images/Figure 91 Perspective projection of 3D artwork onto the near plane  .png)
-Figure 91: Perspective projection of 3D artwork onto the near plane 
- ![70.png](./Storage/Output/Images/70.png)
-Figure 92: Objects projected onto the near clipping plane, as seen from the position of the 
  
-camera 
- PS 
-Theentry specifies the diameter that this circle will have when the graphics projected onto the near 
-plane are rendered in the annotation’s 3D view box (see "Figure 93: Positioning and scaling the near 
-plane onto the annotation’s 3D view box"). Although the diameter of the circle determines the scaling 
-factor, graphics outside the circle shall also be displayed, providing they fit within the view box, as seen 
-in the figure. 
-"
+11 0 obj 
+  <</Length …>> 
+stream 
+ 1000 0 -36 -36 786 786 d1     %uncoloured glyph - defines only shape 
+ 72 w 
+ 0 0 750 750 re 
+ B 
+endstream 
+endobj 
+ 
+%Type 3 "triangle" glyph description 
+12 0 obj 
+  <</Length …>> 
+stream 
+ 1000 0 d0          %coloured glyph - defines colour and shape 
+ 72 w 
+ 0.2 0.6 0.8 rg 
+ 0.1 0.3 0.4 RG 
+ 0 0 m 
+ 375 750 l 
+ 750 0 l 
+ b 
+endstream 
+endobj 
+ 
+9.6.5Character encoding 
+ 
+9.6.5.1General 
+ 
+A font’s encoding is the association between character codes (obtained from text strings that are 
+shown) and glyph descriptions. This subclause describes the character encoding scheme used with 
+simple PDF fonts. Composite fonts (Type 0) use a different character mapping algorithm, as discussed in 
+9.7, "Composite fonts". 
+Except for Type 3 fonts, every font program shall have a built-in encoding. Under certain circumstances, 
+a PDF font dictionary may change the encoding used with the font program to match the requirements 
+of the PDF writer generating the text being shown. 
+This flexibility in character encoding is valuable for two reasons: 
+• 
+  
+It permits showing text that is encoded according to any of the various existing conventions. For 
+TM
+example, the Microsoft Windows
+ and AppleMacOS operating systems use different standard 
+• 
+encodings for Latin text, and many PDF writers use their own special-purpose encodings. 
+It permits PDF writers to specify how characters selected from a large character set are to be 
+encoded. 
+Some character sets consist of more than 256 characters, including ligatures, accented characters, and 
+other symbols required for high-quality typography or non-Latin writing systems. Different encodings 
+may select different subsets of the same character set. 
+StandardEncodingStandardEncoding
+One commonly used font encoding for Latin-text font programs is often referred to as 
+. The name  shall have no special meaning in PDF, but this encoding 
+  
+does play a role as a default encoding (as shown in "

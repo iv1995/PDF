@@ -1,0 +1,64 @@
+Table 170: Entries in an appearance dictionary" shows the contents of the 
+appearance dictionary. 
+Table 170: Entries in an appearance dictionary 
+Key Type Value 
+(Required) 
+N 
+stream or dictionary The annotation’s normal appearance. 
+(Optional) 
+R 
+N
+stream or dictionary The annotation’s rollover appearance. Default value: the value 
+of the  entry. 
+(Optional) 
+D 
+N
+stream or dictionary The annotation’s down appearance. Default value: the value of 
+the  entry. 
+ 
+appearance subdictionary
+Each entry in the appearance dictionary may contain either a single appearance stream or an 
+appearance states
+. In the latter case, the subdictionary shall define multiple appearance streams 
+corresponding to different  of the annotation. 
+OnOff
+EXAMPLE An annotation representing an interactive check box may have two appearance states named  and . Its 
+appearance dictionary may be defined as 
+/AP  <</N <</On formXObject1 
+     /Off formXObject2 
+    >> 
+   /D <</On formXObject3 
+     /Off formXObject4 
+    >> 
+  > 
+ 
+ormXObject1ormXObject2
+formXObject3formXObject4
+where f and f define the check box’s normal appearance in its checked and 
+R
+unchecked states, and  and  provide visual feedback, such as emboldening its 
+outline, when the user clicks it. (No  entry is defined because no special appearance is needed when 
+ AS 
+the user moves the cursor over the check box without pressing the mouse button.) The choice between 
+the checked and unchecked appearance states is determined by theentry in the annotation 
+dictionary (see "Table 166: Entries common to all annotation dictionaries"). 
+N
+If a PDF processor does not have native support for a particular annotation type, the PDF processor 
+ AS 
+shall render the annotation with its normal () appearance. PDF processors shall also attempt to 
+provide reasonable behaviour (such as displaying nothing) if an annotation’sentry designates an 
+appearance state for which no appearance is defined in the appearance dictionary. 
+ AP 
+For convenience in managing appearance streams that are used repeatedly, theentry in a PDF 
+© ISO 2017 – All rights reserved 463 
+
+ISO/DIS 32000-2
+ 
+document’s name dictionary (see 7.7.4, "Name dictionary") may contain a name tree mapping name 
+strings to appearance streams. The name strings have no standard meanings; no PDF objects may refer 
+to appearance streams by name. 
+12.5.6Annotation types 
+ 
+12.5.6.1General 
+ 
+PDF supports the standard annotation types listed in "

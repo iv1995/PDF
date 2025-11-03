@@ -1,369 +1,40 @@
-Foreword ..................................................................................................................................................................... 1
-Introduction ............................................................................................................................................................... 2
+3Notation 
  
-Document management – Portable Document Format – Part 2: PDF 2.0 ................................................ 7
+PDF operators, PDF keywords, the names of keys in PDF dictionaries, and other predefined names are 
+written in bold font; words that denote operands of PDF operators or values of dictionary keys are 
+written in italic font. An italic font is also used to introduce key concepts or reference specific terms of 
+importance. 
+NOTE 1 If a word or phrase is used as both a keyword and a value, the notation used in this International 
+Standard will default to italic font unless doing so would cause undue confusion. 
+NOTE 2 For backwards compatibility, words denoting predefined names, operands or values and other 
+specific terms of importance use US English spelling. 
+Token characters used to delimit objects and describe the structure of PDF files, as defined in 7.2, 
+"Lexical conventions", are identified by their ANSI X3.4-1986 (ASCII 7-bit USA codes) character name 
+written in upper case in font followed by a parenthetic two digit hexadecimal character value with the 
+suffix "h". 
+Characters in text streams, as defined by 7.9.2, "String object types", are identified by their Unicode 
+character name written in uppercase in font followed by a parenthetic four digit hexadecimal character 
+code value with the prefix "U+" as shown in the Example in this clause. 
+EXAMPLE EN SPACE (U+2002) 
+3.1Established notations 
  
-1Scope ............................................................................................................................................................... 7
- 
-2Normative references ................................................................................................................................ 8
-  
-  
-3Notation ...................................................................................................................................................... 15
-3.1Established notations ............................................................................................................................. 15
-  
-4Terms and definitions ............................................................................................................................ 16
-  
-5Version designations .............................................................................................................................. 23
-  
-6Conformance ............................................................................................................................................. 24
-  
-6.1Conforming PDF documents ................................................................................................................. 24
-  
-6.2PDF processors ......................................................................................................................................... 24
-  
-7Syntax .......................................................................................................................................................... 26
-  
-7.1General ........................................................................................................................................................ 26
-  
-7.2Lexical conventions ................................................................................................................................. 27
-  
-7.3Objects......................................................................................................................................................... 29
-  
-7.4Filters .......................................................................................................................................................... 40
-  
-7.5File structure ............................................................................................................................................. 58
-  
-7.6Encryption ................................................................................................................................................. 75
-  
-7.7Document structure ................................................................................................................................ 99
-  
-7.8Content streams and resources ......................................................................................................... 111
-  
-7.9Common data structures ..................................................................................................................... 115
-  
-7.10Functions .................................................................................................................................................. 123
-  
-7.11File specifications .................................................................................................................................. 132
-  
-7.12Extensions dictionary ........................................................................................................................... 140
-  
-8Graphics .................................................................................................................................................... 143
+Due to the historical development of PDF and the requirement to remain backward compatible with 
+existing PDF files, the notations used for keys and numbers in PDF files use United States English 
+Alternate
+conventions, while the rest of the language in this document conforms to recommended ISO Worldwide 
+Color
+English in most cases. For example, within a PDF you will encounter the key  whereas ISO’s 
+standard English would use the term Alternative. Likewise PDF files use the key  rather than ISO’s 
+artifactartefact
+standard English term Colour. Exceptions to this are found where switching between the two spellings 
+could cause confusion, such as with the term  and the word . In cases such as these, this 
+International Standard will use the spelling of the term of art throughout the entirety of the document 
+rather than switching between two spellings. Real numbers that contain a decimal radix separator use 
+the PERIOD (2Eh) character and not the COMMA (2Ch) as used in ISO’s standard English. Numbers do 
+not include spaces. 
  
  
-8.1General ...................................................................................................................................................... 143
-  
-8.2Graphics objects ..................................................................................................................................... 143
-  
-8.3Coordinate systems ............................................................................................................................... 147
-  
-8.4Graphics state ......................................................................................................................................... 154
-  
-8.5Path construction and painting ......................................................................................................... 166
-  
-8.6Colour spaces .......................................................................................................................................... 174
-  
-8.7Patterns .................................................................................................................................................... 214
-  
-8.8External objects ...................................................................................................................................... 248
-  
-  
-© ISO 2017 – All rights reserved iii 
+© ISO 2017 – All rights reserved 15 
 
 ISO/DIS 32000-2
  
-8.9Images ....................................................................................................................................................... 249
-8.10Form XObjects......................................................................................................................................... 265
-  
-8.11Optional content .................................................................................................................................... 271
-  
-9Text ............................................................................................................................................................ 287
-  
-9.1General ...................................................................................................................................................... 287
-  
-9.2Organization and use of fonts ............................................................................................................ 287
-  
-9.3Text state parameters and operators .............................................................................................. 294
-  
-9.4Text objects ............................................................................................................................................. 300
-  
-9.5Introduction to font data structures ................................................................................................ 305
-  
-9.6Simple fonts ............................................................................................................................................. 306
-  
-9.7Composite fonts ...................................................................................................................................... 320
-  
-9.8Font descriptors ..................................................................................................................................... 336
-  
-9.9Embedded font programs ................................................................................................................... 344
-  
-9.10Extraction of text content .................................................................................................................... 348
-  
-10Rendering ................................................................................................................................................. 352
-  
-10.1General ...................................................................................................................................................... 352
-  
-10.2Raster output device native colour .................................................................................................. 353
-  
-10.3CIE-Based colour to device colour .................................................................................................... 353
-  
-10.4Conversions among device colour spaces ...................................................................................... 353
-  
-10.5Transfer functions ................................................................................................................................. 356
-  
-10.6Halftones .................................................................................................................................................. 357
-  
-10.7Scan conversion details ....................................................................................................................... 373
-  
-10.8Rendering for separations .................................................................................................................. 377
-  
-11Transparency .......................................................................................................................................... 378
-  
-11.1General ...................................................................................................................................................... 378
-  
-11.2Overview of transparency ................................................................................................................... 378
- 
- 
-11.3Basic compositing computations ...................................................................................................... 380
-  
-11.4Transparency groups ........................................................................................................................... 393
-  
-11.5Soft masks ................................................................................................................................................ 405
-  
-11.6Specifying transparency in PDF ........................................................................................................ 406
-  
-11.7Colour space and rendering issues .................................................................................................. 416
-  
-12Interactive features ............................................................................................................................... 427
-  
-12.1General ...................................................................................................................................................... 427
-  
-12.2Viewer preferences ............................................................................................................................... 427
-  
-12.3Document-level navigation ................................................................................................................. 430
-  
-12.4Page-level navigation ........................................................................................................................... 447
-  
-12.5Annotations ............................................................................................................................................. 454
-  
-12.6Actions ...................................................................................................................................................... 491
-  
-  
-© ISO 2017 – All rights reserved iv 
-
-ISO/DIS 32000-2
- 
-12.7Forms ......................................................................................................................................................... 513
-12.8Digital signatures ................................................................................................................................... 549
-  
-12.9Measurement properties..................................................................................................................... 576
-  
-12.10Geospatial features ............................................................................................................................... 582
-  
-12.11Document requirements ..................................................................................................................... 586
-  
-13Multimedia features.............................................................................................................................. 593
-  
-13.1General ...................................................................................................................................................... 593
-  
-13.2Multimedia ............................................................................................................................................... 593
-  
-13.3Sounds ....................................................................................................................................................... 615
-  
-13.4Movies ....................................................................................................................................................... 617
-  
-13.5Alternate presentations ....................................................................................................................... 618
-  
-13.63D Artwork .............................................................................................................................................. 620
-  
-13.7Rich media ............................................................................................................................................... 675
-  
-14Document interchange ......................................................................................................................... 688
-  
-14.1General ...................................................................................................................................................... 688
-  
-14.2Procedure sets ........................................................................................................................................ 688
-  
-14.3Metadata ................................................................................................................................................... 689
-  
-14.4File identifiers ........................................................................................................................................ 693
-  
-14.5Page-piece dictionaries ........................................................................................................................ 694
-  
-14.6Marked content ...................................................................................................................................... 695
-  
-14.7Logical structure .................................................................................................................................... 697
-  
-14.8Tagged PDF .............................................................................................................................................. 719
-  
-14.9Repurposing and accessibility support .......................................................................................... 764
-  
-14.10Web capture ............................................................................................................................................ 771
-  
-14.11Prepress support ................................................................................................................................... 783
-  
-14.12Document parts ...................................................................................................................................... 801
- 
- 
-14.13Associated files ....................................................................................................................................... 805
-  ![0.png](./Storage/Output/Images/0.png)
- Operator Summary ............................................................................................................................ 811
-  ![1.png](./Storage/Output/Images/1.png)
- Operators in Type 4 Functions ....................................................................................................... 815
- ![2.png](./Storage/Output/Images/2.png)
- Advice on Maximising Portability .................................................................................................. 817
- ![3.png](./Storage/Output/Images/3.png)
- Character Sets and Encodings......................................................................................................... 820
- ![4.png](./Storage/Output/Images/4.png)
- PDF Name Registry ............................................................................................................................. 844
- ![5.png](./Storage/Output/Images/5.png)
- Linearized PDF ..................................................................................................................................... 846
- ![6.png](./Storage/Output/Images/6.png)
- Linearized PDF Access Strategies .................................................................................................. 868
- ![7.png](./Storage/Output/Images/7.png)
- Example PDF Files .............................................................................................................................. 872
- ![8.png](./Storage/Output/Images/8.png)
- PDF versions and compatibility ...................................................................................................... 902
- ![9.png](./Storage/Output/Images/9.png)
- XObject comparison ............................................................................................................................ 904
- ![10.png](./Storage/Output/Images/10.png)
- XFA forms .............................................................................................................................................. 910
- 
- 
-© ISO 2017 – All rights reserved v 
-
-ISO/DIS 32000-2
- ![11.png](./Storage/Output/Images/11.png)
- Parent-child relationships between standard structure elements ..................................... 913![12.png](./Storage/Output/Images/12.png)
- Standard structure elements in the default (PDF 1.7) namespace ..................................... 932
- ![13.png](./Storage/Output/Images/13.png)
- Best practice for halftones ............................................................................................................... 933
- ![14.png](./Storage/Output/Images/14.png)
- Fragment identifiers.......................................................................................................................... 936
- ![15.png](./Storage/Output/Images/15.png)
- An algorithm to determine the actual blending colour space of a transparency group939
- 
-Bibliography.......................................................................................................................................................... 941
- 
- 
- 
- 
-© ISO 2017 – All rights reserved vi 
-
-ISO/DIS 32000-2
- 
-Foreword 
-ISO (the International Organization for Standardization) is a worldwide federation of national 
-standards bodies (ISO member bodies). The work of preparing International Standards is normally 
-carried out through ISO technical committees. Each member body interested in a subject for which a 
-technical committee has been established has the right to be represented on that committee. 
-International organizations, governmental and non-governmental, in liaison with ISO, also take part in 
-the work. ISO collaborates closely with the International Electrotechnical Commission (IEC) on all 
-matters of electrotechnical standardization. 
-The procedures used to develop this document and those intended for its further maintenance are 
-described in the ISO/IEC Directives, Part 1. In particular the different approval criteria needed for the 
-different types of ISO documents should be noted. This document was drafted in accordance with the 
-editorial rules of the ISO/IEC Directives, Part 2 (see http://www.iso.org/directives
-). 
-Attention is drawn to the possibility that some of the elements of this document may be the subject of 
-patent rights. ISO shall not be held responsible for identifying any or all such patent rights. Details of 
-any patent rights identified during the development of the document will be in the Introduction and/or 
-on the ISO list of patent declarations received (see http://www.iso.org/patents
-). 
-Any trade name used in this document is information given for the convenience of users and does not 
-constitute an endorsement. 
-For an explanation on the meaning of ISO specific terms and expressions related to conformity 
-assessment, as well as information about ISO’s adherence to the World Trade Organization (WTO) 
-principles in the Technical Barriers to Trade (TBT) (see http://ww.iso.org/iso/foreword.html
-). 
-The International Organization for Standardization (ISO) draws attention to the fact that it is claimed 
-that compliance with this document may involve the use of patents concerning the creation, 
-modification, display and processing of PDF files which are owned by Adobe Systems Incorporated, 345 
-Park Avenue, San Jose, California, 95110-2704, USA. ISO takes no position concerning the evidence, 
-validity and scope of these patent rights. The holders of these patent rights have assured the ISO that 
-they are willing to negotiate licenses under reasonable and non-discriminatory terms and conditions 
-with applicants throughout the world. In this respect, the statements of the holders of these patent 
-rights are registered with ISO. Information may be obtained from those parties listed above. 
-Attention is drawn to the possibility that some of the elements of this document may be the subject of 
-patent rights other than those identified above. ISO shall not be held responsible for identifying any or 
-all such patent rights. 
-.
-ISO 32000-2 was prepared by Technical Committee ISO/TC 171, Document management applications, 
-SC 2, Application issues, WG 8, PDF, in cooperation with ISO/TC 130, Graphic technology 
-Document Management— Portable 
-Document Format:
-ISO 32000 consists of the following parts, under the general title 
- 
-• 
-• 
-Part 1: PDF 1.7 
- 
-Part 2: PDF 2.0 
-Part 2 defines a newer, substantially revised and extended version of PDF. 
-© ISO 2017 – All rights reserved 1 
-
-ISO/DIS 32000-2
- 
-Introduction 
-PDF 
-PDF enables users to exchange and view electronic documents easily and reliably, independent of the 
-environment in which they were created or the environment in which they are viewed or printed.  
-At the core of PDF is an advanced imaging model derived from the PostScript® page description 
-language. This PDF Imaging Model enables the description of text and graphics in a device-independent 
-and resolution-independent manner at a complete, precise and professional level. Unlike PostScript, 
-which is a programming language, PDF is based on a structured binary file format that is optimised for 
-high performance in interactive viewing.  
-PDF includes objects such as annotations and hypertext links that are not part of the page content itself 
-but are useful for interactive viewing and document interchange. PDF also includes data structures such 
-as tagged PDF, XMP and an associated files mechanism, that are useful for document management and 
-content reuse. 
-PDF files can be created natively in PDF form, converted from other electronic formats. Since PDF 
-supports a wide range of image and compression technologies, it is a suitable format for documents 
-digitised from paper, microform, or other hard copy formats. Businesses, governments, libraries, 
-archives and other institutions and individuals around the world use PDF to represent considerable 
-bodies of important information. Since its introduction in 1993, aided by the explosive growth of the 
-Internet, PDF has become widely used for the electronic exchange of documents. 
-There are several specific applications of PDF that have evolved in which limiting the use of some 
-features of PDF while requiring the use of others, enhances the usefulness of PDF. The following ISO 
-standards address specialised uses of PDF: 
-• 
-PDF/X (ISO 15930) is the industry standard for the intermediate representation of printed 
-• 
-material in electronic prepress systems for conventional printing applications. 
-• 
-PDF/A (ISO 19005) is the industry standard for the archiving of digital documents. 
-• 
-PDF/UA (ISO 14289) is the industry standard for accessible PDF documents and processors. 
-PDF/E (ISO 24517) provides a mechanism for representing engineering documents and 
-• 
-exchanging engineering data. 
-PDF/VT (ISO 16612-2) is for high volume printing of personalised documents including variable 
-data. 
-As corporations, government agencies, and educational institutions streamline their operations by 
-replacing paper-based workflows with electronic exchange of information, the impact and opportunity 
-for the application of PDF will continue to grow at a rapid pace. 
-PDF, together with software for creating, viewing, printing and processing PDF files in a variety of ways, 
-fulfils a set of requirements for electronic documents including: 
-• 
-• 
-preservation of document fidelity independent of the device, platform, and software, 
-merging of content from diverse sources — Web sites, word processing and spreadsheet 
-programs, scanned documents, photos, and graphics — into one self-contained document while 
-maintaining the integrity of all original source documents, 
-© ISO 2017 – All rights reserved 2 
-
-ISO/DIS 32000-2
- 
-• 
-• 
-an extensible metadata model at the document and object level, 
-• 
-collaborative editing of documents from multiple locations or platforms, 
-• 
-digital signatures to certify authenticity, 
-security and permissions to allow the creator to retain control of the document and associated 
-• 
-rights, 
-• 
-accessibility of content to those with disabilities, 
-• 
-extraction and reuse of content for use with other file formats and applications, and 

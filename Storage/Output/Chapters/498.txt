@@ -1,0 +1,28 @@
+Figure 94: 3D annotation positioned on the page" shows the entire 3D annotation. In this case, the 3D 
+view box is smaller than the annotation’s rectangle, which also contains 2D content outside the 3D view 
+box. 
+© ISO 2017 – All rights reserved 638 
+
+ISO/DIS 32000-2
+ ![Figure 93 Positioning and scaling the near plane onto the annotation’s 3D view box  .png](./Storage/Output/Images/Figure 93 Positioning and scaling the near plane onto the annotation’s 3D view box  .png)
+Figure 93: Positioning and scaling the near plane onto the annotation’s 3D view box 
+ ![Figure 94 3D annotation positioned on the page  .png](./Storage/Output/Images/Figure 94 3D annotation positioned on the page  .png)
+Figure 94: 3D annotation positioned on the page 
+ 
+13.6.4.33D background dictionaries 
+ 
+3D background dictionary
+A  defines the background over which a 3D view shall be drawn. "Table 317: 
+ DeviceRGB 
+Entries in a 3D background dictionary" shows the entries in a background dictionary. Currently, only a 
+single opaque colour is supported, where the colour shall be defined in thecolour space. 3D 
+artwork may include transparent objects; however, there is no interaction between such objects and 
+objects drawn below the annotation. In effect, the 3D artwork and its background form a transparency 
+group whose flattened results have an opacity of 1 (see 11, "Transparency"). 
+© ISO 2017 – All rights reserved 639 
+
+ISO/DIS 32000-2
+ 
+NOTE An annotation’s normal appearance needs to have the same behaviour with respect to 
+transparency when the appearance is intended to depict the 3D artwork. This does not apply when 
+the appearance is used for another purpose, such as a compatibility warning message. 

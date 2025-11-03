@@ -1,0 +1,87 @@
+Table 217: Additional entries specific to a set-OCG-state action" shows the action 
+dictionary entries specific to this type of action. 
+Table 217: Additional entries specific to a set-OCG-state action 
+Key Type Value 
+(Required) SetOCGState
+S   
+name The type of action that this dictionary describes; shall be
+for a set-OCG-state action. 
+(Required) 
+State 
+ONOFFToggle
+array An array consisting of any number of sequences beginning with a 
+name object (, , or ) followed by one or more optional content 
+group dictionaries. The array elements shall be processed from left to right; each 
+name shall be applied to the subsequent groups until the next name is 
+ONON
+ .  
+encountered: 
+OFFOFF.
+   
+ sets the state of subsequent groups to
+Toggle 
+ sets the state of subsequent groups to
+reverses the state of subsequent groups. 
+Optionaltrue
+PreserveRB 
+ RBGroups 
+boolean () If , indicates that radio-button state relationships between 
+optional content groups (as specified by theentry in the current 
+State
+configuration dictionary; see "Table 99: Entries in an optional content 
+ONONToggle
+    
+configuration dictionary") should be preserved when the states in the  
+State
+array are applied. That is, if a group is set to(either byor ) during 
+OFFOFF
+processing of the  array, any other groups belonging to the same radio-
+button group shall be turned . If a group is set to , there is no effect on 
+false
+ PreserveRB 
+other groups. 
+true
+Ifis , radio-button state relationships, if any, shall be ignored. 
+Default value: . 
+ 
+State
+When a set-OCG-state action is performed, the  array shall be processed from left to right. Each 
+name shall be applied to subsequent groups in the array until the next name is encountered, as shown 
+in the following example. 
+EXAMPLE 1  
+<</S /SetOCGState 
+ /State [/OFF 2 0 R 3 0 R /Toggle 16 0 R 19 0 R /ON 5 0 R] 
+>> 
+ 
+State
+ONOFFToggle
+  
+A group may appear more than once in the  array; its state shall be set each time it is encountered, 
+based on the most recent name. ,and  sequences have no required order. More than one 
+sequence in the array may contain the same name. 
+ON
+  
+EXAMPLE 2 If the array contained [/OFF 1 0 R /Toggle 1 0 R], the group’s state would beafter the action was performed. 
+NOTE While the specification allows a group to appear more than once in the State array, this is not 
+intended to implement animation or any other sequential drawing operations. PDF processing 
+applications are free to accumulate all state changes and apply only the net changes 
+simultaneously to all affected groups before redrawing. 
+12.6.4.14Rendition actions 
+ 
+rendition actionPDF 1.5
+A  () controls the playing of multimedia content (see 13, "Multimedia features"). 
+This action may be used in the following ways: 
+© ISO 2017 – All rights reserved 508 
+
+ISO/DIS 32000-2
+ 
+• 
+To begin the playing of a rendition object (see 13.2.3, "Renditions"), associating it with a screen 
+annotation (see 12.5.6.18, "Screen annotations"). The screen annotation specifies where the 
+• 
+rendition shall be played unless otherwise specified. 
+  
+• 
+To stop, pause, or resume a playing rendition. 
+To trigger the execution of anECMAScriptscript that may perform custom operations. 
+"

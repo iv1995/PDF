@@ -1,0 +1,47 @@
+Table 345: Entries in a View Params dictionary 
+Key Type Value 
+Required; PDF 2.0
+Instance  
+ Instances
+dictionary () A dictionary that shall be an indirect object reference to a
+RichMediaInstancedictionary that is also present in the  array of the 
+annotation. 
+Required; PDF 2.0
+Data 
+text string () A text string or stream containing state data that shall be 
+or stream passed to the instance when the view is triggered. 
+ 
+Data
+InstanceView
+The  entry ("Table 345: Entries in a View Params dictionary") is used to store and load opaque 
+data specific to the  referenced in the same dictionary when a  is activated. 
+NOTE This system allows content-specific state information to be stored when a view is created, such as 
+during a comment or drawing markup. 
+© ISO 2017 – All rights reserved 686 
+
+ISO/DIS 32000-2
+ 
+13.7.2.3.6.2Saving state data 
+ 
+View
+StateEvent
+ 
+When the  is created, the run time shall iterate through all active instances for the current 
+configuration and query them for state data. For 3D content, an ECMAScript is invoked with 
+Data
+the type property set to the value save. After the event is handled, the value for the data property, if it is 
+present and can be interpreted as a string, shall be stored as the value for . 
+13.7.2.3.6.3Loading state data 
+ 
+View
+StateEvent
+,  
+When the  is activated, the run time shall iterate through each View Params dictionary and load 
+Data
+the state data for each instance referenced. For 3D contentan ECMAScript is invoked with 
+the type property set to the value load and the data property set to the value stored for . 
+  
+© ISO 2017 – All rights reserved 687 
+
+ISO/DIS 32000-2
+ 

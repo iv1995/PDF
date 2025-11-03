@@ -1,0 +1,62 @@
+Table Annex H.6: Object usage after deleting two 
+text annotations" lists the objects updated. 
+Table Annex H.6: Object usage after deleting two text annotations 
+Object identifier Object type 
+7 0 Annotation array 
+8 0 Free 
+9 0 Free 
+ 
+ Annots 
+Thearray is the only object that is written in this update. It is updated because it now contains 
+two annotations fewer. 
+The example in, H.7.4, "Stage 3: Delete Two Annotations" shows the lines added when the file was 
+f
+saved. Note that objects with identifiers 8 0 and 9 0 have been deleted, as can be seen from the fact that 
+their entries in the cross-reference section end with the keyword . 
+EXAMPLE 
+7 0 obj 
+© ISO 2017 – All rights reserved 888 
+
+ISO/DIS 32000-2
+ 
+   [10 0 R 
+   11 0 R 
+   ] 
+endobj 
+ 
+xref 
+0 1 
+0000000008 65535 f 
+7 3 
+0000001978 00000 n 
+0000000009 00001 f 
+0000000000 00001 f 
+trailer 
+ <</Size 12 
+  /Root 1 0 R 
+  /Prev 1855 
+ >> 
+startxref 
+2027 
+%%EOF 
+ 
+ 
+Annots 
+The cross-reference section added at this stage contains four entries, representing object number 0, the
+array, and the two deleted text annotations. 
+The cross-reference entry for object number 0 is updated because it is the head of the linked list of free 
+entries and points to the entry for the newly freed object number 8. The entry for object number 8 
+points to the entry for object number 9 (the next free entry), while the entry for object number 9 is the 
+last free entry in the cross-reference table, indicated by the fact that it points back to object number 0. 
+The entries for the two deleted text annotations are marked as free and as having generation numbers 
+of 1, which are used for any objects that reuse these object numbers. Keep in mind that, although the 
+two objects have been deleted, they are still present in the file. It is the cross-reference table that 
+records the fact that they have been deleted. 
+ Prev 
+Theentry in the trailer has again been updated so that it points to the cross-reference section 
+added at the previous stage, and the startxref value points to the newly added cross-reference section. 
+H.7.5Stage 4: Add three annotations and update metadata 
+ 
+Finally, three new text annotations are added to the file, and the file’s metadata is updated with minimal 
+necessary changes. When updating any PDF, it is recommended to update the embedded XML of the 
+metadata, preserving all tags not directly updated. "

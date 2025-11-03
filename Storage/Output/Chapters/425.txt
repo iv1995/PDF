@@ -1,0 +1,68 @@
+Table 
+255: Entries in a signature dictionary". Signature handlers may use or omit those entries that are 
+marked optional in the table but should use them in a standard way if they are used at all. In addition, 
+signature handlers may add private entries of their own. To avoid name duplication, the keys for all 
+such private entries shall be prefixed with the registered handler name followed by a PERIOD (2Eh). 
+digest
+Signatures shall be created using an appropriate signature handler. That signature handler shall match 
+with the type of the signature that is intended to be created. It shall compute a  using a 
+cryptographic hash function over the data of the document, and store it in the document.  
+To verify the signature, an appropriate signature handler is required. That signature handler shall 
+match with the type of the signature that has been created. The signer’s certificate shall be determined 
+and verified by the signature handler to match with any of the validation parameters and other 
+© ISO 2017 – All rights reserved 549 
+
+ISO/DIS 32000-2
+ 
+  
+conditions. If the verification fails, the signature shall be considered invalid. The digest shall be re-
+computed and compared with the one stored in the document.Differencesbetween the two indicates 
+that modifications have been made since the document was signed and thus the signature shall be 
+considered invalid. 
+NOTE 1 If a signed document is modified and saved by incremental update (see 7.5.6, "Incremental 
+updates"), the data corresponding to the byte range of the original signature is preserved. 
+Therefore, if the signature is valid, it is possible to recreate the state of the document as it existed 
+at the time of signing. 
+There are two defined techniques for computing a digital signature of the contents of a PDF file: 
+byte range digest
+ 
+• 
+ByteRange 
+A  shall be computed over a range of bytes in the file, that shall be indicated by the
+Contents
+entry in the signature dictionary. This range should be the entire file, including the 
+signature dictionary but excluding the signature value itself (the  entry). When a byte 
+signature reference dictionary
+ 
+• 
+range digest is present, all values in the signature dictionary shall be direct objects. 
+TransformMethod  
+Additionally, modification detection may be specified by a . The
+TransformParams 
+entry shall specify the general method for modification detection, and the
+entry shall specify the variable portions of the method.  
+PDF 1.5, deprecated in PDF 2.0
+• 
+A PDF document may contain the following standard types of signatures: 
+ 
+At most one usage rights signature (). It shall only be applied if no 
+PDF 1.6
+UR3 
+other type of signature is already present. Its signature dictionary shall be referenced from the
+() entry in the permissions dictionary, whose entries are listed in "Table 263: Entries 
+ReferenceUR
+in a permissions dictionary", (not from a signature field). The signature dictionary shall contain a 
+ entry whose value is a signature reference dictionary that has a  transform method. 
+See 12.8.2.3, "UR" for information on how these signatures shall be created and validated. When a 
+usage rights signature is present, it is up to the PDF processor or to the signature handler to 
+PDF 1.5
+• 
+process it or not. 
+ 
+At most one certification signature (also known as author signature) (). The signature 
+ByteRange  DocMDP 
+dictionary of a certification signature shall be the value of a signature field and shall contain a
+entry. It may also be referenced from theentry in the permissions dictionary 
+(see Table 263: Entries in a permissions dictionary). The signature dictionary shall contain a 
+DocMDP
+signature reference dictionary (see "

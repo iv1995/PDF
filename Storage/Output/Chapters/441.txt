@@ -1,0 +1,49 @@
+Table 270: Entries in a geographic coordinate system dictionary" lists the entries in a geographic 
+ DCS 
+coordinate system dictionary. A geographic coordinate system dictionary may be a value of theor 
+theentry of a geospatial measure dictionary. (See "Table 269: Additional entries in a geospatial 
+measure dictionary".) 
+Table 270: Entries in a geographic coordinate system dictionary 
+Key Type Description 
+(Required; PDF 2.0) 
+Type 
+GEOGCS
+  
+name The type of PDF object that this dictionary describes. If 
+present, shall befor a geographic coordinate system dictionary. 
+(Optional; PDF 2.0) 
+EPSG  EPSG 
+integer Anreference code specifying the geographic 
+coordinate system. 
+(Optional; PDF 2.0) 
+WKT 
+ASCII string A string of Well Known Text describing the geographic 
+coordinate system. 
+ 
+ EPSG  WKT 
+Either ancode or astring shall be present in a geographic coordinate system dictionary. 
+ EPSG 
+Thereference codes are described in a database available through http://www.epsg.org
+ as 
+administered by the International Association of Oil and Gas Producers (OGP).  
+WKT
+The  (Well Known Text) format is specified in ISO 19162. 
+12.10.4Projected coordinate system dictionary 
+ 
+GEOGCS
+A projected coordinate system (PROJCS), which includes an embedded , specifies the algorithms 
+and associated parameters used to transform points between geographic coordinates and a two-
+dimensional (projected) coordinate system. Any transformation between a three-dimensional curved 
+geographic coordinate system and a two-dimensional coordinate system introduces distortions. For 
+small areas, this distortion may be small enough to allow direct mapping between geographic 
+coordinates and PDF object coordinates without requiring the use of a projected coordinate system. 
+© ISO 2017 – All rights reserved 584 
+
+ISO/DIS 32000-2
+ 
+ EPSG 
+The projected coordinate system shall be described in either or both of two well-established standards: 
+as a numericreference code, or as a Well KnownText (WKT) string, which contains a description 
+of algorithms and parameters needed for transformations. 
+ GCS 
+"

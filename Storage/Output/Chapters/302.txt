@@ -1,224 +1,84 @@
-Table 395: Entries in a Web Capture command settings dictionary" shows the contents of this 
-type of dictionary. If this entry is omitted, default values are assumed. Command settings dictionaries 
-may be shared by any command dictionaries that use the same settings. 
-Table 395: Entries in a Web Capture command settings dictionary 
+Table 144: Additional entry in a soft-mask 
+image dictionary") is present, shall be the same as the  
+value of the parent image; otherwise independent of it. Both 
+images shall be mapped to the unit square in user space (as are 
+all images), regardless of whether the samples coincide 
+individually. 
+Height Width
+Same considerations as for . 
+ColorSpace DeviceGray
+Required; shall be . 
+BitsPerComponent 
+Required. 
+Intent 
+Ignored. 
+ImageMask 
+Shall be false or absent. 
+Mask 
+Shall be absent. 
+SMask 
+Shall be absent. 
+Decode 
+Optional; default value: [0 1]. 
+Interpolate 
+Optional. 
+Alternates 
+Ignored. 
+Name 
+Ignored. 
+StructParent 
+Ignored. 
+ID 
+Ignored. 
+OPI 
+Ignored. 
+© ISO 2017 – All rights reserved 411 
+
+ISO/DIS 32000-2
+ 
+ 
+Table 144: Additional entry in a soft-mask image dictionary 
 Key Type Value 
-Optional
-G 
-dictionary () A dictionary containing global conversion engine settings relevant to all conversion 
-engines. If this entry is absent, default settings shall be used. 
-Optional
-C 
-dictionary () Settings for specific conversion engines. Each key in this dictionary is the internal 
-name of a conversion engine. The associated value is a dictionary containing the settings 
-associated with that conversion engine. If the settings for a particular conversion engine are not 
-found in the dictionary, default settings shall be used. 
+Optional; PDF 1.4
+Matte 
+array () An array of component values specifying the matte colour with 
+nn
+which the image data in the parent image shall have been pre-blended. The array shall 
+ ColorSpace 
+consist of  numbers, where  is the number of components in the colour space 
+Indexed
+specified by theentry (or the base entry of the colour space, if the colour 
+space is ) in the parent image’s image dictionary; the numbers shall be valid 
+colour components in that colour space. If this entry is absent, the image data shall not 
+be pre-blended. 
  
-C
-Each key in the  dictionary represents the internal name of a conversion engine, which shall be a name 
-object of the following form (without any spaces): 
-/company:product:version:contentType 
+When pre-blended image data is used in transparency blending and compositing computations, the 
+c
+results shall be the same as if the original, unblended image data were used and no matte colour were 
+c′
+specified. In particular, the inputs to the blend function shall be the original colour values. To derive  
+from , the PDF processor may sometimes need to invert the formula shown previously. The resulting c 
+value shall lie within the range of colour component values for the image colour space. 
+NOTE When deriving c from c’ and α is 0.0, the inverted formula will result in a divide by zero. In this 
+special case an arbitrary value for c may be chosen within the range of colour component values 
+for the image colour space. Because α is 0.0, the arbitrary value of c does not affect output as 
+described in 11.3.2 "Basic notation for compositing computations". 
  
-where 
-company
-product
- denotes the name (or abbreviation) of the company that created the conversion engine. 
- denotes the name of the conversion engine. This field may be left blank, but the trailing 
-character
-COLON 
-version
- (3Ah) is still required. 
-contentType
- denotes the version of the conversion engine. 
- denotes an identifier for the content type the associated settings. shall be used because 
-© ISO 2017 – All rights reserved 782 
-
-ISO/DIS 32000-2
+ColorSpace 
+The pre-blending computation shall be done in the colour space specified by the parent image’s
+entry. This is independent of the group colour space into which the image may be painted. 
+ Indexed 
+If a colour conversion is required, inversion of the pre-blending shall precede the colour conversion. If 
+the image colour space is anspace (see 8.6.6.3, "Indexed colour spaces"), the colour values in 
+the colour table (not the index values themselves) shall be pre-blended. 
+11.6.6Transparency group XObjects 
  
-some converters may handle multiple content types. 
-EXAMPLE /ADBE:H2PDF:1.0:HTML 
-All fields in the internal name are case-sensitive. The company field shall conform to the naming 
-guidelines described in Annex E, "PDF Name Registry". The values of the other fields shall be 
-unrestricted, except that they shall not contain a COLON. 
-The directed graph of PDF objects rooted by the command settings dictionary shall be entirely self-
-contained; that is, it shall not contain any object referred to from elsewhere in the PDF file. 
-NOTE This facilitates the operation of making a deep copy of a command settings dictionary without 
-explicit knowledge of the settings it can contain. 
-14.10.6Object attributes related to web capture 
- 
-A given page object or image XObject may belong to at most one Web Capture content set, called its 
-parent content set. However, the object shall not have direct pointer to its parent content set. Such a 
- ID 
-pointer may present problems for an application that traces all pointers from an object to determine 
-what resources the object depends on. Instead, the object’sentry (see "Table 31: Entries in a page 
-IDS
-object" and "Table 87: Additional entries specific to an image dictionary") contains the digital identifier 
-IDS
-of the parent content set, which shall be used to locate the parent content set using the  name tree in 
-O
-the document’s name dictionary. (If the  entry for the identifier contains an array of content sets, the 
-parent may be found by searching the array for the content set whose  entry includes the child object.) 
-PZ
-In the course of creating PDF pages from HTML files, Web Capture frequently scales the contents down 
-to fit on fixed-sized pages. The  (preferred zoom) entry in a page object (see 7.7.3.3, "Page objects") 
-specifies a magnification factor by which the page may be scaled to undo the downscaling and view the 
-page at its original size. That is, when the page is viewed at the preferred magnification factor, one unit 
-in default user space corresponds to one original source pixel. 
-14.11Prepress support 
- 
-14.11.1General 
- 
-This subclause describes features of PDF that support prepress production workflows: 
-page boundaries
-• 
-The specification of  governing various aspects of the prepress process, such as 
-printer’s marks
-• 
-cropping, bleed, and trimming (14.11.2, "Page boundaries") 
-Facilities for including , such as registration targets, gray ramps, colour bars, and 
-colour separations
-• 
-cut marks to assist in the production process (14.11.3, "Printer’s marks") 
-Information for generating  for pages in a document (14.11.4, "Separation 
-Output intents
-• 
-dictionaries") 
- for matching the colour characteristics of a document with those of a target output 
-generation of traps
-• 
-device or production environment in which it will be printed (14.11.5, "Output intents") 
-Support for the  to minimise the visual effects of misregistration between 
-Open Prepress Interface (OPI)
-• 
-multiple colourants (14.11.6, "Trapping support") 
-The  for creating low-resolution proxies for high-resolution images 
-(14.11.7, "Open prepress interface (OPI)"). This feature is deprecated with PDF 2.0. 
-© ISO 2017 – All rights reserved 783 
-
-ISO/DIS 32000-2
- 
-• 
-When overprinting (see 8.6.7, "Overprint control") is enabled, and the device is a subtractive 
-colour device, "rendering for separations" may be implemented (see 10.8.2, "Separations"). In 
-addition, a PDF processor may optionally support "separation simulation" for any device (see 
-14.11.2Page boundaries 
- 
-10.8.3, "Separation simulation"). 
-14.11.2.1General 
- 
-finished medium
-intermediate medium
-A PDF page may be prepared either for a , such as a sheet of paper, or as part of a 
-prepress process in which the content of the page is placed on an , such as film or 
-an imposed reproduction plate. In the latter case, it is important to distinguish between the 
-intermediate page and the finished page. The intermediate page may often include additional 
-production-related content, such as bleeds or printer marks, that falls outside the boundaries of the 
-finished page. To handle such cases, a PDF page may define as many as five separate boundaries to 
-control various aspects of the imaging process: 
-media box
-• 
-The  defines the boundaries of the physical medium on which the page is to be printed. It 
-may include any extended area surrounding the finished page for bleed, printing marks, or other 
-such purposes. It may also include areas close to the edges of the medium that cannot be marked 
-because of physical limitations of the output device. Content falling outside this boundary may 
-crop box
-• 
-safely be discarded without affecting the meaning of the PDF file. 
-The  defines the region to which the contents of the page shall be clipped (cropped) when 
-displayed or printed. Unlike the other boxes, the crop box has no defined meaning in terms of 
-physical page geometry or intended use; it merely imposes clipping on the page contents. 
-However, in the absence of additional information (such as imposition instructions specified in a 
-JDF job ticket), the crop box determines how the page’s contents shall be positioned on the output 
-bleed boxPDF 1.3
-• 
-medium. The default value is the page’s media box. 
-The  () defines the region to which the contents of the page shall be clipped when 
-output in a production environment. This may include any extra bleed area needed to 
-accommodate the physical limitations of cutting, folding, and trimming equipment. The actual 
-printed page may include printing marks that fall outside the bleed box. The default value is the 
-trim boxPDF 1.3
-• 
-page’s crop box. 
-The  () defines the intended dimensions of the finished page after trimming. It may 
-be smaller than the media box to allow for production-related content, such as printing 
-art boxPDF 1.3
-• 
-instructions, cut marks, or colour bars. The default value is the page’s crop box. 
-The  () defines the extent of the page’s meaningful content (including potential 
-page object dictionary
-MediaBoxCropBoxBleedBoxTrimBox
-white-space) as intended by the page’s creator. The default value is the page’s crop box. 
-ArtBox 
-The  specifies these boundaries in the , , , , 
-and entries, respectively (see "Table 31: Entries in a page object"). All of them are rectangles 
-expressed in default user space units. The crop, bleed, trim, and art boxes should not ordinarily extend 
-beyond the boundaries of the media box. If the bounds of the crop, trim, bleed or art box extends 
-outside of the bounds of the media box, a processor shall treat the box as its intersection with the media 
-box. "Figure 116: Page boundaries" illustrates the relationships among these boundaries. (The crop box 
-is not shown in the figure because it has no defined relationship with any of the other boundaries.) 
-© ISO 2017 – All rights reserved 784 
-
-ISO/DIS 32000-2
- 
-Headline
-Art box
-Trim box
-Thismight
-beacaption
-Bleed:10.75x8.25
-Trim:10.5x8
-Printer’smarks
-Bleed box
-Media
-box
-Figure 116: Page boundaries 
- 
-NOTE 1 How the various boundaries are used depends on the purpose to which the page is being put. The 
-following are typical purposes: 
-•
-. The art box determines the boundary of 
- 
-the content that is to be placed in the application. Depending on the applicable usage 
-Placing the content of a page in another application
-conventions, the placed content can be clipped to either the art box or the bleed box. For 
-example, a quarter-page advertisement to be placed on a magazine page might be clipped to 
-the art box on the two sides of the ad that face into the middle of the page and to the bleed box 
-on the two sides that bleed over the edge of the page. The media box and trim box are ignored. 
-•
-. This case is typical of desktop or shared page printers, in which the 
- 
-page content is positioned directly on the final output medium. The art box and bleed box are 
-Printing a finished page
-ignored. The media box can be used as advice for selecting media of the appropriate size. The 
-crop box and trim box, if present, needs to be the same as the media box. 
-•
-. The art box is ignored. The bleed 
- 
-box defines the boundary of the content to be imaged. The trim box specifies the positioning of 
-Printing an intermediate page for use in a prepress process
-the content on the medium; it can also be used to generate cut or fold marks outside the bleed 
-box. Content falling within the media box but outside the bleed box might or might not be 
-imaged, depending on the specific production process being used. 
-© ISO 2017 – All rights reserved 785 
-
-ISO/DIS 32000-2
- 
-•
-. The art box is ignored. The bleed 
- 
-box defines the clipping boundary of the content to be imaged; content outside the bleed box is 
-Building an imposition of multiple pages on a press sheet
-ignored. The trim box specifies the positioning of the page’s content within the imposition. Cut 
-and fold marks are typically generated for the imposition as a whole. 
-14.11.2.2Display of page boundaries 
- 
-box 
-BoxColorInfo
-Interactive PDF processors may offer the ability to display guidelines on the screen for the various page 
-colour information dictionaryPDF 1.4
-boundaries. The optional  entry in a page object (see 7.7.3.3, "Page objects") holds a 
- () specifying the colours and other visual characteristics to be used 
-for such display. interactive PDF processors typically provide a user interface to allow the user to set 
-these characteristics interactively. 
-NOTE This information is page-specific and can vary from one page to another. 
-As shown in "
+A transparency group is represented in PDF as a special type of group XObject (see 8.10.3, "Group 
+ Group 
+XObjects") called a transparency group XObject. A group XObject is in turn a type of form XObject, 
+distinguished by the presence of aentry in its form dictionary (see 8.10.2, "Form dictionaries"). 
+The value of this entry is a group attributes dictionary defining the properties of the group. The format 
+Transparency
+S
+and meaning of the dictionary’s contents is determined by its group subtype, which is specified by the 
+dictionary’s  entry. The entries for a transparency group (subtype ) are shown in "

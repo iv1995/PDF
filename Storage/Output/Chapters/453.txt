@@ -1,0 +1,77 @@
+Table 281: Entries in a minimum screen size 
+dictionary") specifying the minimum screen size required in order for this object 
+NOTE 5 Equivalent to SMIL’s systemScreenSize attribute. 
+to be viable. 
+Optional
+V 
+array () An array of software identifier objects (see 13.2.7.4, "Software 
+identifier dictionary"). If this entry is present and non-empty, the interactive 
+PDF processor shall be identified by one or more of the objects in the array in 
+order for this object to be viable. 
+Optional
+P 
+array () An array containing one or two name objects specifying a minimum 
+Version
+and optionally a maximum PDF language version, in the same format as the 
+ entry in the document catalog dictionary (see "Table 29: Entries in the 
+"). If this entry is present and non-empty, the version of 
+catalog dictionary
+multimedia constructs fully supported by the interactive PDF processor shall be 
+within the specified range in order for this object to be viable. 
+Optionallanguage identifiers
+L 
+array () An array of  (see 14.9.2.2, "Language identifiers"). 
+If this entry is present and non-empty, the language in which the interactive PDF 
+processor is running shall exactly match a language identifier, or consist only of 
+a primary code that matches the primary code of an identifier, in order for this 
+NOTE 6 Equivalent to SMIL’s systemLanguage attribute. 
+object to be viable. 
+Table 280: Entries in a minimum bit depth dictionary 
+Key Type Value 
+Optional
+Type 
+MinBitDepth
+name () The type of PDF object that this dictionary describes; if present, shall 
+be  for a minimum bit depth dictionary. 
+Required
+V 
+integer () A positive integer specifying the minimum screen depth (in bits) of 
+the monitor for the rendition to be viable.  
+© ISO 2017 – All rights reserved 597 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional
+M 
+V
+integer () A monitor specifier (see "Table 304: Monitor specifier values") that 
+specifies which monitor the value of  should be tested against. If the value is 
+unrecognised, the object shall not be viable. 
+Default value: 0. 
+Table 281: Entries in a minimum screen size dictionary 
+Key Type Value 
+Optional
+Type 
+MinScreenSize
+name () The type of PDF object that this dictionary describes; if present, shall 
+be  for a rendition object. 
+Required
+V 
+M
+array () An array containing two non-negative integers. The width and height 
+(in pixels) of the monitor specified by  shall be greater than or equal to the 
+values of the first and second integers in the array, respectively, in order for this 
+object to be viable. 
+Optional
+M 
+V
+integer () A monitor specifier (see "Table 304: Monitor specifier values") that 
+specifies which monitor the value of  should be tested against. If the value is 
+unrecognised, the object shall be not viable. 
+Default value: 0. 
+ 
+13.2.3.2Media renditions 
+ 
+CPSP
+"

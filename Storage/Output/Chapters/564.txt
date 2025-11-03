@@ -1,0 +1,45 @@
+Table 370: List standard structure types" defines standard 
+structure types for lists. 
+Table 370: List standard structure types 
+Structure Category Description 
+Type 
+L 
+Block or Inline (List) Encloses content consisting of a sequence of items that are semantically 
+CaptionL
+related with each other. 
+If a  is present, it shall be either the first or last child in the  (list) 
+ListNumbering
+structure element. 
+The  attribute (see 14.8.5.5, "List attribute") may be used to 
+ContinuedListContinuedFrom
+indicate the type of ordered or unordered list. 
+L
+The  and  attributes (see 14.8.5.5, "List 
+attributes") may be used to indicate relationships with other  (list) structure 
+elements. 
+EXAMPLE 1 Bulleted lists, numbered lists, tables of contents, indexes, 
+L 
+dictionaries, and lists of key value pairs are all examples of 
+content that would use the structure element. 
+LI L
+Internal to  (List) (List Item) Encloses content for an individual member of a list. Children (see 
+structure elements Annex L, "Parent-child relationships between standard structure elements") 
+of the list item may occur in any order or combination.  
+LBody LI
+Internal to  (List (List Item Body) Encloses the actual content of a list item. 
+item) structure 
+elements 
+EXAMPLE 2 In a dictionary list the list item body contains the translation 
+or definition of the term. 
+ 
+hierarchical lists
+LL
+DivL
+To represent , the child  (list) structure elements shall be a direct child of its parent  
+(list) structure element or contained within a  structure element belonging to the parent  (list). 
+NOTE Lists can occur within the content of an  structure element. Such lists are not considered 
+LBody
+part of the hierarchy. 
+14.8.4.8.3Table structure types 
+ 
+"

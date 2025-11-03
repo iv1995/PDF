@@ -1,19 +1,5 @@
-content stream in some situations are interpreted as 
- 
-character codes that select glyphs to be drawn on the page according to a character encoding 
-that is associated with the text font. 
-4.11 
- 
-character set 
-defined set of characters each assigned a unique character value 
-4.12 
- 
-content stream 
-stream object whose data consists of a sequence of instructions describing the graphical elements to be 
-painted on a page 
-4.13 
- 
-cross reference table 
-data structure that contains the byte offset start for each of the indirect objects within the file 
-4.14 
+byte 
+group of 8 binary digits (an 8-bit value) which collectively can be configured to represent one of 256 
+different values 
+4.9 
  

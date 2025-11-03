@@ -1,0 +1,26 @@
+Table 347: Additional entries in a metadata 
+stream dictionary". 
+Table 347: Additional entries in a metadata stream dictionary 
+Key Type Value 
+Required
+Type 
+Metadata
+name () The type of PDF object that this dictionary describes; shall be 
+ for a metadata stream. 
+Required
+Subtype 
+XML
+name () The type of metadata stream that this dictionary describes; shall 
+be . 
+ 
+ XML 
+The contents of a metadata stream shall be the metadata represented in Extensible Markup Language 
+(XML) and the grammar of therepresenting the metadata shall be defined according to the 
+extensible metadata platform (XMP) specification.  
+Metadata
+A metadata stream representing document-level metadata can be attached to a PDF document through 
+the  entry in the document catalog dictionary (see 7.7.2, "Document catalog dictionary").  
+Metadata
+A metadata stream representing object-level metadata can be attached to the object through the 
+ entry in a stream or dictionary representing the object or associated with the object (see 
+"

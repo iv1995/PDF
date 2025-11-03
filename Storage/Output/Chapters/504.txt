@@ -1,0 +1,231 @@
+Table 322: Entries in a 3D cross section dictionary" shows the entries in a 3D cross section dictionary. 
+Table 322: Entries in a 3D cross section dictionary 
+Key Type Value 
+Optional
+Type 
+3DCrossSection
+name () The type of PDF object that this dictionary describes; if present, shall be 
+ for a 3D cross section dictionary. 
+Optional
+C 
+array () A three element array specifying the centre of rotation on the cutting plane in 
+world space coordinates (see 13.6.5, "Coordinate systems for 3D"). 
+ 
+Default value: [0 0 0] specifying a cutting plane rotating about the origin of the world 
+space.
+Required
+O 
+array () A three-element array specifying the orientation of the cutting plane in world 
+space, where each value represents the orientation in relation to the X, Y, and Z axes, 
+respectively (see 13.6.5, "Coordinate systems for 3D"). Exactly one of the values shall be 
+null, indicating an initial state of the cutting plane that is perpendicular to the 
+corresponding axis and clipping all geometry on the positive side of that axis. The other 
+two values shall be numbers indicating the rotation of the plane, in degrees, around their 
+corresponding axes. The order in which these rotations are applied shall match the order 
+in which the values appear in the array. 
+ 
+Default value: [null 0 0] specifying a cutting plane that is perpendicular to the X axis and 
+coplanar with the Y and Z axes.
+Optional
+PO 
+number () A number in the range [0, 1] indicating the opacity of the cutting plane using a 
+ 
+standard additive blend mode. 
+Default value: 0.5
+Optional
+PC 
+array () An array that specifies the colour for the cutting plane. The first entry in the 
+DeviceRGBDeviceRGB
+  
+array is a colour space, and the remaining entries are values in that colour space. The only 
+valid colour space is . If a colour space other thanis specified, this 
+ 
+entry shall be ignored and the default value shall be used. 
+Default value: [/DeviceRGB 1 1 1] representing the colour white.
+© ISO 2017 – All rights reserved 645 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional
+IV 
+truefalse
+boolean () A flag indicating the visibility of the intersection of the cutting plane with any 
+3D geometry. If , then the intersection shall be visible. If , then the intersection 
+false
+ 
+shall not be visible. 
+Default value: 
+Optional
+IC 
+array () An array that specifies the colour for the cutting plane’s intersection with the 
+DeviceRGB
+3D artwork. The first entry in the array is a colour space, and the remaining entries are 
+DeviceRGB
+  
+values in that colour space. The only valid colour space is . If a colour space 
+true
+IV
+other thanis specified, this entry shall be ignored and the default value shall be 
+ 
+used. This entry is meaningful only if  is . 
+Default value: [/DeviceRGB 0 1 0] representing the colour green.
+Optional; PDF 2.0Show Transparent
+ST 
+true
+boolean () . A flag indicating that the portion of a model on the 
+cut side of a section plane shall be viewed using a transparent render mode. If , the 
+clipped portion of the model shall be drawn as transparent regardless of the render mode 
+of the non-cut portion of the model. The recommend appearance uses graphical settings 
+Table 
+identical or similar to those used by the existing Transparent 3DRenderMode in "
+falsefalse
+319: Render modes" already supported by the 13.6.4.4, "3D render mode dictionaries". If 
+, the clipped portion of the model shall not be drawn. Default value: . 
+Optional; PDF 2.0Section Capping
+SC 
+true
+boolean () . A flag indicating whether 3D Nodes and the section 
+plane shall be analysed and rendered as if cutting through a solid object. If , an 
+algorithm is applied with the result that additional temporary geometry may be created to 
+false
+represent a section cap. The section cap shall be visible within the area enclosed by the 
+intersection of the 3D Node 3D geometry with the section plane. If the flag is , no 
+false
+additional temporary geometry shall be created to represent a section cap. Default value: 
+. 
+ 
+C
+The  entry specifies the centre of the cutting plane. This implies that the plane passes through the 
+centre point, but it is also the point of reference when determining the orientation of the plane. 
+O
+The  array indicates the orientation of the cutting plane, taking into account its centre. The orientation 
+may be determined by a two-step process: 
+C
+• 
+The plane shall be situated such that it passes through point , and oriented such that it is 
+• 
+perpendicular to the axis specified by the array entry whose value is null. 
+C
+For each of the other two axes, the plane shall be rotated the specified number of degrees around 
+the associated axis, while maintaining  as a fixed point on the plane. Since the two axes are 
+POPC
+perpendicular, the order in which the rotations are performed is irrelevant. 
+PO
+The  entry specifies the opacity of the plane itself when rendered, while the  entry provides its 
+colour. When the  entry is greater than 0, a visual representation of the cutting plane shall be 
+rendered with the 3D artwork. This representation is a square with a side length equal to the length of 
+PO
+the diagonal of the maximum bounding box for the 3D artwork, taking into account any keyframe 
+animations present. When the  entry is 0, no visible representation of the cutting plane shall be 
+rendered. 
+IV
+ IC 
+The  entry shall be a boolean value that determines whether a visual indication shall be drawn of the 
+plane’s intersection with the 3D artwork. If such an indication is drawn, theentry shall specify its 
+colour. 
+EXAMPLE The following example describes a set of views and corresponding cross sections that illustrate the various 
+© ISO 2017 – All rights reserved 646 
+
+ISO/DIS 32000-2
+ 
+effects of orientation. 
+3 0 obj             %CrossSection1 
+  << 
+   /Type /3DCrossSection 
+   /C [0 0 0] 
+   /O [null 0 0] 
+   /PO 0.35 
+   /PC [/DeviceRGB 0.75 0.86 1] 
+   /IV true 
+   /IC [/DeviceRGB 0 1 0] 
+  >> 
+endobj 
+ 
+4 0 obj             %CrossSection2 
+  << 
+   /Type /3DCrossSection 
+   /C [0 0 0] 
+   /O [null -30 0] 
+   /PO 0.35 
+   /PC [/DeviceRGB 0.75 0.86 1] 
+   /IV true 
+   /IC [/DeviceRGB 0 1 0] 
+  >> 
+endobj 
+ 
+5 0 obj             %CrossSection3 
+  << 
+   /Type /3DCrossSection 
+  /C [0 0 0] 
+   /O [null 0 30] 
+   /PO 0.35 
+   /PC [/DeviceRGB 0.75 0.86 1] 
+   /IV true 
+   /IC [/DeviceRGB 0 1 0] 
+  >> 
+endobj 
+ 
+6 0 obj             %CrossSection4 
+  << 
+   /Type /3DCrossSection 
+   /C [0 0 0] 
+   /O [null -30 30] 
+   /PO 0.35 
+   /PC [/DeviceRGB 0.75 0.86 1] 
+   /IV true 
+   /IC [/DeviceRGB 0 1 0] 
+  >> 
+endobj 
+ 
+7 0 obj             %View0 
+  << 
+   /Type /3DView 
+   /XN (NoCrossSection) 
+   /SA [] 
+   … 
+  >> 
+endobj 
+ 
+8 0 obj             %View1 
+  << 
+   /Type /3DView 
+   /XN (CrossSection1) 
+   /SA [3 0 R] 
+   … 
+  >> 
+© ISO 2017 – All rights reserved 647 
+
+ISO/DIS 32000-2
+ 
+endobj 
+ 
+9 0 obj             %View2 
+  << 
+   /Type /3DView 
+   /XN (CrossSection2) 
+   /SA [4 0 R] 
+   … 
+  >> 
+endobj 
+ 
+10 0 obj             %View3 
+  << 
+   /Type /3DView 
+   /XN (CrossSection3) 
+   /SA [5 0 R] 
+   … 
+  >> 
+endobj 
+ 
+11 0 obj             %View4 
+ << 
+  /Type /3DView 
+  /XN (CrossSection4) 
+  /SA [6 0 R] 
+  … 
+ >> 
+endobj 
+ 
+The following illustrations show the views described in the previous example, some of which include 
+cross sections. ![Figure 95 Rendering of the 3D artwork using View0 (no cross section)  .jpg](./Storage/Output/Images/Figure 95 Rendering of the 3D artwork using View0 (no cross section)  .jpg)

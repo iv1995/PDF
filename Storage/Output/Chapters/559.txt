@@ -1,0 +1,79 @@
+Table 365: Grouping 
+level structure types", that are used to organise the overall structure of content in a tagged PDF. 
+Table 365: Grouping level structure types 
+Structure Category Description 
+Type 
+Part 
+Grouping Encloses content that would typically be perceived as an identifiable part of a 
+document, whether as an article, prologue, section, chapter or any other 
+ Part
+identifiable subdivision of content within a logical document.  
+Nesting structure elements allows content to be subdivided. 
+Part
+EXAMPLE 1 The following are just a few of the possible types of content that 
+could be marked as : 
+•
+chapters in a book  
+ 
+•
+sections and subsections in a technical document  
+ 
+•
+articles in a newspaper or magazine  
+ 
+•
+recipes in a cooking book 
+ 
+•
+a group of advertisements 
+ 
+Div 
+Grouping Encloses content structured in fashion that is orthogonal to the semantic structure. 
+It can be used as a role mapping target for custom tags for which no suitable 
+standard structure element is available, or where attributes are applied in a non-
+NOTE 1 Nesting structure elements allows content to be subdivided. 
+ Div
+semantic fashion. 
+ Div
+A structure element with the type of shall inherit the containment 
+Div
+requirements and limitations of its parent element. Where the parent element is 
+Div
+itself a structure element of type , then the inheritance shall recurse to the first 
+NOTE 2  does not change the semantic level of the structure hierarchy.  
+Div
+parent element whose type is not . 
+Div
+EXAMPLE 2 The following is just one of the possible types of content that 
+could be marked as : 
+•
+associating a language attribute to group of content 
+ 
+items without implying any semantic aspects 
+(PDF 2.0) 
+Aside 
+Grouping Encloses content that is distinct from other content within its parent 
+structure element. 
+Aside
+EXAMPLE 3 The following are just a few of the possible types of content that 
+could be marked as : 
+•
+Callout elements 
+ 
+•
+Sidebar elements 
+ 
+•
+Commentary accompanying an article 
+ 
+•
+Background information for a section in a text book 
+ 
+© ISO 2017 – All rights reserved 730 
+
+ISO/DIS 32000-2
+ 
+ 
+14.8.4.5Block level structure types 
+ 
+This subclause describes structure types for paragraph-like elements, as detailed in "

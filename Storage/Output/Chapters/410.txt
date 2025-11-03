@@ -1,0 +1,20 @@
+Table 242: Flag for reset-form actions"). Default 
+value: 0. 
+Table 242: Flag for reset-form actions 
+Bit position Name Meaning 
+Fields
+1 Include/Exclude If clear, the  array (see "Table 241: Additional entries specific 
+to a reset-form action") specifies which fields to reset. (All 
+Fields
+descendants of the specified fields in the field hierarchy are reset as 
+well.) If set, the  array indicates which fields to exclude from 
+except 
+Fields
+resetting; that is, all fields in the document’s interactive form shall be 
+reset those listed in the  array. 
+ 
+12.7.6.4Import-data action 
+ 
+Upon invocation of an import-data action, a PDF processor shall import data from Forms Data Format 
+(FDF), XFDF (XML-based Forms Data Format) or any other data format that it supports into the 
+document’s interactive form from a specified file. 

@@ -1,115 +1,109 @@
-Table 391: Entries in a source 
-information dictionary") each containing information about the locations from which the source data 
-for the content set was retrieved. 
-© ISO 2017 – All rights reserved 778 
+Table 142: Entries in a soft-mask dictionary" 
+shows the contents of this type of dictionary. 
+The mask values shall be derived from those of a transparency group, using one of the two methods 
+described in 11.5.2, "Deriving a soft mask from group alpha" and 11.5.3, "Deriving a soft mask from 
+GS
+group luminosity". The group shall be defined by a transparency group XObject (see 11.6.6, 
+"Transparency group XObjects") designated by the  entry in the soft-mask dictionary. The  (subtype) 
+entry shall specify which of the two derivation methods to use: 
+AlphaG
+• 
+If the subtype is , the transparency group XObject  shall be evaluated to compute a group 
+TR SoftMask
+alpha only. The colours of the constituent objects shall be ignored and the colour compositing 
+computations may be omitted. The value of the key in the  dictionary, which is a 
+transfer function, shall then be applied to the computed group alpha to produce the mask values. 
+Outside the bounding box of the transparency group, the mask value shall be the result of applying 
+LuminosityG
+• 
+the transfer function to the input value 0.0. 
+ BC 
+If the subtype is , the transparency group XObject  shall be composited with a fully 
+opaque backdrop whose colour is everywhere defined by the soft-mask dictionary’sentry. The 
+TR SoftMask
+computed result colour shall then be converted to a single-component luminosity value, and the 
+value of the key in the  dictionary, which is a transfer function, shall be applied to this 
+ BC 
+luminosity to produce the mask values. Outside the transparency group’s bounding box, the mask 
+value shall be derived by transforming thecolour to luminosity and applying the transfer 
+function to the result. 
+Matrix
+The mask’s coordinate system shall be defined by concatenating the transformation matrix specified by 
+the  entry in the transparency group’s form dictionary (see 8.10.2, "Form dictionaries") with the 
+gs
+current transformation matrix at the moment the soft mask is established in the graphics state with the 
+ operator. 
+In a transparency group XObject that defines a soft mask, spot colour components shall never be 
+ Separation  DeviceN 
+available, even if they are available in the group or page on which the soft mask is used. If the group 
+XObject’s content stream specifies aorcolour space that uses spot colour 
+components, the alternate colour space shall be substituted (see 8.6.6.4, "Separation colour spaces" and 
+8.6.6.5, "DeviceN colour spaces"). 
+NOTE The special colourant names All and None do not specify spot colour components and are 
+therefore not subject to this requirement. 
+© ISO 2017 – All rights reserved 409 
 
 ISO/DIS 32000-2
  
-Table 391: Entries in a source information dictionary 
+Table 142: Entries in a soft-mask dictionary 
 Key Type Value 
+OptionalMask
+Type 
+name () The type of PDF object that this dictionary describes; if present, shall be  
+for a soft-mask dictionary. 
 Required
-AU   
-ASCII string () An ASCII string orURLalias dictionary (see 14.10.5.2, "URL alias 
-or dictionary dictionaries") which shall identify the URLs from which the source data was retrieved. 
-Optional
-TS 
-date () A timestamp which, if present, shall contain the most recent date and time at 
-which the content set’s contents were known to be up to date with the source data. 
-Optional
-E 
-date () An expiration stamp which, if present, shall contain the date and time at 
-which the content set’s contents is out of date with the source data. 
-Optional
 S 
-integer () A code which, if present, shall indicate the type of form submission, if any, by 
-S
-which the source data was accessed (see 12.7.6.2, "Submit-form action"). If present, the 
-value of the  entry shall be 0, 1, or 2, in accordance with the following meanings: 
-0 Not accessed by means of a form submission 
-1 Accessed by means of an HTTP GET request 
-This
-2 Accessed by means of an HTTP POST request 
- entry may be present only in source information dictionaries associated with page 
-sets. Default value: 0. 
-Optional; if present, shall be an indirect reference
-C 
-dictionary () A command dictionary (see 
-14.10.5.3, "Command dictionaries") describing the command that caused the source 
-data to be retrieved. This entry may be present only in source information dictionaries 
-associated with page sets. 
- 
-SI
-A content set's  entry may contain a single source information dictionary. However, a PDF processor 
-may attempt to detect situations in which the same source data has been located via two or more 
-SI
-distinct URLs. If a processor detects such a situation, it may generate a single content set from the 
-  
-source data, containing a single copy of the relevant PDF pages or image XObjects. In this case, the  
-entry shall be an array containing one source information dictionary for each distinctURLfrom which 
-the original source content was found. 
-The determination that distinct URLs produce the same source data shall be made by comparing digital 
-identifiers for the source data. 
-AU
-v
-A source information dictionary’s  (aliased URLs) entry shall identify the URLs from which the 
-AU  
-source data was retrieved. If there is only one such URL, the  value of this entry may be a string. If 
-multiple URLs map to the same location through redirection, the  value shall be aURLalias 
-dictionary (see 14.10.5.2, "URL alias dictionaries"). 
-NOTE 1 For file size efficiency, the entireURL alias dictionary (excluding the URL strings) can be 
- 
-represented as a direct object because its internal structure is never shared or externally 
-referenced. 
- TS 
-The(timestamp) entry allows each source location associated with a content set to have its own 
-timestamp. 
-NOTE 2 This is necessary because the timestamp in the content set dictionary (see "Table 388: Entries 
-common to all Web Capture content sets") merely refers to the creation date of the content set. A 
-hypothetical "Update Content Set" command might reset the timestamp in the source information 
-dictionary to the current time if it found that the source data had not changed since the 
-timestamp was last set. 
-© ISO 2017 – All rights reserved 779 
-
-ISO/DIS 32000-2
- 
-E
-The  (expiration) entry specifies an expiration date for each source location associated with a content set. If the current date 
-14.10.5.2URL alias dictionaries 
-and time are later than those specified, the contents of the content set is out of date with respect to the original source. 
- 
-response header
-  
-  
-When aURLis accessed via HTTP, a  may be returned indicating that the requested data 
-is at a different URL. This redirection process may be repeated in turn at the newURLand can 
-    
-potentially continue indefinitely. It is not uncommon to find multiple URLs that all lead eventually to the 
-same destination through one or more redirections. AURLalias dictionary represents such a set ofURL
-chains leading to a common destination. "Table 392: Entries in a URL alias dictionary" shows the 
-contents of this type of dictionary. 
-Table 392: Entries in a URL alias dictionary 
-Key Type Value 
+G
+name () A subtype specifying the method that shall be used in deriving the mask values 
+Alpha
+from the transparency group specified by the  entry: 
+ The group’s computed alpha shall be used, disregarding its colour (see 
+Luminosity
+11.5.2, "Deriving a soft mask from group alpha"). 
+ The group’s computed colour shall be converted to a single-component 
+luminosity value (see 11.5.3, "Deriving a soft mask from group luminosity"). 
 Required
-U   C
-ASCII string () The destinationURLto which all of the chains specified by the  entry lead. 
+G 
+S
+stream () A transparency group XObject (see 11.6.6, "Transparency group XObjects") that 
+Luminosity
+CS
+shall be used as the source of alpha or colour values for deriving the mask. If the subtype  
+is , the group attributes dictionary shall contain a  entry defining the colour 
+space in which the compositing computation is to be performed. 
 Optional
-C 
-U
-array () An array of one or more arrays of strings, each representing a chain of URLs leading to 
-the common destination specified by . 
+BC 
+G
+array () An array of component values specifying the colour that shall be used as the 
+Luminositynn
+S
+backdrop against which to composite the transparency group XObject . This entry shall be 
+CS
+consulted only if the subtype  is . The array shall consist of  numbers, where  
+is the number of components in the colour space specified by the  entry in the group 
+attributes dictionary (see 11.6.6, "Transparency group XObjects"). Default value: the colour 
+space’s initial value, representing black. 
+Optional
+TR 
+function or () A function object (see 7.10, "Functions") specifying the transfer function that 
+S
+name shall be used in deriving the mask values. The function shall accept one input, the 
+computed group alpha or luminosity (depending on the value of the subtype ), and shall 
+return one output, the resulting mask value. The input shall be in the range 0.0 to 1.0. The 
+Identity
+computed output shall be in the range 0.0 to 1.0; if it falls outside this range, it shall be 
+Identity
+forced to the nearest valid value. The name  may be specified in place of a function 
+object to designate the identity function. Default value: . 
  
-C C
-The  (chains) entry may be omitted if theURL alias dictionary contains only one URL. If  is present, its 
-value shall be an array of arrays, each representing a chain of URLs leading to the common destination. 
-Within each chain, the URLs shall be stored as ASCII strings in the order in which they occur in the 
-U
-redirection sequence. The common destination (the last URL in a chain) may be omitted, since it is 
-already identified by the  entry. 
-14.10.5.3Command dictionaries 
+11.6.5.2Soft-mask images 
  
-Web Capture command dictionary
-A  represents a command executed by Web Capture to retrieve one or 
-more pieces of source data that were used to create new pages or modify existing pages. The entries in 
-this dictionary represent parameters that were originally specified interactively by the user who 
-requested that the Web content be captured. This information is recorded so that the command can 
-subsequently be repeated to update the captured content. "
+soft-mask image
+ SMask 
+The second way to define a soft mask is by associating a  with an image XObject. This is 
+a subsidiary image XObject specified in theentry of the parent XObject’s image dictionary (see 
+8.9.5, "Image dictionaries"). Entries in the subsidiary image dictionary for such a soft-mask image shall 
+have the same format and meaning as in that of an ordinary image XObject (as described in "Table 87: 
+Additional entries specific to an image dictionary" in 8.9.5, "Image dictionaries"), subject to the 
+Matte
+restrictions listed in "

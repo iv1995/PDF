@@ -1,115 +1,469 @@
-Table 389: Additional 
-entries specific to a Web Capture page set" defines the content set dictionary entries specific to Page 
-Sets. 
-The TID (text identifier) entry may be used to store an identifier generated from the text of the pages 
-belonging to the page set (see 14.10.3.3, "Digital identifiers"). A text identifier may not be appropriate 
-for some page sets (such as those with no text) and may be omitted in these cases. 
-EXAMPLE This identifier can be used to determine whether the text of a document has changed. 
-Table 388: Entries common to all Web Capture content sets 
-Key Type Value 
-Optional
-Type 
-SpiderContentSet
-name () The type of PDF object that this dictionary describes; if present, shall be 
- for a Web Capture content set. 
-Required
-S 
-name () The subtype of content set that this dictionary describes. The value shall be 
-SPS
-one of: 
-SIS
- ("Spider page set") A page set 
- ("Spider image set") An image set 
-Required
-ID 
-byte string () The digital identifier of the content set (see Digital identifiers"). 
-Required
-O 
-SPS
-S
-array () An array of indirect references to the objects belonging to the content set. The 
-order of objects in the array is restricted when the content set subtype ( entry) is  
-(see 14.10.4.2, "Page sets"). 
-Required
-SI 
-dictionary () A source information dictionary (see 14.10.5, "Source information") or an 
-or array array of such dictionaries, describing the sources from which the objects belonging to the 
-content set were created. 
-Optional
-CT 
-ASCII string () The content type, an ASCII string characterising the source from which the 
-Multipurpose Internet Mail Extensions 
-objects belonging to the content set were created. The string shall conform to the content 
-(MIME) Part One: Format of Internet Message Bodies
-type specification described in Internet RFC 2045, 
-. 
-EXAMPLE For a page set consisting of a group of PDF pages created from an HTML 
-file, the content type would be text/html. 
-Optional
-TS 
-date () A timestamp giving the date and time at which the content set was created. 
+Table 141: Variables used in the page group compositing formulas 
+Variable Meaning 
+1n
+EE
+𝑃𝑃 The page group, consisting of all elements ,…,  in the page’s top-level stack 
+𝑔𝑔
+𝐶𝐶 Computed colour of the page group 
+𝑔𝑔
+𝑓𝑓 Computed shape of the page group 
+𝑔𝑔
+𝛼𝛼 Computed alpha of the page group 
+𝐶𝐶 Computed colour of the page 
+𝑙𝑙 Initial colour of the page (nominally white but may vary depending on the 
+properties of the medium or the needs of the application) 
+0
+𝑈𝑈 An undefined colour (which is not used, since the α argument of Composite is 0) 
  
-Table 389: Additional entries specific to a Web Capture page set 
-Key Type Value 
-RequiredSPS
-S 
-name () The subtype of content set that this dictionary describes; shall be . 
-© ISO 2017 – All rights reserved 777 
+The page group’s initial blending colour space is inherited from the native colour space of the actual, 
+assumed or simulated output device.  
+NOTE 1 A PDF processor can choose to simulate an output device other than the actual one being used, for 
+example when doing soft proofing. 
+NOTE 2  A PDF processor rendering for a device with a native colour space that cannot be represented as a 
+PDF colour space can choose to require that the output be treated as a simulation of a print 
+characterization that can be represented as a PDF colour space. 
+Group
+That initial colour space shall serve as the default blending colour space for each page, unless the page 
+CS
+explicitly specifies an alternative default by means of its page dictionary containing a  key that 
+contains a  key whose value represents a different colour space from the initial blending colour space. 
+If a PDF processor chooses to simulate an output device other than the actual one being used, for 
+example when doing “Soft Proofing”, then the native colour space of that simulated output device 
+should be used as the default blending colour space for each page of the document. 
+CS
+A PDF writer should provide a CIE-based colour space, either by the page group’s  entry or some 
+other means, to ensure more predictable results of the compositing computations within the page 
+group.  
+NOTE 3 PDF/X-4 (ISO 15930-7) establishes the destination profile in the PDF/X OutputIntent as the 
+implied default page blending colour space, which allows the page group’s  entry to be a device 
+CS
+colour but still provide a CIE-based colour space. 
+All page-level compositing shall be done in the default blending colour space of the page, and the entire 
+result shall then, if the colour spaces are not equivalent, be converted to the native colour space of the 
+output device before being composited with the context-dependent backdrop. 
+RelativeColorimetric
+If the page group needs to be converted to the colour space of the output device, the colour conversion 
+shall use a rendering intent of  unless the processor has an implementation-
+dependent way of specifying it otherwise. Additionally, the use of black point compensation in this 
+colour conversion process is implementation-dependent. 
+© ISO 2017 – All rights reserved 403 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional
-T 
-text string () The title of the page set, a human-readable text string. 
-Optional
-TID 
-byte string () A text identifier generated from the text of the page set, as described in 
-14.10.3.3, "Digital identifiers". 
+11.4.8Summary of group compositing computations 
  
-14.10.4.3Image sets 
+This subc-lause is a restatement of the group compositing formulas that also takes isolated groups and 
+knockout groups into account. See "Table 139: Arguments and results of the group compositing 
+function" and "Table 140: Variables used in the group compositing formulas" in 11.4.4, "Group 
+compositing computations" for the meanings of the variables. 
  
-image set
-An  is a content set containing a group of image XObjects generated from a common source, 
-such as multiple frames of an animated GIF image. A single XObject shall not belong to more than one 
-image set. 
-content set dictionary
-  
-"Table 390: Additional entries specific to a Web Capture image set" shows the  
-entries specific toImageSets. 
-Table 390: Additional entries specific to a Web Capture image set 
-Key Type Value 
-RequiredSIS
-S 
-name () The subtype of content set that this dictionary describes; shall be . 
-Required
-R 
-integer or () The reference counts for the image XObjects belonging to the image set. For an image 
-array set containing a single XObject, the value shall be the integer reference count for that XObject. 
-O
-For an image set containing multiple XObjects, the value shall be an array of reference counts 
-R
-Table 388: Entries common to all Web Capture content sets"); that 
-parallel to the  array (see "
-O
-is, each element in the  array shall hold the reference count for the image XObject at the 
-corresponding position in the  array. 
+00
+⟨⟩
+(
+)
+𝐶𝐶,𝑓𝑓,𝛼𝛼=Composite𝐶𝐶
+,𝛼𝛼,𝐵𝐵
  
-Each image XObject in an image set has a reference count indicating the number of PDF pages referring 
-to that XObject. The reference count shall be incremented whenever Web Capture creates a new page 
-referring to the XObject (including copies of already existing pages) and decremented whenever such a 
-page is destroyed. The reference count shall be incremented or decremented only once per page, 
-regardless of the number of times the XObject may be referenced by that page. If the reference count 
-OO
-reaches 0, it shall be assumed that there are no remaining pages referring to the XObject and that the 
-R
-XObject can be removed from the image set’s  array. When removing an XObject from the  array of an 
-image set, the corresponding entry in the  array shall be removed also. 
-14.10.5Source information 
+Initialization: 
  
-14.10.5.1General 
+00
+𝑔𝑔𝑔𝑔
+𝑓𝑓
+=𝐷𝐷=0
+0
+=0 if the group is isolated 
+𝐷𝐷
  
-SI
-source information dictionaries
-The  entry in a content set dictionary (see "Table 388: Entries common to all Web Capture content 
-sets") shall contain one or more , (see "
+For each group element 𝐸𝐸𝐷𝐷 ∈ 𝐵𝐵 (𝐷𝐷=1,…,𝑛𝑛): 
+0              if the group is a knockout
+ 
+𝑏𝑏=�
+𝐷𝐷−1       otherwise
+ 
+bbii
+(
+)
+Composite
+                                                           if 
+Cα,E,E is a group
+i𝑖𝑖i
+s𝑗𝑗j
+�
+C,𝑓𝑓,α�=�
+ 
+i
+()
+E     otherwise
+intrinsic color, shape, and shape×opacity of 
+ 
+𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖
+𝑓𝑓𝑗𝑗𝑚𝑚𝑘𝑘
+𝑓𝑓
+=𝑓𝑓×𝑓𝑓×𝑓𝑓 
+𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖
+𝑓𝑓𝑗𝑗𝑚𝑚𝑚𝑚𝑘𝑘𝑘𝑘
+=𝛼𝛼×(𝑓𝑓×𝑞𝑞)×�𝑓𝑓×𝑞𝑞� 
+𝛼𝛼
+ 
+𝑖𝑖𝑖𝑖−1𝑖𝑖
+𝑔𝑔𝑔𝑔𝑓𝑓
+𝑓𝑓
+=Union�𝑓𝑓,𝑓𝑓� 
+𝑖𝑖𝑖𝑖𝑖𝑖−1𝑖𝑖𝑖𝑖𝑏𝑏𝑖𝑖
+𝑔𝑔𝑓𝑓𝑔𝑔𝑓𝑓𝑓𝑓𝑔𝑔𝑓𝑓
+=�1−𝑓𝑓�×𝛼𝛼+�𝑓𝑓−𝛼𝛼�×𝛼𝛼+𝛼𝛼 
+𝛼𝛼
+𝑖𝑖
+𝑚𝑚0𝑔𝑔
+𝛼𝛼
+=Union�𝛼𝛼,𝛼𝛼� 
+ 
+𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖
+𝑡𝑡𝑓𝑓𝑓𝑓𝑏𝑏𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓𝑏𝑏𝑚𝑚𝑏𝑏𝑓𝑓
+)
+(
+𝐶𝐶
+×𝐶𝐶
+=�𝑓𝑓−𝛼𝛼�×𝛼𝛼×𝐶𝐶+𝛼𝛼×�1−𝛼𝛼+𝛼𝛼×𝐵𝐵�𝐶𝐶,𝐶𝐶�� 
+𝑖𝑖
+𝑓𝑓𝑚𝑚−1𝑚𝑚−1𝑡𝑡
+�×𝛼𝛼×𝐶𝐶+𝐶𝐶
+�1−𝑓𝑓
+𝑚𝑚
+𝐶𝐶
+= 
+𝑚𝑚
+𝛼𝛼
+Result: 
+ 
+0
+𝛼𝛼
+𝑛𝑛𝑛𝑛00
+)
+(
+×�
++𝐶𝐶−𝐶𝐶−𝛼𝛼�
+𝐶𝐶=𝐶𝐶
+𝑛𝑛
+ 
+𝑔𝑔
+𝛼𝛼
+𝑛𝑛
+ 
+𝑔𝑔
+𝑓𝑓=𝑓𝑓
+𝑛𝑛
+𝑔𝑔
+𝛼𝛼=𝛼𝛼
+NOTE Once again, keep in mind that these formulas are in their most general form. They can be 
+ 
+significantly simplified when some sources of shape and opacity are not present or when shape 
+and opacity need not be maintained separately. Furthermore, in each specific type of group 
+(isolated or not, knockout or not), some terms of these formulas cancel or drop out. An efficient 
+implementation can use the simplified derived formulas. 
+© ISO 2017 – All rights reserved 404 
+
+ISO/DIS 32000-2
+ 
+11.5Soft masks 
+ 
+11.5.1General 
+ 
+f
+q
+As stated in earlier sub-clauses, the shape and opacity values used in compositing an object may include 
+soft mask
+mm
+components called the mask shape (
+) and mask opacity (), which may be supplied in a PDF file from 
+a source independent of the object. Such an independent source, called a , defines values that 
+may vary across different points on the page. 
+NOTE 1 The word soft emphasizes that the mask value at a given point is not limited to just 0.0 or 1.0 but 
+can take on intermediate fractional values as well. Such a mask is typically the only means of 
+providing position-dependent opacity values, since elementary objects do not have intrinsic 
+opacity of their own. 
+NOTE 2 A mask used as a source of shape values is also called a soft clip, by analogy with the "hard" 
+clipping path of the opaque imaging model (see 8.5.4, "Clipping path operators"). The soft clip is a 
+generalization of the hard clip: a hard clip can be represented as a soft clip having shape values of 
+1.0 inside and 0.0 outside the clipping path. Everywhere inside a hard clipping path, the source 
+object’s colour replaces the backdrop; everywhere outside, the backdrop shows through 
+unchanged. With a soft clip, by contrast, a gradual transition can be created between an object 
+and its backdrop, as in a vignette. A mask may be defined by creating a transparency group and 
+painting objects into it, thereby defining colour, shape, and opacity in the usual way. The resulting 
+group may then be used to derive the mask in either of two ways, as described in the following 
+sub-clauses. 
+11.5.2Deriving a soft mask from group alpha 
+ 
+G
+In the first method of defining a soft mask, the colour, shape, and opacity of a transparency group  
+shall be first computed by the usual formula 
+ 
+00
+⟨⟩
+)
+(
+,𝛼𝛼,𝐵𝐵
+𝐶𝐶,𝑓𝑓,𝛼𝛼=Composite𝐶𝐶
+ 
+00
+C and α represent an arbitrary backdrop whose value does not contribute to the eventual 
+where 
+result. The 
+C, 𝑓𝑓, anαd  results shall be the group’s colour, shape, and alpha, respectively, with the 
+backdrop factored out. 
+The mask value at each point shall then be derived from the alpha of the group. The alpha value shall be 
+passed through a separately specified transfer function, allowing the masking effect to be customised. 
+NOTE 1 Since the group’s colour is not used in this case, there is no need to compute it. 
+NOTE 2 The shape and alpha of an empty group is 0.0. 
+11.5.3Deriving a soft mask from group luminosity 
+ 
+The second method of deriving a soft mask from a transparency group shall begin by compositing the 
+group with a fully opaque backdrop of a specified colour. The mask value at any given point shall then 
+be defined to be the luminosity of the resulting colour. 
+NOTE 1 This allows the mask to be derived from the shape and colour of an arbitrary piece of artwork 
+drawn with ordinary painting operators. 
+CG
+The colour  used to create the mask from a group  shall be defined by 
+𝑔𝑔𝑔𝑔𝑔𝑔0
+()
+,𝑓𝑓,𝛼𝛼�=Composite𝐶𝐶,1,𝐵𝐵 
+�𝐶𝐶
+© ISO 2017 – All rights reserved 405 
+
+ISO/DIS 32000-2
+ 
+𝑔𝑔0𝑔𝑔𝑔𝑔
+�×𝐶𝐶+𝛼𝛼×𝐶𝐶 
+𝐶𝐶=�1−𝛼𝛼
+C
+ 
+0
+where 
+ is the selected backdrop colour. 
+GC
+ may be any kind of group — isolated or not, knockout or not — producing various effects on the  
+result in each case. The colour C shall then be converted to luminosity in one of the following ways, 
+depending on the group’s colour space: 
+XYZY
+• 
+For CIE-based spaces, convert to the CIE 1931  space and use the  component as the 
+ CalRGB 
+luminosity. This produces a colorimetrically correct luminosity. 
+EXAMPLE 1 In the case of a PDFspace, the formula is 
+𝑅𝑅𝐺𝐺𝐵𝐵
+𝐺𝐺𝐺𝐺𝐺𝐺
+𝐴𝐴𝐵𝐵𝐶𝐶
+𝑌𝑌=𝑌𝑌
+×𝐴𝐴+𝑌𝑌×𝐵𝐵+𝑌𝑌×𝐶𝐶 
+GammaMatrix
+ using components of the  and  entries of the colour space dictionary (see "Table 63: Entries in 
+a CalRGB colour space dictionary" in 8.6.5, "CIE-Based colour spaces"). An analogous computation applies to 
+other CIE-based colour spaces. 
+ DeviceGray 
+• 
+For device colour spaces, convert the colour toby implementation-defined means and 
+use the resulting gray value as the luminosity, with no compensation for gamma or other colour 
+calibration. 
+ DeviceRGB 
+EXAMPLE 2 This method makes no pretence of colorimetric correctness; it merely provides a numerically simple means 
+DeviceCMYK
+to produce continuous-tone mask values. The following are formulas for converting fromand 
+, respectively: 
+𝑌𝑌=0.30×𝑅𝑅+0.59×𝐵𝐵+0.11×𝐵𝐵 
+()
+𝑌𝑌=1−min1,0.3×𝐶𝐶+0.59×𝑀𝑀+0.11×𝑌𝑌+𝐾𝐾 
+Following this conversion, the result shall be passed through a separately specified transfer function, 
+allowing the masking effect to be customised. 
+NOTE 2 The backdrop colour most likely to be useful is black, which causes any areas outside the group’s 
+shape to have zero luminosity values in the resulting mask. If the contents of the group are viewed 
+as a positive mask, this produces the results that would be expected with respect to points outside 
+the shape. 
+11.6Specifying transparency in PDF 
+ 
+11.6.1General 
+ 
+The preceding sub-clauses have presented the transparent imaging model at an abstract level, with 
+little mention of its representation in PDF. This sub-clause describes the facilities available for 
+specifying transparency in PDF. 
+11.6.2Specifying source and backdrop colours 
+ 
+Single graphics objects, as defined in 8.2, "Graphics objects", shall be treated as elementary objects for 
+transparency compositing purposes (subject to special treatment for text objects, as described in 9.3.8, 
+"Text knockout"). That is, all of a given object shall be considered to be one element of a transparency 
+stack. Portions of an object shall not be composited with one another, even if they are described in a 
+way that would seem to cause overlaps (such as a self-intersecting path, combined fill and stroke of a 
+© ISO 2017 – All rights reserved 406 
+
+ISO/DIS 32000-2
+ 
+s
+, used in the 
+path, or a shading pattern containing an overlap or fold-over). An object’s source colour C
+colour compositing formula, shall be specified in the same way as in the opaque imaging model: by 
+means of the current colour in the graphics state or the source samples in an image. The backdrop 
+b
+colour C
+ shall be the result of previous painting operations. 
+11.6.3Specifying blending colour space and blend mode 
+ 
+The blending colour space shall be an attribute of the transparency group within which an object is 
+painted; its specification is described in 11.6.6, "Transparency group XObjects". 
+BM
+𝑏𝑏𝑓𝑓
+The blend mode 𝐵𝐵(𝐶𝐶
+,𝐶𝐶) shall be determined by the current blend mode parameter in the graphics 
+state (see 8.4, "Graphics state"), which is specified by the  entry in a graphics state parameter 
+dictionary (8.4.5, "Graphics state parameter dictionaries"). Its value shall be either a name object, 
+designating one of the standard blend modes listed in "Table 134: Standard separable blend modes" 
+and "Table 135: Standard non-separable blend modes" in 11.3.5, "Blend mode" or its value shall be an 
+arry of such names. However, a value which is an array of names is deprecated in PDF 2.0, and should 
+Normal
+not be used. If encountered, a PDF processor shall use the first blend mode in the array that it 
+recognizes (or  if it recognizes none of them). 
+11.6.4Specifying shape and opacity 
+ 
+11.6.4.1General 
+ 
+fq
+As discussed under 11.3.7.2, "Source shape and opacity", the shape () and opacity () values used in the 
+compositing computation shall come from one or more of the following sources: 
+jj
+f
+q
+• 
+mm
+f
+q
+• 
+The intrinsic shape (
+) and opacity () of the object being composited 
+kk
+f
+q
+• 
+A separate shape (
+) or opacity () mask independent of the object itself 
+A scalar shape (
+) or opacity () constant to be added at every point 
+The following sub-clauses describe how each of these shape and opacity sources shall be specified in 
+PDF. 
+11.6.4.2Object shape and opacity 
+ 
+f
+j
+The shape value  of an object painted with PDF painting operators shall be defined as follows: 
+• 
+For objects defined by a path or a glyph and painted in a uniform colour with a path-painting or 
+text-showing operator (8.5.3, "Path-painting operators", and 9.4.3, "Text-showing operators"), the 
+• 
+shape shall always be 1.0 inside and 0.0 outside the path. 
+For images (8.9, "Images"), the shape shall be 1.0 inside the image rectangle and 0.0 outside it. This 
+may be further modified by an explicit or colour key mask (8.9.6.3, "Explicit masking" and 8.9.6.4, 
+• 
+"Colour key masking"). 
+For image masks (8.9.6.2, "Stencil masking"), the shape shall be 1.0 for painted areas and 0.0 for 
+• 
+masked areas. 
+, 
+For objects painted with a tiling pattern (8.7.3, "Tiling patterns") or a shading pattern (8.7.4
+"Shading patterns"), the shape shall be further constrained by the objects that define the pattern 
+sh
+• 
+(see 11.6.7, "Patterns and transparency"). 
+For objects painted with the  operator (8.7.4.2, "Shading operator"), the shape shall be 1.0 inside 
+© ISO 2017 – All rights reserved 407 
+
+ISO/DIS 32000-2
+ 
+Background
+and 0.0 outside the bounds of the shading’s painting geometry, disregarding the  
+q
+entry in the shading dictionary (see 8.7.4.3, "Shading dictionaries"). 
+j
+ of 1.0 everywhere. Any desired opacity less than 
+All elementary objects shall have an intrinsic opacity 
+1.0 shall be applied by means of an opacity mask or constant, as described in the following sub-clauses. 
+11.6.4.3Mask shape and opacity 
+ 
+soft maskalpha mask 
+mm
+f
+q
+At most one mask input — called a , or — shall be provided to any PDF 
+alpha source
+compositing operation. The mask may serve as a source of either shape (
+) or opacity () values, 
+depending on the setting of the  parameter in the graphics state (see 8.4, "Graphics state").  
+NOTE 1 This is a boolean flag, set with the  ("alpha is shape") entry in a graphics state parameter 
+AIS
+dictionary (8.4.5, "Graphics state parameter dictionaries"):  if the soft mask contains shape 
+values,  for opacity. 
+true
+false
+The soft mask shall be specified in one of the following ways: 
+current soft mask
+ SMask 
+• 
+soft-mask dictionary
+The  parameter in the graphics state, set with theentry in a graphics state 
+None
+parameter dictionary, contains a  (see 11.6.5.1, "Soft-mask dictionaries") 
+defining the contents of the mask. The name  may be specified in place of a soft-mask 
+dictionary, denoting the absence of a soft mask. It shall also mean that any existing mask shall be 
+removed from the current graphics state. In this case, the mask shape or opacity shall be implicitly 
+NOTE 2 The current soft mask in the graphics state is intended to be used to clip only a single object at a 
+1.0 everywhere. 
+time (either an elementary object or a transparency group). If a soft mask is applied when 
+painting two or more overlapping objects, the effect of the mask multiplies with itself in the area 
+of overlap (except in a knockout group), producing a result shape or opacity that is probably not 
+what is intended. To apply a soft mask to multiple objects, it is usually best to define the objects as 
+a transparency group and apply the mask to the group as a whole. These considerations also 
+apply to the current alpha constant (see the next sub-clause). 
+soft-mask image
+• 
+ SMask 
+An image XObject may contain its own  in the form of a subsidiary image XObject 
+referenced as the value of theentry of the parent image dictionary (see 8.9.5, "Image 
+Mask
+dictionaries"). This mask, if present, shall override any explicit or colour key mask specified by the 
+image dictionary’s  entry. Either form of mask in the image dictionary shall override, for this 
+ JPXDecode SMaskInData
+• 
+image object only, the current soft mask in the graphics state. 
+An image XObject that has an announcedfilter may specify an  entry, 
+SMaskInData
+indicating that the soft mask is embedded in the data stream as an opacity channel (see 7.4.9, 
+Mask
+"JPXDecode filter"). If  is present with a value other than 0, the embedded soft-mask 
+shall override any explicit or colour key mask specified by the image dictionary’s  entry, and 
+11.6.4.4Constant shape and opacity 
+ 
+it shall override, for this image object only, the current soft mask in the graphics state. 
+The current alpha constant parameter in the graphics state (see 8.4, "Graphics state") shall be two 
+kk
+f
+q
+scalar values — one for strokes and one for all other painting operations — to be used for the constant 
+shape (
+) or constant opacity () component in the colour compositing formulas. 
+NOTE This parameter is analogous to the current colour used when painting elementary objects. 
+The nonstroking alpha constant shall also be applied when painting a transparency group’s results onto 
+its backdrop. 
+ CA  ca 
+The stroking and nonstroking alpha constants shall be set, respectively, by theandentries in a 
+© ISO 2017 – All rights reserved 408 
+
+ISO/DIS 32000-2
+ 
+graphics state parameter dictionary (see 8.4.5, "Graphics state parameter dictionaries"). As described 
+true
+previously for the soft mask, the AIS (“alpha is shape”) entry in a graphics state parameter dictionary 
+false
+shall determine whether the alpha constants are interpreted as shape values () or opacity values 
+(). 
+11.6.5Specifying soft masks 
+ 
+11.6.5.1Soft-mask dictionaries 
+ 
+The most common way of defining a soft mask is with a soft-mask dictionary specified as the current 
+soft mask in the graphics state (see 8.4, "Graphics state"). "

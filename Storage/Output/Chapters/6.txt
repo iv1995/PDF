@@ -1,8 +1,3 @@
-approval signature 
-one or more digital signatures applied to a document, each one allowing the detection of changes to the 
-document and which confirms a signer of the document. 
-4.3 
- 
 array object 
 one-dimensional collection of objects arranged sequentially and implicitly numbered starting at 0 
 4.4  

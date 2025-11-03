@@ -1,0 +1,55 @@
+Table 212: Additional entries 
+specific to a sound action" shows the action dictionary entries specific to this type of action. Sounds are 
+discussed in 13.3, "Sounds". 
+Table 212: Additional entries specific to a sound action 
+Key Type Value 
+(Required) Sound
+S 
+name The type of action that this dictionary describes; shall be  
+for a sound action. 
+(Required) 
+Sound 
+stream A sound object defining the sound that shall be played (see 
+13.3, "Sounds"). 
+(Optional) 
+Volume 
+number The volume at which to play the sound, in the range -1.0 to 1.0. 
+Default value: 1.0. 
+(Optional) 
+Synchronous 
+true
+boolean A flag specifying whether to play the sound synchronously or 
+asynchronously. If this flag is , the interactive PDF processor retains 
+false
+control, allowing no further user interaction other than cancelling the 
+sound, until the sound has been completely played. Default value: . 
+(Optional) 
+Repeat 
+ Synchronous 
+boolean A flag specifying whether to repeat the sound indefinitely. If 
+false
+this entry is present, theentry shall be ignored. Default 
+value: . 
+(Optional) 
+Mix 
+false
+boolean A flag specifying whether to mix this sound with any other 
+sound already playing. If this flag is , any previously playing sound 
+false
+Repeat
+shall be stopped before starting this sound; this can be used to stop a 
+repeating sound (see ). Default value: . 
+ 
+12.6.4.10Movie actions 
+ 
+The features described in this subclause are deprecated with PDF 2.0. They are superseded by the 
+general multimedia framework described in 13.2, "Multimedia". 
+movie actionPDF 1.2
+A  () can be used to play a movie in a floating window or within the annotation 
+rectangle of a movie annotation (see 12.5.6.17, "Movie annotations" and 13.4, "Movies"). The movie 
+annotation shall be associated with the page that is the destination of the link annotation or outline item 
+containing the movie action, or with the page object with which the action is associated. 
+NOTE A movie action by itself does not guarantee that the page the movie is on will be displayed before 
+attempting to play the movie; such page change actions shall be done explicitly. 
+The contents of a movie action dictionary are identical to those of a movie activation dictionary (see 
+"Table 307: Entries in a movie activation dictionary"), with the additional entries shown in "

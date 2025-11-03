@@ -1,88 +1,164 @@
-Table 173: Additional entries in an annotation dictionary specific to external data" lists annotation 
-dictionary entries that apply to external data. 
-Table 173: Additional entries in an annotation dictionary specific to external data 
+Table 74: Additional entries specific to a Type 1 pattern dictionary". 
+Table 74: Additional entries specific to a Type 1 pattern dictionary 
 Key Type Value 
-(Optional; PDF 1.7) external data dictionary 
-ExData 
-dictionary An specifying data that shall be 
-associated with the annotation. This dictionary contains the following 
-(optional) ExData
-Type
-entries: 
-(required) 
-Subtype
- If present, shall be . 
- a name specifying the type of data that the 
-markup annotation shall be associated with. Possible 
--Markup3D (PDF 1.7) 
- 
-values include: 
-for a 3D comment. Additional entries in this 
-dictionary are listed in "Table 309: Additional entries specific to a 
--3DM (PDF 2.0) 
- 
-3D annotation" 
-for a 3D measurement. Additional entries in this 
-dictionary are listed in "Table 331: Additional entries in a 3D 
-measurement/markup dictionary for a 3D comment noteTable 332: 
--MarkupGeo (PDF 2.0) 
-Subtype
- 
-Entries in the external data dictionary of a projection annotation". 
-for geospatial markup. This  does not 
-define any additional entries. 
- 
- IRT 
-In PDF 1.6, a set of annotations may be grouped so that they function as a single unit when a user 
- IRT 
-interacts with them. The group consists of a primary annotation, which shall not have anentry, and 
-one or more subordinate annotations, which shall have anentry that refers to the primary 
-© ISO 2017 – All rights reserved 467 
+Optional
+Type 
+Pattern
+name () The type of PDF object that this dictionary describes; if present, shall be 
+ for a pattern dictionary. 
+Required
+PatternType 
+integer () A code identifying the type of pattern that this dictionary describes; 
+shall be 1 for a tiling pattern. 
+© ISO 2017 – All rights reserved 215 
 
 ISO/DIS 32000-2
  
-Group
- RT 
-annotation and anentry whose value is . 
-Some entries in the primary annotation are treated as "group attributes" that shall apply to the group as 
-Contents RC DSMCTPopupCreationDateSubjOpen
-a whole; the corresponding entries in the subordinate annotations shall be ignored. These entries are 
- (orand ), , , , , , , and . Operations that manipulate 
-any annotation in a group, such as movement, cut, and copy, shall be treated by interactive PDF 
-processors as acting on the entire group. 
-NOTE 3 A primary annotation may have replies that are not subordinate annotations; that is, that do not 
-have anvalue of . 
- RT 
-12.5.6.3Annotation states 
+Key Type Value 
+Required
+PaintType 
+integer () A code that determines how the colour of the pattern cell shall be 
+Coloured tiling pattern.
+1
  
-Group
-Beginning with PDF 1.5, annotations may have an author-specific state associated with them. The state 
- IRT 
-is not specified in the annotation itself but in a separate text annotation that refers to the original 
-annotation by means of its("in reply to") entry (see "Table 176: Additional entries specific to a link 
-annotation"). States shall be grouped into a number of state models, as shown in "Table 174: Annotation 
-states". 
-Table 174: Annotation states 
-State model State Description 
-Marked 
-Marked The annotation has been marked by the user. 
- Unmarked The annotation has not been marked by the user (the default). 
-Review 
-Accepted The user agrees with the change. 
- Rejected The user disagrees with the change. 
- Cancelled The change has been cancelled. 
- Completed The change has been completed. 
- None The user has indicated nothing about the change (the default). 
+specified: 
+ The pattern’s content stream shall specify the 
+colours used to paint the pattern cell. The current colours in use when 
+the PDF processor begins processing the content stream are the ones 
+initially in effect in the pattern’s parent content stream. This is similar to 
  
-State changes made by a user shall be indicated in a text annotation with the following entries: 
-T
-• 
-The  entry (see "Table 172: Additional entries in an annotation dictionary specific to markup 
- IRT 
-• 
-annotations") shall specify the user. 
-Theentry (see "Table 176: Additional entries specific to a link annotation") shall refer to the 
-State StateModel 
-• 
-original annotation. 
- and(see "
+the definition of the pattern matrix; see 8.7.2, "General properties of 
+Uncoloured tiling pattern
+2
+ 
+patterns".
+. The pattern’s content stream shall not specify 
+any colour information. Instead, the entire pattern cell is painted with a 
+separately specified colour each time the pattern is used. Essentially, the 
+content stream describes a stencil through which the current 
+nonstroking colour shall be poured. The content stream shall not invoke 
+operators that specify colours or other colour-related parameters in the 
+graphics state; otherwise, the operator is ignored and processing of the 
+"). The 
+stream continues without error (see 8.6.8, "Colour operators
+ 
+content stream may paint an image mask however, since it does not 
+specify any colour information (see 8.9.6.2, "Stencil masking").
+Required
+TilingType 
+integer () A code that controls adjustments to the spacing of tiles relative to the 
+1 Constant spacing
+device pixel grid: 
+. Pattern cells shall be spaced consistently — that is, by a 
+XStepYStep
+multiple of a device pixel. To achieve this, the PDF processor may need to 
+distort the pattern cell slightly by making small adjustments to , , 
+and the transformation matrix. The amount of distortion shall not exceed 1 
+2No distortion
+device pixel. 
+ . The pattern cell shall not be distorted, but the spacing between 
+pattern cells may vary by as much as 1 device pixel, both horizontally and 
+XStepYStep
+vertically, when the pattern is painted. This achieves the spacing requested 
+by  and  on average but not necessarily for each individual 
+Constant spacing and faster tiling
+pattern cell. 
+3 . Pattern cells shall be spaced consistently as 
+ 
+in tiling Type 1 but with additional distortion permitted to enable a more 
+efficient implementation.
+Required
+BBox 
+rectangle () An array of four numbers in the pattern coordinate system giving the 
+coordinates of the left, bottom, right, and top edges, respectively, of the pattern 
+NOTE 1 A BBox of zero height or width will still paint one pixel (see 10.7.4, "Scan 
+cell’s bounding box. These boundaries shall be used to clip the pattern cell. 
+conversion rules"). 
+Required
+XStep 
+number () The desired horizontal spacing between pattern cells, measured in the 
+pattern coordinate system. 
+Required
+YStep 
+number () The desired vertical spacing between pattern cells, measured in the 
+NOTE 2andcan differ from the dimensions of the pattern cell implied 
+ XStep  YStep 
+pattern coordinate system. 
+by theentry. This allows tiling with irregularly shaped figures. 
+ BBox 
+XStep YStep 
+ andmay be either positive or negative but shall not be zero. 
+Required
+Resources 
+dictionary () A resource dictionary that shall contain all of the named resources 
+required by the pattern’s content stream (see 7.8.3, "Resource dictionaries"). 
+Optional
+Matrix 
+array () An array of six numbers specifying the pattern matrix (see 8.7.2, 
+"General properties of patterns"). Default value: the identity matrix [1 0 0 1 0 0]. 
+ 
+© ISO 2017 – All rights reserved 216 
+
+ISO/DIS 32000-2
+ 
+BBoxXStep YStep 
+The pattern dictionary’s , , andvalues shall be interpreted in the pattern coordinate 
+system, and the graphics objects in the pattern’s content stream shall be defined with respect to that 
+ XStep  YStep 
+coordinate system. The placement of pattern cells in the tiling is based on the location of one key 
+pattern cell, which is then displaced by multiples ofandto replicate the pattern. The origin 
+Matrix
+of the key pattern cell coincides with the origin of the pattern coordinate system. The phase of the tiling 
+can be controlled by the translation components of the  entry in the pattern dictionary. 
+Prior to painting with a tiling pattern, the PDF writer shall establish the pattern as the current colour in 
+the graphics state. Subsequent painting operations tile the painted areas with the pattern cell described 
+by the pattern’s content stream. To obtain the pattern cell, the interactive PDF processor shall perform 
+these steps: 
+q
+ 
+ 
+a)Saves the current graphics state (as if by invoking the  operator) 
+b)Installs the graphics state that was in effect at the beginning of the pattern’s parent content stream, with 
+the current transformation matrix altered by the pattern matrix as described in 8.7.2, "General properties 
+ 
+of patterns" 
+Q
+ 
+c)Paints the graphics objects specified in the pattern’s content stream 
+d)Restores the saved graphics state (as if by invoking the  operator)  
+The pattern’s content stream shall not set any of the device-dependent parameters in the graphics state 
+(see "Table 52: Device-dependent graphics state parameters") because it can result in incorrect output.  
+8.7.3.2Coloured tiling patterns 
+ 
+A coloured tiling pattern is a pattern whose colour is self-contained. In the course of painting the 
+pattern cell, the pattern’s content stream explicitly sets the colour of each graphical element it paints. A 
+single pattern cell may contain elements that are painted different colours; it may also contain sampled 
+grayscale or colour images. This type of pattern is identified by a pattern type of 1 and a paint type of 1 
+in the pattern dictionary. 
+Pattern
+SCNscn
+When the current colour space is a  space, a coloured tiling pattern shall be selected as the 
+Pattern
+current colour by supplying its name as the single operand to the  or  operator. This name shall 
+be the key of an entry in the  subdictionary of the current resource dictionary (see 7.8.3, 
+"Resource dictionaries"), whose value shall be the stream object representing the pattern. Since the 
+SCNscn
+pattern defines its own colour information, no additional operands representing colour components 
+shall be specified to  or . 
+EXAMPLE 1 If P1 is the name of a pattern resource in the current resource dictionary, the following code establishes it as 
+the current nonstroking colour: 
+/Pattern cs 
+/P1 scn 
+NOTE 1 Subsequent executions of nonstroking painting operators, such as  (fill),  (show text), or  
+fTjDo
+(paint external object) with an image mask, use the designated pattern to tile the areas to be 
+painted. 
+NOTE 2 The following defines a page (object 5) that paints three circles and a triangle using a coloured 
+tiling pattern (object 15) over a yellow background. The pattern consists of the symbols for the 
+four suits of playing cards (spades, hearts, diamonds, and clubs), which are character glyphs taken 
+from the ZapfDingbats font (see D.5, "ZapfDingbats set and encoding"); the pattern’s content 
+© ISO 2017 – All rights reserved 217 
+
+ISO/DIS 32000-2
+ 
+stream specifies the colour of each glyph. "

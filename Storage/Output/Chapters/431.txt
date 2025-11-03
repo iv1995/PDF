@@ -1,0 +1,73 @@
+Table 261: Entries in the document security store (DSS) dictionary 
+Key Type Value 
+(Optional) DSS
+Type   
+name If present, shall befor a document security store dictionary. 
+(Optional) 
+VRI   
+dictionary This dictionary contains SignatureVRIdictionaries (see 12.8.4.4, 
+  
+"Validation-related information (VRI)"). The key of each entry in this dictionary is 
+a
+  
+the base-16-encoded (uppercase)SHA1digest of the signature to which it applies 
+and the value is the SignatureVRIdictionary which contains the validation-related 
+information for that signature. 
+(Optional) 
+Certs 
+array An array of indirect reference to streams, each containing one DER-
+encoded X.509 certificate (see RFC 5280). This array contains certificates that may 
+be used in the validation of any signatures in the document. 
+© ISO 2017 – All rights reserved 567 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) 
+OCSPs 
+array An array of indirect references to streams, each containing a DER-
+ OCSPs 
+encoded Online Certificate Status Protocol (OCSP) response (see RFC 6960). This 
+array containsthat may be used in the validation of the signatures in the 
+document. 
+(Optional) 
+CRLs 
+ 
+array An array of indirect references to streams, each containing a DER-
+CRLs 
+encoded Certificate Revocation List (CRL) (see RFC 5280). This array contains
+that may be used in the validation of the signatures in the document. 
+a 
+Contents
+For a document signature or document timestamp signatures, the bytes that are hashed are those of the 
+complete hexadecimal string, including zero padding, in the  entry of the associated signature 
+CRLsOCSP
+dictionary, containing the signature's DER-encoded binary data object (e.g. CMS or CAdES objects). 
+For the signatures of  and  responses, the bytes that are hashed are the respective signature object 
+represented as a BER-encoded OCTET STRING encoded with primitive encoding. 
+ 
+12.8.4.4Validation-related information (VRI) 
+ 
+  
+A signatureVRIdictionary shall contain validation-related information (VRI) for one signature in the 
+  
+document that a given signature handler or PDF processor has used to successfully validate the given 
+signature. A signatureVRIdictionary shall reference: 
+ 
+• 
+aselection of certificates (Cert) from the certificates list (Certs) in the DSS dictionary applicable to 
+ CRLs CRL  
+• 
+this signature; 
+ OCSP responses OCSP  
+• 
+a selection offrom the  list in theDSSdictionary applicable to this signature, if any; 
+a selection offrom the  response list in theDSSdictionary applicable to this 
+Cert, CRL OCSP
+signature.  
+If any of the  or arrays is empty that entry in the dictionary shall be omitted. 
+A VRI dictionary may also contain the time at which the data placed in the VRI dictionary was created 
+or/and a timestamp token which contains the UTC time at which the VRI dictionary was created. 
+  
+A signatureVRIdictionary shall not be used to record the information used in an unsuccessful 
+validation attempt. 

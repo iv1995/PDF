@@ -1,155 +1,190 @@
-Table 
-86: XObject operator"). This operator applies to any type of XObject — image or form. The syntax is the 
-same in all cases, although details of the operator’s behaviour differ depending on the type. 
-© ISO 2017 – All rights reserved 248 
+Table 36: Entries 
+in a name tree node dictionary" shows the entries in a node dictionary. The nodes shall be of three 
+ Kids NamesNames
+kinds, depending on the specific entries they contain. The tree shall always have exactly one root node, 
+ Kids 
+which shall contain a single entry: eitheror  but not both. If the root node has a  
+Limits Kids 
+entry, it shall be the only node in the tree. If it has aentry, each of the remaining nodes shall be 
+LimitsNames
+either an intermediate node, that shall contain a  entry and aentry, or a leaf node, that shall 
+contain a  entry and a  entry. 
+Table 36: Entries in a name tree node dictionary 
+Key Type Value 
+(Root and intermediate nodes only; required in intermediate nodes; present in the root 
+Kids 
+node if and only if  is not present)
+Names
+array 
+ Shall be an array of indirect references to the 
+immediate children of this node. The children may be intermediate or leaf nodes. 
+(Root and leaf nodes only; required in leaf nodes; present in the root node if and only if 
+Names 
+ is not present)
+Kids
+array 
+key value key value …key value
+ Shall be an array of the form 
+1122nn
+keyvalue
+[] 
+ii
+where each  shall be a string and the corresponding  shall be the object 
+ 
+associated with that key. The keys shall be sorted in lexical order, as described 
+below.
+Required for intermediate and leaf nodes; not permitted in root nodes
+Limits 
+array () Shall be an 
+NamesNames
+array of two strings, that shall specify the (lexically) least and greatest keys included 
+in the  array of a leaf node or in the  arrays of any leaf nodes that are 
+descendants of an intermediate node. 
+ 
+ Kids 
+Names
+Theentries in the root and intermediate nodes define the tree’s structure by identifying the 
+immediate children of each node. The  entries in the leaf (or root) nodes shall contain the tree’s 
+keys and their associated values, arranged in key-value pairs and shall be sorted lexically in ascending 
+order by key. Shorter keys shall appear before longer ones beginning with the same byte sequence. Any 
+encoding of the keys may be used as long as it is self-consistent; keys shall be compared for equality on 
+a simple byte-by-byte basis. 
+NamesNames
+Limits
+The keys contained within the various nodes’  entries shall not overlap; each  entry shall 
+Names
+contain a single contiguous range of all the keys in the tree. In a leaf node, the  entry shall specify 
+Names
+the least and greatest keys contained within the node’s  entry. In an intermediate node, it shall 
+specify the least and greatest keys contained within the  entries of any of that node’s 
+Names
+descendants. The value associated with a given key can thus be found by walking the tree in order, 
+searching for the leaf node whose  entry contains that key. 
+EXAMPLE 1 The following is an abbreviated outline, showing object numbers and nodes, of a name tree that maps the 
+© ISO 2017 – All rights reserved 120 
 
 ISO/DIS 32000-2
  
-Table 86: XObject operator 
-Operands Operator Description 
-name name
-Do XObject
-XObject
-Paint the specified . The operand  shall appear as a key in 
-the  subdictionary of the current resource dictionary (see 7.8.3, 
-TypeXObjectDo
-"Resource dictionaries"). The associated value shall be a stream whose 
-Subtype Image 
- entry, if present, is . The effect of  depends on the value 
-Form
-of the XObject’s  entry, which may be(see 8.9.5, "Image 
-dictionaries") or  (see 8.10, "Form XObjects"). 
+names of all the chemical elements, from actinium to zirconium, to their atomic numbers. 
+1: Root node 
+Example of a name tree 
+  2: Intermediate node: Actinium to Gold 
+   5: Leaf node: Actinium = 25,…, Astatine = 31 
+    25: Integer: 89 
+    … 
+    31: Integer: 85 
+   … 
+   11: Leaf node: Gadolinium = 56,…, Gold = 59 
+    56: Integer: 64 
+    … 
+    59: Integer: 79 
+  3: Intermediate node: Hafnium to Protactinium 
+   12: Leaf node: Hafnium = 60,…, Hydrogen = 65 
+    60: Integer: 72 
+    … 
+    65: Integer: 1 
+   … 
+   19: Leaf node: Palladium = 92,…, Protactinium = 100 
+    92: Integer: 46 
+    … 
+    100:Integer: 91 
+  4: Intermediate node: Radium to Zirconium 
+   20: Leaf node: Radium = 101,…, Ruthenium = 107 
+    101:Integer: 89 
+    … 
+    107:Integer: 85 
+   … 
+   24: Leaf node: Xenon = 129,…, Zirconium = 133 
+    129:Integer: 54 
+    … 
+    133:Integer: 40 
+EXAMPLE 2 The following shows the representation of this tree in a PDF file: 
+1 0 obj 
+  <</Kids [2 0 R        %Root node 
+     3 0 R 
+     4 0 R 
+     ] 
+>> 
+endobj 
  
-Annex J, "XObject Comparison", contains one method by which Xobjects can be compared for 
-equivalency. 
-8.9Images 
+2 0 obj 
+  <</Limits [(Actinium) (Gold)]   %Intermediate node 
+   /Kids [5 0 R 
+     6 0 R 
+     7 0 R 
+     8 0 R 
+     9 0 R 
+     10 0 R 
+     11 0 R 
+     ] 
+  >> 
+endobj 
  
-8.9.1General 
- 
-sampled image
-sample values
-PDF’s painting operators include general facilities for dealing with sampled images. A  
-(or just image for short) is a rectangular array of , each representing a colour. The image 
-may approximate the appearance of some natural scene obtained through an input scanner or a video 
-camera, or it may be generated synthetically. ![Figure 48 Typical sampled image  .jpg](./Storage/Output/Images/Figure 48 Typical sampled image  .jpg)
-Figure 48: Typical sampled image 
- 
-An image is defined by a sequence of samples obtained by scanning the image array in row or column 
-DeviceGrayDeviceRGB
-order. Each sample in the array consists of as many colour components as are needed for the colour 
-DeviceCMYK DeviceN 
-space in which they are specified — for example, one component for , three for , 
-PDF 1.5PDF 1.5
-four for , or whatever number is required by a particularspace. Each component 
- 
-is a 1-, 2-, 4-, 8-, or () 16-bit integer, permitting the representation of 2, 4, 16, 256, or () 
-JPXDecode 
-65536 distinct values for each component. Other component sizes can be accommodated when a
-filter is used; see 7.4.9, "JPXDecode filter". 
-PDF provides two means for specifying images: 
-image XObject
-• 
-An  (described in 8.9.5, "Image dictionaries") is a stream object whose dictionary 
-Do
-specifies attributes of the image and whose data contains the image samples. Like all external 
-  
-objects, it is painted on the page by invoking the  operator in a content stream (see 8.8, 
-"External objects").ImageXObjects have other uses as well, such as for alternate images (see 
-8.9.5.4, "Alternate images"), image masks (8.9.6, "Masked images"), and thumbnail images (12.3.4, 
-"Thumbnail images"). 
-© ISO 2017 – All rights reserved 249 
+3 0 obj 
+  <</Limits [(Hafnium) (Protactinium)]  %Intermediate node 
+   /Kids [12 0 R 
+     13 0 R 
+     14 0 R 
+     15 0 R 
+© ISO 2017 – All rights reserved 121 
 
 ISO/DIS 32000-2
  
-inline image
-• 
-An  is a small image that is completely defined — both attributes and data — directly 
-inline within a content stream. The kinds of images that can be represented in this way are limited; 
-8.9.2Image parameters 
+     16 0 R 
+     17 0 R 
+     18 0 R 
+     19 0 R 
+     ] 
+  >> 
+endobj 
  
-see 8.9.7, "Inline images" for details. 
-The properties of an image — resolution, orientation, scanning order, and so forth — are entirely 
-independent of the characteristics of the raster output device on which the image is to be rendered. A 
-PDF processor usually renders images by a sampling technique that attempts to approximate the colour 
-values of the source as accurately as possible. The actual accuracy achieved depends on the resolution 
-and other properties of the output device. 
-To paint an image, four interrelated items shall be specified: 
-• 
-The format of the image: number of columns (width), number of rows (height), number of colour 
-• 
-components per sample, and number of bits per colour component 
-• 
-The sample data constituting the image’s visual content 
-The correspondence between coordinates in user space and those in the image’s own internal 
-• 
-coordinate space, defining the region of user space that will receive the image 
-The mapping from colour component values in the image data to component values in the image’s 
-colour space 
-All of these items shall be specified explicitly or implicitly by an image XObject or an inline image. 
-NOTE For convenience, the following subclauses refer consistently to the object defining an image as an 
-. Although this term properly refers only to the dictionary portion of the stream 
-object representing an image XObject, it can be understood to apply equally to the stream’s data 
-image dictionary
-portion or to the parameters and data of an inline image. 
-8.9.3Sample representation 
+4 0 obj 
+  <</Limits [(Radium) (Zirconium)]   %Intermediate node 
+   /Kids [20 0 R 
+     21 0 R 
+     22 0 R 
+     23 0 R 
+     24 0 R 
+     ] 
+  >> 
+endobj 
  
-The source format for an image shall be described by four parameters: 
-• 
-• 
-The width of the image in samples 
-• 
-The height of the image in samples 
-• 
-The number of colour components per sample 
-The number of bits per colour component 
-The image dictionary shall specify the width, height, and number of bits per component explicitly. The 
-number of colour components shall be inferred from the colour space specified in the dictionary. 
-NOTE For images using thefilter (see 7.4.9, "JPXDecode filter"), the number of bits per 
-  
-component is determined from the image data and not specified in the image dictionary. The 
-JPXDecode
-colour space might or might not be specified in the dictionary. 
-Sample data shall be represented as a stream of bytes, interpreted as 8-bit unsigned integers in the 
-nn
-range 0 to 255. The bytes constitute a continuous bit stream, with the high-order bit of each byte first. 
-This bit stream, in turn, is divided into units of  bits each, where  is the number of bits per component. 
-Each unit encodes a colour component value, given with high-order bit first; units of 16 bits shall be 
-given with the most significant byte first. Byte boundaries shall be ignored, except that each row of 
-sample data shall begin on a byte boundary. If the number of data bits per row is not a multiple of 8, the 
-end of the row is padded with extra bits to fill out the last byte. A PDF processor shall ignore these 
-© ISO 2017 – All rights reserved 250 
-
-ISO/DIS 32000-2
+5 0 obj 
+  <</Limits [(Actinium) (Astatine)] ` %Leaf node 
+   /Names [(Actinium) 25 0 R 
+     (Aluminum) 26 0 R 
+     (Americium) 27 0 R 
+     (Antimony) 28 0 R 
+     (Argon) 29 0 R 
+     (Arsenic) 30 0 R 
+     (Astatine) 31 0 R 
+     ] 
+  >> 
+endobj 
+… 
  
-padding bits. 
-n
-n
-Decode
-Each -bit unit within the bit stream shall be interpreted as an unsigned integer in the range 0 to 2- 1, 
-scg
-with the high-order bit first. The image dictionary’s  entry maps this integer to a colour 
-RGB
-component value, equivalent to what could be used with colour operators such as  or . Colour 
-components shall be interleaved sample by sample; for example, in a three-component  image, the 
-red, green, and blue components for one sample are followed by the red, green, and blue components 
-for the next. 
-false
- ImageMask 
-If the image dictionary'sentry is  or absent, the colour samples in an image shall be 
+24 0 obj 
+  <</Limits [(Xenon) (Zirconium)]   %Leaf node 
+   /Names [(Xenon) 129 0 R 
+     (Ytterbium) 130 0 R 
+     (Yttrium) 131 0 R 
+     (Zinc) 132 0 R 
+     (Zirconium) 133 0 R 
+     ] 
+  >> 
+endobj 
  
-interpreted according to the colour space specified in the image dictionary (see 8.6, "Colour spaces"), 
-truestencil mask
-ImageMask 
-without reference to the colour parameters in the graphics state. However, if the image dictionary’s
-entry is , the sample data shall be interpreted as a  for applying the 
-graphics state’s nonstroking colour parameters (see 8.9.6.2, "Stencil masking"). 
-8.9.4Image coordinate system 
+25 0 obj 
+  89             %Atomic number (Actinium) 
+endobj 
+… 
+133 0 obj 
+  40              %Atomic number (Zirconium) 
+endobj 
  
-whwh
-Each image has its own internal coordinate system, or image space. The image occupies a rectangle in 
-image space  units wide and  units high, where  and  are the width and height of the image in 
-wh
-samples. Each sample occupies one square unit. The coordinate origin (0, 0) is at the upper-left corner 
-of the image, with coordinates ranging from 0 to  horizontally and 0 to  vertically. 
-The image’s sample data is ordered by row, with the horizontal coordinate varying most rapidly. This is 
-shown in "
+7.9.7Number trees 
+ 
+A number tree is similar to a name tree (see 7.9.6, "Name trees"), except that its keys shall be integers 
+NumsNames
+instead of strings and shall be sorted in ascending numerical order. The entries in the leaf (or root) 
+nodes containing the key-value pairs shall be named  instead of  as in a name tree. "

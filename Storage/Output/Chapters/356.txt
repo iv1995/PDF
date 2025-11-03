@@ -1,0 +1,35 @@
+Table 188: Additional 
+entries specific to a sound annotation" shows the annotation dictionary entries specific to this type of 
+annotation. Sound objects are discussed in 13.3, "Sounds". 
+Table 188: Additional entries specific to a sound annotation 
+Key Type Value 
+(Required) 
+Subtype 
+Sound 
+name The type of annotation that this dictionary describes; shall be 
+for a sound annotation. 
+(Required) 
+Sound 
+stream A sound object defining the sound that shall be played when the 
+annotation is activated (see 13.3, "Sounds"). 
+© ISO 2017 – All rights reserved 482 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional) 
+Name 
+name The name of an icon that shall be used in displaying the 
+Speaker 
+annotation. PDF writers should include this entry and PDF readers should 
+MicSpeaker
+provide predefined icon appearances for at least the standard names 
+and . Additional names may be supported as well. Default value: . 
+ 
+12.5.6.17Movie annotations 
+ 
+The features described in this subclause are deprecated in PDF 2.0. They are superseded by the general 
+multimedia framework described in 13.2, "Multimedia". 
+PDF 1.2
+A movie annotation () contains animated graphics and sound to be presented on the computer 
+screen and through the speakers. When the annotation is activated, the movie shall be played. "

@@ -1,51 +1,21 @@
-Table 284: Entries common to all media 
-clip dictionaries". 
-Table 284: Entries common to all media clip dictionaries 
-Key Type Value 
-Optional
-Type 
-MediaClip
-name () The type of PDF object that this dictionary describes; if present, shall 
-be  for a media clip dictionary. 
-RequiredMCD
-S 
-MCS
-name () The subtype of media clip that this dictionary describes. May be  
-for media clip data (see 13.2.4.2, "Media clip data") or  for a media clip 
-section (see 13.2.4.3, "Media clip section"). The media clip is non-viable if the 
-interactive PDF processor does not recognise the value of this entry. 
-© ISO 2017 – All rights reserved 599 
+Figure 52: Glyph outlines treated as a 
+stroked path"). 
+BT 
+  /F13 48 Tf 
+  20 38 Td 
+© ISO 2017 – All rights reserved 290 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional
-N 
-text string () The name of the media clip, for use in the user interface. 
+  1 Tr 
+  2 w 
+  (ABC) Tj 
+ET ![Figure 52 Glyph outlines treated as a stroked path  .png](./Storage/Output/Images/Figure 52 Glyph outlines treated as a stroked path  .png)
+Figure 52: Glyph outlines treated as a stroked path 
  
-13.2.4.2Media clip data 
- 
-media clip data dictionary
-A  defines the data for a media object that can be played. Its entries are listed 
-in "Table 285: Additional entries in a media clip data dictionary". 
-NOTE 1 Media clip data dictionaries can reference aURLto a streaming video presentation or a movie 
-  
-embedded in the PDF file. 
-Table 285: Additional entries in a media clip data dictionary 
-Key Type Value 
-Required
-D 
-file specification () A full file specification or form XObject that specifies the actual media 
-or stream data. 
-Optional; shall not be present for form XObjects
-CT 
-D
-ASCII string () An ASCII string identifying the 
-Internet RFC 2045, Multipurpose Internet Mail Extensions (MIME) 
-type of data in . The string should conform to the content type specification 
-Part One: Format of Internet Message Bodies
-described in 
-. 
-Optional
-P 
-dictionary () A media permissions dictionary (see "
+Tr
+Tj
+EXAMPLE 3 This example illustrates how the glyphs’ outlines can be used as a clipping boundary. The  operator sets the 
+text rendering mode to 7 (clip), causing the subsequent  operator to impose the glyph outlines as the current 
+Q
+clipping path. All subsequent painting operations mark the page only within this path, as illustrated in "

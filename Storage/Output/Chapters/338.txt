@@ -1,0 +1,26 @@
+Table 174: Annotation 
+states". 
+Table 174: Annotation states 
+State model State Description 
+Marked 
+Marked The annotation has been marked by the user. 
+ Unmarked The annotation has not been marked by the user (the default). 
+Review 
+Accepted The user agrees with the change. 
+ Rejected The user disagrees with the change. 
+ Cancelled The change has been cancelled. 
+ Completed The change has been completed. 
+ None The user has indicated nothing about the change (the default). 
+ 
+State changes made by a user shall be indicated in a text annotation with the following entries: 
+T
+• 
+The  entry (see "Table 172: Additional entries in an annotation dictionary specific to markup 
+ IRT 
+• 
+annotations") shall specify the user. 
+Theentry (see "Table 176: Additional entries specific to a link annotation") shall refer to the 
+State StateModel 
+• 
+original annotation. 
+ and(see "

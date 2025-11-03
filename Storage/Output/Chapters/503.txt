@@ -1,0 +1,111 @@
+Table 321: 3D lighting scheme styles" describes the supported lighting schemes. With the exception of 
+distant
+the Artwork lighting style, all the lights specified in "Table 321: 3D lighting scheme styles" are  
+ambient
+lights (also known as  lights). Unlike lights from a point source, all rays from an infinite light 
+DeviceRGB
+  
+source are emitted along a single direction vector. For lights specifying an  term, this term shall 
+be added to the diffuse colour of an object’s material. All colours shall be specified in the
+colour space. 
+When a style other than Artwork is used, only those lights described shall be present; any lighting 
+described in the artwork shall not be used. 
+Table 321: 3D lighting scheme styles 
+Scheme Description 
+Artwork 
+Lights as specified in the 3D artwork. This has the same effect as if the 3D lighting 
+scheme dictionary were omitted. 
+None 
+No lights shall be used. That is, lighting specified in the 3D artwork shall be 
+ignored. 
+White 
+Three blue-gray infinite lights, no ambient term 
+Light 1 Colour: <0.38, 0.38, 0.45> Direction: <-2.0, -1.5, -0.5>  
+ 
+Light 2 Colour: <0.6, 0.6, 0.67>                   Direction: <2.0, 1.1, -2.5>  
+Light 3 Colour: <0.5, 0.5, 0.57>                    Direction: <-0.5, 0.0, 2.0>
+Day 
+Three light-gray infinite lights, no ambient term 
+Light 1 Colour: <0.5, 0.5, 0.5> Direction: <-2.0, -1.5, -.5>  
+ 
+Light 2 Colour: <0.8, 0.8, 0.9> Direction: <2.0, 1.1, -2.5>  
+Light 3 Colour: <0.9, 0.9, 0.9> Direction: <0.02, 0.01, 2.0>
+© ISO 2017 – All rights reserved 643 
+
+ISO/DIS 32000-2
+ 
+Scheme Description 
+Night 
+One yellow, one aqua, and one blue infinite light, no ambient term 
+Light 1 Colour: <1, .75, .39>  Direction: <-2.0, -1.5, -0.5>  
+ 
+Light 2 Colour: <0.31, 0.47, 0.55> Direction: <2.0, 1.1, -2.5>  
+Light 3 Colour: <.5, .5, 1.0>   Direction: <0.0, 0.0, 2.0>
+Hard 
+Three gray infinite lights, moderate ambient term 
+Light Colour: <0.5, 0.5, 0.5> Direction: <-1.5, -1.5, -1.5>  
+Light 2 Colour: <0.8, 0.8, 0.9> Direction: <1.5, 1.5, -1.5>  
+ 
+Light 3 Colour: <0.9, 0.9, 0.9> Direction: <-0.5, 0, 2.0> 
+Ambient Colour: <0.5, 0.5, 0.5>
+Primary 
+One red, one green, and one blue infinite light, no ambient term  
+Light 1 Colour: <1, 0.2, 0.5>  Direction: <-2, -1.5, -0.5>  
+ 
+Light 2 Colour: <0.2, 1.0, 0.5>                   Direction: <2.0, 1.1, -2.5>  
+Light 3 Colour: <0, 0, 1>  Direction: <0.0, 0.0, 2.0>
+Blue 
+Three blue infinite lights, no ambient term 
+Light 1 Colour: <0.4, 0.4, 0.7>                   Direction: <-2.0, -1.5, -0.5>  
+ 
+Light 2 Colour: <0.75, 0.75, 0.95> Direction: <2.0, 1.1, -2.5>  
+Light 3 Colour: <0.7, 0.7, 0.95>                   Direction: <0.0, 0.0, 2.0>
+Red 
+Three red infinite lights, no ambient term 
+Light 1 Colour: <0.8, 0.3, 0.4> Direction: <-2.0, -1.5, -0.5>  
+ 
+Light 2 Colour: <0.95, 0.5, 0.7> Direction: <2.0, 1.1, -2.5>  
+Light 3 Colour: <0.95, 0.4, 0.5> Direction: <0.0, 0.0, 2.0>
+Cube 
+Six gray infinite lights aligned with the major axes, no ambient term  
+Light 1 Colour: <.4, .4, .4> Direction: <1.0, 0.01, 0.01>  
+Light 2 Colour: <.4, .4, .4> Direction: <0.01, 1.0, 0.01>  
+Light 3 Colour: <.4, .4, .4> Direction: <0.01, 0.01, 1.0>  
+Light 4 Colour: <.4, .4, .4> Direction: <-1.0, 0.01, 0.01>  
+ 
+Light 5 Colour: <.4, .4, .4> Direction: <0.01, -1.0, 0.01>  
+Light 6 Colour: <.4, .4, .4> Direction: <0.01, 0.01, -1.0>
+CAD 
+Three gray infinite lights and one light attached to the camera, no ambient term 
+Light 1 Colour: <0.72, 0.72, 0.81> Direction: <0.0, 0.0, 0.0>  
+Light 2 Colour: <0.2, 0.2, 0.2>                   Direction: <-2.0, -1.5, -0.5>  
+ 
+Light 3 Colour: <0.32, 0.32, 0.32> Direction: <2.0, 1.1, -2.5>  
+Light 4 Colour: <0.36, 0.36, 0.36> Direction: <0.04, 0.01, 2.0>
+Headlamp 
+Single infinite light attached to the camera, low ambient term 
+Light 1 Colour: <0.8, 0.8, 0.9> Direction: <0.0, 0.0, 0.0> 
+Ambient Colour: <0.1, 0.1, 0.1> 
+© ISO 2017 – All rights reserved 644 
+
+ISO/DIS 32000-2
+ 
+ 
+If a lighting scheme style is encountered other than those described in "Table 321: 3D lighting scheme 
+styles" the lighting scheme dictionary containing that entry shall be ignored. 
+NOTE This allows future documents using new lighting schemes to behave consistently with future 
+documents using new 3D view constructs. That is, the expected behaviour is for the interactive 
+PDF processor to ignore unrecognised lighting styles and 3D view constructs. 
+13.6.4.63D cross section dictionaries 
+ 
+3D cross section dictionaryPDF 1.7
+SA
+A  () specifies how a portion of the 3D artwork shall be clipped for the 
+purpose of showing artwork cross sections. The  entry of a 3D view may specify multiple 3D cross 
+section dictionaries. 
+NOTE Cross sections enable interactive PDF processors to display otherwise hidden parts of the artwork. 
+They also allow users to comment on cross sections, using markup annotations. For example, 
+markup annotations can be used to apply markup annotations to a cross section or to measure 
+distances in a cross section. If multiple cross sections are specified for a view, the markup 
+annotations in the view apply to all cross sections in the view. 
+"

@@ -1,163 +1,90 @@
-Figure 
-109: 3D Angular Dimension Measurement". ![Figure 109 3D Angular Dimension Measurement  .jpg](./Storage/Output/Images/Figure 109 3D Angular Dimension Measurement  .jpg)
-Figure 109: 3D Angular Dimension Measurement 
- 
-"Figure 109: 3D Angular Dimension Measurement" shows an angular measurement markup consisting 
-of two anchor points, one located on each of the two linear entities whose angle is being measured. 
-Connected to each anchor point is an extension line that is collinear with the edge it measures. A 
-labelled arc, with an arrowhead at each end, connects the two extension lines, making it clear which 
-angle is being measured. 
-In addition to the entries in "Table 326: Entries in a 3D measurement/markup dictionary common to all 
-Subtype
-markup subtypes", "Table 329: Additional entries in a 3D measurement/markup dictionary for a 3D 
-AD3
-angular dimension measurement" lists entries defined for a 3D measurement dictionary with a  
-value of  for 3D angular measurement. 
-Table 329: Additional entries in a 3D measurement/markup dictionary for a 3D angular 
-dimension measurement 
-Key Type Value 
-Required; PDF 2.0
-AP 
-array () A three-element array of numbers specifying the 3D annotation 
-plane on which the measurement markup lies. 
-Required; PDF 2.0
-A1 
-array () A three-element array of numbers specifying the model space 
-NOTE 1 It is assumed that this is a position on the 3D model associated with this view. 
-position of the first anchor point in world space. 
-Required; PDF 2.0
-D1 
-A1
-array () A three-element array of numbers specifying the direction vector 
-for the leader line associated with the first anchor point (). 
-Optional; PDF 2.0
-N1 
-A1
-text string () The name of the part (or model tree node) associated with anchor 
-point 1 (). The part name is used to verify that the part exists and is visible. If not, 
-the measurement is not displayed. If omitted, no validation occurs. 
-© ISO 2017 – All rights reserved 668 
+Table 122: Additional font descriptor entries 
+for CIDFonts". 
+© ISO 2017 – All rights reserved 340 
 
 ISO/DIS 32000-2
  
+Table 122: Additional font descriptor entries for CIDFonts 
 Key Type Value 
-Required; PDF 2.0
-A2 
-array () A three-element array of numbers specifying the model space 
-NOTE 2 It is assumed that this is a position on the 3D model associated with this view. 
-position of the second anchor point in world space.  
-Required; PDF 2.0
-D2 
-A2
-array () A three-element array of numbers specifying the direction vector 
-for the leader line associated with the second anchor point (). 
-Optional; PDF 2.0
-N2 
-A2
-text string () The name of the part (or model tree node) associated with anchor 
-point 2 (). The part name is used to verify that the part exists and is visible. If not, 
-the measurement is not displayed. If omitted, no validation occurs. 
-Required; PDF 2.0
-TP 
-array () A three-element array of numbers specifying the text anchor point 
-for the measurement value string. 
-Required; PDF 2.0
-TX 
-array () A three-element array of numbers specifying the horizontal 
-direction vector for the text string presenting the measurement value string. 
-Required; PDF 2.0
-TY 
-array () A three-element array of numbers specifying the up direction 
-vector, called the text Y direction, for the text string presenting the measurement value 
-string. 
-Optional; PDF 2.0
-TS 
-number () A number representing the measurement text string height defined 
-in points in the default user space. The measurement text shall be zoom invariant. 
-The default is 12 points. 
-Optional; PDF 2.0
-C 
-array () An array of three numbers in the range 0.0 to 1.0, representing the 
-DeviceRGB colour of the measurement markup.  
-The default value is the array [1 1 1], representing the colour white. 
-Required; PDF 2.0
-V 
-number () A numeric value representing a measurement value. This value is 
-converted to a text string and displayed as part of the measurement text string. 
-Optional; PDF 2.0
-P 
-V
-integer () The number of decimal digits, which represents the precision, 
-P
-shown for the measurement value ().  
-The default is 3, if  is not specified. 
-Optional; PDF 2.0
-UT 
-text string () A text string defined by the user that is appended to the end of 
-measurement value string. If omitted, no string is appended. 
-Optional; PDF 2.0
-DR 
-true
-DR
-boolean () A flag that indicates whether degrees or radians are shown in 
-true
-angular measurements. If  is , angular measurements are shown in degrees.  
-The default is . 
-Optional; PDF 2.0
-S 
-dictionary () A comment reference is an indirect reference to a projection 
-annotation that may be associated with this 3D measurement. See 13.6.7.4, "3D 
-measurements and projection annotations".  
+Optional
+Style 
+dictionary  () A dictionary containing entries that describe the style of the 
+glyphs in the font (see 9.8.3.2, "Style"). 
+Optional; PDF 1.5
+Lang 
+name  () A name specifying the language of the font, which may 
+be used for encodings where the language is not implied by the encoding 
+itself. The value shall be one of the codes defined by BCP 47, Tags for the 
+Identification of Languages. If this entry is absent, such absence provides 
+no information as to the language of the document; in particular, an 
+absence of this entry does not by itself mean the language of the 
+document is unknown. 
+Optional
+FD 
+dictionary () A dictionary whose keys identify a class of glyphs in a CIDFont. 
+Each value shall be a dictionary containing entries that shall override the 
+corresponding values in the main font descriptor dictionary for that class 
+of glyphs (see 9.8.3.3, "FD"). 
+Optional; deprecated in PDF 2.0
+CIDSet 
+stream  () A stream identifying which CIDs are 
+present in the CIDFont file. If this entry is present, the CIDFont shall 
+CIDSystemInfo
+contain only a subset of the glyphs in the character collection defined by 
+FontName
+the  dictionary. If it is absent, the only indication of a 
+9.9.2, 
+CIDFont subset shall be the subset tag in the  entry (see 
+"Font subsets"). 
+The stream’s data shall be organised as a table of bits indexed by CID. The 
+bits shall be stored in bytes with the high-order bit first. Each bit shall 
+correspond to a CID. The most significant bit of the first byte shall 
+correspond to CID 0, the next bit to CID 1, and so on. 
  
-The key geometric parameters for an angular dimension are shown in "Figure 110: Geometric 
-parameters for an angular dimension". 
-© ISO 2017 – All rights reserved 669 
+9.8.3.2Style 
+ 
+Panose
+The Style dictionary contains entries that define style attributes and values for the CIDFont. Only the 
+Panose entry is defined. The value of  shall be a 12-byte string consisting of these elements: 
+  
+• 
+TrueType 1.0 Font Files Technical 
+The font family class and subclassIDbytes, given in the FamilyClass field of the "OS/2" table in a 
+Specification
+TrueType font. This field is documented in Microsoft’s 
+• 
+. 
+PANOSE Classification Metrics Guide
+Ten bytes for the PANOSE classification number for the font. The PANOSE classification system is 
+documented in Hewlett-Packard Company’s . 
+See 2, "Normative references" for more information about these documents. 
+Style
+EXAMPLE This is an example of a  entry in the font descriptor: 
+/Style <</Panose <01 05 02 02 03 00 00 00 00 00 00 00>>> 
+ 
+9.8.3.3FD 
+ 
+A CIDFont may be made up of different classes of glyphs, each class requiring different sets of the font-
+wide attributes that appear in font descriptors. 
+EXAMPLE 1 Latin glyphs, for example, may require different attributes than kanji glyphs. 
+ FD 
+The font descriptor shall define a set of default attributes that apply to all glyphs in the CIDFont. The
+© ISO 2017 – All rights reserved 341 
 
 ISO/DIS 32000-2
- ![Figure 110 Geometric parameters for an angular dimension  .png](./Storage/Output/Images/Figure 110 Geometric parameters for an angular dimension  .png)
-Figure 110: Geometric parameters for an angular dimension 
  
-V
-D1D2
-The angle is defined by the measurement value  (30 in "Figure 110: Geometric parameters for an 
-angular dimension") and is the angle between the leader direction vectors ( and ). The angular 
-measurement markup is generated by first computing the centre point of the angle, cp in this figure. 
-TP
-The text position () controls the position of the measurement text, the placement of the angle arc, 
-and the length and direction of the extension lines. The extension lines are drawn from the anchor point 
-to a point at a distance ||TP-cp|| from the centre point cp along the associated direction vector, which is 
-the intersection of the angle arc and the extension line. The angle arc centre is at the centre point cp 
-(and its radius is ||TP - cp||) and is drawn between the two extensions lines. The markup text is 
-TP
-displayed (based on the text orientation parameters) with the lower-left corner of the text string 
-starting at the text position (). 
-TPTX
-The text layout is defined in a similar manner as for other dimensions. The lower-left corner of the text 
- TX 
-box is positioned at the text anchor point (), and the text's X-axis is defined by the vector . Note 
-that the vectoris expected to be orthogonal with the annotation plane normal. The text's up 
- TY 
-direction is defined as the cross product of the annotation plane normal and the text X-axis, in the 
-direction defined by theparameter. 
-DR
-The measurement value is interpreted as either being in degrees or radians as defined by the () 
-value, and the appropriate label string is created. 
-V
-UUT
-There are three parts to the text string displayed with the measurement: a numeric value (), a degrees 
-P
-or radians string (), and an optional user string (). The display of the numeric value field number is 
-also controlled by the precision value (), which indicates how many digits to display to the right of the 
-decimal point. The viewer should convert the numeric value to a string and combine it with the degrees 
-or radians string and user text as appropriate. This process is viewer dependent. 
-There are some special cases: 
-D1D2
-• 
- TP 
-• 
-Parallel direction vectors ( and ) are invalid, and no markup is generated. 
-If the text positionis outside the cone of the angle, an extension line is added to connect the 
-13.6.7.3.43D radial dimension 
- 
-text with the angle arc. 
-The radial measurement is used to define the radius or diameter of a circular 3D entity. "
+entry in the font descriptor shall contain exceptions to these defaults. 
+ FD 
+The key for each entry in andictionary shall be the name of a class of glyphs — that is, a particular 
+subset of the CIDFont’s character collection. The entry’s value shall be a font descriptor whose contents 
+FontFileFontFile2FontFile3
+shall override the font-wide attributes for that class only. This font descriptor shall contain entries for 
+metric information only; it shall not include , , , or any of the entries listed 
+in  
+ FD 
+Thedictionary should contain at least the metrics for the proportional Latin glyphs. With the 
+information for these glyphs, a more accurate substitution font can be created. 
+Registry
+OrderingSupplementCIDSystemInfo
+The names of the glyph classes depend on the character collection, as identified by the , 
+, and  entries in the  dictionary. "

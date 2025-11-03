@@ -1,0 +1,128 @@
+Table 340: Entries in a RichMediaPosition dictionary" 
+for a detailed description. 
+ 
+RichMediaPosition
+The position of the window in the interactive PDF processor presentation area is described by the 
+ dictionary. The position of the window shall remain fixed, regardless of the page 
+translation. "Table 340: Entries in a RichMediaPosition dictionary" details the contents of this 
+dictionary. 
+© ISO 2017 – All rights reserved 681 
+
+ISO/DIS 32000-2
+ 
+Table 340: Entries in a RichMediaPosition dictionary 
+Key Type Value 
+Optional; PDF 2.0
+Type 
+RichMediaPosition
+name () The type of PDF object that this dictionary describes. If 
+present, it shall be . 
+Optional; PDF 2.0Near
+HAlign 
+CenterFar
+name () Describes the horizontal alignment. Valid values are , 
+Far
+ 
+, and . 
+Default value: 
+Optional; PDF 2.0Near
+VAlign 
+CenterFar
+name () Describes the vertical alignment. Valid values are , 
+Near
+ 
+, and . 
+Default value: 
+Optional; PDF 2.0
+HOffset HAlign
+NearCenter
+HOffsetHAlign
+number () The offset from the alignment point specified by the  
+Far
+HOffset
+key. A positive value for , when  is either  or , shall 
+FarNear
+HAlign
+offset the position towards the  direction. A positive value for , when 
+ 
+ is , shall offset the position towards the  direction. 
+Default value: 18
+Optional; PDF 2.0
+VOffset VAlign
+NearCenter
+VOffsetVAlign
+number () The offset from the alignment point specified by the  
+Far
+VOffset
+key. A positive value for , when  is either  or , shall 
+FarNear
+VAlign
+offset the position towards the  direction. A positive value for , when 
+ is , shall offset the position towards the  direction. 
+Default value: 18 
+ 
+HAlignVAlign
+Lang
+The descriptions of the values of the  and  entries depend on the primary logical content 
+order as defined by the value of the  entry in the document's catalog dictionary. For left-to-right 
+reading languages, the descriptions follow. 
+NearFar
+HAlign
+:  represents the left edge of the window, and  represents the right edge of the window. 
+NearFar
+VAlign
+:  represents the top edge of the window, and  represents the bottom edge of the 
+window.  
+HAlign
+For right-to-left reading languages, the above descriptions for  are reversed. 
+EXAMPLE A RichMediaPresentation Dictionary 
+24 0 obj           %RichMediaPresentation dictionary 
+ <</Type /RichMediaPresentation 
+  /Toolbar false 
+  /NavigationPane false 
+  /PassContextClick false 
+  /Style /Windowed 
+  /Window 25 0 R 
+ >> 
+endobj 
+ 
+25 0 obj           %RichMediaWindow dictionary 
+  <</Type /RichMediaWindow 
+  /Height 
+  <</Default 216 
+   /Max 432 
+   /Min 72 
+  >> 
+  /Width 
+  <</Default 288 
+© ISO 2017 – All rights reserved 682 
+
+ISO/DIS 32000-2
+ 
+   /Max 576 
+   /Min 72 
+  >> 
+  /Position 
+  <</Type /RichMediaPosition   %RichMediaPosition dictionary 
+   /HAlign /Far 
+   /VAlign /Near 
+   /HOffset 18 
+   /VOffset 18 
+  >> 
+ >> 
+endobj 
+ 
+Context
+In the above example, the toolbar or the navigation pane shall not be displayed on initial activation of 
+the annotation.  click events shall be handled by the interactive PDF processor and shall not be 
+passed to the annotation handler. The annotation appears as a separate window with an initial width of 
+four inches and an initial height of three inches and will be aligned 0.25 inches off the top right (in left 
+to right reading languages) corner of the document area. 
+13.7.2.3RichMediaContent dictionary 
+ 
+13.7.2.3.1General 
+ 
+RichMediaContent dictionary
+The  contains content that is present within the annotation as referenced 
+by the RichMediaSettings dictionary (see "Table 334: Entries in a RichMediaSettings dictionary"). 
+"

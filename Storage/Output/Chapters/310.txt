@@ -1,238 +1,26 @@
- 
- 
-Operator Summary 
-(Normative) 
-A.1General 
- 
-This annex lists, in alphabetical order, all the operators that may be used in PDF content streams. 
-A.2PDF content stream operators 
- 
-"Table Annex A.1: PDF content stream operators" lists each operator, its corresponding PostScript 
-language operators (when it is an exact or near-exact equivalent of the PDF operator), a description of 
-the operator, and references to the table where each operator is introduced. 
-Table Annex A.1: PDF content stream operators 
-Operator PostScript Description Table 
-Equivalent 
-b 
-closepath, fill, 
-stroke 
-Close, fill, and stroke path using non-zero "Table 59: Path-painting operators" 
-winding number rule 
-B 
-fill, stroke 
-Fill and stroke path using non-zero winding "Table 59: Path-painting operators" 
-number rule 
-b* 
-closepath, eofill, 
-stroke 
-Close, fill, and stroke path using even-odd rule "Table 59: Path-painting operators" 
-B* 
-eofill, stroke 
-Fill and stroke path using even-odd rule "Table 59: Path-painting operators" 
-BDC 
-PDF 1.2
- 
-() Begin marked-content sequence "Table 352: Marked-content operators" 
-with property list 
-BI 
- 
-Begin inline image object "Table 90: Inline image operators" 
-BMC 
-PDF 1.2
- 
-() Begin marked-content sequence "Table 351: Marked-content operators" 
-BT 
- 
-Begin text object "Table 107: Text-showing operators" 
-BX 
-PDF 1.1
- 
-() Begin compatibility section "Table 33: Compatibility operators" 
-c 
-curveto 
-Append curved segment to path (three control "Table 60: Clipping path operators" 
-points) 
-cm 
-concat 
-Concatenate matrix to current transformation "Table 56: Graphics state operators" 
-matrix 
-CS 
-PDF 1.1
-setcolorspace 
-() Set colourspace for stroking "Table 73: Colour operators" 
-operations 
-© ISO 2017 – All rights reserved 811 
-
-ISO/DIS 32000-2
- 
-Operator PostScript Description Table 
-Equivalent 
-cs 
-PDF 1.1
-setcolorspace 
-() Set colourspace for nonstroking "Table 73: Colour operators" 
-operations 
-d setdash 
-Set line dash pattern "Table 56: Graphics state operators" 
-d0 setcharwidth 
-Set glyph width in Type 3 font "Table 111: Type 3 font operators" 
-d1 setcachedevice 
-Set glyph width and bounding box in Type 3 "Table 111: Type 3 font operators" 
-font 
-Do  
-Invoke named XObject "Table 86: XObject operator" 
-PDF 1.2
-DP  
-() Define marked-content point with "Table 352: Marked-content operators" 
-property list 
-EI  
-End inline image object "Table 90: Inline image operators" 
-PDF 1.2
-EMC  
-() End marked-content sequence "Table 352: Marked-content operators" 
-ET  
-End text object "Table 105: Text object operators" 
-PDF 1.1
-EX  
-() End compatibility section "Table 33: Compatibility operators" 
-f fill 
-Fill path using non-zero winding number rule "Table 59: Path-painting operators" 
-F fill 
-deprecated in PDF 2.0
-Fill path using non-zero winding number rule "Table 59: Path-painting operators" 
-() 
-f* eofill 
-Fill path using even-odd rule "Table 59: Path-painting operators" 
-G setgray 
-Set gray level for stroking operations "Table 73: Colour operators" 
-g setgray 
-Set gray level for nonstroking operations "Table 73: Colour operators" 
-PDF 1.2
-gs  
-() Set parameters from graphics state "Table 56: Graphics state operators" 
-parameter dictionary 
-h closepath 
-Close subpath "Table 58: Path construction operators" 
-i setflat 
-Set flatness tolerance "Table 56: Graphics state operators" 
-ID  
-Begin inline image data "Table 90: Inline image operators" 
-j setlinejoin 
-Set line join style "Table 56: Graphics state operators" 
-J setlinecap 
-Set line cap style "Table 56: Graphics state operators" 
-K setcmykcolor 
-Set CMYK colour for stroking operations "Table 73: Colour operators" 
-k setcmykcolor 
-Set CMYK colour for nonstroking operations "Table 73: Colour operators" 
-l lineto 
-Append straight line segment to path "Table 58: Path construction operators" 
-m moveto 
-Begin new subpath "Table 58: Path construction operators" 
-M setmiterlimit 
-Set miter limit "Table 56: Graphics state operators" 
-© ISO 2017 – All rights reserved 812 
-
-ISO/DIS 32000-2
- 
-Operator PostScript Description Table 
-Equivalent 
-PDF 1.2
-MP  
-() Define marked-content point "Table 352: Marked-content operators" 
-n  
-End path without filling or stroking "Table 59: Path-painting operators" 
-q gsave 
-Save graphics state "Table 56: Graphics state operators" 
-Q grestore 
-Restore graphics state "Table 56: Graphics state operators" 
-re  
-Append rectangle to path "Table 58: Path construction operators" 
-RG setrgbcolor 
-Set RGB colour for stroking operations "Table 73: Colour operators" 
-rg setrgbcolor 
-Set RGB colour for nonstroking operations "Table 73: Colour operators" 
-ri  
-Set colour rendering intent "Table 56: Graphics state operators" 
-s closepath, stroke 
-Close and stroke path "Table 59: Path-painting operators" 
-S stroke 
-Stroke path "Table 59: Path-painting operators" 
-PDF 1.1
-SC setcolor 
-() Set colour for stroking operations "Table 73: Colour operators" 
-PDF 1.1
-sc setcolor 
-() Set colour for nonstroking "Table 73: Colour operators" 
-operations 
-PDF 1.2
-SCN setcolor 
-ICCBased
-() Set colour for stroking operations "Table 73: Colour operators" 
-( and special colour spaces) 
-PDF 1.2
-scn setcolor 
-ICCBased
-() Set colour for nonstroking "Table 73: Colour operators" 
-operations ( and special colour 
-spaces) 
-PDF 1.3
-sh shfill 
-() Paint area defined by shading "Table 76: Shading operator" 
-pattern 
-T*  
-Move to start of next text line "Table 106: Text-positioning operators" 
-Tc  
-Set character spacing "Table 103: Text state operators" 
-Td  
-Move text position "Table 106: Text-positioning operators" 
-TD  
-Move text position and set leading "Table 106: Text-positioning operators" 
-Tf selectfont 
-Set text font and size "Table 103: Text state operators" 
-Tj show 
-Show text "Table 107: Text-showing operators" 
-TJ  
-Show text, allowing individual glyph "Table 107: Text-showing operators" 
-positioning 
-TL  
-Set text leading "Table 103: Text state operators" 
-Tm  
-Set text matrix and text line matrix "Table 106: Text-positioning operators" 
-Tr  
-Set text rendering mode "Table 103: Text state operators" 
-Ts  
-Set text rise "Table 103: Text state operators" 
-© ISO 2017 – All rights reserved 813 
-
-ISO/DIS 32000-2
- 
-Operator PostScript Description Table 
-Equivalent 
-Tw  
-Set word spacing "Table 103: Text state operators" 
-Tz  
-Set horizontal text scaling "Table 103: Text state operators" 
-v curveto 
-Append curved segment to path (initial point "Table 58: Path construction operators" 
-replicated) 
-w setlinewidth 
-Set line width "Table 56: Graphics state operators" 
-W clip 
-Set clipping path using non-zero winding "Table 60: Clipping path operators" 
-number rule 
-W* eoclip 
-Set clipping path using even-odd rule "Table 60: Clipping path operators" 
-y curveto 
-Append curved segment to path (final point "Table 58: Path construction operators" 
-replicated) 
-'  
-Move to next line and show text "Table 107: Text-showing operators" 
-"  
-Set word and character spacing, move to next "Table 107: Text-showing operators" 
-line, and show text 
+Table 150: Entries in the outline dictionary 
+Key Type Value 
+Optional
+Type 
+Outlines
   
-© ISO 2017 – All rights reserved 814 
-
-ISO/DIS 32000-2
- ![76.png](./Storage/Output/Images/76.png)
+name () The type of PDF object that this dictionary describes; if present, 
+shall befor an outline dictionary. 
+Required if there are any open or closed outline entries; shall be an indirect 
+First 
+reference
+dictionary (
+) An outline item dictionary representing the first top-level item 
+in the outline. 
+Required if there are any open or closed outline entries; shall be an indirect 
+Last 
+reference
+dictionary (
+) An outline item dictionary representing the last top-level item 
+in the outline. 
+Required if the document has any open outline entries
+Count 
+integer () Total number of 
+visible outline items at all levels of the outline. The value cannot be 
+negative. 
+This entry shall be omitted if there are no open outline items. 

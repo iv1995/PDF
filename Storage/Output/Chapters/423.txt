@@ -1,0 +1,47 @@
+Table 253: Entries in an 
+FDF named page reference dictionary") that shall specify the location of the 
+template. 
+(Optional) 
+Fields  FDF 
+array An array of references tofield dictionaries (see "Table 249: 
+Entries in an FDF field dictionary") describing the root fields that shall be 
+imported (those with no ancestors in the field hierarchy). 
+(Optional) 
+Rename 
+boolean A flag that shall specify whether fields imported from the template 
+true
+shall be renamed in the event of name conflicts with existing fields.  
+false
+If this flag is , fields with such conflicting names shall be renamed to 
+guarantee their uniqueness. If , the fields shall not be renamed; this 
+results in multiple fields with the same name in the target document. Each 
+time the FDF file provides attributes for a given field name, all fields with that 
+true
+name shall be updated. See the Note in this subclause for further discussion.  
+Default value: . 
+ 
+NOTE The names of fields imported from a template can sometimes conflict with those of existing fields 
+in the target document. This can occur, for example, if the same template page is imported more 
+than once or if two different templates have fields with the same names. 
+Rename
+Although the  flag does not define a renaming algorithm, this might be implemented by a PDF 
+processor renaming fields by prepending a page number, a template name, and an ordinal number to 
+the field name. 
+ TRef   
+Theentry in anFDFtemplate dictionary shall hold a named page reference dictionary that shall 
+describe the location of external templates or page elements. "Table 253: Entries in an FDF named page 
+reference dictionary" shows the contents of this type of dictionary. 
+Table 253: Entries in an FDF named page reference dictionary 
+Key Type Value 
+(Required) 
+Name 
+string The name of the referenced page. 
+(Optional) 
+F 
+file specification The file containing the named page. If this entry is absent, it 
+shall be assumed that the page resides in the associated PDF file. 
+ 
+12.7.8.3.4FDF annotation dictionaries 
+ 
+  Page
+Each annotation dictionary in anFDFfile shall have a  entry (see "

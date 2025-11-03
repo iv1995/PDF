@@ -1,200 +1,244 @@
-Table 63: Entries in a CalRGB colour space dictionary"). The transformation matrix denoted by "Matrix 
-LMN
-Matrix
-" in "Figure 24: Component transformations in a CIE-based ABC colour space" shall be defined by 
-LMN
-the dictionary’s  entry. Since there is no second transformation stage, "Decode " and "Matrix 
-" shall be implicitly taken to be identity transformations. 
-Table 63: Entries in a CalRGB colour space dictionary 
+Table 13: Optional parameter for the DCTDecode filter". 
+The details of the encoding algorithm are not presented here but are in the ISO JPEG standard. Briefly, 
+the JPEG algorithm breaks an image up into blocks that are 8 samples wide by 8 samples high. Each 
+colour component in an image is treated separately. A two-dimensional DCT is performed on each 
+block. This operation produces 64 coefficients, which are then quantised. Each coefficient can be 
+quantised with a different step size. It is this quantization that results in the loss of information in the 
+JPEG algorithm. The quantised coefficients are then compressed. 
+© ISO 2017 – All rights reserved 53 
+
+ISO/DIS 32000-2
+ 
+Table 13: Optional parameter for the DCTDecode filter 
 Key Type Value 
-WWW
-RequiredXYZ
-WhitePoint 
-XYZ
-array () An array of three numbers [  ] specifying the tristimulus value, in the CIE 
-WWW
-XY
-1931  space, of the diffuse white point; see below for further discussion. The numbers 
- and Z shall be positive, and  shall be equal to 1.0. 
-KKK
-OptionalX Y Z
-BlackPoint 
-XYZ
-array () An array of three numbers [] specifying the tristimulus value, in the CIE 
-1931  space, of the diffuse black point; see below for further discussion. All three of 
-these numbers shall be non-negative. Default value: [0.0 0.0 0.0]. 
-OptionalGGG
-Gamma 
-ABC
+Optional
+ColorTransform 
+integer () A code specifying the transformation that shall be performed 
+on the sample values: 
 RGB
-array () An array of three numbers [  ] specifying the gamma for the red, green, 
-and blue (, , and ) components of the colour space. Default value: [1.0 1.0 1.0]. 
-AAABBBCCC
-OptionalXY Z X Y Z X Y Z
-Matrix 
-ABC
-array () An array of nine numbers [ ] specifying the linear 
-XYZ
-interpretation of the decoded , , and  components of the colour space with respect to the 
-final  representation. Default value: the identity matrix [1 0 0 0 1 0 0 0 1]. 
+0 No transformation. 
+YCbCr YCbCr RGB
+1 If the image has three colour components,  values shall be 
+CMYK
+transformed to before encoding and from to  
+YCbCrK 
+after decoding. If the image has four components,  values 
+YCbCrK CMYK
+shall be transformed to before encoding and from 
+to  after decoding. This option shall be ignored if 
+the image has one or two colour components. 
+ ColorTransform 
+If the encoding algorithm has inserted the Adobe-defined marker a code 
+in the encoded data indicating thevalue, then the 
+colours shall be transformed, or not, after the DCT decoding has been 
+performed according to the value provided in the encoded data and the 
+ ColorTransform 
+value of this dictionary entry shall be ignored. If the Adobe-defined 
+marker code in the encoded data indicating thevalue is 
+not present then the value specified in this dictionary entry will be used. If 
+ ColorTransform 
+the Adobe-defined marker code (APP14) in the encoded data indicating 
+ ColorTransform 
+thevalue is not present and this dictionary entry is not 
  
-WhitePointBlackPoint
-The  and  entries in the colour space dictionary shall control the overall effect of 
-WhitePointBlackPoint
-the CIE-based gamut mapping function described in subclause 10.3, "CIE-Based colour to device colour". 
-Typically, the colours specified by  and  shall be mapped to the nearly lightest 
-and nearly darkest achromatic colours that the output device is capable of rendering in a way that 
-preserves colour appearance and visual contrast. 
-WhitePoint
-BlackPoint
- represents the diffuse achromatic highlight, not a specular highlight. Specular highlights, 
-achromatic or otherwise, are often reproduced lighter than the diffuse highlight.  represents 
-WhitePointBlackPoint
-the diffuse achromatic shadow; its value is limited by the dynamic range of the input device. In images 
-produced by a photographic system, the values of  and  vary with exposure, 
-system response, and artistic intent; hence, their values are image-dependent. 
-GammaMatrix CalRGB 
-The transformation defined by the  and  entries in thecolour space dictionary 
-shall be 
+present in the filter dictionary then the default value of
+shall be 1 if the image has three components and 0 otherwise.
+Parameters that control the decoding process as well as other metadata are embedded within the encoded data stream 
+using a notation referred to as "markers". When it defined the use of JPEG images within PostScript language data streams, 
+Adobe System Incorporated defined a particular set of rules pertaining to which markers are to be recognised, which are 
+Adobe Technical Note 
+to be ignored and which are considered errors. A specific Adobe-defined marker (APP14) was also introduced. The exact 
+#5116
+rules for producing and consuming DCT encoded data within PostScript language are provided in 
+. PDF DCT Encoding shall exactly follow those rules established by Adobe for the PostScript language. 
  
-𝑅𝑅𝐺𝐺𝐵𝐵
-𝐺𝐺𝐺𝐺𝐺𝐺
- 
-𝐴𝐴𝐵𝐵𝐶𝐶
-𝑋𝑋=𝑚𝑚=𝑋𝑋
-×𝐴𝐴+𝑋𝑋×𝐵𝐵+𝑋𝑋×𝐶𝐶
-𝑅𝑅𝐺𝐺𝐵𝐵
-𝐺𝐺𝐺𝐺𝐺𝐺
- 
-𝐴𝐴𝐵𝐵𝐶𝐶
-×𝐴𝐴+𝑌𝑌×𝐵𝐵+𝑌𝑌×𝐶𝐶
-𝑌𝑌=𝑀𝑀=𝑌𝑌
-𝑅𝑅𝐺𝐺𝐵𝐵
-𝐺𝐺𝐺𝐺𝐺𝐺
-𝐴𝐴𝐵𝐵𝐶𝐶
-×𝐴𝐴+𝑍𝑍×𝐵𝐵+𝑍𝑍×𝐶𝐶
-𝑍𝑍=𝑁𝑁=𝑍𝑍
-© ISO 2017 – All rights reserved 184 
- 
+NOTE 2 The encoding algorithm can reduce the information loss by making the step size in the 
+quantization smaller at the expense of reducing the amount of compression achieved by the 
+algorithm. The compression achieved by the JPEG algorithm depends on the image being 
+compressed and the amount of loss that is acceptable. In general, a compression of 15:1 can be 
+achieved without perceptible loss of information, and 30:1 compression causes little impairment 
+of the image. 
+NOTE 3 Better compression is often possible for colour spaces that treat luminance and chrominance 
+separately than for those that do not. The RGB-to-YCbCr conversion provided by the filters is one 
+attempt to separate luminance and chrominance; it conforms to CCIR recommendation 601-1. 
+Other colour spaces, such as the CIE 1976 L*a*b* space, can also achieve this objective. The 
+chrominance components can then be compressed more than the luminance by using coarser 
+sampling or quantization, with no degradation in quality. 
+ DCTDecode 
+ DCTDecode 
+In addition to the baseline JPEG format, beginning with PDF 1.3, thefilter shall support the 
+progressive JPEG extension. This extension does not add any entries to theparameter 
+dictionary; the distinction between baseline and progressive JPEG shall be represented in the encoded 
+data. 
+NOTE 4 There is no benefit to using progressive JPEG for stream data that is embedded in a PDF file. 
+Decoding progressive JPEG is slower and consumes more memory than baseline JPEG. The purpose 
+of this feature is to enable a stream to refer to an external file whose data happens to be already 
+encoded in progressive JPEG. 
+© ISO 2017 – All rights reserved 54 
 
 ISO/DIS 32000-2
  
-A, BC
-L, MN
-The , and  components shall first be decoded individually by the gamma functions. The results shall 
-X, 
-be treated as a three-element vector and multiplied by Matrix (a 3-by-3 matrix) to obtain the , and  
-YZ
-components of the intermediate representation. Since there is no second stage, these shall also be the 
-, and  components of the final representation. 
- CalRGB 
-EXAMPLE The following shows an example of acolour space for the CCIR XA/11–recommended D65 white point 
-with 1.8 gammas and Sony Trinitron phosphor chromaticities. 
-[/CalRGB 
-   <</WhitePoint [0.9505 1.00 1.0890] 
-    /Gamma [1.8000 1.8000 1.8000] 
-    /Matrix [0.4497 0.2446 0.0252 
-       0.3163 0.6720 0.1412 
-       0.1845 0.0833 0.9227 
-       ] 
-   >> 
-] 
- CalRGB 
-RRGG
-x
-yxyxy
-The parameters of acolour space may be specified in terms of the CIE 1931 chromaticity 
-WW
-x
-yRGBR, G, BR, G
-BB
-coordinates (
-,  ), (,  ), (,  ) of the red, green, and blue phosphors, respectively, and the 
-B
-chromaticity (
-,  ) of the diffuse white point corresponding to a linear  value (), where , 
-Matrix
-and  should all equal 1.0. The standard CIE notation uses lowercase letters to specify chromaticity 
-WhitePoint
-coordinates and uppercase letters to specify tristimulus values. Given this information,  and 
- shall be calculated as follows: 
-𝑊𝑊𝐺𝐺𝐵𝐵𝑅𝑅𝑅𝑅𝐵𝐵𝐺𝐺𝑅𝑅𝐺𝐺𝐵𝐵
-()()()
-𝑧𝑧=𝑦𝑦
-×�𝑥𝑥−𝑥𝑥 ×𝑦𝑦−𝑥𝑥−𝑥𝑥 ×𝑦𝑦+𝑥𝑥−𝑥𝑥 ×𝑦𝑦 � 
+7.4.9JPXDecode filter 
  
-𝑅𝑅𝐺𝐺𝐵𝐵𝑊𝑊𝑊𝑊𝐵𝐵𝐺𝐺𝑊𝑊𝐺𝐺𝐵𝐵
-(
-)()()
-𝑦𝑦𝑥𝑥
-−𝑥𝑥 ×𝑦𝑦−𝑥𝑥−𝑥𝑥 ×𝑦𝑦+𝑥𝑥−𝑥𝑥 ×𝑦𝑦
-𝐴𝐴
-𝑌𝑌
-=× 
-𝑅𝑅𝑧𝑧
- 
-RR
-𝑥𝑥1−𝑥𝑥
-𝐴𝐴𝐴𝐴AA
-RR
-𝑦𝑦𝑦𝑦
-𝑋𝑋=𝑌𝑌×  Z=Y×�−1� 
- 
-GRBWWBRWRB
-()))
-((
-𝑦𝑦𝑥𝑥×𝑦𝑦×𝑦𝑦×𝑦𝑦
-−𝑥𝑥−𝑥𝑥−𝑥𝑥+𝑥𝑥−𝑥𝑥
-B
-Y=× 
-G𝑧𝑧
- 
-GG
-𝑥𝑥1−𝑥𝑥
-BBBB
-GG
-𝑦𝑦𝑦𝑦
-X=Y× Z=Y×�−1� 
- 
-BRGWWGRWRG
-()))
-((
-𝑦𝑦𝑥𝑥×𝑦𝑦×𝑦𝑦×𝑦𝑦
-−𝑥𝑥−𝑥𝑥−𝑥𝑥+𝑥𝑥−𝑥𝑥
-C
-Y=× 
-B𝑧𝑧
- 
-BB
-𝑥𝑥1−𝑥𝑥
-CCCC
-BB
-𝑦𝑦𝑦𝑦
-X=Y× Z=Y×�−1� 
- 
-WABC
-X
-=X×R+X×G+X×B 
-WABC
-=Y×R+Y×G+Y×B 
-Y
-WABC
-Z
-=Z×R+Z×G+Z×B 
-8.6.5.4Lab colour spaces 
- 
- 
-ABC
-A Lab colour space is a CIE-based  colour space with two transformation stages (see "Figure 24: 
-© ISO 2017 – All rights reserved 185 
+PDF 1.5
+ JPXDecode 
+Thefilter () decodes data that has been encoded using the JPEG2000 compression 
+method, an ISO standard for the compression and packaging of image data. See ISO/IEC 15444-2, 
+Information Technology–JPEG 2000 Image Coding System: Extensions, available from 
+http://www.jpeg.org/jpeg2000/
+. 
+NOTE 1 JPEG2000 defines a wavelet-based method for image compression that gives somewhat better size 
+reduction than other methods such as regular JPEG or CCITT. Also, the filter can reproduce 
+samples that are losslessly compressed.  
+This filter shall only be applied to image XObjects, and not to inline images (see 8.9, "Images"). It is 
+suitable both for images that have a single colour component and for those that have multiple colour 
+components. The colour components in an image may have different numbers of bits per sample, 
+NOTE 2 From a single JPEG2000 data stream, multiple versions of an image can be decoded. These 
+however bits per sample shall be between 1 to 38 inclusive.  
+different versions form progressions along four degrees of freedom: sampling resolution, colour 
+depth, band, and location. For example, with a resolution progression, a thumbnail version of the 
+image can be decoded from the data, followed by a sequence of other versions of the image, each 
+with approximately four times as many samples (twice the width times twice the height) as the 
+previous one. The last version is the full-resolution image. 
+NOTE 3 Viewing and printing applications can gain performance benefits by using the resolution 
+progression. If the full-resolution image is densely sampled, the application might be able to select 
+and decode only the data making up a lower-resolution version, thereby spending less time 
+decoding. Fewer bytes need be processed, a particular benefit when viewing files over the Web. 
+The tiling structure of the image can also provide benefits if only certain areas of an image need to 
+be displayed or printed. 
+NOTE 4 Information on these progressions is encoded in the data; no decode parameters are needed to 
+describe them. The decoder deals with any progressions it encounters to deliver the correct image 
+data. Progressions that are of no interest might simply have performance consequences. 
+The JPEG2000 specifications define two widely used formats, JP2 and JPX, for packaging the 
+compressed image data. JP2 is a subset of JPX. These packagings contain all the information needed to 
+properly interpret the image data, including the colour space, bits per component, and image 
+ JPXDecode 
+dimensions. In other words, they are complete descriptions of images (as opposed to image data that 
+require outside parameters for correct interpretation). Thefilter shall expect to read a full 
+JPX file structure–either internal to the PDF file or as an external file. 
+NOTE 5 To promote interoperability, the specifications define a subset of JPX called JPX baseline (of which 
+JP2 is also a subset). The complete details of the baseline set of JPX features are contained in 
+ISO/IEC 15444-2. 
+Data used in PDF image XObjects shall be limited to the JPX baseline set of features, except for 
+enumerated colour space 19 (CIEJab). In addition, enumerated colour space 12 (CMYK), which is part of 
+JPX but not JPX baseline, shall be supported in a PDF. JPX file structures used in PDF shall conform to 
+the JPEG2000 specification. 
+channel
+A JPX file describes a collection of channels that are present in the image data. A  may have one 
+of three types: 
+ordinarychannel
+• 
+An   contains values that, when decoded, shall become samples for a specified 
+colour component. 
+© ISO 2017 – All rights reserved 55 
 
 ISO/DIS 32000-2
  
-A, BC
-L*, abL*a*b*L*
-Component transformations in a CIE-based ABC colour space"). In this type of space, , and  
-a*b*
-represent the *, and * components of a CIE 1976  space. The range of the first () 
-Range
-component shall be 0 to 100; the ranges of the second and third ( and ) components shall be 
-defined by the  entry in the colour space dictionary (see "
+opacitychannel
+• 
+premultiplied opacity channel
+• 
+An   provides samples that shall be interpreted as raw opacity information. 
+A  shall provide samples that have been multiplied into the colour 
+samples of those channels with which it is associated. 
+JPX opacity and premultiplied opacity channels are associated with specific colour channels. There shall 
+not be more than one opacity channel (of either type) associated with a given colour channel. 
+EXAMPLE It is possible for one opacity channel to apply to the red samples and another to apply to the green and blue 
+colour channels of an RGB image. 
+NOTE 6 The method by which the opacity information is to be used is explicitly not specified, although one 
+possible method shows a normal blending mode. 
+NOTE 7 As specified below, if JPX opacity is used in PDF, then the JPX data is only allowed to have one 
+opacity channel, and this single channel must be associated with all colour channels. 
+In addition to using opacity channels for describing transparency, JPX files also have the ability to 
+specify chroma-key transparency. A single colour may be specified by giving an array of values, one 
+value for each colour channel. Any image location that matches this colour shall be considered to be 
+completely transparent. For JPX files used in PDF, the chroma-key transparency shall be ignored. 
+NOTE 8 For images in PDF a similar mechanism exists, which allows to specify a range of colours to be 
+considered transparent; see 8.9.6.4, "Colour key masking". 
+Images in JPX files may have one of the following colour spaces: 
+enumerated colour spaces
+• 
+A predefined colour space, chosen from a list of . (Two of these are 
+• 
+actually families of spaces and parameters are included.) 
+• 
+A restricted ICC profile. These are the only sorts of ICC profiles that are allowed in JP2 files. 
+• 
+An input ICC profile of any sort defined by ICC.1. 
+A vendor-defined colour space. 
+More than one colour space may be specified for an image, with each space being tagged with a 
+precedence and an approximation value that indicates how well it represents the preferred colour 
+ Indexed 
+space. In addition, the image’s colour space may serve as the foundation for a palette of colours that are 
+selected using samples coming from the image’s data channels: the equivalent of ancolour 
+space in PDF. 
+There are other features in the JPX format beyond describing a simple image; they are not supported in 
+PDF. These include provisions for describing layering and giving instructions on composition and 
+Metadata
+specifying simple animation. Relevant metadata should be replicated in the image dictionary’s 
+ stream in XMP format (see 14.3.2, "Metadata streams"). 
+ JPXDecode 
+When using thefilter with image XObjects, the following changes to and constraints on 
+some entries in the image dictionary shall apply (see 8.9.5, "Image dictionaries" for details on these 
+entries): 
+WidthHeight
+• 
+ColorSpace
+• 
+ and  shall match the corresponding width and height values in the JPEG2000 data. 
+ shall be optional since JPEG2000 data contain colour space specifications. If present, it 
+shall determine how the image samples are interpreted, and the colour space specifications in the 
+JPEG2000 data shall be ignored. The number of ordinary colour channels in the JPEG2000 data 
+shall match the number of components in the colour space; a PDF writer shall ensure that the 
+samples are consistent with the colour space used. 
+© ISO 2017 – All rights reserved 56 
+
+ISO/DIS 32000-2
+ 
+Pattern Indexed 
+• 
+Any colour space other than  may be specified. If ancolour space is used, it shall 
+be subject to the PDF limit of 256 colours. If the colour space does not match one of JPX’s 
+enumerated colour spaces (for example, if it has two colour components or more than four), it 
+ ColorSpace 
+• 
+should be specified as a vendor colour space in the JPX data. 
+Ifis not present in the image dictionary, the colour space information in the JPEG2000 
+data shall be used. A JPEG2000 image within a PDF shall have one of: the baseline JPX 
+colourspaces; or enumerated colourspace 19 (CIEJab) or enumerated colourspace 12 (CMYK); or 
+at least one ICC profile that is valid within PDF. PDF processors shall support the JPX baseline set 
+of enumerated colour spaces; they shall also be responsible for dealing with the interaction 
+• 
+between the colour spaces and the bit depth of samples. 
+If multiple colour space specifications are given in the JPEG2000 data, a PDF processor should 
+attempt to use the one with the highest precedence and best approximation value. If the colour 
+space is given by an unsupported ICC profile, the next lower colour space, in terms of precedence 
+DeviceGrayDeviceRGBDeviceCMYK
+and approximation value, shall be used. If no supported colour space is found, the colour space 
+used shall be , , or , depending on the whether the number of 
+SMaskInData
+• 
+ordinary channels in the JPEG2000 data is 1,3, or 4. 
+ SMask 
+ specifies whether soft-mask information packaged with the image samples shall be 
+SMaskInData
+used (see 11.6.5.2, "Soft-mask images"); if it is, theentry shall not be present. If 
+ is non-zero, there shall be only one opacity channel in the JPEG2000 data and it 
+true
+ ColorSpace Decode ImageMask 
+• 
+shall apply to all colour channels. 
+true
+ ImageMask 
+• 
+Ifis absent, then the  array shall be ignored unlessis .  
+7.4.10Crypt filter 
+ 
+Ifis , the JPEG2000 data shall provide a single colour channel with 1-bit samples. 
+PDF 1.5
+ Crypt 
+Name
+Thefilter () allows the document-level security handler (see 7.6, "Encryption") to 
+determine which algorithms should be used to decrypt the input data. The  parameter in the 
+ 
+decode parameters dictionary for this filter (see "

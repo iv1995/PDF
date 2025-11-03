@@ -1,171 +1,143 @@
-Layer 1 
-  /OC /L1a BDC          %Sublayer A of layer 1 
-   0 0 100 100 re f 
-  EMC 
-  /OC /L1b BDC          %Sublayer B of layer 1 
-   0 100 100 100 re f 
-  EMC 
- EMC 
- … 
-  <</L1 1 0 R           %Resource names 
-  /L1a 2 0 R 
-  /L1b 3 0 R 
- >> 
-…                %Optional content groups 
-1 0 obj <</Type /OCG /Name (Layer 1)>> endobj 
-2 0 obj <</Type /OCG /Name (Sublayer A)>> endobj 
-3 0 obj <</Type /OCG /Name (Sublayer B)>> endobj 
+Table 45: Entries in an 
+embedded file parameter dictionary"). 
+ 
+© ISO 2017 – All rights reserved 137 
+
+ISO/DIS 32000-2
+ 
+Table 45: Entries in an embedded file parameter dictionary 
+Key Type Value 
+Optional
+Size 
+integer () The size of the uncompressed embedded file, in bytes. See 
+"Table 155: Entries in a collection field dictionary". 
+Optional
+CreationDate 
+date () The date and time when the embedded file was created. See 
+"Table 155: Entries in a collection field dictionary". 
+Optional, required in the case of an embedded file stream used as an 
+ModDate 
+associated file
+date (
+) The date and time when the embedded file was last 
+modified. See "Table 155: Entries in a collection field dictionary". 
+Optional; deprecated in PDF 2.0
+Mac 
+  
+dictionary () A subdictionary containing additional 
+information specific toMacOS files. 
+Optional
+CheckSum 
+string () A 16-byte string that is the checksum of the bytes of the 
+uncompressed embedded file. The checksum shall be calculated by 
+Internet RFC 1321, The MD5 Message-Digest Algorithm
+applying the standard MD5 message-digest algorithm (described in 
+) to the bytes of the 
+NOTE 2 This is strictly a checksum, and is not used for security purposes. 
+embedded file stream. 
+   
+7.11.4.2Related files arrays 
+ 
+  
+In some circumstances, a PDF file can refer to a group of related files, such as the set of five files that 
+make up aDCS1.0 colour-separated image. The file specification explicitly names only one of the files; 
+the rest shall be identified by some systematic variation of that file name (such as by altering the 
+PDF 1.3
+RF
+extension). When such a file is to be embedded in a PDF file, the related files shall be embedded as well. 
+n
+This is accomplished by including a related files array () as the value of the  entry in the file 
+specification dictionary. The array shall have 2 ×  elements, which shall be paired in the form 
+string
+  stream
+11
+string
+  stream 
+ [ 
+ 
+22
 … 
-4 0 obj              %Configuration dictionary 
-  <</Order [1 0 R [2 0 R 3 0 R]]>> 
-An interactive PDF processor needs to display the optional content groups as follows: 
-Layer 1 
- Sublayer A  
- Sublayer B 
-auto stateusage application dictionaries
- AS 
- 
-Theentry is an  array consisting of one or more  that specify 
-how interactive PDF processors shall, and non-interactive PDF processors should, automatically set the 
-state of optional content groups based on external factors, as discussed in the following subclause. 
-8.11.4.4Usage and usage application dictionaries 
- 
-Optional content groups are typically constructed to control the visibility of graphics objects that are 
-related in some way. Objects can be related in several ways; for example, a group may contain content 
-in a particular language or content suitable for viewing at a particular magnification. 
-usage dictionary
-Usage
-An optional content group’s  (the value of the  entry in an optional content group 
-dictionary; see "
-Table 96: Entries in an optional content group dictionary") shall contain information 
-describing the nature of the content controlled by the group. This dictionary can contain any 
-combination of the entries shown in "Table 100: Entries in an optional content usage dictionary". 
-© ISO 2017 – All rights reserved 281 
+   
+  stream 
+   string
+  
+nn
+ ] 
+The first element of each pair shall be a string giving the name of one of the related files; the second 
+element shall be an embedded file stream holding the file’s contents. 
+RF
+EXAMPLE In the following example, object 31 is an embedded file stream containing Encapsulated Postscript File (EPSF) 
+  
+file Sunset.eps. The file specification dictionary’s  entry specifies an array, object 30, identifying a set of 
+embedded files, forming aDCS1.0 set. 
+10 0 obj          %File specification dictionary 
+  <</Type /Filespec 
+   /F (Sunset.eps) 
+   /UF (Sunset.eps) 
+   /EF <</F 21 0 R 
+     /UF 41 0 R 
+     >> 
+   /RF <</UF 30 0 R>>   %Related files array 
+     
+endobj 
+© ISO 2017 – All rights reserved 138 
 
 ISO/DIS 32000-2
  
-Table 100: Entries in an optional content usage dictionary 
-Key Type Value 
-Optional
-CreatorInfo 
-dictionary () A dictionary used by the creating application to store application-specific 
-data associated with this optional content group. It shall contain two required 
-Creator
-entries: 
-Subtype
- A text string specifying the application that created the group. 
-Artwork
- A name defining the type of content controlled by the group. 
-Technical
-Suggested values include but shall not be limited to , for 
-graphic-design or publishing applications, and , for technical 
-designs such as building plans or schematics. 
-Additional entries may be included to present information relevant to the creating 
-application or related applications. 
-Design
-IntentCreatorInfo
-Table 96: Entries in an optional 
-If an Optional Content Group Dictionary (see "
-content group dictionary")  entry contains  then a  entry 
-should be included. 
-Optional
-Language 
-dictionary () A dictionary specifying the language of the content controlled by this 
-required
-Lang
-optional content group. It shall contain the following entry: 
-es-MX
- () A text string that specifies a language and possibly a locale 
-(see 14.9.2, "Natural language specification"). For example,  
-represents Mexican Spanish. 
-optionalONOFF
-Preferred  
-Additionally, it may contain the following entry: 
-OFF
- () A name whose values shall be eitheror . Default 
-value: . It shall be used by PDF processors when there is a partial 
-match but no exact match between the system language and the 
-language strings in all usage dictionaries. See 8.11.4.3, "Usage and 
-usage application dictionaries" for more information. 
-Optional
-Export ExportState
-ONOFF
-  
-dictionary () A dictionary containing one entry, , a name whose value 
-shall be eitheror . This value indicates the recommended state for content in 
-this group when the document (or part of it) is saved by a PDF processor to a 
-format that does not support optional content (for example, a raster image format). 
-Optional
-Zoom 
-dictionary () A dictionary specifying a range of magnifications at which the content in 
-this optional content group is best viewed. It shall contain one or both of the 
-min
-following entries: 
-ON
- The minimum recommended magnification factor at which the group shall 
-maxON
-be . Default value: 0. 
- The magnification factor below which the group shall be . Default 
-value: infinity. 
-Optional
-Print 
-dictionary () A dictionary specifying that the content to be used when printing. It may 
-Subtype
-contain the following optional entries: 
-Trapping, PrintersMarksWatermark
- A name object specifying the kind of content controlled by the group; 
-ONOFF
-PrintState  
-for example,  or . 
- A name that shall be eitheror , indicating that the group shall 
-be set to that state when the document is printed. 
-Optional
-View ViewState
-ONOFF
-  
-dictionary () A dictionary that shall have a single entry, , a name that shall 
-have a value of eitheror , indicating the state of the group when the 
-document is first opened by a PDF processor. 
-© ISO 2017 – All rights reserved 282 
-
-ISO/DIS 32000-2
  
-Key Type Value 
-Optional
-User 
-dictionary () A dictionary specifying one or more users for whom this optional content 
-IndTtl
-Type
-group is primarily intended. This dictionary shall have two required entries: 
-Org
- A name object that shall be either  (individual),  (title or position), or 
-Name
- (organization). 
- A text string or array of text strings representing the name(s) of the 
-individual, position or organization. 
-Optional
-PageElement 
-HF
-Subtype
-dictionary () A dictionary declaring that the group contains a pagination artifact. It 
-FGBG
-  
-shall contain one entry, , whose value shall be a name that is either  
-L
-(header/footer),  (foreground image or graphics),(background image or 
-graphics), or  (logo). 
+   
+30 0 obj          %Related files array 
+   [(Sunset.eps) 31 0 R   %Embedded file stream for the EPSF Sunset.eps 
+   (Sunset.C) 32 0 R 
+   (Sunset.M) 33 0 R 
+   (Sunset.Y) 34 0 R 
+   (Sunset.K) 35 0 R 
+   ] 
+endobj 
  
-While the data in the usage dictionary serves as information for a document user to examine, it may also 
-be used by PDF processors to automatically manipulate the state of optional content groups based on 
-external factors such as current system language settings or zoom level. Document authors may use 
-usage application dictionaries to specify which entries in the usage dictionary shall be consulted to 
- AS 
-automatically set the state of optional content groups based on such factors. Usage application 
- AS 
-dictionaries shall be listed in theentry in an optional content configuration dictionary (see "Table 
-99: Entries in an optional content configuration dictionary"). If noentry is present, states shall not 
-be automatically adjusted based on usage information. 
-usage application dictionary
-A  specifies the rules by which usage entries shall be used by interactive 
-PDF processors, and should be used by non-interactive PDF processors, to automatically manipulate the 
-state of optional content groups, which groups shall be affected, and under which circumstances. "
+31 0 obj          %Embedded file stream forMacOS file 
+  
+  <</Type /EmbeddedFile   %Sunset.eps 
+   /Length … 
+   /Filter… 
+  >> 
+stream 
+Data for Sunset.eps 
+… … 
+endstream 
+endobj 
+ 
+32 0 obj          %Embedded file stream for related file 
+  <</Type /EmbeddedFile   %Sunset.C 
+   /Length … 
+   /Filter… 
+  >> 
+stream 
+Data for Sunset.C 
+… … 
+endstream 
+endobj 
+ 
+7.11.5URL specifications 
+ 
+URL
+ FS F
+When theentry in a file specification dictionary has the value , the value of the  entry in that 
+Internet RFC 3986niform Resource Locators
+dictionary is not a file specification string, but a uniform resource locator (URL) of the form defined in 
+, U. 
+  
+EXAMPLE The following example shows aURLspecification. 
+<< /FS /URL 
+  /F (ftp://www.beatles.com/Movies/AbbeyRoad.mov) 
+>> 
+ 
+  
+TheURLshall adhere to the character-encoding requirements specified in RFC 3986. Because 7-bit U.S. 
+ASCII is a strict subset of PDFDocEncoding, this value shall also be considered to be in PDFDocEncoding. 
+7.11.6Collection items 
+ 
+collection item dictionary
+Beginning with PDF 1.7, a  shall contain the data described by the collection 
+ 
+schema dictionary for a particular file in a collection (see 12.3.5, "Collections"). "

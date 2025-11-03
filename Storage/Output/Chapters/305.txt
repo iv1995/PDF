@@ -1,324 +1,218 @@
-Table 400: Entries in a separation dictionary" shows the contents of this type of dictionary. 
-Table 400: Entries in a separation dictionary 
-Key Type Value 
-Required
-Pages 
-array () An array of indirect references to page objects representing 
-separations of the same document page. One of the page objects in the array 
-SeparationInfo
-shall be the one with which this separation dictionary is associated, and all of 
-Pages
-them shall have separation dictionaries ( entries) containing 
- arrays identical to this one. 
-Required
-DeviceColorant 
-Cyan
-name or () The name of the device colourant that shall be used in rendering 
-string this separation, such as  or PANTONE 35 CV. 
-Optional
-ColorSpace  Separation  DeviceN 
-array () An array defining aorcolour space (see 
-8.6.6.4, "Separation colour spaces" and 8.6.6.5, "DeviceN colour spaces"). It 
-DeviceColorant 
-provides additional information about the colour specified by 
-— in particular, the alternate colour space and tint 
-transformation function that shall be used to represent the colourant as a 
-process colour. This information enables an interactive PDF processor to 
-DeviceColorant 
-preview the separation in a colour that approximates the device colourant. 
-  DeviceN 
-The value of  shall match the space’s colourant name (if it is a
-Separationspace) or be one of the space’s colourant names (if it is a
-space). 
- 
-14.11.5Output intents 
- 
-PDF 1.4
-Output intents () provide a means for matching the colour characteristics of page content in a 
-OutputIntents
-PDF document with those of a target output device or production environment in which the document 
-will be printed. The optional  entry in the document catalog dictionary (see 7.7.2, 
-"Document catalog dictionary") or a Page dictionary (see 7.7.3.3, "Page objects") holds an array of 
-output intent dictionaries, each describing the colour reproduction characteristics of a possible output 
-S
-device or production condition. The contents of these dictionaries may vary for different devices and 
-conditions. The dictionary’s  entry specifies an output intent subtype that determines the format and 
-meaning of the remaining entries. 
-NOTE 1 This use of multiple output intents allows the production process to be customised to the expected 
-workflow and the specific tools available. For example, one production facility might process files 
-conforming to a recognised standard such as PDF/X-1a which is based upon CMYK processing, 
-while another uses the PDF/A standard to produce RGB output for document distribution on the 
-Web. Each of these workflows would require different sets of output intent information. Multiple 
-output intents also allow the same PDF file to be distributed unmodified to multiple production 
-facilities. The choice of which output intent to use in a given production environment is a matter 
-for agreement between the purchaser and provider of production services. PDF intentionally does 
-not include a selector for choosing a particular output intent from within the PDF file. It 
-nevertheless does offer a provision for specifying a default output intent to be use if no other 
-provisions or agreements are in effect. 
-GTS_PDFXGTS_PDFA1ISO_PDFE1
-At the time of publication, three output intent subtypes in the document catalog dictionary have been 
-defined: , , and . "Table 401: Entries in an output intent dictionary" lists 
-© ISO 2017 – All rights reserved 789 
+Table 146: Overprinting behaviour in the transparent imaging model 
+Value of blend function  expressed as tint 
+Source colour Affected colour 
+space component of 
+𝒃𝒃𝒔𝒔
+𝑩𝑩(𝑪𝑪,𝑪𝑪)
+group space 
+OP false OP true, OP true, 
+DeviceCMYK
+OPM 0 OPM 1 
+𝑓𝑓𝑓𝑓𝑓𝑓𝑓𝑓
+, C, M, Y, or K 𝐶𝐶 𝐶𝐶 𝐶𝐶 𝐷𝐷𝑓𝑓 𝐶𝐶≠0.0 
+𝑏𝑏𝑓𝑓
+specified directly, not 
+ 𝐶𝐶 𝐷𝐷𝑓𝑓 𝐶𝐶=0.0 
+in a sampled image 
+𝑓𝑓𝑓𝑓𝑓𝑓
+Process colour 𝐶𝐶 𝐶𝐶 𝐶𝐶 
+component other than 
+CMYK 
+𝑓𝑓𝑏𝑏𝑏𝑏
+Spot colourant 𝐶𝐶(=0.0) 𝐶𝐶 𝐶𝐶 
+𝑓𝑓𝑓𝑓𝑓𝑓
+Any process colour Process colour 𝐶𝐶 𝐶𝐶 𝐶𝐶 
+DeviceCMYK
+space (including other component 
+cases of ) 
+𝑓𝑓𝑏𝑏𝑏𝑏
+Spot colourant 𝐶𝐶(=0.0) 𝐶𝐶 𝐶𝐶 
+Separation
+DeviceN
+𝑓𝑓𝑏𝑏𝑏𝑏
+ or Process colour 𝐶𝐶(=0.0) 𝐶𝐶 𝐶𝐶 
+ component 
+𝑓𝑓𝑓𝑓𝑓𝑓
+Spot colourant named in 𝐶𝐶 𝐶𝐶 𝐶𝐶 
+source space 
+© ISO 2017 – All rights reserved 423 
 
 ISO/DIS 32000-2
  
-the keys used in these subtypes of output intent dictionaries. Other subtypes may be added in the 
-future; the names of any such additional subtypes shall conform to the naming guidelines described in 
-Annex E, "PDF Name Registry".  
-NOTE 2  corresponds to the PDF/X format standard (ISO 15930, all parts),  
-corresponds to the PDF/A standard (ISO 19005, all parts), and  corresponds to the 
-GTS_PDFXGTS_PDFA1
-PDF/E standard (ISO 24517, all parts). 
-ISO_PDFE1
-Table 401: Entries in an output intent dictionary 
-Key Type Value 
-Optional
-Type  
-OutputIntent
+Value of blend function  expressed as tint 
+Source colour Affected colour 
+space component of 
+𝒃𝒃𝒔𝒔
+𝑩𝑩(𝑪𝑪,𝑪𝑪)
+group space 
+OP false OP true, OP true, 
+OPM 0 OPM 1 
+𝑓𝑓𝑏𝑏𝑏𝑏
+Spot colourant not 𝐶𝐶(=0.0) 𝐶𝐶 𝐶𝐶 
+named in source space 
+𝑓𝑓𝑓𝑓𝑓𝑓
+A group (not an All colour components 𝐶𝐶 𝐶𝐶 𝐶𝐶 
+elementary object) 
  
-name () The type of PDF object that this dictionary describes; if present, shall be
-for an output intent dictionary. 
-RequiredGTS_PDFXGTS_PDFA1
-S 
-ISO_PDFE1
-name () The output intent subtype. The value may be , , 
- or a key defined by an ISO 32000 extension. 
-Optional
-OutputCondition 
-text string () A text string concisely identifying the intended output device or 
-production condition in human-readable form. This is the preferred method of 
-defining such a string for presentation to the user. 
-Required
-OutputConditionIdentifier 
-text string () A text string identifying the intended output device or production 
-OutputCondition
-condition in human- or machine-readable form. If human-readable, this string may 
-be used in lieu of an  string for presentation to the user. 
-A typical value for this entry may be the name of a production condition maintained 
-in an industry-standard registry such as the ICC Characterization Data Registry. If 
-the designated condition matches that in effect at production time, the production 
-software is responsible for providing the corresponding ICC profile as defined in the 
-registry. 
-Custom
+Colour component values are represented in these tables as subtractive tint values because 
+overprinting is typically applied to subtractive colourants such as inks rather than to additive ones such 
+as phosphors on a display screen. The special overprinting blend mode is therefore described as if it 
+took subtractive arguments and returned subtractive results. In reality, however, the special 
+overprinting blend mode (like all blend modes) shall treat colour components as additive values; 
+subtractive components shall be complemented before and after application of the special blend 
+function. 
+NOTE 1 The process colour components are those of the group’s colour space, which is not necessarily the 
+same as that of the output device (and can even be something likeor ). For this 
+ CalRGB ICCBased
+reason, the process colour components of the group colour space cannot be treated as if they were 
+spot colours in aorcolour space (see 11.7.3, "Spot colours and 
+ Separation  DeviceN 
+transparency"). This difference between opaque and transparent overprinting and erasing rules 
+arises only within a transparency group (including the page group, if its colour space is different 
+from the native colour space of the output device). There is no difference in the treatment of spot 
+colour components. 
+NOTE 2 "Table 146: Overprinting behaviour in the transparent imaging model" has one additional row at 
+the bottom. It applies when painting an object that is a transparency group rather than an 
+elementary object (fill, stroke, text, image, or shading). As stated in 11.7.3, "Spot colours and 
+transparency", a group is considered to paint all colour components, both process and spot. Colour 
+components that were not explicitly painted by any object in the group have an additive colour 
+value of 1.0 (subtractive tint 0.0). Since no information is retained about which components were 
+actually painted within the group, compatible overprinting is not possible in this case; the special 
+overprinting blend mode reverts to , with no consideration of the overprint and overprint 
+Normal
+mode parameters. A transparency-aware PDF writer can choose a more suitable blend mode, such 
+as , to produce an effect similar to overprinting. 
+Darken
+11.7.5Rendering parameters and transparency 
  
-If the intended production condition is not a recognised standard, the value of this 
- Info 
-DestOutputProfile 
-entry may be  or an application-specific, machine-readable name. The
-entry defines the ICC profile, and theentry shall be used 
-for further human-readable identification. 
-Optional
-RegistryName 
-text string () A text string (conventionally a uniform resource identifier, or URI) 
-OutputConditionIdentifier
-identifying the registry in which the condition designated by 
- is defined. 
-Required if  does not specify a standard production 
-Info OutputConditionIdentifier
-condition; optional otherwise
-text string (
-) A human-readable text string containing additional 
-information or comments about the intended target device or production condition. 
-Required if  does not specify a standard production 
-DestOutputProfile OutputConditionIdentifier
-condition; optional otherwise
-stream (
-) An ICC profile stream defining the transformation 
- ICCBased 
-from the PDF document’s source colours to output device colourants. 
-The format of the profile stream is the same as that used in specifying an
-"). The output transformation 
-colour space (see 8.6.5.5, "ICCBased colour spaces
-uses the profile’s "from CIE" information (BToA in ICC terminology); the "to CIE" 
-(AToB) information may optionally be used to remap source colour values to some 
-other destination colour space, such as for screen preview or hardcopy proofing. 
-Optional; PDF 2.0
-DestOutputProfileRef 
-dictionary () A dictionary containing information about one or more 
-referenced ICC profiles. See "Table 402: Entries in a DestOutputProfileRef 
-dictionary". 
-© ISO 2017 – All rights reserved 790 
+11.7.5.1General 
+ 
+The opaque imaging model has several graphics state parameters dealing with the rendering of colour: 
+the current halftone (see 10.6.5, "Halftone dictionaries"), transfer functions (10.5, "Transfer functions"), 
+rendering intent (8.6.5.8, "Rendering intents"), black point compensation (8.6.5.9, "Use of black point 
+compensation", and black-generation and undercolour-removal functions (10.4.2.3, "Conversion from 
+DeviceRGB to DeviceCMYK"). All of these rendering parameters may be specified on a per-object basis; 
+they control how a particular object is rendered. When all objects are opaque, it is easy to define what 
+this means. But when they are transparent, more than one object may contribute to the colour at a given 
+point; it is unclear which rendering parameters to apply in an area where transparent objects overlap. 
+At the same time, the transparent imaging model should be consistent with the opaque model when 
+© ISO 2017 – All rights reserved 424 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional, PDF 2.0
-MixingHints   
-DotGain
-dictionary () ADeviceNMixing Hints dictionary ("Table 72: Entries in a 
-NOTE 1 This is because dot gain information is better handled according to ISO 
-DeviceN mixing hints dictionary") which shall not contain a  key. 
-17972.  
-SoliditiesMixingHints
-SpectralData
-In addition, each key in the  dictionary referenced from the  
-dictionary shall not also be present in the  dictionary within the same 
-NOTE 2 This is because it would not be clear which one is to be used, so only 
-output intent. 
-allowing one place where such data is present avoids the conflict. 
-MixingHints
-This part of ISO 32000 intentionally does not specify how a PDF processor may 
-make use of the data provided in the  dictionary, and a PDF processor 
-EXAMPLE 1 The data in the  dictionary could be used in the process 
-MixingHints
-may ignore such data altogether. 
-of rendering or color converting the colourants specified in the 
- dictionary referenced from the  dictionary. 
-SoliditiesMixingHints
-Optional, PDF 2.0
-SpectralData 
-dictionary () A dictionary where each key represents a colourant name as 
-defined in 8.6.6.4, "Separation colour spaces" and where the value of each key shall 
-be a stream whose contents shall represent CxF/X-4 spot colour characterisation 
-SpotInkCharacterisationSpotInkName
-data that conform to ISO 17972-4:2015. This stream shall contain exactly one 
- element whose  matches the colourant 
-SpotInkCharacterisation
-7.3.5, "Name objects"). In addition, this stream may contain zero or more 
-name (see 
-NOTE 3 This makes it possible to reference the same CxF/X-4 data stream from 
-further  elements, and/or other data. 
-more than one entry in the  dictionary, as long as for each 
-SpectralData
-such entry there is a matching  entry in the 
-SpotInkCharacterisation
-CxF/X-4 data stream. 
-Solidities
-MixingHints
-In addition, each key in this dictionary shall not also be present in the  
-dictionary referenced from the  dictionary within the same output 
-NOTE 4 This is because it would not be clear which one is to be used, so by only 
-intent. 
-allowing one place where such data is is present it avoids the conflict. 
-SpectralData
-This part of ISO 32000 intentionally does not specify how a PDF processor may 
-make use of the data provided in the  dictionary, and a PDF processor 
-EXAMPLE 2 The data in the  dictionary could be used in the 
-SpectralData
-may ignore such data altogether. 
-process of rendering or color converting the colourants specified in 
-the  dictionary. 
-SpectralData
-Table 402: Entries in a DestOutputProfileRef dictionary 
-Key Type Value 
-Optional, PDF 2.0
-CheckSum 
-string () An MD5 hash consisting of a 16 byte string that shall be computed as 
-NOTE 1 Any MD5 embedded within the ICC profile itself is computed differently and is 
-described in "7.11.4, "Embedded file streams" for the uncompressed ICC profile file. 
-inappropriate for use as the value of the  key. 
-CheckSum
-NOTE 2 This is strictly a checksum, and is not used for security purposes. 
-Optional, PDF 2.0
-ColorantTable 
-ColorantTable
-array () An array of colourant names, each of which shall be encoded as a name object. 
-colorantTableTag
-The order and names of the colourants in  shall be identical to those in the ICC 
- in the ICC profile. 
-© ISO 2017 – All rights reserved 791 
+only opaque objects are painted. 
+There are two categories of rendering parameters that are treated somewhat differently in the presence 
+of transparency. In the first category are halftone and transfer functions, which are applied only when 
+the final colour at a given point on the page is known. In the second category are rendering intent, black 
+generation, and undercolour removal, which are applied whenever colours are converted from one 
+colour space to another. 
+11.7.5.2Halftone and transfer function 
+ 
+When objects are transparent, rendering of an object may not occur when the object is specified but at 
+some later time. Hence, the implementation shall keep track of the halftone and transfer function 
+parameters at each point on the page from the time they are specified until the time rendering actually 
+occurs. This means that these rendering parameters may be associated with regions of the page rather 
+than with individual objects. 
+The halftone and transfer function to be used at any given point on the page shall be those in effect at 
+the time of painting the last (topmost) elementary graphics object enclosing that point, but only if the 
+object is fully opaque. Only elementary objects shall be relevant; the rendering parameters associated 
+f
+with a group object are ignored. The topmost object at any point shall be defined to be the topmost 
+j
+elementary object in the entire page stack that has a nonzero object shape value (
+) at that point (that 
+is, for which the point is inside the object). An object is fully opaque if all of the following conditions 
+hold at the time the object is painted: 
+• 
+The current alpha constant in the graphics state (stroking or nonstroking, depending on the 
+Normal
+• 
+painting operation) is 1.0. 
+None
+• 
+The current blend mode in the graphics state is .  
+SMask
+• 
+The current soft mask in the graphics state is .  
+Do
+• 
+If the object is an image XObject and there is not an  entry in its image dictionary. 
+The foregoing four conditions were also true at the time the  operator was invoked for the 
+• 
+group containing the object, as well as for any direct ancestor groups. 
+If the current colour is a tiling pattern, all objects in the definition of its pattern cell also satisfy the 
+foregoing conditions. 
+Together, these conditions ensure that only the object itself shall contribute to the colour at the given 
+point, completely obscuring the backdrop. For portions of the page whose topmost object is not fully 
+opaque or that are never painted at all, the default halftone and transfer function for the page shall be 
+used (see "Table 52: Device-dependent graphics state parameters"). 
+If a graphics object is painted with overprinting enabled—that is, if the applicable (stroking or 
+nonstroking) overprint parameter in the graphics state is true—the halftone and transfer function to 
+use at a given point shall be determined independently for each colour component. An object is opaque 
+for a given component only if overprinting yields the source colour (not the backdrop colour) for that 
+component. See 11.7.4, "Overprinting and transparency". 
+11.7.5.3Rendering intent, black point compensation and colour conversions 
+ 
+The rendering intent, black-generation, undercolour-removal and black point compensation 
+© ISO 2017 – All rights reserved 425 
+parameters control certain colour conversions. In the presence of transparency, they may need to be 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional, PDF 2.0
-ICCVersion 
-string () The value of bytes 8 to 11, ICC profile version number, from the header of the 
-ICC profile. 
-Optional, PDF 2.0
-ProfileCS 
-string () The four-byte colour space signature of the ICC profile, including any space 
-characters. 
-Optional, PDF 2.0
-ProfileName profileDescriptionTag
-text string () The value of the ICC  from the ICC profile. 
-Optional, PDF 2.0
-URLs 
-array () An array, containing at least one element, where each element shall be an 
-embedded file specification (7.11.4, "Embedded file streams") or a URL file specification (7.11.5, 
-NOTE:  ICC profiles referenced via the  array do not have to conform to the  
-URLsICCBased
-"URL specifications"). 
-requirements of "Table 67: ICC profile types" and thus can also support N-component 
-output profiles. 
+applied earlier than the actual rendering of colour onto the page. 
+The rendering intent influences the conversion from a CIE-based colour space to a target colour space, 
+taking into account the target space’s colour gamut (the range of colours it can reproduce). Whereas in 
+the opaque imaging model the target space shall always be the native colour space of the output device, 
+in the transparent model it may instead be the group colour space of a transparency group into which 
+an object is being painted. 
+The rendering intent is needed at the moment such a conversion is performed — that is, when painting 
+an elementary or group object specified in a CIE-based colour space into a parent group having a 
+different colour space. 
+NOTE 1 This differs from the current halftone and transfer function, whose values are used only when all 
+colour compositing has been completed and rasterization is being performed. 
+In all cases, the rendering intent to use for converting an object’s colour (whether that of an elementary 
+object or of a transparency group) is determined by the rendering intent parameter associated with the 
+object. In particular: 
+• 
+When painting an elementary object with a CIE-based colour into a transparency group having a 
+different colour space, the rendering intent used shall be the current rendering intent in effect in 
+• 
+the graphics state at the time of the painting operation. 
+When painting a transparency group whose colour space is CIE-based into a parent group having a 
+Do
+different colour space, the rendering intent used shall be the current rendering intent in effect at 
+the time the  operator is applied to the group. 
+Black point compensation is needed during colour conversions in cases where the detail in dark regions 
+or shadow section of an image can otherwise be lost. Black point compensation addresses this 
+conversion problem by adjusting for differences between the darkest level of black achievable in one 
+UseBlackPtComp
+colour space and the darkest level of black achievable on another. The graphics state parameter 
+ ("Table 57: Entries in a graphics state parameter dictionary) enables or disables the 
+use of black point compensation when doing colour conversions. 
+ DeviceRGB  DeviceCMYK 
+A similar approach works for the black-generation and undercolour-removal functions, which shall be 
+applied only during conversion fromtocolour spaces: 
+ DeviceRGB 
+• 
+DeviceCMYK
+When painting an elementary object with acolour directly into a transparency group 
+whose colour space is , the functions used shall be the current black-generation and 
+ DeviceRGB 
+• 
+undercolour-removal functions in effect in the graphics state at the time of the painting operation. 
+DeviceCMYKDo
+When painting a transparency group whose colour space isinto a parent group whose 
+colour space is , the functions used shall be the ones in effect at the time the  
+ DeviceRGB 
+• 
+operator is applied to the group. 
+DeviceCMYK
+When the colour space of the page group isand the native colour space of the output 
+device is , the functions used to convert colours to the device’s colour space shall be 
+the default functions for the page. 
  
-In addition to the output intent subtype being different in PDF/X, PDF/A and PDF/E, these standards 
-also impose additional requirements on the presence (or absence) of the various keys in the Output 
- ICCBased 
-Intent dictionary and the values thereof. The ICC profile information in an output intent dictionary 
-supplements rather than replaces that in anor default colour space (see 8.6.5.5, "ICCBased 
-colour spaces" and 8.6.5.6, "Default colour spaces"). Those mechanisms are specifically intended for 
-describing the characteristics of source colour component values. An output intent can be used in 
-conjunction with them to convert source colours to those required for a specific production condition or 
-to enable the display or proofing of the intended output. 
-The data in an output intent dictionary shall be provided for informational purposes only, and PDF 
-processors are free to disregard it. If a PDF processor chooses to respect output intents it shall give 
-priority to a page-level output intent, if present. In particular, there is no expectation that PDF 
-production tools automatically convert colours expressed in the same source colour space to the 
-specified target space before generating output. In some workflows, such conversion may, in fact, be 
-undesirable. 
-NOTE 3 When working with  source colours tagged with a source ICC profile solely for purposes of 
-characterisation, converting such colours from four components to three and back is unnecessary 
-CMYK
-and will result in a loss of fidelity in the values of the black component; see 8.6.5.7, "Implicit 
-conversion of CIE-Based colour spaces" for further discussion.) On the other hand, when source 
-colours are expressed in different base colour spaces — for example, when combining separately 
-generated images on the same PDF page — it is possible (though not required) to use the 
-destination profile specified in the output intent dictionary to convert source colours to the same 
-target colour space. 
-EXAMPLE 1 This Example shows a PDF/X output intent dictionary based on an industry-standard production condition 
-(CGATS TR 001) from the ICC Characterization Data Registry. Example 2 shows one for a custom production 
-condition. 
-<<  /Type /OutputIntent       %Output intent dictionary 
-  /S /GTS_PDFX 
-  /OutputCondition (CGATSTR001 (SWOP)) 
-  
-  /OutputConditionIdentifier (CGATS TR 001) 
-  /RegistryName (http://www.color.org) 
-  /DestOutputProfile 100 0 R  
->> 
  
-© ISO 2017 – All rights reserved 792 
+© ISO 2017 – All rights reserved 426 
 
 ISO/DIS 32000-2
  
-100 0 obj            %ICC profile stream 
-   <</N 4 
-   /Length 1605 
-   /Filter /ASCIIHexDecode 
-  >> 
-stream 
-00 00 02 0C 61 70 … > 
-endstream 
-endobj 
-EXAMPLE 2 
-<<  /Type /OutputIntent       %Output intent dictionary 
-  /S /GTS_PDFX 
-  /OutputCondition (Coated) 
-  /OutputConditionIdentifier (Custom) 
-  /Info (Coated 150lpi) 
-  /DestOutputProfile 100 0 R 
->> 
- 
-100 0 obj            %ICC profile stream 
-  << /N 4 
-   /Length 1605 
-   /Filter /ASCIIHexDecode 
-  >> 
-stream 
-00 00 02 0C 61 70…> 
-endstream 
-endobj 
- 
-14.11.6Trapping support 
- 
-14.11.6.1General 
- 
-The features described in this clause are deprecated with PDF 2.0. 
-On devices such as offset printing presses, which mark multiple colourants on a single sheet of physical 
-medium, mechanical limitations of the device can cause imprecise alignment, or misregistration, 
-between colourants. This can produce unwanted visual artifacts such as brightly coloured gaps or bands 
-trap
-around the edges of printed objects. In high-quality reproduction of colour documents, such artifacts 
-are commonly avoided by creating an overlap, called a , between areas of adjacent colour. 
-NOTE "

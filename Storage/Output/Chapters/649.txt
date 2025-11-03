@@ -1,0 +1,861 @@
+ 
+ 
+Parent-child relationships between standard structure elements 
+(Normative) 
+The table in this Annex sets out the acceptable children of the standard structure elements defined in 
+PDF 2.0. 
+A matrix representation of this information is attached to this document as “ISO32000-
+2_AnnexL_matrix-version.pdf”. 
+The structure elements in the leftmost columns are acceptable child elements of the structure elements 
+in the Parents column. Values in the occurrence column indicate the valid usage of standard structure 
+types relative to other standard structure types as follows: 
+1 shall occur as a child element exactly once 
+0..n may be a child element with one or several occurrences, but is not required to be present 
+1..n shall be present as a child element with one or several occurrences 
+0..1 may occur, but not more than once 
+∆ may contain any amount of content or no content 
+If not explicitly allowed by this table, a child element shall not occur.  
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+ 
+ 
+0..1 Document 
+StructTreeRoot 
+0..n Document 0..1 StructTreeRoot 
+Document 
+0..n DocumentFragment 0..n Document 
+0..n Part 0..n DocumentFragment 
+0..n Div 0..n Part 
+0..n Aside 0..n Div 
+0..n P 0..n Aside 
+0..n Hn 0..n Artifact 
+0..n H 
+0..n Title 
+0..n Link 
+0..n Annot 
+0..n Form 
+0..n L 
+0..n Table 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+© ISO 2017 – All rights reserved 913 
+
+ISO/DIS 32000-2 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Document 0..n Document 
+DocumentFragment 
+0..n DocumentFragment 0..n DocumentFragment 
+0..n Part 0..n Part 
+0..n Div 0..n Div 
+0..n Aside 0..n Aside 
+0..n P 0..n Artifact 
+0..n Hn 
+0..n H 
+0..n Title 
+0..n Link 
+0..n Annot 
+0..n Form 
+0..n L 
+0..n Table 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+0..n Document 0..n Document 
+Part 
+0..n DocumentFragment 0..n DocumentFragment 
+0..n Part 0..n Part 
+0..n Div 0..n Div 
+0..n Aside 0..n Aside 
+0..n P 0..n Title 
+0..n Hn 0..n FENote 
+0..n H 0..n LBody 
+0..n Title 0..n Caption 
+0..n Sub 0..n Figure 
+0..n Lbl 0..n Formula 
+0..n Link 0..n Artifact 
+0..n Annot 
+0..n Form 
+0..n FENote 
+0..n L 
+0..n Table 
+0..1 Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+© ISO 2017 – All rights reserved 914 
+
+ISO/DIS 32000-2
+ 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Document 0..n Document 
+Div 
+0..n DocumentFragment 0..n DocumentFragment 
+0..n Part 0..n Part 
+0..n Div 0..n Div 
+0..n Aside 0..n Aside 
+0..n P 0..n Title 
+0..n Hn 0..n Lbl 
+0..n H 0..n Link 
+0..n Title 0..n Annot 
+0..n Link 0..n Form 
+0..n Annot 0..n FENote 
+0..n Form 0..n L 
+0..n FENote 0..n LI 
+0..n L 0..n LBody 
+0..n Table 0..n Table 
+0..1 Caption 0..n TR 
+0..n Figure 0..n TH 
+0..n Formula 0..n TD 
+0..n Artifact 0..n THead 
+0..n TBody 
+0..n TFoot 
+0..n Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+0..n Document 0..n Document 
+Aside 
+0..n DocumentFragment 0..n DocumentFragment 
+0..n Part 0..n Part 
+0..n Div 0..n Div 
+0..n P 0..n Title 
+0..n Hn 0..n FENote 
+0..n H 0..n LBody 
+0..n Lbl 0..n Caption 
+0..n Link 0..n Figure 
+0..n Annot 0..n Formula 
+0..n Form 0..n Artifact 
+0..n FENote 
+0..n L 
+0..n Table 
+0..1 Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+∆ actual content  (no child elements) 
+© ISO 2017 – All rights reserved 915 
+
+ISO/DIS 32000-2 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Part 0..n Document 
+Title 
+0..n Div 0..n DocumentFragment 
+0..n Aside 0..n Part 
+0..n P 0..n Div 
+0..n Lbl 0..n Artifact 
+0..n Em 
+0..n Strong 
+0..n Span 
+0..n Link 
+0..n Annot 
+0..n Form 
+0..n Ruby 
+0..n Warichu 
+0..n L 
+0..n Table 
+0..1 Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+∆ actual content  (no child elements) 
+0..n Lbl 0..n Part 
+Sub 
+0..n Em 0..n P 
+0..n Strong 0..n Hn 
+0..n Span 0..n H 
+0..n Link 0..n Lbl 
+0..n Annot 0..n Em 
+0..n Form 0..n Strong 
+0..n Ruby 0..n Span 
+0..n Warichu 0..n Link 
+0..n L 0..n Annot 
+0..n Figure 0..n RB 
+0..n Formula 0..n RT 
+0..n Artifact 0..n RP 
+∆ actual content  (no child elements) 0..n WT 
+0..n WP 
+0..n FENote 
+0..n LBody 
+0..n Caption 
+0..n Formula 
+0..n Artifact 
+© ISO 2017 – All rights reserved 916 
+
+ISO/DIS 32000-2
+ 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Sub 0..n Document 
+P 
+0..n Lbl 0..n DocumentFragment 
+0..n Em 0..n Part 
+0..n Strong 0..n Div 
+0..n Span 0..n Aside 
+0..n Link 0..n Title 
+0..n Annot 0..n FENote 
+0..n Form 0..n LBody 
+0..n Ruby 0..n TH 
+0..n Warichu 0..n TD 
+0..n FENote 0..n Caption 
+0..n L 0..n Figure 
+0..n Figure 0..n Formula 
+0..n Formula 0..n Artifact 
+0..n Artifact 
+∆ actual content  (no child elements) 
+0..n Sub 0..n Document 
+Hn 
+0..n Lbl 0..n DocumentFragment 
+0..n Em 0..n Part 
+0..n Strong 0..n Div 
+0..n Span 0..n Aside 
+0..n Link 0..n LBody 
+0..n Annot 0..n TH 
+0..n Form 0..n TD 
+0..n Ruby 0..n Caption 
+0..n Warichu 0..n Figure 
+0..n Figure 0..n Formula 
+0..n Formula 0..n Artifact 
+0..n Artifact 
+∆ actual content  (no child elements) 
+0..n Sub 0..n Document 
+H 
+0..n Lbl 0..n DocumentFragment 
+0..n Em 0..n Part 
+0..n Strong 0..n Div 
+0..n Span 0..n Aside 
+0..n Link 0..n LBody 
+0..n Annot 0..n TH 
+0..n Form 0..n TD 
+0..n Ruby 0..n Caption 
+0..n Warichu 0..n Figure 
+0..n Figure 0..n Formula 
+0..n Formula 0..n Artifact 
+0..n Artifact 
+∆ actual content  (no child elements) 
+© ISO 2017 – All rights reserved 917 
+
+ISO/DIS 32000-2 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Div 0..n Part 
+Lbl 
+0..n Sub 0..n Aside 
+0..n Em 0..n Title 
+0..n Strong 0..n Sub 
+0..n Span 0..n P 
+0..n Link 0..n Hn 
+0..n Annot 0..n H 
+0..n Form 0..n Em 
+0..n Ruby 0..n Strong 
+0..n Warichu 0..n Span 
+0..n Figure 0..n Link 
+0..n Formula 0..n Annot 
+0..n Artifact 0..n Form 
+∆ actual content  (no child elements) 0..n FENote 
+0..n LI 
+0..n TH 
+0..n TD 
+0..n Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+0..n Sub 0..n Title 
+Em 
+0..n Lbl 0..n Sub 
+0..n Em 0..n P 
+0..n Strong 0..n Hn 
+0..n Span 0..n H 
+0..n Link 0..n Lbl 
+0..n Annot 0..n Em 
+0..n Form 0..n Strong 
+0..n Ruby 0..n Span 
+0..n Warichu 0..n Link 
+0..n Figure 0..n Annot 
+0..n Formula 0..n RB 
+0..n Artifact 0..n RT 
+∆ actual content  (no child elements) 0..n RP 
+0..n WT 
+0..n WP 
+0..n FENote 
+0..n LBody 
+0..n TH 
+0..n TD 
+0..n Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+© ISO 2017 – All rights reserved 918 
+
+ISO/DIS 32000-2
+ 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Sub 0..n Title 
+Strong 
+0..n Lbl 0..n Sub 
+0..n Em 0..n P 
+0..n Strong 0..n Hn 
+0..n Span 0..n H 
+0..n Link 0..n Lbl 
+0..n Annot 0..n Em 
+0..n Form 0..n Strong 
+0..n Ruby 0..n Span 
+0..n Warichu 0..n Link 
+0..n Figure 0..n Annot 
+0..n Formula 0..n RB 
+0..n Artifact 0..n RT 
+∆ actual content  (no child elements) 0..n RP 
+0..n WT 
+0..n WP 
+0..n FENote 
+0..n LBody 
+0..n TH 
+0..n TD 
+0..n Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+© ISO 2017 – All rights reserved 919 
+
+ISO/DIS 32000-2 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Sub 0..n Title 
+Span 
+0..n Lbl 0..n Sub 
+0..n Em 0..n P 
+0..n Strong 0..n Hn 
+0..n Span 0..n H 
+0..n Link 0..n Lbl 
+0..n Annot 0..n Em 
+0..n Form 0..n Strong 
+0..n Ruby 0..n Span 
+0..n Warichu 0..n Link 
+0..n Figure 0..n Annot 
+0..n Formula 0..n RB 
+0..n Artifact 0..n RT 
+∆ actual content  (no child elements) 0..n RP 
+0..n WT 
+0..n WP 
+0..n FENote 
+0..n LBody 
+0..n TH 
+0..n TD 
+0..n Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+© ISO 2017 – All rights reserved 920 
+
+ISO/DIS 32000-2
+ 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Div 0..n Document 
+Link 
+0..n Sub 0..n DocumentFragment 
+0..n Lbl 0..n Part 
+0..n Em 0..n Div 
+0..n Strong 0..n Aside 
+0..n Span 0..n Title 
+0..n Annot 0..n Sub 
+0..n Ruby 0..n P 
+0..n Warichu 0..n Hn 
+0..n Figure 0..n H 
+0..n Formula 0..n Lbl 
+0..n Artifact 0..n Em 
+∆ actual content  (no child elements) 0..n Strong 
+1..n[c] OBJR content 0..n Span 
+0..n Annot 
+0..n RB 
+0..n RT 
+0..n RP 
+0..n WT 
+0..n WP 
+0..n FENote 
+0..n LBody 
+0..n TH 
+0..n TD 
+0..n Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+© ISO 2017 – All rights reserved 921 
+
+ISO/DIS 32000-2 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Div 0..n Document 
+Annot 
+0..n Sub 0..n DocumentFragment 
+0..n Lbl 0..n Part 
+0..n Em 0..n Div 
+0..n Strong 0..n Aside 
+0..n Span 0..n Title 
+0..n Link 0..n Sub 
+0..n Annot 0..n P 
+0..n Ruby 0..n Hn 
+0..n Warichu 0..n H 
+0..n Figure 0..n Lbl 
+0..n Formula 0..n Em 
+0..n Artifact 0..n Strong 
+∆ actual content  (no child elements) 0..n Span 
+1..n[c] OBJR content 0..n Link 
+0..n Annot 
+0..n RB 
+0..n RT 
+0..n RP 
+0..n WT 
+0..n WP 
+0..n FENote 
+0..n LBody 
+0..n TH 
+0..n TD 
+0..n Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+© ISO 2017 – All rights reserved 922 
+
+ISO/DIS 32000-2
+ 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Div 0..n Document 
+Form 
+0..n Lbl 0..n DocumentFragment 
+0..1 Caption 0..n Part 
+0..n Artifact 0..n Div 
+1[c] OBJR content 0..n Aside 
+0..n Title 
+0..n Sub 
+0..n P 
+0..n Hn 
+0..n H 
+0..n Lbl 
+0..n Em 
+0..n Strong 
+0..n Span 
+0..n RB 
+0..n RT 
+0..n RP 
+0..n WT 
+0..n WP 
+0..n FENote 
+0..n LBody 
+0..n TH 
+0..n TD 
+0..n Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+[a] RB 0..n Title 
+Ruby 
+[a] RT 0..n Sub 
+[a] RP 0..n P 
+∆ actual content  (no child elements) 0..n Hn 
+0..n H 
+0..n Lbl 
+0..n Em 
+0..n Strong 
+0..n Span 
+0..n Link 
+0..n Annot 
+0..n FENote 
+0..n LBody 
+0..n TH 
+0..n TD 
+0..n Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+© ISO 2017 – All rights reserved 923 
+
+ISO/DIS 32000-2 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Sub [a] Ruby 
+RB 
+0..n Em 0..n Artifact 
+0..n Strong 
+0..n Span 
+0..n Link 
+0..n Annot 
+0..n Form 
+0..n Artifact 
+[a] actual content  (no child elements) 
+0..n Sub [a] Ruby 
+RT 
+0..n Em 0..n Artifact 
+0..n Strong 
+0..n Span 
+0..n Link 
+0..n Annot 
+0..n Form 
+0..n Artifact 
+[a] actual content  (no child elements) 
+0..n Sub [a] Ruby 
+RP 
+0..n Em 0..n Artifact 
+0..n Strong 
+0..n Span 
+0..n Link 
+0..n Annot 
+0..n Form 
+0..n Artifact 
+[a] actual content  (no child elements) 
+[b] WT 0..n Title 
+Warichu 
+[b] WP 0..n Sub 
+∆ actual content  (no child elements) 0..n P 
+0..n Hn 
+0..n H 
+0..n Lbl 
+0..n Em 
+0..n Strong 
+0..n Span 
+0..n Link 
+0..n Annot 
+0..n FENote 
+0..n LBody 
+0..n TH 
+0..n TD 
+0..n Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+© ISO 2017 – All rights reserved 924 
+
+ISO/DIS 32000-2
+ 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Sub [b] Warichu 
+WT 
+0..n Em 0..n Artifact 
+0..n Strong 
+0..n Span 
+0..n Link 
+0..n Annot 
+0..n Form 
+0..n Artifact 
+[b] actual content  (no child elements) 
+0..n Sub [b] Warichu 
+WP 
+0..n Em 0..n Artifact 
+0..n Strong 
+0..n Span 
+0..n Link 
+0..n Annot 
+0..n Form 
+0..n Artifact 
+[b] actual content  (no child elements) 
+0..n Part 0..n Part 
+FENote 
+0..n Div 0..n Div 
+0..n Aside 0..n Aside 
+0..n P 0..n P 
+0..n Sub 0..n LI 
+0..n Lbl 0..n LBody 
+0..n Em 0..n TH 
+0..n Strong 0..n TD 
+0..n Span 0..n Caption 
+0..n Link 0..n Figure 
+0..n Annot 0..n Formula 
+0..n Form 0..n Artifact 
+0..n Ruby 
+0..n Warichu 
+0..n L 
+0..n Table 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+∆ actual content  (no child elements) 
+© ISO 2017 – All rights reserved 925 
+
+ISO/DIS 32000-2 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Div 0..n Document 
+L 
+0..n L 0..n DocumentFragment 
+0..n LI 0..n Part 
+0..1 Caption 0..n Div 
+0..n Artifact 0..n Aside 
+0..n Title 
+0..n Sub 
+0..n P 
+0..n FENote 
+0..n L 
+0..n LBody 
+0..n TH 
+0..n TD 
+0..n Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+0..n Div 0..n L 
+LI 
+0..n Lbl 0..n Artifact 
+0..n FENote 
+0..n LBody 
+0..n Artifact 
+∆ actual content  (no child elements) 
+0..n Part 0..n LI 
+LBody 
+0..n Div 0..n Artifact 
+0..n Aside 
+0..n P 
+0..n Hn 
+0..n H 
+0..n Sub 
+0..n Em 
+0..n Strong 
+0..n Span 
+0..n Link 
+0..n Annot 
+0..n Form 
+0..n Ruby 
+0..n Warichu 
+0..n FENote 
+0..n L 
+0..n Table 
+0..1 Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+∆ actual content  (no child elements) 
+© ISO 2017 – All rights reserved 926 
+
+ISO/DIS 32000-2
+ 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Div 0..n Document 
+Table 
+0..n TR 0..n DocumentFragment 
+0..1 THead 0..n Part 
+0..n TBody 0..n Div 
+0..1 TFoot 0..n Aside 
+0..1 Caption 0..n Title 
+0..n Artifact 0..n FENote 
+0..n LBody 
+0..n TH 
+0..n TD 
+0..n Caption 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+0..n Div 0..n Table 
+TR 
+0..n TH 0..n THead 
+0..n TD 0..n TBody 
+0..n Artifact 0..n TFoot 
+0..n Artifact 
+0..n Div 0..n TR 
+TH 
+0..n P 0..n Artifact 
+0..n Hn 
+0..n H 
+0..n Lbl 
+0..n Em 
+0..n Strong 
+0..n Span 
+0..n Link 
+0..n Annot 
+0..n Form 
+0..n Ruby 
+0..n Warichu 
+0..n FENote 
+0..n L 
+0..n Table 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+∆ actual content  (no child elements) 
+© ISO 2017 – All rights reserved 927 
+
+ISO/DIS 32000-2 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Div 0..n TR 
+TD 
+0..n P 0..n Artifact 
+0..n Hn 
+0..n H 
+0..n Lbl 
+0..n Em 
+0..n Strong 
+0..n Span 
+0..n Link 
+0..n Annot 
+0..n Form 
+0..n Ruby 
+0..n Warichu 
+0..n FENote 
+0..n L 
+0..n Table 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+∆ actual content  (no child elements) 
+0..n Div 0..1 Table 
+THead 
+0..n TR 0..n Artifact 
+0..n Artifact 
+0..n Div 0..n Table 
+TBody 
+0..n TR 0..n Artifact 
+0..n Artifact 
+0..n Div 0..1 Table 
+TFoot 
+0..n TR 0..n Artifact 
+0..n Artifact 
+© ISO 2017 – All rights reserved 928 
+
+ISO/DIS 32000-2
+ 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Part 0..1 Part 
+Caption 
+0..n Div 0..1 Div 
+0..n Aside 0..1 Aside 
+0..n P 0..1 Title 
+0..n Hn 0..1 Form 
+0..n H 0..1 L 
+0..n Sub 0..1 LBody 
+0..n Lbl 0..1 Table 
+0..n Em 0..1 Figure 
+0..n Strong 0..1 Formula 
+0..n Span 0..1 Artifact 
+0..n Link 
+0..n Annot 
+0..n Form 
+0..n Ruby 
+0..n Warichu 
+0..n FENote 
+0..n L 
+0..n Table 
+0..n Figure 
+0..n Formula 
+0..n Artifact 
+∆ actual content  (no child elements) 
+0..n Part 0..n Document 
+Figure 
+0..n Div 0..n DocumentFragment 
+0..n Aside 0..n Part 
+0..n P 0..n Div 
+0..n Hn 0..n Aside 
+0..n H 0..n Title 
+0..n Lbl 0..n Sub 
+0..n Em 0..n P 
+0..n Strong 0..n Hn 
+0..n Span 0..n H 
+0..n Link 0..n Lbl 
+0..n Annot 0..n Em 
+0..n Form 0..n Strong 
+0..n Ruby 0..n Span 
+0..n Warichu 0..n Link 
+0..n FENote 0..n Annot 
+0..n L 0..n FENote 
+0..n Table 0..n LBody 
+0..1 Caption 0..n TH 
+0..n Figure 0..n TD 
+0..n Formula 0..n Caption 
+0..n Artifact 0..n Figure 
+∆ actual content  (no child elements) 0..n Formula 
+0..n Artifact 
+© ISO 2017 – All rights reserved 929 
+
+ISO/DIS 32000-2 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Part 0..n Document 
+Formula 
+0..n Div 0..n DocumentFragment 
+0..n Aside 0..n Part 
+0..n P 0..n Div 
+0..n Hn 0..n Aside 
+0..n H 0..n Title 
+0..n Sub 0..n Sub 
+0..n Lbl 0..n P 
+0..n Em 0..n Hn 
+0..n Strong 0..n H 
+0..n Span 0..n Lbl 
+0..n Link 0..n Em 
+0..n Annot 0..n Strong 
+0..n Form 0..n Span 
+0..n Ruby 0..n Link 
+0..n Warichu 0..n Annot 
+0..n FENote 0..n FENote 
+0..n L 0..n LBody 
+0..n Table 0..n TH 
+0..1 Caption 0..n TD 
+0..n Figure 0..n Caption 
+0..n Formula 0..n Figure 
+0..n Artifact 0..n Formula 
+∆ actual content  (no child elements) 0..n Artifact 
+© ISO 2017 – All rights reserved 930 
+
+ISO/DIS 32000-2
+ 
+Stucture Type Children Parents 
+Occ. Structure Type Occ. Structure Type 
+0..n Document 0..n Document 
+Artifact 
+0..n DocumentFragment 0..n DocumentFragment 
+0..n Part 0..n Part 
+0..n Div 0..n Div 
+0..n Aside 0..n Aside 
+0..n P 0..n Title 
+0..n Hn 0..n Sub 
+0..n H 0..n P 
+0..n Title 0..n Hn 
+0..n Sub 0..n H 
+0..n Lbl 0..n Lbl 
+0..n Em 0..n Em 
+0..n Strong 0..n Strong 
+0..n Span 0..n Span 
+0..n Link 0..n Link 
+0..n Annot 0..n Annot 
+0..n Form 0..n Form 
+0..n Ruby 0..n RB 
+0..n RB 0..n RT 
+0..n RT 0..n RP 
+0..n RP 0..n WT 
+0..n Warichu 0..n WP 
+0..n WT 0..n FENote 
+0..n WP 0..n L 
+0..n FENote 0..n LI 
+0..n L 0..n LBody 
+0..n LI 0..n Table 
+0..n LBody 0..n TR 
+0..n Table 0..n TH 
+0..n TR 0..n TD 
+0..n TH 0..n THead 
+0..n TD 0..n TBody 
+0..n THead 0..n TFoot 
+0..n TBody 0..n Caption 
+0..n TFoot 0..n Figure 
+0..1 Caption 0..n Formula 
+0..n Figure 0..n Artifact 
+0..n Formula 
+0..n Artifact 
+∆ actual content  (no child elements) 
+Ruby
+ 
+[a] for specific provisions when and how these structure elements or content can be contained inside a  structure element see 14.8.4.7.3, "Ruby and Warichu 
+Warichu
+elements" 
+[b] for specific provisions when and how these structure elements or content can be contained inside a  structure element see 14.8.4.7.3, "Ruby and 
+Warichu elements". 
+[c] for provisions governing when and how specific types of link annotations, widget annotations (form fields) and other annotations can be referenced within a 
+structure element, see "Table 370: General inline level structure types". 
+© ISO 2017 – All rights reserved 931 
+
+ISO/DIS 32000-2 ![74.png](./Storage/Output/Images/74.png)

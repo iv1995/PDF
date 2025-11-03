@@ -1,52 +1,6 @@
-Table 47: Entries in a collection subitem dictionary"). 
-dictionary 
-The type of each entry shall match the type of data identified by the collection 
-field dictionary (see "Table 155: Entries in a collection field dictionary") 
-referenced by the same key in the collection schema dictionary (see "Table 154: 
-Entries in a collection schema dictionary"). 
-S
-Subtype
-EXAMPLE If the corresponding collection field has a  entry of , 
-then the entry is a text string. 
-A single collection item dictionary may contain multiple entries, with one entry 
-representing each key (see Example 1 in 12.3.5, "Collections"). 
+XFDF file 
+file conforming to the XML Forms Data Format 3.0 specification, which is an XML transliteration of 
+Forms Data Format (FDF). See ISO/DIS 19444-1, Document management – XML Forms Data Format – 
+Part 1: XFDF 3.0. 
+4.62 
  
-A collection subitem dictionary provides the data corresponding to the related fields in the collection 
-dictionary, and it provides a means of associating a prefix string with that data value. The prefix shall be 
-ignored by the sorting algorithm. "Table 47: Entries in a collection subitem dictionary" describes the 
-entries in a collection subitem dictionary. 
-Table 47: Entries in a collection subitem dictionary 
-Key Type Value 
-Optional
-Type 
-CollectionSubitem
-name () The type of PDF object that this dictionary describes; if present, shall 
-be  for a collection item dictionary. 
-Optional
-D 
-text string, () The data corresponding to the related entry in the collection field 
-date, or dictionary (see "Table 155: Entries in a collection field dictionary"). The type of 
-none
-number data shall match the data type identified by the corresponding collection field 
-dictionary. Default: . 
-Optional
-P 
-text string () A prefix string that shall be concatenated with the text string presented 
-none
-to the user. This entry is ignored when an interactive PDF processor sorts the 
-items in the collection. Default: . 
- 
-7.12Extensions dictionary 
- 
-7.12.1General 
- 
-Extensions
-An optional key, , in the document’s catalog dictionary shall have as its value an Extensions 
-dictionary (see "Table 48: Entries in an extensions dictionary") containing one or more entries 
-identifying developer-defined extensions to this ISO standard. The keys allowed in an extensions 
-Extensions
-Type
-dictionary, are shown in "Table 48: Entries in an extensions dictionary", and may optionally contain a 
- entry whose value is the name . The remaining keys shall be names consisting of 
-registered prefix names of the developer extensions used, as described in Annex E, "PDF Name 
-Registry". The values of those prefix name keys shall be developer extensions dictionaries (see "

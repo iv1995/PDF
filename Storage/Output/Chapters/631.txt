@@ -1,0 +1,275 @@
+Figure Annex H.2: 
+Page tree for the following example" shows the structure of this page tree. Numbers in the figure are 
+object numbers corresponding to the objects in the example. 
+337
+335
+336
+108139170
+4377
+4
+263294325
+201232
+138
+76
+42
+169
+107
+324
+293
+262
+231
+200
+3
+175
+144
+113
+82
+48
+16
+330
+299
+268
+237
+206
+149
+180
+118
+87
+53
+21
+211
+304
+273
+242
+185
+154
+123
+92
+58
+26
+216
+309
+278
+247
+190
+159
+128
+97
+63
+31
+314
+283
+221
+252
+195
+164
+133
+102
+70
+37
+319
+288
+257
+226
+Figure Annex H.2: Page tree for the following example 
+ 
+EXAMPLE 
+337 0 obj 
+  <</Type /Pages 
+   /Kids [335 0 R 
+     336 0 R 
+     ] 
+   /Count 62 
+  >> 
+endobj 
+ 
+© ISO 2017 – All rights reserved 879 
+
+ISO/DIS 32000-2 
+335 0 obj 
+  <</Type /Pages 
+   /Parent 337 0 R 
+   /Kids [4 0 R 
+     43 0 R 
+     77 0 R 
+     108 0 R 
+     139 0 R 
+     170 0 R 
+     ] 
+   /Count 36 
+  >> 
+endobj 
+ 
+336 0 obj 
+  <</Type /Pages 
+   /Parent 337 0 R 
+   /Kids [201 0 R 
+     232 0 R 
+     263 0 R 
+     294 0 R 
+     325 0 R 
+     ] 
+   /Count 26 
+  >> 
+endobj 
+ 
+4 0 obj 
+  <</Type /Pages 
+   /Parent 335 0 R 
+   /Kids [3 0 R 
+     16 0 R 
+     21 0 R 
+     26 0 R 
+     31 0 R 
+     37 0 R 
+     ] 
+   /Count 6 
+  >> 
+endobj 
+ 
+43 0 obj 
+  <</Type /Pages 
+   /Parent 335 0 R 
+   /Kids [42 0 R 
+     48 0 R 
+     53 0 R 
+     58 0 R 
+     63 0 R 
+     70 0 R 
+     ] 
+   /Count 6 
+  >> 
+endobj 
+ 
+77 0 obj 
+  <</Type /Pages 
+   /Parent 335 0 R 
+   /Kids [76 0 R 
+     82 0 R 
+     87 0 R 
+     92 0 R 
+     97 0 R 
+     102 0 R 
+     ] 
+   /Count 6 
+  >> 
+© ISO 2017 – All rights reserved 880 
+
+ISO/DIS 32000-2
+ 
+endobj 
+ 
+108 0 obj 
+  <</Type /Pages 
+   /Parent 335 0 R 
+   /Kids [107 0 R 
+     113 0 R 
+     118 0 R 
+     123 0 R 
+     128 0 R 
+     133 0 R 
+     ] 
+   /Count 6 
+  >> 
+endobj 
+ 
+139 0 obj 
+  <</Type /Pages 
+   /Parent 335 0 R 
+   /Kids [138 0 R 
+     144 0 R 
+     149 0 R 
+     154 0 R 
+     159 0 R 
+     164 0 R 
+     ] 
+   /Count 6 
+  >> 
+endobj 
+ 
+170 0 obj 
+  <</Type /Pages 
+   /Parent 335 0 R 
+   /Kids [169 0 R 
+     175 0 R 
+     180 0 R 
+     185 0 R 
+     190 0 R 
+     195 0 R 
+     ] 
+   /Count 6 
+  >> 
+endobj 
+ 
+201 0 obj 
+  <</Type /Pages 
+   /Parent 336 0 R 
+   /Kids [200 0 R 
+     206 0 R 
+     211 0 R 
+     216 0 R 
+     221 0 R 
+     226 0 R 
+     ] 
+   /Count 6 
+  >> 
+endobj 
+ 
+232 0 obj 
+  <</Type /Pages 
+   /Parent 336 0 R 
+   /Kids [231 0 R 
+     237 0 R 
+     242 0 R 
+     247 0 R 
+     252 0 R 
+     257 0 R 
+© ISO 2017 – All rights reserved 881 
+
+ISO/DIS 32000-2 
+     ] 
+   /Count 6 
+  >> 
+endobj 
+ 
+263 0 obj 
+  <</Type /Pages 
+   /Parent 336 0 R 
+   /Kids [262 0 R 
+     268 0 R 
+     273 0 R 
+     278 0 R 
+     283 0 R 
+     288 0 R 
+     ] 
+   /Count 6 
+  >> 
+endobj 
+ 
+294 0 obj 
+  <</Type /Pages 
+   /Parent 336 0 R 
+   /Kids [293 0 R 
+     299 0 R 
+     304 0 R 
+     309 0 R 
+     314 0 R 
+     319 0 R 
+     ] 
+   /Count 6 
+  >> 
+endobj 
+ 
+325 0 obj 
+  <</Type /Pages 
+   /Parent 336 0 R 
+   /Kids [324 0 R 
+     330 0 R 
+     ] 
+   /Count 2 
+  >> 
+endobj 
+H.6Outline hierarchy example 
+ 
+This section from a PDF file illustrates the structure of an outline hierarchy with six items. Example 1 in 
+H.6, "Outline hierarchy example" shows the outline with all items open, as illustrated in "

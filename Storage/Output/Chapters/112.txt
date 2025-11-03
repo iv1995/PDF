@@ -1,313 +1,72 @@
-Table 87: Additional entries specific to an image dictionary" in addition to 
-the usual entries common to all streams (see "Table 5: Entries common to all stream dictionaries"). 
-There are many relationships among these entries, and the current colour space may limit the choices 
-for some of them. Attempting to use an image dictionary whose entries are inconsistent with each other 
-or with the current colour space shall cause an error. 
-base image 
-Do
-The entries described here are appropriate for a — one that is invoked directly with the  
-operator. 
-NOTE Some of the entries are not defined for images used in other ways, such as for alternate images 
-(see 8.9.5.4, "Alternate images"), image masks (see 8.9.6, "Masked images"), or thumbnail images 
-(see 12.3.4, "Thumbnail images").  
-Table 87: Additional entries specific to an image dictionary 
+Table 38: Entries common to all function 
+dictionaries". 
+Table 38: Entries common to all function dictionaries 
 Key Type Value 
-Optional
-Type 
-XObject
-name () The type of PDF object that this dictionary describes; if present, shall 
-be  for an image XObject. 
-RequiredImage
-Subtype   
-name () The type of XObject that this dictionary describes; shall befor 
-an image XObject. 
 Required
-Width 
-integer () The width of the image, in samples. 
+FunctionType 
+integer () The function type: 
+0 Sampled function 
+2 Exponential interpolation function 
+ 
+3 Stitching function 
+4 PostScript calculator function
 Required
-Height 
-integer () The height of the image, in samples. 
-Required for images, except those that use thefilter; not permitted 
-ColorSpace  JPXDecode 
-for image masks
-name or (
-Pattern
-array ) The colour space in which image samples shall be specified; it 
- JPXDecode 
-can be any type of colour space except . 
- ColorSpace 
-• 
-If the image uses thefilter, this entry may be present: 
-Ifis present, any colour space specifications in the JPEG2000 
- ColorSpace 
-• 
-data shall be ignored. 
-Decode 
-Ifis absent, the colour space specifications in the JPEG2000 
-true
-ImageMask 
-data shall be used. The  array shall also be ignored unless
-is . 
-© ISO 2017 – All rights reserved 253 
+Domain 
+Domain
+array () An array of 2 × m numbers, where m shall be the number of 
+ii
+ix
+Domain
+2i
+input values. For each i from 0 to m - 1,  shall be less than or 
+th
+iii
+Domain
+Domain
+2+1
+equal to , and the  input value, , shall lie in the interval 
+22+1
+ ≤ x ≤  . Input values outside the declared domain 
+shall be clipped to the nearest boundary value. 
+© ISO 2017 – All rights reserved 124 
 
 ISO/DIS 32000-2
  
 Key Type Value 
-Required except for image masks and images that use thefilter
-BitsPerComponent  JPXDecode 
-integer () The 
-number of bits used to represent each colour component. Only a single value 
- ImageMask 
-shall be specified; the number of bits shall be the same for all colour 
-true
-components. The value shall be 1, 2, 4, 8, or (in PDF 1.5) 16. Ifis 
- BitsPerComponent 
-, this entry is optional, but if specified, its value shall be 1. 
-If the image stream uses a filter, the value ofshall be 
- CCITTFaxDecode  JBIG2Decode 
-consistent with the size of the data samples that the filter delivers. In 
- RunLengthDecode  DCTDecode 
-particular, aorfilter shall always deliver 1-bit 
- LZWDecode  FlateDecode 
-samples, aorfilter shall always deliver 8-bit 
-samples, and anorfilter shall deliver samples of a 
- JPXDecode 
-specified size if a predictor function is used. 
-If the image stream uses thefilter, this entry is optional and shall 
-be ignored if present. The bit depth is determined by the PDF processor in the 
-process of decoding the JPEG2000 image. 
-Optional; PDF 1.1
-Intent 
-name () The name of a colour rendering intent that shall be used in 
-true
- ImageMask 
-rendering any image that is not an image mask (see 8.6.5.8, "Rendering 
-intents"). This value is ignored ifis . Default value: the current 
-rendering intent in the graphics state. 
-Optional
-ImageMask 
-true
+Required for Type 4 and Type 4 functions, optional otherwise; see below
+Range 
+nn
+array () 
+j
+jn
+RangeRange
+An array of 2 ×  numbers, where  shall be the number of output values. 
+jjjj
+y
+j
+RangeRange
+2j2+1
+For each  from 0 to  - 1,  shall be less than or equal to , 
+th
+22+1
+ output value, , shall lie in the interval  ≤ y ≤ . 
+and the 
+Output values outside the declared range shall be clipped to the nearest 
+boundary value. If this entry is absent, no clipping shall be done (subject 
+to implementation limits). 
  
-boolean () A flag indicating whether the image shall be treated as an image 
-BitsPerComponent ColorSpace 
-mask (see 8.9.6, "Masked images"). If this flag is , the value of
-, if present, shall be 1 and Mask andshall not 
-false
-be specified; unmasked areas shall be painted using the current nonstroking 
-colour. Default value: . 
-Optional; shall not be present for image masks; PDF 1.3
-Mask 
-stream or () An image XObject 
-array defining an image mask to be applied to this image (see 8.9.6.3, "Explicit 
-true
- ImageMask 
-masking"),or an array specifying a range of colours to be applied to it as a 
-colour key mask (see 8.9.6.4, "Colour key masking"). Ifis , this 
-entry shall not be present. 
-Optional
-Decode 
-array () An array of numbers describing how to map image samples into the 
-true
- ImageMask 
-range of values appropriate for the image’s colour space (see 8.9.5.2, "Decode 
-arrays"). Ifis , the array shall be either [0 1] or [1 0]; 
-ColorSpace JPXDecode   ColorSpace 
-otherwise, its length shall be twice the number of colour components required 
-true
-Decode ImageMask 
-by . If the image uses thefilter andifis 
-absent, the  array shall be ignored unlessis . 
-Default value: see "Table 88: Default decode arrays". 
-Optional
-Interpolate 
-false
-boolean () A flag indicating whether image interpolation should be performed 
-by a PDF processor (see 8.9.5.3, "Image interpolation"). Default value: . 
-Optional; PDF 1.3
-Alternates 
-array () An array of alternate image dictionaries for this image (see 
-8.9.5.4, "Alternate images"). This entry shall not be present in an image XObject 
-that is itself an alternate image. 
-© ISO 2017 – All rights reserved 254 
-
-ISO/DIS 32000-2
- 
-Key Type Value 
-Optional; PDF 1.4
-SMask 
-stream () A subsidiary image XObject defining a soft-mask image (see 
-11.6.5.2, "Soft-mask images") that shall be used as a source of mask shape or 
-mask opacity values in the transparent imaging model. The alpha source 
-parameter in the graphics state determines whether the mask values shall be 
-interpreted as shape or opacity. 
-Mask
-If present, this entry shall override the current soft mask in the graphics state, 
-as well as the image’s  entry, if any. However, the other transparency-
- SMask SMaskInData
-related graphics state parameters — blend mode and alpha constant — shall 
-remain in effect. Ifis absent and  has value 0, the image 
-shall have no associated soft mask (although the current soft mask in the 
-NOTE 1 Interactions between ,  and the current soft mask 
-SMaskSMaskInData
-graphics state may still apply). 
-in the graphics state are set out in clause 11.6.4.3, "Mask shape and 
-opacity". 
-Optional for images that use thefilter, meaningless otherwise; PDF 
-SMaskInData  JPXDecode 
-1.5
-integer (
-) A code specifying how soft-mask information (see 11.6.5.2, "Soft-mask 
-images") encoded with image samples shall be used: 
-0 If present, encoded soft-mask image information shall be ignored. 
-1 The image’s data stream includes encoded soft-mask values. A PDF 
-processor shall create a soft-mask image from the information to be used 
-as a source of mask shape or mask opacity in the transparency imaging 
-model. 
-2 The image’s data stream includes colour channels that have been 
-premultiplied with an opacity channel; the image data also includes the 
-opacity channel. A PDF processor shall create a soft-mask image from the 
-opacity channel information to be used as a source of mask shape or 
- SMask 
-mask opacity in the transparency model. 
-If this entry has a non-zero value,shall not be specified. See also 7.4.9, 
-NOTE 2 Interactions between ,  and the current soft mask 
-SMaskSMaskInData
-"JPXDecode filter". 
-in the graphics state are set out in clause 11.6.4.3, "Mask shape and 
-opacity". 
-Default value: 0. 
-Required in PDF 1.0; optional otherwise; deprecated in PDF 2.0
-Name 
-name () The name by 
-which this image XObject is referenced in the XObject subdictionary of the 
-current resource dictionary (see 7.8.3, "Resource dictionaries"). 
-Required if the image is a structural content item; PDF 1.3
-StructParent 
-integer () The integer key of 
-the image’s entry in the structural parent tree (see 14.7.5.4, "Finding structure 
-elements from content items"). 
-Optional; PDF 1.3; indirect reference preferred
-ID 
-byte string () The digital identifier of the 
-image’s parent Web Capture content set (see 14.10.6, "Object attributes related 
-to web capture"). 
-Optional; PDF 1.2; deprecated in PDF 2.0
-OPI 
-true
- ImageMask 
-dictionary () An OPI version dictionary for the 
-image; see 14.11.7, "Open prepress interface (OPI)". Ifis , this 
-entry shall be ignored. 
-Optional; PDF 1.4
-Metadata 
-stream () A metadata stream containing metadata for the image (see 
-14.3.2, "Metadata streams"). 
-© ISO 2017 – All rights reserved 255 
-
-ISO/DIS 32000-2
- 
-Key Type Value 
-Optional; PDF 1.5
-OC 
-dictionary () An optional content group or optional content membership 
-dictionary (see 8.11, "Optional content"), specifying the optional content 
-properties for this image XObject. Before the image is processed by a PDF 
-processor, its visibility shall be determined based on this entry. If it is 
-Do
-determined to be invisible, the entire image shall be skipped, as if there were 
-no  operator to invoke it. 
-Optional; PDF 2.0
-AF 
-array of () An array of one or more file specification dictionaries 
-  
-dictionaries (7.11.3, "File specification dictionaries") which denote the associated files for 
-thisImageXObject. See 14.13, "Associated files" and 14.13.7, "Associated files 
-linked to XObjects" for more details. 
-Optional; PDF 2.0
-Measure 
-dictionary () A measure dictionary (see "Table 265: Entries in a measure 
-dictionary") that specifies the scale and units which shall apply to the image. 
-Optional; PDF 2.0
-PtData 
-dictionary () A point data dictionary (see "Table 271: Entries in a point 
-data dictionary") that specifies the extended geospatial data that shall apply to 
-the image. 
- 
- DeviceGray 
-EXAMPLE This example defines an image 256 samples wide by 256 high, with 8 bits per sample in thecolour 
-space. It paints the image on a page with its lower-left corner positioned at coordinates (45, 140) in current 
-user space and scaled to a width and height of 132 user space units. 
-20 0 obj             %Page object 
-  <</Type /Page 
-   /Parent 1 0 R 
-   /Resources 21 0 R 
-   /MediaBox [0 0 612 792] 
-   /Contents 23 0 R 
-  >> 
-endobj 
- 
-21 0 obj             %Resource dictionary for page 
-   <</XObject <</Im1 22 0 R>> 
-  >> 
-endobj 
- 
-22 0 obj             %ImageXObject 
- 
-  <</Type /XObject 
-   /Subtype /Image 
-   /Width 256 
-   /Height 256 
-   /ColorSpace /DeviceGray 
-   /BitsPerComponent 8 
-   /Length 83183 
-   /Filter /ASCII85Decode 
-  >> 
-stream 
-9LhZI9h\GY9i+bb;,p:e;G9SP92/)X9MJ>^:f14d;,U(X8P;cO;G9e];c$=k9Mn\] 
-…Imagedata representing 65,536 samples … 
-  
-8P;cO;G9e];c$=k9Mn\]~> 
-endstream 
-endobj 
- 
-23 0 obj             %Contents of page 
-  <</Length 56>> 
-stream 
-  q             %Save graphics state 
-   132 0 0 132 45 140 cm     %Translate to (45,140) and scale by 132 
-   /Im1 Do          %Paint image 
-  Q             %Restore graphics state 
-© ISO 2017 – All rights reserved 256 
-
-ISO/DIS 32000-2
- 
-endstream 
-endobj 
- 
-8.9.5.2Decode arrays 
- 
-n
-n
-Each image's colour component data is initially decomposed into integers in the domain 0 to 2-1, 
-BitsPerComponentJPXDecode
-where  is the bit depth of the colour component. This bit depth is specified as the value of the image 
-Decode
-dictionary's  entry or, when the image uses the  filter, is defined in the 
-JPEG2000 data and can have different values per colour component. An image’s  array specifies 
-a linear mapping of each integer component value to a number that would be appropriate as a 
-component value in the image’s colour space. 
-Decode
-Decode
-Each pair of numbers in a  array specifies the lower and upper values to which the domain of 
- ColorSpace 
-sample values in the image is mapped. A  array shall contain one pair of numbers for each 
-component in the colour space specified by the image’sentry. The mapping for each colour 
-component, by a PDF processor shall be a linear transformation; that is, it shall use the following 
-formula for linear interpolation: 
+In addition, each type of function dictionary shall include entries appropriate to the particular function 
+Range
+type. The number of output values can usually be inferred from other attributes of the function; if not 
+DomainRange
+(as is always the case for Type 4 and Type 4 functions), the  entry is required. The dimensionality 
+of the function implied by the  and  entries shall be consistent with that implied by other 
+attributes of the function. 
 minmaxminmax
 (
 )
 𝑦𝑦=Interpolate𝑥𝑥,𝑥𝑥
+ 
 ,𝑥𝑥,𝑦𝑦,𝑦𝑦
 maxmin
 𝑦𝑦
@@ -319,155 +78,28 @@ minmin
 ×
 +�𝑥𝑥−𝑥𝑥� 
 maxmin
+xyx
 𝑥𝑥−𝑥𝑥
-xx
-xyy
+minmin
+For a given value of , Interpolate calculates the  value on the line defined by the two points (
+, y) 
+maxmax
+and (x
+, y). 
+7.10.2Type 0 (sampled) functions 
  
-xyxy
-minmaxmin
-This formula is used to convert a value  between 
- and  to a corresponding value  between  
-maxminminmaxmax
-and y
-, projecting along the line defined by the points (,  ) and (,  ). 
-NOTE 1 While this formula applies to values outside the domain  to  and does not require that  < 
-minmaxmin
-, note that interpolation used for colour conversion, such as the  array, does require 
-Decode
-max
-xxx
- <  and clips  values to this domain so that x = x for all  ≤ , and x = x for all  ≥ 
-that 
-minmaxminminmax
-x
-.  
-max
-xxxxx
-x
-DD
-Decode
-x
-minmax
-For a  array of the form [ ], this can be written as 
-𝑛𝑛
-minmax
-)
-(
-−1,𝐷𝐷,𝐷𝐷
-𝑦𝑦=Interpolate𝑥𝑥,0,2
-maxmin
-𝐷𝐷
-−𝐷𝐷
-min
-𝑛𝑛
-=𝐷𝐷+�𝑥𝑥×� 
-2−1
- 
-where 
-n shall be the bit depth of the corresponding colour component 
-n
-Decode
-x shall be the input value, in the domain 0 to 2 - 1 
-minmax
-D anDd  shall be the values specified in the  array 
-y
- is the output value, which shall be interpreted in the image’s colour space 
-n
-minmax
-D, those with a value of 2 - 1 shall be mapped tDo , 
-Samples with a value of 0 shall be mapped to 
-minmax
-Decode
-D andD . "Table 88: Default 
-and those with intermediate values shall be mapped linearly between 
-decode arrays" lists the default  arrays which shall be used with the various colour spaces by a 
-PDF processor. 
-© ISO 2017 – All rights reserved 257 
-
-ISO/DIS 32000-2
- 
-NOTE 2 For most colour spaces, the  arrays listed in the table map into the full range of allowed 
-Decode
-component values. For an  colour space, the default  array ensures that 
-IndexedDecode
-component values that index a colour table are passed through unchanged. 
-Table 88: Default decode arrays 
-Colour Space Decode Array 
-DeviceGray 
-[0.0 1.0] 
-DeviceRGB 
-[0.0 1.0 0.0 1.0 0.0 1.0] 
-DeviceCMYK 
-[0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0] 
-CalGray 
-[0.0 1.0] 
-CalRGB 
-[0.0 1.0 0.0 1.0 0.0 1.0] 
-Lab 
-Range
-minmaxminmaxminmaxminmax
-[0 100a a b b ] wherae a, b, , anbd  correspond to the values in 
-the  array of the image’s colour space 
-ICCBased Range
-Same as the value of  in the ICC profile of the image’s colour space 
-NN
-Indexed 
-n
-[0 ], where  = 2 – 1 
-Pattern 
-(Not permitted with images) 
-Separation 
-[0.0 1.0] 
-DeviceN 
-[0.0 1.0 0.0 1.0…0.0 1.0] (one pair of elements for each colour component) 
-NOTE 3 It is possible to specify a mapping that inverts sample colour intensities by specifying a  value 
-min
-. For example, if the image’s colour space isand the  array is 
-greater than 
- DeviceGray Decode
-max
-D
-n
-[1.0 0.0], an input value of 0 is mapped to 1.0 (white); an input value of 2
- - 1 is mapped to 0.0 
-D
-(black). 
- DD
-minmax
-The and  parameters for a colour component need not fall within the range of values allowed for 
-that component. 
-NOTE 4 For instance, if an application uses 6-bit numbers as its native image sample format, it can 
-represent those samples in PDF in 8-bit form, setting the two unused high-order bits of each 
-sample to 0. The image dictionary can then specify a  array of [0.00000 4.04762], which 
-Decode
-maps input values from 0 to 63 into the range 0.0 to 1.0 (4.04762 being approximately equal to 
-255 ÷ 63). 
-If an output value is not permitted for a component, it shall be adjusted to the nearest allowed value. 
-8.9.5.3Image interpolation 
- 
-Image interpolation is an attempt to produce a smooth transition between adjacent sample values when 
-true
-Interpolate
-rendering an image whose resolution is significantly lower than that of the output device. Setting the 
-value of the  entry in an image dictionary to , is a way for a PDF to declare to a PDF 
-processor that a specific image might render better if interpolation is used for this particular image. 
-However, this is only a hint, and a PDF processor may ignore it. 
-© ISO 2017 – All rights reserved 258 
-
-ISO/DIS 32000-2
- 
-8.9.5.4Alternate images 
- 
-Alternate imagesPDF 1.3
- () provide a straightforward and backward-compatible way to include multiple 
-versions of an image in a PDF file for different purposes. These variant representations of the image 
-may differ, for example, in resolution or in colour space. The primary goal is to reduce the need to 
-maintain separate versions of a PDF document for low-resolution on-screen viewing and high-
-resolution printing. 
-base image
-Alternates
-alternate image dictionaries
-A  (that is, the image XObject referred to in a resource dictionary) may contain an  
-entry. The value of this entry shall be an array of  specifying variant 
-representations of the base image. Each alternate image dictionary shall contain an image XObject for 
-one variant and shall specify its properties. "
+Type 0 functions use a sequence of sample values (contained in a stream) to provide an approximation 
+for functions whose domains and ranges are bounded. The samples are organised as an m-dimensional 
+table in which each entry has n components. 
+NOTE 1 Sampled functions are highly general and offer reasonably accurate representations of arbitrary 
+analytic functions at low expense. For example, a 1-input sinusoidal function can be represented 
+over the range [0 180] with an average error of only 1 percent, using just ten samples and linear 
+interpolation. Two-input functions require significantly more samples but usually not a 
+prohibitive number if the function does not have high frequency variations. 
+There shall be no dimensionality limit of a sampled function except for possible implementation limits. 
+NOTE 2 The number of samples required to represent functions with high dimensionality multiplies 
+rapidly unless the sampling resolution is very low. Also, the process of multilinear interpolation 
+becomes computationally intensive if the number of inputs m is greater than 2. The 
+multidimensional spline interpolation is even more computationally intensive. 
+In addition to the entries in "Table 38: Entries common to all function dictionaries", a Type 0 function 
+dictionary includes those shown in "

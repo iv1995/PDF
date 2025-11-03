@@ -1,0 +1,100 @@
+Table 313: 
+Animation styles" for valid values. If an animation style is encountered other 
+None
+than those described in "Table 313: Animation styles", an animation style of 
+None
+ 
+ shall be used. 
+Default value: 
+Optional
+PC 
+integer () An integer specifying the play count for this animation style. A non-
+negative integer represents the number of times the animation shall be 
+None
+played. A negative integer indicates that the animation shall be infinitely 
+ 
+repeated. This value shall be ignored for animation styles of type . 
+Default value: 0
+Optional
+TM 
+number () A positive number specifying the time multiplier that shall be used 
+when running the animation. A value greater than one shortens the time it 
+NOTE This allows authors to adjust the desired speed of animations, without 
+takes to play the animation, or effectively speeds up the animation. 
+having to re-author the 3D artwork. 
+None
+This value shall be ignored for animation styles of type . Default value: 1 
+ 
+The descriptions of the animation styles (see "Table 313: Animation styles") use the following variables 
+to represent application time or keyframe settings specified in the 3D artwork. 
+t
+• 
+ is a point on the animation time line. This value shall be used in conjunction with the keyframe 
+r
+r
+• 
+animation data to determine the state of the 3D artwork. 
+01
+t
+• 
+[
+, ] is the keyframe animation time line. 
+a
+t
+• 
+ is the current time of the interactive PDF processor. 
+0
+p
+Linear
+• 
+ is the time when the interactive PDF processor starts the animation. 
+ is the time it takes to play the keyframe animation through one cycle. In the case of the  
+Oscillating
+animation style, one cycle consists of playing the animation through once from beginning to end. In 
+the case of the  animation style, one cycle consists of playing the animation from 
+m
+ TM 
+• 
+beginning to end and then from end to beginning. 
+ is the positive multiplier specified by theentry in the animation style dictionary. 
+© ISO 2017 – All rights reserved 628 
+
+ISO/DIS 32000-2
+ 
+Table 313: Animation styles 
+Style Description 
+None 
+Keyframe animations shall not be driven directly by the interactive PDF 
+processor. This value shall be used by documents that are intended to drive 
+ 
+animations through an alternative means, such as ECMAScript. 
+The remaining entries in the animation style dictionary shall be ignored.
+Linear 
+Keyframe animations shall be driven linearly from beginning to end. This 
+animation style results in a repetitive playthrough of the animation, such as 
+in a walking motion. 
+a0010
+))()
+((
++r%r 
+t=mt
+−t−r
+ 
+10
+()
+p=r−r/m 
+The "%" symbol indicates the modulus operator.
+Oscillating 
+Keyframe animations shall oscillate along their time range. This animation 
+style results in a back-and-forth playing of the animation, such as exploding 
+or collapsing parts. 
+10𝑚𝑚00
+()()
+𝑡𝑡=0.5𝑚𝑚−𝑚𝑚�1−𝑐𝑐𝐷𝐷𝑠𝑠�𝑚𝑚𝑡𝑡−𝑡𝑡��+𝑚𝑚 
+𝑝𝑝=2∗𝑝𝑝𝐷𝐷/𝑚𝑚  
+ 
+13.6.3.33D reference dictionaries 
+ 
+3DD
+More than one 3D annotation may be associated with the same 3D artwork. There are two ways in 
+which this association may occur, as determined by the annotation’s  entry (see "

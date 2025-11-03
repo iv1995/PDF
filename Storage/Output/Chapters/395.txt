@@ -1,0 +1,166 @@
+Table 227: Field 
+flags common to all field types". The designation () means that an attribute shall be 
+defined for every field, whether explicitly in its own field dictionary or by inheritance from an ancestor 
+in the hierarchy. The inheritable behavior of field dictionaries are similar to that of Pages (see 7.7.3.4, 
+"Inheritance of page attributes"). An interactive PDF processor shall not limit the range of inheritance 
+for field dictionaries. "Table 226: Entries common to all field dictionaries" shows those entries that are 
+common to all field dictionaries, regardless of type. Entries that pertain only to a particular type of field 
+are described in the relevant subclauses referred to in "Table 226: Entries common to all field 
+dictionaries". 
+Table 226: Entries common to all field dictionaries 
+Key Type Value 
+(Required for terminal fields; inheritable) 
+FT 
+name The type of field that this 
+Btn 
+dictionary describes: 
+Tx
+Button (see 12.7.5.2, "Button fields") 
+Ch
+ Text (see 12.7.5.3, "Text fields") 
+Sig
+ Choice (see 12.7.5.4, "Choice fields") 
+ (PDF 1.3) Signature (see 12.7.5.5, "Signature fields") 
+FT
+This entry may be present in a non-terminal field (one whose descendants 
+are fields) to provide an inheritable  value. However, a non-terminal 
+field does not logically have a type of its own; it is merely a container for 
+inheritable attributes that are intended for descendant terminal fields of 
+any type. 
+© ISO 2017 – All rights reserved 515 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Required if this field is the child of another in the field hierarchy; absent 
+Parent 
+otherwise) 
+dictionary 
+ Kids 
+The field that is the immediate parent of this one (the field, if 
+ Kids 
+any, whosearray includes this field). A field can have at most one 
+parent; that is, it can be included in thearray of at most one other 
+field. 
+(Sometimes required, as described below) 
+Kids 
+array An array of indirect references to 
+ Kids 
+the immediate children of this field. 
+ Kids 
+In a non-terminal field, thearray shall refer to field dictionaries that 
+are immediate descendants of this field. In a terminal field, thearray 
+ordinarily shall refer to one or more separate widget annotations that are 
+ 
+associated with this field. However, if there is only one associated widget 
+Kids 
+ 
+annotation, and its contents have been merged into the field dictionary,
+shall be omitted.
+(Required) 
+T 
+text string The partial field name (see 12.7.4.2, "Field names"). 
+(Optional; PDF 1.3) 
+TU 
+text string An alternative field name that shall be used in place of 
+the actual field name wherever the field shall be identified in the user 
+interface (such as in error or status messages referring to the field). This 
+text is also useful when extracting the document’s contents in support of 
+accessibility to users with disabilities or for other purposes (see 14.9.3, 
+"Alternate descriptions"). 
+(Optional; PDF 1.3) mapping name 
+TM 
+text string The that shall be used when exporting 
+interactive form field data from the document. 
+(Optional; inheritable) 
+Ff 
+integer A set of flags specifying various characteristics of 
+the field (see "Table 227: Field flags common to all field types"). Default 
+value: 0. 
+(Optional; inheritable) 
+V 
+(various) The field’s value, whose format varies depending 
+on the field type. See the descriptions of individual field types for further 
+information. 
+(Optional; inheritable) 
+DV 
+(various) The default value to which the field reverts when a 
+V
+reset-form action is executed (see 12.7.6.3, "Reset-form action"). The 
+format of this value is the same as that of . 
+(Optional; PDF 1.2) 
+AA 
+dictionary An additional-actions dictionary defining the field’s 
+AA
+behaviour in response to various trigger events (see 12.6.3, "Trigger 
+events"). This entry has exactly the same meaning as the  entry in an 
+annotation dictionary (see 12.5.2, "Annotation dictionaries"). 
+ 
+ Ff 
+The value of the field dictionary’sentry is an unsigned 32-bit integer containing flags specifying 
+various characteristics of the field. Bit positions within the flag word shall be numbered from 1 (low-
+ Flags 
+order) to 32 (high-order). The flags shown in "Table 227: Field flags common to all field types" are 
+common to all types of fields.that apply only to specific field types are discussed in the subclauses 
+describing those types. All undefined flag bits shall be reserved and shall be set to 0. 
+© ISO 2017 – All rights reserved 516 
+
+ISO/DIS 32000-2
+ 
+Table 227: Field flags common to all field types 
+Bit position Name Meaning 
+1 ReadOnly If set, an interactive PDF processor shall not allow a user to change the 
+value of the field. Additionally, any associated widget annotations should 
+not interact with the user; that is, they should not respond to mouse clicks 
+NOTE: This flag is useful for fields whose values are computed or 
+nor change their appearance in response to mouse motions.  
+imported from a database. 
+2 Required If set, the field shall have a value at the time it is exported by a submit-
+form action (see 12.7.6.2, "Submit-form action"). 
+3 NoExport If set, the field shall not be exported by a submit-form action (see 12.7.6.2, 
+"Submit-form action"). 
+ 
+12.7.4.2Field names 
+ 
+T
+partial field namefully qualified field name
+The  entry in the field dictionary (see "Table 226: Entries common to all field dictionaries" holds a text 
+string defining the field’s . The  is not explicitly defined but 
+shall be constructed from the partial field names of the field and all of its ancestors. For a field with no 
+parent, the partial and fully qualified names are the same. For a field that is the child of another field, 
+the fully qualified name shall be formed by appending the child field’s partial name to the parent’s fully 
+parent’s_full_name.child’s_partial_name 
+qualified name, separated by a PERIOD (2Eh) as shown: 
+EXAMPLE If a field with the partial field name PersonalData has a child whose partial name is Address, which in turn has 
+a child with the partial name ZipCode, the fully qualified name of this last field is 
+ PersonalData.Address.ZipCode 
+Because the PERIOD is used as a separator for fully qualified names, a partial name shall not contain a 
+PERIOD character. Thus, all fields descended from a common ancestor share the ancestor’s fully 
+qualified field name as a common prefix in their own fully qualified names. 
+T
+A field dictionary that does not have a partial field name ( entry) of its own shall not be considered a 
+field but simply a Widget annotation. Such annotations are different representations of the same 
+FT
+underlying field; they should differ only in properties that specify their visual appearance. In addition, 
+VDV
+actual field dictionaries with the same fully qualified field name shall have the same field type (), 
+value (), and default value (). 
+EXAMPLE A field with the fully qualified field name of PersonalData.Address.ZipCode can have multiple unnamed 
+children representing different Widget annotations in multiple locations. Such children, although visually 
+different, would represent the same field value to users. 
+12.7.4.3Variable text 
+ 
+When the contents and properties of a field are known in advance, its visual appearance can be 
+specified by an appearance stream defined in the PDF file (see 12.5.5, "Appearance streams" and 
+12.5.6.19, "Widget annotations"). In some cases, however, the field may contain text whose value is not 
+known until viewing time. 
+© ISO 2017 – All rights reserved 517 
+
+ISO/DIS 32000-2
+ 
+NOTE Examples include text fields to be filled in with text typed by the user from the keyboard, scrollable 
+list boxes whose contents are determined interactively at the time the document is displayed and 
+fields containing current dates or values calculated by an ECMAScript. 
+In such cases, the PDF document cannot provide a statically defined appearance stream for displaying 
+the field. Instead, the PDF processor shall construct an appearance stream dynamically at rendering 
+time. The dictionary entries shown in "

@@ -1,121 +1,72 @@
-Figure 10: Device Space" shows how the same graphics object, specified in device 
-space, can appear drastically different when rendered on different output devices. ![Figure 10 Device Space  .png](./Storage/Output/Images/Figure 10 Device Space  .png)
-Figure 10: Device Space 
+6Conformance 
  
-8.3.2.3User space 
+6.1Conforming PDF documents 
  
-To avoid the device-dependent effects of specifying objects in device space, PDF defines a device-
-independent coordinate system that always bears the same relationship to the current page, regardless 
-user space
-of the output device on which printing or displaying occurs. This device-independent coordinate system 
-is called . 
+Conforming PDF files shall adhere to all requirements of this part of ISO 32000. A conforming file is not 
+obligated to contain any feature other than those explicitly required by this part of ISO 32000. 
+NOTE The proper mechanism by which a file can identify itself as being a PDF file of a given version level 
+is described in 7.5.2, "File header". 
+6.2PDF processors 
  
-CropBox 
-The user space coordinate system shall be initialised to a default state for each page of a document. The
-x
-entry in the page dictionary shall specify the rectangle of user space corresponding to the 
-y
-visible area of the intended output medium (display window or printed page). The positive  axis 
-Rotate
-extends horizontally to the right and the positive  axis vertically upward, as in standard mathematical 
-xyPDF 1.6
-UserUnit
-practice (subject to alteration by the  entry in the page dictionary). The length of a unit along 
-both the  and  axes is set by the  entry () in the page dictionary (see "Table 31: 
-default user space
-Entries in a page object"). If that entry is not present or supported, the default value of 1 ⁄ 72 inch is 
-used. This coordinate system is called . 
-NOTE 1 In the PostScript language, the origin of default user space always corresponds to the lower-left 
-corner of the output medium. While this convention is common in PDF documents as well, it is not 
-© ISO 2017 – All rights reserved 148 
+6.2.1General 
+ 
+A PDF processor is any software, hardware or any other active agent that writes, reads, updates or 
+otherwise processes a PDF file which conforms to this part of ISO 32000, and does so in a manner that 
+conforms to this part of ISO 32000. Two specialised classifications of PDF processors are PDF writers, 
+which create PDF documents, and PDF readers, which interpret PDF documents. The purpose of a PDF 
+reader can be to display or print a document, or to extract data from a document. An interactive PDF 
+processor interacts with a user while processing the PDF file and as a consequence may read or write 
+PDF files. In this part of ISO 32000, when it is important to distinguish what is written into a PDF file, 
+the more specialised term PDF writer will be used, when it is important to distinguish the act of reading 
+from the contents of a PDF file, the term PDF reader will be used and when it is important to distinguish 
+the act of user interaction while processing a PDF file, the term interactive PDF processor will be used. 
+Otherwise, the more general term PDF processor will be used. 
+Some PDF processors may also choose to support fragment identifiers 
+(https://www.w3.org/DesignIssues/Fragment.html
+) which are added at the end of a URI to provide a 
+reference to subordinate content within the target of the URI. These fragment identifiers anchor onto 
+specific content or characteristics of the PDF document to which the URI refers, and represent either an 
+action to be performed on the document when it is opened, or an object within the document (see 
+Annex O, "Fragment identifiers"). 
+6.2.2Conformance of PDF processors 
+ 
+6.2.2.1General 
+ 
+If a PDF writer creates a PDF file, the file created shall conform to this part of ISO 32000. If a PDF writer 
+adds or amends objects in a pre-existing PDF file then the added or amended elements shall conform to 
+the file format requirements of this part of ISO 32000, and shall be consistent with related existing 
+elements. 
+With the exception of linearized PDF files, all PDF files should be read using the trailer and cross-
+reference table as described in 7.5, "File structure". Linearized files should be read as specified in Annex 
+F, "Linearized PDF". Reading a non-linearized file in a serial manner is not reliable because of the way 
+objects are to be processed after an incremental update. A PDF processor shall respect and honour 
+standard security (see 7.6.4, "Standard security handler") when it opens a document for processing. 
+Each PDF processor chooses which subsets of PDF functionality to support. For each subset that the 
+© ISO 2017 – All rights reserved 24 
 
 ISO/DIS 32000-2
  
-required; the page dictionary’sentry can specify any rectangle of default user space to 
- CropBox 
-be made visible on the medium. 
-NOTE 2 The default for the size of the unit in default user space (1 ⁄ 72 inch) is approximately the same as a 
-point, a unit widely used in the printing industry. It is not exactly the same, however; there is no 
-universal definition of a point. 
- CropBox 
-Conceptually, user space is an infinite plane. Only a small portion of this plane corresponds to the 
-imageable area of the output device: a rectangular region defined by theentry in the page 
-dictionary. The region of default user space that is viewed or printed can be different for each page and 
-is described in 14.11.2, "Page boundaries". 
-Coordinates in user space (as in any other coordinate space) may be specified as either integers or real 
-numbers, and the unit size in default user space does not constrain positions to any arbitrary grid. The 
-resolution of coordinates in user space is not related in any way to the resolution of pixels in device 
-space. 
-current transformation matrix
-The transformation from user space to device space is defined by the  
-(CTM), an element of the PDF graphics state (see 8.4, "Graphics state"). A PDF reader may adjust the 
-CTM for the native resolution of a particular output device, maintaining the device-independence of the 
-PDF page description. "Figure 11: User Space" shows how this allows an object specified in user space 
-to appear the same regardless of the device on which it is rendered. 
-The default user space provides a consistent, dependable starting place for PDF page descriptions 
-coordinate transformation operatorcm
-regardless of the output device used. If necessary, a PDF content stream may modify user space to be 
-more suitable to its needs by applying the ,  (see 8.4.4, "Graphics 
-state operators"). Thus, what might appear to be absolute coordinates in a content stream are not 
-absolute with respect to the current page because they are expressed in a coordinate system that can 
-slide around and shrink or expand. Coordinate system transformation not only enhances device-
-independence but is a useful tool in its own right. 
-EXAMPLE A content stream originally composed to occupy an entire page can be incorporated without change as an 
-© ISO 2017 – All rights reserved 149 
+processor chooses to support, the processor shall comply with the applicable provisions in this part of 
+ISO 32000. 
+NOTE The subset standards for PDF, such as PDF/X (ISO 15930), PDF/A (ISO 19005), PDF/E (ISO 
+24517), PDF/VT (ISO 16612) and PDF/UA (ISO 14289), define the term "conforming reader" 
+because they restrict the processing of documents conforming to those standards to strict 
+processing rules. PDF 2.0 is highly generalized to accommodate various processing needs, so the 
+notion of a “conforming reader” is not useful for this part of ISO 32000. 
+6.2.2.2PDF processors providing rendering 
+ 
+When a PDF processor renders a PDF page, it shall render the page contents as defined in this part of 
+ISO 32000. When doing so, the PDF processor shall respect the default (or any other user-specified) 
+optional content definitions (8.11, "Optional content"), if any. A PDF processor shall also render the 
+appropriate appearance stream for all annotations (12.5.5, "Appearance streams") which have 
+appearance streams designated for this purpose as indicated by the annotation flags (see 12.5.3, 
+"Annotation flags"), unless otherwise instructed. 
+6.2.2.3Interactive PDF processors 
+ 
+An interactive PDF processor shall follow all the requirements in 6.2.2.2, "PDF processors providing 
+rendering" for rendering. In addition, such a processor shall support all of the interactive aspects of 
+optional content (8.11, "Optional content").  
+© ISO 2017 – All rights reserved 25 
 
 ISO/DIS 32000-2
  
-element of another page by shrinking the coordinate system in which it is drawn. ![Figure 11 User Space  .png](./Storage/Output/Images/Figure 11 User Space  .png)
-Figure 11: User Space 
- 
-8.3.2.4Other coordinate spaces 
- 
-In addition to device space and user space, PDF uses a variety of other coordinate spaces for specialised 
-purposes: 
-text space
-• 
-text matrix
-The coordinates of text shall be specified in . The transformation from text space to user 
-space shall be defined by a  in combination with several text-related parameters in the 
-glyph space
-• 
-graphics state (see 9.4.2, "Text-positioning operators"). 
-font matrix
-Character glyphs in a font shall be defined in  ("see 9.2.4, "Glyph positioning and 
-metrics"). The transformation from glyph space to text space shall be defined by the . 
-For most types of fonts, this matrix shall be predefined to map 1000 units of glyph space to 1 unit 
-of text space; for Type 3 fonts, the font matrix shall be given explicitly in the font dictionary ("see 
-image space
-• 
-9.6.4, "Type 3 fonts"). 
-All sampled images shall be defined in . The transformation from image space to user 
-space shall be predefined and cannot be changed. All images shall be 1 unit wide by 1 unit high in 
-user space, regardless of the number of samples in the image. To be painted, an image shall be 
-• 
-mapped to a region of the page by temporarily altering the CTM. 
-A form XObject (discussed in 8.10, "Form XObjects") is a self-contained content stream that can be 
-form spaceform 
-treated as a graphical element within another content stream. The space in which it is defined is 
-matrix
-called . The transformation from form space to user space shall be specified by a 
-pattern
-• 
- contained in the form XObject. 
-PDF 1.2 defined a type of colour known as a , discussed in 8.7, "Patterns". A pattern shall be 
-pattern 
-defined either by a content stream that shall be invoked repeatedly to tile an area or by a shading 
-spacepattern matrix
-whose colour is a function of position. The space in which a pattern is defined is called 
-. The transformation from pattern space to user space shall be specified by a  
-contained in the pattern. 
-© ISO 2017 – All rights reserved 150 
-
-ISO/DIS 32000-2
- 
-• 
-PDF 1.6 embedded 3D artwork, which is described in three-dimensional coordinates (see 13.6.5, 
-"Coordinate systems for 3D") that are projected into an annotation’s target coordinate system (see 
-8.3.2.5Relationships among coordinate spaces 
- 
-13.6.2, "3D Annotations"). 
-"

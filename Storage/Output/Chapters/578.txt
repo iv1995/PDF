@@ -1,0 +1,105 @@
+Table 384: Standard table attributes", may only be defined in 
+Layout, List, PrintFieldArtifact
+attribute objects whose  (owner) entry has the value  or whose owner is any other owner 
+excluding  and . 
+Table 384: Standard table attributes 
+Key Type Value 
+(Optional; not inheritable)
+RowSpan 
+integer  The number of rows in the enclosing table that shall be spanned 
+by the cell.  
+WritingMode
+The cell shall expand by adding rows in the block-progression direction specified by the 
+table’s  attribute.  
+THTD
+Default value: 1. 
+This entry shall only have an effect for structure elements of type of  or . 
+(Optional; not inheritable)
+ColSpan 
+integer  The number of columns in the enclosing table that shall be 
+spanned by the cell.  
+WritingMode
+The cell shall expand by adding columns in the inline-progression direction specified by the 
+table’s  attribute.  
+THTD.
+Default value: 1. 
+This entry shall only have an effect for structure elements of type of  or  
+(Optional; not inheritable)
+Headers 
+IDTH
+array  An array of byte strings, where each string shall be the element 
+identifier (see the  entry in "Table 355: Entries in a structure element dictionary") for a  
+THTD
+structure element that shall be used as a header associated with this cell. 
+HeadersID
+This entry shall only have an effect for structure elements of type of  or . 
+IDID
+The order in which the entries in the  array are listed shall be row s followed by 
+IDHeaders
+column s. The row and column s shall be ordered from most specific to most general. 
+If the scope for any cells with an  listed in the  attribute of a cell cannot be 
+Scope
+determined by the default algorithm defined in 14.8.4.8.3, "Table structure types", those 
+header cells shall specify a  so that the header can be determined to be either a row 
+THTD
+header, a column header or both. 
+Headers
+This attribute may apply to header cells () as well as data cells (). Therefore, the 
+HeadersTH
+headers associated with any cell shall be those in its  array plus those in the 
+ array of any  cells in that array, and so on recursively. 
+© ISO 2017 – All rights reserved 761 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+(Optional; not inheritable; PDF 1.5)Row, 
+Scope 
+B
+Column
+name  A name whose value shall be one of the following: 
+TH
+, or oth.  
+ScopeTHScope
+This entry shall only have an effect for structure elements of type of . 
+WritingMode
+If a  is not specified for a  structure element, then the assumed value for the  
+Both
+Scope
+• 
+shall be determined as follows, taking into account the current value for : 
+Column
+Scope
+• 
+if it is in the first row and column, the  is assumed to be ; 
+Row
+Scope
+• 
+otherwise, if it is in the first row, the  is assumed to be . 
+Both
+Scope
+• 
+otherwise, if it is in the first column, the  is assumed to be . 
+otherwise, the  is assumed to be . 
+These assumptions are used by the algorithm following "Table 371: Table standard structure 
+types" for determining which headers are associated with a cell. 
+(Optional; not inheritable; PDF 2.0)
+Short TH
+text  Contains a short form of the content of a  structure 
+TH
+string element’s content. 
+This entry shall only have an effect for structure elements of type of . 
+EXAMPLE When accessed by means of a screen reader, for each table 
+cell the applicable header cells are read to the user in order to allow that 
+TH
+user to understand the content of the table cell. It can become cumbersome 
+TH
+for a user to repeatedly have to listen to the full contents of a  structure 
+element. An option to have the short form of the content of the  structure 
+element read out aloud is sometimes preferred. 
+ 
+14.8.5.8Artifact attributes 
+ 
+Artifact
+O
+The artifact attributes described in "

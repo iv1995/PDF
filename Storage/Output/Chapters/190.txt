@@ -1,120 +1,104 @@
-Table 201: Action types". The following subclauses 
-describe each of these types in detail. 
-© ISO 2017 – All rights reserved 495 
-
-ISO/DIS 32000-2
- 
-Table 201: Action types 
-Action type Description Discussed in subclause 
-GoTo 
-Go to a destination in the current document. 12.6.4.2, "Go-To actions" 
-GoToR 
-("Go-to remote") Go to a destination in another document. 12.6.4.3, "Remote Go-To actions" 
-PDF 1.6
-GoToE 
-("Go-to embedded"; ) Go to a destination in an 12.6.4.4, "Embedded Go-To actions" 
-embedded file. 
-PDF 2.0
-GoToDPart 
-("Go-to document part"; ) Go to a specified DPart 12.6.4.5, "GoToDPart action" 
-in the current document. 
-Launch 
-Launch an application, usually to open a file. 12.6.4.6, "Launch actions" 
-Thread 
-Begin reading an article thread. 12.6.4.7, "Thread actions" 
-URI 
-Resolve a uniform resource identifier. 12.6.4.8, "URI actions" 
-(PDF 1.2; deprecated in PDF 2.0) 
-Sound 
-Play a sound. 12.6.4.9, "Sound actions" 
-(PDF 1.2; deprecated in PDF 2.0) 
-Movie 
-Play a movie. 12.6.4.10, "Movie actions" 
-(PDF 1.2) 
-Hide 
-Set an annotation’s Hidden flag. 12.6.4.11, "Hide actions" 
-(PDF 1.2) 
-Named 
-Execute a predefined action. 12.6.4.12, "Named actions" 
-(PDF 1.2) 
-SubmitForm 
-Send data to a uniform resource locator. 12.7.6.2, "Submit-form action" 
-(PDF 1.2) 
-ResetForm 
-Set fields to their default values. 12.7.6.3, "Reset-form action" 
-(PDF 1.2) 
-ImportData 
-Import field values from a file. 12.7.6.4, "Import-data action" 
-(PDF 1.5) 
-SetOCGState 
-Set the states of optional content groups. 12.6.4.13, "Set-OCG-state actions" 
-(PDF 1.5) 
-Rendition 
-Controls the playing of multimedia content. 12.6.4.14, "Rendition actions" 
-(PDF 1.5) 
-Trans 
-Updates the display of a document, using a 12.6.4.15, "Transition actions" 
-transition dictionary. 
-(PDF 1.6) 
-GoTo3DView 
-Set the current view of a 3D annotation 12.6.4.16, "Go-To-3D-View actions" 
-(PDF 1.3)  
-JavaScript   
-Execute anECMAScriptscript.12.6.4.17, "ECMAScript actions" 
-(PDF 2.0;RichMediaannotation only) 
-RichMediaExecute   
-Specifies a command 12.6.4.18, "Rich-Media-Execute actions" 
-to be sent to the annotation’s handler. 
- 
-12.6.4.2Go-To actions 
- 
-go-to action
-A  changes the view to a specified destination (page, location, and magnification factor). 
-"Table 202: Additional entries specific to a go-to action" shows the action dictionary entries specific to 
-this type of action. 
-© ISO 2017 – All rights reserved 496 
-
-ISO/DIS 32000-2
- 
-Table 202: Additional entries specific to a go-to action 
+Table 81: Additional entries specific to a Type 4 
+shading dictionary" shows the entries specific to this type of shading dictionary, in addition to those 
+common to all shading dictionaries (see "Table 77: Entries common to all shading dictionaries") and 
+stream dictionaries (see "Table 5: Entries common to all stream dictionaries"). 
+Table 81: Additional entries specific to a Type 4 shading dictionary 
 Key Type Value 
-(Required) GoTo
-S   
-name The type of action that this dictionary describes; shall befor a 
-go-to action. 
-(Required) 
-D 
-name, byte The destination to jump to (see 12.3.2, "Destinations"). 
-string, or array 
-(Optional; PDF 2.0)
-SD 
-array  The structure destination to jump to (see 12.3.2.3, "Structure 
-D
-destinations"). If present, the structure destination should take precedence over 
-destination in the  entry. 
-NOTE Specifying a go-to action in the  entry of a link annotation or outline item (see "Table 176: 
-A
-Additional entries specific to a link annotation" and "Table 151: Entries in an outline item 
-dictionary") has the same effect as specifying the destination directly with the  entry. For 
-Dest
-example, the link annotation shown in the Example in 12.6.4.13, "Set-OCG-state actions" which 
-uses a go-to action, has the same effect as the one in the following Example, which specifies the 
-destination directly. However, the go-to action is less compact and is not compatible with PDF 1.0; 
-therefore, using a direct destination is preferable. 
-EXAMPLE  
-93 0 obj 
-  <</Type /Annot 
-   /Subtype /Link 
-   /Rect [71 717 190 734] 
-   /Border [16 16 1] 
-   /A <</Type /Action 
-     /S /GoTo 
-     /D [3 0 R /FitR –4 399 199 533] 
-    >> 
-  >> 
-endobj 
+Required
+BitsPerCoordinate 
+integer () The number of bits used to represent each vertex coordinate. 
+The value shall be 1, 2, 4, 8, 12, 16, 24, or 32. 
+Required
+BitsPerComponent 
+integer () The number of bits used to represent each colour component. 
+The value shall be 1, 2, 4, 8, 12, or 16. 
+Required
+BitsPerFlag 
+integer () The number of bits used to represent the edge flag for each 
+vertex (see below). The value shall be 2, 4, or 8, but only the least 
+significant 2 bits in each flag value shall be used. The value for the edge 
+flag shall be 0, 1, or 2. 
+Required
+Decode 
+array () An array of numbers specifying how to map vertex 
+coordinates and colour components into the appropriate ranges of 
+values. The decoding method is similar to that used in image dictionaries 
+11
+xxyycc cc
+8.9.5.2, "Decode arrays"). The ranges shall be specified as follows: 
+(see 
+minmaxminmaxmin,maxn,minn,max
+c
+Function
+[    , … ]  
+Only one pair of  values shall be specified if a  entry is present. 
+© ISO 2017 – All rights reserved 234 
+
+ISO/DIS 32000-2
  
-12.6.4.3Remote Go-To actions 
+Key Type Value 
+Optionalnn
+Function 
+Function or () A 1-in, -out function or an array of  1-in, 1-out functions 
+array (where n is the number of colour components in the shading dictionary’s 
+n
+colour space). If this entry is present, the colour data for each vertex shall 
+be specified by a single parametric variable rather than by  separate 
+colour components. The designated function(s) shall be called with each 
+interpolated value of the parametric variable to determine the actual 
+colour at each point. Each input value shall be forced into the range 
+Decode
+interval specified for the corresponding colour component in the shading 
+dictionary’s  array. Each function’s domain shall be a superset of 
+that interval. If the value returned by the function for a given colour 
+ Indexed 
+component is out of range, it shall be adjusted to the nearest valid value. 
+This entry shall not be used with ancolour space. 
  
-A remote go-to action is similar to an ordinary go-to action but jumps to a destination in another PDF 
-file instead of the current file. "
+Unlike shading types 1 to 3, types 4 to 7 shall be represented as streams. Each stream contains a 
+sequence of vertex coordinates and colour data that defines the triangle mesh. In a Type 4 shading, each 
+vertex is specified by the following values, in the order shown: 
+1
+fxyc
+ c
+n
+   
+… 
+where 
+f
+xy
+ is the vertex’s edge flag (discussed below) 
+1
+c
+ c
+ and  are its horizontal and vertical coordinates 
+n
+… are its colour components 
+t
+Function
+All vertex coordinates shall be expressed in the shading’s target coordinate space. If the shading 
+1
+c
+ c
+dictionary includes a  entry, only a single parametric value, , shall be specified for each vertex 
+n
+in place of the colour components 
+….  
+edge
+v
+f
+The  flag associated with each vertex determines the way it connects to the other vertices of the 
+aa
+v
+v
+triangle mesh. A vertex 
+ with an edge flag value  = 0 begins a new triangle, unconnected to any other. 
+bc
+vv
+v
+ and ) shall be provided, but their edge flags shall be ignored. These three 
+At least two more vertices (
+abc
+, , ), as shown in "Figure 38: Starting a new triangle in a free-form 
+vertices define a triangle (
+Gouraud-shaded triangle mesh". ![Figure 38 Starting a new triangle in a free-form Gouraud-shaded triangle mesh  .png](./Storage/Output/Images/Figure 38 Starting a new triangle in a free-form Gouraud-shaded triangle mesh  .png)

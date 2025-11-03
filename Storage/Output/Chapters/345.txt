@@ -1,0 +1,66 @@
+Figure 81: Lines with captions appearing as part of the line" and "Figure 82: 
+". The text shall be 
+Line with a caption appearing as part of the offset
+rendered in a manner appropriate to the content, taking into account factors 
+false
+ 
+such as writing direction. 
+Default value: .
+(Optional; PDF 1.6) 
+IT 
+name A name describing the intent of the line annotation (see 
+LineArrow
+also "Table 172: Additional entries in an annotation dictionary specific to 
+LineDimension
+markup annotations"). Valid values shall be , which means that the 
+annotation is intended to function as an arrow, and , which 
+means that the annotation is intended to function as a dimension line. 
+Optional; PDF 1.7
+LLO 
+number () A non-negative number that shall represent the length of 
+the leader line offset, which is the amount of empty space between the 
+endpoints of the annotation and the beginning of the leader lines. 
+© ISO 2017 – All rights reserved 473 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional; meaningful only ifis true; PDF 1.7
+CP  Cap 
+Inline
+name () A name describing the 
+Top
+annotation’s caption positioning. Valid values are , meaning the caption 
+shall be centred inside the line, and , meaning the caption shall be on top 
+Inline
+ 
+of the line. 
+Default value: 
+Optional; PDF 1.7
+Measure 
+dictionary () A measure dictionary (see "Table 266: Entries in a 
+measure dictionary") that shall specify the scale and units that apply to the 
+line annotation. 
+Optional; meaningful only ifis true; PDF 1.7
+CO  Cap 
+array () An array of two numbers 
+that shall specify the offset of the caption text from its normal position. The 
+first value shall be the horizontal offset along the annotation line from its 
+midpoint, with a positive value indicating offset to the right and a negative 
+value indicating offset to the left. The second value shall be the vertical offset 
+perpendicular to the annotation line, with a positive value indicating a shift 
+up and a negative value indicating a shift down. 
+Default value: [0, 0] (no offset from normal positioning) ![41.png](./Storage/Output/Images/41.png)
+ 
+Figure 80: Leader lines 
+true
+ Cap 
+"Figure 81: Lines with captions appearing as part of the line" illustrates the effect of including a caption 
+to a line annotation, which is specified by settingto . 
+© ISO 2017 – All rights reserved 474 
+
+ISO/DIS 32000-2
+ ![42.png](./Storage/Output/Images/42.png)
+ 
+Figure 81: Lines with captions appearing as part of the line 
+"

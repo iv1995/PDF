@@ -1,78 +1,172 @@
-Table 273: Entries common to all 
-requirement dictionaries". 
-© ISO 2017 – All rights reserved 586 
+Table 99: Entries in an optional content configuration dictionary". 
+© ISO 2017 – All rights reserved 278 
 
 ISO/DIS 32000-2
  
-Table 273: Entries common to all requirement dictionaries 
-Key Type Description 
-(Optional) 
-Type 
-Requirement
-  
-name The type of PDF object that this dictionary describes. If present, shall 
-befor a requirement dictionary. 
-(Required) 
-S 
-name The type of requirement that this dictionary describes. See "Table 274: 
-Requirement types" for valid values. 
-(Optional; PDF 2.0) 
-V 
-name or The minimum version level of support needed to satisfy the 
-dictionary requirement. See 12.11.4, "Requirement versions". If this entry is absent, 
-determining if the requirement is satisfied shall be done without regard to 
-version number. 
- 
-Unless otherwise mentioned in the entries in "Table 274: Requirement types", the 
-value shall represent the PDF version.
-(Optional) 
-RH 
-dictionary An alternative requirement handler dictionary or an array of such 
-or array of dictionaries. Each dictionary identifies a requirement handler that shall be 
-S
-dictionaries disabled (not invoked) if the interactive PDF processor can check the 
-requirement specified in the  entry (whether or not it can satisfy that 
- 
-requirement). See 12.11.5, "Requirement handlers". 
-Default value: an empty array.
-(Optional; PDF 2.0) 
-Penalty 
-integer An integer value that shall be between 0 and 100 (inclusive) 
-that represents the penalty value to be applied when this requirement cannot be 
-met by a PDF processor. 
-Default value is 100. 
- 
-S
-There are two additional keys that may appear in a requirements dictionary that are specific to certain 
-types of requirements (i.e., value of the  key). These are described in "Table 274: Entries for specific 
-types of requirements". 
-Table 274: Entries for specific types of requirements 
-Key Type Description 
-(Required, if the  key has the value : PDF 2.0) 
-Encrypt S
-dictionary EncryptionAn encryption 
-dictionary ("Table 20: Entries common to all encryption dictionaries") that 
-defines all of the relevant aspects of the encryption method needed to process 
-the document. 
-(Optional, but only used when the  key has the value of 
-DigSig S,  
- ; PDF 2.0) 
-dictionary DigSigDigSigValidation
-orDigSigMDPA signature dictionary ("Table 255: Entries in a 
-signature dictionary") that defines all of the relevant aspects that are needed in 
-order to process the digital signature requirements. 
- 
-12.11.2Requirement types 
- 
-S
-The  entry in a requirement dictionary identifies ("Table 273: Entries common to all requirement 
-dictionaries") a feature of the PDF language or a capability that may be present in a PDF processor. Such 
-entries enable the document to identify feature(s) of PDF beyond those commonly expected, such as 2D 
-graphics rendering, and are required for correct handling in accordance with this standard. In addition, 
-although not required for viewing, a document may also use requirement values that stipulate required 
-© ISO 2017 – All rights reserved 587 
+Table 99: Entries in an optional content configuration dictionary 
+Key Type Value 
+Optional
+Name 
+text string () A name for the configuration, suitable for presentation in a user interface. 
+Optional
+Creator 
+text string () Name of the application or feature that created this configuration dictionary. 
+Optional
+BaseState 
+name () Used to initialise the states of all the optional content groups in a document 
+when this configuration is applied. The value of this entry shall be one of the following 
+ON
+ON
+names: 
+OFF
+OFF
+ The states of all groups shall be turned . 
+Unchanged
+ The states of all groups shall be turned . 
+ ON  OFF 
+ The states of all groups shall be left unchanged. 
+After this initialization, the contents of theandarrays shall be processed, 
+ON
+overriding the state of the groups included in the arrays. 
+BaseState
+Default value: . 
+ON
+If  is present in the document’s default configuration dictionary, its value shall 
+be . 
+Optional
+ON  ON 
+array () An array of optional content groups whose state shall be set towhen this 
+ON
+BaseState
+configuration is applied. 
+If the  entry is , this entry is redundant. 
+Optional
+OFF  OFF 
+ON
+array () An array of optional content groups whose state shall be set towhen this 
+OFF
+configuration is applied. Any OCG group included in the  array shall not also be 
+OFF
+BaseState
+included in the  array.  
+If the  entry is , this entry is redundant. 
+Optional
+Intent 
+name or () A single name or an array of names used by a PDF processor to determine 
+array which optional content groups’ states to consider and which to ignore in calculating the 
+Intent
+visibility of content (see 8.11.2.3, "Intent"). 
+All
+Since this value may contain any name that could appear as the value of the  key in 
+an optional content group dictionary, a special name, , is used to indicate the set of all 
+View
+Intent
+intents.  
+View
+Default value: . (If  is present in the document’s default configuration 
+dictionary, its value shall be .) 
+Optional
+AS 
+array () An array of usage application dictionaries (see "Table 101: Entries in a usage 
+application dictionary") specifying which usage dictionary categories (see "Table 100: 
+Entries in an optional content usage dictionary") shall be consulted by PDF processors, 
+when automatically setting the states of optional content groups based on external 
+factors, such as the current system language or viewing magnification, and when they 
+shall be applied. 
+© ISO 2017 – All rights reserved 279 
 
 ISO/DIS 32000-2
  
-features of interactive PDF processors such as the ability to interact with or modify the document. 
-"
+Key Type Value 
+Optional
+Order 
+array () An array specifying the order for presentation of optional content groups in 
+an interactive PDF processor’s user interface. The array elements may include the 
+Name
+• 
+following objects: 
+Optional content group dictionaries, whose  entry shall be displayed in the 
+• 
+user interface by the interactive PDF processor. 
+Arrays of optional content groups which may be displayed by an interactive PDF 
+processor in a tree or outline structure. Each nested array may optionally have as 
+its first element a text string to be used as a non-selectable label in an interactive 
+PDF processor’s user interface. 
+Text labels in nested arrays shall be used to present collections of related optional 
+content groups, and not to communicate actual nesting of content inside multiple layers 
+of groups (see Example 1 in 8.11.4.3, "Optional content configuration dictionaries"). To 
+reflect actual nesting of groups in the content, such as for layers with sublayers, nested 
+arrays of groups without a text label shall be used (see Example 2 in 8.11.4.3, "Optional 
+content configuration dictionaries"). 
+An empty array [] explicitly specifies that no groups shall be presented. 
+Order
+In the default configuration dictionary, the default value shall be an empty array; in other 
+configuration dictionaries, the default shall be the  value from the default 
+configuration dictionary. 
+ 
+Any groups not listed in this array shall not be presented in any user interface that uses 
+the configuration.
+Optional
+ListMode Order
+name () A name specifying which optional content groups in the  array shall be 
+AllPages
+Order
+displayed to the user. Valid values shall be: 
+VisiblePages
+Order
+ Display all groups in the  array. 
+ Display only those groups in the  array that are referenced by 
+AllPages 
+one or more visible pages. 
+Default value: .
+Optional
+RBGroups 
+array () An array consisting of one or more arrays, each of which represents a 
+collection of optional content groups whose states shall be intended to follow a radio 
+ ON ONOFF
+button paradigm. That is, the state of at most one optional content group in each array 
+ ON  OFF ON
+shall beat a time. If one group is turned , all others shall be turned . However, 
+turning a group fromtodoes not force any other group to be turned . 
+An empty array [] explicitly indicates that no such collections exist. 
+ RBGroups 
+In the default configuration dictionary, the default value shall be an empty array; in other 
+ 
+configuration dictionaries, the default is thevalue from the default 
+configuration dictionary.
+Optional; PDF 1.6
+Locked 
+array () An array of optional content groups that shall be locked when this 
+configuration is applied. The state of a locked group cannot be changed through the user 
+interface of an interactive PDF processor. PDF writers can use this entry to prevent the 
+visibility of content that depends on these groups from being changed by users. 
+Default value: an empty array. 
+   AS 
+An interactive PDF processor may allow the states of optional content groups to be 
+changed by means other than the user interface, such asECMAScriptor items in the
+entry of a configuration dictionary. 
+ 
+NOTE Example 1 and Example 2 in this subclause illustrate the use of the  entry to control the 
+Order
+display of groups in a user interface. 
+EXAMPLE 1 Given the following PDF objects: 
+1 0 obj <</Type /OCG /Name (Skin)>> endobj   %Optional content groups 
+2 0 obj <</Type /OCG /Name (Bones)>> endobj 
+© ISO 2017 – All rights reserved 280 
+
+ISO/DIS 32000-2
+ 
+3 0 obj <</Type /OCG /Name (Bark)>> endobj 
+4 0 obj <</Type /OCG /Name (Wood)>> endobj 
+5 0 obj               %Configuration dictionary 
+ <</Order [[(Frog Anatomy) 1 0 R 2 0 R] [(Tree Anatomy) 3 0 R 4 0 R]]>> 
+An interactive PDF processor needs to display the optional content groups as follows: 
+Frog Anatomy 
+ Skin 
+ Bones 
+Tree Anatomy 
+ Bark 
+ Wood 
+EXAMPLE 2 Given the following PDF objects: 
+                %Page contents 
+ /OC /L1 BDC            %

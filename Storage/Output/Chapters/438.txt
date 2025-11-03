@@ -1,0 +1,3 @@
+Table 267: Additional entries in a rectilinear measure dictionary" shows the additional entries in a 
+rectilinear measure dictionary. Many of the entries in this dictionary shall be number format arrays, 
+which are arrays of number format dictionaries (see "

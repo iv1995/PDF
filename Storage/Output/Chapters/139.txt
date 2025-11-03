@@ -1,289 +1,68 @@
-Table 123: Glyph classes in CJK 
-fonts" lists the valid keys for the Adobe-GB1, Adobe-CNS1, Adobe-Japan1, Adobe-Japan2, and Adobe-
-Korea1 character collections. 
-Table 123: Glyph classes in CJK fonts 
-Character Class Glyphs in Class 
-Collection 
-Alphabetic 
-Dingbats 
-Adobe-GB1 Full-width Latin, Greek, and Cyrillic glyphs 
-Generic 
-Special symbols 
-Hanzi 
-Typeface-independent glyphs, such as line-drawing 
-HRoman 
-Full-width hanzi (Chinese) glyphs 
-HRomanRot 
-HRoman
-Half-width Latin glyphs 
-Kana 
-Same as  but rotated for use in vertical writing 
-Proportional 
-Japanese kana (katakana and hiragana) glyphs 
-ProportionalRot 
-Proportional
-Proportional Latin glyphs 
-Same as  but rotated for use in vertical writing 
-Alphabetic 
-Dingbats 
-Adobe-CNS1 Full-width Latin, Greek, and Cyrillic glyphs 
-Generic 
-Special symbols 
-Hanzi 
-Typeface-independent glyphs, such as line-drawing 
-HRoman 
-Full-width hanzi (Chinese) glyphs 
-HRomanRot HRoman
-Half-width Latin glyphs 
-Kana 
-Same as  but rotated for use in vertical writing 
-Proportional 
-Japanese kana (katakana and hiragana) glyphs 
-ProportionalRot 
-Proportional
-Proportional Latin glyphs 
-Same as  but rotated for use in vertical writing 
-© ISO 2017 – All rights reserved 342 
-
-ISO/DIS 32000-2
+Table 56: Graphics state operators" shows the operators that set the values of parameters in the 
+graphics state. (See also the colour operators listed in "Table 73: Colour operators" and the text state 
+operators in "Table 103: Text state operators".) 
+Table 56: Graphics state operators 
+Operands Operator Description 
+— 
+q 
+Save the current graphics state on the graphics state stack (see 8.4.2, "Graphics 
+state stack"). 
+— 
+Q 
+Restore the graphics state by removing the most recently saved state from the 
+stack and making it the current state (see 8.4.2, "Graphics state stack"). 
+a b c d e f 
+cm 
+Modify the current transformation matrix (CTM) by concatenating the specified 
+matrix (see 8.3.2, "Coordinate spaces"). Although the operands specify a matrix, 
+they shall be written as six separate numbers, not as an array. 
+lineWidth 
+w 
+Set the line width in the graphics state (see 8.4.3.2, "Line width"). 
+lineCap 
+J 
+Set the line cap style in the graphics state (see 8.4.3.3, "Line cap style"). 
+lineJoin 
+j 
+Set the line join style in the graphics state (see 8.4.3.4, "Line join style"). 
+miterLimit 
+M 
+Set the miter limit in the graphics state (see 8.4.3.5, "Miter limit"). 
+dashArray dashPhase 
+d 
+Set the line dash pattern in the graphics state (see 8.4.3.6, "Line dash pattern"). 
+intent PDF 1.1
+ri 
+() Set the colour rendering intent in the graphics state (see 8.6.5.8, 
+"Rendering intents"). 
+flatness 
+i 
+Set the flatness tolerance in the graphics state (see 10.7.2, "Flatness tolerance"). 
+flatness is a number in the range 0 to 100; a value of 0 shall specify the output 
+device’s default flatness tolerance. 
+dictName PDF 1.2
+gs 
+ ExtGState 
+() Set the specified parameters in the graphics state. dictName shall be 
+the name of a graphics state parameter dictionary in the
+subdictionary of the current resource dictionary (see the next subclause). 
  
-Character Class Glyphs in Class 
-Collection 
-Alphabetic  
-AlphaNum  
-Adobe-Japan1 Full-width Latin, Greek, and Cyrillic glyphs 
-Dingbats 
-Numeric glyphs 
-DingbatsRot Dingbats
-Special symbols 
-Generic  
-Same as  but rotated for use in vertical writing 
-GenericRot  Generic
-Typeface-independent glyphs, such as line-drawing 
-HKana 
-Same as  but rotated for use in vertical writing 
-HKanaRot HKana
-Half-width kana (katakana and hiragana) glyphs 
-HRoman 
-Same as  but rotated for use in vertical writing 
-HRomanRot HRoman
-Half-width Latin glyphs 
-Kana 
-Same as  but rotated for use in vertical writing 
-Kanji 
-Full-width kana (katakana and hiragana) glyphs 
-Proportional  
-Full-width kanji (Chinese) glyphs  
-ProportionalRot  Proportional
-Proportional Latin glyphs 
-Ruby 
-Same as  but rotated for use in vertical writing 
-Glyphs used for setting ruby (small glyphs that serve to annotate other 
-glyphs with meanings or readings) 
-Alphabetic 
-Dingbats 
-Adobe-Japan2 Full-width Latin, Greek, and Cyrillic glyphs 
-HojoKanji 
-Special symbols 
-Full-width kanji glyphs 
-Alphabetic 
-Dingbats 
-Adobe-Korea1 Full-width Latin, Greek, and Cyrillic glyphs 
-Generic 
-Special symbols 
-Hangul 
-Typeface-independent glyphs, such as line-drawing 
-Hanja 
-Hangul and jamo glyphs 
-HRoman 
-Full-width hanja (Chinese) glyphs 
-HRomanRot 
-HRoman
-Half-width Latin glyphs 
-Kana 
-Same as  but rotated for use in vertical writing 
-Proportional 
-Japanese kana (katakana and hiragana) glyphs 
-ProportionalRot 
-Proportional
-Proportional Latin glyphs 
-Same as  but rotated for use in vertical writing 
+8.4.5Graphics state parameter dictionaries 
  
- FD 
-EXAMPLE 2 This example illustrates andictionary containing two entries. 
-/FD <</Proportional 25 0 R 
-    /HKana 26 0 R 
-  >> 
- 
-25 0 obj 
-  <</Type /FontDescriptor 
-   /FontName /HeiseiMin-W3-Proportional 
-   /Flags 2 
-   /AvgWidth 478 
-   /MaxWidth 1212 
-   /MissingWidth 250 
-   /StemV 105 
-   /StemH 45 
-   /CapHeight 660 
-   /XHeight 394 
-   /Ascent 720 
-   /Descent -270 
-   /Leading 83 
-© ISO 2017 – All rights reserved 343 
-
-ISO/DIS 32000-2
- 
-  >> 
-endobj 
- 
-26 0 obj 
-  <</Type /FontDescriptor 
-   /FontName /HeiseiMin-W3-HKana 
-   /Flags 3 
-   /AvgWidth 500 
-   /MaxWidth 500 
-   /MissingWidth 500 
-   /StemV 50 
-   /StemH 75 
-   /Ascent 720 
-   /Descent 0 
-   /Leading 83 
-  >> 
-endobj 
- 
-9.9Embedded font programs 
- 
-9.9.1General 
- 
-This clause describes how a font program can be embedded in a PDF file as data contained in a PDF 
-stream object. 
-For text in text rendering mode 3, font programs may be embedded. For text in other text rendering 
-modes, font programs should be embedded. 
-NOTE 1 Such a stream object is also called a font file by analogy with font programs that are available 
-from sources external to PDF processors. 
-Font programs are subject to copyright, and the copyright owner may impose conditions under which a 
-font program may be used. These permissions are recorded either in the font program or as part of a 
-separate license. One of the conditions may be that the font program cannot be embedded, in which 
-case it should not be incorporated into a PDF file. A font program may allow embedding for the sole 
-purpose of viewing and printing the document but not for creating new or modified text that uses the 
-font (in either the same document or other documents). The latter operation would require the user 
-performing the operation to have a licensed copy of the font program, not a copy extracted from the 
-PDF file. In the absence of explicit information to the contrary, embedded font programs shall be used 
-only to view and print the document and not for any other purposes. 
-"Table 124: Embedded font organization for various font types" summarises the ways in which font 
-programs shall be embedded in a PDF file, depending on the representation of the font program. The 
-Subtype
-key shall be the name used in the font descriptor to refer to the font file stream; the subtype shall be the 
-value of the  key, if present, in the font file stream dictionary. Further details of specific font 
-program representations are given below. 
-© ISO 2017 – All rights reserved 344 
-
-ISO/DIS 32000-2
- 
-Table 124: Embedded font organization for various font types 
-Key Subtype Description 
-Adobe Type 
-FontFile 
-1 Font Format
-Type1
-— Type 1 font program, in the original (noncompact) format described in 
-MMType1
-. This entry may appear in the font descriptor for a  or 
-Adobe Type 
- font dictionary. 
-1 Font Format
- 
-The font program provided as the value of this key shall conform to the 
-.
-PDF 1.1TrueType Reference Manual
-FontFile2 
-TrueType
-— () TrueType font program, as described in the . 
-PDF 1.3
-CIDFontType2
-This entry may appear in the font descriptor for a  font dictionary or 
-TrueType 
-() for a  CIDFont dictionary. 
-Reference Manual
-The font program provided as the value of this key shall conform to the 
-. The font program shall include these tables: "glyf", "head", 
-"hhea", "hmtx", "loca", and "maxp". The "cvt " (notice the trailing SPACE), "fpgm", 
- 
-and "prep" tables shall also be included if they are required by the font 
-instructions.
+While some parameters in the graphics state may be set with individual operators, as shown in "Table 
 PDF 1.2
-FontFile3   
-Adobe Technical Note #5176The Compact Font 
-Type1C () Type 1–equivalent font program represented in the CompactFont
-Format Specification
-Type1
-Format (CFF), as described in , 
-MMType1
-. This entry may appear in the font descriptor for a  or 
-Adobe 
- font dictionary. 
-Technical Note #5176
-The font program provided as the value of this key shall conform to 
-. 
-PDF 1.3
-FontFile3   
-Adobe Technical Note #5176The Compact Font Format 
-CIDFontType0C () Type 0 CIDFont program represented in the CompactFontFormat (CFF), 
-Specification
-CIDFontType0
-as described in , 
-. This entry may appear in the font descriptor for a  
-Adobe 
-CIDFont dictionary. 
-Technical Note #5176
-The font program provided as the value of this key shall conform to 
-. 
-PDF 1.6ISO/IEC 14496-22
-FontFile3 
-OpenType () OpenType font program, as described in . OpenType is 
-  
-an extension of TrueType that allows inclusion of font programs that use the 
-TrueTypeCIDFontType2
-• 
-CompactFontFormat (CFF). 
-A  font dictionary or a  CIDFont dictionary, if the 
-embedded font program contains a "glyf" table. In addition to the "glyf" 
-table, the font program shall include these tables: "head", "hhea", "hmtx", 
-"loca", and "maxp". The "cvt " (notice the trailing SPACE), "fpgm", and "prep" 
-CIDFontType0
-• 
-tables shall also be included if they are required by the font instructions. 
-A  CIDFont dictionary, if the embedded font program 
-CIDFontType0C
-contains a "CFF " table (notice the trailing SPACE) with a Top DICT that uses 
-CIDFont operators (this is equivalent to subtype ). In 
-Type1CIDFontType0
-• 
-addition to the "CFF " table, the font program shall include the "cmap" table. 
-A  font dictionary or  CIDFont dictionary, if the 
-embedded font program contains a "CFF " table without CIDFont operators. 
-In addition to the "CFF " table, the font program shall include the "cmap" 
- FontFile3 OpenType
-table. 
-Aentry with an  subtype may appear in the font descriptor 
-ISO/IEC 14496-22
-for these types of font dictionaries. 
- describes a set of required tables; however, not all tables are 
-required in the font file, as described for each type of font dictionary that can 
-ISO/IEC 
-include this entry. 
-14496-22
-The font program provided as the value of this key shall conform to 
-NOTE The absence of some optional tables (such as those used for advanced line 
-. 
-layout) can prevent editing of text containing the font. 
- 
-© ISO 2017 – All rights reserved 345 
+gs
+56: Graphics state operators", others may not. The latter may only be set with the generic graphics state 
+operator  (). The operand supplied to this operator shall be the name of a graphics state 
+ ExtGState 
+parameter dictionary whose contents specify the values of one or more graphics state parameters. This 
+name shall be looked up in thesubdictionary of the current resource dictionary. 
+The graphics state parameter dictionary is also used by Type 2 patterns, which do not have a content 
+stream in which the graphics state operators could be invoked (see 8.7.4, "Shading patterns"). 
+© ISO 2017 – All rights reserved 162 
 
 ISO/DIS 32000-2
  
-Length
-Filter
-The stream dictionary for a font file shall contain the normal entries for a stream, such as  and 
- (listed in "Table 5: Entries common to all stream dictionaries"), plus the additional entries listed 
-in "
+Each entry in the parameter dictionary shall specify the value of an individual graphics state parameter, 
+ gs 
+as shown in "

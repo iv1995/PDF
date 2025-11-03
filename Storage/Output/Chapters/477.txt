@@ -1,0 +1,86 @@
+Table 303: Entries in a software identifier dictionary 
+Key Type Value 
+Optional
+Type 
+SoftwareIdentifier
+name () The type of PDF object that this dictionary describes; if present, shall 
+be  for a software identifier dictionary. 
+Required
+U   
+ASCII string () AURIthat identifies a piece of software (see 13.2.7.4.2, "Software 
+URIs"). 
+Optional
+L 
+array () The lower bound of the range of software versions that this software 
+identifier dictionary specifies (see 13.2.7.4.3, "Version arrays"). Default value: 
+the array [0]. 
+Optionaltrue
+LI LH
+L
+boolean () If , the lower bound of the interval defined by  and  is inclusive; 
+falsetrue
+ 
+that is, the software version shall be greater than or equal to  (see 13.2.7.4.3, 
+"Version arrays"). If , it shall not be inclusive. Default value: .
+Optional
+H 
+array () The upper bound of the range of software versions that this software 
+identifier dictionary specifies (see 13.2.7.4.3, "Version arrays"). Default value: an 
+empty array []. 
+Optionaltrue
+HI LH
+H
+boolean () If , the upper bound of the interval defined by  and  is 
+falsetrue
+ 
+inclusive; that is, the software version shall be less than or equal to  (see 
+13.2.7.4.3, "Version arrays"). If , it shall not be inclusive. Default value: .
+© ISO 2017 – All rights reserved 613 
+
+ISO/DIS 32000-2
+ 
+Key Type Value 
+Optional
+OS 
+array () An array of byte strings representing operating system identifiers 
+systemOperatingSystem
+that shall indicate to which operating systems this object applies. The defined 
+values are the same as those defined for SMIL 2.0’s  
+attribute. There may not be multiple copies of the same identifier in the array. 
+An empty array represents all operating systems. Default value: an empty array. 
+ 
+13.2.7.4.2Software URIs 
+ 
+U 
+vnd.adobe.swname
+The  entry is aURI (universal resource identifier) that identifies a piece of software. It shall be 
+interpreted according to its scheme; the only presently defined scheme is . The 
+scheme name is case-insensitive; if it is not recognised by the interactive PDF processor, the software 
+shall be considered a non-match. The syntax of URIs of this scheme is 
+software_name
+software_nameUniform Resource Identifiers 
+"vnd.adobe.swname:"  
+(URI): Generic Syntaxsoftware_name
+where  shall be reg_name as defined in Internet RFC 3986, 
+  
+. Also,  shall be a sequence of UTF-8-encoded characters that have 
+software name, software_name
+been escaped with one pass ofURLescaping (see 14.10.3.2, "URL strings"). That is, to recover the 
+original  shall be unescaped and then treated as a sequence of UTF-8 
+characters. The actual software names shall be compared in a case-sensitive fashion. 
+Software names shall be second-class names (see Annex E, "PDF Name Registry"). 
+ 
+EXAMPLE TheURI for Adobe Acrobat is  
+vnd.adobe.swname:ADBE_Acrobat. 
+ 
+13.2.7.4.3Version arrays 
+ 
+version 
+LHLIHILH
+arrays
+The , , , and  entries shall be used to specify a range of software versions.  and  shall be 
+H
+ containing zero or more non-negative integers representing subversion numbers. The first 
+L
+integer shall be the major version numbers, and subsequent integers shall be increasingly minor.  
+shall be greater than or equal to , according to the following rules for comparing version arrays: 

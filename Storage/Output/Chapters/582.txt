@@ -1,0 +1,57 @@
+Figure 115: Complex Web Capture file structureFigure 100: Rendering of the 3D artwork using View1 
+(all shapes visible and opaque)" shows a complex web capture file structure. 
+ 
+© ISO 2017 – All rights reserved 773 
+
+ISO/DIS 32000-2
+ 
+talog
+t ca
+ocumen
+D
+y
+r
+tiona
+c
+Di
+y
+r
+tiona
+c
+Names di
+ee
+r
+Name t
+y
+a
+rr
+A
+IDS
+URLS
+BF70…14D8
+www.iso.org/getPDF.gif
+ttp://
+h
+ray
+t set ar
+n
+te
+on
+C
+mage set
+age setI
+P
+ct
+mageXObje
+PageI
+Figure 115: Complex Web Capture file structure 
+ 
+14.10.3.2URL strings 
+ 
+URLS
+URLs associated with Web Capture content sets shall be reduced to a predictable, canonical form before 
+Uniform Resource LocatorsRelative Uniform 
+being used as keys in the  name tree. The following steps describe how to perform this reduction, 
+Resource Locators
+using terminology from Internet RFCs 3986, , and 1808, 
+. This algorithm shall be applied for HTTP, FTP, and file URLs: 

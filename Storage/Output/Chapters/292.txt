@@ -1,522 +1,202 @@
-Table 378: Standard layout attributes common to all standard 
-structure types" may apply to structure elements of any of the standard at the block level (BLSEs) or the 
-inline level (ILSEs). 
-© ISO 2017 – All rights reserved 746 
-
-ISO/DIS 32000-2
- 
-Table 378: Standard layout attributes common to all standard structure types 
-Key Type Value 
-(Optional; not inheritable)
-Placement 
-name  The positioning of the element with respect to the 
-Block
-enclosing reference area and other content: 
- Stacked in the block-progression direction within an enclosing 
-Inline
-reference area or parent BLSE. 
-Before
-  Packed in the inline-progression direction within an enclosing BLSE. 
-  Placed so that the before edge of the element’s allocation rectangle 
-(see 14.8.5.4.5, "Content and Allocation Rectangles") coincides with 
-that of the nearest enclosing reference area. The element may float, if 
-necessary, to achieve the specified placement. The element shall be 
-treated as a block occupying the full extent of the enclosing reference 
-area in the inline direction. Other content shall be stacked so as to 
-Start
-begin at the after edge of the element’s allocation rectangle. 
-  Placed so that the start edge of the element’s allocation rectangle (see 
-14.8.5.4.5, "Content and Allocation Rectangles") coincides with that of 
-the nearest enclosing reference area. The element may float, if 
-necessary, to achieve the specified placement. Other content that 
-would intrude into the element’s allocation rectangle shall be laid out 
-End
-as a runaround. 
-  Placed so that the end edge of the element’s allocation rectangle (see 
-14.8.5.4.5, "Content and Allocation Rectangles") coincides with that of 
-the nearest enclosing reference area. The element may float, if 
-necessary, to achieve the specified placement. Other content that 
-would intrude into the element’s allocation rectangle shall be laid out 
-Inline
-as a runaround. 
-When applied to an ILSE, any value except  shall cause the element to be 
-BlockInline
-treated as a BLSE instead.  
-BeforeStartEnd
-Placement
-Default value:  for BLSEs,  for ILSEs. 
-Elements with  values of , , or  shall be removed from 
-the normal stacking or packing process and allowed to float to the specified 
-edge of the enclosing reference area or parent BLSE. Multiple such floating 
-elements may be positioned adjacent to one another against the specified edge 
-of the reference area or placed serially against the edge, in the order 
-encountered. Complex cases such as floating elements that interfere with each 
-other or do not fit on the same page may be handled differently by different 
-PDF processors. Tagged PDF merely identifies the elements as floating and 
-indicates their desired placement. 
-© ISO 2017 – All rights reserved 747 
-
-ISO/DIS 32000-2
- 
-Key Type Value 
-(Optional; inheritable)
-WritingMode 
-Name  Indicates the directions of layout progression inside 
-WritingMode
-Block Level Structure Elements (BLSEs) (inline progression) and regarding the 
-sequence of BLSEs (block progression).  may be used as an 
-LrTb
-attribute for any structure element. The value shall be one of the following: 
- Inline progression from left to right; block progression from top to 
-RlTb
-bottom. This is the typical writing mode for Western writing systems. 
- Inline progression from right to left; block progression from top to 
-bottom. This is the typical writing mode for Arabic and Hebrew 
-TbRl
-writing systems. 
- Inline progression from top to bottom; block progression from right 
-to left. This is the typical writing mode for Chinese and Japanese 
-TbLr
-writing systems. 
- Inline progression from top to bottom; block progression from left to 
-right. This is the typical writing mode for writing systems like 
-LrBt
-classical Mongolian. 
- Inline progression from left to right; block progression from bottom 
-to top. There is currently no known writing system to which this 
-RlBt
-writing mode applies. 
- Inline progression from right to left; block progression from bottom 
-to top. There is currently no known writing system to which this 
-BtRl
-writing mode applies. 
- Inline progression from bottom to top; block progression from right 
-to left. This is the typical writing mode for the Ancient Berber writing 
-BtLr
-system. 
- Inline progression from bottom to top; block progression from left to 
-right. This is the typical writing mode for the Batak writing system. 
-The specified layout directions shall apply to the given structure element and 
-LrTb
-all of its descendants.  
-Default value: . 
-For elements that are represented in multiple columns, the writing mode 
-defines the direction of column progression within the reference area: the 
-inline direction determines the stacking direction for columns and the default 
-flow order of text from column to column.  
-TR
-For tables, the writing mode controls the layout of rows and columns: table 
-THTD
-rows (structure type ) shall be stacked in the block direction, cells within a 
-row (structure types  and ) in the inline direction. 
-Unicode Standard 
-The inline-progression direction specified by the writing mode is subject to 
-Annex #9, Unicode Bidirectional Algorithm
-local override within the text being laid out, as described in 
-, available from the Unicode 
-Consortium.  
-(Optional; not inheritable; PDF 1.5)
-BackgroundColor 
-array  The colour to be used to fill the background 
-of a table cell or any element’s content rectangle (possibly adjusted by the 
-Padding attribute). The value shall be an array of three numbers in the range 
-0.0 to 1.0, representing the red, green, and blue values, respectively, of an RGB 
-colour space. If this attribute is not specified, the element shall be treated as if 
-its background were transparent. 
-© ISO 2017 – All rights reserved 748 
-
-ISO/DIS 32000-2
- 
-Key Type Value 
-(Optional; inheritable; PDF 1.5)
-BorderColor 
-array  The colour of the border drawn on the edges of 
-Padding
-a table cell or any element’s content rectangle (possibly adjusted by the 
- attribute). The value of each edge shall be an array of three numbers 
-in the range 0.0 to 1.0, representing the red, green, and blue values, 
-• 
-respectively, of an RGB colour space. There are two forms: 
-A single array of three numbers representing the RGB values to apply to 
-• 
-all four edges. 
-An array of four arrays, each specifying the RGB values for one edge of 
-the border, in the order of the before, after, start, and end edges. A value 
-of null for any of the edges means that it shall not be drawn. 
-If this attribute is not specified, the border colour for this element shall be the 
-current text fill colour in effect at the start of its associated content. 
-(Optional; not inheritable; PDF 1.5)
-BorderStyle 
-array or  The style of an element’s border. Specifies 
-Padding
-name the stroke pattern of each edge of a table cell or any element’s content 
-• 
-rectangle (possibly adjusted by the  attribute). There are two forms: 
-An array of four entries, each entry specifying the style for one edge of 
-the border in the order of the before, after, start, and end edges. A value 
-• 
-of null for any of the edges means that it shall not be drawn. 
-A name from the list below representing the border style to apply to all 
-None
-BorderThickness
-four edges.  
-HiddenNone
-  No border. Forces the computed value of  to be 0. 
-  Same as , except in terms of border conflict resolution for table 
- 
-Dotted
-elements. 
-Dashed
-  The border is a series of dots. 
-Solid
-  The border is a series of short line segments.  
-Double
-  The border is a single line segment. 
-BorderThickness
-  The border is two solid lines. The sum of the two lines and the space 
-Groove
-between them equals the value of . 
-Ridge
-  The border looks as though it were carved into the canvas. 
-Groove
-  The border looks as though it were coming out of the canvas (the 
-Inset
-opposite of ). 
-  The border makes the entire box look as though it were embedded in 
-Outset
-the canvas. 
-Inset
-  The border makes the entire box look as though it were coming out of 
-None
-the canvas (the opposite of ). 
-Default value:  
-Groove, Ridge, InsetOutset
-All borders shall be drawn on top of the box’s background. The colour of 
-BorderColor
-borders drawn for values of , and  shall depend on 
-the structure element’s  attribute and the colour of the 
-Dotted, Dashed, Double, 
-background over which the border is being drawn. 
-Outset
-Groove, Ridge, Inset,
-NOTE  Conforming HTML applications may interpret 
- and  to be Solid. 
-© ISO 2017 – All rights reserved 749 
-
-ISO/DIS 32000-2
- 
-Key Type Value 
-(Optional; inheritable; PDF 1.5)
-BorderThickness 
-number or  The thickness of the border drawn on the edges 
-Padding
-array of a table cell or any element’s content rectangle (possibly adjusted by the 
- attribute). The value of each edge shall be a positive number in 
-default user space units representing the border’s thickness (a value of 0 
-• 
-indicates that the border shall not be drawn). There are two forms: 
-• 
-A number representing the border thickness for all four edges. 
-An array of four entries, each entry specifying the thickness for one edge 
-of the border, in the order of the before, after, start, and end edges. A 
-value of null for any of the edges means that it shall not be drawn. 
-Default value: 0. 
-(Optional; not inheritable; PDF 1.5)
-Padding 
-number or  Specifies an offset to account for the 
-array separation between the element’s content rectangle and the surrounding 
-border (see 14.8.5.4.5, "Content and Allocation Rectangles"). A positive value 
-enlarges the background area; a negative value trims it, possibly allowing the 
-border to overlap the element’s text or graphic. 
-• 
-There are two forms: 
-• 
-A number representing the width of the padding for all four edges. 
-An array of four entries, each entry specifying the width of the padding 
-for one edge, in the order of the before, after, start and end edges. 
-Default value: 0. 
-(Optional; inheritable; PDF 1.5)
+Table 135: Standard non-separable blend modes 
+Name Result 
+Hue 
+SetLumSetSatSatLum 
+𝑏𝑏𝑓𝑓𝑓𝑓𝑏𝑏𝑏𝑏
+()()()
+NOTE 1 Creates a colour with the hue of the source colour and the saturation and 
+𝐵𝐵𝐶𝐶,𝐶𝐶=��𝐶𝐶,𝐶𝐶�,𝐶𝐶�
+luminosity of the backdrop colour. 
+Saturation 
+SetLumSetSatSatLum 
+𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓𝑏𝑏
+()()()
+NOTE 2 Creates a colour with the saturation of the source colour and the hue and 
+𝐵𝐵𝐶𝐶,𝐶𝐶=��𝐶𝐶,𝐶𝐶�,𝐶𝐶�
+luminosity of the backdrop colour. Painting with this mode in an area of 
+the backdrop that is a pure gray (no saturation) produces no change. 
 Color 
-array  The colour to be used for drawing text and the 
-default value for the colour of table borders and text decorations. The value 
-shall be an array of three numbers in the range 0.0 to 1.0, representing the red, 
-green, and blue values, respectively, of an RGB colour space. If this attribute is 
-not specified, the border colour for this element shall be the current text fill 
-colour in effect at the start of its associated content. 
+SetLumLum 
+𝑏𝑏𝑓𝑓𝑓𝑓𝑏𝑏
+NOTE 3 Creates a colour with the hue and saturation of the source colour and the 
+()()
+𝐵𝐵𝐶𝐶,𝐶𝐶=�𝐶𝐶, 𝐶𝐶�
+luminosity of the backdrop colour. This preserves the gray levels of the 
+backdrop and is useful for colouring monochrome images or tinting colour 
+images. 
+Luminosity 
+SetLumLum 
+𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
+NOTE 4 Creates a colour with the luminosity of the source colour and the hue and 
+()()
+𝐵𝐵𝐶𝐶,𝐶𝐶=�𝐶𝐶, 𝐶𝐶�
+saturation of the backdrop colour. This produces an inverse effect to that 
+of the Color mode. 
  
-14.8.5.4.3Layout Attributes for BLSEs 
+RGB
+DeviceRGBCalRGBICCBased
+CMYKCMYK
+DeviceCMYK ICCBased
+The formulas in this sub-clause apply to  spaces (including ,  and  
+RGB). Blending in  spaces (including both and   spaces) shall be 
+CMYRGB
+• 
+handled in the following way: 
+RGB
+The ,  and  components shall be converted to their complementary ,  and  components by 
+CMY
+subtracting each from 1.0. The formulae in this sub-clause shall be applied to the  colour 
+KK
+HueSaturationColor
+• 
+values. The results shall be complemented back to ,  and  in the same way. 
+K
+Luminosity
+b
+ for the , , and  
+For the  component, the result shall be the  component of C
+s
+11.3.6Interpretation of alpha 
  
-"Table 379: Additional standard layout attributes specific to block-level structure elements" describes 
-layout attributes that shall apply only to block-level structure elements (BLSEs). 
-Table 379: Additional standard layout attributes specific to block-level structure elements 
-Key Type Value 
-(Optional; not inheritable)
-SpaceBefore 
-number  The amount of extra space preceding the before edge of 
-LineHeight
-the BLSE, measured in default user space units in the block-progression direction. 
-This value shall be added to any adjustments induced by the  attributes 
-SpaceAfter
-14.8.5.4.4, "Layout Attributes for 
-of ILSEs within the first line of the BLSE (see 
-ILSEs"). If the preceding BLSE has a  attribute, the greater of the two 
-attribute values shall be used.  
-Default value: 0. 
-This attribute shall be disregarded for the first BLSE placed in a given reference 
-area. 
-© ISO 2017 – All rights reserved 750 
+ for the  blend mode. 
+blend modes; it shall be the  component of C
+The colour compositing formula 
+𝑓𝑓𝑓𝑓
+𝛼𝛼𝛼𝛼
+𝑟𝑟𝑏𝑏𝑏𝑏𝑓𝑓𝑏𝑏𝑏𝑏𝑓𝑓
+ 
+))
+((
+×𝐶𝐶� 
+=�1−�×𝐶𝐶+×�1−𝛼𝛼+𝛼𝛼×𝐵𝐵𝐶𝐶,𝐶𝐶
+𝐶𝐶
+𝑟𝑟𝑟𝑟
+𝛼𝛼𝛼𝛼
+produces a result colour that is a weighted average of the backdrop colour, the source colour, and the 
+𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
+,𝐶𝐶) term, with the weighting determined by the backdrop and source alphas 𝛼𝛼 and 𝛼𝛼.  
+blended 𝐵𝐵(𝐶𝐶
+NOTE 1 This formula represents a simplification of the following formula, which presents the relative 
+contributions of backdrop, source, and blended colours in a more straightforward way: 
+𝑟𝑟𝑟𝑟𝑓𝑓𝑏𝑏𝑏𝑏𝑏𝑏𝑓𝑓𝑓𝑓𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
+)))
+(((
+×𝛼𝛼×𝛼𝛼�� 
+𝛼𝛼×𝐶𝐶=�1−𝛼𝛼×𝐶𝐶�+��1−𝛼𝛼×𝐶𝐶�+�𝛼𝛼×𝛼𝛼×𝐵𝐵𝐶𝐶,𝐶𝐶
+Normal
+For the simplest blend mode, , defined by 
+𝑏𝑏𝑓𝑓𝑓𝑓
+(
+)
+𝐵𝐵𝐶𝐶
+=𝐶𝐶
+,𝐶𝐶 
+© ISO 2017 – All rights reserved 389 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-(Optional; not inheritable)
-SpaceAfter 
-number  The amount of extra space following the after edge of the 
-LineHeight
-BLSE, measured in default user space units in the block-progression direction. This 
-value shall be added to any adjustments induced by the  attributes of 
-SpaceBefore
-14.8.5.4, "Layout Attributes"). If the 
-ILSEs within the last line of the BLSE (see 
-following BLSE has a  attribute, the greater of the two attribute values 
-shall be used.  
-Default value: 0. 
-This attribute shall be disregarded for the last BLSE placed in a given reference area. 
-(Optional; inheritable)
-StartIndent 
-number  The distance from the start edge of the reference area to that 
-of the BLSE, measured in default user space units in the inline-progression direction. 
-This attribute shall apply only to structure elements with a Placement attribute of 
-14.8.5.4.2, "General Layout Attributes"). The attribute shall be 
-Block or Start (see 
-disregarded for elements with other Placement values.  
-Default value: 0. 
-A negative value for this attribute places the start edge of the BLSE outside that of 
-the reference area. The results are implementation-dependent and may not be 
-supported by all conforming products that process tagged PDF or by particular 
-StartIndent
-export formats. 
-Start
-Placement
-If a structure element with a  attribute is placed adjacent to a floating 
-StartIndent
-element with a  attribute of , the actual value used for the element’s 
-starting indent shall be its own  attribute or the inline extent of the 
-TextIndent
-adjacent floating element, whichever is greater. This value may be further adjusted 
-by the element’s  attribute, if any. 
-(Optional; inheritable)
-EndIndent 
-number  The distance from the end edge of the BLSE to that of the 
-Placement
-reference area, measured in default user space units in the inline-progression 
-BlockEnd
-direction. This attribute shall apply only to structure elements with a  
-Placement
-14.8.5.4.2, "General Layout Attributes"). The attribute 
-attribute of  or  (see 
-shall be disregarded for elements with other  values.  
-Default value: 0. 
-A negative value for this attribute places the end edge of the BLSE outside that of the 
-reference area. The results are implementation-dependent and may not be 
-supported by all conforming products that process tagged PDF or by particular 
-EndIndent
-export formats. 
-End
-Placement
-If a structure element with an  attribute is placed adjacent to a floating 
-EndIndent
-element with a  attribute of , the actual value used for the element’s 
-ending indent shall be its own  attribute or the inline extent of the 
-adjacent floating element, whichever is greater. 
-(Optional; inheritable; applies only to some BLSEs)
-TextIndent 
-number  The additional distance, measured 
-StartIndent
-in default user space units in the inline-progression direction, from the start edge of 
-the BLSE, as specified by , to that of the first line of text. A negative 
-value shall indicate a hanging indent.  
-Default value: 0. 
-THTD
-LI
-This attribute shall apply only to paragraphlike BLSEs and those of structure types 
- (List item),  (Table header), and  (Table data), provided that they contain 
-content other than nested BLSEs. 
-© ISO 2017 – All rights reserved 751 
+ 
+the compositing formula collapses to a simple weighted average of the backdrop and source colours, 
+controlled by the backdrop and source alpha values. For more interesting blend functions, the backdrop 
+and source alphas control whether the effect of the blend mode is fully realised or is toned down by 
+mixing the result with the backdrop and source colours. 
+r
+The result alpha, α
+, actually represents a computed result, described in 11.3.7, "Shape and opacity 
+computations". The result colour shall be normalised by the result alpha, ensuring that when this colour 
+and alpha are subsequently used together in another compositing operation, the colour’s contribution is 
+correctly represented. 
+NOTE 2 If  is zero, the result colour is undefined. 
+𝑟𝑟
+𝛼𝛼
+The simplification requires a substitution based on the alpha compositing formula, which is presented 
+in 11.3.7.3, "Result shape and opacity". Thus, mathematically, the backdrop and source alphas control 
+the influence of the backdrop and source colours, respectively, while their product controls the 
+sb
+ = 0.0 or α = 0.0 results in no blend mode effect; 
+influence of the blend function. An alpha value of α
+sb
+ = 1.0 and α = 1.0 results in maximum blend mode effect. 
+setting α
+11.3.7Shape and opacity computations 
+ 
+ 
+11.3.7.1General 
+ 
+As stated earlier, the alpha values that control the compositing process shall be defined as the product 
+of shape and opacity: 
+𝑏𝑏𝑏𝑏𝑏𝑏
+𝛼𝛼
+=𝑓𝑓×𝑞𝑞 
+ 
+𝑟𝑟𝑟𝑟𝑟𝑟
+=𝑓𝑓×𝑞𝑞 
+𝛼𝛼
+𝑓𝑓𝑓𝑓𝑓𝑓
+=𝑓𝑓×𝑞𝑞
+𝛼𝛼
+ 
+This sub-clause examines the various shape and opacity values individually. Once again, keep in mind 
+that conceptually these values are computed for every point on the page. 
+11.3.7.2Source shape and opacity 
+ 
+Shape and opacity values may come from several sources. The transparency model provides for three 
+independent sources for each. However, the PDF representation imposes some limitations on the ability 
+to specify all of these sources independently (see 11.6.4, "Specifying shape and opacity"). 
+Object shape
+• 
+. Elementary objects such as strokes, fills, and text have an intrinsic shape, whose 
+value shall be 1.0 for points inside the object and 0.0 outside. Similarly, an image with an explicit 
+mask (see 8.9.6.3, "Explicit masking") has a shape that shall be 1.0 in the unmasked portions and 
+0.0 in the masked portions. The shape of a group object shall be the union (as defined in 11.3.7.3, 
+NOTE 1 Mathematically, elementary objects have "hard" edges, with a shape value of either 0.0 or 1.0 at 
+"Result shape and opacity") of the shapes of the objects it contains. 
+every point. However, when such objects are rasterized to device pixels, the shape values along the 
+boundaries can be anti-aliased, taking on fractional values representing fractional coverage of 
+those pixels. When such anti-aliasing is performed, it is important to treat the fractional coverage 
+as shape rather than opacity. 
+Mask shape
+• 
+. Shape values for compositing an object may be taken from an additional source, or soft 
+mask, independent of the object itself, as described in 11.5, "Soft masks". 
+© ISO 2017 – All rights reserved 390 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-(Optional; inheritable; applies only to BLSEs containing text)
-TextAlign 
-name  The alignment, in the 
-Start
-inline-progression direction, of text and other content within lines of the BLSE: 
-Center
-  Aligned with the start edge. 
-End
-  Centred between the start and end edges.  
-Justify
-  Aligned with the end edge. 
-  Aligned with both the start and end edges, with internal spacing within 
-each line expanded, if necessary, to achieve such alignment. The last (or 
-Start
-only) line shall be aligned with the start edge only. 
-Default value: . 
-(Optional; not inheritable)
-BBox 
-rectangle  An array of four numbers in default user space units that 
-shall give the coordinates of the left, bottom, right, and top edges, respectively, of 
-the structure element’s bounding box (the rectangle that completely encloses its 
-BBox
-visible content).  
-The  attribute should be present for structure elements whose content does 
-NOTE 1  Examples of types of structure elements that do not lend themselves to 
-not lend itself to reflow or any other visual rearrangement of the content inside it. 
-reflow include and  structure elements.  
- FigureFormula
-NOTE 2  The semantics of the visual presentation of charts, illustrations consisting of 
-more than one graphics object, or formulas can suffer if the objects inside 
-them are rearranged, as is typical for content reflow.  
-BBox
-A structure element with a  attribute may contain other structure elements 
-NOTE 3 A formula, for example, can lose its meaning if the parts in the formula are 
-inside it. 
-visually rearranged. At the same time, the parts inside the formula could be 
-individually tagged, for example with inline level structure elements. 
-BBox
-EXAMPLE Formulas, graphic art, vector drawings, images are types of 
-structure elements for which a  attribute is appropriate. 
-(Optional; not inheritable; illustrations, tables, and table cells only; should be used for 
-Width 
-table cells; sometimes required for illustration elements with  attribute)
-Placement
-number 
-or name  
-The width of the element’s content rectangle (see 14.8.5.4.5, "Content and Allocation 
-Figure
-Rectangles"), measured in default user space units in the inline-progression 
-FormulaTableTHTD
-direction. This attribute shall apply only to elements of structure type , 
-Auto
-, ,  (Table header), or  (Table data). 
-The name  in place of a numeric value shall indicate that no specific width 
-constraint is to be imposed; the element’s width is determined by the intrinsic width 
-Auto
-of its content.  
-Default value: . 
-(Optional; not inheritable; illustrations, tables, table headers, and table cells only; 
-Height 
-sometimes required for illustration elements with  attribute)
-Placement
-number 
-or name  The height of 
-the element’s content rectangle (see 14.8.5.4.5, "Content and Allocation 
-Figure
-Rectangles"), measured in default user space units in the block-progression 
-FormulaTableTHTD
-direction. This attribute shall apply only to elements of structure type , 
-Auto
-, ,  (Table header), or  (Table data). 
-The name  in place of a numeric value shall indicate that no specific height 
-constraint is to be imposed; the element’s height is determined by the intrinsic 
-Auto
-height of its content.  
-Default value: . 
-© ISO 2017 – All rights reserved 752 
-
-ISO/DIS 32000-2
+NOTE 2 The use of a soft mask to modify the shape of an object or group, called soft clipping, can produce 
+effects such as a gradual transition between an object and its backdrop, as in a vignette. 
+Constant shape
+• 
+NOTE 3 This is merely a convenience, since the same effect could be achieved with a shape mask whose 
+. The source shape may be modified at every point by a scalar shape constant. 
+value is the same everywhere. 
+Object opacity
+• 
+. Elementary objects have an opacity of 1.0 everywhere. The opacity of a group object 
+Mask opacity
+• 
+shall be the result of the opacity computations for all of the objects it contains. 
+. Opacity values, like shape values, may be provided by a soft mask independent of the 
+Constant opacity
+• 
+object being composited. 
+NOTE 4 It is useful to think of this value as the "current opacity," analogous to the current colour used 
+. The source opacity may be modified at every point by a scalar opacity constant. 
+when painting elementary objects. 
+All of the shape and opacity inputs shall have values in the range 0.0 to 1.0 (inclusive), with a default 
+value of 1.0. 
+The three shape inputs shall be multiplied together, producing an intermediate value called the source 
+shape. 
  
-Key Type Value 
-(Optional; inheritable; table cells only)
-BlockAlign 
-name  The alignment, in the block-progression 
-Before
-direction, of content within the table cell: 
-  Before edge of the first child’s allocation rectangle aligned with that of the 
-Middle
-table cell’s content rectangle. 
-  Children centred within the table cell. The distance between the before 
-edge of the first child’s allocation rectangle and that of the table cell’s 
-content rectangle shall be the same as the distance between the after edge 
-of the last child’s allocation rectangle and that of the table cell’s content 
-After
-rectangle. 
-  After edge of the last child’s allocation rectangle aligned with that of the 
-Justify
-table cell’s content rectangle. 
-Before
-  Children aligned with both the before and after edges of the table cell’s 
-After
-content rectangle. The first child shall be placed as described for  
-and the last child as described for , with equal spacing between the 
-Before
-children. If there is only one child, it shall be aligned with the before edge 
-TH
-only, as for . 
-TD
-This attribute shall apply only to elements of structure type  (Table header) or 
- (Table data) and shall control the placement of all BLSEs that are children of the 
-Content and 
-given element. The table cell’s content rectangle (see 14.8.5.4.5, "
-Before
-Allocation Rectangles") shall become the reference area for all of its descendants.  
-Default value: . 
-(Optional; inheritable; table cells only)
-InlineAlign 
-name  The alignment, in the inline-progression 
-Start
-direction, of content within the table cell: 
-  Start edge of each child’s allocation rectangle aligned with that of the table 
-Center
-cell’s content rectangle. 
-  Each child centred within the table cell. The distance between the start 
-edges of the child’s allocation rectangle and the table cell’s content 
-End
-rectangle shall be the same as the distance between their end edges. 
-  End edge of each child’s allocation rectangle aligned with that of the table 
-TH
-cell’s content rectangle. 
-TD
-This attribute shall apply only to elements of structure type  (Table header) or 
- (Table data) and controls the placement of all ILSEs that are children of the 
-Content and 
-given element. The table cell’s content rectangle (see 14.8.5.4.5, "
-Start
-Allocation Rectangles") shall become the reference area for all of its descendants.  
-Default value: . 
-(Optional; inheritable; PDF 1.5)
-TBorderStyle 
-BorderStyle
-name or  The style of the border drawn on each edge of a table 
-array cell. Allowed values shall be the same as those specified for  (see "Table 
-TBorderStyleBorderStyleBorderStyle
-379: Standard layout attributes common to all standard structure types"). If both 
-TBorderStyle
- and  apply to a given table cell,  shall 
-None
-supersede .  
-Default value: . 
-(Optional; inheritable; PDF 1.5)
-TPadding 
-integer or  Specifies an offset to account for the separation 
-TPaddingPadding
-array between the table cell’s content rectangle and the surrounding border (see 
-PaddingTPadding
-14.8.5.4.5, "Content and Allocation Rectangles"). If both  and  
-apply to a given table cell,  shall supersede . A positive value shall 
-enlarge the background area; a negative value shall trim it, and the border may 
-overlap the element’s text or graphic. The value shall be either a single number 
-representing the width of the padding, in default user space units, that applies to all 
-four edges of the table cell, or a 4-entry array representing the padding width for the 
-before edge, after edge, start edge, and end edge, respectively, of the content 
-rectangle.  
-Default value: 0. 
+𝑓𝑓𝑗𝑗𝑚𝑚𝑘𝑘
+𝑓𝑓
+=𝑓𝑓×𝑓𝑓×𝑓𝑓
  
-© ISO 2017 – All rights reserved 753 
-
-ISO/DIS 32000-2
+The three opacity inputs shall be multiplied together, producing an intermediate value called the source 
+opacity. 
  
-14.8.5.4.4Layout Attributes for ILSEs 
+𝑓𝑓𝑗𝑗𝑚𝑚𝑘𝑘
+=𝑞𝑞×𝑞𝑞×𝑞𝑞
+𝑞𝑞
  
-The attributes described in "
+Where the variables have the meanings shown in "

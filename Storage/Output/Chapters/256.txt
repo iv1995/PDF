@@ -1,182 +1,147 @@
-Table 318: Entries 
-in a render mode dictionary" shows the entries in a render mode dictionary. 
-Table 318: Entries in a render mode dictionary 
-Key Type Value 
-Optional
-Type 
-3DRenderMode
-name () The type of PDF object that this dictionary describes; if present, shall be 
-. 
-Required
-Subtype 
-name () The type of render mode described by this dictionary; see "Table 319: 
-Render modes" for specific values. If an unrecognised value is encountered, then this 
-render mode dictionary shall be ignored. 
-© ISO 2017 – All rights reserved 640 
+Table 113: Additional entries in Mac OS Roman encoding not in MacRomanEncoding  
+Name  Code (Octal)  Code (Decimal) 
+notequal  255  173 
+infinity  260  176 
+lessequal  262  178 
+greaterequal  263  179 
+partialdiff  266  182 
+summation  267  183 
+product  270  184 
+pi  271  185 
+© ISO 2017 – All rights reserved 319 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional
-AC 
-array () An array that specifies the auxiliary colour that shall be used when 
-rendering the 3D image. The first entry in the array shall be a colour space; the 
-Subtype
-subsequent entries shall be values specifying colour values in that colour space. The 
-interpretation of this entry depends on the render mode specified by the  
-DeviceRGBDeviceRGB
-  
-entry, but it is often used to specify a colour for drawing points or edges. 
-The only valid colour space shall be . If a colour space other than
+Name  Code (Octal)  Code (Decimal) 
+integral  272  186 
+Omega  275  189 
+radical  303  195 
+approxequal  305  197 
+Delta  306  198 
+lozenge  327  215 
+Euro  333  219 
+apple  360  240 
  
-is specified, this entry shall be ignored and the default value shall be used. 
-Default value: [/DeviceRGB 0 0 0] representing the colour black.
-Optional
-FC 
-Subtype
-name () A name or array that specifies the face colour that shall be used when 
-Illustration
-or rendering the 3D image. This entry shall be relevant only when  has a value of 
-array . 
-If the value of FC is an array, the first entry in the array shall be a colour space and the 
-DeviceRGBDeviceRGB
-  
-subsequent entries shall be values specifying values in that colour space. The only 
-valid colour space is . Any colour space other thanshall be 
-FC
-ignored and the default value shall be used. 
-BG
-If the value of  is a name, it shall describe a colour. The only valid name value shall 
-BG
-  
-be , specifying the current background colour in use for displaying the artwork. If a 
-name other thanis encountered, this entry shall be ignored and the background 
-Table 192: Entries in an appearance 
-colour for the host annotation shall be used (see "
-BG
- 
-characteristics dictionary"). 
-Default value: 
-Optional
-O 
-number () A number specifying the opacity of the added transparency applied by some 
- 
-render modes, using a standard additive blend. 
-Default value: 0.5
-Optional
-CV 
-number () A number specifying the angle, in degrees, that shall be used as the crease 
-value when determining silhouette edges. If two front-facing faces share an edge and 
-the angle between the normals of those faces is greater than or equal to the crease 
-value, then that shared edge shall be considered a silhouette edge. 
-Default value: 45 
- 
-O
-For render modes that add a level of transparency to the rendering, the  entry specifies the additional 
-opacity that shall be used. All such transparency effects use a standard additive blend mode. 
-CV
-The  entry sets the crease value that shall be used when determining silhouette edges, which may be 
-used to adjust the appearance of illustrated render modes. An edge shared by two faces is a silhouette 
-edge if either of the following conditions is met: 
+Encoding
+Encoding
+When the font has no  entry, or the font descriptor’s Symbolic flag is set (in which case the 
+ entry is ignored), this shall occur: 
 • 
+If the font contains a (3, 0) subtable, the range of character codes shall be one of these: 0x0000 - 
+0x00FF, 0xF000 - 0xF0FF, 0xF100 - 0xF1FF, or 0xF200 - 0xF2FF. Depending on the range of codes, 
+each byte from the string shall be prepended with the high byte of the range, to form a two-byte 
 • 
-One face is front-facing and the other is back-facing. 
-The angle between the two faces is greater than or equal to the crease value. 
-"Table 319: Render modes" describes the render modes that may be specified in a render mode 
-dictionary. 
-Table 319: Render modes 
-Mode Description 
-Solid AC
-Displays textured and lit geometric shapes. The  entry shall be 
-ignored. 
-© ISO 2017 – All rights reserved 641 
+character, which shall be used to select the associated glyph description from the subtable. 
+Otherwise, if the font contains a (1, 0) subtable, single bytes from the string shall be used to look 
+up the associated glyph descriptions from the subtable. 
+If a character cannot be mapped in any of the ways described previously, a PDF processor may supply a 
+mapping of its choosing. 
+9.7Composite fonts 
+ 
+9.7.1General 
+ 
+composite font
+Subtype
+A , also called a Type 0 font, is one whose glyphs are obtained from a font-like object 
+Type0root fontdescendant
+called a CIDFont. A composite font shall be represented by a font dictionary whose  value is 
+. The Type 0 font is known as the , and its associated CIDFont is called its . 
+NOTE 1 Composite fonts in PDF are analogous to composite fonts in PostScript but with some limitations. 
+In particular, PDF requires that the character encoding be defined by a CMap, which is only one of 
+several encoding methods available in PostScript. Also, the PostScript language allows a Type 0 
+font to have multiple descendants, which might also be Type 0 fonts. PDF supports only a single 
+descendant, which shall be a CIDFont. 
+When the current font is composite, the text-showing operators shall behave differently than with 
+simple fonts. For simple fonts, each byte of a string to be shown selects one glyph, whereas for 
+composite fonts, a sequence of one or more bytes are decoded to select a glyph from the descendant 
+CIDFont. 
+NOTE 2 This facility supports the use of very large character sets, such as those for the Chinese, Japanese, 
+and Korean languages. It also simplifies the organization of fonts that have complex encoding 
+requirements. 
+© ISO 2017 – All rights reserved 320 
 
 ISO/DIS 32000-2
  
-Mode Description 
-SolidWireframe 
-Displays textured and lit geometric shapes with single colour edges 
-AC
-on top of them. The colour of these edges shall be determined by the 
- entry. 
-Transparent 
-AC
-Displays textured and lit geometric shapes with an added level of 
-transparency. The  entry shall be ignored. 
-TransparentWireframe 
-Displays textured and lit geometric shapes with an added level of 
-AC
-transparency, with single colour opaque edges on top of it. The colour 
-of these edges shall be determined by the  entry. 
-BoundingBox 
-Displays the bounding box edges of each node, aligned with the axes 
-AC
-of the local coordinate space for that node. The colour of the 
-bounding box edges shall be determined by the  entry. 
-TransparentBoundingBox 
-Displays bounding boxes faces of each node, aligned with the axes of 
-the local coordinate space for that node, with an added level of 
-FC
-transparency. The colour of the bounding box faces shall be 
-determined by the  entry. 
-TransparentBoundingBoxOutline 
-Displays bounding boxes edges and faces of each node, aligned with 
-the axes of the local coordinate space for that node, with an added 
-AC
-level of transparency. The colour of the bounding box edges shall be 
-FC
-determined by the  entry. The colour of the bounding boxes faces 
-shall be determined by the  entry. 
-Wireframe 
-AC
-Displays only edges in a single colour. The colour of these edges shall 
-be determined by the  entry. 
-ShadedWireframe 
-AC
-Displays only edges, though interpolates their colour between their 
-two vertices and applies lighting. The  entry shall be ignored. 
-HiddenWireframe 
-Displays edges in a single colour, though removes back-facing and 
-AC
-obscured edges. The colour of these edges shall be determined by the 
- entry. 
-Vertices 
-AC
-Displays only vertices in a single colour. The colour of these points 
-shall be determined by the  entry. 
-ShadedVertices 
-AC
-Displays only vertices, though uses their vertex colour and applies 
-lighting. The  entry shall be ignored. 
-Illustration 
-AC
-Displays silhouette edges with surfaces, removes obscured lines. The 
-FC
-colour of these edges shall be determined by the  entry, and the 
-colour of the surfaces shall be determined by the  entry. 
-SolidOutline 
-Displays silhouette edges with lit and textured surfaces, removes 
-AC
-obscured lines. The colour of these edges shall be determined by the 
- entry. 
-ShadedIllustration 
-Displays silhouette edges with lit and textured surfaces and an 
-AC
-additional emissive term to remove poorly lit areas of the artwork. 
-The colour of these edges shall be determined by the  entry. 
+CID-keyed fonts
+CIDFontCMap
+This subclause first introduces the architecture of , which are the only kind of composite 
+font supported in PDF. Then it describes the  and  dictionaries, which are the PDF objects 
+that represent the correspondingly named components of a CID-keyed font. Finally, it describes the 
+Type 0 font dictionary, which combines a CIDFont and a CMap to produce a font whose glyphs may be 
+accessed by means of variable-length character codes in a string to be shown. 
+9.7.2CID-Keyed fonts overview 
  
-If a render mode type is encountered other than those described in "Table 319: Render modes", the 
-render mode dictionary containing that entry shall be ignored by its consumers. This allows future 
-documents using new render modes to behave consistently with future documents using new 3D view 
-© ISO 2017 – All rights reserved 642 
+CID-keyed fonts provide a convenient and efficient method for defining multiple-byte character 
+encodings and fonts with a large number of glyphs. These capabilities provide great flexibility for 
+representing text in writing systems for languages with large character sets, such as Chinese, Japanese, 
+and Korean (CJK). 
+The CID-keyed font architecture specifies the external representation of certain font programs, called 
+CMap and CIDFont files, along with some conventions for combining and using those files. As mentioned 
+earlier, PDF does not support the entire CID-keyed font architecture, which is independent of PDF; CID-
+keyed fonts may be used in other environments. 
+NOTE For complete documentation on the architecture and the file formats, see Adobe Technical Note 
+#5092, , and #5014, 
+. This subclause describes only the PDF objects that represent these font programs. 
+CID-Keyed Font Technology OverviewAdobe CMap and CIDFont Files 
+CID-keyed fontCID
+Specification
+The term  reflects the fact that  (character identifier) numbers are used to index and 
+access the glyph descriptions in the font. This method is more efficient for large fonts than the method 
+of accessing by character name, as is used for some simple fonts. CIDs range from 0 to a maximum value 
+that may be subject to implementation limits (see Annex C, "Advice on Maximising Portability"). 
+A character collection is an ordered set of glyphs. The order of the glyphs in the character collection 
+shall determine the CID number for each glyph. Each CID-keyed font shall explicitly reference the 
+character collection on which its CID numbers are based; see 9.7.3, "CIDSystemInfo dictionaries". 
+A CMap (character map) file shall specify the correspondence between character codes and the CID 
+numbers used to identify glyphs. It is equivalent to the concept of an encoding in simple fonts. Whereas 
+a simple font allows a maximum of 256 glyphs to be encoded and accessible at one time, a CMap can 
+describe a mapping from multiple-byte codes to thousands of glyphs in a large CID-keyed font. 
+EXAMPLE A CMap can describe Shift-JIS, one of several widely used encodings for Japanese. 
+font numbercharacter selector
+A CMap file may reference an entire character collection or a subset of a character collection. The CMap 
+file’s mapping yields a  (which in PDF shall be 0) and a  (which in PDF 
+shall be a CID). Furthermore, a CMap file may incorporate another CMap file by reference, without 
+having to duplicate it. These features enable character collections to be combined or supplemented and 
+make all the constituent characters accessible to text-showing operations through a single encoding. 
+CIDFont
+A  contains the glyph descriptions for a character collection. The glyph descriptions themselves 
+are typically in a format similar to those used in simple fonts, such as Type 1. However, they are 
+identified by CIDs rather than by names, and they are organised differently. 
+In PDF, the data from a CMap file and CIDFont shall be represented by PDF objects as described in 9.7.4, 
+"CIDFonts" and 9.7.5, "CMaps". The CMap file and CIDFont programs themselves may be either 
+referenced by name or embedded as stream objects in the PDF file. 
+© ISO 2017 – All rights reserved 321 
 
 ISO/DIS 32000-2
  
-constructs that are ignored by older viewers. 
-13.6.4.53D lighting scheme dictionaries 
+Encoding
+A CID-keyed font, then, shall be the combination of a CMap with a CIDFont containing glyph 
+DescendantFonts
+descriptions. It shall be represented as a Type 0 font. It contains an  entry whose value shall 
+be a CMap dictionary, and its  entry shall reference the CIDFont dictionary with 
+which the CMap has been combined. 
+9.7.3CIDSystemInfo dictionaries 
  
-3D lighting scheme dictionaryPDF 1.7
-LS
-A  () specifies the lighting to apply to 3D artwork. The  entry in 
-the 3D view may include a 3D lighting scheme dictionary. 
-"
+CIDSystemInfo
+CIDFont and CMap dictionaries shall contain a  entry specifying the character collection 
+RegistryOrdering
+assumed by the CIDFont associated with the CMap — that is, the interpretation of the CID numbers 
+SupplementCIDSystemInfo
+used by the CIDFont. A character collection shall be uniquely identified by the , , and 
+Registry
+ entries in the  dictionary, as described in "Table 114: Entries in a 
+Identity-HIdentity-V
+Ordering
+CIDSystemInfo dictionary". In order for a CIDFont and a CMap to be compatible, their  and 
+ values shall be the same. Identity CMaps ( and ) are compatible with all 
+CIDFonts. 
+CIDSystemInfo
+The  entry in a CIDFont is a dictionary that shall specify the CIDFont’s character 
+CIDSystemInfo
+collection. The CIDFont need not contain glyph descriptions for all the CIDs in a collection; it may 
+contain a subset. The  entry in a CMap file shall be either a single dictionary or an array 
+of dictionaries, depending on whether it associates codes with a single character collection or with 
+multiple character collections; see 9.7.5, "CMaps". 
+CIDSystemInfo
+For proper behaviour, the  entry of a CMap shall be compatible with that of the CIDFont 
+or CIDFonts with which it is used. 

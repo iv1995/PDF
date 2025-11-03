@@ -1,98 +1,81 @@
-Table 83: Additional entries specific to a Type 6 shading dictionary" shows the shading dictionary 
-entries specific to this type of shading, in addition to those common to all shading dictionaries (see 
-"Table 77: Entries common to all shading dictionaries") and stream dictionaries (see "Table 5: Entries 
-common to all stream dictionaries"). 
-Table 83: Additional entries specific to a Type 6 shading dictionary 
-Key Type Value 
-Required
-BitsPerCoordinate 
-integer () The number of bits used to represent each geometric 
-coordinate. The value shall be 1, 2, 4, 8, 12, 16, 24, or 32. 
-Required
-BitsPerComponent 
-integer () The number of bits used to represent each colour component. 
-The value shall be 1, 2, 4, 8, 12, or 16. 
-Required
-BitsPerFlag 
-integer () The number of bits used to represent the edge flag for each 
-patch (see below). The value shall be 2, 4, or 8, but only the least 
-significant 2 bits in each flag value shall be used. Valid values for the edge 
-flag shall be 0, 1, 2, and 3. 
-Required
-Decode 
-array () An array of numbers specifying how to map coordinates and 
-colour components into the appropriate ranges of values. The decoding 
-method is similar to that used in image dictionaries (see 8.9.5.2, "Decode 
-11
-xxyycc cc
-arrays"). The ranges shall be specified as follows: 
-minmaxminmaxmin,maxn,minn,max
-c
-Function
-[    , … ]  
-Only one pair of  values shall be specified if a  entry is present. 
-© ISO 2017 – All rights reserved 242 
+Table 33: Compatibility operators"). These operators shall occur in pairs and may be nested. They 
+bracket a compatibility section, a portion of a content stream within which unrecognised operators 
+shall be ignored without error. This mechanism enables a PDF processor to use operators defined in 
+BX EX 
+later versions of PDF without sacrificing compatibility with older applications. It should be used only in 
+cases where ignoring such newer operators is the appropriate thing to do. The  andoperators are 
+© ISO 2017 – All rights reserved 112 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optionalnn
-Function 
-Function or () A 1-in, -out function or an array of  1-in, 1-out functions 
-array (where n is the number of colour components in the shading dictionary’s 
-colour space). If this entry is present, the colour data for the corner 
-n
-points of each patch shall be specified by a single parametric variable 
-rather than by  separate colour components. The designated function(s) 
-shall be called with each interpolated value of the parametric variable to 
-determine the actual colour at each point. Each input value shall be 
-Decode
-forced into the range interval specified for the corresponding colour 
-component in the shading dictionary’s  array. Each function’s 
-domain shall be a superset of that interval. If the value returned by the 
-function for a given colour component is out of range, it shall be adjusted 
- Indexed 
-to the nearest valid value.  
-This entry shall not be used with ancolour space. 
+not themselves part of any graphics object (see 8.2, "Graphics objects") or of the graphics state (8.4, 
+"Graphics state"). 
+Table 33: Compatibility operators 
+Operands Operator Description 
+— PDF 1.1
+BX 
+EX
+() Begin a compatibility section. Unrecognised operators (along with 
+their operands) shall be ignored without error until the balancing  
+operator is encountered. 
+— PDF 1.1
+EX BX
+() End a compatibility section begun by a balancing  operator. 
+BX
+Ignore any unrecognised operands and operators from previous matching 
+ onward. 
  
-The data stream provides a sequence of Bézier control points and colour values that define the shape 
-and colours of each patch. All of a patch’s control points shall be given first, followed by the colour 
-values for its corners. This differs from a triangle mesh (shading types 4 and 5), in which the 
-coordinates and colour of each vertex are given together. All control point coordinates shall be 
-expressed in the shading’s target coordinate space. See 8.7.4.5.5, "Type 4 (free-form Gouraud-shaded 
-triangle mesh) shadings" for further details on the format of the data. 
-As in free-form triangle meshes (Type 4), each patch has an edge flag that indicates which edge, if any, it 
-x
- yxyxy
-shares with the previous patch. An edge flag of 0 begins a new patch, unconnected to any other. This 
-11221212
-shall be followed by 12 pairs of coordinates, 
-  … , which specify the Bézier control points that 
-C
-, C, D, and D
+7.8.3Resource dictionaries 
  
-define the four boundary curves. "Figure 45: Colour values and edge flags in Coons Patch meshes" 
-1212
-shows how these control points correspond to the cubic Bézier curves 
-identified in 
-"Figure 43: Coordinate mapping from a unit square to a four-sided Coons Patch". Colour values shall be 
-234
-c
-xycxycxycxy
-given for the four corners of the patch, in the same order as the control points corresponding to the 
-44771010
-111
-corners. Thus, 
- is the colour at coordinates (, ),  at (, ),  at (, ), and  at (, ), as shown 
-in the figure. ![Figure 45 Colour values and edge flags in Coons Patch meshes  .png](./Storage/Output/Images/Figure 45 Colour values and edge flags in Coons Patch meshes  .png)
-Figure 45: Colour values and edge flags in Coons Patch meshes 
+As stated in 7.8.2, "Content streams" the operands supplied to operators in a content stream shall only 
+be direct objects; indirect objects and object references shall not be permitted. In some cases, an 
+operator shall refer to a PDF object that is defined outside the content stream, such as a font dictionary 
+or a stream containing image data. This shall be accomplished by defining such objects as named 
+resources and referring to them by name from within the content stream. 
+Named resources shall be meaningful only in the context of a content stream. The scope of a resource 
+name shall be local to a particular content stream and shall be unrelated to externally known identifiers 
+for objects such as fonts. References from one object outside of content streams to another outside of 
+content streams shall be made by means of indirect object references rather than named resources. 
+A content stream’s named resources shall be defined by a resource dictionary, which shall enumerate 
+the named resources needed by the operators in the content stream and the names by which they can 
+be referred to. 
+EXAMPLE 1 If a text operator appearing within the content stream needs a certain font, the content stream’s resource 
+dictionary can associate the name F42 with the corresponding font dictionary. The text operator can use this 
+name to refer to the font. 
+A resource dictionary shall be associated with a content stream in one of the following ways: 
+Contents
+• 
  
-"Figure 45: Colour values and edge flags in Coons Patch meshes" also shows how non-zero values of the 
-© ISO 2017 – All rights reserved 243 
+For a content stream that is the value of a page’s  entry (or is an element of an array that 
+Resources 
+is the value of that entry), the resource dictionary shall be designated by the page dictionary’s
+entry or is inherited, as described under 7.7.3.4, "Inheritance of page attributes" from 
+some ancestor node of the page object. PDF writers should not use this inheritance feature of PDF 
+as its use can cause undue complexity for a PDF reader. A PDF writer should only include resource 
+ Resources 
+definitions for resources that are actually referenced by the content streams of the associated page 
+ Resources 
+in thedictionary. If the content streams of multiple pages require exactly the same set 
+of resources, a singledictionary may be shared between them by using indirect 
+ Resources 
+references. If each page requires different sets of resources, then each should be written with its 
+ Resources 
+• 
+owndictionary. 
+For other content streams, a PDF writer shall include aentry in the stream's dictionary 
+specifying the resource dictionary which contains all the resources used by that content stream. 
+This shall apply to content streams that define form XObjects, patterns, Type 3 fonts, and 
+© ISO 2017 – All rights reserved 113 
+annotation appearences. 
 
 ISO/DIS 32000-2
  
-f
-edge flag ( = 1, 2, or 3) connect a new patch to one of the edges of the previous patch. In this case, some 
-of the previous patch’s control points serve implicitly as control points for the new patch as well (see 
-"
+ Resources 
+• 
+PDF files written obeying earlier versions of PDF may have omitted theentry in all 
+form XObjects and Type 3 fonts used on a page. All resources that are referenced from those forms 
+current resource dictionary
+and fonts shall be inherited from the resource dictionary of the page on which they are used. 
+In the context of a given content stream, the term  refers to the resource 
+dictionary associated with the stream in one of the ways described above. Each key in a resource 
+dictionary shall be the name of a resource type, as shown in "

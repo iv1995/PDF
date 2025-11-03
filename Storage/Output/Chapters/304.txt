@@ -1,55 +1,53 @@
-Table 398: 
-Additional entries specific to a printer’s mark annotation" shows an additional annotation dictionary 
-entry specific to this type of annotation. 
-Table 398: Additional entries specific to a printer’s mark annotation 
-Key Type Value 
-RequiredPrinterMark
-Subtype   
-name () The type of annotation that this dictionary describes; shall befor a 
-printer’s mark annotation. 
-OptionalColorBar
-MN 
-RegistrationTarget
-name () An arbitrary name identifying the type of printer’s mark, such as  or 
-. 
+Figure 75: Blending and overprinting 
  
-The form dictionary defining a printer’s mark may contain the optional entries shown in "Table 399: 
-Additional entries specific to a printer’s mark form dictionary" in addition to the standard ones 
-common to all form dictionaries (see 8.10.2, "Form dictionaries"). 
-Table 399: Additional entries specific to a printer’s mark form dictionary 
-Key Type Value 
-Optional; PDF 1.4
-MarkStyle 
-text string () A text string representing the printer’s mark in human-readable 
-form and suitable for presentation to the user. 
-Optional; PDF 1.4
-Colorants 
-dictionary () A dictionary identifying the individual colourants associated with a 
- Separation 
-printer’s mark, such as a colour bar. For each entry in this dictionary, the key is a 
-colourant name and the value is an array defining acolour space for that 
-colourant (see 8.6.6.4, "Separation colour spaces"). The key shall match the colourant 
-name given in that colour space. 
+Screen DeviceCMYK 
+EXAMPLE 2 "Figure 75: Blending and overprinting" shows the effects of all four possible combinations of blending and 
+overprinting, using the  blend mode in thecolour space. The label “overprint enabled” 
+means that the overprint parameter in the graphics state is true and the overprint mode is 1. In the upper half 
+of the figure, a light green oval is painted opaquely (opacity = 1.0) over a backdrop shading from pure yellow 
+to pure magenta. In the lower half, the same object is painted with transparency (opacity = 0.5). 
+11.7.4.4Special path-painting considerations 
  
-14.11.4Separation dictionaries 
- 
-The features described in this clause are deprecated with PDF 2.0. 
-In high-end printing workflows, pages are ultimately produced as sets of separations, one per colourant 
-(see 8.6.6.4, "Separation colour spaces"). Ordinarily, each page in a PDF file shall be treated as a 
-composite page that paints graphics objects using all the process colourants and perhaps some spot 
-colourants as well. In other words, all separations for a page shall be generated from a single PDF 
-description of that page. 
-In some workflows, however, pages are preseparated before generating the PDF file. In a preseparated 
- DeviceGray 
-PDF file, the separations for a page shall be described as separate page objects, each painting only a 
-single colourant (usually specified in thecolour space). In this case, additional information 
-© ISO 2017 – All rights reserved 788 
+The overprinting considerations discussed in 11.7.4.3, "Compatibility with opaque overprinting" also 
+BB*bb*
+affect those path-painting operations that combine filling and stroking a path in a single operation. 
+These include the , , , and  operators (see 8.5.3, "Path-painting operators") and the painting of 
+glyphs with text rendering mode 2 or 6 (9.3.6, "Text rendering mode"). For transparency compositing 
+purposes, the combined fill and stroke shall be treated as a single graphics object, as if they were 
+enclosed in a transparency group. This implicit group is established and used as follows: 
+© ISO 2017 – All rights reserved 422 
 
 ISO/DIS 32000-2
  
-is needed to identify the actual colourant associated with each separation and to group together the 
-PDF 1.3
-SeparationInfo
-page objects representing all the separations for a given page. This information shall be contained in a 
-separation dictionary () in the  entry of each page object (see 7.7.3.3, "Page 
-objects"). "
+• 
+true
+If overprinting is enabled (the overprint parameters for both stroking and non-stroking operations 
+in the graphics state are ) and the current stroking and nonstroking alpha constants are equal, 
+a non-isolated, non-knockout transparency group shall be established. Within the group, the fill 
+and stroke shall be performed with an alpha value of 1.0 but with the special overprinting blend 
+mode described in the previous sub-clause. The group results shall then be composited with the 
+• 
+backdrop, using the originally specified alpha and blend mode. 
+In all other cases, a non-isolated knockout group shall be established. Within the group, the fill and 
+stroke shall be performed with their respective prevailing alpha constants and the prevailing 
+Normal
+blend mode. The group results shall then be composited with the backdrop, using an alpha value of 
+NOTE 1 In the case of showing text with the combined filling and stroking text rendering modes, this 
+1.0 and the  blend mode. 
+behaviour is independent of the text knockout parameter in the graphics state (see 9.3.8, "Text 
+knockout"). 
+NOTE 2 The purpose of these rules is to avoid having a non-opaque stroke composite with the result of the 
+fill in the region of overlap, which would produce a double border effect that is usually 
+undesirable. The special case that applies when the overprint parameter is true is for backward 
+compatibility with the overprinting behaviour of the opaque imaging model. If a desired effect 
+cannot be achieved with a combined filling and stroking operator or text rendering mode, it can 
+be achieved by specifying the fill and stroke with separate path objects and an explicit 
+transparency group. 
+NOTE 3 Overprinting of the stroke over the fill does not work in the second case described previously 
+(although either the fill or the stroke can still overprint the backdrop). Furthermore, if the 
+overprint graphics state parameter is true, the results are discontinuous at the transition between 
+equal and unequal values of the stroking and nonstroking alpha constants. For this reason, it is 
+best not to use overprinting for combined filling and stroking operations if the stroking and 
+nonstroking alpha constants are being varied independently. 
+11.7.4.5Summary of overprinting behaviour 
+ 

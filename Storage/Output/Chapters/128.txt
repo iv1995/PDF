@@ -1,124 +1,53 @@
-Figure 60: Text rise" 
-illustrates the effect of the text rise. Text rise shall apply to the vertical coordinate in text space, 
-regardless of the writing mode. 
-NOTE Adjustments to the baseline are useful for drawing superscripts or subscripts. The default location 
-of the baseline can be restored by setting the text rise to 0. ![Figure 60 Text rise  .png](./Storage/Output/Images/Figure 60 Text rise  .png)
-Figure 60: Text rise 
+Figure 10: Device Space" shows how the same graphics object, specified in device 
+space, can appear drastically different when rendered on different output devices. ![Figure 10 Device Space  .png](./Storage/Output/Images/Figure 10 Device Space  .png)
+Figure 10: Device Space 
  
-9.3.8Text knockout 
+8.3.2.3User space 
  
-T
-k
-The text knockout parameter,  (PDF 1.4), shall be a boolean value that determines what text elements 
-shall be considered elementary objects for purposes of colour compositing in the transparent imaging 
-TKgs
-model. Unlike other text state parameters, there is no specific operator for setting this parameter; it 
-may be set only through the  entry in a graphics state parameter dictionary by using the  operator 
-TKgs
-(see 8.4.5, "Graphics state parameter dictionaries"). The text knockout parameter shall apply only to 
-BTET
-entire text objects. Any  value in a graphics state parameter dictionary installed using the  
-operator shall be ignored between the  and  operators delimiting a text object. The text knockout 
-truefalse
-parameter controls the behaviour of glyphs obtained from any font type, including Type 3. Its initial 
-value shall be . If the parameter is , each glyph in a text object shall be treated as a separate 
-elementary object; when glyphs overlap, they shall composite with one another. 
-true
-If the parameter is , the behaviour shall be equivalent to treating the entire text object as if it were a 
-© ISO 2017 – All rights reserved 299 
+To avoid the device-dependent effects of specifying objects in device space, PDF defines a device-
+independent coordinate system that always bears the same relationship to the current page, regardless 
+user space
+of the output device on which printing or displaying occurs. This device-independent coordinate system 
+is called . 
+ 
+CropBox 
+The user space coordinate system shall be initialised to a default state for each page of a document. The
+x
+entry in the page dictionary shall specify the rectangle of user space corresponding to the 
+y
+visible area of the intended output medium (display window or printed page). The positive  axis 
+Rotate
+extends horizontally to the right and the positive  axis vertically upward, as in standard mathematical 
+xyPDF 1.6
+UserUnit
+practice (subject to alteration by the  entry in the page dictionary). The length of a unit along 
+both the  and  axes is set by the  entry () in the page dictionary (see "Table 31: 
+default user space
+Entries in a page object"). If that entry is not present or supported, the default value of 1 ⁄ 72 inch is 
+used. This coordinate system is called . 
+NOTE 1 In the PostScript language, the origin of default user space always corresponds to the lower-left 
+corner of the output medium. While this convention is common in PDF documents as well, it is not 
+© ISO 2017 – All rights reserved 148 
 
 ISO/DIS 32000-2
  
-non-isolated knockout transparency group; see 11.4.6, "Knockout groups" where each glyph is an 
-individual element in that group’s transparency stack. When glyphs overlap, later glyphs shall overwrite 
-("knock out") earlier ones in the area of overlap. The following additional rules shall apply: 
-• 
-Graphics state parameters, including transparency parameters, shall be inherited from the context 
-in which the text object appears. They shall not be saved and restored. The transparency 
-parameters shall not be reset at the beginning of the transparency group (as they are when a 
-transparency group XObject is explicitly invoked). Changes made to graphics state parameters 
-• 
-within the text object shall persist beyond the end of the text object. 
-Normal
-After the implicit transparency group for the text object has been completely evaluated, the group 
-results shall be composited with the backdrop, using the  blend mode and alpha and soft 
-NOTE With the above listed exceptions, the compositing described in 11.4.6, "Knockout groups" applies 
-mask values of 1.0. 
-when the text knockout graphics parameter is true including the handling of masks. 
-9.4Text objects 
- 
-9.4.1General 
- 
-A PDF text object consists of operators that may show text strings, move the text position, and set text 
-state and certain other parameters. In addition, three parameters may be specified only within a text 
-object and shall not persist from one text object to the next: 
-T
-• 
-m
-T
-• 
-, the text matrix. 
-lm
-T
-• 
-, the text line matrix. 
-rm
-T
-, the text rendering matrix, which is actually just an intermediate result that combines the 
-m
-BTET
-), and the current transformation matrix. 
-effects of text state parameters, the text matrix (
-A text object begins with the  operator and ends with the  operator, as shown in the Example, and 
-described in "Table 105: Text object operators". 
-NOTE Although text objects cannot be statically nested, text might be shown using a Type 3 font whose 
-glyph descriptions include any graphics objects, including another text object. Likewise, the 
-current colour might be a tiling pattern whose pattern cell includes a text object. 
-EXAMPLE 
-BT 
-  …Zero or more text operators or other allowed operators… 
-ET 
-Table 105: Text object operators 
-Operands Operator Description 
-— T
-BT  
-T
-m
-Begin a text object, initializing the text matrix, , and the text line 
-BTET
-lm
-matrix, , to the identity matrix. Text objects shall not be nested; a 
-second  shall not appear before an . 
-— 
-ET 
-End a text object, discarding the text matrix. 
- 
-These specific categories of text-related operators may appear in a text object: 
-© ISO 2017 – All rights reserved 300 
-
-ISO/DIS 32000-2
- 
-• 
-• 
-Text state operators, described in 9.3, "Text state parameters and operators". 
-• 
-Text-positioning operators, described in 9.4.2, "Text-positioning operators". 
-Text-showing operators, described in 9.4.3, "Text-showing operators". 
-The latter two subclauses also provide further details about these text object parameters. The other 
-operators that may appear in a text object are those related to the general graphics state, colour, and 
-marked content, as shown in "Figure 9: Graphics Objects". 
-9.4.2Text-positioning operators 
- 
-T
-T
-TT
-m
-Text space is the coordinate system in which text is shown. It shall be defined by the text matrix, , and 
-fs
-hrise
-the text state parameters 
-, , and , which together shall determine the transformation from text 
-space to user space. Specifically, the origin of the first glyph shown by a text-showing operator shall be 
-placed at the origin of text space. If text space has been translated, scaled, or rotated, then the position, 
-size, or orientation of the glyph in user space shall be correspondingly altered. 
-The text-positioning operators shall only appear within text objects. 
+required; the page dictionary’sentry can specify any rectangle of default user space to 
+ CropBox 
+be made visible on the medium. 
+NOTE 2 The default for the size of the unit in default user space (1 ⁄ 72 inch) is approximately the same as a 
+point, a unit widely used in the printing industry. It is not exactly the same, however; there is no 
+universal definition of a point. 
+ CropBox 
+Conceptually, user space is an infinite plane. Only a small portion of this plane corresponds to the 
+imageable area of the output device: a rectangular region defined by theentry in the page 
+dictionary. The region of default user space that is viewed or printed can be different for each page and 
+is described in 14.11.2, "Page boundaries". 
+Coordinates in user space (as in any other coordinate space) may be specified as either integers or real 
+numbers, and the unit size in default user space does not constrain positions to any arbitrary grid. The 
+resolution of coordinates in user space is not related in any way to the resolution of pixels in device 
+space. 
+current transformation matrix
+The transformation from user space to device space is defined by the  
+(CTM), an element of the PDF graphics state (see 8.4, "Graphics state"). A PDF reader may adjust the 
+CTM for the native resolution of a particular output device, maintaining the device-independence of the 
+PDF page description. "

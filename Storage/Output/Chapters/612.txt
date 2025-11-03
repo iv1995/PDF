@@ -1,0 +1,90 @@
+Table Annex C.1: Architectural considerations" discusses some architectural limits that may be 
+reasonably accommodated by most PDF processors running across a wide variety of devices. By 
+appreciating these limits, PDF writers can ensure the PDF files they produce have the greatest chance of 
+successful portability across a wide variety of PDF processors. 
+NOTE Memory limits are often exceeded before architectural limits are reached. 
+© ISO 2017 – All rights reserved 817 
+
+ISO/DIS 32000-2
+ 
+Table Annex C.1: Architectural considerations 
+Quantity Description 
+Integers 
+Integer values (such as object numbers) can often be expressed within 32 bits. 
+Real numbers 
+Modern computers often represent and process real numbers using IEEE 
+Standard for Floating-Point Arithmetic (IEEE 754) single or double precision.  
+Size of arrays 
+Although a PDF array object (7.3.6, "Array objects") can theoretically contain 
+any number of elements, PDF processors are likely to have some limitations. 
+Size of dictionaries 
+Although a PDF dictionary object (7.3.7, "Dictionary objects") can theoretically 
+contain any number of key/value pairs, PDF processors are likely to have some 
+limitations. 
+Number of spot colours 
+DeviceN
+In previous versions of the PDF, it was recommended that the maximum 
+number of colourants or tint components in a single  colour space 
+(8.6.6.5, "DeviceN colour spaces") be limited to 32. 
+Nested objects 
+qQ
+As described in this PDF standard, many constructs can be nested including 
+stitching functions, / operators, XObjects, article threads, etc. However PDF 
+processors may implement recursive algorithms which may cause issues for 
+excessively nested constructs. 
+qQqQ
+NOTE In previous versions of PDF, a maximum depth of graphics state 
+nesting by  and  operators was 28. This arose from the fact that  and  can 
+be implemented by the PostScript language gsave and grestore operators when 
+generating PostScript language output. 
+Name objects 
+In previous versions of PDF, it was recommended that the maximum length of 
+the internal representation of a name object was limited 127 bytes. 
+Length of a string object in a 
+content stream 
+In previous versions of PDF, it was recommended that the maximum length of a 
+string in a content stream was limited to 32,767. This restriction applied only 
+to strings in content streams. There were no effective restrictions on other 
+strings in PDF files. 
+CID 
+In previous versions of PDF, it was recommended that the maximum value of a 
+CID (character identifier) was limited to 65,535. 
+C.3Memory limits 
+ 
+Memory limits cannot be characterised as precisely as architectural limits because the amount of 
+available memory and the ways in which it is allocated vary from one PDF processor to another. 
+Available memory is often much less in mobile devices than desktop computers and PDF writers may be 
+able to avoid issues by using techniques such as limiting the size of individual PDF objects, such as 
+images, paths or array objects, or using balanced trees (as noted in 7.7.3.1, "General"). 
+C.4File Limits 
+ 
+A PDF cross-reference table (see 7.5.4, "Cross-reference table") allocates ten digits to represent byte 
+10
+offsets, which limits the size of a PDF file to 10
+ bytes (approximately 10 gigabytes). However cross-
+reference streams (see 7.5.8, "Cross-reference streams") allow PDF files to be even larger. 
+© ISO 2017 – All rights reserved 818 
+
+ISO/DIS 32000-2
+ 
+PDF writers creating large PDF documents need to realise that not all PDF processors may be able to 
+handle large files. PDF writers can use various compression formats (see 7.4, "Filters") to help reduce 
+file size. PDF is also a binary format intended for automatic processing and, although the use of 
+whitespace characters makes PDF more readable to humans, unnecessary whitespace can make PDF 
+files larger than necessary. 
+NOTE: Examples shown in this PDF standard deliberately use whitespace to aid understanding. 
+When a PDF processor reads a PDF file with a damaged or missing cross-reference table, it may attempt 
+to rebuild the table by scanning all the objects in the file. However, the generation numbers of deleted 
+endobjendstream
+entries are lost if the cross-reference table is missing or severely damaged. To help facilitate such 
+endstream
+reconstruction, object identifiers, the  keyword, and the  keyword can be placed at 
+endstream
+the start of a line. Also avoid data within streams beginning a line with the keyword  (aside 
+from the required  that delimits the end of the stream). 
+  
+© ISO 2017 – All rights reserved 819 
+
+ISO/DIS 32000-2
+ 
+ ![62.png](./Storage/Output/Images/62.png)

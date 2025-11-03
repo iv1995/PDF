@@ -1,172 +1,69 @@
-Table 106: Text-positioning operators 
-Operands Operator Description 
-tx ty 
-Td 
-xx
-tttt
-Move to the start of the next line, offset from the start of the 
-yy
-current line by (, ).  and  shall denote numbers expressed in 
-unscaled text space units. More precisely, this operator shall 
-perform these assignments: 
-100
-𝑚𝑚𝑙𝑙𝑚𝑚𝑙𝑙𝑚𝑚
-010
-𝑇𝑇=𝑇𝑇=��×𝑇𝑇 
-𝑥𝑥𝑦𝑦
-𝑡𝑡𝑡𝑡1
-tx ty  
-TD 
-x
-tt
-Move to the start of the next line, offset from the start of the 
-y
-current line by (, ). As a side effect, this operator shall set the 
-leading parameter in the text state. This operator shall have the 
-t
-same effect as this code: 
-y
-x
-tt
-- TL  
-y
-  Td 
-a b c d e f 
-Tm 
-T
-mlm
-Set the text matrix, T, and the text line matrix, : 
-𝐷𝐷𝑏𝑏0
-𝑚𝑚𝑙𝑙𝑚𝑚
-𝑐𝑐𝐵𝐵0
-𝑇𝑇=𝑇𝑇=�
-� 
-T
-𝑚𝑚𝑓𝑓1
-T
-m
-The operands shall all be numbers, and the initial value for  and 
-T
-lm
- shall be the identity matrix, [1 0 0 1 0 0]. Although the operands 
-m
- as six separate 
-specify a matrix, they shall be passed to 
-numbers, not as an array. 
-The matrix specified by the operands shall not be concatenated 
-onto the current text matrix, but shall replace it. 
-© ISO 2017 – All rights reserved 301 
+Figure 11: User Space" shows how this allows an object specified in user space 
+to appear the same regardless of the device on which it is rendered. 
+The default user space provides a consistent, dependable starting place for PDF page descriptions 
+coordinate transformation operatorcm
+regardless of the output device used. If necessary, a PDF content stream may modify user space to be 
+more suitable to its needs by applying the ,  (see 8.4.4, "Graphics 
+state operators"). Thus, what might appear to be absolute coordinates in a content stream are not 
+absolute with respect to the current page because they are expressed in a coordinate system that can 
+slide around and shrink or expand. Coordinate system transformation not only enhances device-
+independence but is a useful tool in its own right. 
+EXAMPLE A content stream originally composed to occupy an entire page can be incorporated without change as an 
+© ISO 2017 – All rights reserved 149 
 
 ISO/DIS 32000-2
  
-Operands Operator Description 
-— 
-T* 
-Move to the start of the next line. This operator has the same effect 
-T
-TD
-as the code 
-l
-T
-0 –  
-T
-T
-l
-where  denotes the current leading parameter in the text state. 
-ll
- is used here because  is the text leading 
-The negative of 
-y
-expressed as a positive number. Going to the next line entails 
-decreasing the  coordinate. 
+element of another page by shrinking the coordinate system in which it is drawn. ![Figure 11 User Space  .png](./Storage/Output/Images/Figure 11 User Space  .png)
+Figure 11: User Space 
  
-T
-m
-At the beginning of a text object, 
- shall be the identity matrix; therefore, the origin of text space shall 
-T
-be initially the same as that of user space. The text-positioning operators, described in "Table 106: Text-
-text-showing operators
-m
-positioning operators" alter 
- and thereby control the placement of glyphs that are subsequently 
-ef
-m
-painted. Also, the , described in "Table 107: Text-showing operators", update T
+8.3.2.4Other coordinate spaces 
  
-(by altering its  and  translation components) to take into account the horizontal or vertical 
-displacement of each glyph painted as well as any character or word-spacing parameters in the text 
-state. 
-T
-T
-lm
-Additionally, within a text object, a PDF processor shall keep track of a text line matrix, 
-, which 
-T
-m
-captures the value of 
- at the beginning of a line of text. The text-positioning and text-showing 
-lm
-operators shall read and set 
- on specific occasions mentioned in "Table 106: Text-positioning 
-operators" and "Table 107: Text-showing operators". 
-NOTE This can be used to compactly represent evenly spaced lines of text. 
-9.4.3Text-showing operators 
- 
-The text-showing operators ("Table 107: Text-showing operators") shall show text on the page, 
-repositioning text space as they do so. All of the operators shall interpret the text string and apply the 
-text state parameters as described in "Table 107: Text-showing operators". 
-The text-showing operators shall only appear within text objects. 
-Table 107: Text-showing operators 
-Operands Operator Description 
-string 
-Tj 
-Show a text string. 
-string 
-'  
-Move to the next line and show a text string. This operator shall have the 
-T* 
-same effect as the code 
-string
- Tj 
-a a string  a
-"  
-a
-wcw
-Move to the next line and show a text string, using  as the word spacing 
-aa
-c
-and  as the character spacing (setting the corresponding parameters in 
-wc
-the text state).  and  shall be numbers expressed in unscaled text 
-a Tw  
-w
-space units. This operator shall have the same effect as this code: 
-a Tc  
-c
-string ' 
-© ISO 2017 – All rights reserved 302 
+In addition to device space and user space, PDF uses a variety of other coordinate spaces for specialised 
+purposes: 
+text space
+• 
+text matrix
+The coordinates of text shall be specified in . The transformation from text space to user 
+space shall be defined by a  in combination with several text-related parameters in the 
+glyph space
+• 
+graphics state (see 9.4.2, "Text-positioning operators"). 
+font matrix
+Character glyphs in a font shall be defined in  ("see 9.2.4, "Glyph positioning and 
+metrics"). The transformation from glyph space to text space shall be defined by the . 
+For most types of fonts, this matrix shall be predefined to map 1000 units of glyph space to 1 unit 
+of text space; for Type 3 fonts, the font matrix shall be given explicitly in the font dictionary ("see 
+image space
+• 
+9.6.4, "Type 3 fonts"). 
+All sampled images shall be defined in . The transformation from image space to user 
+space shall be predefined and cannot be changed. All images shall be 1 unit wide by 1 unit high in 
+user space, regardless of the number of samples in the image. To be painted, an image shall be 
+• 
+mapped to a region of the page by temporarily altering the CTM. 
+A form XObject (discussed in 8.10, "Form XObjects") is a self-contained content stream that can be 
+form spaceform 
+treated as a graphical element within another content stream. The space in which it is defined is 
+matrix
+called . The transformation from form space to user space shall be specified by a 
+pattern
+• 
+ contained in the form XObject. 
+PDF 1.2 defined a type of colour known as a , discussed in 8.7, "Patterns". A pattern shall be 
+pattern 
+defined either by a content stream that shall be invoked repeatedly to tile an area or by a shading 
+spacepattern matrix
+whose colour is a function of position. The space in which a pattern is defined is called 
+. The transformation from pattern space to user space shall be specified by a  
+contained in the pattern. 
+© ISO 2017 – All rights reserved 150 
 
 ISO/DIS 32000-2
  
-Operands Operator Description 
-Array 
-TJ  
-Show zero or more text strings, allowing individual glyph positioning. 
-Each element of array shall be either a string or a number. If the element 
-is a string, this operator shall show the string. If it is a number, the 
-T
-operator shall adjust the text position by that amount; that is, it shall 
-m
- . The number shall be expressed in 
-translate the text matrix, 
-9.4.4, "Text space details"). This 
-thousandths of a unit of text space (see 
-amount shall be subtracted from the current horizontal or vertical 
-coordinate, depending on the writing mode. In the default coordinate 
-system, a positive adjustment has the effect of moving the next glyph 
-Figure 61: 
-painted either to the left or down by the given amount. "
-TJ
-Operation of the TJ operator in horizontal writing" shows an example of 
-the effect of passing offsets to . ![Figure 61 Operation of the TJ operator in horizontal writing  .png](./Storage/Output/Images/Figure 61 Operation of the TJ operator in horizontal writing  .png)
+• 
+PDF 1.6 embedded 3D artwork, which is described in three-dimensional coordinates (see 13.6.5, 
+"Coordinate systems for 3D") that are projected into an annotation’s target coordinate system (see 
+8.3.2.5Relationships among coordinate spaces 
+ 
+13.6.2, "3D Annotations"). 
+"

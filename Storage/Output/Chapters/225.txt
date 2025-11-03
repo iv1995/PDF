@@ -1,6 +1,59 @@
-Table 268: Entries in a number format 
-dictionary"). Each number format dictionary shall represent a specific unit of measurement (such as 
-miles or feet). It shall contain information about how each unit shall be expressed in text and factors for 
-calculating the number of units. 
-GEO
-When the subtype of a measurement dictionary is , additional entries are defined. "
+Table 96: Entries in an optional content group dictionary" shows the entries in an 
+optional content group dictionary. 
+Table 96: Entries in an optional content group dictionary 
+Key Type Value 
+RequiredOCG
+Type 
+name () The type of PDF object that this dictionary describes; shall be  
+for an optional content group dictionary. 
+Required
+Name 
+text string () The name of the optional content group, suitable for presentation 
+in an interactive PDF processor’s user interface. 
+Optional
+Intent 
+ViewDesign
+name or array () A single name or an array of names that represent the intended use 
+of the graphics in the group. The values  and , or any second class 
+name may be used (see Annex E, "PDF Name Registry"). A PDF processor may 
+View
+choose to use only groups that have a specific intent and ignore others. 
+Default value: . See 8.11.2.3, "Intent" for more information. 
+Optional
+Usage 
+dictionary () A usage dictionary describing the nature of the content controlled 
+by the group. It may be used by features that automatically control the state of 
+the group based on outside factors. See 8.11.4.3, "Usage and usage application 
+dictionaries" for more information. 
+ 
+TypeName
+Intent
+In its simplest form, each dictionary shall contain a  entry and a  for presentation in a user 
+Usage
+interface. It may have an  entry that describes its intended use (see 8.11.2.3, "Intent"), and a 
+ entry that describes the nature of its content (see 8.11.4.3, "Usage and usage application 
+dictionaries"). 
+© ISO 2017 – All rights reserved 271 
+
+ISO/DIS 32000-2
+ 
+Individual content elements in a document may specify the optional content group or groups that affect 
+their visibility (see 8.11.3, "Making graphical content optional"). Any content whose visibility is affected 
+by a given optional content group belongs to that group. 
+ ON OFF
+A group shall be assigned a state, which is eitheror . States themselves are not part of the PDF 
+document but may be set programmatically or through the interactive PDF processor’s user interface to 
+change the visibility of content. When a document is first opened by a PDF processor, the groups’ states 
+shall be initialised based on the document’s default configuration dictionary (see 8.11.4.3, "Optional 
+content configuration dictionaries"). 
+ONOFF
+Content belonging to a single group shall be visible when the group is  and invisible when it is . 
+Content may, however, belong to multiple groups, when its group is nested inside of another (parent) 
+group. In such a case, the content shall only be visible if this group and all its parent groups indicate 
+visibility. In other words, if the visibility state of an outer level indicates that the content needs to be 
+hidden, all inner levels shall be hidden regardless of their individual visibility states. 
+8.11.2.2Optional content membership dictionaries 
+ 
+To express more complex visibility policies, content shall not declare itself to belong directly to an 
+optional content group but rather to an optional content membership dictionary, whose entries are 
+shown in "

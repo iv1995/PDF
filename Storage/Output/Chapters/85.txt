@@ -1,61 +1,104 @@
-Table 66: ICC Specification versions supported by ICC 
-based colour spaces" shows the versions of the ICC specification on which thecolour spaces 
-that PDF versions 1.3 and later shall use. (Earlier versions of the ICC specification shall also be 
-supported.) 
-Table 66: ICC Specification versions supported by ICC based colour spaces 
-PDF Version ICC Specification Version 
-1.3 3.3 
-1.4 ICC.1:1998-09 and its addendum ICC.1A:1999-04 
-1.5 ICC.1:2001-12 
-1.6 ICC.1:2003-09 
-1.7 ICC.1:2010 (ISO 15076-1:2010) 
-2.0 ICC.1:2010 (ISO 15076-1:2010) 
- 
-PDF processors shall follow these guidelines for writing and rendering ICC based color spaces: 
-• 
-A PDF reader shall support ICC.1:2010 as required by PDF 2.0, which will enable it to properly 
-• 
-render all embedded ICC profiles regardless of the PDF version. 
-A PDF reader shall always process an embedded ICC profile according to the corresponding 
-© ISO 2017 – All rights reserved 188 
+Table 15: Entries in the file trailer dictionary" lists the contents of the trailer dictionary. The file trailer 
+dictionary may also contain any second class name as described in Annex E, "PDF Name Registry". 
+© ISO 2017 – All rights reserved 62 
 
 ISO/DIS 32000-2
  
-version of the PDF being processed as shown in "Table 66: ICC Specification versions supported by 
-• 
-ICC based colour spaces" above; it shall not substitute the alternate colour space in these cases. 
-A PDF writer should use ICC 1:2010 profiles. It may embed profiles conforming to an earlier or 
-• 
-later ICC version. 
-A PDF processor shall substitute the alternate colour space for embedded profiles conforming to 
-later ICC versions, if the PDF processor is not capable of properly processing the embedded ICC 
-• 
-profile. 
-PDF writers shall only use the profile types shown in "Table 67: ICC profile types" for specifying 
-both
-calibrated colour spaces for colouring graphics objects. Each of the indicated fields shall have one 
-of the values listed for that field in the second column of the table. Profiles shall satisfy  the 
-• 
-criteria shown in the table. The terminology is taken from the ICC specifications. 
-Profiles shall conform to the specification version indicated by the Profile version number in its 
-NOTE 1  and 16-bit L*a*b* profiles are not listed. 
-header. 
-XYZ
-Table 67: ICC profile types 
-Header Field Required Value 
-deviceClass 
-icSigInputClass ('scnr') 
-icSigDisplayClass ('mntr') 
-icSigOutputClass ('prtr') 
-icSigColorSpaceClass ('spac') 
-colorSpace 
-icSigGrayData ('GRAY') 
-icSigRgbData ('RGB ') 
-icSigCmykData ('CMYK') 
-icSigLabData ('Lab ') 
+Table 15: Entries in the file trailer dictionary 
+Key Type Value 
+Required; shall not be an indirect reference
+Size 
+integer () The total number of entries in the 
+file’s cross-reference table, as defined by the combination of the original section 
+and all update sections. Equivalently, this value shall be 1 greater than the 
+highest object number defined in the file. 
  
- ICCBased 
-The terminology used in PDF colour spaces and ICC colour profiles is similar, but sometimes the same 
-terms are used with different meanings. The default value for each component in ancolour 
-space is 0. The range of each colour component is a function of the colour space specified by the profile 
-and is indicated in the ICC specification. The ranges for several ICC colour spaces are shown in "
+Any object in a cross-reference section whose number is greater than this value 
+shall be ignored and defined to be missing by a PDF reader.
+Prev 
+integer (Present only if the file has more than one cross-reference section; shall be a 
+direct object) The byte offset in the decoded stream from the beginning of the 
+file to the beginning of the previous cross-reference section. 
+Required; shall be an indirect reference
+Root 
+dictionary () The catalog dictionary for the PDF 
+document contained in the file (see 7.7.2, "Document catalog dictionary"). 
+Required if document is encrypted; PDF 1.1
+Encrypt 
+dictionary () The document’s encryption 
+dictionary (see 7.6, "Encryption"). 
+Optional; shall be an indirect reference
+Info 
+dictionary () The document’s information dictionary. 
+As described in 14.3.3, "Document information dictionary", this method for 
+specifying document metadata has been deprecated in PDF 2.0 and should 
+therefore only be used to encode information that is stated as required 
+NOTE 1 The  key within the  dictionary is required if Page-Piece 
+ModDateInfo
+elsewhere in this part of ISO 32000. 
+dictionaries (see 14.5, "Page-piece dictionaries") are used. 
+Required in PDF 2.0 or if an  entry is present; optional otherwise; PDF 
+ID Encrypt
+1.1
+array (
+ID
+) An array of two byte-strings constituting a file identifier (See 14.4, "File 
+ Encrypt 
+identifiers") for the file. The  array shall (PDF 2.0) have a minimum length of 
+16 bytes. If there is anentry, this array and the two byte-strings shall 
+NOTE 2 Because theentries are not encrypted it is possible to check the
+ ID  ID 
+be direct objects and shall be unencrypted. 
+key to assure that the correct file is being accessed without decrypting 
+the file. The restrictions that the string be a direct object and not be 
+encrypted assure that this is possible. 
+NOTE 3 Although this entry is optional prior to PDF 2.0, its absence might 
+prevent the file from functioning in some workflows that depend on files 
+being uniquely identified. 
+NOTE 4 The values of thestrings are used as input to the encryption 
+ ID 
+algorithm. If these strings were indirect, or if thearray were indirect, 
+ ID 
+these strings would be encrypted when written. This would result in a 
+circular condition for a PDF reader: thestrings need be decrypted in 
+ ID 
+order to use them to decrypt strings, including thestrings themselves. 
+ ID 
+The preceding restriction prevents this circular condition. 
+ 
+NOTE "Table 19: Additional entries in a hybrid-reference file’s trailer dictionary" defines an additional 
+entry, , that appears only in the trailer of hybrid-reference files, described in 7.5.8.4, 
+XRefStm
+"Compatibility with applications that do not support compressed reference streams" 
+ Prev 
+EXAMPLE This example shows a trailer for a file that has never been updated (as indicated by the absence of aentry 
+in the trailer dictionary). 
+trailer 
+   <</Size 22 
+   /Root 2 0 R 
+   /Info 1 0 R 
+© ISO 2017 – All rights reserved 63 
+
+ISO/DIS 32000-2
+ 
+   /ID [<81b14aafa313db63dbd6f981e49f94f4> 
+    <81b14aafa313db63dbd6f981e49f94f4> 
+    ] 
+  >> 
+startxref 
+18799 
+%%EOF 
+ 
+7.5.6Incremental updates 
+ 
+The contents of a PDF file can be updated incrementally without rewriting the entire file. When 
+updating a PDF file incrementally, changes shall be appended to the end of the file, leaving its original 
+contents intact. 
+NOTE 1 The main advantage to updating a file in this way is that small changes to a large document can 
+be saved quickly. There are additional advantages such as when editing a document across an 
+TM
+ specific technology), a PDF 
+HTTP connection or using OLE embedding (a Microsoft Windows
+processor cannot overwrite the contents of the original file. Incremental updates may be used to 
+save changes to documents in these contexts. 
+NOTE 2 The resulting file has the structure shown in "

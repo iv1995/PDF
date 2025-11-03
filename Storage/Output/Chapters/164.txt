@@ -1,85 +1,246 @@
-Table 157: Entries in a collection colors dictionary 
-Key Type Value 
-Optional
-Type 
-CollectionColors
-name () The type of PDF object that this dictionary describes; if 
-present, shall be  for a collection colors dictionary. 
-(Optional; PDF 2.0) 
-Background 
- DeviceRGB 
+Table 
+68: Ranges for typical ICC colour spaces". 
+Table 68: Ranges for typical ICC colour spaces 
+ICC Colour Space Component Ranges 
+Gray 
+[0.0 1.0] 
+RGB 
+[0.0 1.0] 
+CMYK 
+[0.0 1.0] 
+L*a*b* 
+∗∗∗
+𝑚𝑚: [0 100]; a and 𝑏𝑏: [−128 127] 
  
-array An array of three numbers in the range 0.0 to 1.0, 
-representing acolour used for the background of the view.
-(Optional; PDF 2.0) 
-CardBackground 
- DeviceRGB 
- 
-array An array of three numbers in the range 0.0 to 1.0, 
-representing acolour used for the background of the card.
-© ISO 2017 – All rights reserved 441 
+ ICCBased 
+AToB BToA
+Since thecolour space is being used as a source colour space, only the "to CIE" profile 
+information (in ICC terminology) shall be used; the "from CIE" () information shall be 
+© ISO 2017 – All rights reserved 189 
 
 ISO/DIS 32000-2
  
-Key Type Value 
-(Optional; PDF 2.0) 
-CardBorder 
- DeviceRGB 
+rendering intent
+ignored when present. An ICC profile may also specify a , but a PDF reader shall ignore 
+this information; the rendering intent shall be specified in PDF by a separate parameter (see 8.6.5.8, 
+"Rendering intents"). 
+ ICCBased 
+The requirements stated above apply to ancolour space that is used to specify the source 
+colours of graphics objects. When such a space is used as the blending colour space for a transparency 
+AToB
+group in the transparent imaging model (see 11.3.4, "Blending colour space"; 11.4, "Transparency 
+BToA
+groups"; and 11.6.6, "Transparency group XObjects"), it shall have both "to CIE" () and "from CIE" 
+() information. This is because the group colour space shall be used as both the destination for 
+output intents
+objects being painted within the group and the source for the group’s results. ICC profiles shall also be 
+used in specifying  for matching the colour characteristics of a PDF document with those 
+of a target output device or production environment. When used in this context, they shall be subject to 
+still other constraints on the "to CIE" and "from CIE" information; 14.11.5, "Output intents", for details. 
+ ICCBased CalGrayCalRGBLab
+The representations ofcolour spaces are less compact than , , and , but 
+can represent a wider range of colour spaces. 
+NOTE 2 One particular colour space is the "standard " or , defined in the International 
+Electrotechnical Commission (IEC) document 
+RGBsRGB
+In PDF, the  colour space can only be expressed as an
  
-array An array of three numbers in the range 0.0 to 1.0, 
-representing acolour used for the border of the card.
-(Optional; PDF 2.0) 
-PrimaryText 
- DeviceRGB 
-array An array of three numbers in the range 0.0 to 1.0, 
+Color Measurement and Management in 
+space, although it can be approximated by aspace. 
+ICCBased  CalRGB 
+Multimedia Systems and Equipment. sRGB
+ ICCBased 
+EXAMPLE The following shows ancolour space for a typical three-component RGB space. The profile’s data 
+ FlateDecode 
+has been encoded in hexadecimal representation for readability; in actual practice, a lossless decompression 
+filter such ascan be used. 
+10 0 obj            %Colour space 
+  [/ICCBased 15 0 R] 
+endobj 
  
-representing acolour used for the primary text in a 
-navigator.
-(Optional; PDF 2.0) 
-SecondaryText 
- DeviceRGB 
+15 0 obj            %ICC profile stream 
+    <</N 3 
+    /Alternate /DeviceRGB 
+    /Length 1605 
+    /Filter /ASCIIHexDecode 
+   >> 
+stream 
+00 00 02 0C 61 70 70 6C 02 00 00 00 6D 6E 74 72 
+52 47 42 20 58 59 5A 20 07 CB 00 02 00 16 00 0E 
+00 22 00 2C 61 63 73 70 41 50 50 4C 00 00 00 00 
+61 70 70 6C 00 00 04 01 00 00 00 00 00 00 00 02 
+00 00 00 00 00 00 F6 D4 00 01 00 00 00 00 D3 2B 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 09 64 65 73 63 00 00 00 F0 00 00 00 71 
+72 58 59 5A 00 00 01 64 00 00 00 14 67 58 59 5A 
+00 00 01 78 00 00 00 14 62 58 59 5A 00 00 01 8C 
+00 00 00 14 72 54 52 43 00 00 01 A0 00 00 00 0E 
+67 54 52 43 00 00 01 B0 00 00 00 0E 62 54 52 43 
+00 00 01 C0 00 00 00 0E 77 74 70 74 00 00 01 D0 
+00 00 00 14 63 70 72 74 00 00 01 E4 00 00 00 27 
+64 65 73 63 00 00 00 00 00 00 00 17 41 70 70 6C 
+65 20 31 33 22 20 52 47 42 20 53 74 61 6E 64 61 
+72 64 00 00 00 00 00 00 00 00 00 00 00 17 41 70 
+70 6C 65 20 31 33 22 20 52 47 42 20 53 74 61 6E 
+64 61 72 64 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 58 59 5A 58 59 5A 20 00 00 00 00 00 00 63 0A 
+© ISO 2017 – All rights reserved 190 
+
+ISO/DIS 32000-2
  
-array An array of three numbers in the range 0.0 to 1.0, 
-representing acolour used for other text in a navigator.
+00 00 35 0F 00 00 03 30 58 59 5A 20 00 00 00 00 
+00 00 53 3D 00 00 AE 37 00 00 15 76 58 59 5A 20 
+00 00 00 00 00 00 40 89 00 00 1C AF 00 00 BA 82 
+63 75 72 76 00 00 00 00 00 00 00 01 01 CC 63 75 
+63 75 72 76 00 00 00 00 00 00 00 01 01 CC 63 75 
+63 75 72 76 00 00 00 00 00 00 00 01 01 CC 58 59 
+58 59 5A 20 00 00 00 00 00 00 F3 1B 00 01 00 00 
+00 01 67 E7 74 65 78 74 00 00 00 00 20 43 6F 70 
+79 72 69 67 68 74 20 41 70 70 6C 65 20 43 6F 6D 
+70 75 74 65 72 73 20 31 39 39 34 00> 
+endstream 
+endobj 
  
-When displaying a collection, an interactive PDF processor presents an initial view in which the 
-View
-available display area may be divided by a splitter bar into two areas; one area containing a display of 
-the navigation controls of the collection as defined by the  and related entries of the collection 
-dictionary, and one area containing a preview of the initial or currently selected document of the 
-collection. The visibility, orientation or position of the splitter bar may be interactively adjusted by user 
-action subsequent to its initial view as defined by the collection split dictionary, if provided. 
-Table 158: Entries in a collection split dictionary 
-Key Type Value 
-Optional
-Type 
-CollectionSplit
-name () The type of PDF object that this dictionary describes; if 
-present, shall be  for a collection split dictionary. 
-(Optional; PDF 2.0) 
-Direction 
-name The orientation of the splitter bar. The following 
-H 
-values are valid: 
-V 
-indicates that the window is split horizontally 
-N 
-indicates that the window is split vertically. 
+8.6.5.6Default colour spaces 
  
-indicates that the window is not split. The entire window region 
-shall be dedicated to the file navigation view.
-(Optional; PDF 2.0) 
-Position 
-number The initial position of the splitter bar, specified as a 
-N
-Direction
-percentage of the available window area. Values shall range from 0 to 
-100. The entry shall be ignored if  is set to . 
+DeviceGrayDeviceRGBDeviceCMYK
+PDF 1.1
+Colours that are specified in a device colour space (, , or ) are 
+device-dependent. By setting default colour spaces (), a PDF writer can request that such colours 
+shall be systematically transformed (remapped) into device-independent CIE-based colour spaces. This 
+capability can be useful in a variety of circumstances: 
+• 
+• 
+A document originally intended for one output device is redirected to a different device. 
+A document is intended to be compatible with older PDF readers that do not support CIE-based 
+• 
+colours. 
+Colour corrections or rendering intents need to be applied to device colours (see 8.6.5.8, 
+"Rendering intents"). 
+A colour space is selected for painting each graphics object. This is either the current colour space 
+parameter in the graphics state or a colour space given as an entry in an image XObject, inline image, or 
+shading dictionary. Regardless of how the colour space is specified, it shall be subject to remapping as 
+described below. 
+ ColorSpace 
+When a device colour space is selected, thesubdictionary of the current resource 
+DefaultGrayDefaultRGBDefaultCMYK
+dictionary (see 7.8.3, "Resource dictionaries") is checked for the presence of an entry designating a 
+DeviceGrayDeviceRGBDeviceCMYK
+corresponding default colour space (, , or , corresponding to 
+, , or , respectively). If such an entry is present, its value shall be 
+used as the colour space for the operation currently being performed. 
+Colour values in the original device colour space shall be passed unchanged to the default colour space, 
+which shall have the same number of components as the original space. The default colour space should 
+be chosen to be compatible with the original, taking into account the components’ ranges and whether 
+the components are additive or subtractive. If a colour value lies outside the range of the default colour 
+space, it shall be adjusted to the nearest valid value. 
+LabIndexedPattern
+Any colour space other than a , , or  colour space may be used as a default colour 
+space and it should be compatible with the original device colour space as described above. 
+If the selected space is a special colour space based on an underlying device colour space, the default 
+colour space shall be used in place of the underlying space. This shall apply to the following colour 
+spaces: 
+Pattern
+• 
+ Indexed 
+• 
+The underlying colour space of a  colour space 
+The base colour space of ancolour space 
+© ISO 2017 – All rights reserved 191 
+
+ISO/DIS 32000-2
  
-12.3.5.2Collection hierarchical folders 
+ Separation  DeviceN 
+• 
+The alternate colour space of aorcolour space (but only if the alternate 
+• 
+colour space is actually selected) 
+See 8.6.6, "Special colour spaces", for details on these colour spaces. 
+There is no conversion of colour values, such as a tint transformation, when using the default colour 
+ ICCBased 
+space. Colour values that are within the range of the device colour space might not be within the range 
+Lab
+of the default colour space (particularly if the default is ancolour space). In this case, the 
+ DefaultRGB 
+nearest values within the range of the default space are used. For this reason, a  colour space shall 
+not be used as thecolour space. 
+8.6.5.7Implicit conversion of CIE-Based colour spaces 
  
-Beginning with PDF 2.0, a portable collection can contain a Folders object for the purpose of organizing 
-files into a hierarchical structure. The structure is represented by a tree with a single root folder acting 
-Folders
-as the common ancestor for all other folders and files in the collection. The single root folder is 
-referenced in the  entry of "Table 153: Entries in a collection dictionary". 
+In cases where a source colour space accurately represents the particular output device being used, a 
+PDF processor should avoid converting the component colour values but use the source values directly 
+as output values. This avoids any unwanted computational error and in the case of 4 component colour 
+spaces avoids the conversion from 4 components to 3 and back to 4, a process that loses critical colour 
+information. 
+NOTE 1 In workflows in which PDF documents are intended for rendering on a specific target output 
+device (such as a printing press with particular inks and media), it is often useful to specify the 
+source colours for some or all of a document’s objects in a CIE-based colour space that matches 
+the calibration of the intended device. The resulting document, although tailored to the specific 
+characteristics of the target device, remains device-independent and will produce reasonable 
+results if retargeted to a different output device. However, the expectation is that if the document 
+is printed on the intended target device, source colours that have been specified in a colour space 
+matching the calibration of the device will pass through unchanged, without conversion to and 
+from the intermediate CIE 1931  space as depicted in "Figure 24: Component transformations 
+in a CIE-based ABC colour space". 
+XYZ
+NOTE 2 In particular, when colours intended for a CMYK output device are specified in an
+ ICCBased 
+colour space using a matching CMYK printing profile, converting such colours from four 
+components to three and back is unnecessary and results in a loss of fidelity in the black 
+component. In such cases, a PDF processor might provide the ability for the user to specify a 
+particular calibration to use for printing, proofing, or previewing. This calibration is then 
+considered to be that of the native colour space of the intended output device (typically 
+), and colours expressed in a CIE-based source colour space matching it can be 
+DeviceCMYK
+treated as if they were specified directly in the device’s native colour space. 
+NOTE 3 The conditions under which such implicit conversion is done cannot be specified in PDF, since 
+nothing in PDF describes the calibration of the output device (although an output intent 
+dictionary, if present, can suggest such a calibration; "see 14.11.5, "Output intents"). The 
+conversion is completely hidden by the PDF processor and plays no part in the interpretation of 
+PDF colour spaces. 
+When this type of implicit conversion is done, all of the semantics of the device colour space shall also 
+apply, even though they do not apply to CIE-based spaces in general. In particular: 
+• 
+The non-zero overprint mode (see 8.6.7, "Overprint control") shall determine the interpretation of 
+• 
+colour component values in the space. 
+If the space is used as the blending colour space for a transparency group in the transparent 
+Cyan 
+imaging model (see 11.3.4, "Blending colour space"; 11.4, "Transparency groups"; and 11.6.6, 
+Separation  DeviceN 
+"Transparency group XObjects"), components of the space, such as , may be selected in a
+orcolour space used within the group (see 8.6.6.4, "Separation colour 
+spaces" and 8.6.6.5, "DeviceN colour spaces"). 
+© ISO 2017 – All rights reserved 192 
+
+ISO/DIS 32000-2
+ 
+• 
+Likewise, any uses of device colour spaces for objects within such a transparency group have well-
+NOTE 4 A source colour space can be specified directly (for example, with ancolour space) or 
+ ICCBased 
+defined conversions to the group colour space. 
+indirectly using the default colour space mechanism (for example, ; see 8.6.5.6, 
+DefaultCMYK
+"Default colour spaces"). The implicit conversion of a CIE-based colour space to a device space 
+need not depend on whether the CIE-based space is specified directly or indirectly. 
+8.6.5.8Rendering intents 
+ 
+Although CIE-based colour specifications are theoretically device-independent, they are subject to 
+practical limitations in the colour reproduction capabilities of the output device. Such limitations may 
+rendering intentPDF 1.1
+sometimes require compromises to be made among various properties of a colour specification when 
+rendering colours for a given device. Specifying a  () allows a PDF writer to set 
+priorities regarding which of these properties to preserve and which to sacrifice. 
+EXAMPLE The PDF writer might request that colours falling within the output device’s gamut (the range of colours it can 
+reproduce) be rendered exactly while sacrificing the accuracy of out-of-gamut colours, or that a scanned image 
+such as a photograph be rendered in a perceptually pleasing manner at the cost of strict colorimetric accuracy. 
+riRI
+Rendering intents shall be specified with the  operator (see 8.4.4, "Graphics state operators"), the  
+Intent
+entry in a graphics state parameter dictionary (see 8.4.5, "Graphics state parameter dictionaries"), or 
+with the  entry in image dictionaries (see 8.9.5, "Image dictionaries"). The value shall be a name 
+identifying the rendering intent. "

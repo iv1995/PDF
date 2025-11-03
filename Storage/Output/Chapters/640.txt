@@ -1,0 +1,297 @@
+Figure Annex H.7: Hierarchy of structure elements and relationship with marked content" shows how 
+the relationships of the structure elements and their use of the  and  structure types represent 
+the structure of a table of contents.  
+© ISO 2017 – All rights reserved 893 
+
+ISO/DIS 32000-2 
+Structure elements
+400
+/S /TOC
+201211301214215302
+/S /Cap-/S //S /TOC/S //S //S /TOC
+212213216
+/S /
+/S //S /
+101 → 1111 → 11121 → 21131 → 31141 → 41151 → 51161 → 61
+112 → 12122 → 22132 → 32142 → 42152 → 52162 → 62
+113 → 13123 → 23133 → 33143 → 43153 → 53163 → 63
+114 → 14124 → 24134 → 34144 → 44154 → 54164 → 64
+Marked content
+4
+5
+8
+7
+6
+3
+24
+34
+64
+54
+44
+14
+.
+23
+33
+.
+63
+53
+43
+13
+………
+………
+………
+………
+………
+…………
+22
+32
+62
+1
+52
+42
+12
+Section B
+Section A
+Section A
+1
+.
+Chapter Two
+Chapter Three
+Chapter One
+21
+3
+31
+1.2
+1.1
+61
+.
+.
+.
+3
+1
+2
+51
+11
+41
+TABLE OF CONTENTS
+Figure Annex H.7: Hierarchy of structure elements and relationship with marked content 
+ 
+EXAMPLE 
+4 0 obj 
+  <</Type /Page 
+   /Contents 5 0 R 
+  >> 
+ 
+5 0 obj 
+  <</Length 6 0 R>> 
+ stream 
+   /P <</MCID 1>> BDC 
+    BT T* (TABLE OF CONTENTS) Tj ET EMC 
+   /Lbl <</MCID 11>> BDC  
+    BT T* (1. ) Tj ET EMC 
+   /Reference <</MCID 12>> BDC  
+    BT (Chapter One ) Tj ET EMC 
+   /NonStruct <</MCID 13>> BDC  
+    BT (. . . . . . . . . ) Tj ET EMC 
+   /Reference <</MCID 14>> /BDC  
+    BT (3 ) Tj ET EMC 
+   /Lbl <</MCID 21>> BDC  
+    BT T* (1.1 ) Tj ET EMC 
+   /Reference <</MCID 22>> BDC  
+    BT (Section A ) Tj ET EMC 
+   /NonStruct <</MCID 23>> BDC 
+    BT (. . . . . . . . ) Tj ET EMC 
+© ISO 2017 – All rights reserved 894 
+
+ISO/DIS 32000-2
+ 
+   /Reference <</MCID 24>> /BDC 
+    BT (4 ) Tj ET EMC 
+   /Lbl <</MCID 31>> BDC  
+    BT T* (1.2 ) Tj ET EMC 
+   /Reference <</MCID 32>> BDC  
+    BT (Section B ) Tj ET EMC 
+   /NonStruct <</MCID 33>> BDC  
+    BT (. . . . . . . . ) Tj ET EMC 
+   /Reference <</MCID 34>> /BDC  
+    BT (5 ) Tj ET EMC 
+   /Lbl <</MCID 41>> BDC  
+    BT T* (2. ) Tj ET EMC 
+   /Reference <</MCID 42>> BDC  
+    BT (Chapter Two ) Tj ET EMC 
+   /NonStruct <</MCID 43>> BDC  
+   BT (. . . . . . . . . ) Tj ET EMC 
+   /Reference <</MCID 44>> /BDC  
+    BT (6 ) Tj ET EMC 
+   /Lbl <</MCID 51>> BDC  
+    BT T* (3. ) Tj ET EMC 
+   /Reference <</MCID 52>> BDC 
+    BT (Chapter Three ) Tj ET EMC 
+   /NonStruct <</MCID 53>> BDC  
+    BT (. . . . . . . . ) Tj ET EMC 
+   /Reference <</MCID 54>> /BDC  
+    BT (7 ) Tj ET EMC 
+   /Lbl <</MCID 61>> BDC  
+    BT T* (3.1 ) Tj ET EM 
+   /Reference <</MCID 62>> BDC  
+    BT (Section A ) Tj ET EM 
+   /NonStruct <</MCID 63>> BDC  
+    BT (. . . . . . . . ) Tj ET EM 
+   /Reference <</MCID 64>> /BDC  
+    BT (8 ) Tj ET EMC 
+endstream 
+endobj 
+ 
+101 0 obj 
+  <</Type /StructElem 
+   /S /P 
+   /P 201 0 R 
+   /Pg 4 0 R 
+   /K 1 
+  >> 
+endobj 
+ 
+111 0 obj 
+  <</Type /StructElem 
+   /S /Lbl 
+   /P 211 0 R 
+   /Pg 4 0 R 
+   /K 11 
+  >> 
+endobj 
+ 
+112 0 obj 
+  <</Type /StructElem 
+   /S /Reference 
+   /P 211 0 R 
+   /Pg 4 0 R 
+   /K 12 
+  >> 
+endobj 
+ 
+113 0 obj 
+  <</Type /StructElem 
+   /S /NonStruct 
+© ISO 2017 – All rights reserved 895 
+
+ISO/DIS 32000-2 
+   /P 211 0 R 
+   /Pg 4 0 R 
+   /K 13 
+  >> 
+endobj 
+ 
+114 0 obj 
+  </Type /StructElem 
+   /S /Reference 
+   /P 211 0 R 
+   /Pg 4 0 R 
+   /K 14 
+  >> 
+endobj 
+… objects 121-124, 131-134, 141-144, 151-154 and 161-164 referencing MCIDs 21-24, 31-34, 41-44, …  
+… 51-54, and 61-64 are omitted in the interest of space. …  
+ 
+201 0 obj 
+  <</Type /StructElem 
+   /S /Caption 
+   /P 400 0 R 
+   /K [101 0 R] 
+  >> 
+endobj 
+ 
+211 0 obj 
+  <</Type /StructElem 
+   /S /TOCI 
+   /P 400 0 R 
+   /K [111 0 R 112 0 R 113 0 R 114 0 R] 
+  >> 
+endobj 
+ 
+212 0 obj 
+  <</Type /StructElem 
+   /S /TOCI 
+   /P 301 0 R 
+   /K [121 0 R 122 0 R 123 0 R 124 0 R] 
+  >> 
+endobj 
+ 
+213 0 obj 
+  <</Type /StructElem 
+   /S /TOCI 
+   /P 301 0 R 
+   /K [131 0 R 132 0 R 133 0 R 134 0 R] 
+  >> 
+endobj 
+ 
+214 0 obj 
+  <</Type /StructElem 
+   /S /TOCI 
+   /P 400 0 R 
+   /K [141 0 R 142 0 R 143 0 R 144 0 R] 
+  >> 
+endobj 
+ 
+215 0 obj 
+  <</Type /StructElem 
+   /S /TOCI 
+   /P 400 0 R 
+   /K [151 0 R 152 0 R 153 0 R 154 0 R] 
+  >> 
+endobj 
+ 
+216 0 obj 
+  <</Type /StructElem 
+© ISO 2017 – All rights reserved 896 
+
+ISO/DIS 32000-2
+ 
+   /S /TOCI 
+   /P 302 0 R 
+   /K [161 0 R 162 0 R 163 0 R 164 0 R] 
+  >> 
+endobj 
+ 
+301 0 obj 
+  <</Type /StructElem 
+   /S /TOC 
+   /P 400 0 R 
+   /K [212 0 R 213 0 R] 
+  >> 
+endobj 
+ 
+302 0 obj 
+  <</Type /StructElem 
+   /S /TOC 
+   /P 400 0 R 
+   /K [216 0 R] 
+  >> 
+endobj 
+ 
+400 0 obj 
+  <</Type /StructElem 
+   /S TOC 
+   /K [201 0 R 211 0 R 301 0 R 214 0 R 215 0 R 302 0 R] 
+  >> 
+endobj 
+ 
+H.8.3Hierarchical lists 
+ 
+S
+LIL
+The structure element’s structure type entry () may have values that establish hierarchical 
+LI
+relationships between entries in an list. The  value specifies an individual list entry. The  value 
+specifies a list made up of individual list entries and/or lists of list entries. The trailing character in  is 
+an upper case "i". 
+"Figure Annex H.8: Index" shows the list described by the example in H.8.3, "Nested Lists". 
+INDEX
+1. Cats
+Lions
+a. 
+b. Tigers
+. Bears
+2
+Canines
+3. 
+a. Wolves

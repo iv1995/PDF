@@ -1,0 +1,99 @@
+Figure Annex 
+H.3: Document outline as displayed in Example 1". 
+© ISO 2017 – All rights reserved 882 
+
+ISO/DIS 32000-2
+ 
+Object
+Count
+On-screen appearance
+number
+216
+Document
+4
+22
+Section 1
+0
+25
+Section 2
+1
+26
+Subsection 1
+0
+27
+Section 3
+0
+28
+Summary
+0
+29
+Figure Annex H.3: Document outline as displayed in Example 1 
+ 
+EXAMPLE 1 
+21 0 obj 
+  <</Type /Outlines 
+   /First 22 0 R 
+   /Last 29 0 R 
+   /Count 6 
+  >> 
+endobj 
+ 
+22 0 obj 
+  <</Title ( Document ) 
+   /Parent 21 0 R 
+   /Next 29 0 R 
+   /First 25 0 R 
+   /Last 28 0 R 
+   /Count 4 
+   /Dest [3 0 R /XYZ 0 792 0] 
+  >> 
+endobj 
+ 
+25 0 obj 
+  <</Title ( Section 1 ) 
+   /Parent 22 0 R 
+   /Next 26 0 R 
+   /Dest [3 0 R /XYZ null 701 null] 
+  >> 
+endobj 
+ 
+26 0 obj 
+  <</Title ( Section 2 ) 
+   /Parent 22 0 R 
+   /Prev 25 0 R 
+   /Next 28 0 R 
+   /First 27 0 R 
+   /Last 27 0 R 
+   /Count 1 
+   /Dest [3 0 R /XYZ null 680 null] 
+  >> 
+endobj 
+ 
+27 0 obj 
+  <</Title ( Subsection 1 ) 
+   /Parent 26 0 R 
+   /Dest [3 0 R /XYZ null 670 null] 
+  >> 
+endobj 
+ 
+28 0 obj 
+© ISO 2017 – All rights reserved 883 
+
+ISO/DIS 32000-2 
+  <</Title ( Section 3 ) 
+   /Parent 22 0 R 
+   /Prev 26 0 R 
+   /Dest [7 0 R /XYZ null 500 null] 
+  >> 
+endobj 
+ 
+29 0 obj 
+  <</Title ( Summary ) 
+   /Parent 21 0 R 
+   /Prev 22 0 R 
+   /Dest [8 0 R /XYZ null 199 null] 
+  >> 
+endobj 
+ 
+Example 2 in H.6, "Outline hierarchy example" is the same as Example 1, except that one of the outline 
+items has been closed in the display. The outline appears as shown in "

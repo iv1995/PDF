@@ -1,198 +1,82 @@
-Table 366: Block level structure types" for more information on heading 
-structure elements. 
-DocumentDocumentFragment
-An XMP metadata stream (see 14.3.2, "Metadata streams") in a  or  
-structure element may be used to include document metadata for a logical document nested inside a 
-tagged PDF. 
-© ISO 2017 – All rights reserved 729 
+Figure 71: Transparency groups 
+ 
+EXAMPLE "Figure 71: Transparency groups" illustrates the effects of transparency grouping. In the upper two figures, 
+three coloured circles are painted as independent objects with no grouping. At the upper left, the three objects 
+are painted opaquely (opacity = 1.0); each object completely replaces its backdrop (including previously 
+painted objects) with its own colour. At the upper right, the same three independent objects are painted with 
+an opacity of 0.5, causing them to composite with each other and with the gray and white backdrop. In the 
+Normal
+lower two figures, the three objects are combined as a transparency group. At the lower left, the individual 
+objects have an opacity of 1.0 within the group, but the group as a whole is painted in the  blend mode 
+with an opacity of 0.5. The objects thus completely overwrite each other within the group, but the resulting 
+group then composites transparently with the gray and white backdrop. At the lower right, the objects have 
+HardLight
+an opacity of 0.5 within the group and thus composite with each other. The group as a whole is painted against 
+the backdrop with an opacity of 1.0 but in a different blend mode (), producing a different visual 
+effect. 
+soft mask
+The colour result of compositing a group may be converted to a single-component luminosity value and 
+treated as a . Such a mask may then be used as an additional source of shape or opacity values 
+soft clipping
+for subsequent compositing operations. When the mask is used as a shape, this technique is known as 
+; it is a generalization of the current clipping path in the opaque imaging model (see 8.5.4, 
+"Clipping path operators"). 
+11.3Basic compositing computations 
+ 
+11.3.1General 
+ 
+This sub-clause describes the basic computations for compositing a single object with its backdrop. 
+These computations are extended in 11.4, "Transparency groups" to cover groups consisting of multiple 
+objects. 
+11.3.2Basic notation for compositing computations 
+ 
+In general, variable names in this clause consisting of a lowercase letter denote a scalar quantity, such 
+as an opacity. Uppercase letters denote a value with multiple scalar components, such as a colour. In the 
+descriptions of the basic colour compositing computations, colour values are generally denoted by the 
+letter 𝐶𝐶, with a mnemonic subscript indicating which of several colour values is being referred to; for 
+© ISO 2017 – All rights reserved 380 
 
 ISO/DIS 32000-2
  
-14.8.4.4Grouping level structure types 
+f
+𝑓𝑓
+ stands for "source colour." Shape and opacity values are denoted respectively by the letters 
+instance, 𝐶𝐶
+𝑓𝑓
+𝑓𝑓 (for "orm factor") and 𝑞𝑞 (for "opaqueness")—again with a mnemonic subscript, such as 𝑞𝑞
+ for "source 
+opacity." The symbol α (alpha) stands for a product of shape and opacity values. 
+In certain computations, one or more variables may have undefined values; for instance, when opacity 
+is equal to zero, the corresponding colour is undefined. A quantity can also be undefined if it results 
+from division by zero. In any formula that uses such an undefined quantity, the quantity has no effect on 
+the ultimate result because it is subsequently multiplied by zero or otherwise cancelled out. It is 
+significant that although any arbitrary value may be chosen for such an undefined quantity, the 
+computation shall not malfunction because of exceptions caused by overflow or division by zero. In 
+addition, the convention that 0÷0=0 shall also be adopted. 
+11.3.3Basic compositing formula 
  
-This subclause describes structure types for grouping elements, as detailed in "Table 365: Grouping 
-level structure types", that are used to organise the overall structure of content in a tagged PDF. 
-Table 365: Grouping level structure types 
-Structure Category Description 
-Type 
-Part 
-Grouping Encloses content that would typically be perceived as an identifiable part of a 
-document, whether as an article, prologue, section, chapter or any other 
- Part
-identifiable subdivision of content within a logical document.  
-Nesting structure elements allows content to be subdivided. 
-Part
-EXAMPLE 1 The following are just a few of the possible types of content that 
-could be marked as : 
-•
-chapters in a book  
+result colour
+The primary change in the imaging model to accommodate transparency is in how colours are painted. 
+backdrop colour
+In the transparent model, the result of painting (the ) is a function of both the colour being 
+painted (the source colour) and the colour it is painted over (the ). Both of these colours 
+may vary as a function of position on the page; however, this sub-clause focuses on some fixed point on 
+the page and assumes a fixed backdrop and source colour. 
+alpha
+blend
+This computation uses two other parameters: , which controls the relative contributions of the 
+basic colour compositing formulabasic compositing formula
+backdrop and source colours, and the  function, which specifies how they shall be combined in the 
+painting operation. The resulting  (or just  for 
+short) shall determine the result colour produced by the painting operation: 
+𝑠𝑠𝑠𝑠
+𝛼𝛼𝛼𝛼
+𝑟𝑟𝑏𝑏𝑏𝑏𝑓𝑓𝑏𝑏𝑏𝑏𝑓𝑓
+𝑟𝑟𝑟𝑟
+𝛼𝛼𝛼𝛼
+))
+((
+×𝐶𝐶�  
+𝐶𝐶=�1−�×𝐶𝐶+×�1−𝛼𝛼+𝛼𝛼×𝐵𝐵𝐶𝐶,𝐶𝐶
  
-•
-sections and subsections in a technical document  
- 
-•
-articles in a newspaper or magazine  
- 
-•
-recipes in a cooking book 
- 
-•
-a group of advertisements 
- 
-Div 
-Grouping Encloses content structured in fashion that is orthogonal to the semantic structure. 
-It can be used as a role mapping target for custom tags for which no suitable 
-standard structure element is available, or where attributes are applied in a non-
-NOTE 1 Nesting structure elements allows content to be subdivided. 
- Div
-semantic fashion. 
- Div
-A structure element with the type of shall inherit the containment 
-Div
-requirements and limitations of its parent element. Where the parent element is 
-Div
-itself a structure element of type , then the inheritance shall recurse to the first 
-NOTE 2  does not change the semantic level of the structure hierarchy.  
-Div
-parent element whose type is not . 
-Div
-EXAMPLE 2 The following is just one of the possible types of content that 
-could be marked as : 
-•
-associating a language attribute to group of content 
- 
-items without implying any semantic aspects 
-(PDF 2.0) 
-Aside 
-Grouping Encloses content that is distinct from other content within its parent 
-structure element. 
-Aside
-EXAMPLE 3 The following are just a few of the possible types of content that 
-could be marked as : 
-•
-Callout elements 
- 
-•
-Sidebar elements 
- 
-•
-Commentary accompanying an article 
- 
-•
-Background information for a section in a text book 
- 
-© ISO 2017 – All rights reserved 730 
-
-ISO/DIS 32000-2
- 
- 
-14.8.4.5Block level structure types 
- 
-This subclause describes structure types for paragraph-like elements, as detailed in "Table 366: Block 
-level structure types", that consist of running text and other content laid out in the form of conventional 
-paragraphs (as opposed to more specialised types of content such as lists and tables). 
-Table 366: Block level structure types 
-Structure Category Description 
-Type 
-(Paragraph) 
-P 
-Block A low-level division of content. Although in many cases it will be used 
-for paragraphs it may enclose any low-level division of content. 
-P
-EXAMPLE The following is just one of the possible types of content that could 
-be marked as : 
-•
-A paragraph in a newspaper article or a paragraph in the 
- 
-chapter of a novel. 
-(With n being a sequence of digits representing an unsigned integer greater than or 
-Hn 
-equal to 1)
-Block 
-NOTE 1 Low-level content would typically be perceived as a sub-section of a 
- Encloses a low-level division of content usually referred to as a heading.  
-document, whether a section heading, chapter or any other identifiable 
-subdivision of content within a logical document. See the  element 
-Title
-regarding high-level division of content. 
-Any such heading structure element shall always consist of the uppercase letter "H" 
-and one or more digits, representing an unsigned integer greater than or equal to 1, 
-without leading zeroes or any other prefix or postfix.  
-H1H2
-The heading level is indicated through the chosen structure element type, for 
-example  indicates a heading at the topmost level within a document,  a 
-NOTE 2 This implies that  can be used to indicate a heading on the seventh level, 
-H7
-heading at the second level, and so forth. 
-whereas h7, H07, H-7 or H_7 cannot be used as heading structure elements. 
-The heading level indicated by a heading should reflect the heading level of the 
-NOTE 3 The  structure element can be used to enclose section enumeration 
-Lbl
-tagged content.  
-content or its functional equivalent present inside the heading. 
- 
-EXAMPLE A section heading in a text book or newspaper article is one 
-example where a heading level would be indicated.
-© ISO 2017 – All rights reserved 731 
-
-ISO/DIS 32000-2
- 
-Structure Category Description 
-Type 
-heading
-H 
-Block Encloses a low-level division of content usually referred to as a . The 
-Document
-heading level is not indicated through this structure element, but instead is derived 
-DocumentFragmentH
-from the nesting of the logical structure within a given  or 
-H
- structure element. The  heading structure elements should 
-always be the first structure element within its parent structure element. The  
-heading structure element shall always be the only heading structure element 
-NOTE 1 This implies that within a given logical document it is not acceptable that 
-within its parent structure element. 
-an  heading structure element is used if a , ,  etc. heading 
-HH1H2H3
-structure element is also used inside the same  
-DocumentFragment
-structure element. 
-NOTE 2 The  structure element can be used to enclose a section number or 
-Lbl
-similar present inside the heading. 
-H
-EXAMPLE 1 As the use of the  heading structure element requires strict 
-document structuring it is typically used only for machine 
-generated documents, documents created from a well structured 
-content data set or documents whose creation is fully controlled 
-by a program such that its structure is strictly guaranteed. 
-EXAMPLE 2 Scientific publications and technical specifications often follow 
- 
-H
-very strict structuring rules and thus are suitable candidates for 
-use of the  heading structure element.
-(PDF 2.0) 
-Title 
-Grouping or Encloses content that is usually referred to as the title of a document or 
-NOTE 3 High-level content would typically be perceived as the title of an article, 
-Block high-level division of content.  
-section, chapter or any other identifiable top-level subdivision of content 
-within a logical document. See the  and  elements regarding low-level 
-HnH
-division of content. 
-It should occur only once inside the parent grouping structure element, and it 
-should occur at or near the beginning of the content inside that grouping structure 
-element. 
-Title
-EXAMPLE 3 The title of a book, brochure or leaflet are some types of content 
-that can be marked with the  structure element. 
-(PDF 2.0) 
-FENote 
-Grouping, Used to markup footnotes and endnotes. Footnotes and endnotes are 
-Block or content that is not normally read as part of the enclosing content from which it is 
-Inline referenced, but rather consulted at the reading person’s discretion. In order for text 
-to be considered a footnote or endnote, there should be a reference from the 
-Link
-enclosing content to the footnote or endnote. Such reference may be achieved by 
-Ref
-means of a  structure element through a structure destination in its link 
+where the variables have the meanings shown in "
