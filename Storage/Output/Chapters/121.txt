@@ -1,11 +1,11 @@
 #Table 46: Entries in a 
-collection item dictionary" describes the entries in a collection item dictionary.
-#Table 46: Entries in a collection item dictionary 
+collection item dictionary#" describes the entries in a collection item dictionary.#
+Table 46: Entries in a collection item dictionary #
 Key Type Value 
 Optional
 Type 
 CollectionItem
-name () The type of #PDF #object that this dictionary describes; if present, shall 
+name () The type of #PDF ##object #that this dictionary describes; if present, shall 
 be  for a collection item dictionary. 
 © ISO 2017 – All rights reserved 139 
 
@@ -14,5 +14,5 @@ ISO/DIS 32000-2
 Key Type Value 
 Other keys Optional
 text string, () Provides the data corresponding to the related fields in the collection 
-date, dictionary. If the entry is a dictionary, then it shall be a collection su#bitem 
+date, dictionary. If the entry is a dictionary, then it shall be a collection su#bi#tem 
 number or dictionary (see "

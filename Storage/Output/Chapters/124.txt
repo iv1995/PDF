@@ -1,57 +1,57 @@
 #Table 
-49: Entries in a #developer extensions dictionary") specifying #developer-defined version information. 
-The extensions dictionary, all #developer extensions dictionaries, as well as their entries, shall be #direct 
-#objects (i.e., this information shall be nested directly within the catalog dictionary with no indirect 
+49: Entries in a #developer #extensions dictionary#") specifying# develope#r-defined version information. 
+The extensions dictionary, al#l develope#r extensions dictionaries, as well as their entries, shall be #direct 
+#object##s (i.e., this information shall be nested directly within the catalog dictionary with no indirect 
 © ISO 2017 – All rights reserved 140 
 
 ISO/DIS 32000-2
- 
-#objects used). 
+ #
+objec#ts used). 
 7.12.2Extensions dictionary 
  
-"#Table 48: Entries in an extensions dictionary" describes the entries in a extensions dictionary. 
-#Table 48: Entries in an extensions dictionary 
+"#Table 48: Entries in an extensions dictionary#" describes the entries in a extensions dictionary. #
+Table 48: Entries in an extensions dictionary #
 Key Type Value 
 Optional
 Type 
 Extensions
-name () The type of #PDF #object that this dictionary describes; if present, shall 
+name () The type of #PD#F #objec#t that this dictionary describes; if present, shall 
 be . 
-Required (#PDF 1.7
+Required #(PDF# 1.7
 Prefix name 
-dictionary ()) A #developer extensions dictionary denoting extensions used 
-(See "#Table 49: Entries in a #developer extensions dictionary"). The key shall be a 
-registered prefix name as described in Annex E, "#PDF Name Registry". 
-This entry may be repeated for each different #developer’s extensions used.  
+dictionary ())# A develop#er extensions dictionary denoting extensions used 
+(See #"Table 49: Entries i#n a develo#per extensions dictionar#y"). The key shall be a 
+registered prefix name as described in Annex E,# "PD#F Name Registry". 
+This entry may be repeated for each diffe#rent deve#loper’s extensions used.  
  
-7.12.3#Developer extensions dictionary 
- 
-"#Table 49: Entries in a #developer extensions dictionary" describes the entries in a #developer extensions 
-dictionary. 
-#Table 49: Entries in a #developer extensions dictionary 
+#7.12.3Deve#loper extensions dictionary 
+ #
+"Table 49: Entrie#s in a dev#eloper extensions dictiona#ry" describes the entri#es in a de#veloper extensions 
+dictionary#. 
+Table 49: Entr#ies in a d#eveloper extensions dictionar#y 
 Key Type Value 
-Optional
-Type 
-#DeveloperExtensions
-name () The type of #PDF #object that this dictionary describes; if present, shall 
+Optio#nal
+Type #
+DeveloperExtensions
+name () The type #of P##DF obje#ct that this dictionary describes; if present, shall 
 be . 
 Required
 BaseVersion 
 Version
-name () The name of the #PDF version to which this extension applies. The name 
+name () The name of #the #PDF version to which this extension applies. The name 
 shall be consistent with the syntax used for the  entry of the catalog 
 dictionary (see 7.7.2, "Document catalog dictionary"). 
 Required
 ExtensionLevel 
-integer () An integer defined by the #developer to denote the extension being 
+integer () An integer defi#ned by the# developer to denote the extension being 
 BaseVersion
-used. If the #developer introduces more than one extension to a given 
- the extension level numbers assigned by that #developer shall 
+u#sed. If th#e developer introduces more than one extension to a given 
+ the extension level numbers assi#gned by th#at developer shall 
 increase over time. 
 Optional
 URL   
-string () AURLthat refers to the documentation for this extension (see Annex E, 
-"#PDF Name Registry"). 
+string () AURLthat refers to the documentation for this extension (see Annex #E, 
+#"PDF Name Registry"). 
  
 7.12.4BaseVersion 
  
@@ -61,7 +61,7 @@ The value of the  entry shall be a name and shall be consistent with the syntax 
 BaseVersion
  entry value of the catalog dictionary (see 7.7.2, "Document catalog dictionary"). The value of 
  Version
-, when treated as a version number, shall be less than or equal to the #PDF version, both in 
+, when treated as a version number, shall be less than or equal t#o th#e PDF version, both in 
 BaseVersion
 the document header (see 7.5.2, "File header") and the catalog dictionary key value, if present. 
 Version
@@ -81,28 +81,28 @@ ExtensionLevel
 BaseVersionBaseVersion
 The value of the  entry shall be an integer, which shall be interpreted with respect to 
 ExtensionsLevel
-the  value. If a #developer has released multiple extensions against the same  
+the#  value. I#f a developer has released multiple extensions against the same  
 value, they shall be ordered over time and the  numbers shall be a monotonically 
 increasing sequence over time. 
 7.12.6URL 
  
  URL   
 The value of the optionalentry shall be a string containing aURLto the documentation that is 
-provided by the #developer of this extension and as registered in the #PDF Registry (see Annex E, "#PDF 
+p#rovided by# the developer of this extension and as registered #in t#he PDF Registry (see An#nex E#, "PDF 
 Name Registry"). 
-EXAMPLE 1 
-%#PDF–2.0 
+EXA#MPL#E 1 
+%PDF–2.0 
 <</Type /Catalog 
    /Extensions 
     <</ADBE 
      <</BaseVersion /1.7 
       /ExtensionLevel 3 
-      /URL (http://www.adobe.com/documentation/ext3.#pdf)>> 
+      /URL (http://www.adobe.com/documenta#tio#n/ext3.pdf)>> 
      >> 
     >> 
 >> 
-EXAMPLE 2 
-%#PDF–2.0 
+E#XAM#PLE 2 
+%PDF–2.0 
 <</Type /Catalog 
    /Extensions 
     <</GLGR 
@@ -111,19 +111,19 @@ EXAMPLE 2
      >> 
     >> 
 >> 
-EXAMPLE 3 
-%#PDF–2.0 
+#EXA#MPLE 3 
+%PDF–2.0 
 <</Type /Catalog 
    /Extensions 
     <</ADBE 
      <</BaseVersion /1.7 
       /ExtensionLevel 3 
-      /URL (http://www.adobe.com/documentation/ext3.#pdf) 
+      /URL (http://www.adobe.com/docume#nta#tion/ext3.pdf) 
      >> 
      /GLGR 
      <</BaseVersion /1.7 
       /ExtensionLevel 1002 
-      /URL (http://www.generallanguage.com/ISO32000/extension1002.#pdf) 
+      /URL (http://www.generallanguage.com/ISO32000/#ext#ension1002.pdf) 
      >> 
     >> 
 >> 

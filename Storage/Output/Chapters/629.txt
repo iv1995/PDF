@@ -1,2 +1,2 @@
 #Table Annex 
-H.3: #Objects in simple graphics example" lists the #objects in this example, and "
+H.3: #Object#s in simple graphics example#" lists the# objec#ts in this example, and "

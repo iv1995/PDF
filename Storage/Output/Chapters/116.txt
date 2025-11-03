@@ -1,19 +1,19 @@
 #Table 41: Additional entries specific to a Type 3 #function 
-dictionary". 
-#Table 41: Additional entries specific to a Type 3 #function dictionary 
+#dictionary#". #
+Table 41: Additional entries specific to a Type 3# function# dictionary #
 Key Type Value 
-Requiredk
-#Functions 
-array () An array of , 1-input #functions that shall make up the stitching #function. 
+Required#k
+Functi#ons 
+array () An array of , 1-inp#ut funct#ions that shall make up the stitch#ing func#tion. 
 RangeRange
-The output dimensionality of all #functions shall be the same, and compatible with 
+The output dimensionality of# all fun#ctions shall be the same, and compatible with 
 the value of  if  is present. 
 Required
-Bounds Domain
-#Functions
-array () An array of 𝑘𝑘− 1 numbers that, in com#bination with , shall 
+Bounds D#omain
+Fu#nctions
+array () An array of 𝑘𝑘− 1 numbers that, in com#bi#nation with , shall 
 Bounds
-define the intervals to which each #function from the  array shall apply. 
+define the intervals to whic#h each fu#nction from the  array shall apply. 
 Domain
  elements shall be in order of increasing value, and each value shall be 
 within the domain defined by . 
@@ -22,7 +22,7 @@ Encode
 DomainBounds
 array () An array of 2 × 𝑘𝑘 numbers that, taken in pairs, shall map each subset of 
 the domain defined by  and the  array to the domain of the 
-corresponding #function. 
+corres#ponding #function. 
  
 DomainDomain
 Domain
@@ -79,29 +79,29 @@ ISO/DIS 32000-2
 𝑘𝑘=3 𝐷𝐷𝑛𝑛𝐵𝐵 𝐷𝐷𝐷𝐷𝑚𝑚𝐷𝐷𝐷𝐷𝑛𝑛
 0111
 (𝐵𝐵𝐷𝐷𝐵𝐵𝑛𝑛𝐵𝐵𝑠𝑠
-,𝐵𝐵𝐷𝐷𝐵𝐵𝑛𝑛𝐵𝐵𝑠𝑠); [𝐵𝐵𝐷𝐷𝐵𝐵𝑛𝑛𝐵𝐵𝑠𝑠,𝐷𝐷𝐷𝐷𝑚𝑚𝐷𝐷𝐷𝐷𝑛𝑛], 
-kx
-#Functions
+,𝐵𝐵𝐷𝐷𝐵𝐵𝑛𝑛𝐵𝐵𝑠𝑠); [𝐵𝐵𝐷𝐷𝐵𝐵𝑛𝑛𝐵𝐵𝑠𝑠,𝐷𝐷𝐷𝐷𝑚𝑚𝐷𝐷𝐷𝐷𝑛#𝑛], 
+kx#
+Functions
 Domain
 Bounds
-The value of the  entry shall be an array of  functions. The first #function shall apply to  
+The value of the  entry shall be an array of  functions. #The first# function shall apply to  
 x
 Bounds
 Bounds
 00
 values in the first subdomain (interval), defined by 
  and  as defined just above; the 
-x
+x#
 01
-second #function shall apply to  values in the second subdomain, defined by 
+secon#d function shall apply to  values in the second subdomain, defined by 
  and ; and 
 k
 Bounds
 DomainBounds
-so on. The last #function shall apply to  values in the last subdomain, which includes the upper bound 
+so o#n. The la#st function shall apply to  values in the last subdomain, which includes the uppe#r bound #
 x
 x
-#FunctionsDomain
+FunctionsDomain
 Domain
 k-21
 defined by 
@@ -137,23 +137,23 @@ bound,
 000
 case, if the first bound, 
 , is equal to  then  shall be defined to be . 
-NOTE The stitching #function is designed to make it easy to com#bine several #functions to be used within 
+NOTE #The stitc#hing function is designed to make it easy to c#o#mb#ine s#everal functions to be used within 
 one shading pattern over different parts of the shading’s domain. Shading patterns are discussed 
 in 8.7.4, "Shading patterns". The same effect could be achieved by creating a separate shading 
-dictionary for each of the #functions, with adjacent domains. However, since each shading would 
+dictionary #for each# of the functions, with adjacent domains. However, since each shading would 
 have similar parameters, and because the overall effect is one shading, it is more convenient to 
-have a single shading with multiple #function definitions. Also, Type 3 #functions provide a general 
-mechanism for inverting the domains of 1-input #functions. 
-fDomainDomain
-#FunctionsEncode
-EXAMPLE Consider a #function  with a [ of 0.0 1.0] and a stitching #function g with a [ of 0.0 1.0], a 
+have a single shadi#ng with m#ultiple function definiti#ons. Als#o, Type 3 functions provide a general 
+mechanism for inverting the #domains #of 1-input functi#ons. 
+fD#omainDomain
+FunctionsEncod#e
+EXAMPLE #Consider a function  with a [ of 0.0# 1.0] and# a stitching function g with a [ of 0.0 1.0], a 
  array containing f, and an  array of [1.0 0.0]. In effect, 𝑔𝑔 (𝑥𝑥) = 𝑓𝑓 (1 − 𝑥𝑥). 
-7.10.5Type 4 (PostScript calculator) #functions 
+7.10.5Type 4 (#PostScri#pt calculator) functions 
  
-7.10.5.1General 
+7.10.5.1Gene#ral 
  
-#PDF 1.3
-A Type 4 #function (), also called a PostScript calculator #function, shall be represented as a 
+#PD#F #1.3
+A Type 4 function (), also called# a PostS#cript calculator function, shall be represented as a 
 stream containing code written in a small subset of the PostScript language. This subset is comprised of 
 the following PostScript language features: 
 • 
@@ -164,27 +164,27 @@ Comments
 • 
 No composite data structures (such as strings or arrays) 
 • 
-No procedures 
-NOTE 1 Although any #function can be sampled (in a Type 4 #PDF function) and others can be described 
-No variables or names 
-with exponential #functions (Type 2 in #PDF), Type 4 #functions offer greater flexi#bility and 
-potentially greater accuracy. For example, a tint transformation #function for a hexachrome (six-
+No proced#ures 
+NOT#E 1 Although any function can be sampled (in a Type 4# PDF# function) and others can be described 
+No variables #or names# 
+with exponential functi#ons (Typ#e 2 i#n P#DF), Type 4 functions offer greater fle#xi#bility and 
+potentially greater accuracy. For ex#ample, a #tint transformation function for a hexachrome (six-
 component)colour space with an alternative colour space of(see 8.6.6.5, 
  DeviceN  DeviceCMYK 
-"DeviceN colour spaces") requires a 6-in, 4-out #function. If such a #function were sampled with m 
+"DeviceN colour sp#aces") r#equires a 6#-in, 4-ou#t function. If such a function were sampled with m 
 6
-, could be prohi#bitively large. In 
-values for each input variable, the number of samples, 4 × 
-practice, such #functions can often be written as short, simple PostScript language #functions. 
+, could be pr#oh#ibitively large. In 
+values for each input variable, the number #of sampl#es, 4 × 
+practice, such functions can often be written as s#hort, si#mple PostScript language functions. 
 m
-© ISO 2017 – All rights reserved 130 
+© ISO 2017 – All rights reserved 130 #
 
-ISO/DIS 32000-2
+ISO/DI#S 32000-2
  
-NOTE 2 Type 4 #functions also make it possible to include a wide variety of halftone spot #functions without 
-the loss of accuracy that comes from sampling, and without adding to the list of predefined spot 
-#functions (see 10.6.3, "Spot #functions"). All of the predefined spot #functions can be written as Type 
-4 #functions. 
+NOTE 2 Type 4 functions also make it possible to inclu#de a wid#e variety of halftone spot functions without 
+the loss of accuracy that comes from sampling, and without add#ing to t#he list of predefine#d spot 
+#functions (see 10.6.3, "Spot fu#nctions"#). All of the predefined sp#ot funct#ions can be written as Type 
+4 functions. 
 7.10.5.2Operators and operands 
  
 "

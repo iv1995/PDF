@@ -1,199 +1,199 @@
-#Table Annex A.1: #PDF #content stream operators" lists each operator, its corresponding PostScript 
-language operators (when it is an exact or near-exact equivalent of the #PDF operator), a description of 
-the operator, and references to the table where each operator is introduced. 
-#Table Annex A.1: #PDF #content stream operators 
+#Table Annex A.1: #PDF ##content stream #operators#" lists each operator, its corresponding PostScript 
+language operators (when it is an exact or near-exact equivalent of the# PDF# operator), a description of 
+the operator, and references to the table where each operator is introduced. #
+Table Annex A.1#: PDF## content stream# operators #
 Operator PostScript Description Table 
 Equivalent 
 b 
 closepath, fill, 
 stroke 
-Close, fill, and stroke path using non-zero "#Table 59: Path-painting operators" 
+Close, fill, and stroke path using non-zero "#Table 59: Path-painting operators#" 
 winding number rule 
 B 
 fill, stroke 
-Fill and stroke path using non-zero winding "#Table 59: Path-painting operators" 
+Fill and stroke path using non-zero winding #"Table 59: Path-painting operator#s" 
 number rule 
 b* 
 closepath, eofill, 
 stroke 
-Close, fill, and stroke path using even-odd rule "#Table 59: Path-painting operators" 
+Close, fill, and stroke path using even-odd rule# "Table 59: Path-painting operato#rs" 
 B* 
 eofill, stroke 
-Fill and stroke path using even-odd rule "#Table 59: Path-painting operators" 
-BDC 
-#PDF 1.2
+Fill and stroke path using even-odd rul#e "Table 59: Path-painting operat#ors" 
+BD#C 
+P#DF 1.2
  
-() Begin marked-content sequence "#Table 352: Marked-content operators" 
+() Begin marked-content sequence "#Table 352: Marked-content operators#" 
 with property list 
 #BI 
  
-Begin inline image #object "Table 90: Inline image operators" 
-BMC 
+#Begin inline image #object #"Table 90: Inline image operators" 
+B#MC 
 #PDF 1.2
  
 () Begin marked-content sequence "Table 351: Marked-content operators" 
 BT 
  
-Begin text #object "#Table 107: Text-showing operators" 
-BX 
-#PDF 1.1
+Begin text# object# "#Table 107: Text-showing operators#" #
+BX #
+PDF 1.1
  
-() Begin compati#bility section "#Table 33: Compati#bility operators" 
+() Begin compat#ib#ility section "#Table 33: Compa#ti#bility operators#" 
 c 
 curveto 
-Append curved segment to path (three control "#Table 60: Clipping path operators" 
+Append curved segment to path (three control "#Table 60: Clipping path operators#" 
 points) 
 cm 
 concat 
-Concatenate matrix to current transformation "#Table 56: #Graphics state operators" 
-matrix 
-CS 
-#PDF 1.1
+Concatenate matrix to current transformation "#Table 56: #Graphics state #operators#" 
+matrix# 
+CS# 
+PDF 1.1
 setcolorspace 
-() Set colourspace for stroking "#Table 73: Colour operators" 
+() Set colourspace for stroking "#Table 73: Colour operators#" 
 operations 
 © ISO 2017 – All rights reserved 811 
 
 ISO/DIS 32000-2
  
 Operator PostScript Description Table 
-Equivalent 
-cs 
-#PDF 1.1
+Equivalen#t 
+c#s 
+PDF 1.1
 setcolorspace 
-() Set colourspace for nonstroking "#Table 73: Colour operators" 
+() Set colourspace for nonstroking #"Table 73: Colour operator#s" 
 operations 
 d setdash 
-Set line dash pattern "#Table 56: #Graphics state operators" 
+Set line dash pattern #"Table 56:# Graphics state# operator#s" 
 d0 setcharwidth 
-Set #glyph width in Type 3 #font "#Table 111: Type 3 #font operators" 
+Set #glyph #width in Type 3 #font #"#Table 111: Type 3# font# operators#" 
 d1 setcachedevice 
-Set #glyph width and bounding box in Type 3 "#Table 111: Type 3 #font operators" 
-#font 
+Set# glyph# width and bounding box in Type 3 #"Table 111: Type #3 fon#t operators##" 
+fon#t 
 Do  
-Invoke named X#Object "#Table 86: X#Object operator" 
-#PDF 1.2
+Invoke named# XObjec#t "#Table 86#: XObje#ct ope#rato#r#" 
+PDF 1.2
 DP  
-() Define marked-content point with "#Table 352: Marked-content operators" 
+() Define marked-content point with #"Table 352: Marked-content operator#s" 
 property list# 
 EI  
-End inline image #object "Table 90: Inline image operators" 
-#PDF 1.2
+#End inline im#age obj#ect "Table 90: Inline image ope#rato#rs" 
+PDF 1.2
 EMC  
-() End marked-content sequence "#Table 352: Marked-content operators" 
+() End marked-content sequence# "Table 352: Marked-content operato#rs" 
 ET  
-End text #object "#Table 105: Text #object operators" 
-#PDF 1.1
+End #text ob#ject "#Table 105:# Text o#bject op#erat#ors#" 
+PDF 1.1
 EX  
-() End compati#bility section "#Table 33: Compati#bility operators" 
+() End comp#at#ibility section #"Table 33: Com#pa#tibility operator#s" 
 f fill 
-Fill path using non-zero winding number rule "#Table 59: Path-painting operators" 
+Fill path using non-zero winding number ru#le "Table 59: Path-painting opera#tors" 
 F fill 
-#deprecated in #PDF 2.0
-Fill path using non-zero winding number rule "#Table 59: Path-painting operators" 
+#depr#ecat#ed #in PDF 2.0
+Fill path using non-zero winding number r#ule "Table 59: Path-painting oper#ators" 
 () 
 f* eofill 
-Fill path using even-odd rule "#Table 59: Path-painting operators" 
+Fill path using even-odd #rule "Table 59: Path-painting ope#rators" 
 G setgray 
-Set gray level for stroking operations "#Table 73: Colour operators" 
+Set gray level for stroking operations# "Table 73: Colour operato#rs" 
 g setgray 
-Set gray level for nonstroking operations "#Table 73: Colour operators" 
-#PDF 1.2
+Set gray level for nonstroking operation#s "Table 73: Colour #oper#at#ors" 
+PDF 1.2
 gs  
-() Set parameters from #graphics state "#Table 56: #Graphics state operators" 
+() Set parameters fro#m graphics stat#e# "Table 5#6: Graphics sta#te operato#rs" 
 parameter dictionary 
 h closepath 
-Close subpath "#Table 58: Path construction operators" 
+Close subpath "#Table 58: Path construction operators#" 
 i setflat 
-Set flatness tolerance "#Table 56: #Graphics state operators"# 
+Set flatness toleranc#e "Table #56: Graphics st#ate operat#ors"# 
 ID  
-Begin inline image data "Table 90: Inline image operators" 
+#Begin inline image data "Table 90: Inline image operators" 
 j setlinejoin 
-Set line join style "#Table 56: #Graphics state operators" 
+Set line join sty#le "Table# 56: Graphics s#tate opera#tors" 
 J setlinecap 
-Set line cap style "#Table 56: #Graphics state operators" 
+Set line cap st#yle "Tabl#e 56: Graphics #state oper#ators" 
 K setcmykcolor 
-Set CMYK colour for stroking operations "#Table 73: Colour operators" 
+Set CMYK colour for stroking operatio#ns "Table 73: Colour opera#tors" 
 k setcmykcolor 
-Set CMYK colour for nonstroking operations "#Table 73: Colour operators" 
+Set CMYK colour for nonstroking operati#ons "Table 73: Colour oper#ators" 
 l lineto 
-Append straight line segment to path "#Table 58: Path construction operators" 
+Append straight line segment to path #"Table 58: Path construction operator#s" 
 m moveto 
-Begin new subpath "#Table 58: Path construction operators" 
+Begin new subpath# "Table 58: Path construction operato#rs" 
 M setmiterlimit 
-Set miter limit "#Table 56: #Graphics state operators" 
+Set miter l#imit "Tab#le 56: Graphics# state ope#rators" 
 © ISO 2017 – All rights reserved 812 
 
 ISO/DIS 32000-2
  
-Operator PostScript Description Table 
-Equivalent 
-#PDF 1.2
+Operator PostScript Description Table #
+Equ#ivalent 
+PDF 1.2
 MP  
-() Define marked-content point "#Table 352: Marked-content operators" 
+() Define marked-content poin#t "Table 352: Marked-content operat#ors" 
 n  
-End path without filling or stroking "#Table 59: Path-painting operators" 
-q gsave 
-Save #graphics state "#Table 56: #Graphics state operators" 
-Q grestore 
-Restore #graphics state "#Table 56: #Graphics state operators" 
+End path without filling or str#oking "Table 59: Path-painting op#erators" 
+q gsav#e 
+Save graphic#s #state "T#able 56: Graphi#cs state op#erators" 
+Q grestore# 
+Restore graph#ics #state #"Table 56: Grap#hics state o#perators" 
 re  
-Append #rectangle to path "#Table 58: Path construction operators" 
+Append #rectangle #to pat#h "Table 58: Path construction operat#ors" 
 RG setrgbcolor 
-Set RGB colour for stroking operations "#Table 73: Colour operators" 
+Set RGB colour for stroking operat#ions "Table 73: Colour ope#rators" 
 rg setrgbcolor 
-Set RGB colour for nonstroking operations "#Table 73: Colour operators" 
+Set RGB colour for nonstroking opera#tions "Table 73: Colour op#erators" 
 ri  
-Set colour rendering intent "#Table 56: #Graphics state operators" 
+Set colour rendering #intent# "Table 56: Gra#phics state #operators" 
 s closepath, stroke 
-Close and stroke path "#Table 59: Path-painting operators" 
+Close and strok#e path "Table 59: Path-painting o#perators" 
 S stroke 
-Stroke path "#Table 59: Path-painting operators" 
-#PDF 1.1
+Stro#ke path "Table 59: Path-paintin#g o#p#erators" 
+PDF 1.1
 SC setcolor 
-() Set colour for stroking operations "#Table 73: Colour operators" 
-#PDF 1.1
+() Set colour for stroking oper#ations "Table 73: Colo#ur o##perators" 
+PDF 1.1
 sc setcolor 
-() Set colour for nonstroking "#Table 73: Colour operators" 
-operations 
-#PDF 1.2
+() Set colour for nons#troking "Table 73: Colour o#perator#s" 
+#operations 
+PDF 1.2
 SCN setcolor 
 ICCBased
-() Set colour for stroking operations "#Table 73: Colour operators" 
-( and special colour spaces) 
-#PDF 1.2
+() Set colour for stroking op#erations "Table 73: Colour# operators" 
+( and special# col#our spaces) 
+PDF 1.2
 scn setcolor 
 ICCBased
-() Set colour for nonstroking "#Table 73: Colour operators" 
-operations ( and special colour 
+() Set colour for no#nstroking "Table 73: Colou#r operators" 
+operations ( and special# col#our 
 spaces) 
-#PDF 1.3
+PDF 1.3
 sh shfill 
-() Paint area defined by shading "#Table 76: Shading operator" 
+() Paint area defined by shading "#Table 76: Shading operator#" 
 pattern 
 T*  
-Move to start of next text line "#Table 106: Text-positioning operators" 
+Move to start of next text line "#Table 106: Text-positioning operators#" 
 Tc  
-Set #character spacing "#Table 103: Text state operators" 
+Set #character #spacing "#Table 103: Text state operators#" 
 Td  
-Move text position "#Table 106: Text-positioning operators" 
+Move text position #"Table 106: Text-positioning operator#s" 
 TD  
-Move text position and set leading "#Table 106: Text-positioning operators" 
-Tf select#font 
-Set text #font and size "#Table 103: Text state operators" 
+Move text position and set leading# "Table 106: Text-positioning operato#rs" 
+Tf se#lectfo#nt 
+Set #text #font and size #"Table 103: Text state operator#s" 
 Tj show 
-Show text "#Table 107: Text-showing operators" 
+Show text #"Table 107: Text-showing operator#s" 
 TJ  
-Show text, allowing individual #glyph "#Table 107: Text-showing operators" 
+Show text, allowing individua#l glyp#h# "Table 107: Text-showing operato#rs" 
 positioning 
 TL  
-Set text leading "#Table 103: Text state operators" 
+Set text leading# "Table 103: Text state operato#rs" 
 Tm  
-Set text matrix and text line matrix "#Table 106: Text-positioning operators" 
+Set text matrix and text line matri#x "Table 106: Text-positioning operat#ors" 
 Tr  
-Set text rendering mode "#Table 103: Text state operators" 
+Set text rendering mod#e "Table 103: Text state operat#ors" 
 Ts  
-Set text rise "#Table 103: Text state operators" 
+Set text ri#se "Table 103: Text state opera#tors" 
 © ISO 2017 – All rights reserved 813 
 
 ISO/DIS 32000-2
@@ -201,26 +201,26 @@ ISO/DIS 32000-2
 Operator PostScript Description Table 
 Equivalent 
 Tw  
-Set word spacing "#Table 103: Text state operators" 
+Set word spac#ing "Table 103: Text state oper#ators" 
 Tz  
-Set horizontal text scaling "#Table 103: Text state operators" 
+Set horizontal text sca#ling "Table 103: Text state ope#rators" 
 v curveto 
-Append curved segment to path (initial point "#Table 58: Path construction operators" 
+Append curved segment to path (initial poi#nt "Table 58: Path construction opera#tors" 
 replicated) 
 w setlinewidth 
-Set line width "#Table 56: #Graphics state operators" 
+Set lin#e widt#h "Table 56: Gr#aphics state# operators" 
 W clip 
-Set clipping path using non-zero winding "#Table 60: Clipping path operators" 
+Set clipping path using non-zero winding #"Table 60: Clipping path operator#s" 
 number rule 
 W* eoclip 
-Set clipping path using even-odd rule "#Table 60: Clipping path operators" 
+Set clipping path using even-odd rule# "Table 60: Clipping path operato#rs" 
 y curveto 
-Append curved segment to path (final point "#Table 58: Path construction operators" 
+Append curved segment to path (final po#int "Table 58: Path construction oper#ators" 
 replicated) 
 '  
-Move to next line and show text "#Table 107: Text-showing operators" 
+Move to next line and show tex#t "Table 107: Text-showing operat#ors" 
 "  
-Set word and #character spacing, move to next "#Table 107: Text-showing operators" 
+Set word and# character# spacing, move to ne#xt "Table 107: Text-showing opera#tors" 
 line, and show text 
   
 © ISO 2017 – All rights reserved 814 

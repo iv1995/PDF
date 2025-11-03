@@ -1,9 +1,9 @@
 #Table 118: Additional entries in a CMap stream dictionary 
-Key Type Value 
+#Key Type Value 
 Required
 Type 
 CMap
-name  () The type of #PDF #object that this dictionary describes; shall be 
+name  () The type of #PDF ##object #that this dictionary describes; shall be 
  for a CMap dictionary. 
 Required
 CMapName 
@@ -13,57 +13,57 @@ name () The name of the CMap. It shall be the same as the value of
 Required
 CIDSystemInfo 
 dictionary  () A dictionary (see 9.7.3, "CIDSystemInfo dictionaries") containing 
-entries that define the #character collection for the CID#Font or CID#Fonts 
+entries that define the #character #collection for the CID#Font #or CI#DFon#ts 
 CIDSystemInfo
 associated with the CMap. The value of this entry shall be the same as the# 
-Identity-HIdentity-V
+Id#entity-HIdentity-V
 CIDSystemInfo
 value of  in the CMap file. (However, it does not need to match 
 the values of  for the  or  CMaps.) 
 Optional
 WMode 
-integer  () A code that specifies the writing mode for any CID#Font with which 
-this CMap is com#bined. The value shall be 0 for horizontal or 1 for vertical. 
+integer  () A code that specifies the writing mode for any C#IDFon#t with which 
+this CMap is com#bi#ned. The value shall be 0 for horizontal or 1 for vertical. 
 WMode
 Default value: 0. The value of this entry shall be the same as the value of 
  in the CMap file. 
 Optional
 UseCMap 
 name or stream  () The name of a predefined CMap, or a stream containing a CMap. If 
-this entry is present, the referencing CMap shall specify only the #character 
+this entry is present, the referencing CMap shall specify only the# character #
 mappings that differ from the referenced CMap. 
  
 9.7.5.4CMap example and# operator summary 
  
-Embedded CMap files shall conform to the format documented in Adobe Technical Note #5014, subject 
+#Embedded CMap files shall conform to the format documented in Adobe Technical Note #5014, subject 
 to these additional constraints: 
  
 UseCMap
-a)If the embedded CMap file contains a usecmap reference, the CMap indicated there shall also be# identified 
-use#font
+a)If the embedded CMap file contains a usecmap reference, the CMap indicated there shall also b#e i#dentified 
+#usefont#
  
 by the  entry in the CMap stream dictionary. 
 beginbfcharendbfcharEncoding
  
-b)The  operator, if present, shall specify a #font number of 0.  
+b)The  operator, if present, shall specif#y a f#ont number of 0.  
 c)The  and  shall not appear in a CMap that is used as the  entry of a Type 
-beginnotdefcharendnotdefcharbeginnotdefrange
+beginnotdefcharendnotdefcharbeginnotdefrange#
  
-0 #font; however, they may appear in the definition of a ToUnicode CMap.  
+0# font; however, they may appear in the definition of a ToUnicode CMap.  
 endnotdefrange
 d)A notdef mapping, defined using , , , and 
- shall be used if the normal mapping produces a CID for which no #glyph is present in the 
-beginrearranged#fontendrearranged#fontbeginusematrixendusematrix
+ shall be used if the normal mapping produces a CID for which no #glyph #is present in the 
+beginrear#rang#edfontendrea#rran#gedfontbeginusematrixendusematrix
  
-associated CID#Font.  
+associ#ated# CIDFont.  
 e)The , , , and  operators shall 
-NOTE While often used for mapping 2 #byte #character codes to CID codes it is also possible to use 
-not be used.  
-#character codes with just 1 #byte or more than 2 #bytes, as long as they can be mapped to CID codes 
-without am#biguity. 
-EXAMPLE This example shows a sample CMap for a Japanese Shift-JIS encoding. #Character codes in this encoding can be 
+NOTE While often used for mapping 2 #byte# #characte#r codes to CID codes it is also possible to use 
+not be used.#  
+charact#er codes with just 1# byte# or more than #2 by#tes, as long as they can be mapped to CID codes 
+without a#mb#iguity. 
+EXAMPLE This example shows a sample CMap for a Japanese Shift-JIS encodi#ng. Charac#ter codes in this encoding can be 
 CIDSystemInfo
-either 1 or 2 #bytes in length. This CMap could be used with a CID#Font that uses the same CID ordering as 
+either 1 or# 2 b#ytes in length. This CMap could be used w#ith a# CIDFont that uses the same CID ordering as 
 specified in the  entry. Note that several of the entries in the stream dictionary are also 
 © ISO 2017 – All rights reserved 332 
 
@@ -144,8 +144,8 @@ end
 endstream 
 endobj 
  
-9.7.6Type 0 #font dictionaries 
+9.#7.6Ty#pe 0 font dictionaries 
  
 9.7.6.1General 
- 
-A Type 0 #font dictionary contains the entries listed in "
+# 
+A T#ype 0 font dictionary contains the entries listed in "

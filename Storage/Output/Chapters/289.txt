@@ -1,11 +1,11 @@
 #Figure 73: CMYK blend modes 
  
-11.3.5.2Separable blend modes 
+#11.3.5.2Separable blend modes 
  
 separable
 A blend mode is termed  if each component of the result colour is completely determined by 
 the corresponding components of the constituent backdrop and source colours — that is, if the blend 
-mode #function #B is applied separately to each set of corresponding components: 
+mode #function ##B i#s applied separately to each set of corresponding components: 
  
 𝑟𝑟𝑏𝑏𝑓𝑓
 )
@@ -24,6 +24,6 @@ applies independently to any number of components. Only white-preserving separab
 ISO/DIS 32000-2
  
 shall be used for blending spot colours as discussed in 11.7.3, "Spot colours and transparency". 
-NOTE Theoretically, a blend mode could have a different #function for each colour component and still be 
-separable; however, none of the standard #PDF blend modes have this property. 
+NOTE Theoretically, a blend mode could have a different# function# for each colour component and still be 
+separable; however, none of the standard #PDF #blend modes have this property. 
 "

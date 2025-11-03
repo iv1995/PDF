@@ -1,80 +1,80 @@
-#Table Annex F.5: Shared #object hint table, 
-header section") followed by one or more shared #object #group entries ("Table Annex F.6: Shared #object 
-hint table, shared #object #group entry"). There shall be two sequences of shared #object #group entries: the 
-ones for #objects located in the first page, followed by the ones for #objects located in the shared #objects 
-section. The entries shall have the same format in both cases. Note that the items making up each 
-shared #object #group entry need not be contiguous; they may be broken up with items from entries for 
-other shared #object #groups. The order of items in each sequence shall be as follows: 
+#Table Annex F.5: Shared #object #hint table, 
+header section#") followed by one or more shared# object# #group #entries ("Table Annex F.6: Share#d object# 
+hint table, shar#ed obje#ct# group# entry"). There shall be two sequences of sha#red obj#ec#t grou#p entries: the 
+ones# for o#bjects located in the first page, followed by the one#s for #objects located in the #shared# objects 
+section. The entries shall have the same format in both cases. Note that the items making up each #
+shared# obje#ct gro#up entry need not be contiguous; they may be broken up with items from entries for 
+othe#r share#d obj#ect g#roups. The order of items in each sequence shall be as follows: 
  
  
-a)Item 1 for the first #group, item 1 for the second #group, and so on  
+a)Item 1 for the f#irst #group, item 1 for the s#econd# group, and so on  
  
-b)Item 2 for the first #group, item 2 for the second #group, and so on  
+b)Item 2 for the# firs#t group, item 2 for the# seco#nd group, and so on  
  
-c)Item 3 for the first #group, item 3 for the second #group, and so on  
-d)Item 4 for the first #group, item 4 for the second #group, and so on 
-All #objects associated with the first page (part 6) shall have entries in the shared #object hint table, 
+c)Item 3 for t#he fi#rst group, item 3 for t#he se#cond group, and so on  
+d)Item 4 for# the #first group, item 4 for# the #second group, and s#o on 
+#All objects associated with the first page (part 6) shall have entries in #the sha#red object hint table, 
 regardless of whether they are actually shared. The first entry shall refer to the beginning of the first 
-page and shall be have an #object count and length that shall span all the initial nonshared #objects. The 
-next entry shall refer to a #group of shared #objects. Subsequent entries shall span additional #groups of# 
-either shared or nonshared #objects consecutively until all shared #objects in the first page have been 
-enumerated. (There shall not be any entries that refer to nonshared #objects.) 
-#Table Annex F.5: Shared #object hint table, header section 
-item Size Description 
-(#bits) 
-1 32 The #object number of the first #object in the shared #objects section (part 8). 
-2 32 The location of the first #object in the shared #objects section. 
-3 32 The number of shared #object entries for the first page (including nonshared 
-#objects, as noted above). 
-4 32 The number of shared #object entries for the shared #objects section, including 
-the number of shared #object entries for the first page (that is, the value of 
+page and shall# be hav#e an object count and length that shall span all the initi#al non#shared objects. The 
+next entry shal#l refer# to a gr#oup of# shared objects. Subsequent entries shall sp#an ad#ditional groups of# 
+ei#ther share#d or n#onshared objects consecutively u#ntil a#ll shared objects in the first page have been 
+enumerated. (There shall not be any entries that re#fer to# nonshared objects.) #
+Table #Annex F#.5: Shared object hint table, header section #
+item Size Description# 
+(#bi#ts#) 
+1 32 The object #number #of the first #object# in the shared objects section (part 8). 
+2 32 The #locatio#n of the firs#t obje#ct in the shared objects section. 
+3 #32 The #number of shared object entries for the first pa#ge (in#cluding nonshared 
+objects, as noted above). 
+#4 32 Th#e number of shared obj#ect en#tries for the shared objects section, incl#uding 
+#the number of shared object entries for the first page (that is, the value of 
 item 3). 
-5 16 The number of #bits needed to represent the greatest number of #objects in a 
-shared #object #group. 
-6 32 The least length of a shared #object #group in #bytes. 
-7 16 The number of #bits needed to represent the difference between the greatest 
-and least length of a shared #object #group, in #bytes. 
+5 16 The number of# b#its needed to repr#esent #the greatest n#umber o#f objects in a #
+shar#ed object group. 
+6 3#2 The l#east length of #a shar#ed object group in #byte#s. 
+7 16 The number o#f #bits needed to represent the difference between the greates#t 
+and #least length of# a sh#ared object group, in# byt#es. 
 © ISO 2017 – All rights reserved 862 
 
-ISO/DIS 32000-2
+ISO/DIS 3#2000-2
+# 
+Table Annex F.6:# Shared# object hint tab#le, sh#ared object group entry 
+Item Siz#e #(bits) Description 
+1 See "Table Annex F.5: A number th#at, whe#n added to the le#ast sha#red ob#ject gr#oup length ("Table 
  
-Table Annex F.6: Shared #object hint table, shared #object #group entry 
-Item Size (#bits) Description 
-1 See "Table Annex F.5: A number that, when added to the least shared #object #group length ("Table 
- 
-Shared #object hint table, Annex F.5: Shared #object hint table, header section", item 6), gives the length of 
-header section", item 7the #object #group in #bytes. The location of the first #object of the first page shall 
+Shared #object #hint table, Annex F.5: Shared object hint table, header section", item 6), gives the #length #of 
+header section#", item# 7the object group# i#n by##tes. The location of the first object of the first page shall 
 Table Annex F.3: Page 
 be given in the page offset hint table, header section ("
-", item 4). The locations of subsequent #object 
-offset hint table, header section
-#groups can be determined by accumulating the lengths of all previous #object 
-#groups until all shared #objects in the first page have been enumerated. 
-Following that, the location of the first #object in the shared #objects section can 
-be obtained from the header section of the shared #object hint table ("#Table 
-Annex F.5: Shared #object hint table, header section", item 2). 
-2 1 A flag indicating whether the shared #object signature (item 3) is present; its 
-value shall be 1 if the signature is present and 0 if it is absent. 
-3 128 (Only if item 2 is 1) The shared #object signature, a 16-#byte MD5 hash that 
-NOTE It enables the ##PDF processor to substitute a locally cached copy of the 
-uniquely# identifies the resource that the #group of #objects represents. 
-resource instead of reading it from the #PDF file. Note that this 
+#", item #4). The locations of subsequent object 
+offset hint t#able,# header section
+groups can be determined by #accumula#ting the lengths of a#ll# p#revi#ous object 
+groups until all shared objects in the first page have been enumerated. #
+Follow#ing that, the# locat#ion of the first object in the shared objects section can 
+be ob#tained #from the header section of the shared# object# hint table #("Table 
+Annex F.5: Shared object hint table, header secti#on", item# 2). 
+2# 1 A flag indicating whether the shared object signature (item 3) is present; its 
+value shall be 1 if the signature is present and 0 if it is #absent.# 
+3 128 (Only if item 2 is 1) The shared object signature, a #16-by#te MD5 hash that 
+NOTE It enables the ##PDF #processor #to substitute a locally cached copy of the 
+un#iquely## id#entifies# the r#esource that the group of objects represents. 
+resource instead of reading it from the# PDF# file. Note that this 
 signature is unrelated to signature fields in interactive forms, as 
 defined in 12.7.5.5, "Signature fields".
  
 O
-4 See "Table Annex F.5: A number equal to 1 less than the number of #objects in the #group. The first 
+4 See "Table Annex# F.5: #A number equal to 1 less than the n#um#ber o##f objects i#n the g#roup. The first 
  
-Shared #object hint table, #object of the first page shall be the one whose #object number is given by the  
-header section", item 5entry in the linearization parameter dictionary at the beginning of the file. 
-#Object numbers for subsequent entries can be determined by accumulating the 
-number of #objects in all previous entries until all shared #objects in the first 
-page have been enumerated. Following that, the first #object in the shared 
-#objects section has a number that can be obtained from the header section of 
-the shared #object hint table ("#Table Annex F.5: Shared #object hint table, header 
-section", item 1). 
-NOTE In a document consisting of only one page, all of that page’s #objects shall be treated as if they were 
-shared; the shared #object hint table reflects this. 
+Shared object hint ta#ble, ob#ject of the first page shall be the one whose object number is given by the  
+header section", item 5entry in the linearizatio#n param#eter dictionary at the beginning of the file. 
+Object numbers for subsequent en#tries #can be determined by accumulating the 
+num#ber of# objects in all previous entries until all shared objects in the fir#st 
+pag#e have been en#umerat#ed. Following that, the first object in the shared 
+objects section has a number t#hat can# be obtained from the header section# of 
+th#e shared object hint table# ("Table Annex F.5: Shared object hint table, header 
+sect#ion", item 1). 
+NOTE I#n a do#cument consisting of only one page, all of that page’s# object#s shall be treated as if they were 
+shared; the shared object hint table reflects this. 
 F.4.4Thumbnail hint table 
  
 The thumbnail hint table shall consist of a header section ("

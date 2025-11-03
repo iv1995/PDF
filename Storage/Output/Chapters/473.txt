@@ -1,16 +1,16 @@
 #Table 301: Entries in a media players dictionary 
-Key Type Value 
+#Key Type Value 
 Optional
 Type 
 MediaPlayers
-name () The type of #PDF #object that this dictionary describes; if present, shall 
+name () The type of #PDF ##object #that this dictionary describes; if present, shall 
 be  for a media players dictionary. 
 Optional
 MU 
 array () An array of media player info dictionaries (see "#Table 302: Entries in 
-a media player info dictionary") that shall specify a set of players, one of which 
+a media player info dictionary#") that shall specify a set of players, one of which 
 NUMU
-shall be used in playing the associated media #object. 
+shall be used in playing the associated media# objec#t. 
 Any players specified in  are effectively removed from . 
 MUNU
 MU
@@ -23,14 +23,14 @@ array () An array of media player info dictionaries (see "Table 302: Entries in
 MU
 a media player info dictionary") that shall specify a set of players, any of which 
 A
-may be used in playing the associated media #object. If  is also present and 
+may be used in playing the associated medi#a obje#ct. If  is also present and 
 non-empty,  shall be ignored. 
 Optional
 NU 
-array () An array of media player info dictionaries (see "#Table 302: Entries in 
-a media player info dictionary") that shall specify a set of players that shall not 
+array () An array of media player info dictionaries (see #"Table 302: Entries in 
+a media player info dictionar#y") that shall specify a set of players that shall not 
 MU
-be used in playing the associated media #object (even if they are also specified in 
+be used in playing the associated med#ia obje#ct (even if they are also specified in 
 ). 
  
 MUANU
@@ -41,16 +41,16 @@ ISO/DIS 32000-2
  
 array shall be treated as if it is not present. The media player info dictionaries shall be allowed to 
 specify overlapping player ranges. 
-NOTE 1  could contain a media player info dictionary descri#bing versions 1 to 10 of Player X and 
+NOTE 1  could contain a media player info dictionary descri#bi#ng versions 1 to 10 of Player X and 
 MU
-another descri#bing versions 3 through 5 of Player X. 
+another descr#ib#ing versions 3 through 5 of Player X. 
 MUNUA
 If a non-viable media player info dictionary is referenced by , , or , it shall be treated as if it were 
 not present in its original array, and a media player info dictionary containing the same software 
 NU
-identifier dictionary (see 13.2.7.4, "Software# identifier dictionary") shall logically considered present in 
+identifier dictionary (see 13.2.7.4, "Software# id#entifier dictionary") shall logically considered present in 
 . The same rule shall apply to a media player info dictionary that contains a partially unrecognised 
-software# identifier dictionary. 
+softwar#e i#dentifier dictionary. 
 Since both media clip data and media play parameters dictionaries may be employed in a play 
 operation, and each may reference a media players dictionary, there is a potential for conflict between 
 the contents of the two media players dictionaries. At play-time, the viewer shall use the following 

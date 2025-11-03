@@ -1,39 +1,39 @@
-#Table 354: Entries in the structure tree root" shows the entries in the 
+#Table 354: Entries in the structure tree root#" shows the entries in the 
 structure tree root dictionary. The  entry shall specify the immediate children of the structure tree 
-root, which shall be structure elements. 
-#Table 354: Entries in the structure tree root 
+root, which shall be structure elements. #
+Table 354: Entries in the structure tree root #
 Key Type Value 
 Required
 Type 
 StructTreeRoot 
-name () The type of #PDF #object that this dictionary describes; shall be 
+name () The type of #PDF ##object #that this dictionary describes; shall be 
 for a structure tree root. 
 Optional
 K 
 dictionary or () The immediate child or children of the structure tree root in the 
-array structure hierarchy. The value may be# either a dictionary representing a single 
+array structure hierarchy. The value may be# ei#ther a dictionary representing a single 
 structure element or an array of such dictionaries. 
-Required if any structure elements have element# identifiers
+Required if any structure elements have element# id#entifiers
 IDTree 
-#name tree () A #name tree (see 
-7.9.6, "#Name trees") that maps element# identifiers (see "Table 355: Entries in a 
+#name tree #() A# name tree# (see 
+7.9.6,# "Name tr#ees") that maps elemen#t i#dentifiers (see "Table 355: Entries in a 
 structure element dictionary") to the structure elements they denote. 
 Required if any structure element contains content items
 ParentTree 
-#number tree () A #number tree (see 
-7.9.7, "#Number trees") used in finding the structure elements to which content 
-items belong. Each integer key in the #number tree shall correspond to a single 
-page of the document or to an individual #object (such as an annotation or an 
-StructParentStructParents
-X#Object) that is a content item in its own right. The integer key shall be the value 
+#number tree #() A# number tree# (see 
+7.9.7,# "Number tr#ees") used in finding the structure elements to which content 
+items belong. Each integer key in t#he number tr#ee shall correspond to a single 
+page of the document or to an individual# object# (such as an annotation or an 
+StructParentStructParents#
+XObje#ct) that is a content item in its own right. The integer key shall be the value 
 14.7.5.4, "Finding 
-of the  or  entry in that #object (see 
+of the  or  entry in th#at obje#ct (see 
 "). The form of the associated value shall 
 structure elements from content items
-depend on the nature of the #object: For an #object that is a content item in its own 
-right, the value shall be an indirect reference to the #object’s parent element (the 
-structure element that contains it as a content item). For a page #object or #content 
-stream containing marked-content sequences that are content items, the value 
+depend on the nature of #the ob#ject: Fo#r an ob#ject that is a content item in its own 
+right, the value shall be an indirect reference t#o the #object’s parent element (the 
+structure element that contains it as a content item). For #a page #object or #content 
+stream #containing marked-content sequences that are content items, the value 
 shall be an array of references to the parent elements of those marked-content 
 sequences. See 14.7.5.4, "Finding structure elements from content items" for 
 further discussion. 
@@ -48,21 +48,21 @@ ISO/DIS 32000-2
 Key Type Value 
 Optional
 RoleMap 
-dictionary () A dictionary that shall map #name #objects designating names of 
-structure types used in the document to a #name #object designating the name of 
+dictionary () A dictionary that shall ma#p #name# object#s designating names of 
+structure types used in the document to# a# name# object# designating the name of 
 their approximate equivalents in the set of standard structure types (see 14.8.4, 
 "Standard structure types"). 
 Optional
 ClassMap 
-dictionary () A dictionary that shall map #name #objects designating attribute classes 
-to the corresponding attribute #objects or arrays of attribute #objects (see 14.7.6.2, 
+dictionary () A dictionary that shall #ma#p na#me obje#cts designating attribute classes 
+to the corresponding# attri#bute objects or arrays o#f attr#ibute objects (see 14.7.6.2, 
 "Attribute classes"). 
-(Required if any structure elements have namespace# identifiers; #PDF 2.0) 
+(Required if any structure elements have namespa#ce #identifiers;# PDF# 2.0) 
 Namespaces 
  
 array An array 
 of namespaces used within the document (see 14.7.4.2, "Namespace dictionary").
-Optional; #PDF 2.0
+Optional#; PD#F 2.0
 PronunciationLexicon 
 array of file () An array containing one or more indirect references to file 
 specifications specification dictionaries, where each specified file shall be a pronunciation 
@@ -74,7 +74,7 @@ first match – as defined by the order of entries in the array and the order of
  
 entries inside the pronunciation lexicon file – should be used. 
 See 14.9.6, "Pronunciation hints" for further discussion.
-Optional; #PDF 2.0
+Optiona#l; P#DF 2.0
 AF 
 array of () An array of one or more file specification dictionaries (7.11.3, 
  
@@ -89,8 +89,8 @@ may be zero or more items of the following kinds:
 content items
 • 
 Other structure elements 
-References to , which are# either marked-content sequences (see 14.6, "Marked 
-content") or complete #PDF #objects such as X#Objects and annotations. These content items 
+References to , which ar#e e#ither marked-content sequences (see 14.6, "Marked 
+content") or #comple##te #PDF obj#ects s#uch as XObjects and annotations. These content items 
 represent the graphical content, if any, associated with a structure element. Content items are 
 discussed in detail in 14.7.5, "Structure content". 
 Table 355: Entries in a structure element dictionary 
@@ -98,14 +98,14 @@ Key Type Value
 Optional
 Type 
 StructElem
-name () The type of #PDF #object that this dictionary describes; if present, shall be 
+name () T#he type## of# PDF object that this dictionary describes; if present, shall be 
  for a structure element. 
 Required
 S 
-name () The structure type, a #name #object# identifying the nature of the structure 
+name () The structur#e type,## a name obje##ct# identifying the nature of the structure 
 element and its role within the document, such as a chapter, paragraph, or footnote (see 
 14.7.3, "Structure types"). Names of structure types shall conform to the guidelines 
-described in Annex E, "#PDF Name Registry". 
+described in Anne#x E,# "PDF Name Registry". 
 Required; shall be an indirect reference
 P 
 dictionary () The structure element or the structure tree root 
@@ -117,42 +117,42 @@ ISO/DIS 32000-2
 Key Type Value 
 (Optional
 ID 
-#byte string ) The element# identifier, a #byte string designating this structure element. The# 
+#byte #string ) The ele#men#t identifier, a# byte# string designating this structure element#. Th#e 
 IDTree
 string shall be unique among all elements in the document’s structure hierarchy. The 
- entry in the structure tree root (see "#Table 354: Entries in the structure tree 
-root") defines the correspondence between element# identifiers and the structure 
+ entry in the structure tree root (see# "Table 354: Entries in the structure tree 
+ro#ot") defines the correspondence between e#lem#ent identifiers and the structure 
 elements they denote. 
-Optional; #PDF 2.0
+Opt#iona#l; PDF 2.0
 Ref 
 array () An array containing zero, one or more indirect references to structure 
 Ref
-elements. 
-A#  identifies the structure element or elements to which the item of content, contained 
+eleme#nts.# 
+A  identifies the structure element or elements to which the item of content, contained 
 within this structure element, refers (e.g. footnotes, endnotes, sidebars, etc.). 
-Optional; required if K is an #integer #object or an array containing #integer #objects; shall be 
+Optional; required if #K is an ##integer object #or an array co#ntainin#g# integer objec#ts; shall be 
 Pg 
 an indirect reference
-dictionary (
+dicti#onary (#
 K
-) A page #object representing a page on which some or all of the 
+) A page object representing a page on which some or all of the 
 content items designated by the  entry shall be rendered. 
 Optional
 K 
-(various) () The children of this structure element. The value of this entry may be one of 
-the following #objects or an array consisting of one or more of the following #objects in any 
+(various) () The children of this structure element. The value of this entry may be on#e of 
+#the following objects or an array consisting of one or m#ore of# the following objects in any 
 • 
-com#bination: 
+com#bi#nation: 
 • 
 A structure element dictionary denoting another structure element 
 • 
-An integer marked-content# identifier denoting a marked-content sequence 
+An integer marked#-co#ntent identifier denoting a marked-content sequence 
 A marked-content reference dictionary denoting a marked-content sequence (see 
 • 
-Table 357 "Entries in a marked-content reference dictionary")  
-An ##object reference dictionary denoting a #PDF #object (see Table 358 "Entries in an 
-##object reference dictionary") 
-Each of these #objects other than the first (structure element dictionary) shall be 
+Table 357 "Entries in a marked-content refere#nce dic#tionary")  
+An #object reference #dic#tionary# den#otin#g a PDF object (see Ta#ble 358# "Entries in an #
+object reference# dic#tionar#y") 
+Each of these objects other than the first (structure element dictionary) shall be 
 considered to be a content item; see 14.7.5, "Structure content" for further discussion of 
 KType
 each of these forms of representation. 
@@ -160,9 +160,9 @@ If the value of  is a dictionary containing no  entry, it shall be assumed to be
 structure element dictionary. 
 Optional
 A 
-(various) () A single attribute #object or array of attribute #objects associated with this 
-structure element. Each attribute #object shall be# either a dictionary or a stream. If the 
-value of this entry is an array, each attribute #object in the array may be followed by an 
+(vario#us) () #A single attribute ob#ject o#r array of attribute objects associated with this 
+struct#ure ele#ment. Each attribute object shall #be #either a dictionary or a stream. If the 
+value of this entry# is an #array, each attribute object in the array may be followed by an 
 integer representing its revision number (see 14.7.6, "Structure attributes" and 14.7.6.3, 
 "Attribute revision numbers"). 
 Optional
@@ -182,11 +182,11 @@ revision numbers"). The value shall be a non-negative integer. Default value: 0.
 Optional
 T 
 text string () The title of the structure element, a text string representing it in human-
-readable form. The title should #characterise the specific structure element, such as 
+readable form. The title should #character#ise the specific structure element, such as 
 Chapter 1, rather than merely a generic element type, such as Chapter. 
-Optional; #PDF 1.4
+O#ptio#nal; PDF 1.4
 Lang 
-text string () A language# identifier specifying the natural language for all text in the 
+text string () A# la#nguage identifier specifying the natural language for all text in the 
 structure element except where overridden by language specifications for nested 
 structure elements or marked content (see 14.9.2, "Natural language specification"). 
 © ISO 2017 – All rights reserved 700 
@@ -198,30 +198,30 @@ Optional
 Alt 
 text string () An alternative description of the structure element and its children in human-
 readable form, which is useful when extracting the document’s contents in support of 
-accessi#bility to users with disa#bilities or for other purposes (see 14.9.3, "Alternate 
+access#ib#ility to users with di#sa#bilities or for other purposes (see 14.9.3, "Alternate 
 descriptions"). 
-Optional; #PDF 1.5
+#Opti#onal; PDF 1.5
 E 
-text string () The expanded form of an abbreviation or an acronym. 
-Optional; #PDF 1.4
+text string () The expanded form of an abbreviation or an acronym. #
+Opt#ional; PDF 1.4
 ActualText 
 text string () Text that is an exact replacement for the content enclosed by the 
 structure element and its children. This replacement text (which should apply to as small 
 a piece of content as possible) is useful when extracting the document’s contents in 
-support of accessi#bility to users with disa#bilities or for other purposes (see 14.9.4, 
-"Replacement text"). 
-Optional; #PDF 2.0
+support of acce#ss#ibility to users with #di#sabilities or for other purposes (see 14.9.4, 
+"Replacement text").# 
+Op#tional; PDF 2.0
 AF 
 array of () An array of one or more file specification dictionaries (7.11.3, "File 
 dictionaries specification dictionaries") which denote the associated files for this entire structure 
-element. See 14.13, "Associated files". 
-(Optional; #PDF 2.0)
+element. See 14.13, "Associated files".# 
+(O#ptional; PDF 2.0)
 NS 
 dictionary  An indirect reference to a namespace dictionary defining the 
 namespace this element belongs to (see 14.7.4, "Namespaces"). If not present, the 
 element shall be considered to be in the default standard structure namespace (see 
-14.8.6, "Standard structure namespaces"). 
-Optional; #PDF 2.0
+14.8.6, "Standard structure namespaces"#). 
+#Optional; PDF 2.0
 PhoneticAlphabet 
 Phoneme
 Name () Attribute for a structure element that indicates the phonetic alphabet 
@@ -244,8 +244,8 @@ zh-Latn-wadegile
 ipa
 Other values may be used.  
 Default value: . 
-See 14.9.6, "Pronunciation hints" for further discussion. 
-Optional; #PDF 2.0
+See 14.9.6, "Pronunciation hints" for further discussi#on. #
+Optional; PDF 2.0
 Phoneme 
 text string () Attribute for a structure element that may be used as pronunciation 
 hint. It is an exact replacement for content enclosed by the structure element and its 
@@ -259,10 +259,10 @@ See 14.9.6, "Pronunciation hints" for further discussion.
 14.7.3Structure types 
  
 structure type
-Every structure element shall have a , a #name #object that# identifies the nature of the 
+Every structure e#lement s#hall have a #, a name ob#j#e#ct that identifies the nature of the 
 structure element and its role within the document (such as a chapter, paragraph, or footnote). To 
-facilitate the interchange of content among ##PDF processors, #PDF defines a set of standard structure 
-types; see 14.8.4, "Standard structure types". ##PDF writers are not required to adopt them, however, and 
+facilitate the interchange o#f co#ntent among# #PDF# processor#s, PDF defines a set of standard structure 
+types; see 14.8.4, "Standard #stru#cture types". #PDF writer#s are not required to adopt them, however, and 
 may use any names for their structure types. 
 RoleMapRoleMapNSNS
 Where names other than the standard ones are used, a role map should be provided in the structure 
@@ -275,7 +275,7 @@ entry, to map the structure types used in the document to their nearest equivale
 RoleMap
 The  dictionary shall be comprised of a set of keys representing structure element types 
 rolemapped to other structure element types. The corresponding value for each of these keys shall be a 
-single name# identifying the target structure element type. 
+#sin#gle name identifying the target structure element type. 
 A structure type shall always be mapped to its corresponding name in the role map, if there is one, even 
 if the original name is one of the standard types. This shall be done to allow the element, for example, to 
 represent a structure type with the same name as a standard role, even though its use differs from the 
@@ -283,31 +283,31 @@ standard role.
 NOTE 1 A structure type named Section used in the document might be mapped to the standard type . 
 Part
 The equivalence need not be exact; the role map merely indicates an approximate analogy 
-between types, allowing ##PDF processors to share nonstandard structure elements in a reasonable 
+betwe#en t#ypes, allowing# PDF processo#rs to share nonstandard structure elements in a reasonable 
 way. 
 NOTE 2 The same structure type can occur as both a key and a value in the role map, and circular chains 
-of association are explicitly permitted. Therefore, a single role map can define a #bidirectional 
-mapping. A ##PDF processor using the role map needs to follow the chain of associations until it# 
-either finds a structure type it recognises or returns to one it has already encountered. 
-NOTE 3 In #PDF versions earlier than 1.5, standard element types were never remapped.  
+of association are explicitly permitted. Therefore, a single role map can defi#ne# a bidire#ctio#nal 
+mapping. #A PDF processo#r using the role map needs to follow the chain of associations until# it #
+either finds a structure type it recognises or returns to one it has already enc#ount#ered. 
+NOTE 3 In PDF versions earlier than 1.5, standard element types were never remapped.  
 14.7.4Namespaces 
  
 14.7.4.1General 
  
-standard structure types
-#PDF documents are used to represent many classes of documents as well as many classes of content 
+sta#ndar#d structure types
+PDF documents are used to represent many classes of documents as well as many classes of content 
 within those documents. The  (see 14.8.4, "Standard structure types") address 
 many classes of documents. The mechanism for providing a role mapping for custom structure types 
-allows the inclusion of non-standard, custom, types. However, prior to #PDF 2.0, there has been no 
-mechanism for# identifying and exchanging these custom structure types, other than to use their 
+allows the inclusion of non-standard, custom, ty#pes.# However, prior to PDF 2.0, there has been no 
+m#ech#anism for identifying and exchanging these custom structure types, other than to use their 
 mapping to the standard structure types. 
 namespaces
     
 The concept of  is well understood in theXMLworld, allowing customXMLtagsets to be 
-interchanged and# identified. Schemata are often defined for these namespaces using a variety of schema 
-languages to allow programmatic exchange of tagsets. Many #PDF documents are authored by 
-conversion from other formats, many of which have rich structures and content with their own 
-structures. #PDF 2.0 introduces the namespace mechanism as a component of its logical structure, where 
+int#erc#hanged and identified. Schemata are often defined for these namespaces using a variety of schema 
+languages to allow programmatic ex#chan#ge of tagsets. Many PDF documents are authored by 
+conversion from other formats, many of which have rich structures and content wit#h th#eir own 
+structures. PDF 2.0 introduces the namespace mechanism as a component of its logical structure, where 
 one or more namespaces may be specified as being used within the document (see 14.7.4.2, 
 "Namespace dictionary"). 
 14.7.4.2Namespace dictionary 

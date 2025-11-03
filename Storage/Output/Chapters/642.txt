@@ -1,4 +1,4 @@
-#Figure Annex H.9: Hierarchy of structure elements and relationship with marked content" shows how 
+#Figure Annex H.9: Hierarchy of structure elements and relationship with marked content#" shows how 
 the relationships of the structure elements and their use of the  and  structure types defines the 
 structure of a list. This figure also shows the relationship between the structure elements and the 
 marked content in the stream. 
@@ -84,9 +84,9 @@ INDEX
 2
 51
 11
-41
-#Figure Annex H.9: Hierarchy of structure elements and relationship with marked content 
- 
+41#
+Figure Annex H.9: Hierarchy of structure elements and relationship with marked content 
+ #
 EXAMPLE 
 4 0 obj 
   <</Type /Page 
@@ -157,7 +157,7 @@ endobj
   >> 
 endobj 
  
-%#objects 121-122, 131-132, 141-142, 151-152 and 161-162 referencing MCIDs 21-22, 31-32, 41-42, 
+%#object#s 121-122, 131-132, 141-142, 151-152 and 161-162 referencing MCIDs 21-22, 31-32, 41-42, 
 51-52, and 61-62 are omitted in the interest of space. 
  
 201 0 obj 
@@ -272,7 +272,7 @@ ISO/DIS 32000-2
    /Sub <</MCID 4>> BDC  
     BT T* (Ene mene muh) Tj ET EMC 
    /Sub <</MCID 5>> BDC  
-    BT (Und raus #bist Du!) Tj ET EMC 
+    BT (Und raus #bi#st Du!) Tj ET EMC 
 endstream 
 endobj 
  

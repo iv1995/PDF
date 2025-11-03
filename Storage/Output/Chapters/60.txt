@@ -1,5 +1,5 @@
 #signature handler 
-software module that implements a specific form of signing and/or augmentation and/or verification of 
+#software module that implements a specific form of signing and/or augmentation and/or verification of 
 digital signatures. 
 4.58 
  

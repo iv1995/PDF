@@ -1,8 +1,8 @@
-#Table 48: Entries in an extensions dictionary") containing one or more entries# 
-identifying #developer-defined extensions to this ISO standard. The keys allowed in an extensions 
+#Table 48: Entries in an extensions dictionary#") containing one or more entries# 
+id#entifying #developer#-defined extensions to this ISO standard. The keys allowed in an extensions 
 Extensions
 Type
-dictionary, are shown in "#Table 48: Entries in an extensions dictionary", and may optionally contain a 
+dictionary, are shown in #"Table 48: Entries in an extensions dictionar#y", and may optionally contain a 
  entry whose value is the name . The remaining keys shall be names consisting of 
-registered prefix names of the #developer extensions used, as described in Annex E, "#PDF Name 
-Registry". The values of those prefix name keys shall be #developer extensions dictionaries (see "
+registered prefix names of the# developer# extensions used, as described in Annex E, "#PDF #Name 
+Registry". The values of those prefix name keys shall b#e develope#r extensions dictionaries (see "

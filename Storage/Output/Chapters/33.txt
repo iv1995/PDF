@@ -1,5 +1,5 @@
 #graphics state 
-top of a push down stack of the graphics control parameters that defines the current global framework 
+#top of a push down stack of the graphics control parameters that defines the current global framework 
 within which the graphics operators execute 
 4.31 
  

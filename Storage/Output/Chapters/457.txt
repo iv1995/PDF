@@ -1,17 +1,17 @@
-#Table 285: Additional entries in a media clip data dictionary". 
+#Table 285: Additional entries in a media clip data dictionary#". 
 NOTE 1 Media clip data dictionaries can reference aURLto a streaming video presentation or a movie 
   
-embedded in the #PDF file. 
-#Table 285: Additional entries in a media clip data dictionary 
+embedded in the #PDF #file. #
+Table 285: Additional entries in a media clip data dictionary #
 Key Type Value 
 Required
 D 
-file specification () A full file specification or form X#Object that specifies the actual media 
+file specification () A full file specification or form X#Object #that specifies the actual media 
 or stream data. 
-Optional; shall not be present for form X#Objects
+Optional; shall not be present for form #XObjec#ts
 CT 
 D
-#ASCII string () An #ASCII string# identifying the 
+#ASCII #string () An# ASCII# string# id#entifying the 
 Internet RFC 2045, Multipurpose Internet Mail Extensions (MIME) 
 type of data in . The string should conform to the content type specification 
 Part One: Format of Internet Message Bodies

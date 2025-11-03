@@ -1,47 +1,47 @@
-#Table 125: Additional entries in an embedded #font stream dictionary". 
-#Table 125: Additional entries in an embedded #font stream dictionary 
+#Table 125: Additional entries in an embedded #font #stream dictionary#". #
+Table 125: Additional entries in an embedded# font# stream dictionary #
 Key Type Value 
-Required for Type 1 and TrueType ##font programs
+Required for Type 1 and TrueTyp#e #fon#t program#s
 Length1 
-integer  () The length in #bytes of the clear-
+integer  () The length in #byte#s of the clear-
 #Filter
-text portion of the Type 1 ##font program, or the entire TrueType ##font program, after it 
-has been decoded using the #filters specified by the stream’s  entry, if any. 
-Required for Type 1 ##font programs
+#text portion of the Type# 1# fo#nt progra#m, or the entire TrueT#yp#e f#ont progr#am, after it 
+has been decoded using the# filte#rs specified by the stream’s  entry, if any. 
+Required for Ty#pe #1 #font prog#rams
 Length2 
-integer () The length in #bytes of the encrypted portion of 
+integer () The length in# byt#es of the encrypted portion of 
 Filter
-the Type 1 ##font program after it has been decoded using the #filters specified by the 
+the T#ype# 1# font prog#ram after it has been decoded using th#e filt#ers specified by the 
 stream’s  entry. 
-Required for Type 1 ##font programs
+Required for #Typ#e #1 font pr#ograms
 Length3 
-integer  () The length in #bytes of the fixed-content portion 
-#FilterLength3
-of the Type 1 ##font program after it has been decoded using the #filters specified by the 
- #FontFile 
+integer  () The length i#n by#tes of the fixed-content portio#n 
+Fil#terLength3
+of the# Ty#pe# 1 font pr#ogram after it has been decoded using #the fi#lters specified #by t#he 
+ FontFile 
 cleartomark
 stream’s  entry. If  is 0, it indicates that the 512 zeros and 
- have not been included in the##font program and shall be 
-added by the ##PDF processor. 
-Required if referenced from ; #PDF 1.2
+ have not been inclu#ded #i#n thefont p#rogram and shall be 
+added by the ##PDF #processor#. 
+Required if referenced from ;# PDF# 1.2
 Subtype 
-Type1C
-name  (#FontFile3) A name specifying the format of the 
-CID#FontType0COpenType
-embedded ##font program. The name shall be  for Type 1 compact #fonts, 
- for Type 0 compact CID#Fonts, or  for OpenType #fonts. 
+Typ#e1C
+#name  (FontFile3) A name specifying the format# of #the 
+CIDFontType0COpenT#ype
+e##mbedded font# program. The name shall be  for T#ype #1 compact fonts, 
+ for Typ#e 0 #compact CIDFonts, o#r  f#or OpenType fonts. 
  
-NOTE 2 A standard Type 1 ##font program, as described in the , 
-consists of three parts: a clear-text portion (written using PostScript syntax), an encrypted 
-Adobe Type 1 #Font Format specification
-portion, and a fixed-content portion. The fixed-content portion contains 512 #ASCII zeros followed 
+NOTE 2 A# stan#dar#d Type 1 fon#t program, as described in the , 
+consists of three parts: a clear-text portion (written using PostScript syntax), an encryp#ted 
+#Adobe Type 1 Font Format specification
+portion, and a fixed-content portion. The fixed-content portion contains 512 #ASCII #zeros followed 
 by a  operator, and perhaps followed by additional data. Although the encrypted 
 cleartomark
-portion of a standard Type 1 #font may be in #binary or #ASCII hexadecimal format, #PDF supports 
-only the #binary format. However, the entire ##font program can be encoded using any #filters. 
-EXAMPLE This code shows the structure of an embedded standard Type 1 #font. 
-12 0 obj 
-  <</#Filter /#ASCII85Decode 
+portion of# a st#andard Type 1 font may be in #bi#nary or# ASCII# hexadecimal format#, PD#F supports 
+only the# b#inary format. #Howev#er, t#he entire fon#t program can be encoded using# any f#ilters. 
+EXAMPLE This code shows the structure of an embe#dded# standard Type 1 font. 
+12 0 obj #
+  <</Fi#lter# /ASC#II85Decode 
    /Length 41116 
    /Length1 2526 
    /Length2 32393 
@@ -55,139 +55,139 @@ endstream
 endobj 
  
   
-As noted in "#Table 124: Embedded #font organization for various #font types", a Type 1–equivalent #font 
-Length1Length2Length3
-program or a Type 0 CID##Font program may be represented in the Compact#FontFormat (CFF). The 
-, , and  entries are not needed in that case and shall not be present. Although 
-CFF enables multiple #font or CID##Font programs to be bundled together in a single file, an embedded CFF 
-#font file in #PDF shall consist of exactly one #font or CID#Font (as appropriate for the associated #font 
+As noted in# "#Tab#le 124: Embedded font or#ganiz#ation for various font type#s#", a #Type 1–equivalent font 
+Length1Length2Length#3
+pro#gram or a# Type 0 CIDFo#nt program may be #repr#esented in the CompactFontFormat (CFF). The 
+, , and  entries are not needed in that case and shall not be present. Alth#ough #
+CFF #enabl#es multiple# font or CID#Font programs to be bundled together in a s#ingle# file, an embedded CFF 
+font file #in PD#F# shal#l con#sist #of exactly one font or CIDFont (as# appro#priate for the associated #font #
 dictionary). 
-Adobe Type 1 #Font Format specification
-According to the , a Type 1 ##font program may contain a 
+Adobe Type 1 Font Format specific#ation#
+According to th#e , a Type 1 #font program may contain a 
 © ISO 2017 – All rights reserved 346 
 
 ISO/DIS 32000-2
  
 PaintType
- entry specifying whether the #glyphs’ outlines are to be filled or stroked. For #fonts embedded 
-in a #PDF file, this entry shall be ignored; the decision whether to fill or stroke #glyph outlines is entirely 
-determined by the #PDF text rendering mode parameter (see 9.3.6, "Text rendering mode"). This shall 
-also apply to Type 1 compact #fonts and Type 0 compact CID#Fonts. 
-A TrueType ##font program may be used as part of# either a #font or a CID#Font. Although the basic #font file 
-format is the same in both cases, there are different requirements for what information shall be present 
-in the ##font program. These TrueType tables shall always be present if present in the original TrueType 
-##font program: "head", "hhea", "loca", "maxp", "cvt ", "prep", "glyf", "hmtx", and "fpgm". If used with a 
-simple #font dictionary, the ##font program shall additionally contain a "cmap" table defining one or more 
-encodings, as discussed in 9.6.5.4, "Encodings for TrueType #fonts". If used with a CID#Font dictionary, 
-the "cmap" table is not needed and shall not be present, since the mapping from #character codes to 
-#glyph descriptions is provided separately. 
+ entry specifying whether the #glyph#s’ outline#s ar#e to be filled or stroked. For fonts embedded 
+i#n a #PDF file, this entry shall be ignored; the decision whether to fill or stroke# glyph# outlines is entirely 
+determined by# the# PDF text rendering mode parameter (see 9.3.6, "Text rendering mode"). This #shal#l 
+also apply to Type 1# com#pact fonts and# Type# 0 compact CIDFonts#. 
+A TrueType f#ont p#rogra#m may b#e us#ed as part of# ei#ther# a fo#nt or a CIDFont. Although the basic font file 
+format is the same in both cases, there are different requirements for #what #information shall be p#resent 
+in t#he font program. These TrueType tables shall always be pr#esent# if present in the ori#ginal TrueTy#pe 
+font program: "head", "hhea", "loca", "maxp", "cvt ", "prep", "glyf",# "hmt#x", and "fpgm".# If u#sed with a 
+simple font# dictionary, #the font program shall additionally contain a "cmap" table defining one or more 
+encodings, as #disc#ussed in 9.6.5.4, "En#codin#gs for TrueType fonts". If used with a CIDFont dictionary, 
+the "cmap" table is not needed and shall not be present, since the mapping from #character #codes to# 
+glyp#h descriptions is provided separately. 
 DW2W2
-The "vhea" and "vmtx" tables that specify vertical metrics shall never be used by a ##PDF processor. The 
-only way to specify vertical metrics in #PDF shall be by means of the  and  entries in a CID#Font 
-dictionary. 
-NOTE 3 Beginning with #PDF 1.6, ##font programs can be embedded using the OpenType format, which is an 
-extension of the TrueType format that allows inclusion of font programs using the Compact#Font
+The "vhea" and "vmtx" tables that specify vertical metrics shall never be used# by #a# PDF processo#r. The 
+only way to specify vertical metr#ics i#n PDF# shall# be by means of the  and  entries in a CIDF#ont 
+#dictionary. 
+NOTE 3 Beginn#i#ng wi#th PDF# 1.6, font programs can be embedded using the OpenType format, which is an 
+extension of the TrueType format that a#llows in#clusion of font programs using the CompactFont
   
-Format (CFF). It also allows inclusion of data to describe #glyph substitutions, kerning, and 
-baseline adjustments. In addition to rendering glyphs, ##PDF processors can use the data in 
-OpenType #fonts to do advanced line layout, automatically substitute ligatures, provide selections 
-of alternative #glyphs to users, and handle complex writing scripts. 
-The process of finding glyph descriptions in OpenType #fonts by a ##PDF processor shall be the following: 
+Format (CFF). It also allows inclusion of data to descri#be gly#ph substitutions, kerning, and 
+baseline adjustments. In addition to rendering g#l#yp#hs##, PDF process#ors can use the data in 
+OpenType fonts to do advanced line layout, automatically substitute ligatures, provide selections 
+of alternat#ive g#lyphs to users, and handle complex writing scripts. 
+Th#e pr#ocess of finding glyph descriptions in OpenType fo#nts b#y #a #PDF #process#or shall be the following: 
 • 
-For Type 1 #fonts using "CFF " tables, the process shall be as described in 9.6.5.2, "Encodings for 
+For Type 1 fonts using "CFF " tables, the process shall #be a#s described in 9.#6.5.#2, "Encodings for 
 • 
-Type 1 #fonts". 
-For TrueType #fonts using "glyf" tables, the process shall be as described in 9.6.5.4, "Encodings for# 
-Identity-H
-TrueType #fonts". Since this process sometimes produces am#biguous results, ##PDF writers, instead 
-of using a simple #font, should use a Type 0 #font with an  encoding and use the #glyph 
-CID#FontType0
+Type 1 fonts". 
+For TrueType fonts using "glyf" tables, the process shall be as de#scri#bed in 9.6.5.4, "Encodings for# 
+Id#entity-H
+TrueType fonts". Since this process sometimes produces a#m##bigu#ou#s re#sults, #PDF writ#er#s, #instead 
+of using a simple font, should# use# a Type 0 font with an  encoding and use# the gl#yph 
+CIDFontType0
 • 
-indices as #character codes, as described following "#Table 116: Predefined CJK CMap names". 
-For  #fonts using "CFF " tables, the process shall be as described in the discussion of 
-CID#FontType2
-• 
-embedded Type 0 CID#Fonts in 9.7.4.2, "#Glyph selection in CID#Fonts". 
-For  #fonts using "glyf" tables, the process shall be as described in the discussion of 
-9.9.2#Font subsets 
+indices as# character# codes, as descri#bed #following "#Table 116: Predefined CJK CMap names#". 
+For  fonts using "CFF " tables#, th#e process shall be as descr#ibed# in the discussion of 
+CIDFontType2
+#• 
+e#mbedded T#ype #0 CIDFonts in 9.7.#4.2, "#Glyph selection in CIDFonts". 
+For  fonts using "glyf" tabl#es, t#he process shall be as descri#bed #in the discussion of 
+9.9.2Font subs#ets #
  
-embedded Type 2 CID#Fonts in 9.7.4.2, "#Glyph selection in CID#Fonts". 
-Type1TrueTypeOpenType
-Subtype
-#PDF documents may include subsets of #PDF fonts whose  is ,  or . The 
-#font and #font descriptor that describe a #font subset are slightly different from those of ordinary #fonts. 
-These differences allow a ##PDF processor to recognise #font subsets and to merge documents containing 
-different subsets of the same #font. (For more information on #font descriptors, see 9.8, "#Font 
-descriptors".) 
-Base#Font
-#FontName
-For a #font subset, the PostScript name of the #font, that is, the value of the #font’s  entry and the 
-#font descriptor’s  entry, shall begin with a tag followed by a plus sign (+) followed by the 
-PostScript name of the #font from which the subset was created. The tag shall consist of exactly six 
-uppercase letters; the choice of letters is ar#bitrary, but different subsets of the same #font in the same 
-#PDF file shall have different tags. The #glyph name .notdef shall be defined in the #font subset. 
-© ISO 2017 – All rights reserved 347 
+embedded Type 2 CIDFonts in 9.7#.4.2, #"Glyph selection in CIDFonts". 
+Type1TrueTypeOpenT#ype
+S#ubtype
+PD#F doc#ume#nts m#ay includ#e sub#sets of PDF #fonts# whose  is ,  or . The 
+font and font descriptor tha#t de#scribe a font subset are slightly different from those o#f ord#inary fonts. 
+These differ#ence#s allo#w a PDF proces#sor to recognise font #subs#ets and to merge documents# cont#aining 
+different subs#ets of# the same font. (Fo#r mor##e i#nformation# on f#ont descriptors, see 9.8, "Font 
+d#escr#iptors".) 
+BaseFont
+FontNam#e
+Fo#r a font subset, t#he Po#stScript name of the font, that is, the value of the font’s  entry and the 
+font descriptor’s  entry, shall beg#in wi#th a tag followed by a plus sign (+) followed by the 
+PostScript name of the font from which the subset was created. The tag shall consist of exactly six 
+upperc#ase l#etters; the choice of letters is# a#rbitrary, but different subsets of the same font# in t#he same #
+PDF #file shall have different ta#gs. Th#e glyph name .notdef shall be defined in the font subset. 
+© ISO 2017 – All rights reserved 347 #
 
-ISO/DIS 32000-2
+IS#O/DIS 32000-2
  
-NOTE It is recommended that ##PDF processors treat multiple subset #fonts as completely independent 
-entities, even if they appear to have been created from the same original #font. 
-EXAMPLE EOODIA+Poetica is the name of a subset of Poetica®, a Type 1 #font. 
+NOTE It is r#ecom#mended #that PDF proc#essors treat multiple subset fonts as completely i#ndep#endent 
+entities, even if they appear to have been created from the sam#e or#iginal font. 
+EXAMPLE EOODIA+Poetica is the name of a subset of Poetica®, a Type 1 font. 
 9.10Extraction of text content 
  
 9.10.1General 
  
 The preceding subclauses describe all the facilities for showing text and causing glyphs to be painted on 
-the page. In addition to rendering text, ##PDF processors often need to determine the information content 
-of text — that is, its meaning according to some standard #character# identification as opposed to its 
+the page. In addition to# ren#dering #text, PDF pro#cessors often need to determine the information content 
+of text — that is, its meaning according to some standar#d characte##r i#dentification as opposed to its 
 rendered appearance. This need arises during operations such as searching, indexing, and exporting of 
 text to other file formats. 
-Unicode defines a system for numbering all of the common #characters used in a large number of 
+Unicode defines a system for numbering all of the comm#on charac#ters used in a large number of 
 languages. It is a suitable scheme for representing the information content of text, but not its 
-appearance, since Unicode values# identify #characters, not #glyphs. For information about Unicode, see 
+appearance, since Unicode valu#es #ident#ify chara#ct#ers, #not glyphs. For information about Unicode, see 
 the Unicode Standard by the Unicode Consortium. 
-When extracting #character content, a ##PDF processor can easily convert text to Unicode values if a #font’s 
-#characters are# identified according to a standard ##character set that is known to the ##PDF processor. This 
-#character# identification can occur if# either the #font uses a standard named encoding or the #characters in 
-the #font are# identified by standard #character names or CIDs in a well-known collection. 9.10.2, "Mapping 
-#character codes to Unicode values", describes in detail the overall algorithm for mapping #character 
+When extrac##ting #char#a#ct#er cont#ent, a PDF pro#cessor can easily convert text to Unicode values if a fo#nt’s 
+cha#racters #are# identified according to a st#andard #cha#racter set #that## is# k#nown# to the PDF pr#ocessor#. This 
+ch#ara#cte#r identificatio#n can# occur i#f e#ither the font uses a standard named encodin#g or the #characters in 
+the fon#t a#re identified by# standard #character names or CIDs in a well-known collection. 9.10.2,# "Mapping #
+character codes to Unicode values", describ#es in# detail the overall algorithm #for mapping# character 
 codes to Unicode values. 
-If a #font is not defined in one of these ways, the #glyphs can still be shown, but the #characters cannot be 
-converted to Unicode values without additional information using the following methods: 
+If a font is not defined in one of these #ways,# the glyphs can still be sh#own, but #the characters cannot be 
+converted to Unicode values without additional information using the fol#lowin#g methods: 
 ToUnicode
 • 
-This information can be provided as an optional  entry in the #font dictionary (#PDF 1.2; 
-see 9.10.3, "ToUnicode CMaps"), whose value shall be a #stream #object containing a special kind of 
+This information can be provided as an optional  entry in t#he f#ont dictionary (PDF 1.2; 
+see 9.10.3, "ToUnicode CMaps"), whose value shall be a #stream #object ##containing a special kind of 
 ActualText
 • 
-CMap file that maps #character codes to Unicode values. 
-An  entry for a structure element or marked-content sequence (see 14.9.4, 
-9.10.2Mapping #character codes to Unicode values 
+CMap f#ile that m#aps character codes to Unicode values. 
+An  entry for a structure element or marked-content sequence (see 14.9.4, #
+9.10.2Map#ping character codes to Unicode values 
  
-"Replacement text") may be used to specify the text content directly. 
-A ##PDF processor can use these methods, in the priority given, to map a #character code to a Unicode 
-value. Tagged #PDF documents, in particular, shall provide at least one of these methods (see 14.8.2.6, 
-"Unicode mapping in tagged #PDF"): 
+"Replacement text") may be used to specify the text #cont#ent dire#ctly. 
+A PDF p#rocessor can use these methods, in the priority #given, to #map a character code to a U#nico#de 
+value. Tagged PDF documents, in particular, shall provid#e at #least one of these methods (see 14.8.2.6, 
+"Uni#cod#e mapping in tagged PDF"): 
 • 
-If the #font dictionary contains a ToUnicode CMap (see 9.10.3, "ToUnicode CMaps"), use that CMap 
+If the font dictionary contains a ToUnicode CMap (see 9.10#.3, "#ToUnicode C#Maps"#), use that CMap 
+•# 
+to conve#rt the character code to Unicode. 
+If the font is a simple fo#nt and# the glyph selection algor#ithm (see #9.6.5, "Character encodin#g") us#es 
+a glyph name, that name can be looked up in# t#he #Ad#obe Glyph List# to o#btain the corresponding 
 • 
-to convert the #character code to Unicode. 
-If the #font is a simple #font and the #glyph selection algorithm (see 9.6.5, "#Character encoding") uses 
-a #glyph name, that name can be looked up in the Adobe #Glyph List to obtain the corresponding 
-• 
-Unicode value.# 
+Unicode #valu#e. 
 Identity–HIdentity–V
-If the #font is a composite #font that uses one of the predefined CMaps listed in "#Table 116: 
-Predefined CJK CMap names" (except  and ) or whose descendant CID#Font 
-uses the Adobe-GB1, Adobe-CNS1, Adobe-Japan1, or Adobe-Korea1 #character collection: 
+If the font is a composite font that uses one of the predefi#ned CM#aps listed in #"Table 116: 
+Predefined CJK CMap name#s" (except  and ) or whose descendant CIDFont 
+uses the Adobe-GB1, Adobe-CNS1, Adobe-Japan#1, or Adob#e-Korea1 character collection: 
 © ISO 2017 – All rights reserved 348 
 
-ISO/DIS 32000-2
+I#SO/D#IS 3200#0-2
  
  
  
-a.Map the #character code to a #character# identifier (CID) according to the #font’s CMap. 
-b.Obtain the registry and ordering of the #character collection used by the #font’s CMap (for example, 
+#a.Map the# character# code to a ch#ara#cter identifier (CID) accordin#g to# the font’s CMap. 
+b.Obtain the registr#y and orde#ring of the character collection used by the font’s CMap (for example, 
  
 Adobe and Japan1) from its CIDSystemInfo dictionary. 
 c.Construct a second CMap name by concatenating the registry and ordering obtained in step (b) in 
@@ -197,23 +197,23 @@ d.Obtain the CMap with the name constructed in step (c) (available from a variet
  
 ). 
 e.g., http://sourceforge.net/adobe/cmap/wiki/Home/
-e.Map the CID obtained in step (a) according to the CMap obtained in step (d), producing a Unicode 
+e.Map the CID #obta#ined in step (a) acco#rdin#g to the CMap obtained in step (d), producing a Unicode 
 value. 
-Type 0 #fonts whose descendant CID#Fonts use the Adobe-GB1, Adobe-CNS1, Adobe-Japan1, or Adobe-
-Korea1 #character collection (as specified in the CIDSystemInfo dictionary) shall have a supplement 
-number corresponding to the version of #PDF supported by the ##PDF processor. See "#Table 117: 
-#Character collections for predefined CMaps, by #PDF version" for a list of the #character collections 
-corresponding to a given #PDF version. Other supplements of these #character collections may be used, 
-but if the supplement is higher-numbered than the one corresponding to the supported #PDF version, 
+Type 0 fonts whose descendant CIDFonts use the Adobe-GB1, Adobe-CNS1, Adobe-Ja#pan1, or A#dobe-
+Korea1 character collection (as specified in the CIDSystemInfo dictionary) shall have a supplement 
+number correspo#ndin#g to the version# of #PDF support#ed by the PDF #proc#essor. See# "#Table 117: 
+Character collections# for# predefined CMaps, by PDF ve#rsion#" for# a list of the character collections# 
+co#rresponding to a given PDF version. O#ther suppl#ements of these character collections may be used, 
+but if the supplement is higher-numbered than the one cor#resp#onding to the supported PDF version, 
 only the CIDs in the latter supplement are considered to be standard CIDs. 
-If these methods fail to produce a Unicode value, there is no way to determine what the #character code 
-represents in which case a ##PDF processor may choose a #character code of their choosing. 
+If these methods fail to produce a Unicode value, there is no# way to de#termine what the character code #
+rep#resents in whi#ch case a# PDF #proce#ssor may choose a character code of their# choo#sing. 
 9.10.3ToUnicode CMaps 
  
 ToUnicode
-, Adobe CMap and 
-The CMap defined in the  entry of the #font dictionary shall follow the syntax for CMaps 
-CID#Font Files Specification
+, Adob#e CMa#p and 
+The CMap defined in the  entry of the font dictionary shall follow the syntax for CMaps 
+CIDFont Files Specification
 introduced in 9.7.5, "CMaps" and fully documented in Adobe Technical Note #5014
 . This CMap differs from an ordinary one in these ways: 
 • 
@@ -221,54 +221,54 @@ UseCMap
 The only pertinent entry in the CMap stream dictionary (see "Table 118: Additional entries in a 
 ToUnicode
 CMap stream dictionary") is , which may be used if the CMap is based on another 
-begincodespacerangeendcodespacerange
+begincodespacerangeendcodespacerang#e
 • 
- CMap. 
-The CMap file shall contain  and  operators that are 
-consistent with the encoding that the #font uses. In particular, for a simple #font, the codespace shall 
+# CMap. 
+The CMap file shall conta#in  #and  operators that are 
+consistent with the encoding that the font uses. In particular, for a simple font, the codespace shall 
 beginbfcharendbfcharbeginbfrangeendbfrange
 • 
-be one #byte long. 
-It shall use the , , , and  operators to define the 
-mapping from #character codes to Unicode #character sequences expressed in UTF-16BE encoding. 
-For simple #fonts, #character codes shall be written as 1 #byte in the ToUnicode CMap. 
-For CID keyed #fonts #character codes may have 1 #byte, 2 #bytes, or more than 2 #bytes in the ToUnicode 
-CMap.# 
+be o#ne by#te long. 
+It shall use the , , , and  operators# to define# the 
+m#appi#ng fr#om charact#er codes to Unicode character sequences expressed in UTF-16B#E encodin#g#. #
+For simple fonts, character codes shall be written a#s 1 b#yte in the ToUni#code CMap.# 
+For CID keyed fonts character codes may ha#ve 1# by#te, #2 bytes, or #more ##than# 2 bytes in the ToUnicod#e 
+C#Map. 
 Identity-H
 Identity
-EXAMPLE 1 This example illustrates a Type 0 #font that uses the  CMap to map from #character codes to CIDs and 
+EXAMPLE 1 This example illustrat#es a #Type 0 font# that uses# the  CMap to map from character codes to CIDs and 
 ToUnicode
-whose descendant CID#Font uses the  mapping from CIDs to TrueType #glyph indices. Text strings 
-shown using this #font simply use a 2-#byte #glyph index for each #glyph. In the absence of a  entry, no 
-information would be available about what the #glyphs mean. 
-14 0 obj 
-  <</Type /#Font 
+#whose# descendant CIDFont uses the  mapping from CID#s to T#rueType glyph indices. Text strings 
+shown using this font simply ##use a## 2-byte glyph# inde#x for each glyph. I#n the abs#ence of a  entry, no 
+in#forma#tion would be availabl#e abo#ut what the glyphs mean. 
+1#4 0 #obj 
+  <</Type /Font 
    /Subtype /Type0 
-   /Base#Font /Ryumin-Light 
+   /BaseFont /Ryumin-Light 
    /Encoding /Identity-H 
-   /Descendant#Fonts [15 0 R] 
-   /ToUnicode 16 0 R 
-© ISO 2017 – All rights reserved 349 
+   /DescendantFonts [15 0 R] 
+ #  /ToUnic#ode 16 0 R 
+#© IS#O 2017 – All r#ights# reserved 349 
 
 ISO/DIS 32000-2
  
   >> 
-endobj 
- 
+endo#bj 
+# 
 15 0 obj 
-  <</Type /#Font 
-   /Subtype /CID#FontType2 
-   /Base#Font /Ryumin-Light 
+  <</Type /Font 
+   /Subtype /CIDFontType2 
+   /BaseFont /Ryumin-Light 
    /CIDSystemInfo 17 0 R 
-   /#FontDescriptor 18 0 R 
+   /FontDescriptor 18 0 R 
    /CIDToGIDMap /Identity 
   >> 
 endobj 
 ToUnicode
-EXAMPLE 2 In this example, the value of the  entry is a #stream #object that contains the definition of the CMap. 
+EXAMPLE 2 In this example, the value of the  entry is a# stream# object## that contains the definition of the CMap. 
 begincodespacerangeendcodespacerange
- The  and  operators define the source #character code range to be 
-the 2-#byte #character codes from <00 00> to <FF FF>. The specific mappings for several of the #character codes 
+ The # and  oper#ators define the source charac#ter code r#ange to b#e 
+th#e 2-byte character codes from <00 00> to <FF FF>. The s#pecific ma#ppings for several of the character codes 
 are shown. 
 16 0 obj 
 << 
@@ -306,19 +306,19 @@ endstream
 endobj 
  <00 00> to <00 5E> are mapped to the Unicode values SPACE (U+0020) to TILDE (U+007E) This is followed 
 by the definition of a mapping where each character code represents more than one Unicode value: 
- <005F> <0061> [<00660066> <00660069> <00660066006C>] 
- In this case, the original #character codes are the #glyph indices for the ligatures ff, fi, and ffl. The entry defines 
-the mapping from the #character codes <00 5F>, <00 60>, and <00 61> to the strings of Unicode values with a 
+ <005F> <0061> [<00660066> <00660069> <0066006#6006C>] 
+ #In this case, the original charac#ter co#des are the glyph indices for the ligatures ff, fi, and ffl. Th#e entry de#fines 
+the mapping from the character codes <00 5F>, <00 60>, and <00 61> to the strings of Unicode values with a 
 Unicode scalar value for each character in the ligature: LATIN SMALL LETTER F (U+0066) LATIN SMALL 
-LETTER F (U+0066) are the Unicode values for the #character sequence f f, LATIN SMALL LETTER F (U+0066) 
+LETTER F (#U+0066) ar#e the Unicode values for the character sequence f f, LATIN SMALL LETTER F (U+0066) 
 LATIN SMALL LETTER I (U+0069) for f i, and LATIN SMALL LETTER F (U+0066) LATIN SMALL LETTER F 
 © ISO 2017 – All rights reserved 350 
 
 ISO/DIS 32000-2
  
-(U+0066) LATIN SMALL LETTER L (U+006c) for f f l. 
- Finally, the #character code <3A 51> is mapped to the Unicode value UNICODE HAN #CHARACTER ‘U+2003E’ 
-(U+2003E), which is expressed by the #byte sequence <D840DC3E> in UTF-16BE encoding. 
+(U+0066) LATIN SMALL LETT#ER L (U+00#6c) for f f l. 
+ Finally, the character code <3A 51> is# mapped to# the Unicode value UNICODE HAN CHARACTER ‘U+2003E’ 
+(U+2003E), which is express#ed by# the byte sequence <D840DC3E> in UTF-16BE encoding. 
 Example 2 in this subclause illustrates several extensions to the way destination values may be defined. 
 beginbfchar
 To support mappings from a source code to a string of destination codes, this extension has been made 
@@ -330,7 +330,7 @@ srcCode dstString
 endbfchar 
  
 beginbfrange
-where dstString may be a string of up to 512 #bytes. Likewise, mappings after the  
+where dstString may be a string of# up #to 512 bytes. Likewise, mappings after the  
 n
 operator may be defined as: 
   
@@ -338,14 +338,14 @@ beginbfrange
 srcCode1 srcCode2 dstString 
 endbfrange 
  
-In this case, the last #byte of the string shall be incremented for each consecutive code in the source code 
+In this cas#e, th#e last byte of the string shall be incremented for each consecutive code in the source code 
 range. 
 srcCode2 - srcCode1
-When defining ranges of this type, the value of the last #byte in the string shall be less than or equal to 
-255 - (). This ensures that the last #byte of the string shall not be incremented past 
+When defining ranges of this type, the value# of t#he last byte in the string shall be less than or equal to 
+255 - (). This ensures #that #the last byte of the string shall not be incremented past 
 255; otherwise, the result of mapping is undefined. 
 ToUnicode
-To support more compact representations of mappings from a range of source #character codes to a 
+To support more compact represent#ations of #mappings from a range of source character codes to a 
 discontiguous range of destination codes, the CMaps used for the  entry may use this syntax 
 n
 for the mappings following a beginbfrange definition. 
@@ -357,8 +357,8 @@ srcCode1srcCode2
 dstString1dstStringm
 Consecutive codes starting with  and ending with  shall be mapped to the destination 
 strings in the array starting with  and ending with  . The value of dstString can be a 
-string of up to 512 #bytes. The value of m represents the number of continuous #character codes in the 
-source #character code range. 
+strin#g of# up to 512 bytes. The valu#e of m rep#resents the number o#f continuo#us character codes in the 
+source character code range. 
 NOTE If number of dstString in array is different from m, the result of mapping is undefined. 
 21
 𝑚𝑚 = 𝑠𝑠𝑚𝑚𝑐𝑐𝐶𝐶𝐷𝐷𝐵𝐵𝑚𝑚

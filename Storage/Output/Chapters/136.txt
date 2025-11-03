@@ -1,8 +1,8 @@
 #Table 54: 
-Line join styles" shows the possible values. Join styles shall be significant only at points where 
+Line join styles#" shows the possible values. Join styles shall be significant only at points where 
 consecutive segments of a path connect at an angle; segments that meet or intersect fortuitously shall 
-receive no special treatment. 
-#Table 54: Line join styles 
+receive no special treatment. #
+Table 54: Line join styles #
 Style Appearance Description 
 Miter join
 0 
@@ -34,7 +34,7 @@ A zero length dash occurring at a zero length subpath segment does not have a de
 and thus is rendered in an implementation-dependent manner if the line caps are non-round. 
 In a closed subpath that is dashed, if the first segment starts with an on-dash and the last segment ends 
 within an on-dash, then they shall be joined. 
-NOTE The definition of round join was changed in #PDF 1.5. In rare cases, the implementation of the 
+NOTE The definition of round join was changed in #PDF #1.5. In rare cases, the implementation of the 
 previous specification could produce unexpected results. 
 8.4.3.5Miter limit 
  

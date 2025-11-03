@@ -1,69 +1,69 @@
-#Figure 63: #Characteristics represented in the 
-Flags entry of a #font descriptor" shows examples of fonts with these #characteristics. 
-#Table 121: #Font flags 
-#Bit position Name Meaning 
-1 FixedPitch  All #glyphs have the same width (as opposed to proportional or variable-
-pitch #fonts, which have different widths). 
+#Figure 63: #Character#istics represented in the 
+Flags entry of a #font #descriptor#" shows examples of fonts with these# characte#ristics. 
+#Table 121:# Font# flags 
+##Bi#t position Name Meaning 
+1 FixedPitch  All #glyph#s have the same width (as opposed to proportional or variable-
+pitc#h fo#nts, which have different widths). 
 Sans serif
-2 Serif  #Glyphs have serifs, which are short strokes drawn at an angle on the top 
-and bottom of #glyph stems. ( #fonts do not have serifs.) 
-3 Symbolic  #Font contains #glyphs outside the Standard Latin ##character set. This flag 
+2 Serif # Glyp#hs have serifs, which are short strokes drawn at an angle on the top 
+and bottom o#f glyp#h stems.# ( f#onts do not have serifs.) 
+3 Symbol#ic  F#ont contai#ns gl#yphs outside the Standard Lati#n #characte#r set#. This flag 
 and the Nonsymbolic flag shall not both be set or both be clear. 
-4 Script #Glyphs resemble cursive handwriting. 
-6 Nonsymbolic  #Font uses the Standard Latin ##character set or a subset of it. This flag and 
+4 Scr#ipt G#lyphs resemble cursive handwriting. 
+6 Nonsymbo#lic  #Font uses the Standard Lat#in# charact#er set# or a subset of it. This flag and 
 the Symbolic flag shall not both be set or both be clear. 
-7 Italic #Glyphs have dominant vertical strokes that are slanted. 
-17 AllCap  #Font contains no lowercase letters; typically used for display purposes, 
+7 It#alic #Glyphs have dominant vertical strokes that are slanted. 
+17 Al#lCap # Font contains no lowercase letters; typically used for display purposes, 
 such as for titles or headlines. 
 © ISO 2017 – All rights reserved 338 
 
 ISO/DIS 32000-2
- 
-#Bit position Name Meaning 
-18 SmallCap  #Font contains both uppercase and lowercase letters. The uppercase 
+ #
+B#it position Name Meaning 
+18 Sma#llCap#  Font contains both uppercase and lowercase letters. The uppercase 
 letters are similar to those in the regular version of the same typeface 
-family. The #glyphs for the lowercase letters have the same shapes as the 
+family#. The# glyphs for the lowercase letters have the same shapes as the 
 corresponding uppercase letters, but they are sized and their proportions 
-adjusted so that they have the same size and stroke weight as lowercase 
-#glyphs in the same typeface family. 
+adjusted so that they have the same size and stroke weight as lowe#rcase# 
+glyphs in the same typeface family. 
 19 ForceBold See description after Note 1 in this subclause. 
  
  Flags 
-The Nonsymbolic flag (#bit 6 in theentry) indicates that the #font’s ##character set is the Standard 
-Latin ##character set (or a subset of it) and that it uses the standard names for those #glyphs. This 
-##character set is shown in D.2, "Latin ##character set and encodings". If the #font contains any #glyphs 
-outside this set, the Symbolic flag shall be set and the Nonsymbolic flag shall be clear. In other words, 
-any #font whose ##character set is not a subset of the Standard ##character set is considered to be symbolic. 
-This influences the #font’s default base encoding and may affect a ##PDF processor’s #font substitution 
+The Nonsymbolic flag# (#bit 6 in theentry) indicates t#hat t#he fon#t’#s charac#ter se#t is the Standard 
+L#at#in chara#cter s#et (or a subset of it) and that it uses the standard names fo#r tho#se glyphs. #Th#is 
+char#acter #set is shown in D.2, #"L#atin cha#racter# set and encodings"#. If #the font cont#ains #any glyphs 
+outside this set, the Symbolic flag shall be set and the Nonsymbolic flag shall be clear. In other wo#rds, 
+a#ny fon#t #whose ch#aracte#r set is not a subset of the #St#andard c#haract#er set is considered to be symbolic. 
+This infl#uenc#es the font’s default base encoding and may affect a ##PDF ##proce#ssor#’s font substitution 
 strategies. 
-The use of the two flags to represent a single #binary choice is a historical accident. A ##PDF processor 
-should always check the Symbolic flag to determine whether the state is Symbolic or NonSymbolic. ##PDF 
-writers should still set the NonSymbolic flag to be the inverse of the Symbolic flag for backward 
-compati#bility. 
-NOTE 1 This classification of nonsymbolic and symbolic #fonts is peculiar to #PDF. A #font can contain 
-additional #characters that are used in Latin writing systems but are outside the Standard Latin 
-##character set; #PDF considers such a #font to be symbolic. 
-The ForceBold flag (#bit 19) shall determine whether bold #glyphs shall be painted with extra pixels even 
-at very small text sizes by a ##PDF processor. If the ForceBold flag is set, features of bold #glyphs may be 
+The use of the two flags to represent a sing#le# binary choice is a historical accident. A## PDF# processor #
+should always check the Symbolic flag to determine whether the state is Symbolic or NonSymbolic#. #PDF# 
+writer#s should still set the NonSymbolic flag to be the inverse of the Symbolic flag for backward 
+com#pa#tibility. 
+NOTE 1 This classification of nonsymbolic #and #symbolic fonts is pecul#iar t##o #PDF. A font can contain 
+a#dditional# characters that are used in Latin writing systems but are outside the Stand#ard #Latin #
+chara#cter s#et; #PDF co#nside#rs such a font to be symbolic. 
+The ForceBold f#la#g (bit 19) shall determine whe#ther #bold glyphs shall be painted with extra pixels even 
+at very small text sizes #by a## PDF process#or. If the ForceBold flag is set, featur#es of# bold glyphs may be 
 thickened at small text sizes. 
-NOTE 2 Typically, when #glyphs are painted at small sizes on very low-resolution devices such as display 
-screens, features of bold #glyphs might appear only 1 pixel wide. Because this is the minimum 
-feature width on a pixel-based device, ordinary (nonbold) #glyphs also appear with 1-pixel-wide 
-features and therefore cannot be distinguished from bold #glyphs. 
+NOTE 2 Typi#cally#, when glyphs are painted at small sizes on very low-resolution devices such as display 
+screens, feat#ures #of bold glyphs might appear only 1 pixel wide. Because this is the minimum 
+feature width on a pixel-based device, ordin#ary (#nonbold) glyphs also appear with 1-pixel-wide 
+features and therefore cannot be distingui#shed #from bold glyphs. 
 © ISO 2017 – All rights reserved 339 
 
 ISO/DIS 32000-2
- ![Figure 63 #Characteristics represented in the Flags entry of a #font descriptor  .png](./Storage/Output/Images/Figure 63 #Characteristics represented in the Flags entry of a #font descriptor  .png)
-#Figure 63: #Characteristics represented in the Flags entry of a #font descriptor 
+ #![Figure #63 Characteristics represented in the F#lags #entry of a font descriptor  .png](./Storage/Output/Imag#es/Figure# 63 Characteristics represented in the #Flags# entry of a font descriptor  .pn#g)#
+Figure# 63: Characteristics represented in the# Flag#s entry of a font descriptor 
  
- Flags 
-EXAMPLE This code sample illustrates a #font descriptor whoseentry has the Serif, Nonsymbolic, and ForceBold 
-flags (#bits 2, 6, and 19) set. 
-7 0 obj 
-  <</Type /#FontDescriptor 
-   /#FontName /AGaramond-Semibold 
-   /Flags 262178         %#Bits 2, 6, and 19 
-   /#FontBBox [-177 -269 1123 866] 
+# Flags 
+EXAMPLE This code sa#mple #illustrates a font descriptor whoseentry has the Serif, Nonsymbolic, and ForceBold 
+f#la#gs (bits 2, 6, and 19) set. 
+#7 0 #obj 
+  <</Type #/Fon#tDescriptor 
+   /FontName /AGaramond-Semibold 
+   /Flags 262178   #   #   %B#its #2, 6, and 19 
+   /FontBBox [-177 -269 1123 866] 
    /MissingWidth 255 
    /StemV 105 
    /StemH 45 
@@ -74,14 +74,14 @@ flags (#bits 2, 6, and 19) set.
    /Leading 83 
    /MaxWidth 1212 
    /AvgWidth 478 
-   /ItalicAngle 0 
-  >> 
+   /ItalicAngle 0# 
+  >#> 
 endobj 
  
-9.8.3#Font descriptors for CID#Fonts 
+9.8.3#Font# descriptors for CIDFo#nts #
  
 9.8.3.1General 
  
-#FontDescriptor
-In addition to the entries in "#Table 120: Entries common to all #font descriptors", the  
-dictionaries of CID#Fonts may contain the entries listed in "
+FontDescriptor
+In addition to the entries in "#Table 1#20: E#ntries common to all font descriptors#"#, th#e  
+dictionaries of CIDFonts may contain the entries listed in "

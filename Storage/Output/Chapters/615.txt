@@ -1,79 +1,79 @@
 # 
  
-#PDF Name Registry 
-(Normative) 
+#PDF #Name Registry 
+#(Normative) 
 E.1General 
  
-This annex discusses a registry for #developers, controlled by ISO and currently provided by Adobe on 
-behalf of ISO. The registry contains private names and formats that may be used by ##PDF processors. 
-#Developer prefixes shall be used to# identify extensions to #PDF that use First Class names (see below) 
-and that are intended for public use. (See 7.12.3, "#Developer extensions dictionary".) "#Developers" 
-means any entity including individuals, companies, non-profits, standards bodies, open source #groups, 
+This annex discusses a registry for #developer#s, controlled by ISO and currently provided by Adobe on 
+behalf of ISO. The registry contains private names and formats that may be used by# #PDF# processor#s. #
+Developer# prefixes shall be used to# id#entify extensions t#o PD#F that use First Class names (see below) 
+and that are intended for public use. (See 7.12.3,# "Develope#r extensions dictionary".#) "Develo#pers" 
+means any entity including individuals, companies, non-profits, standards bodies, open source #group#s, 
 etc., who are developing standards or software to use and extend ISO 32000. 
-Private data may be added to #PDF documents that enable ##PDF processors to change behavior based on 
-this data. At the same time, users have certain expectations when opening a #PDF document, no matter 
-which ##PDF processor is being used. #PDF enforces certain restrictions on private data in order to meet 
-these expectations. 
-A ##PDF processor may define new types of actions, destinations, annotations, security, and file system 
-handlers. If a user opens a #PDF document using a ##PDF processor for which the new type of #object is not 
-supported, the ##PDF processor shall behave as described in Annex I, "#PDF Versions and Compati#bility". 
-A ##PDF writer may also add keys to any #PDF #object that is implemented as a dictionary, except the file 
-#PDF 1.2
-trailer dictionary (see 7.5.5, "File trailer"). In addition, a ##PDF writer may create tags that indicate the 
+Private data may be added #to P#DF documents that ena#ble ##PDF processo#rs to change behavior based on 
+this data. At the same time, users have certain expectations when openi#ng a# PDF document, no matter 
+#whic##h PDF processo#r is being# use#d. PDF enforces certain restrictions on private data in order to meet 
+these expectati#ons.# #
+A PDF process#or may define new types of actions, destinations, annotations, security, and file system 
+handlers. If a user# ope#ns a PDF documen#t us#in#g a PDF proces#sor for which the new type of #object #is not 
+supp#orte#d,# the PDF proce#ssor shall behave as described i#n An#nex I, "PDF Versions and Compat#i#bi#l#ity". 
+A #PDF writer #may also ad#d key#s to any PDF# object# that is implemented as a dictionary, ex#cept# the file 
+PDF 1.2
+trailer dictionary (see 7.5.5, "File trailer").# In #addition, a# PDF writer# may create tags that indicate the 
 role of marked-content operators (), as described in 14.6, "Marked content". 
 E.2Name registry 
  
-To avoid conflicts with third-party names and with future versions of #PDF, ISO maintains a registry for 
-certain private names and formats. #Developers shall only add private data that conforms to the registry 
+To avoid conflicts with third-party names and with fu#tur#e versions of PDF, ISO maintains a registry for 
+certain private names and forma#ts. Devel#opers shall only add private data that conforms to the registry 
 rules. The registry includes three classes: 
 • 
-First class. Names and data formats that are of value to a wide range of #developers. All names 
+First class. Names and data formats that are of value to a wide rang#e of deve#lopers. All names 
 defined in ISO 32000 specifications are first-class names. First-class names and data formats shall 
-be registered with ISO and shall be made available for all #developers to use. To submit a private 
-name and format for consideration as first-class, see the link on registering a private #PDF 
+be registered with ISO and shall be made available fo#r all dev#elopers to use. To submit a private 
+name and format for consideration as first-class, see the link on regi#steri#ng a private PDF 
 . 
-extension, at the following Web page: http://adobe.com/go/ISO32000Registry
-#Developers should document extensions made to this part of ISO 32000 and make that 
-documentation publicly available so that other #developers can support the extension in their 
+extension, at the following Web page: http://adobe.com/go/ISO32000Re#gistry
+De#velopers should document extensions made to this part of ISO 32000 and make that 
+documentation publicly available so tha#t other d#evelopers can support the extension in their 
 products. Such documentation shall follow the style of ISO 32000 and give a complete specification 
-of the intended #function of the extension. A reference to this documentation should be supplied to 
+of the intended #function #of the extension. A reference to this documentation should be s#uppl#ied to 
 • 
-the #PDF Registry as part of the registration of the extension. 
-Second class. Names that are applicable to a specific #developer. ISO does not register second-class 
-data formats. ISO distributes second-class names by registering #developer-specific 4-#byte prefixes. 
-Those 4 #bytes are followed by a LOW LINE (5Fh) which shall be used as the first 5 #characters in the 
-names of all private data added by the #developer. ISO shall not register the same prefix to two 
+the PDF Registry as part of the registration of the extension. 
+Second class. Names that are applicable to a #specific #developer. ISO does not register second-class 
+data formats. ISO distributes second-class names by re#gistering# developer-specific 4-#byte #prefixes. 
+Those 4# byt#es are followed by a LOW LINE (5Fh) which shall be used as the first 5 #character#s in the 
+names of all private data ad#ded by th#e developer. ISO shall not register the same prefix to two 
 © ISO 2017 – All rights reserved 844 
 
 ISO/DIS 32000-2
- 
-different #developers, thereby ensuring that different #developers’ second-class names shall not 
-conflict. It is the responsi#bility of the #developer not to use the same name in conflicting ways. To 
-register a #developer-specific prefix, use the following Web page: 
+# 
+differe#nt developers, thereby ensuring th#at differ#ent developers’ second-class names shall not 
+conflict. It is the responsi##b#ility of #the developer not to use the same name in conflicting ways. #To 
+regis#ter a developer-specific prefix, use the following Web page: 
 . 
 http://adobe.com/go/ISO32000Registry
  
 Names that are used within dictionaries for which all child relationship routes from the Trailer are 
 via the values of keys which themselves use second class name prefixes are not required to use 
-second class name prefixes. #Developers should not use names in a way that might cause confusion 
-with# identical names that are defined in this International Standard. 
+second class# name pre#fixes. Developers should not use names in a way that might cause confusion 
+wit#h i#dentical names that are defined in this Internatio#nal Stand#ard. 
  
-#Developers should document extensions made to this part of ISO 32000 using second class names 
+Developers should document extensions made to this part of ISO 32000 using second class names 
 • 
 following the same guidelines offered for first class names. 
-Third class. Names that may be used only in #PDF files that other third parties will never see 
+Third class. Names that #may #be used only in PDF files that other third parties will never see 
 because they can conflict with third-class names defined by others. Third-class names shall all 
 begin with a specific prefix reserved for private extensions. This prefix, which is XX, shall be used 
-as the first #characters in the names of all private data added by the #developer. It is not necessary to 
+as the first# characte#rs in the names of all private #data adde#d by the developer. It is not necessary to 
 contact ISO to register third-class names. 
 I
 New keys for the document information dictionary (see 14.3.3, "Document information dictionary") or a 
 thread information dictionary (in the  entry of a thread dictionary; see 12.4.3, "Articles") need not be 
 registered. 
-More information about #developer prefixes, handlers and extensions to ISO 32000 can be obtained at 
-https://reference.#pdfa.org/iso/32000
-. 
-##PDF writers that use extensions that have been registered with the #PDF Registry shall include an 
+More# informati#on about developer prefixes, handlers and extensions to ISO 32000 can be obtained a#t 
+#https://reference.#pdfa#.org/iso/32000
+.# 
+PDF writ#ers that use extensions that have be#en r#egistered with the PDF Registry shall include an 
 Extensions dictionary denoting those uses (see 7.12, "Extensions dictionary").  
 © ISO 2017 – All rights reserved 845 
 

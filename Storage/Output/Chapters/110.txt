@@ -1,15 +1,15 @@
 #Table 36: Entries 
-in a name tree node dictionary" shows the entries in a node dictionary. The nodes shall be of three 
+in a name tree node dictionary#" shows the entries in a node dictionary. The nodes shall be of three 
  Kids NamesNames
 kinds, depending on the specific entries they contain. The tree shall always have exactly one root node, 
  Kids 
-which shall contain a single entry:# eitheror  but not both. If the root node has a  
+which shall contain a single entry:# ei#theror  but not both. If the root node has a  
 Limits Kids 
 entry, it shall be the only node in the tree. If it has aentry, each of the remaining nodes shall be 
 LimitsNames
 either an intermediate node, that shall contain a  entry and aentry, or a leaf node, that shall 
-contain a  entry and a  entry. 
-#Table 36: Entries in a name tree node dictionary 
+contain a  entry and a  entry. #
+Table 36: Entries in a name tree node dictionary #
 Key Type Value 
 (Root and intermediate nodes only; required in intermediate nodes; present in the root 
 Kids 
@@ -31,7 +31,7 @@ keyvalue
 ii
 where each  shall be a string and the corresponding  shall be the #object 
  
-associated with that key. The keys shall be sorted in lexical order, as described 
+#associated with that key. The keys shall be sorted in lexical order, as described 
 below.
 Required for intermediate and leaf nodes; not permitted in root nodes
 Limits 
@@ -43,12 +43,12 @@ descendants of an intermediate node.
  
  Kids 
 Names
-Theentries in the root and intermediate nodes define the tree’s structure by# identifying the 
+Theentries in the root and intermediate nodes define the tree’s structure by# id#entifying the 
 immediate children of each node. The  entries in the leaf (or root) nodes shall contain the tree’s 
 keys and their associated values, arranged in key-value pairs and shall be sorted lexically in ascending 
-order by key. Shorter keys shall appear before longer ones beginning with the same #byte sequence. Any 
+order by key. Shorter keys shall appear before longer ones beginning with the same #byte #sequence. Any 
 encoding of the keys may be used as long as it is self-consistent; keys shall be compared for equality on 
-a simple #byte-by-#byte basis. 
+a simple# byt#e-b#y-byt#e basis. 
 NamesNames
 Limits
 The keys contained within the various nodes’  entries shall not overlap; each  entry shall 
@@ -60,15 +60,15 @@ specify the least and greatest keys contained within the  entries of any of that
 Names
 descendants. The value associated with a given key can thus be found by walking the tree in order, 
 searching for the leaf node whose  entry contains that key. 
-EXAMPLE 1 The following is an abbreviated outline, showing #object numbers and nodes, of a #name tree that maps the 
+EXAMPLE 1 The following is an abbreviated outline, showing# object# numbers and nodes, of a #name tree #that maps the 
 © ISO 2017 – All rights reserved 120 
 
 ISO/DIS 32000-2
  
 names of all the chemical elements, from actinium to zirconium, to their atomic numbers. 
 1: Root node 
-Example of a #name tree 
-  2: Intermediate node: Actinium to Gold 
+Example of a# name tree 
+ # 2: Intermediate node: Actinium to Gold 
    5: Leaf node: Actinium = 25,…, Astatine = 31 
     25: Integer: 89 
     … 
@@ -98,7 +98,7 @@ Example of a #name tree
     129:Integer: 54 
     … 
     133:Integer: 40 
-EXAMPLE 2 The following shows the representation of this tree in a #PDF file: 
+EXAMPLE 2 The following shows the representation of this tree in a #PDF #file: 
 1 0 obj 
   <</Kids [2 0 R        %Root node 
      3 0 R 
@@ -166,7 +166,7 @@ endobj
 24 0 obj 
   <</Limits [(Xenon) (Zirconium)]   %Leaf node 
    /Names [(Xenon) 129 0 R 
-     (Ytter#bium) 130 0 R 
+     (Ytter#bi#um) 130 0 R 
      (Yttrium) 131 0 R 
      (Zinc) 132 0 R 
      (Zirconium) 133 0 R 
@@ -182,9 +182,9 @@ endobj
   40              %Atomic number (Zirconium) 
 endobj 
  
-7.9.7#Number trees 
+7.9.7#Number tree#s 
  
-A #number tree is similar to a #name tree (see 7.9.6, "#Name trees"), except that its keys shall be integers 
+A# number tree# is similar to #a name tre#e (see 7.9.6#, "Name t#rees"), except that its keys shall be integers 
 NumsNames
 instead of strings and shall be sorted in ascending numerical order. The entries in the leaf (or root) 
 nodes containing the key-value pairs shall be named  instead of  as in a name tree. "

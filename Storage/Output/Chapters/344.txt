@@ -1,11 +1,11 @@
 #Figure 80: Leader 
-lines". 
+lines#". 
 (Optional) 
 BS 
 dictionary A border style dictionary (see "#Table 168: Entries in a border style 
-dictionary") specifying the width and dash pattern that shall be used in 
+dictionary#") specifying the width and dash pattern that shall be used in 
 drawing the line. 
-(Optional; #PDF 1.4) 
+(Optional; #PDF #1.4) 
 LE 
 array An array of two names specifying the line ending styles 
 that shall be used in drawing the line. The first and second elements of the 
@@ -19,7 +19,7 @@ L
 respectively, by the first and second pairs of coordinates, (
 in the  array. "Table 179: Line ending styles" shows the possible values. 
 Default value: [/None /None]. 
-(Optional; #PDF 1.4) 
+(Optional;# PDF# 1.4) 
 IC 
 interior colour 
 array An array of numbers in the range 0.0 to 1.0 specifying the 
@@ -34,27 +34,27 @@ DeviceCMYK
  
 3   
 4  
-(Required ifis present, otherwise optional; #PDF 1.6) leader 
+(Required ifis present, otherwise optional#; PD#F 1.6) leader 
 LL  LLE 
 lines 
 number The length of 
 in default user space that extend from each endpoint of the line 
-perpendicular to the line itself, as shown in "#Figure 80: Leader lines". A 
+perpendicular to the line itself, as shown in #"Figure 80: Leader line#s". A 
 positive value shall mean that the leader lines appear in the direction that is 
 L
 clockwise when traversing the line from its starting point to its ending point 
  
 (as specified by ); a negative value shall indicate the opposite direction. 
 Default value: 0 (no leader lines).
-(Optional; #PDF 1.6) 
+(Optiona#l; P#DF 1.6) 
 LLE 
 leader line extensions 
 number A non-negative number that shall represents the length of 
 that extend from the line proper 180 degrees from the 
  
-leader lines, as shown in "#Figure 80: Leader lines". 
+leader lines, as shown in# "Figure 80: Leader lin#es". 
 Default value: 0 (no leader line extensions).
-(Optional; #PDF 1.6) true
+(Option#al; #PDF 1.6) true
 Cap ContentsRC
 boolean If , the text specified by the  or  entries 
 shall be replicated as a caption in the appearance of the line, as shown in 

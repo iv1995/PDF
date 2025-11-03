@@ -1,6 +1,6 @@
 #Table 235: Additional entries specific to a signature field 
-Key Type Value 
-(Optional; shall be an indirect reference; #PDF 1.5) signature field lock dictionary 
+#Key Type Value 
+(Optional; shall be an indirect reference; #PDF #1.5) signature field lock dictionary 
 Lock 
 dictionary A 
 that specifies a set of form fields that shall be locked when this signature field is 

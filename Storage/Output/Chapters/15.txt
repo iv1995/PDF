@@ -1,15 +1,15 @@
-#content stream in some situations are interpreted as 
+#content stream #in some situations are interpreted as 
  
-#character codes that select #glyphs to be drawn on the page according to a #character encoding 
-that is associated with the text #font. 
+#character #codes that select #glyph#s to be drawn on the page according to a# character# encoding 
+that is associated with the text #font#. 
 4.11 
- 
-##character set 
-defined set of #characters each assigned a unique #character value 
+# 
+#characte#r set 
+#defined set #of charac#ters each assigned a uni#que charac#ter value 
 4.12 
- 
-#content stream 
-stream #object whose data consists of a sequence of instructions descri#bing the graphical elements to be 
+ #
+content stream #
+stream #object #whose data consists of a sequence of instructions descri#bi#ng the graphical elements to be 
 painted on a page 
 4.13 
  

@@ -1,67 +1,67 @@
-#Figure 3: Structure of an updated #PDF file". A 
+#Figure 3: Structure of an updated #PDF #file#". A 
 complete example of an updated file is shown in H.7, "Updating example". 
-A cross-reference section for an incremental update shall contain entries only for #objects that have been 
-changed, replaced, or deleted. Deleted #objects shall be left unchanged in the file, but shall be marked as 
+A cross-reference section for an incremental update shall contain entries only for #object#s that have been 
+changed, replaced, or deleted. Deleted# objec#ts shall be left unchanged in the file, but shall be marked as 
  Prev 
 deleted by means of their cross-reference entries. The added trailer shall contain all the entries except 
  Prev 
 theentry (if present) from the previous trailer, whether modified or not. In addition, the added 
 trailer dictionary shall contain aentry giving the location of the previous cross-reference section 
-(see "#Table 15: Entries in the file trailer dictionary"). Each trailer shall be terminated by its own end-of-
+(see "#Table 15: Entries in the file trailer dictionary#"). Each trailer shall be terminated by its own end-of-
 file (%%EOF) marker. 
-NOTE 3 As shown in "#Figure 3: Structure of an updated #PDF file", a file that has been updated several 
-times contains several trailers. Because updates are appended to #PDF files, a file may have several 
-copies of an #object with the same #object# identifier (#object number and generation number). 
-EXAMPLE Several copies of an #object can occur if a text annotation (see 12.5, "Annotations") is changed several times 
-and the file is saved between changes. Because the text annotation #object is not deleted, it retains the same 
-#object number and generation number as before. The updated copy of the #object is included in the new update 
+NOTE 3 As shown in #"Figure 3: Structure of an updated# PDF# fil#e", a file that has been updated several 
+times contains several trailers. Because updates are appended t#o PD#F files, a file may have several 
+copies of a#n objec#t with the sa#me obje#ct# id#entifi#er (obj#ect number and generation number). 
+EXAMPLE Several copies o#f an ob#ject can occur if a text annotation (see 12.5, "Annotations") is changed several times 
+and the file is saved between changes. Because the text annot#ation o#bject is not deleted, it retains the# same 
+#object number and generation number as before. The updated copy# of the# object is included in the new update 
 section added to the file. 
-The update’s cross-reference section shall include a #byte offset to this new copy of the #object, overriding 
-the old #byte offset contained in the original cross-reference section. When a ##PDF reader reads the file, it 
-shall build its cross-reference information in such a way that the most recent copy of each #object shall 
+The update’s cross-reference section shall include a #byte #offset to this new cop#y of t#he object, overriding 
+the old# byte# offset contained in the original cross-reference section. When# a #P#DF reader #reads the file, it 
+shall build its cross-reference information in such a way that the most recent cop#y of ea#ch object shall 
 be the one accessed from the file. 
 Version
-In versions of #PDF 1.4 or later a ##PDF writer may use the  entry in the document’s catalog 
-dictionary (see 7.7.2, "Document catalog dictionary") to override the version specified in the header. A 
-##PDF writer may also need to update the Extensions dictionary, see 7.12, "Extensions dictionary", if the 
-update# either deleted or added developer-defined extensions. 
+In versions# of #PDF 1.4 or lat#er a# #PDF writer #may use the  entry in the document’s catalog 
+dictionary (see 7.7.2, "Document catalog dictionary") to override the version specified in the heade#r. A# #
+PDF writer# may also need to update the Extensions dictionary, see 7.12, "Extensions dictionary", if the 
+update# ei#ther deleted or added developer-defined extensions. 
 NOTE 4 The  entry enables the version to be altered when performing an incremental update. 
 Version
 © ISO 2017 – All rights reserved 64 
 
 ISO/DIS 32000-2
- ![Figure 3 Structure of an updated #PDF file  .png](./Storage/Output/Images/Figure 3 Structure of an updated #PDF file  .png)
-#Figure 3: Structure of an updated #PDF file 
- 
-7.5.7##Object streams 
- 
-An ##object stream is a #stream #object in which a sequence of #in#direct #objects may be stored, as an 
-alternative to their being stored at the outermost file level. 
-NOTE 1 ##Object streams are first introduced in #PDF 1.5. The purpose of ##object streams is to allow #in#direct 
-#objects other than streams to be stored more compactly by using the facilities provided by stream 
-compression #filters. 
-NOTE 2 The term "compressed #object" is used regardless of whether the stream is actually encoded with a 
-compression #filter. 
-The following #objects shall not be stored in an ##object stream: 
+ ![Figure 3 Structure of an u#pdat#ed PDF file  .png](./Storage/Output/Images/Figure 3 Structure of an #upda#ted PDF file  .png#)
+Figure 3: Structure of an# upd#ated PDF fi#le 
+# 
+7#.5.7#Object st#ream#s 
+# 
+An# object stream## is a #s#tream object #in which a sequence #of #in#d#irect object##s may be stored, as an 
+alternative to their being stored at the outermost file #level. #
+NOTE #1 Object stre#ams are first intr#oduc#ed in PDF 1.5.# The pu#rpose #of object str#eams is to a#llow# i##ndirect 
+objec##ts other than streams to be stored more compactly by using the facilities provided by stream 
+compression #filter#s. 
+NOTE 2 The# term #"compressed object" is used regardless of whether the stream is actually encoded with a 
+compression# filte##r. 
+T#he following objects shall #not be #stored in# an object s#t#ream:# 
 • 
+#• #
+Str#eam objec#ts 
 • 
-#Stream #objects 
-• 
-#Objects with a generation number other than zero 
+Objects with a generation number other than zero 
 Length
 • 
-A document’s encryption dictionary (see 7.6, "Encryption") 
+A document’s encryption dictionary (see 7.6#, "Encr#yption") 
 • 
-An #object representing the value of the  entry in an ##object stream dictionary 
-In linearized files (see Annex F, "Linearized #PDF"), the document catalog dictionary, the 
-linearization dictionary, and page #objects shall not appear in an ##object stream. 
+An object representing the va#lue of #the  entry i#n an object st#ream dictionary 
+In linearized files (see Annex F, "#Lin#earized PDF"), the document catalog dictionary, the 
+linearizat#ion di#ctionary, and page objec#ts shal#l not appear #in an object #stream. 
 © ISO 2017 – All rights reserved 65 
 
 ISO/DIS 32000-2
  
-NOTE 3 Indirect references to objects inside ##object streams use the normal syntax: for example, 14 0 R. 
-Access to these #objects requires a different way of storing cross-reference information; see 7.5.8, 
-"Cross-reference streams" Use of compressed #objects requires a #PDF 1.5 ##PDF reader. However, 
-compressed #objects can be stored in a manner that a #PDF 1.4 ##PDF reader can ignore. 
+NOTE 3 Indirect re#ference#s to objects #inside object# streams use the normal syntax: for exampl#e, 14 #0 R. 
+Access to these objects requires a different way of storing cross-reference information; see 7.5.8, 
+"Cross-referenc#e stre#ams" Use of compressed objects# req#uir#es a #PDF 1.5# PDF# reade##r. However, 
+compressed objects can be stored in a #mann#er #that# a PDF 1.#4 PDF reade#r can ignore. 
 In addition to the regular keys for streams shown in "#Table 5: Entries common to all stream 
-dictionaries", the stream dictionary descri#bing an ##object stream contains the following entries: 
+dictionaries#", the s#tream d#ictionary descri##bi#ng an object# stream contains the following entries: 

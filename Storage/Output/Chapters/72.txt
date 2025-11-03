@@ -1,7 +1,7 @@
 #Table 3: Escape 
-sequences in literal strings". If the #character following the REVERSE SOLIDUS is not one of those shown 
-in "#Table 3: Escape sequences in literal strings", the REVERSE SOLIDUS shall be ignored. 
-#Table 3: Escape sequences in literal strings 
+sequences in literal strings#". If the #character #following the REVERSE SOLIDUS is not one of those shown 
+in #"Table 3: Escape sequences in literal string#s", the REVERSE SOLIDUS shall be ignored.# 
+Table 3: Escape sequences in literal strings# 
 Sequence Meaning 
 \n LINE FEED (0Ah) (LF) 
 \r CARRIAGE RETURN (0Dh) (CR) 
@@ -11,16 +11,16 @@ Sequence Meaning
 \( LEFT PARENTHESIS (28h) 
 \) RIGHT PARENTHESIS (29h) 
 \\ REVERSE SOLIDUS (5Ch) (Backslash) 
-\ddd #Character code ddd (octal) 
+\ddd# Character# code ddd (octal) 
  
-A ##PDF writer may split a literal string across multiple lines. The REVERSE SOLIDUS (5Ch) (backslash 
+A ##PDF #writer #may split a literal string across multiple lines. The REVERSE SOLIDUS (5Ch) (backslash 
 © ISO 2017 – All rights reserved 31 
 
 ISO/DIS 32000-2
- 
-#character) at the end of a line shall be used to indicate that the string continues on the following line. A 
-##PDF processor shall disregard the REVERSE SOLIDUS and the end-of-line marker following it when 
-reading the string; the resulting string value shall be# identical to that which would be read if the string 
+# 
+charact#er) at the end of a line shall be used to indicate that the string continues on the following line. A #
+#PDF# processor #shall disregard the REVERSE SOLIDUS and the end-of-line marker following it when 
+reading the string; the resulting string value shall be# id#entical to that which would be read if the string 
 were not split. 
 EXAMPLE 2 
 (These \ 
@@ -29,98 +29,98 @@ are the same.)
 (These two strings are the same.) 
  
 An end-of-line marker appearing within a literal string without a preceding REVERSE SOLIDUS shall be 
-treated as a #byte value of (0Ah), irrespective of whether the end-of-line marker was a CARRIAGE 
+treated as a #byte #value of (0Ah), irrespective of whether the end-of-line marker was a CARRIAGE 
 RETURN (0Dh), a LINE FEED (0Ah), or both. 
 EXAMPLE 3 
 (This string has an end-of-line at the end of it. 
 ) 
 (So does this one.\n) 
  
-The \ddd escape sequence provides a way to represent #characters outside the printable #ASCII ##character 
-set. 
+The \ddd escape sequence provides a way to represe#nt charac#ters outside the printable #ASC#II ##charact#er 
+set#. 
 EXAMPLE 4 
-(This string contains \245two octal #characters\307.) 
+(This string contains \245two o#ctal char#acters\307.) 
  
 The number ddd may consist of one, two, or three octal digits; high-order overflow shall be ignored. 
-Three octal digits shall be used, with leading zeros as needed, if the next #character of the string is also a 
+Three octal digits shall be used, with leading zeros as needed, if the# next char#acter of the string is also a 
 digit. 
 EXAMPLE 5  
   (\0053) 
 the literal 
   (\053) 
-denotes a string containing two #characters, \005 (Control-E) followed by the digit 3, whereas both 
+denotes a string containi#ng two ch#aracters, \005 (Control-E) followed by the digit 3, whereas both 
   (\53) 
 and 
-denote strings containing the single #character \053, a plus sign (+). 
+denote strings containing the# single ch#aracter \053, a plus sign (+). 
  
-Since any 8-#bit value may appear in a string (with proper escaping for REVERSE SOLIDUS (backslash) 
-and unbalanced PARENTHESES) this \ddd notation provides a way to specify #characters outside the 
-#ASCII ##character set by using #ASCII #characters only. However, any 8-#bit value may appear in a string, 
-represented# either as itself or with the \ddd notation described. 
+Since any 8-#bi#t value may appear in a string (with proper escaping for REVERSE SOLIDUS (backslash) 
+and unbalanced PARENTHESES) this \ddd notation provides a way to# specify #characters outside the# #
+ASCII# ##character set# by usi#n#g ASCI##I characters only. However, any 8#-b#it value may appear in a string, 
+represented# ei#ther as itself or with the \ddd notation described. 
 When a document is encrypted (see 7.6, "Encryption"), all of its strings are encrypted; the encrypted 
-string values contain ar#bitrary 8-#bit values. When writing encrypted strings using the literal string 
-form, the ##PDF writer shall follow the rules described. That is, the REVERSE SOLIDUS #character shall be 
-used as an escape to specify unbalanced PARENTHESES or the REVERSE SOLIDUS #character itself. The 
-REVERSE SOLIDUS may, but is not required, to be used to specify other, ar#bitrary 8-#bit values. 
+string values contain #ar#bitrary# 8#-bit values. When writing encrypted strings using the literal string 
+form, th#e# PD#F writer# shall follow the rules described. That is, the REVE#RSE SOLIDU#S character shall be 
+used as an escape to specify unbalanced PARENTHESES or the REV#ERSE SOLID#US character itself. The 
+REVERSE SOLIDUS may, but is not required, to be used to specify other#, #arbitra#ry# 8-bit values. 
 © ISO 2017 – All rights reserved 32 
 
 ISO/DIS 32000-2
  
 7.3.4.3Hexadecimal strings 
  
-Strings may also be written in hexadecimal form, which is useful for including ar#bitrary ##binary data in a 
-#PDF file. A hexadecimal string shall be written as a sequence of hexadecimal digits (0–9 and# either A–F 
-or a–f) encoded as ASCII #characters and enclosed within angle brackets (using LESS-THAN SIGN (3Ch) 
+Strings may also be written in hexadecimal form, which is useful for includ#in#g arbi#tr#ary #binary data #in #a 
+P#DF file. A hexadecimal string shall be written as a sequence of hexadecimal digits (0–9 an#d e#ither A–F 
+or a–f) enc#oded as A#SCII characters and enclosed within angle brackets (using LESS-THAN SIGN (3Ch) 
 and GREATER-THAN SIGN (3Eh)). 
 EXAMPLE 1 
 <4E6F762073686D6F7A206B6120706F702E> 
  
-Each pair of hexadecimal digits defines one #byte of the string. #White-space #characters (see Table 1) shall 
+Each pair of hexadecimal digits defines one# byte# of the strin#g. #White-#space character#s (see Table 1) shall 
 be ignored. 
 If the final digit of a hexadecimal string is missing — that is, if there is an odd number of digits — the 
 final digit shall be assumed to be 0. 
 EXAMPLE 2 
 <901FA3> 
  
-is a 3-#byte string consisting of the #characters whose hexadecimal codes are 90, 1F, and A3, but 
+is a #3-byt#e string co#nsisting #of the characters whose hexadecimal codes are 90, 1F, and A3, but 
 <901FA> 
  
  
-is a 3-#byte string containing the #characters whose hexadecimal codes are 90, 1F, and A0. 
-7.3.5#Name #objects 
+is a# 3-by#te strin#g contain#ing the characters whose hexadecimal codes are 90, 1F, and A0. 
+7.3.5#Name #object##s 
  
  
-Beginning with #PDF 1.2 a #name #object is an atomic symbol uniquely defined by a sequence of any 
-#characters (8-#bit values) except null (#character code 0). Uniquely defined means that any two #name 
-#objects that, after all escaping is expanded (see below) and the resulting sequences of #bytes are not an 
-exact #binary match denote different #objects. Atomic means that a name has no internal structure; 
-although it is defined by a sequence of #characters, those #characters are not considered elements of the 
+Beginning w#ith #PDF 1.2 a# name# object## is an atomic symbol uniquely defined by a# sequence# of any 
+charac#te#rs (8-bit va#lues) exce#pt null (character code 0). Uniquely defined means that any tw#o name# 
+obje##cts that, after all escaping is expanded (see below) and the resulting sequences# of #bytes are not a#n #
+exact binary match denote differe#nt obj#ects. Atomic means that a name has no internal structure; 
+although it is defin#ed by a s#equence #of charac#ters, those characters are not considered elements of the 
 name. 
-Even though a name may contain any #characters except null, in order to express a name following the 
-general rules for parsing #PDF, when written into a #PDF file names should be encoded as described in the 
+Even though a# name may# contain any characters except null, in order to express a name following the 
+general rules for par#sin#g PDF, when written i#nto #a PDF file names should be encoded as described in the 
 succeeding paragraphs. 
-When writing a name in a #PDF file, a SOLIDUS (2Fh) (/) shall be used to introduce a name. The SOLIDUS 
-is not part of the name but is a prefix indicating that what follows is a sequence of #characters 
-representing the name in the #PDF file and shall follow these rules: 
+When writing a nam#e in# a PDF file, a SOLIDUS (2Fh) (/) shall be used to introduce a name. The SOLIDUS 
+is not part of the name but is a prefix indicating that what fo#llows is #a sequence of characters 
+representing the name# in #the PDF file and shall follow these rules: 
  
 a)A NUMBER SIGN (23h) (#) in a name shall be written by using its 2-digit hexadecimal code (23), 
  
-preceded by the NUMBER SIGN. 
-b)Any #character in a name that is a regular #character (other than NUMBER SIGN) shall be written as itself or 
+preceded by #the NUMBER# SIGN. 
+b)Any character in #a name tha#t is a regular character (other than NUMBER SIGN) shall be written as itself or 
  
-by using its 2-digit hexadecimal code, preceded by the NUMBER SIGN. 
-c)Any #character that is not a regular #character shall be written using its 2-digit hexadecimal code, preceded 
-NOTE 1 There is not a unique encoding of names into the #PDF file because regular #characters can be coded 
+by using its 2-digit hexadecimal code, preceded b#y the NUMB#ER SIGN. 
+c)Any chara#cter that #is not a regular character shall be written using its 2-digit hexadecimal code, preceded 
+NOTE 1 There is not a unique encoding of names i#nto #t#he PDF fi#le because regular characters can be coded 
 by the NUMBER SIGN only. 
-in# either of two ways. 
+#in #either of two ways. 
 © ISO 2017 – All rights reserved 33 
 
 ISO/DIS 32000-2
  
 White-space used as part of a name shall always be coded using the 2-digit hexadecimal notation and no 
-white-space may intervene between the SOLIDUS and the encoded name. 
-Regular #characters that are outside the range EXCLAMATION MARK(21h) (!) to TILDE (7Eh) (~) should 
+white-space may intervene between the SOLIDUS an#d the enc#oded name. 
+Regular characters that are outside the range EXCLAMATION MARK(21h) (!) to TILDE (7Eh) (~) should 
 be written using the hexadecimal notation. 
-The token SOLIDUS (a slash followed by no regular #characters) introduces a unique valid name defined 
-by the empty sequence of #characters. 
+The token SOLIDUS (a# slash fo#llowed by no regular characters) introduces a unique valid name def#ined 
+by #the empty sequence of characters. 
 NOTE 2 The examples shown in "

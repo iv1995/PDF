@@ -1,6 +1,6 @@
 #Table 190: Additional entries specific 
-to a screen annotation" shows the annotation dictionary entries specific to this type of annotation. 
-#Table 190: Additional entries specific to a screen annotation 
+to a screen annotation#" shows the annotation dictionary entries specific to this type of annotation. #
+Table 190: Additional entries specific to a screen annotation #
 Key Type Value 
 (Required) 
 Subtype 
@@ -18,29 +18,29 @@ Key Type Value
 (Optional) 
 MK# 
 I
-dictionary An appearance #characteristics dictionary (see "#Table 192: Entries 
-in an appearance #characteristics dictionary"). The  entry of this dictionary 
+d#ictionary An appearance #character#istics dictionary (see "#Table 192: Entries 
+in an appearance# characte#ristics dictionary#"). The  entry of this dictionary 
  AP 
 provides the icon used in generating the appearance referred to by the 
 screen annotation’sentry. 
-(Optional; #PDF 1.1) 
+(Optional; #PDF #1.1) 
 A 
 dictionary An action that shall be performed when the annotation is 
 activated (see 12.6, "Actions"). 
-(Optional; #PDF 1.2) 
+(Optional;# PDF# 1.2) 
 AA 
 dictionary An additional-actions dictionary defining the screen 
 annotation’s behaviour in response to various trigger events (see 12.6.3, 
 "Trigger events"). 
  
-In addition to the entries in "#Table 190: Additional entries specific to a screen annotation", screen 
+In addition to the entries in# "Table 190: Additional entries specific to a screen annotati#on", screen 
 annotations may use the common entries in the annotation dictionary (see "#Table 166: Entries common 
-to all annotation dictionaries") in the following ways: 
+to all annotation dictionaries#") in the following ways: 
 P
 • 
  Annots 
 The  entry shall be used for a screen annotation referenced by a rendition action. It shall 
-reference a valid page #object, and the annotation shall be present in the page’sarray for 
+reference a valid page #object#, and the annotation shall be present in the page’sarray for 
  AP 
 • 
 the action to be valid. 
@@ -53,10 +53,10 @@ not present, the screen annotation shall not have a default visual appearance an
  
 printed. 
 widget annotations
-Interactive forms (see 12.7, "Forms") use  (#PDF 1.2) to represent the appearance of 
+Interactive forms (see 12.7, "Forms") use # (PD#F 1.2) to represent the appearance of 
 fields and to manage user interactions. As a convenience, when a field has only a single associated 
 widget annotation, the contents of the field dictionary (12.7.4, "Field dictionaries") and the annotation 
 dictionary may be merged into a single dictionary containing entries that pertain to both a field and an 
 annotation. 
-NOTE This presents no am#biguity, since the contents of the two kinds of dictionaries do not conflict. 
+NOTE This presents no am#bi#guity, since the contents of the two kinds of dictionaries do not conflict. 
 "

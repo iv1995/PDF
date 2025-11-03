@@ -1,11 +1,11 @@
 #Table 362: 
-Entries in a user property dictionary"). 
+Entries in a user property dictionary#"). 
  
 P
 The  entry shall be an array specifying the user properties. Each element in the array shall be a user 
-property dictionary representing an individual property (see "#Table 362: Entries in a user property 
-dictionary"). 
-#Table 362: Entries in a user property dictionary 
+property dictionary representing an individual property (see #"Table 362: Entries in a user property 
+dictionar#y").# 
+Table 362: Entries in a user property dictionary# 
 Key Type Value 
 Required
 N 
@@ -13,29 +13,29 @@ text string () The name of the user property.
 Required
 V 
 any () The value of the user property. 
-While the value of this entry shall be any type of #PDF #object, ##PDF writers should use only text 
-string, number, and boolean values. ##PDF processors should display text, number and boolean 
+While the value of this entry shall be any type of #PDF ##object#,# #PDF# writer#s should use only text 
+string, number, and boolean values#. #PD#F processor#s should display text, number and boolean 
 values to users but need not display values of other types; however, they should not treat 
 other values as errors. 
 Optional
 F V
 text string () A formatted representation of the value of , that shall be used for special 
-formatting; for example "($123.45)" for the number -123.45. If this entry is absent, ##PDF 
-processors should use a default format. 
+formatting; for example "($123.45)" for the number -123.45. If this entry is absen#t,# PD#F 
+processo#rs should use a default format. 
 Optionaltrue
 H 
 false
 boolean () If , the attribute shall be hidden; that is, it shall not be shown in any user 
-interface element that presents the attributes of an #object. Default value: . 
+interface element that presents the attributes of an# objec#t. Default value: . 
  
-UserProperties
+UserPropert#ies
 #PDF documents that contain user properties shall provide a  entry with a value of true 
 in the document’s mark information dictionary (see "Table 353: Entries in the mark information 
 © ISO 2017 – All rights reserved 714 
 
 ISO/DIS 32000-2
  
-dictionary". This entry allows ##PDF processors to quickly determine whether it is necessary to search the 
+dictionary". This entry al#lows## PDF process#ors to quickly determine whether it is necessary to search the 
 structure tree for elements containing user properties. 
 EXAMPLE The following example shows a structure element containing user properties called Part Name, Part Number, 
 Supplier, and Price. 
@@ -43,8 +43,8 @@ Supplier, and Price.
    <</Type /StructElem 
    /S /Figure           %Structure type 
    /P 50 0 R           %Parent in structure tree 
-   /A << /O /UserProperties      %Attribute #object 
-    /P [            %Array of user properties 
+   /A << /O /UserProperties      %Attribut#e object 
+  #  /P [            %Array of user properties 
       <</N (Part Name) /V (Framostat) >> 
       <</N (Part Number) /V 11603 >> 
       <</N (Supplier) /V (Just Framostats) /H true >> %Hidden attribute 
@@ -57,19 +57,19 @@ endobj
 14.7.7Example of logical structure 
  
 ChapPara
-The Example shows portions of a #PDF file with a simple document structure. The structure tree root 
-ChapHead1Para
-(#object 300) contains elements with structure types  (#object 301) and  (#object 304). The 
- element, titled Chapter 1, contains elements with types  (#object 302) and  (#object 
+The Example shows portions# of #a PDF file with a simple document structure. The structure tree root 
+ChapHead1Par#a
+(obje#ct 300) contains elements with structure type#s  (obj#ect 301) a#nd  (ob#ject 304). The 
+ element, titled Chapter 1, contains elements with ty#pes  (o#bject 302)# and  (o#bject 
 303). 
-These elements are mapped to the standard structure types specified in tagged #PDF (see 14.8.4, 
-"Standard structure types") by means of the role map specified in the structure tree root. #Objects 302 
+These elements are mapped to the standard structure types specified in #tagg#ed PDF (see 14.8.4, 
+"Standard structure types") by means of the role map specified in the structure tre#e root#. Objects 302 
 through 304 have attached attributes (see 14.7.6, "Structure attributes" and 14.8.5, "Standard structure 
 attributes").  
   
-The example in this subclause also illustrates the structure of a parent tree (#object 400) that maps 
-content items back to their parent structure elements and anIDtree (#object 403) that maps element# 
-identifiers to the structure elements they denote. 
+The example in this subclause also illustrates the structure of a pare#nt tree# (object 400) that maps 
+content items back to their parent structure elements and #anIDtre#e (object 403) that maps element# 
+id#entifiers to the structure elements they denote. 
 EXAMPLE 
 1 0 obj             %Document catalog 
   <</Type /Catalog 
@@ -81,17 +81,17 @@ endobj
 100 0 obj           
  %Page tree 
   <</Type /Pages 
-   /Kids [101 1 R        %First page #object 
-     102 0 R        %Second page #object 
+   /Kids [101 1 R        %#First page ob#ject 
+     102 0 R        %#Second page o#bject 
      ] 
    /Count 2          %Page count 
   >> 
 endobj 
  
-101 1 obj            %First page #object 
+101 1 obj           # %First pa#ge object 
   <</Type /Page 
    /Parent 100 0 R       %Parent is the page tree 
-   /Resources <</#Font <</F1 6 0 R  %#Fontresources 
+   /Resources <</#Font #<</F1 6 0 R  #%Fon#tresources 
  
           /F12 7 0 R 
 © ISO 2017 – All rights reserved 715 
@@ -102,16 +102,16 @@ ISO/DIS 32000-2
         >> 
    /MediaBox [0 0 612 792]     %Media box 
    /Contents 201 0 R       %#Content stream 
-   /StructParents 0       %Parent tree key 
+   #/StructParents 0       %Parent tree key 
   >> 
 endobj 
  
-201 0 obj            %#Content stream for first page 
+201 0 obj            #%Content stream# for first page 
   <</Length …>> 
 stream 
    1 1 1 rg 
    0 0 612 792 re f 
-   BT            %Start of text #object 
+   BT            %#Start of tex#t object 
     /Span <</MCID 0>>      %Start of marked-content sequence 0 
      BDC 
       0 0 0 rg 
@@ -129,30 +129,30 @@ stream
      (This is the first paragraph, which spans pages. It has four fairly short and \ 
 concise sentences. This is the next to last ) Tj 
     EMC          %End of marked-content sequence 1 
-   ET            %End of text #object 
+   ET          #  %End o#f text object 
 endstream 
 endobj 
  
-102 0 obj            %Second page #object 
+102 0 obj         #   %Second #page object 
    <</Type /Page 
    /Parent 100 0 R       %Parent is the page tree 
-   /Resources <</#Font <</F1 6 0 R  %#Fontresources 
+   /Resources <#</Fon#t <</F1 6 0 R#  %F#ontresources 
  
           /F12 7 0 R 
            >> 
         >> 
    /MediaBox [0 0 612 792]     %Media box 
-   /Contents 202 0 R       %#Content stream 
-   /StructParents 1       %Parent tree key 
+   /Contents 202 0 R      # %Content stream 
+ #  /StructParents 1       %Parent tree key 
   >> 
 endobj 
  
-202 0 obj            %#Content stream for second page 
+202 0 obj          #  %Content stre#am for second page 
   <</Length …>> 
 stream 
   1 1 1 rg 
   0 0 612 792 re f 
-  BT             %Start of text #object 
+  BT           #  %Start of t#ext object 
  
    /Para  <</MCID 0>>      %Start of marked-content sequence 0 
     BDC 
@@ -181,7 +181,7 @@ This is the next to last ) Tj
     (sentence. This is the very last sentence of the second paragraph.) Tj 
    EMC           %End of marked-content sequence 2 
  
-  ET             %End of text #object 
+  ET        #     %En#d of text object 
 endstream 
 endobj 
  
@@ -196,9 +196,9 @@ endobj
        /Para /P 
       >> 
    /ClassMap  <</Normal 305 0 R>>  %Class map containing one attribute class 
-   /ParentTree 400 0 R      %#Number tree for parent elements 
+   /ParentTree 400 0 R      %#Number tree #for parent elements 
    /ParentTreeNextKey 2      %Next key to use in parent tree 
-   /IDTree 403 0 R       %#Name tree for element# identifiers 
+   /IDTree 403 0 R       %#Name tree #for elemen#t i#dentifiers 
  
   >> 
 endobj 
@@ -207,7 +207,7 @@ endobj
 301 0 obj            %Structure element for a chapter 
   <</Type /StructElem 
    /S /Chap 
-   /ID (Chap1)         %Element# identifier 
+   /ID (Chap1)         %Eleme#nt #identifier 
    /T (Chapter 1)        %Human-readable title 
    /P 300 0 R         %Parent is the structure tree root 
    /K [302 0 R         %Two children: a section head 
@@ -219,7 +219,7 @@ endobj
 302 0 obj            %Structure element for a section head 
   <</Type /StructElem 
    /S /Head1 
-   /ID (Sec1.1)        %Element# identifier 
+   /ID (Sec1.1)        %Elem#ent# identifier 
    /T (Section 1.1)       %Human-readable title 
    /P 301 0 R         %Parent is the chapter 
    /Pg 101 1 R         %Page containing content items 
@@ -235,7 +235,7 @@ endobj
 303 0 obj            %Structure element for a paragraph 
    <</Type /StructElem 
    /S /Para 
-   /ID (Para1)         %Element# identifier 
+   /ID (Para1)         %Ele#men#t identifier 
    /P 301 0 R         %Parent is the chapter 
 © ISO 2017 – All rights reserved 717 
 
@@ -274,7 +274,7 @@ endobj
   >> 
 endobj 
  
-400 0 obj            %Parent tree (#number tree) 
+400 0 obj            %Parent tree #(number tre#e) 
   <</Nums [0 401 0 R       %Parent elements for first page 
        1 402 0 R       %Parent elements for second page 
       ] 
@@ -302,7 +302,7 @@ endobj
 404 0 obj            %IDtree leaf node 
  
   <</Limits [(Chap1) (Sec1.3)]    %Least and greatest keys in tree 
-   /Names [(Chap1) 301 0 R     %Mapping from element# identifiers 
+   /Names [(Chap1) 301 0 R     %Mapping from el#eme#nt identifiers 
       (Sec1.1) 302 0 R     %to structure elements 
       (Sec1.2) 303 0 R  
       (Sec1.3) 304 0 R 
@@ -314,21 +314,21 @@ endobj
 
 ISO/DIS 32000-2
  
-14.8Tagged #PDF 
+14.#8Tagged# PDF 
  
 14.8.1General 
- 
-Tagged #PDF#PDF 1.4
- () is a stylised use of #PDF that builds on the logical structure framework described 
+# 
+T##agg#ed PDFPDF 1.4
+ () is a styli#sed #use of PDF that builds on the logical structure framework described 
 in 14.7, "Logical structure". It defines a set of standard structure types and attributes that allow page 
 content (text, graphics and images, as well as annotations and form fields) to be extracted and reused 
-for other purposes. 
-A tagged #PDF document is one that conforms to all rules described in all of the subclauses in 14.8, 
-"Tagged #PDF". 
-Marked
-A tagged #PDF document shall contain a mark information dictionary (see "#Table 353: Entries in the 
-mark information dictionary") with a value of true for the  entry. 
-NOTE Tagged #PDF is intended for use by tools that perform operations such as: 
+for other purposes#. 
+A# tagged PDF document is one that conforms to all rules described in all of the subclauses in 14#.8,# 
+"Tagged PDF". 
+Ma#rked#
+A tagged PDF document shall contain a mark information dictionary (see "#Table 353: Entries in the 
+mark information dictionary#") with a value of true for the  entry#. 
+N#OTE Tagged PDF is intended for use by tools that perform operations such as: 
 •
 Extraction of text and graphics for pasting into other applications 
  
@@ -345,34 +345,34 @@ Conversion to other common file formats (such as HTML, XML, and RTF) with docume
  
 structure preserved 
 •
-Making content accessible to users with disa#bilities like visual impairments 
+Making content accessible to users with disa#bi#lities like visual impairments #
  
-14.8.2Tagged #PDF and page content 
+1#4.8.2Tagged PDF and page content 
  
-14.8.2.1General 
+14.8.2.1Gen#eral# 
  
-Like all #PDF documents, a tagged #PDF document consists of a sequence of self-contained pages, each of 
-which is described by one or more page #content streams (including any subsidiary streams such as 
-form X#Objects), annotations and form fields. Tagged #PDF defines some further rules for organising and 
-marking #content streams so that additional information may be derived from them: 
+Like all PDF do#cume#nts, a tagged PDF document consists of a sequence of self-contained pages, each of 
+which is described by one or more p#age content st#reams (including any subsidiary stre#ams su#ch as 
+form XObjects), annotations and f#orm #fields. Tagged PDF defines some further rules for organising and 
+mar#king content s#treams so that additional information may be derived from them: 
 • 
 Distinguishing between the author’s original content and artifacts of the layout process (see 
 • 
 14.8.2.2, "Real content and Artifacts"). 
-Specifying the content order as intended by the content author to guide the layout process if the 
-##PDF processor repurposes the page content (see 14.8.2.5, "Page content order and logical content 
+Specifying the content order as intended by the content author to guide the lay#out #process if th#e 
+PDF process#or repurposes the page content (see 14.8.2.5, "Page content order and logical content 
 • 
 order"). 
-Guaranteeing that the logical order of content can be deterministically derived from a com#bination 
+Guaranteeing that the logical order of content can be deterministically derived from a co#mb#ination 
 • 
 of logical structure and page content (see 14.8.2.5, "Page content order and logical content order"). 
-Representing text in a form from which a Unicode representation may be unam#biguously derived 
+Representing text in a form from which a Unicode representation may be un#am#biguously derived 
 • 
-(see 14.8.2.6, "Unicode mapping in tagged #PDF"). 
+(see 14.8.2.6, "Unico#de #mapping in tagged PDF"). 
 • 
-Representing word breaks unam#biguously (see 14.8.2.6.2, "Identifying word breaks"). 
+Representing word breaks u#na#mbiguously (see 14.8.2.6.2, "Identifying word breaks"). 
 Marking all content with information for making it accessible to users with visual impairments or 
-other disa#bilities (see 14.9, "Accessi#bility support"). 
+other #di#sabilities (see 14.9, "Ac#ce#ssibility support"). 
 © ISO 2017 – All rights reserved 719 
 
 ISO/DIS 32000-2
@@ -384,45 +384,45 @@ ISO/DIS 32000-2
 The content in a document may be divided into two classes: 
 real content
 • 
-The  of a document comprises graphics #objects, annotations and form fields 
+The  of a document# compr#ises graphics objects, annotations and form fields 
 representing material intentionally introduced by the document’s author and necessary to 
 artifacts
 • 
 understand the content of the document. 
-All other content is considered to be , whether generated by the ##PDF writer in the course 
+All other content is considered to be , whe#ther# generated by the# PDF writer# in the course 
 of pagination, layout, or other mechanical processes or introduced by the document author for 
 decoration or other purposes that are not relevant for understanding the content of the document. 
-The document’s logical structure encompasses all real content and describes how real content #objects 
+The document’s logical structure encompasses all real content and descri#bes ho#w real content objects 
 Artifact
 relate to one another. Where artifacts are to be included in the structure tree, they shall be included 
 through the  structure element type, and shall not be considered real content. 
-A document’s real content may include graphics #objects in the page #content stream and subsidiary 
-X#Objects and annotations, including widget annotations for form fields. 
-LangAlt
-To support ##PDF processors in providing accessi#bility to users with disa#bilities, tagged #PDF documents 
+A document’s real content# may i#nclude graphics objects in the# page content s##tream #and subsidiary 
+XObjects and annotations, including widget annotations for form field#s. 
+#LangAlt
+To supp#ort PDF proce#ssors in providing a#cc#essibility to users wi#t#h #d#isabilities, tagged PDF documents 
 ActualTextE
 should use the natural language specification (), alternate description (), replacement text 
-(), and abbreviation expansion text () facilities as described in 14.9, "Repurposing and 
-accessi#bility support". 
-NOTE 1 ISO 14289 (#PDF/UA) specifies the use of tagged #PDF to accommodate the needs of users with 
-disa#bilities. 
-Tagged ##PDF processors may make various choices about what page content to consider relevant in a 
-tagged #PDF document. A text-to-speech engine, for instance, may decide not to speak running heads or 
-page numbers when the page is turned. In general, ##PDF processors may do any of the following: 
+(), and abbreviation expansion text () facilities as described in 14.9, "Repurposing and #
+a#ccessibility supp#ort#". 
+NOTE 1 ISO 14289 (PDF/UA) sp#ecif#ies the use of tagged PDF to accommodate the needs of users w#i#th# #
+disabilities. 
+Ta#gged PDF proc#essors may make various choices about what page content to con#side#r relevant in a 
+tagged PDF document. A text-to-speech engine, for instance, may decide not to speak running heads or 
+page numbers when the# pag#e is turned. In gen#eral, PDF pro#cessors may do any of the following: 
 • 
 • 
 Disregard elements of page content (for example, skip Link annotations) that are not of interest 
 Treat some page elements as terminals that are not to be examined further (for example, to treat 
 • 
 an illustration as a unit for repurposing) 
-NOTE 2 Depending on their goals, different ##PDF processors can make different decisions in this regard. The 
-Substitute an element with its alternative description (see 14.9.3, "Alternate descriptions") 
-purpose of tagged #PDF is not to prescribe what the ##PDF processor does, but to provide sufficient 
+NOTE 2 Depend#ing #on their goals, dif#ferent PDF pr#ocessors can make different decisions in this regard. The 
+Substitute an element with its alternative description (see 14.9.3, "Alternate des#crip#tions") 
+purpose of tagged P#DF i#s not to prescribe w#hat the PDF pr#ocessor does, but to provide sufficient 
 declarative and descriptive information to allow it to make appropriate choices about how to 
 process the content. 
-14.8.2.2.2Specification of Artifacts 
+14.8.2.2.2Specific#atio#n of Artifacts 
  
-For tagged #PDF files, an artifact should be explicitly distinguished from real content through# either of 
+For tagged PDF files, an artifact should be explicitly distinguished from real content through# ei#ther of 
 the following methods: 
 Artifact
 • 
@@ -442,9 +442,9 @@ Artifact
 By inclusion in the logical structure tree through the use of the  structure element type 
 NOTE The purpose of the  structure element type is to accommodate artifact content in cases 
 Artifact
-(see "#Table 375: standard structure type Artifact"). 
+(see "#Table 375: standard structure type Artifact#"). 
 that have positional context relative to real content within the structure tree. An example of such 
 content is line numbers. 
 For Artifacts defined using the marked content sequence method, the form indicated in EXAMPLE 1 
-shall be used to# identify a generic artifact; the form indicated in EXAMPLE 2 shall be used for those 
+shall be u#sed# to identify a generic artifact; the form indicated in EXAMPLE 2 shall be used for those 
 artifacts that have an associated property list. "

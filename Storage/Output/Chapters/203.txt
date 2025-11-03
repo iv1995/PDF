@@ -1,8 +1,8 @@
-#Figure 45: Colour values and edge flags in Coons Patch meshes" 
+#Figure 45: Colour values and edge flags in Coons Patch meshes#" 
 1212
-shows how these control points correspond to the cu#bic Bézier curves# 
-identified in 
-"#Figure 43: Coordinate mapping from a unit square to a four-sided Coons Patch". Colour values shall be 
+shows how these control points correspond to the cu#bi#c Bézier curves# 
+id#entified in 
+"#Figure 43: Coordinate mapping from a unit square to a four-sided Coons Patch#". Colour values shall be 
 234
 c
 xycxycxycxy
@@ -11,10 +11,10 @@ given for the four corners of the patch, in the same order as the control points
 111
 corners. Thus, 
  is the colour at coordinates (, ),  at (, ),  at (, ), and  at (, ), as shown 
-in the figure. ![Figure 45 Colour values and edge flags in Coons Patch meshes  .png](./Storage/Output/Images/Figure 45 Colour values and edge flags in Coons Patch meshes  .png)
-#Figure 45: Colour values and edge flags in Coons Patch meshes 
- 
-"#Figure 45: Colour values and edge flags in Coons Patch meshes" also shows how non-zero values of the 
+in the figure. ![Figure 45 Colour values and edge flags in Coons Patch meshes  .png](./Storage/Output/Images/Figure 45 Colour values and edge flags in Coons Patch meshes  .png)#
+Figure 45: Colour values and edge flags in Coons Patch meshes 
+ ##
+"Figure 45: Colour values and edge flags in Coons Patch mesh#es" also shows how non-zero values of the 
 © ISO 2017 – All rights reserved 243 
 
 ISO/DIS 32000-2

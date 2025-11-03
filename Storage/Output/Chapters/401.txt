@@ -1,2 +1,2 @@
 #Table 233: 
-Field flags specific to choice fields". "
+Field flags specific to choice fields#". "

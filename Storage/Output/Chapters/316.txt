@@ -1,17 +1,17 @@
-#Table 156: Entries in a collection sort dictionary" describes the entries in a collection sort dictionary. 
-#Table 156: Entries in a collection sort dictionary 
+#Table 156: Entries in a collection sort dictionary#" describes the entries in a collection sort dictionary. #
+Table 156: Entries in a collection sort dictionary #
 Key Type Value 
 Optional
 Type 
 CollectionSort
-name () The type of #PDF #object that this dictionary describes; if present, shall be 
+name () The type of #PDF ##object #that this dictionary describes; if present, shall be 
  for a collection sort dictionary. 
 Required
 S 
-name or () The name or names of fields that the #interactive ##PDF processor shall use 
-array to sort the items in the collection. If the value is a name, it# identifies a field described 
+name or () The name or names of fields that the #interactive# #PDF# processor ##shall use 
+array to sort the items in the collection. If the value is a name, it# id#entifies a field described 
 in the parent collection dictionary. 
-If the value is an array, each element of the array shall be a name that# identifies a 
+If the value is an array, each element of the array shall be a name tha#t i#dentifies a 
 field described in the parent collection dictionary. The array form shall be used to 
 allow additional fields to contribute to the sort, where each additional field shall be 
 used to break ties. More specifically, if multiple collection item dictionaries have the 
@@ -22,7 +22,7 @@ until the named fields are exhausted.
 Optional
 A 
 true
-boolean or () If the value is a boolean, it specifies whether the #interactive ##PDF processor 
+boolean or () If the value is a boolean, it specifies whether the# interactiv#e# PD#F processor ##
 false
 array shall sort the items in the collection in ascending order () or descending order 
 S

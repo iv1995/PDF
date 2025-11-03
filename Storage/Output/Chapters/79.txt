@@ -1,11 +1,11 @@
-#Table 10: Predictor values". 
+#Table 10: Predictor values#". 
  LZWDecode FlateDecodePredictor
 Forand , a  value greater than or equal to 10 shall indicate that a 
 Predictor
-PNG predictor is in use; the specific predictor #function used shall be explicitly encoded in the incoming 
-data. The value of  supplied by the decoding #filter need not match the value used when the 
-data was encoded if they are both greater than or equal to 10. 
-#Table 10: Predictor values 
+PNG predictor is in use; the specific predictor #function #used shall be explicitly encoded in the incoming 
+data. The value of  supplied by the decoding #filter #need not match the value used when the 
+data was encoded if they are both greater than or equal to 10. #
+Table 10: Predictor values #
 Value Meaning 
 1 No prediction (the default value) 
 2 TIFF Predictor 2 
@@ -16,70 +16,70 @@ Value Meaning
 14 PNG prediction (on encoding, PNG Paeth on all rows) 
 15 PNG prediction (on encoding, PNG optimum) 
  
-The two #groups of predictor #functions have some commonalities. Both make the following assumptions: 
+The two #group#s of predictor# functio#ns have some commonalities. Both make the following assumptions: 
 • 
 Data shall be presented in order, from the top row to the bottom row and, within a row, from left 
 • 
 to right. 
 • 
-A row shall occupy a whole number of #bytes, rounded up if necessary. 
+A row shall occupy a whole number of #byte#s, rounded up if necessary. 
 • 
-Samples and their components shall be packed into #bytes from high-order to low-order #bits. 
+Samples and their components shall be packed into# byt#es from high-order to low-order #bi#ts. 
 All colour components of samples outside the image (which are necessary for predictions near the 
 © ISO 2017 – All rights reserved 47 
 boundaries) shall be 0. 
 
 ISO/DIS 32000-2
  
-The predictor #function #groups also differ in significant ways: 
+The predicto#r functio#n# grou#ps also differ in significant ways: 
 • 
 The postprediction data for each PNG-predicted row shall begin with an explicit algorithm tag; 
 therefore, different rows can be predicted with different algorithms to improve compression. TIFF 
 • 
-Predictor 2 has no such# identifier; the same algorithm applies to all rows. 
-The TIFF #function #group shall predict each colour component from the prior instance of that 
-component, taking into account the number of #bits per component and components per sample. In 
-contrast, the PNG #function #group shall predict each #byte of data as a #function of the corresponding 
-#byte of one or more previous image samples, regardless of whether there are multiple colour 
+Predictor 2 has no such# id#entifier; the same algorithm applies to all rows. 
+The TI#FF functi#o#n grou#p shall predict each colour component from the prior instance of that 
+component, taking into account the number of# b#its per component and components per sample. In 
+contrast, the #PNG funct#i#on gro#up shall predict eac#h byt#e of data #as a func#tion of the correspondin#g 
+by#te of one or more previous image samples, regardless of whether there are multiple colour 
 NOTE 2 This can yield significantly better speed at the cost of somewhat worse compression. 
-components in a #byte or whether a single colour component spans multiple #bytes. 
-7.4.5RunLengthDecode #filter 
+components i#n a b#yte or whether a single colour component spans mult#iple# bytes. 
+7.4.5RunLengthDecode# filter 
  
- RunLengthDecode 
+# RunLengthDecode 
 runlengthrun
-The#filter decodes data that has been encoded in a simple #byte-oriented format 
+T#hefilte#r decodes data that has been encoded in a s#impl#e byte-oriented format 
 lengthlength
 based on  . The encoded data shall be a sequence of runs, where each  shall consist of a 
-lengthlength
- #byte followed by 1 to 128 #bytes of data. If the  #byte is in the range 0 to 127, the following 
+lengthl#ength#
+ byte followed by 1# to #128 bytes of data.# If t#he  byte is in the range 0 to 127, the following 
 length
- + 1 (1 to 128) #bytes shall be copied literally during decompression. If  is in the range 129 to 
+ + 1 (#1 to# 128) bytes shall be copied literally during decompression. If  is in the range 129 to 
 length
-255, the following single #byte shall be copied 257 -  (2 to 128) times during decompression. A 
+255, the follow#ing s#ingle byte shall be copied 257 -  (2 to 128) times during decompression. A 
  value of 128 shall denote EOD. 
 NOTE The compression achieved by run-length encoding depends on the input data. In the best case (all 
 zeros), a compression of approximately 64:1 is achieved for long files. The worst case (the 
 hexadecimal sequence 00 alternating with FF) results in an expansion of 127:128. 
-7.4.6CCITTFaxDecode #filter 
- 
- CCITTFaxDecode 
-The#filter decodes image data that has been encoded using# either #Group 3 or #Group 4 
+7.4.6CCITTFaxDeco#de filter 
+# 
+ CCITTFaxDecode #
+Thefil#ter decodes image data that has been encoded using# ei#t#her Gr#oup #3 or G#roup 4 
 CCITT facsimile (fax) encoding. 
-NOTE 1 CCITT encoding is designed to achieve efficient compression of monochrome (1 #bit per pixel) 
-image data at relatively low resolutions, and so is useful only for #bitmap image data, not for 
+NOTE 1 CCITT encoding is designed to achieve efficient compression of monochrome (#1 #bit per pixel) 
+image data at relatively low resolutions, and so is useful only f#or# bitmap image data, not for 
 colour images, grayscale images, or general data. 
 NOTE 2 The CCITT encoding standard is defined by the International Telecommunications Union (ITU), 
 formerly known as the Comité Consultatif International Téléphonique et Télégraphique 
 (International Coordinating Committee for Telephony and Telegraphy). The encoding algorithm is 
 not described in detail in this part of ISO 32000 but can be found in ITU Recommendations T.4 and 
 T.6. For historical reasons, these documents are referred to as the CCITT standard. 
-CCITT encoding is #bit-oriented, not #byte-oriented. Therefore, in principle, encoded or decoded data 
-need not end at a #byte boundary. This problem shall be dealt with in the following ways: 
+CCITT encoding# i#s bit-or#ient#ed, not byte-oriented. Therefore, in principle, encoded or decoded data 
+need #not e#nd at a byte boundary. This problem shall be dealt with in the following ways: 
 • 
-Unencoded data shall be treated as complete scan lines, with unused #bits inserted at the end of 
-each scan line to fill out the last #byte. This approach is compatible with the #PDF convention for 
+Unencoded data shall be treated as complete scan lines, with un#us#ed bits inserted at the end of 
+each scan line to fill# out# the last byte. This approach is compatible with the #PDF #convention for 
 • 
-sampled image data. 
-Encoded#ByteAlign
-Encoded data shall ordinarily be treated as a continuous, unbroken #bit stream. The 
+sampled image# dat#a. 
+EncodedByteAlign
+Encoded data shall ordinarily be treated as a continuous, unb#ro#ken bit stream. The 
  parameter (described in "

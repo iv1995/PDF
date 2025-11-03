@@ -1,5 +1,5 @@
 #Figure Annex H.4: Document 
-outline as displayed in Example 2". 
+outline as displayed in Example 2#". 
 t
 c
 Obje
@@ -24,9 +24,9 @@ Section 3
 0
 0
 29
-Summary
-#Figure Annex H.4: Document outline as displayed in Example 2 
- 
+Summary#
+Figure Annex H.4: Document outline as displayed in Example 2 
+ #
 EXAMPLE 2 
 21 0 obj 
   <</Type /Outlines 
@@ -97,12 +97,12 @@ H.7Updating example
  
 H.7.1General 
  
-This example shows the structure of a #PDF file as it is updated several times; it illustrates multiple body 
-sections, cross-reference sections, and trailers. In addition, it shows that once an #object has been 
-assigned an #object# identifier, it keeps that# identifier until the #object is deleted, even if the #object is 
-altered. Finally, the example illustrates the reuse of cross-reference entries for #objects that have been 
-deleted, along with the incrementing of the generation number after an #object has been deleted. 
-The original file is the example in H.2, "Minimal #PDF file". The updates are divided into four stages, with 
+This example shows the structure of a #PDF #file as it is updated several times; it illustrates multiple body 
+sections, cross-reference sections, and trailers. In addition, it shows that once an #object #has been 
+assigned an# object## id#entifier, it keeps tha#t i#dentifier until th#e objec#t is deleted, even if t#he obje#ct is 
+altered. Finally, the example illustrates the reuse of cross-reference entries #for ob#jects that have been 
+deleted, along with the incrementing of the generation number afte#r an ob#ject has been deleted. 
+The original file is the example in H.2, "Minimal# PDF# file". The updates are divided into four stages, with 
 the file saved after each stage: 
  
  
@@ -112,15 +112,15 @@ b)The text of one of the annotations is altered.
  
 c)Two of the text annotations are deleted.  
 d)Three text annotations are added.  
-The following subclauses show the segments added to the file at each stage. Throughout this example, 
-#objects are referred to by their #object# identifiers, which are made up of the #object number and the 
-generation number, rather than simply by their #object numbers as in earlier examples. This is necessary 
-because the example reuses #object numbers; therefore, the #objects they denote are not unique. 
+The following subclauses show the segments added to the file at each stage. Throughout this exam#ple, 
+#objects are referred to by# their #obje#ct #identifiers, which are made up# of the# object number and the 
+generation number, rather than simply #by thei#r object numbers as in earlier examples. This is necessary 
+because the examp#le reus#es object numbers; ther#efore,# the objects they denote are not unique. 
 © ISO 2017 – All rights reserved 885 
 
 ISO/DIS 32000-2 
-NOTE The tables in these subclauses show only those #objects that are modified during the updating 
-process. #Objects from H.2, "Minimal #PDF file" that are not altered during the update are not 
+NOTE The tables in these subclauses show# only #those objects that are modified during the updati#ng 
+pr#ocess. Objects from H.2, "Minima#l PD#F file" that are not altered during the update are not 
 shown. 
 H.7.2Stage 1: Add four text annotations 
  

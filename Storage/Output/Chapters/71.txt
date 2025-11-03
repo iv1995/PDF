@@ -1,5 +1,5 @@
-#Table 2: Delimiter #characters 
-#Glyph Decimal Hexadecimal Octal Name 
+#Table 2: Delimiter #character#s 
+##Glyph #Decimal Hexadecimal Octal Name 
 ( 
 40 28 050 LEFT PARENTHESIS 
 ) 
@@ -9,8 +9,8 @@
 © ISO 2017 – All rights reserved 28 
 
 ISO/DIS 32000-2
- 
-#Glyph Decimal Hexadecimal Octal Name 
+ #
+Glyph# Decimal Hexadecimal Octal Name 
 > 
 62 3E 076 GREATER-THAN SIGN 
 [ 
@@ -26,77 +26,77 @@ ISO/DIS 32000-2
 % 
 37 25 045 PERCENT SIGN 
  
-All #characters except the #white-space #characters and delimiters are referred to as regular #characters. 
-These #characters include #bytes that are outside the #ASCII ##character set. A sequence of consecutive 
-regular #characters comprises a single token. #PDF is case-sensitive; corresponding uppercase and 
+All# characte#rs except the #white-spac#e charact#er#s and delimiters are referred to as regul#ar charac#ters. 
+Th#ese chara#cters include #byte#s that are outside the #AS#CII ##chara#cter set#. A sequence of consecutive 
+re#gular cha#racters comprises a single token. #PDF #is case-sensitive; corresponding uppercase and 
 lowercase letters are distinct. 
 7.2.4Comments 
  
-Any occurrence of the PERCENT SIGN (25h) outside a string or inside a #content stream (see 7.8.2, 
-"#Content streams") introduces a comment. The comment consists of all #characters after the PERCENT 
-SIGN and up to but not including the end-of-the-line marker. A ##PDF processor shall ignore comments, 
-and treat them as single #white-space #characters. That is, a comment separates the token preceding it 
+Any occurrence of the PERCENT SIGN (25h) outside a string or inside a #content stream #(see 7.8.2, 
+#"Content strea#ms") introduces a comment. The comment consists #of all ch#aracters after the PERCENT 
+SIGN and up to but not including the end-of-the-line marker. A# #PDF# processor #shall ignore comments, 
+and treat them as single# whit#e-space c#haracte#rs. That is, a comment separates the token preceding it 
 from the one following it. 
-EXAMPLE The #PDF fragment in this example is syntactically equivalent to just the tokens abc and 123. 
+EXAMPLE Th#e PD#F fragment in this example is syntactically equivalent to just the tokens abc and 123. 
 abc%comment (/%) blah blah blah 
 123 
  
-Comments (other than the %#PDF–n.m and %%EOF comments described in 7.5, "File structure") have 
-no semantics. They are not necessarily preserved by a ##PDF processor.  
-7.3#Objects 
+Comments (other than th#e %#PDF–n.m and %%EOF comments described in 7.5, "File structure") have 
+no semantics. They are not necessarily preserved b#y a ##PDF processo#r.  
+7.3#Object#s 
  
-7.3.1General 
- 
-#PDF includes# eight basic types of #objects: Boolean values, Integer and Real numbers, Strings, Names, 
-Arrays, Dictionaries, Streams, and the #null #object. 
-#Objects may be labelled so that they can be referred to by other #objects. A labelled #object is called an 
-#in#direct #object (see 7.3.10, "#In#direct #objects"). 
-Each #object type, their method of creation and their proper referencing as #in#direct #objects is described 
-in 7.3.2, "#Boolean #objects" through 7.3.10, "#In#direct #objects". 
+7.3.1Genera#l 
+ #
+PDF includes# ei#ght basic types of# objec#ts: Boolean values, Integer and Real numbers, Strings, Names, 
+Arrays, Dictionaries, Streams, and the #nul#l objec#t##. 
+Obj#ects may be labelled so that they can be referred to by ot#her ob#jects. A labe#lled ob#ject is called an 
+#in#d#irect obj#ect ##(see 7.3.10, #"I#n#direct o#bjec##ts")#. 
+Each# object type, their method of creation and their proper referencing as# ##indirect# obje##cts is described 
+in 7.3.2, #"#Bool#ean objects#" through 7.3.10,# ##"Indire#ct obj##ects". 
 © ISO 2017 – All rights reserved 29 
 
 ISO/DIS 32000-2
  
-7.3.2#Boolean #objects 
- 
-truefalse
-#Boolean #objects represent the logical values of true and false. They appear in #PDF files using the 
+7.#3.#2Bo#olean objects 
+ #
+truefa#ls#e
+Bo#olean object#s represent the logical values of true and false. They appe#ar i#n PDF files using the 
 keywords  and . See 4, "Notation", for more information regarding the notation of these 
 keywords throughout this International Standard. 
-7.3.3#Numeric #objects 
+#7.3.3#N#umeric objec#t#s #
  
-#PDF provides two types of #numeric #objects: integer and real. #Integer #objects represent mathematical 
-integers. #Real #objects represent mathematical real numbers. The range and precision of numbers may 
-be limited by the internal representations used in the computer on which the ##PDF processor is running; 
-Annex C, "Advice on Maximising Porta#bility", gives these limits for typical implementations. 
+PDF provides two typ#es of# #numeric objec#ts: integer and# real. ##Integer object#s represent mathematical# 
+inte#gers. #Real object#s represent mathematical real numbers. The range and precision of numbers may 
+be limited by the internal representations used in the computer on wh#ich #th#e PDF processo#r is running; 
+Annex C, "Advice on Maximising Porta#bi#lity", gives these limits for typical implementations. 
 An integer shall be written as one or more decimal digits optionally preceded by a sign. The value shall 
-be interpreted as a signed decimal integer and shall be converted to an #integer #object. 
-EXAMPLE 1 #Integer #objects 
+be interpreted as a signed decimal integer and shall be convert#ed to a#n# integer objec#t. 
+#EXAMPLE# #1 Integer obje#cts 
 123 43445 +17 -98 0 
  
 A real value shall be written as one or more decimal digits with an optional sign and a leading, trailing, 
 or embedded PERIOD (2Eh) (decimal point). The value shall be interpreted as a real number and shall 
-be converted to a #real #object. A real number shall not be present when an integer is expected. Wherever 
+be #conver#ted to a# real objec#t. A real number shall not be present when an integer is expected. Wherever 
 a real number is expected, an integer may be used instead. For example, it is not necessary to write the 
-number 1.0 in real format; the integer 1 is sufficient. 
-EXAMPLE 2 #Real #objects 
-34.5 -3.62 +123.6 4. -.002 0.0 
+number 1.0 in real format; the integer 1 is suffici#ent. 
+#EXAMPLE #2 Real obje#cts 
+34.5 -3.62 +123.6 4. -.002 #0.0 #
  
-A ##PDF writer shall not use the PostScript language syntax for numbers with non-decimal radices (such 
+A #PDF writer #shall not use the PostScript language syntax for numbers with non-decimal radices (such 
 as 16#FFFE) or in exponential format (such as 6.02E23). 
 number
-Throughout this part of ISO 32000, the term  refers to an #object whose type can be# either integer 
-or real. 
-7.3.4#String #objects 
+Throughout this part of ISO 32000, t#he term#  refers to an object whose type can b#e e#ither integer #
+or re#al. 
+7.3.4#String object#s 
  
-7.3.4.1General 
+7.3#.4.1Gen#eral 
  
-A #string #object shall consist of a series of zero or more #bytes. The maximum length of a string used in 
-the computer on which the ##PDF processor is running may be subject to implementation limits; see 
-Annex C, "Advice on Maximising Porta#bility". 
-#String #objects shall be written in one of the following two ways: 
+A# string object# shall consist of a series of zero or more# byt#es. The maximum length of a string used in 
+the computer on #whic#h t#he PDF process#or is running may be subject to implementation limits; see 
+Annex C, "Advice on Maximisi#ng Por#t#ab#ility".# 
+String obje#cts shall be written in one of the following two ways: 
 • 
-As a sequence of literal #characters enclosed in parentheses () (using LEFT PARENTHESIS (28h) 
+As a sequence of# literal #characters enclosed in parentheses () (using LEFT PARENTHESIS (28h) 
 • 
 and RIGHT PARENTHESIS (29h)); see 7.3.4.2, "Literal strings" 
 As hexadecimal data enclosed in angle brackets <> (using LESS-THAN SIGN (3Ch) and GREATER-
@@ -106,16 +106,16 @@ THAN SIGN (3Eh)); see 7.3.4.3, "Hexadecimal strings"
 ISO/DIS 32000-2
  
 NOTE In many contexts, conventions exist for the interpretation of the contents of a string value. This 
-subclause defines only the basic syntax for writing a string as a sequence of #bytes; conventions or 
+subclause defines only the basic syntax for writing a string as a sequence o#f by#tes; conventions or 
 rules governing the contents of strings in particular contexts are described with the definition of 
-those particular contexts. 
-Subclause 7.9.2, "#String #object types" describes the encoding schemes used for the contents of #string 
-#objects. 
+those particular contexts. #
+Subcla#use 7.9.2#, "String obje#ct types" describes the encoding schemes used f#or the# contents# of string 
+ob#jects. 
 7.3.4.2Literal strings 
  
 literal string
-A  shall be written as an ar#bitrary number of #characters enclosed in parentheses (LEFT 
-PARENHESIS (28h) and RIGHT PARENTHESIS (29h)). Any #characters may appear in a string except 
+A  shall be written as an #ar#bitrary #number of# characters enclosed in parentheses (LEFT 
+PARENHESIS (28h) and RIGHT PARENTHESIS (#29h)). An#y characters may appear in a string except 
 unbalanced parentheses and the backslash (REVERSE SOLIDUS (5Ch)), which shall be treated specially 
 as described in this subclause. Balanced pairs of parentheses within a string require no special 
 treatment. 
@@ -124,10 +124,10 @@ EXAMPLE 1 The following are valid literal strings:
 (Strings can contain newlines 
 and such.) 
 (Strings can contain balanced parentheses () 
-and special #characters ( * ! & } ^ %and so on) .) 
+#and speci#al characters ( * ! & } ^ %and so on) .) 
 (The following is an empty string .) 
 () 
 (It has zero (0) length.) 
  
-Within a literal string, the REVERSE SOLIDUS is used as an escape #character. The #character immediately 
+Within a literal string, the REVERSE SOLIDUS is used #as an esc#ape c#haracter. #The character immediately 
 following the REVERSE SOLIDUS determines its precise interpretation as shown in "

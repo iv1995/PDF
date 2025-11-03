@@ -1,6 +1,6 @@
-#Table 186: Additional entries specific to a popup annotation" shows 
-the annotation dictionary entries specific to this type of annotation. 
-#Table 186: Additional entries specific to a popup annotation 
+#Table 186: Additional entries specific to a popup annotation#" shows 
+the annotation dictionary entries specific to this type of annotation. #
+Table 186: Additional entries specific to a popup annotation #
 Key Type Value 
 (Required) 
 Subtype 
@@ -14,7 +14,7 @@ ContentsMCT
 this popup annotation shall be associated. 
 If this entry is present, the parent annotation’s , , , and  
  
-entries (see "#Table 170: Entries in an appearance dictionary") shall 
+entries (see "#Table 170: Entries in an appearance dictionary#") shall 
 override those of the popup annotation itself.
 (Optional) 
 Open 
@@ -28,9 +28,9 @@ ISO/DIS 32000-2
  
 12.5.6.15File attachment annotations 
  
-file attachment annotation#PDF 1.3
+file attachment annotation#PDF #1.3
 A  () contains a reference to a file, which typically shall be embedded 
-in the #PDF file (see 7.11.4, "Embedded file streams"). 
+in the# PDF# file (see 7.11.4, "Embedded file streams"). 
 NOTE A table of data might use a file attachment annotation to link to a spreadsheet file based on that 
 data; activating the annotation extracts the embedded file and gives the user an opportunity to 
 view it or store it in the file system. "

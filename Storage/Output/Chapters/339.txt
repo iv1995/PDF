@@ -1,21 +1,21 @@
-#Table 175: Additional entries specific to a text annotation") shall 
+#Table 175: Additional entries specific to a text annotation#") shall 
 update the state of the original annotation for the specified user. 
 Additional state changes shall be made by adding text annotations in reply to the previous reply for a 
 given user. 
 12.5.6.4Text annotations 
  
 text annotation
-A  represents a "sticky note" attached to a point in the #PDF document. When closed, the 
+A  represents a "sticky note" attached to a point in the #PDF #document. When closed, the 
 © ISO 2017 – All rights reserved 468 
 
 ISO/DIS 32000-2
  
 annotation shall appear as an icon; when open, it shall display a popup window containing the text of 
-the note in a #font and size chosen by the #interactive ##PDF processor. Text annotations shall not scale and 
+the note in a #font #and size chosen by the #interactive# #PDF# processor##. Text annotations shall not scale and 
 rotate with the page; they shall behave as if the NoZoom and NoRotate annotation flags (see "#Table 167: 
-Annotation flags") were always set. "#Table 175: Additional entries specific to a text annotation" shows 
-the annotation dictionary entries specific to this type of annotation. 
-#Table 175: Additional entries specific to a text annotation 
+Annotation flags#") were always set. #"Table 175: Additional entries specific to a text annotatio#n" shows 
+the annotation dictionary entries specific to this type of annotation.# 
+Table 175: Additional entries specific to a text annotation# 
 Key Type Value 
 (Required) Text 
 Subtype 
@@ -29,19 +29,19 @@ displayed open. Default value:  (closed).
 Optional
 Name 
 name () The name of an icon that shall be used in displaying the 
-annotation. #Interactive ##PDF processors shall provide predefined icon 
+annotation.# Interactiv#e# PD#F processo##rs shall provide predefined icon 
 Comment, Key, Note, Help, NewParagraph, Paragraph, Insert 
 appearances for at least the following standard names: 
 Note
 Additional names may be supported as well. Default value: . 
-Optional; #PDF 1.5
+Optiona#l; P#DF 1.5
 State 
 text string () The state to which the original annotation shall be set; see 
 StateModelStateModel
 12.5.6.3, "Annotation states". 
 Default: "Unmarked" if  is "Marked"; "None" if  is 
 "Review". 
-Required if  is present, otherwise optional; #PDF 1.5
+Required if  is present, otherwise option#al; #PDF 1.5
 StateModel State
 State
 text string () The state model 
@@ -58,5 +58,5 @@ endobj
 12.5.6.5Link annotations 
  
 link annotation
-A  represents# either a hypertext link to a destination elsewhere in the document (see 
+A  represents# ei#ther a hypertext link to a destination elsewhere in the document (see 
 12.3.2, "Destinations") or an action to be performed (12.6, "Actions"). "

@@ -1,35 +1,35 @@
-#Table 155: Entries in a collection field dictionary" describes the entries in a 
+#Table 155: Entries in a collection field dictionary#" describes the entries in a 
 collection field dictionary. 
 © ISO 2017 – All rights reserved 439 
 
 ISO/DIS 32000-2
- 
-#Table 155: Entries in a collection field dictionary 
+ #
+Table 155: Entries in a collection field dictionary #
 Key Type Value 
 Optional
 Type 
 CollectionField
-name () The type of #PDF #object that this dictionary describes; if 
+name () The type of #PDF ##object #that this dictionary describes; if 
 present, shall be  for a collection field dictionary. 
 Required
 Subtype 
 name () The subtype of collection field or file-related field that this 
-dictionary describes. This entry# identifies the type of data that shall be 
+dictionary describes. This entry# id#entifies the type of data that shall be 
 stored in the field. 
-The following values# identify the types of fields in the collection item or 
+The following value#s i#dentify the types of fields in the collection item or 
 S
-collection su#bitem dictionary: 
+collection su#bi#tem dictionary: 
 D
- A text field. The field data shall be stored as a #PDF text string. 
- A date field. The field data shall be stored as a #PDF date string 
+ A text field. The field data shall be stored as a# PDF# text string. 
+ A date field. The field data shall be stored as #a PD#F date string 
 N
 (see 7.9.4, "Dates"). 
- A number field. The field data shall be stored as a #PDF number. 
+ A number field. The field data shall be stored as# a P#DF number. 
 F
-The following values# identify the types of file-related fields: 
+The following valu#es #identify the types of file-related fields: 
  UF 
  The field data shall be the file name of the 
-embedded file stream, as# identified by the
+embedded file stream,# as# identified by the
 F
 entry of the file specification, if present; 
 otherwise by the  entry of the file specification 
@@ -39,7 +39,7 @@ dictionary").
 Desc
   
  The field data shall be the description of the 
-embedded file stream, as# identified by the
+embedded file stream#, a#s identified by the
 entry in the file specification dictionary (see 
 "Table 43: Entries in a file specification 
 ModDate
@@ -47,7 +47,7 @@ dictionary").
  
  The field data shall be the modification date of 
 ModDate 
-the embedded file stream, as# identified by the
+the embedded file strea#m, #as identified by the
 entry in the embedded file parameter 
 dictionary (see "Table 45: Entries in an 
 CreationDate
@@ -56,7 +56,7 @@ embedded file parameter dictionary").
  The field data shall be the creation date of the 
 CreationDate
  
-embedded file stream, as# identified by the
+embedded file stre#am,# as identified by the
 entry in the embedded file 
 parameter dictionary (see "Table 45: Entries in 
 Size
@@ -64,47 +64,47 @@ an embedded file parameter dictionary").
 Size
  The field data shall be the size of the embedded 
 embedded
-file, as# identified by the  entry in the 
+f#ile#, as identified by the  entry in the 
  file parameter dictionary (see "Table 
 45: Entries in an embedded file parameter 
-CompressedSize(#PDF 2.0) 
+CompressedS#ize(#PDF 2.0) 
 dictionary"). 
  The field data is the length of the 
 Length
-embedded file stream, as# identified by the 
+embedded file st#rea#m, as identified by the 
  entry in the embedded file stream 
  
 dictionary (see 7.11.4, "Embedded file streams"), 
-and the two values shall be# identical.
+and the two values# sh#all be identical.
 Required
 N 
 text string () The textual field name that shall be presented to the user by 
-the #interactive ##PDF processor. 
+the #interac#tive# #PDF processor##. 
 Optional
 O 
 integer () The relative order of the field name in the user interface. 
-Fields shall be sorted by the #interactive ##PDF processor in ascending 
+Fields shall be sorted by the# intera#ctiv#e# PDF processor## in ascending 
 order. 
 Optional
 V 
 true
-boolean () The initial visi#bility of the field in the user interface. Default 
+boolean () The initial vis#ib#ility of the field in the user interface. Default 
 value: . 
 Optional
 E 
 false
-boolean () A flag indicating whether the #interactive ##PDF processor 
+boolean () A flag indicating whether th#e inter#acti#v#e PDF processor## 
 should provide support for editing the field value. Default value: . 
 © ISO 2017 – All rights reserved 440 
 
 ISO/DIS 32000-2
  
  
-collection sort dictionary
-A#  identifies the fields that shall be used to sort items in the collection. The type 
+collection sort di#ctio#nary
+A  identifies the fields that shall be used to sort items in the collection. The type 
 of sorting depends on the type of data: 
 • 
-NOTE 3 Lexical ordering is an implementation dependency for #interactive ##PDF processors. 
+NOTE 3 Lexical ordering is an implementation dependency f#or inte#ract#i#ve PDF proces##sors. 
 Text strings shall be ordered lexically from smaller to larger, if ascending order is specified. 
 • 
 • 

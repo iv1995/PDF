@@ -1,4 +1,4 @@
 #glyph 
-recognizable abstract graphic symbol that is independent of any specific design [ISO/IEC 9541-1] 
+#recognizable abstract graphic symbol that is independent of any specific design [ISO/IEC 9541-1] 
 4.30 
  

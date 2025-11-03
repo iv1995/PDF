@@ -1,16 +1,16 @@
-#Table 30: Required entries in a page tree node" shows the entries in a page tree node that shall always 
+#Table 30: Required entries in a page tree node#" shows the entries in a page tree node that shall always 
 be present (). 
 © ISO 2017 – All rights reserved 104 
 
 ISO/DIS 32000-2
- 
-#Table 30: Required entries in a page tree node 
+ #
+Table 30: Required entries in a page tree node #
 Key Type Value 
 Required
 Type 
 Pages 
  
-name () The type of #PDF #object that this dictionary describes; shall be 
+name () The type of #PDF ##object #that this dictionary describes; shall be 
 for a page tree node.
 Required except in root node; not permited in the root node; shall be an indirect 
 Parent 
@@ -20,10 +20,10 @@ dictionary (
 Required
 Kids 
 array () An array of indirect references to the immediate children of this 
-node. The children shall only be page #objects or other page tree nodes. 
+node. The children shall only be page# objec#ts or other page tree nodes. 
 Required
 Count 
-integer () The number of leaf nodes (page #objects) that are descendants of this 
+integer () The number of leaf nodes (pag#e obje#cts) that are descendants of this 
 NOTE Since the number of pages descendent from a Pages dictionary can be 
 node within the page tree. 
 accurately determined by examining the tree itself using the
@@ -32,16 +32,16 @@ arrays, the  entry is redundant.
 Count
 Count
  Kids 
-A ##PDF writer shall ensure that the value of the  key is consistent with the 
+A# #PDF# writer #shall ensure that the value of the  key is consistent with the 
 number of entries in thearray and its descendants which definitively 
 determines the number of descendant pages. 
  
 NOTE The structure of the page tree is not necessarily related to the logical structure of the document; 
 that is, page tree nodes do not represent chapters, sections, and so forth. Other data structures are 
-defined for this purpose; see 14.7, "Logical structure". 
-##PDF processors shall not be required to preserve the existing structure of the page tree. 
-EXAMPLE The following illustrates the page tree for a document with three pages. See 7.7.3.3, "Page #objects" for the 
-contents of the individual page #objects, and H.5, "Page tree example", for a more extended example showing 
+defined for this purpose; see 14.7, "Logical structure".# 
+#PD#F processor#s shall not be required to preserve the existing structure of the page tree. 
+EXAMPLE The following illustrates the page tree for a document with three pages. See 7.7.3.3, "Pa#ge obj#ects" for the 
+contents of the individual p#age ob#jects, and H.5, "Page tree example", for a more extended example showing 
 the page tree for a longer document. 
 2 0 obj 
   <</Type /Pages 
@@ -55,34 +55,34 @@ endobj
  
 4 0 obj 
   <</Type /Page 
-   …Additional entries descri#bing the attributes of this page… 
+   …Additional entries descri#bi#ng the attributes of this page… 
   >> 
 endobj 
  
 10 0 obj 
   <</Type /Page 
-  …Additional entries descri#bing the attributes of this page… 
+  …Additional entries descr#ib#ing the attributes of this page… 
   >> 
 endobj 
  
 24 0 obj 
   <</Type /Page 
-   …Additional entries descri#bing the attributes of this page… 
+   …Additional entries desc#ri#bing the attributes of this page… 
   >> 
 endobj 
  
 ,
 © ISO 2017 – All rights reserved 105 
-In addition to the entries shown in "#Table 30: Required entries in a page tree node" a page tree node 
+In addition to the entries shown in# "Table 30: Required entries in a page tree no#de" a page tree node 
 
 ISO/DIS 32000-2
  
-may contain further entries defining inherited attributes for the page #objects that are its descendants 
-(see 7.7.3.4, "Inheritance of page attributes"). (#PDF 2.0) A page tree shall not contain multiple indirect 
+may contain further entries defining inherited attributes for the #page o#bjects that are its descendants 
+(see 7.7.3.4, "Inheritance of page attributes")#. (P#DF 2.0) A page tree shall not contain multiple indirect 
 references to the same page tree node. 
 NOTE This requirement prevents multiple copies of the same node being present in the tree. 
  
-7.7.3.3Page #objects 
+7.7.3.#3Page #objects 
  
-The leaves of the page tree are page #objects, each of which is a dictionary specifying the attributes of a 
+The leaves of the page tree ar#e page# objects, each of which is a dictionary specifying the attributes of a 
 single page of the document. "

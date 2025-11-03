@@ -1,10 +1,10 @@
-#Table 4: Examples of literal names" and containing # are not valid literal 
-names in #PDF 1.0 or 1.1. 
-#Table 4: Examples of literal names 
+#Table 4: Examples of literal names#" and containing # are not valid literal 
+names in #PDF #1.0 or 1.1. #
+Table 4: Examples of literal names #
 Syntax for Literal name Resulting Name 
 /Name1 Name1 
 /ASomewhatLongerName ASomewhatLongerName 
-/A;Name_With-Various***#Characters? A;Name_With-Various***#Characters? 
+/A;Name_With-Various***#Character#s? A;Name_With-Various**#*Characte#rs? 
 /1.2 1.2 
 /$$ $$ 
 /@pattern @pattern 
@@ -15,21 +15,21 @@ Syntax for Literal name Resulting Name
 /A#42 AB 
  
 streamendstreamobj
-In #PDF, literal names shall always be introduced by the SOLIDUS #character (/), unlike keywords such as 
+In# PD#F, literal names shall always be introduced by the SOLIDU#S characte#r (/), unlike keywords such as 
 , , and . 
 NOTE 3 This part of ISO 32000 follows a typographic convention of writing names without the leading 
-SOLIDUS when they appear in #running text and tables. For example, Type and FullScreen denote 
-names that would actually be written in a #PDF file (and in code examples in this part of ISO 
+SOLIDUS when they appear in #running text #and tables. For example, Type and FullScreen denote 
+names that would actually be written in #a PD#F file (and in code examples in this part of ISO 
 32000) as /Type and /FullScreen. 
-The maximum length of a name used in the computer on which the ##PDF processor is running may be 
-subject to an implementation limit; see Annex C, "Advice on Maximising Porta#bility". The limit applies to 
-the number of #characters in the name’s internal representation. For example, the name /A#20B has 
-three #characters (A, SPACE, B), not six. 
-As stated above, #name #objects shall be treated as atomic within a #PDF file. Ordinarily, the #bytes making 
+The maximum length of a name used in the computer on which t#he #P#DF processor #is running may be 
+subject to an implementation limit; see Annex C, "Advice on Maximising Porta#bi#lity". The limit applies to 
+the number #of charac#ters in the name’s internal representation. For example, the name /A#20B has 
+th#ree chara#cters (A, SPACE, B), not six. 
+As stated above, #name #object##s shall be treated as atomic withi#n a #PDF file. Ordinarily, the #byte#s making 
 up the name are never treated as text to be presented to a human user or to an application external to a 
-Base#Font
-##PDF processor. However, occasionally the need arises to treat a #name #object as text, such as one that 
-represents a #font name (see the  entry in "#Table 109: Entries in a Type 1 #font dictionary"), a 
+Base#F#ont
+###PDF processo#r. However, occasionally the need arises to treat a# name# object## as text, such as one that 
+represents a# font# name (see the  entry in "#Table 109: Entries in a Type #1 fon#t dictionary#"), a 
 © ISO 2017 – All rights reserved 34 
 
 ISO/DIS 32000-2
@@ -37,43 +37,43 @@ ISO/DIS 32000-2
 Separation DeviceN 
 colourant name in a  orcolour space, or a structure type (see 14.7.3, "Structure 
 types"). 
-In such situations, the sequence of #bytes making up the #name #object should be interpreted according to 
-UTF-8, a variable-length #byte-encoded representation of Unicode in which the printable #ASCII 
-#characters have the same representations as in #ASCII. This enables a #name #object to represent text 
+In such situations, the sequence of# byt#es making up th#e nam#e objec##t should be interpreted according to 
+UTF-8, a variable-lengt#h by#te-encoded representation of Unicode in which the printable #ASC#II 
+#char#acters have the same representations as in# ASCI#I. This enables# a na#me obje##ct to represent text 
 virtually in any natural language, subject to the implementation limit on the length of a name. 
-NOTE 4 #PDF does not prescribe what UTF-8 sequence to choose for representing any given piece of 
-externally specified text as a #name #object. In some cases, multiple UTF-8 sequences can represent 
-the same logical text. #PDF #name #objects are considered distinct #objects if, after all escaping is 
-expanded, the resulting sequences of #bytes are not an exact #binary match. 
-7.3.6#Array #objects 
- 
-#array #object
-  
-Anis a one-dimensional collection of #objects arranged sequentially. Unlike arrays in many 
-other computer languages, #PDF arrays may be heterogeneous; that is, an array’s elements may be any 
-com#bination of numbers, strings, dictionaries, or any other #objects, including other arrays. An array 
+N#OTE #4 PDF does not prescribe what UTF-8 sequence to choose for representing any given piece of 
+externally specified text a#s a n#ame ob##ject. In some cases, multiple UTF-8 sequences can represent 
+the same logical #text.## PDF #name o##bjects are considered dis#tinct #objects if, after all escaping is 
+expanded, the resulting sequences #of b#ytes are not an exact# b#inary match. 
+7.3.6##Array #object#s 
+ ##
+array obj#ect
+  #
+Anis a one-dimensional colle#ction #of objects arranged sequentially. Unlike arrays in many 
+other computer lan#guag#es, PDF arrays may be heterogeneous; that is, an array’s elements may be any 
+c#om#bination of numbers, strings, dictionaries, or #any ot#her objects, including other arrays. An array 
 may have zero elements. 
-An array shall be written as a sequence of #objects enclosed in SQUARE BRACKETS (using LEFT SQUARE 
+An array shall be written as a s#equenc#e of objects enclosed in SQUARE BRACKETS (using LEFT SQUARE 
 BRACKET (5Bh) and RIGHT SQUARE BRACKET (5Dh)). 
 EXAMPLE  
-[549 3.14 false (Ralph) /SomeName] 
+[549 3.14 false (Ralph) /Some#Name#] 
  
-#PDF directly supports only one-dimensional arrays. Arrays of higher dimension can be constructed by 
+PDF directly supports only one-dimensional arrays. Arrays of higher dimension can be constructed by 
 using arrays as elements of arrays, nested to any depth. 
-7.3.7#Dictionary #objects 
+7.3.7##Dictio#nary object#s 
  
-A #dictionary #object is an associative table containing pairs of #objects, known as the dictionary’s entries. 
+A## dictio#nary object# is an associative table contai#ning p#airs of objects, known as the dictionary’s entries. 
 The first element of each entry is the key and the second element is the value. The key shall be a name 
 null
-(unlike dictionary keys in the PostScript language, which may be #objects of any type). The value may be 
-any kind of #object, including another dictionary. A dictionary entry whose value is  (see 7.3.9, "#Null 
-#object") shall be treated the same as if the entry does not exist. (This differs from the PostScript 
-language, where null behaves like any other #object as the value of a dictionary entry.) The maximum 
-number of entries in a dictionary used in the computer on which the ##PDF processor is running may be 
-subject to implementation limits; see Annex C, "Advice on Maximising Porta#bility". A dictionary may 
+(unlike dictionary keys in the PostScript language#, whic#h may be objects of any type). The value may #be 
+an#y kind of object, including another dictionary. A dictionary entry whose value is  (se#e 7.3.9#, "#Null 
+object#") shall be treated the same as if the entry does not exist. (This differs from the PostScript 
+language, where null behav#es like# any other object as the value of a dictionary entry.) The maximum 
+number of entries in a dictionary used in the computer on #whic#h th#e PDF processo#r is running may be 
+subject to implementation limits; see Annex C, "Advice on Maximising Po#rt#ability". A dictionary may 
 have zero entries. 
-The entries in a dictionary represent an associative table and as such shall be unordered even though an 
-ar#bitrary order may be imposed upon them when written in a file. That ordering shall be ignored. 
+The entries in a dictionary represent an associative table and as such shall be unordered even though an# 
+#arbitrary order may be imposed upon them when written in a file. That ordering shall be ignored. 
 Multiple entries in the same dictionary shall not have the same key. 
 A dictionary shall be written as a sequence of key-value pairs enclosed in double angle brackets 
 (<<…>>) (using LESS-THAN SIGNs (3Ch) and GREATER-THAN SIGNs (3Eh)). 
@@ -96,18 +96,18 @@ EXAMPLE
 >> 
 NOTE Do not confuse the double angle brackets with single angle brackets (< and >) (using LESS-THAN 
 SIGN (3Ch) and GREATER-THAN SIGN (3Eh)), which delimit a hexadecimal string (see 7.3.4.3, 
-"Hexadecimal strings"). 
-#Dictionary #objects are the main building blocks of a #PDF document. They are commonly used to collect 
+"Hexadecimal strin#gs").# #
+Dictionary obje#cts are the main building b#lock#s of a PDF document. They are commonly used to collect 
 Type
-and tie together the attributes of a complex #object, such as a #font or a page of the document, with each 
+and tie together the attr#ibutes# of a complex object, such as# a fo#nt or a page of the document, with each 
 entry in the dictionary specifying the name and value of an attribute. By convention, the  entry of 
 SubtypeS
-such a dictionary, if present,# identifies the type of #object the dictionary describes. In some cases, a 
+such a dictionary, if present,# id##entifie#s the type of object the dictionary describes. In some cases, a 
 TypeSubtype
- entry (sometimes abbreviated ) may be used to further# identify a specialised subcategory of 
+ entry (sometimes abbreviated ) may be used to furthe#r i#dentify a specialised subcategory of 
 Font
 TypeSubtype
-the general type. The value of the  or  entry shall always be a name. For example, in a #font 
+the general type. The value of the  or  entry shall always be a name. For example, i#n a fo#nt 
 Type1TrueType
 dictionary, the value of the  entry shall always be , whereas that of the  entry may be 
 , , or one of several other values. 
@@ -115,29 +115,29 @@ Type
 Type
 The value of the  entry can almost always be inferred from context. The value of an entry in a 
 Type
-page's #font #resource dictionary, for example, shall be a #font #object; therefore, the  entry in a #font 
+pa#ge's #font #resource dictionary#, for examp#le, sh#all# be a# font object; therefore, the  entr#y in a# font 
 dictionary serves primarily as documentation and as information for error checking. The  entry 
 Type
 shall not be required unless so stated in its description; however, if the entry is present, it shall have the 
 correct value. In addition, the value of the  entry in any dictionary, even in private data, shall be# 
-either a name defined in this part of ISO 32000 or a registered name; see Annex E, "#PDF Name Registry", 
-for details. 
-7.3.8#Stream #objects 
+ei#ther a name defined in this part of ISO 32000 or a registered name; se#e An#nex E, "PDF Name Registry", 
+for# detai#ls. 
+7.3.8#Stream object#s 
  
-7.3.8.1General 
+7.3#.8.1Ge#neral 
  
-A #stream #object, like a #string #object, is a sequence of #bytes. Furthermore, a stream may be of unlimited 
-length, whereas a string shall be subject to an implementation limit. For this reason, #objects with 
+A# stre#am obj#ec#t, like a #string object#, is a sequence# of #bytes. Furthermore, a stream may be of unlimited 
+length, whereas a string shall be subject to an implementatio#n limi#t. For this reason, objects with 
 potentially large amounts of data, such as images and page descriptions, shall be represented as 
 streams. 
-NOTE 1 This subclause describes only the syntax for writing a stream as a sequence of #bytes. The context in 
-which a stream is referenced determines what the sequence of #bytes represent. 
+NOTE 1 This subclause describes only the syntax for writing a stream as a sequenc#e of# bytes. The context in 
+which a stream is referenced determines what the sequen#ce o#f bytes represent. 
 streamendstream
-A stream shall consist of a dictionary followed by zero or more #bytes bracketed between the keywords 
+A stream shall consist of a dictionary followed by zero o#r mo#re bytes bracketed between the keywords 
 dictionary 
  (followed by newline) and : 
 stream 
-…Zero or more #bytes… 
+…Zero #or m#ore bytes… 
 endstream 
  
 © ISO 2017 – All rights reserved 36 
@@ -145,23 +145,23 @@ endstream
 ISO/DIS 32000-2
  
 stream 
-All streams shall be #in#direct #objects (see 7.3.10, "#In#direct #objects") and the stream dictionary shall be a 
-#direct #object. The keyword that follows the stream dictionary shall be followed by an end-of-
-line marker consisting of# either a CARRIAGE RETURN and a LINE FEED or just a LINE FEED, and not by 
+All s#treams s#hall be #in#direct object###s (see #7.3.10, #"I#ndirect objec##ts") and the stream di#ctionar#y shall be a# 
+direct obje#ct. The keyword that follows the stream dictionary shall be followed by an end-of-
+line marker consisting o#f e#ither a CARRIAGE RETURN and a LINE FEED or just a LINE FEED, and not by 
 streamendstream
-a CARRIAGE RETURN alone. The sequence of #bytes that make up a stream lie between the end-of-line 
+a CARRIAGE RETURN alone. The seq#uenc#e of bytes that make up a stream lie between the end-of-line 
 endstream
 marker following the  keyword and the  keyword; the stream dictionary specifies the 
-exact number of #bytes. There should be an end-of-line marker after the data and before ; 
+exact #numb#er of bytes. There should be an end-of-line marker after the data and before ; 
 endstreamendobj
-this marker shall not be included in the stream length. There shall not be any extra #bytes, other than 
+this marker shall not be included in the stream length. There shall not be# any# extra bytes, other than 
 white-space, between  and . 
 NOTE 2 Without the restriction against following the keyword stream by a CARRIAGE RETURN alone, it 
 would be impossible to differentiate a stream that uses CARRIAGE RETURN as its end-of-line 
-marker and has a LINE FEED as its first #byte of data from one that uses a CARRIAGE RETURN–
+marker and has a LINE FEED a#s its# first byte of data from one that uses a CARRIAGE RETURN–
 LINE FEED sequence to denote end-of-line. 
 streamendstream
-Alternatively, beginning with #PDF 1.2, the #bytes may be contained in an external file, in which case the 
-stream dictionary specifies the file, and any #bytes between  and  shall be ignored by 
-a ##PDF processor. 
+Alternatively, beg#innin#g with #PDF #1.2, the bytes may be contained in an external file, in which case the 
+stream dictionary specifies the #file#, and any bytes between  and  shall be #igno#red by #
+a PDF proces#sor. 
 "

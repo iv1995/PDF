@@ -1,11 +1,11 @@
 #Figure 112: Defining the 
-radial measurement for a circle". 
+radial measurement for a circle#". 
 © ISO 2017 – All rights reserved 672 
 
 ISO/DIS 32000-2
- ![Figure 112 Defining the radial measurement for a circle  .png](./Storage/Output/Images/Figure 112 Defining the radial measurement for a circle  .png)
-#Figure 112: Defining the radial measurement for a circle 
- 
+ ![Figure 112 Defining the radial measurement for a circle  .png](./Storage/Output/Images/Figure 112 Defining the radial measurement for a circle  .png)#
+Figure 112: Defining the radial measurement for a circle 
+ #
 A1
 A2TP
 The circle being measured is defined by two points lying on the annotation plane, a circle centre , and 

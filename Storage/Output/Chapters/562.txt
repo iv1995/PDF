@@ -1,10 +1,10 @@
-#Table 368: General inline level structure types" defines standard structure types for inline level 
+#Table 368: General inline level structure types#" defines standard structure types for inline level 
 structure types. 
 © ISO 2017 – All rights reserved 733 
 
 ISO/DIS 32000-2
- 
-#Table 368: General inline level structure types 
+ #
+Table 368: General inline level structure types #
 Structure Category Description 
 Type 
 Lbl 
@@ -13,7 +13,7 @@ Lbl
 parent element. 
  
 In a list item (see 14.8.4, "Standard structure types") the  structure element may 
-enclose the bullet for list items in unordered lists or digits and #characters used for 
+enclose the bullet for list items in unordered lists or digits and #character#s used for 
 numbering of list items in ordered lists. For headings it may be the number of the 
 chapter. For a definition list it may enclose the term to be defined. For key value 
 Lbl
@@ -28,7 +28,7 @@ could be marked as :
 bullets for list items in an unordered list  
  
 •
-digits or #characters used for numbering list items in an 
+digits or# characte#rs used for numbering list items in an 
  
 ordered list,  
 •
@@ -66,7 +66,7 @@ ISO/DIS 32000-2
  
 Structure Category Description 
 Type 
-(#PDF 2.0)
+(#PDF #2.0)
 Em 
 Inline  (Emphasis) Encloses content for the purpose of emphasis. 
 Em
@@ -85,7 +85,7 @@ asserting that dogs are cute):
 By moving it to the adjective, the exact nature of the cats is 
 reasserted (maybe someone suggested cats were mean animals): 
 <P>Cats are <Em>cute</Em> animals.</P> 
-(#PDF 2.0) 
+#(PDF# 2.0) 
 Strong 
 Inline Encloses content for the purpose of strong importance, seriousness or 
 urgency for its contents.  
@@ -100,7 +100,7 @@ that the user is intended to read first:
  <LI><LBody>Do the laundry.</LBody></LI> 
 </L> 
 Span 
-Inline A generic inline portion of content having no particular inherent #characteristics. It 
+Inline A generic inline portion of content having no particular inheren#t charact#eristics. It 
 can be used, for example, to delimit a range of text with certain attributes. 
 SpanLang
 EXAMPLE 4 A word inside a sentence is in a different language than the 
@@ -110,7 +110,7 @@ Span
 EXAMPLE 5 A custom set of structure element types defines custom inline 
 RoleMap
 structure elements which are mapped to the  structure 
-element in the  to enable a ##PDF processor unaware of the 
+element in the  to enable #a #PD#F processor #unaware of the 
 custom set of structure element types to essentially ignore the 
 structure element. 
 LinkLink
@@ -123,10 +123,10 @@ ISO/DIS 32000-2
 Structure Category Description 
 Type 
 Annot Annot
-Inline# Either an association between the content enclosed by the  structure element 
-and one or more corresponding #PDF annotations (see 12.5, "Annotations"), or a 
+Inline# Ei#ther an association between the content enclosed by the  structure element 
+and one or more correspondi#ng P#DF annotations (see 12.5, "Annotations"), or a 
 Annot
-mechanism to include one or more #PDF annotations in the structure tree. 
+mechanism to include one or m#ore #PDF annotations in the structure tree. 
 If more than one annotation is referenced in an  structure element, they shall 
 AnnotLink
 be of the same annotation type. 
@@ -145,11 +145,11 @@ requests for deletions, modifications or insertions.
 Highlighting of certain content. 
  
 Form 
-#Grouping,# Either an association between content enclosed by the Form structure element and 
+#Group#ing#, E#ither an association between content enclosed by the Form structure element and 
 Block or a corresponding widget annotation or a mechanism to include a widget annotation 
 Form
 Inline in the structure tree. 
-In a tagged #PDF,  shall be used for each #PDF widget annotation that belongs to 
+In a ta#gge#d PDF,  shall be used for# eac#h PDF widget annotation that belongs to 
 the real content of the document. 
 FormLbl
 NOTE  structure elements often include  structure elements to 
@@ -158,7 +158,7 @@ Form
 EXAMPLE 7 The following are the possible types of content that could be 
 marked as : 
 •
-Form fields in a #PDF containing a fillable form would be 
+Form field#s in# a PDF containing a fillable form would be 
  
 marked as  structure element. 
 Form
@@ -169,23 +169,23 @@ structure element with the PrintField attribute, would be
 marked as  structure element. 
 Form
  
-Link
-Tagged #PDF link elements (standard structure type ) use #PDF’s logical structure facilities to 
-establish the association between content items and link annotations, providing #functionality 
+Link#
+Tag#ged PDF link elements (standard structure ty#pe #) use PDF’s logical structure facilities to 
+establish the association between content items and link annotations, providing #function#ality 
 comparable to HTML hypertext links. The following items may be children of a link element: 
 ADestPA
 • 
 One or more content items or other ILSEs (except other links) if ,  and  keys of all of them 
 • 
-have# identical values 
-One ##object reference (see 14.7.5.3, "#PDF #objects as content items") to one link annotation 
+have# id#entical values 
+One ##object #reference #(see 1#4.7.5#.3, "PDF# objec#ts as content items") to one link annotation 
 NOTE 1 By means of the  entry the  or  action in a  annotation it is possible to link 
 SDGoToGoToRLink
 associated with the content 
 directly to a target structure element, as opposed to just targeting an area on a page. 
 14.8.4.7.3Ruby and Warichu elements 
  
-Ru#by text
+Ru#by te#xt
  is a side note, written in a smaller text size and placed adjacent to the base text to which it 
 refers. It is used in Japanese and Chinese to describe the pronunciation of unusual words or to describe 
 such items as abbreviations and logos. 

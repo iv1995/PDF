@@ -1,4 +1,4 @@
-#Table 98: Entries in the optional content properties dictionary"), or a valid 
+#Table 98: Entries in the optional content properties dictionary#"), or a valid 
 optional content membership dictionary. 
 To avoid conflict with other features that used marked content (such as logical structure; see 14.7, 
 "Logical structure"), the following strategy is recommended: 
@@ -13,17 +13,17 @@ ISO/DIS 32000-2
  
 BDCEMC
 the optional content should be broken up into two or more / sections, nesting the 
-NOTE Breaking up optional content spans does not damage the nature of the visi#bility of the content, 
+NOTE Breaking up optional content spans does not damage the nature of the visi#bi#lity of the content, 
 optional content sections inside the others as necessary.  
 whereas the same guarantee cannot be made for all other uses of marked content. 
 ON
-In the following example, the state of the Show Greeting optional content #group directly controls the 
+In the following example, the state of the Show Greeting optional content #group #directly controls the 
 OFF
-visi#bility of the text string "Hello" on the page. When the #group is , the text is visible; when the #group 
+vis#ib#ility of the text string "Hello" on the page. When the# group# is , the text is visible; when th#e group# 
 is , the text is hidden. 
 EXAMPLE 1  
 %Within a #content stream 
-… 
+#… 
 /OC /oc1 BDC          %Optional content follows 
   BT 
    /F1 1 Tf 
@@ -35,42 +35,42 @@ EMC             %End of optional content
  
 <<              %In the resources dictionary 
   /Properties <</oc1 5 0 R>>    %This dictionary maps the name oc1 to an 
-…              %optional content #group (#object 5) 
+…              %optional conte#nt gro#up (#object #5) 
 >> 
  
-5 0 obj            %The OCG controlling the visi#bility 
+5 0 obj            %The OCG controlling the vi#si#bility 
 <<              %of the text. 
   /Type /OCG 
   /Name (Show Greeting) 
 >> 
 endobj 
  
-The example above shows one piece of content associated with one optional content #group. There are 
-other possi#bilities: 
+The example above shows one piece of content associated with one optional cont#ent g#roup. There are 
+other po#ss#ibilities: 
 • 
-More than one section of content may refer to the same #group or membership dictionary, in which 
+More than one section of content may refer to the #same g#roup or membership dictionary, in which 
 • 
-case the visi#bility of both sections is always the same. 
+case the #vi#sibility of both sections is always the same. 
 OCGP
 Equivalently, although less space-efficient, different sections may have separate membership 
-dictionaries with the same s and  entries. The sections shall have# identical visi#bility 
+dictionaries with the same s and  entries. The sections shall have# id#entical# v#isibility 
 • 
 behaviour. 
 PPP
-Two sections of content may belong to membership dictionaries that refer to the same #group(s) 
+Two sections of content may belong to membership dictionaries that refer to the# same# group(s) 
 AllOff
 but with different  settings. For example, if one section has no  entry, and the other has a  entry 
-of , the visi#bility of the two sections of content shall be opposite. That is, the first section shall 
+of , th#e #visibility of the two sections of content shall be opposite. That is, the first section shall 
 be visible when the second is hidden, and vice versa. 
-The following example demonstrates both the direct use of optional content #groups and the indirect use 
-    
-of #groups through a membership dictionary. The content (a black #rectangle frame) is drawn if# either of 
-the images controlled by the #groups namedImageA orImage#B is shown. If both #groups are hidden, the 
-#rectangle frame is hidden. 
+The following example demonstrates both the direct use of optional c#onten#t groups and the indirect use 
+#    
+#of groups through a membership dictionary. The content (a black #rectangle #frame) is drawn if# ei#ther of 
+the images controlle#d by #the groups namedImageA #orI#mageB is shown#. If #both groups are hidden, the #
+rectangle# frame is hidden. 
 EXAMPLE 2  
-%Within a #content stream 
+%Within a# content stream #
 … 
-/OC /OC2 BDC            %Draws a black #rectangle frame 
+/OC /OC2 BDC            %Draws a blac#k rectangl#e frame 
   0 g 
 © ISO 2017 – All rights reserved 276 
 
@@ -79,22 +79,22 @@ ISO/DIS 32000-2
   4 w 
   100 100 412 592 re s 
 EMC 
-/OC /OC3 BDC            %Draws an image X#Object 
-  q 
+/OC /OC3 BDC            %Draws an image #XObject 
+ # q 
   412 0 0 592 100 100 cm 
   /Im3 Do 
   Q 
 EMC 
-/OC /OC4 BDC            %Draws an image X#Object 
-  q 
+/OC /OC4 BDC            %Draws an image# XObject 
+#  q 
   412 0 0 592 100 100 cm 
   /Im4 Do 
   Q 
 EMC 
 … 
 <<                %The #resource dictionary 
-   /Properties <</OC2 20 0 R /OC3 30 0 R /OC4 40 0 R>> 
-   /X#Object <</lm3 50 0 R /lm4 /60 0 R>> 
+   #/Properties <</OC2 20 0 R /OC3 30 0 R /OC4 40 0 R>> 
+  # /XObje#ct <</lm3 50 0 R /lm4 /60 0 R>> 
 >> 
  
 20 0 obj 
@@ -105,35 +105,35 @@ EMC
 >> 
 endobj 
  
-30 0 obj              %Optional content #group "Image A" 
+30 0 obj              %Option#al con#tent group "Image A" 
   << 
    /Type /OCG 
    /Name (Image A) 
 >> 
 endobj 
  
-40 0 obj              %Optional content #group "Image B" 
+40 0 obj              %Optio#nal co#ntent group "Image B" 
 << 
    /Type /OCG 
    /Name (Image B) 
 >> 
 endobj 
  
-8.11.3.3Optional content in X#Objects and annotations 
+8.11.3.3Optional content #in XOb#jects and annotations 
  
 OC
-In addition to marked content within #content streams, form X#Objects and image X#Objects (see 8.8, 
-"External #objects") and annotations (see 12.5, "Annotations") may contain an  entry, which shall be 
-an optional content #group or an optional content membership dictionary. 
+In addition to marked content withi#n content stre#ams, f#orm XO#bjects and i#mage X#Objects (see 8.8, 
+"Ex#ternal# objects") and annotations (see 12.5, "Annotations") may contain an  entry, which shall be 
+an opti#onal c#ontent group or an optional content membership dictionary. 
 PVE
-A form or image X#Object's visi#bility shall be determined by the state of the #group or those of the #groups 
-referenced by the membership dictionary in conjunction with its  (or ) entry, along with the current 
-visi#bility state in the context in which the X#Object is invoked (that is, whether #objects are visible in the 
-#content stream at the place where the Do operation occurred). 
+A form or# image# XObjec#t'#s visibility shall be determined by the# state# of the group o#r tho#se of the groups 
+referenced by the membership dictionary in conjunction with its  (or ) entry, along with the curr#en#t 
+visibility state in the context in wh#ich the# XObject is invoked (that is#, whet#her objects are visible in th#e 
+content stre#am at the place where the Do operation occurred). 
 OC
-Annotations have various flags controlling on-screen and print visi#bility (see 12.5.3, "Annotation flags"). 
+Annotations have various flags controlling on-screen and #pr#int visibility (see 12.5.3, "Annotation flags"). 
 If an annotation contains an  entry, it shall be visible for screen or print only if the flags have the 
-appropriate settings and the #group or membership dictionary indicates it shall be visible. 
+appropriate s#etting#s and the group or membership dictionary indicates it shall be visible. 
 © ISO 2017 – All rights reserved 277 
 
 ISO/DIS 32000-2
@@ -142,32 +142,32 @@ ISO/DIS 32000-2
  
 8.11.4.1General 
  
-A #PDF document containing optional content may specify the default states for the optional content 
-#groups in the document and indicate which external factors shall be used to alter the states. The 
-following subclauses describe the #PDF structures that are used to specify this information. 
-8.11.4.2, "Optional content properties dictionary" describes the structure that lists all the optional 
-content #groups in the document and their possible configurations. 
+A #PDF #document containing optional content may specify the default states for the o#ption#al content 
+groups in the document and indicate which external factors shall be used to alter the states. The 
+following subclauses describe the# PDF# structures that are used to specify this information. 
+8.11.4.2, "Optional content properties dictionary" describes the structure that lists all the #optio#nal 
+content groups in the document and their possible configurations. 
 8.11.4.3, "Optional content configuration dictionaries" describes the structures that specify initial state 
-settings and other information about the #groups in the document. 
-8.11.4.4, "Usage and usage application dictionaries" and 8.11.4.5, "Determining the state of optional 
-content #groups" describe how the states of #groups can be affected based on external factors. 
+settings and other inf#ormat#ion about the groups in the document. 
+8.11.4.4, "Usage and usage application dictionaries" and 8.11.4.5, "Determining the state o#f opt#ional 
+content groups" descri#be ho#w the states of groups can be affected based on external factors. 
 8.11.4.2Optional content properties dictionary 
  
 OCProperties
 The optional  entry in the document catalog dictionary (see 7.7.2, "Document catalog 
 dictionary") shall contain, when present, the optional content properties dictionary, which contains a 
-list of all the optional content #groups in the document, as well as information about the default and 
+list of all# the #optional content groups in the document, as well as information about the default and 
 alternate configurations for optional content. This dictionary shall be present if the file contains any 
-optional content; if it is missing, a ##PDF processor shall ignore any optional content structures in the 
+optional content; if it is missing, #a #PD#F processor #shall ignore any optional content structures in the 
 document. 
-This dictionary contains the following entries: 
-#Table 98: Entries in the optional content properties dictionary 
+This dictionary contains the following entries: #
+Table 98: Entries in the optional content properties dictionary #
 Key Type Value 
 Required
 OCGs 
-array () An array of indirect references to all the optional content 
-#groups in the document (see 8.11.2, "Optional content #groups"), in any 
-order. Every optional content #group shall be included in this array. 
+array () An array of indirect references to all# the #optional content 
+groups in the document (see 8.#11.2,# "Optional content groups"), in any 
+order#. Ever#y optional content group shall be included in this array. 
 Required
 D 
 dictionary () The default viewing optional content configuration dictionary 
@@ -181,11 +181,11 @@ dictionaries (see 8.11.4.3, "Optional content configuration dictionaries").
  
 DConfigs
 configuration dictionaries
-The  and  entries in "#Table 98: Entries in the optional content properties dictionary" are 
+The  and  entries in# "Table 98: Entries in the optional content properties dictiona#ry" are 
 D
-, which represent different presentations of a document’s optional content 
+, which represent different presentations of a document’s #optio#nal content 
 Configs
-#groups for use by ##PDF processors. The  configuration dictionary shall be used to specify the initial 
-state of the optional content #groups when a document is opened.  lists other configurations that 
+groups for use #by# P#DF processo#rs. The  configuration dictionary shall be used to specify the initial 
+sta#te of# the optional content groups when a document is opened.  lists other configurations that 
 may be used under particular circumstances. The entries in a configuration dictionary are shown in 
 "

@@ -1,4 +1,4 @@
-#Table 388: Entries common to all Web Capture content sets" defines the contents of this type of 
+#Table 388: Entries common to all Web Capture content sets#" defines the contents of this type of 
 dictionary. 
 © ISO 2017 – All rights reserved 776 
 
@@ -9,7 +9,7 @@ ISO/DIS 32000-2
 page set
 page set dictionary
 O
-A  is a content set containing a #group of #PDF page #objects generated from a common source, 
-such as an HTML file. The pages shall be listed in the  array of the  (see "#Table 388: 
-Entries common to all Web Capture content sets") in the same order in which they were initially added 
-to the file. A single page #object shall not belong to more than one page set. "
+A  is a content set containing a #group #of #PDF #page #object#s generated from a common source, 
+such as an HTML file. The pages shall be listed in the  array of the  (see #"Table 388: 
+Entries common to all Web Capture content set#s") in the same order in which they were initially added 
+to the file. A single page# object# shall not belong to more than one page set. "

@@ -1,4 +1,4 @@
-#Figure 106: Parameters for a 3D linear measurement" depicts some of the parameters for a 3D linear 
+#Figure 106: Parameters for a 3D linear measurement#" depicts some of the parameters for a 3D linear 
 measurement. 
 AP
 A1A2TY
@@ -6,11 +6,11 @@ The value text should be drawn on the annotation plane () where the horizontal t
 TP
 by the vector from  to  with the text up direction defined by the vector . The lower left corner of 
 the text box is positioned at the text anchor point (). 
-NOTE 1 A #PDF viewer can choose to display the text aligned to the viewing plane, if it makes more sense in 
-a particular use such as printing a legend. ![Figure 106 Parameters for a 3D linear measurement  .png](./Storage/Output/Images/Figure 106 Parameters for a 3D linear measurement  .png)
-#Figure 106: Parameters for a 3D linear measurement 
+NOTE 1 A #PDF #viewer can choose to display the text aligned to the viewing plane, if it makes more sense in 
+a particular use such as printing a legend. ![Figure 106 Parameters for a 3D linear measurement  .png](./Storage/Output/Images/Figure 106 Parameters for a 3D linear measurement  .png)#
+Figure 106: Parameters for a 3D linear measurement 
  
- AP A2A1 TY 
+# AP A2A1 TY 
 The actual Y-axis shall be formed by taking the cross product ofand ( - ). The vectorshall 
 be used only to determine the orientation of this Y-axis. 
  TP A1A2
@@ -23,7 +23,7 @@ There are three parts to the text string displayed with the measurement, a numer
 P
 string (), and an optional user string (). The display of the numeric value field number is also 
 controlled by the precision value (), which indicates how many digits to display to the right of the 
-decimal point. The viewer should convert the numeric value to a string and com#bine it with the units 
+decimal point. The viewer should convert the numeric value to a string and com#bi#ne it with the units 
 string and user text as appropriate. This process is viewer dependent. 
 13.6.7.3.23D perpendicular dimension measurement 
  

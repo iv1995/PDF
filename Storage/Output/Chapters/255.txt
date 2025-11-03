@@ -1,39 +1,39 @@
-#Table 112: Entries in an encoding dictionary"). The 
+#Table 112: Entries in an encoding dictionary#"). The 
 TM
 MacRomanEncodingWinAnsiEncodingMacExpertEncoding
     
-regular encodings used for Latin-text #fonts onMacOS and Microsoft Windows
+regular encodings used for Latin-text #font#s onMacOS and Microsoft Windows
  systems shall be 
 namedand , respectively. An encoding named
-may be used with "expert" #fonts that contain additional #characters useful for sophisticated typography. 
+may be used with "expert"# fon#ts that contain additional #character#s useful for sophisticated typography. 
 © ISO 2017 – All rights reserved 315 
 
 ISO/DIS 32000-2
  
-Complete details of these encodings and of the #characters present in typical #fonts are provided in Annex 
-D, "##Character Sets and Encodings". 
+Complete details of these encodings and of the# characte#rs present in typica#l fo#nts are provided in Annex 
+D,# "#Characte#r Set#s and Encodings". 
 nonsymbolicsymbolic
-In #PDF, a #font is classified as# either  or  according to whether all of its #characters 
-are members of the standard Latin ##character set; see D.2, "Latin ##character set and encodings". This shall 
-be indicated by flags in the #font descriptor; see 9.8.2, "#Font descriptor flags". Symbolic #fonts contain 
-other ##character sets, to which the encodings mentioned previously ordinarily do not apply. Such ##font 
-programs have built-in encodings that are usually unique to each #font. The standard 14 #fonts include 
-two symbolic #fonts, Symbol and ZapfDingbats, whose encodings and ##character sets are documented in 
-Annex D, "##Character Sets and Encodings". 
+In #PDF#,# a fo#nt is classified as# ei#ther  or  according to whether all of i#ts charac#ters 
+are members of the standard La#tin# charac#ter se#t; see D.2, "L#ati#n chara#cter se#t and encodings". This shall 
+be indicated by flags in #the f#ont descriptor; see 9.8#.2, "#Font descriptor flags". Sym#boli#c fonts contain 
+#oth#er char#acter #sets, to which the encodings mentioned previously ordinarily do not apply#. Such# #font 
+program#s have built-in encodings that are usually unique #to e#ach font. The sta#ndar#d 14 fonts include 
+two# sym#bolic fonts, Symbol and ZapfDingbats, whose encodin#gs #and cha#racter# sets are documented in 
+An#nex# D, "Ch#aracte#r Sets and Encodings". 
 Encoding
-Encoding
-A ##font program’s built-in encoding may be overridden by including an  entry in the #PDF font 
-dictionary. The possible encoding modifications depend on the #font type. The value of the  
+#Encod#ing
+A# font progra#m’s built-in encoding may be overridden by including an  entry in the# PDF# font 
+dictionary. The possible encoding modifications de#pend #on the font type. The value of the  
 MacRomanEncodingMacExpertEncodingWinAnsiEncoding
-entry shall be# either a named encoding (the name of one of the predefined encodings 
+entry shall b#e e#ither a named encoding (the name of one of the predefined encodings 
 , , or ) or an encoding dictionary. An encoding 
-dictionary contains the entries listed in "#Table 112: Entries in an encoding dictionary". 
-#Table 112: Entries in an encoding dictionary 
+dictionary contains the entries listed in #"Table 112: Entries in an encoding dictionar#y".# 
+Table 112: Entries in an encoding dictionary# 
 Key Type Value 
 Optional
 Type 
 Encoding
-name  () The type of #PDF #object that this dictionary describes; if present, 
+name  () The type o#f PDF# #object #that this dictionary describes; if present, 
 shall be  for an encoding dictionary. 
 Optional
 BaseEncoding  
@@ -46,27 +46,27 @@ WinAnsiEncoding
  
 one of the predefined encodings , , or
  Differences 
-Annex D, "##Character Sets and Encodings"). 
+A#nne#x D, "C#haract#er Sets and Encodings"). 
 (see 
 If this entry is absent, theentry shall describe differences from a 
-default base encoding. For a ##font program that is embedded in the #PDF file, 
-the default base encoding shall be the ##font program’s built-in encoding, as 
+default base enc#oding#. For #a font progra#m that is embedded in t#he P#DF file, 
+the default base encoding# shal#l be t#he font prog#ram’s built-in encoding, as 
 " and further elaborated in the 
-described in 9.6.5, "#Character encoding
+described i#n 9.6.5, "#Character encoding
 StandardEncoding
-subclauses on specific #font types. Otherwise, for a nonsymbolic #font, it shall be 
-, and for a symbolic #font, it shall be the #font’s built-in 
+subclaus#es on# specific font types. Otherwise, fo#r a #nonsymbolic font, it shall be 
+, an#d fo#r a symbolic font#, it# shall be the font’s built-in 
 encoding. 
-Optional; should not be used with TrueType #fonts
+Optional; should not be #used# with TrueType fonts
 Differences 
-array () An array descri#bing the 
+array () An array descri#bi#ng the 
  Differences 
 differences from the encoding specified by BaseEncoding or, if BaseEncoding 
 is absent from a default base encoding. Thearray is described in 
 subsequent subclauses. 
  
  Differences 
-The value of theentry shall be an array of #character codes and #character names organised 
+The value of theentry shall be a#n array of# characte#r codes an#d character names organised 
 as follows: 
 11,11,2 
 code name name …
@@ -75,7 +75,7 @@ code name name …
 … 
 nn,1n,2
 code name name … 
-Each code shall be the first index in a sequence of #character codes to be changed. The first #character 
+Each code shall be the first index in a# sequence #of character codes to be chang#ed. The fir#st character 
 name after the code becomes the name corresponding to that code. Subsequent names replace 
 © ISO 2017 – All rights reserved 316 
 
@@ -83,7 +83,7 @@ ISO/DIS 32000-2
  
 consecutive code indices until the next code appears in the array or the array ends. These sequences 
 may be specified in any order but shall not overlap. 
-EXAMPLE In the encoding dictionary in this example, the name quotesingle ( ' ) is associated with #character code 39, 
+EXAMPLE In the encoding dictionary in this example, the name quotesingle ( ' ) is a#ssociated #with character code 39, 
 Adieresis (Ä) with code 128, Aring (Å) with 129, and trademark (™) with 170. 
 25 0 obj 
   <</Type /Encoding 
@@ -120,135 +120,135 @@ Adieresis (Ä) with code 128, Aring (Å) with 129, and trademark (™) with 170.
   >> 
 endobj 
  
-9.6.5.2Encodings for Type 1 #fonts 
+9.6.5.2E#ncod#ings for Type# 1 fo#nts 
  
-A Type 1 ##font program’s #glyph descriptions are keyed by #glyph names, not by #character codes. #Glyph 
+A Typ#e 1 font pro#gram’s #glyph #descriptions are keyed by# glyp#h# names, n#ot by character codes#. Glyph# 
 Aa
-names are ordinary #PDF #name #objects. Descriptions of Latin alphabetic characters are normally 
-associated with names consisting of single letters, such as  or . Other #characters are associated with 
-names composed of words, such as three, ampersand, or parenleft. A Type 1 #font’s built-in encoding 
+names are ordin#ary P#DF #name# object##s. Descriptions of Latin alphabetic characters are normally 
+associated with names consisting of single letters, suc#h as  or #. Other characters are associated with 
+names composed of words, such as three, ampersand, o#r pa#renleft. A Type 1 font’s built-in encoding 
 Encoding
-shall be defined by an “encoding” array that is part of the ##font program, not to be confused with the 
- entry in the #PDF font dictionary. 
+shall be defined by an “encoding” arr#ay th#at is part of# the font pr#ogram, not to be confused with the 
+ entry in# the# PDF font dictionary. 
 Encoding
  Differences 
-An  entry in the #PDF font dictionary, if present, shall override a Type 1 #font’s mapping from 
-#character codes to #character names. Thearray maps codes to the names of #glyph 
+An  entry i#n th#e PDF font dictionary, if present, #shall# override a Type 1 fon#t’s mappin#g from 
+#character #codes to character names. Thearray maps codes to the names #of glyp#h 
 BaseEncoding
-descriptions that exist in the ##font program, regardless of whether those #glyphs are referenced by the 
-#font’s built-in encoding or by the encoding specified in the  entry. 
-All Type 1 ##font programs shall contain an actual #glyph named .notdef. The effect produced by showing 
-the .notdef #glyph is at the discretion of the #font designer. If an encoding maps to a #character name that 
-does not exist in the Type 1 ##font program, the .notdef #glyph shall be substituted. 
-© ISO 2017 – All rights reserved 317 
+descri#ption#s that exist i#n the font p#rogram, regardless of whether th#ose gl#yp#hs a#re referenced by the 
+font’s built-in encoding or by the encoding specified #in th#e  entry. 
+All #Type 1 font #programs shall contain an ac#tual g#lyph named .notdef. The effect produced by showing 
+the .n#otdef g#lyph #is at# the discretion of the font designer. If an# encoding #maps to a character name that 
+#does #not exist in the# Type 1 font# program, the .#notdef# glyph shall be substituted. 
+© ISO 2017 – All rights reserved 317 #
 
-ISO/DIS 32000-2
+ISO#/DIS 32000-2
  
-NOTE If a #font has no .notdef #glyph definition, the results are implementation dependent. 
-9.6.5.3Encodings for Type 3 #fonts 
+NOTE If a font has no #.notde#f glyph definition, the results are implementation dependent#. 
+9#.6.5.3Encodings for Typ#e 3 #fonts 
  
-CharProcs
-A Type 3 #font, like a Type 1 #font, contains #glyph descriptions that are keyed by #glyph names; in this case, 
+CharPr#ocs
+#A Type 3 font, like a Type 1 font, #contai#ns glyph descriptions that are# keyed# by glyph names; in this case, 
 Encoding
-they appear as explicit keys in the #font’s  dictionary. A Type 3 #font’s mapping from #character 
-codes to #glyph names shall be entirely defined by its  entry, which is required in this case. 
-NOTE Type 3 #fonts do not support the concept of a default #glyph name. 
-9.6.5.4Encodings for TrueType #fonts 
+th#ey a#ppear as explicit keys in# the# font’s  dictionary. A Type 3# font’s map#ping from character# 
+code#s to glyph names shall be entirely defined by its  entry, which is #requ#ired in this case. 
+NOTE Type 3 fonts do not support the concept o#f a def#ault glyph #name#. 
+9.6.5.4Encodings for Tru#eType# fonts 
  
-A TrueType or OpenType ##font program’s built-in encoding maps directly from #character codes to #glyph 
+A TrueType or #OpenType fon#t program’s built-in encodi#ng maps di#rectly from charac#ter cod#es to glyph 
 Encoding
 descriptions by means of an internal data structure called a "cmap" (not to be confused with the CMap 
-described in 9.7.5, "CMaps"). This subclause describes how the #PDF font dictionary’s  entry 
-shall be used in conjunction with a "cmap" to map from a #character code in a string to a #glyph 
-description in a TrueType/OpenType ##font program. 
+described in 9.7.5, "CMaps"). This subclause describes h#ow t#he PDF font dictionary’s  entry 
+shall be used in conjunction with #a "cmap" t#o map from a character code in #a string# to a gly#ph 
+d#escription in a TrueType#/OpenType fo#nt program. 
   
 A "cmap" table may contain one or more subtables that represent multiple encodings intended for use 
 TM
-platform# IDplatform-specific 
+platform# ID#platform-specific 
  
 on different platforms (such asMacOS and Microsoft Windows
-). Each subtable shall be# identified by 
-encoding# ID
-the two numbers, such as (3, 1), that represent a com#bination of a and a 
-, respectively. 
-#Glyph names are not required in TrueType/OpenType #fonts, although some ##font programs have an 
-optional "post" table listing glyph names for the #glyphs. If the ##PDF processor needs to select #glyph 
-descriptions by name, it translates from #glyph names to codes in one of the encodings given in the ##font 
-program’s "cmap" table. When there is no #character code in the "cmap" that corresponds to a #glyph 
-name, the "post" table shall be used to select a #glyph description directly from the #glyph name. 
-Because some aspects of TrueType/OpenType #glyph selection are dependent on the ##PDF processor or 
-the operating system, #PDF files that use TrueType/OpenType #fonts should follow certain guidelines to 
-ensure predictable behaviour across all ##PDF processors: 
+). Each subtable shall b#e i#dentified by 
+encodi#ng I#D
+the two numbers, such as (3, 1), that represent a co#mb#ination of a and a 
+, #respec#tively. 
+Glyph name#s ar#e not required i#n Tru#eType/OpenType fonts, alt#hough some f#ont programs have an 
+optional "post" table listing glyp#h nam#es for the glyphs.# If #the #PDF processor# #needs #to select glyph 
+descriptions by name, i#t tran#slates from glyph names to c#odes i#n one of the encodings g#iven in the f#ont 
+program’s "cmap" #table. Whe#n there is no character code in the "cmap" tha#t corre#sponds to a glyph 
+name, the "post" table shall #be use#d to select a glyph descripti#on dir#ectly from the glyph name. 
+Because some aspects# of Tr#ueType/OpenType glyph selection are dependen#t on# the# PDF processor# or 
+the operating #sy#s#tem#, PDF files that use TrueType/OpenType fonts should follow certain guidelines to 
+ensure predictable behaviour #acro#ss al#l PDF process#ors: 
 • 
-MacRomanEncodingWinAnsiEncoding
+#MacRo#manEncodingWinAnsiEncoding#
     
 • 
-The ##font program should be embedded. 
+The #font program should be em#bedde#d. 
 Encoding Differences 
-A nonsymbolic #font should specifyoras the value of its 
-MacRomanEncodingWinAnsiEncoding
-    
+A nonsymbolic font should specifyoras the value of its 
+MacRomanEncodingWinAnsiEncod#ing
+ #   
 • 
  entry, with noarray. 
 Encoding
-A #font that is used to display #glyphs that do not useor
-should not specify an  entry. The #font descriptor’s Symbolic flag (see "#Table 121: #Font 
-flags") should be set, and its ##font program’s "cmap" table should contain a (1, 0) subtable. It may 
-also contain a (3, 0) subtable; if present, this subtable should map from #character codes in the 
-range 0xF000 to 0xF0FF by prepending the single-#byte codes in the (1, 0) subtable with 0xF0 and 
-NOTE 1 Some popular TrueType/OpenType ##font programs contain incorrect encoding information. 
-mapping to the corresponding glyph descriptions. 
-Implementations of TrueType/OpenType #font interpreters have evolved heuristics for dealing with 
-such problems; those heuristics are not described here. For maximum porta#bility, only well-formed 
-TrueType/OpenType ##font programs can be used in #PDF files. Therefore, a TrueType/OpenType 
-##font program to be used in a #PDF file might need to be modified to conform to these guidelines. 
-NOTE 2 Not all #glyphs of a TrueType/OpenType #font are always accessible with simple #PDF font resources. 
-A Type 0 #PDF font resource can be used to access those #glyphs. 
-The following paragraphs describe the treatment of TrueType #font encodings beginning with #PDF 1.3. 
+A font t#hat i#s used to display glyphs that #do no#t useor
+should not specify an  entry. The f#ont de#scriptor’s Symbolic flag (see #"#Tabl#e 121: Font 
+flags#") should be# set, and it#s font program’s "cmap" table should contain a (1, 0) subtable. It may 
+also contain a (3, 0) subtable; if present, this #subtable s#hould map from character codes in the 
+range 0xF000 to 0xF0FF by prepending the single-#byte #codes in the (1, 0) subtable wit#h 0xF#0 and 
+NOTE 1 Some popular Tru#eType/OpenTy#pe font programs contain incorrect encoding information. 
+mapping to the corresponding glyph d#escri#ptions. 
+Implementations of TrueType/OpenType font interpreters have evolved heuristics for dealing with 
+such problems; those heuristics are not described here. For maxim#um po#r#ta#bility, only well-formed 
+Tr#ueType/OpenT#ype font programs can b##e u#se#d in PDF files. Therefore, a Tr#ueType/OpenTy#pe 
+font program to #be u#sed in a PDF file might need to be modified to conform to these guid#e#line##s. 
+NOTE 2 Not all glyphs of a TrueType/OpenType font are always accessibl#e wi#th simple PDF font resour#ces.# 
+A Type 0 PDF font resource can# be u#sed to access those glyphs. 
+The f#ollow#ing paragraphs describe the treatment of TrueType font encodings# beg#inning with PDF 1.3. 
 © ISO 2017 – All rights reserved 318 
 
-ISO/DIS 32000-2
- 
+ISO/DIS 3200#0-2
+ #
 MacRomanEncodingWinAnsiEncoding
-Encoding  
-If the #font has a named  entry of# eitheror , or if the #font 
-descriptor’s Nonsymbolic flag (see "#Table 121: #Font flags") is set, the ##PDF processor shall create a table 
-that maps from #character codes to #glyph names: 
+Encoding # 
+If t#he font has a named  entry #of #eitheror , or if# the #font 
+descriptor’s Nonsymbolic flag (see #"Table 121: Font fla#g#s")# is set, t#he PDF process#or shall creat#e a table #
+that map#s from# character codes to glyph names: 
 MacRomanEncodingWinAnsiEncoding
 Encoding  
 • 
 If the  entry is one of the namesor , the table shall 
 Encoding
 • 
-be initialised with the mappings described in Annex D, "##Character Sets and Encodings". 
+be initialised with the mappi#ngs descri#bed in Ann#ex D, "Charac#ter Sets and Encodings". 
 BaseEncoding
 If the  entry is a dictionary, the table shall be initialised with the entries from the 
  Differences 
-dictionary’s  entry (see "#Table 112: Entries in an encoding dictionary"). Any entries 
+dictionary’s  entry (se#e "Table 112: Entries in an encoding diction#ary"). Any entries 
 in thearray shall be used to update the table. Finally, any undefined entries in the 
 table shall be filled using StandardEncoding. 
-If a (3, 1) "cmap" subtable (Microsoft Unicode) is present: 
+If a (3, 1) "cmap" subtable (Microsoft Un#icode) is #present: 
 • 
 • 
-A #character code shall be first mapped to a #glyph name using the table described above. 
+A character code #shall #be first mapped to a glyph name using the tab#le des#cribed above. 
 • 
-The #glyph name shall then be mapped to a Unicode value by consulting the Adobe #Glyph List. 
-Finally, the Unicode value shall be mapped to a #glyph description according to the (3, 1) subtable.  
-If no (3, 1) subtable is present but a (1, 0) subtable (Macintosh Roman) is present: 
+The glyph name shall then be mapped to a Unicode v#alue b#y consulting the Adobe Glyph List. 
+Finally, the Unico#de val#ue shall be mapped to a glyph description according to the (3, 1) subtable.  
+If no (3, 1) subtable is present but a (1, 0) subtable (Macintosh# Roman) is# present: 
 • 
 • 
-A #character code shall be first mapped to a #glyph name using the table described above. 
+A character c#ode sh#all be first mapped to a glyph name using the# table# described above. 
   
-The #glyph name shall then be mapped back to a #character code according to the standard Roman 
+The glyph name s#hall then #be mapped back to a character code according to the standard Roman 
 • 
 encoding used onMacOS. 
-Finally, the code shall be mapped to a #glyph description according to the (1, 0) subtable. 
-In any of these cases, if the #glyph name cannot be mapped as specified, the #glyph name shall be looked 
-up in the ##font program’s "post" table (if one is present) and the associated #glyph description shall be 
+Finall#y, the# code shall be mapped to a glyph description according to the (1, 0) subtabl#e. 
+In# any of these cases, if the glyph name ca#nnot b#e mapp#ed as# specified, the glyph name shall be #looked 
+up i#n the font program’s "post" table (if# one i#s present) and the associated glyph description shall be 
 used. 
 MacRomanEncoding
     
-The standard Roman encoding that is used onMacOS is the same as thedescribed 
-in Annex D, "##Character Sets and Encodings" with the addition of 15 entries and the replacement of the 
-currency #glyph with the Euro #glyph, as shown in "Table 113: Differences between MacRomanEncoding 
+The standard Roman encoding that is used onMacOS is the same# as thedes#cribed 
+in An#nex D, "Chara#cter Sets and Encodings" with the addition of 15 entries #and th#e replacement# of t#he 
+currency glyph with the Euro glyph, as shown in "Table 113: Differences between MacRomanEncoding 
 and Mac OS Roman encoding". 

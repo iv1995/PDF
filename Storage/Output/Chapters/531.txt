@@ -1,16 +1,16 @@
 #Table 337: Entries in a 
-RichMediaAnimation dictionary") that describes the preferred method that #interactive 
-##PDF processor should use to drive keyframe animations present in this artwork. 
+RichMediaAnimation dictionary#") that describes the preferred method that #interactive 
+##PDF #processor ##should use to drive keyframe animations present in this artwork. 
 © ISO 2017 – All rights reserved 677 
 
 ISO/DIS 32000-2
  
 Key Type Value 
-Optional; #PDF 2.0
+Optional;# PDF# 2.0
 View 
 Views
-dictionary () An #in#direct ##object reference to a 3D view dictionary (see "#Table 315: 
-Entries in a 3D view dictionary" that shall also be referenced by the  array within 
+dictionary () An #in#direct ##object ###reference #to a 3D view dictionary (see "#Table 315: 
+Entries in a 3D view dictionary#" that shall also be referenced by the  array within 
 the annotation’s RichMediaContent dictionary (see "Table 341: Entries in a 
 Views
 RichMediaContent dictionary"). 
@@ -18,18 +18,18 @@ Default value: The first element in the  array of the annotation specified in th
 RichMediaContent dictionary. If a Views array does not exist, default values for the 
  
 components of a 3D view dictionary (see "#Table 344: Additional entry in a 3D view 
-dictionary") are used.
-Optional; #PDF 2.0
+dictionary#") are used.
+Optional#; PD#F 2.0
 Configuration 
-dictionary () An #in#direct ##object reference to a RichMediaConfiguration dictionary 
+dictionary () An# i#ndirect## object### reference# to a RichMediaConfiguration dictionary 
 Configurations
-(see "#Table 342: Entries in a RichMediaConfiguration dictionary") that shall also be 
+(see "#Table 342: Entries in a RichMediaConfiguration dictionary#") that shall also be 
 referenced by the  array in the RichMediaContent dictionary (see "Table 
 Configurations
 341: Entries in a RichMediaContent dictionary"). 
  
 Default value: The first element within the  array specified in the 
 RichMediaContent dictionary.
-Optional; #PDF 2.0
+Optiona#l; P#DF 2.0
 Presentation 
 dictionary () A RichMediaPresentation dictionary (see "

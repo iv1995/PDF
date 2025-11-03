@@ -3,7 +3,7 @@ CDB
 S=S
 +S−S 
  
-This defines the geometry of each patch. A patch mesh is constructed from a sequence of one or more 
+#This defines the geometry of each patch. A patch mesh is constructed from a sequence of one or more 
 such coloured patches. 
 uv
 Patches can sometimes appear to fold over on themselves — for example, if a boundary curve intersects 

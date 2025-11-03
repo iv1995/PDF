@@ -1,9 +1,9 @@
 #Table 317: Entries in a 3D background dictionary 
-Key Type Value 
+#Key Type Value 
 Optional
 Type 
 3DBG
-name () The type of #PDF #object that this dictionary describes; if present, shall 
+name () The type of #PDF ##object #that this dictionary describes; if present, shall 
 be  for a 3D background dictionary. 
 OptionalSC
 Subtype 
@@ -15,9 +15,9 @@ CS
 DeviceRGBDeviceRGB
 name or () The colour space of the background. The only valid value shall be the 
 array name . Default value: . 
- 
-#PDF consumers shall be prepared to encounter other values that may be 
-supported in future versions of #PDF.
+ #
+PDF# consumers shall be prepared to encounter other values that may be 
+supported in future versions o#f P#DF.
 Optional
 C CS
 (various) () The colour of the background, in the colour space defined by . 
@@ -29,20 +29,20 @@ Optionaltruefalse
 EA 
 boolean () If , the background shall apply to the entire annotation; if , 
 3DB
-the background shall apply only to the #rectangle specified by the annotation’s 3D 
+the background shall apply only to the #rectangle #specified by the annotation’s 3D 
 false
 view box (the  entry in "#Table 309: Additional entries specific to a 3D 
-annotation"). Default value: . 
+annotation#"). Default value: . 
  
 13.6.4.43D render mode dictionaries 
  
-3D render mode dictionary#PDF 1.7
+3D render mode diction#aryP#DF 1.7
 A  () specifies the style in which the 3D artwork shall be rendered. 
 NOTE 1 Surfaces can be filled with opaque colours, they can be stroked as a "wireframe," or the artwork 
 can be rendered with special lighting effects. 
 NOTE 2 A render mode dictionary enables document authors to customise the rendered appearance of 3D 
 artwork to suit the needs of the intended consumer, without reauthoring the artwork. For 
-#interactive ##PDF processors concerned strictly with geometry, complex artwork rendered using the 
+#interact#ive ##PDF processor##s concerned strictly with geometry, complex artwork rendered using the 
  or  style can have much better performance without the added overhead of 
 WireframePoints
 texturing and lighting effects. Artwork in a document intended for print can have a much more 

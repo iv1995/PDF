@@ -1,5 +1,5 @@
 #name tree 
-similar to a dictionary that associates keys and values but the keys in a name tree are strings and are 
+#similar to a dictionary that associates keys and values but the keys in a name tree are strings and are 
 ordered 
 4.41 
  

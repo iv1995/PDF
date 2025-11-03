@@ -1,10 +1,10 @@
-#Table 322: Entries in a 3D cross section dictionary" shows the entries in a 3D cross section dictionary. 
-#Table 322: Entries in a 3D cross section dictionary 
+#Table 322: Entries in a 3D cross section dictionary#" shows the entries in a 3D cross section dictionary. #
+Table 322: Entries in a 3D cross section dictionary #
 Key Type Value 
 Optional
 Type 
 3DCrossSection
-name () The type of #PDF #object that this dictionary describes; if present, shall be 
+name () The type of #PDF ##object #that this dictionary describes; if present, shall be 
  for a 3D cross section dictionary. 
 Optional
 C 
@@ -50,7 +50,7 @@ Key Type Value
 Optional
 IV 
 truefalse
-boolean () A flag indicating the visi#bility of the intersection of the cutting plane with any 
+boolean () A flag indicating the visi#bi#lity of the intersection of the cutting plane with any 
 3D geometry. If , then the intersection shall be visible. If , then the intersection 
 false
  
@@ -70,7 +70,7 @@ other thanis specified, this entry shall be ignored and the default value shall 
  
 used. This entry is meaningful only if  is . 
 Default value: [/DeviceRGB 0 1 0] representing the colour green.
-Optional; #PDF 2.0Show Transparent
+Optional;# PDF# 2.0Show Transparent
 ST 
 true
 boolean () . A flag indicating that the portion of a model on the 
@@ -78,15 +78,15 @@ cut side of a section plane shall be viewed using a transparent render mode. If 
 clipped portion of the model shall be drawn as transparent regardless of the render mode 
 of the non-cut portion of the model. The recommend appearance uses graphical settings 
 Table# 
-identical or similar to those used by the existing Transparent 3DRenderMode in "
+id#entical or similar to those used by the existing Transparent 3DRenderMode in "
 falsefalse
 319: Render modes" already supported by the 13.6.4.4, "3D render mode dictionaries". If 
 , the clipped portion of the model shall not be drawn. Default value: . 
-Optional; #PDF 2.0Section Capping
+Optional#; PD#F 2.0Section Capping
 SC 
 true
 boolean () . A flag indicating whether 3D Nodes and the section 
-plane shall be analysed and rendered as if cutting through a solid #object. If , an 
+plane shall be analysed and rendered as if cutting through a solid# objec#t. If , an 
 algorithm is applied with the result that additional temporary geometry may be created to 
 false
 represent a section cap. The section cap shall be visible within the area enclosed by the 

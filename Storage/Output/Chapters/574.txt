@@ -1,7 +1,7 @@
 #Table 380: Standard layout attributes specific to inline-level structure 
-elements" apply to inline-level structure elements (ILSEs). They may also be specified for a block-level 
-element (BLSE) and may apply to any content items that are its immediate children. 
-#Table 380: Standard layout attributes specific to inline-level structure elements 
+elements#" apply to inline-level structure elements (ILSEs). They may also be specified for a block-level 
+element (BLSE) and may apply to any content items that are its immediate children. #
+Table 380: Standard layout attributes specific to inline-level structure elements #
 Key Type Value 
 (Optional; not inheritable)
 BaselineShift 
@@ -30,7 +30,7 @@ partial ILSE that it contains.
 The name  or  in place of a numeric value shall indicate that no 
 specific height constraint is to be imposed. The element’s height shall be 
 Normal
-set to a reasonable value based on the content’s #font size: 
+set to a reasonable value based on the content’s #font #size: 
 BaselineShift
  Adjust the line height to include any non-zero value specified for 
 Auto
@@ -39,8 +39,8 @@ BaselineShift
 Normal
  Adjustment for the value of  shall not be made. 
 Default value: . 
-The meaning of the term "reasonable value" is left to the ##PDF processor to 
-determine. It should be approximately 1.2 times the #font size, but this 
+The meaning of the term "reasonable value" is left to the ##PDF #processor #to 
+determine. It should be approximately 1.2 times the# font# size, but this 
 value may vary depending on the export format. 
 This attribute applies to all ILSEs (including implicit ones) that are 
 children of this element or of its nested ILSEs, if any. It shall not apply to 
@@ -50,18 +50,18 @@ When translating to a specific export format, the values  and ,
 NOTE 1 In the absence of a numeric value for  or an explicit 
 LineHeight
 if specified, shall be used directly if they are available in the target format. 
-value for the #font size, a reasonable method of calculating the line 
-height from the information in a tagged #PDF file is to find the 
-difference between the associated #font’s Ascent and Descent 
-values (see 9.8, "#Font descriptors"), map it from #glyph space to 
+value for th#e fon#t size, a reasonable method of calculating the line 
+height from the information in a tagged# PDF# file is to find the 
+difference between the associat#ed f#ont’s Ascent and Descent 
+values (see 9.#8, "F#ont descriptors"), map it from #glyph #space to 
 default user space (see 9.4.4, "Text space details"), and use the 
-maximum resulting value for any #character in the line. 
+maximum resulting value for any #character #in the line. 
 © ISO 2017 – All rights reserved 754 
 
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; inheritable; #PDF 2.0) 
+(Optional; inheritable#; PD#F 2.0) 
 TextPosition 
  
 name The position of the element relative the 
@@ -83,7 +83,7 @@ exponent, an index or some other use of the text. For
 Sup
 mathematical expressions, MathML structure elements provide a 
 richer semantic for superscripted or subscripted content. 
-(Optional; inheritable; #PDF 1.5)
+(Optional; inheritabl#e; P#DF 1.5)
 TextDecorationColor 
 array  The colour to be used for drawing text 
 decorations. The value shall be an array of three numbers in the range 0.0 
@@ -91,7 +91,7 @@ to 1.0, representing the red, green, and blue values, respectively, of an RGB
 colour space. If this attribute is not specified, the text decoration colour for 
 this element shall be the current fill colour in effect at the start of its 
 associated content. 
-(Optional; inheritable; #PDF 1.5)
+(Optional; inheritab#le; #PDF 1.5)
 TextDecorationThickness 
 number  The thickness of each line drawn as part of 
 the text decoration. The value shall be a non-negative number in default 
@@ -120,14 +120,14 @@ This attribute shall apply to all text content items that are children of this
 element or of its nested ILSEs, if any. The attribute shall not apply to 
 nested BLSEs or to content items other than text. 
 The colour, position, and thickness of the decoration shall be uniform 
-across all children, regardless of changes in colour, #font size, or other 
-variations in the content’s text #characteristics. 
+across all children, regardless of changes in col#our, #font size, or other 
+variations in the content’s text# characte#ristics. 
 © ISO 2017 – All rights reserved 755 
 
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; inheritable; #PDF 1.5)
+(Optional; inherita#ble;# PDF 1.5)
 RubyAlign 
 name  The justification of the lines within a ruby 
 Start
@@ -156,12 +156,12 @@ RBRT
 Default value: . 
 This attribute may be specified on the  and  elements. When a ruby 
 RTR#B
-is formatted, the attribute shall be applied to the shorter line of these two 
+i#s formatted, the attribute shall be applied to the shorter line of these two 
 RTRubyAlign
 elements. For example, if the  element has a shorter width than the  
 element, the  element shall be aligned as specified in its  
 attribute. 
-Optional; inheritable; #PDF 1.5
+Optional; inherit#able#; PDF 1.5
 RubyPosition RT
 RB
 name () The placement of the  structure element 
@@ -190,94 +190,94 @@ Default value: .
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; inheritable; #PDF 1.5)
-#GlyphOrientationVertical 
-number  Specifies the orientation of #glyphs when 
+(Optional; inheri#tabl#e; PDF 1.5)#
+Glyp#hOrientationVertical 
+number  Specifies the orientation o#f gly#phs when 
 or name the inline-progression direction is top to bottom or bottom to top. 
 angle
 This attribute may take one of the following values: 
  A number representing the clockwise rotation in degrees of the 
-top of the #glyphs relative to the top of the reference area. Shall be 
+top of t#he gl#yphs relative to the top of the reference area. Shall be 
 Auto
 a multiple of 90 degrees between -180 and +360. 
  Specifies a default orientation for text, depending on whether it 
 is fullwidth (as wide as it is high). Fullwidth Latin and fullwidth# 
-ideographic text (excluding# ideographic punctuation) shall be set 
-with an angle of 0.# Ideographic punctuation and other# 
+id#eographic text (excludin#g i#deographic punctuation) shall be set 
+with an angle of #0. #Ideographic punctuation and ot#her #
 ideographic characters having alternate horizontal and vertical 
-forms shall use the vertical form of the #glyph. Non-fullwidth text 
+forms shall use the vertical form of #the g#lyph. Non-fullwidth text 
 Auto.
 shall be set with an angle of 90. 
 NOTE 3 This attribute is used most commonly to differentiate between the 
 Default value:  
 preferred orientation of alphabetic (non-ideographic) text in 
 vertically written Japanese documents ( or 90) and the 
-orientation of the# ideographic characters and/or alphabetic (non-
+orientation of# th#e ideographic characters and/or alphabetic (non-
 Auto
 ideographic) text in western signage and advertising (90). 
-This attribute shall affect both the alignment and width of the #glyphs. If a 
+This attribute shall affect both the alignment and width of# the #glyphs. #If a 
 #glyph is perpendicular to the vertical baseline, its horizontal alignment 
-point shall be aligned with the alignment baseline for the script to which 
-the #glyph belongs. The width of the #glyph area shall be determined from 
-the horizontal width #font #characteristic for the #glyph. 
+point shall be aligned with the alignment baseline for the script to whic#h 
+the# glyph belongs. The width# of th#e glyph area shall be determined from 
+the horizontal #width #fon#t charact#eristic# for #the glyph. 
  
-14.8.5.4.5Content and allocation #rectangles 
+14.8.5.4.5Content and allocation #rectangle#s 
  
-As defined in 14.8.3, "Basic Layout Model" an element’s content #rectangle is an enclosing #rectangle 
+As defined in 14.8.3, "Basic Layout Model" an element’s content# rectangle# is an enclosin#g rectangle# 
 derived from the shape of the element’s content, which shall define the bounds used for the layout of 
-any included child elements. The allocation #rectangle includes any additional borders or spacing 
+any included child elements. The allocati#on rectang#le includes any additional borders or spacing 
 surrounding the element, affecting how it shall be positioned with respect to adjacent elements and the 
-enclosing content #rectangle or reference area. 
-The exact definition of the content #rectangle shall depend on the element’s structure type: 
+enclosing cont#ent rectan#gle or reference area. 
+The exact definition of the con#tent recta#ngle shall depend on the element’s structure type: 
 THTD
 • 
-For a table cell (structure type  or ), the content #rectangle is determined from the bounding 
+For a table cell (structure type  or ), the co#ntent rect#angle is determined from the bounding 
 BBox
-box of all graphics #objects in the cell’s content, taking into account any explicit bounding boxes 
+box of all graphics #object#s in the cell’s content, taking into account any explicit bounding boxes 
 WidthHeight
-(such as the  entry in a form X#Object). This implied size may be explicitly overridden by the 
+(such as the  entry in a form #XObjec#t). This implied size may be explicitly overridden by the 
 cell’s  and  attributes. The cell’s height shall be adjusted to equal the maximum height 
 THTD
 • 
 of any cell in its row; its width shall be adjusted to the maximum width of any cell in its column. 
-For any other BLSE other than  and , the height of the content #rectangle shall be the sum of 
+For any other BLSE other than  and , the height of the c#ontent rec#tangle shall be the sum of 
 the heights of all BLSEs it contains, plus any additional spacing adjustments between these 
 LineHeight
 • 
 elements.  
-For an ILSE that contains text, the height of the content #rectangle shall be set by the  
-attribute. The width shall be determined by summing the widths of the contained #characters, 
+For an ILSE that contains text, the height of the #content re#ctangle shall be set by the  
+attribute. The width shall be determined by summing the widths of the contain#ed charac#ters, 
 • 
 adjusted for any indents, letter spacing, word spacing, or line-end conditions.  
-For an ILSE that contains an illustration or table, the content #rectangle shall be determined from 
+For an ILSE that contains an illustration or table, the# content r#ectangle shall be determined from 
 BBox
-the bounding box of all graphics #objects in the content, and shall take into account any explicit 
+the bounding box of all graphic#s obje#cts in the content, and shall take into account any explicit 
 WidthHeight
-bounding boxes (such as the  entry in a form X#Object). This implied size may be explicitly 
+bounding boxes (such as the  entry in a for#m XObj#ect). This implied size may be explicitly 
 overridden by the element’s  and  attributes.  
 © ISO 2017 – All rights reserved 757 
 
 ISO/DIS 32000-2
  
 • 
-For an ILSE that contains a mixture of elements, the height of the content #rectangle shall be 
+For an ILSE that contains a mixture of elements, the height of th#e content #rectangle shall be 
 BaselineShift
-determined by aligning the child #objects relative to one another based on their text baseline (for 
+determined by aligning the ch#ild ob#jects relative to one another based on their text baseline (for 
 text ILSEs) or end edge (for non-text ILSEs), along with any applicable  attribute (for 
-NOTE Some ##PDF processors may apply this process to all elements within the block; others may apply it 
+NO#TE S#ome# PDF processo#rs may apply this process to all elements within the block; others may apply it 
 all ILSEs), and finding the extreme top and bottom for all elements.  
 on a line-by-line basis. 
-The allocation #rectangle shall be derived from the content #rectangle in a way that also depends on the 
+The #allocation# rectangle shall be derived from #the conten#t rectangle in a way that also depends on the 
 structure type: 
 • 
 SpaceBeforeSpaceAfter
-For a BLSE, the allocation #rectangle shall be equal to the content #rectangle with its before and after 
+For a BLSE, th#e allocati#on rectangle shall be equal t#o the cont#ent rectangle with its before and after 
 edges adjusted by the element’s  and  attributes, if any, but with no 
 • 
 changes to the start and end edges. 
 14.8.5.4.6Figure and Formula attributes 
  
-For an ILSE, the allocation #rectangle is the same as the content #rectangle. 
+For an ILSE, #the alloca#tion rectangle is the same# as the c#ontent rectangle. 
 FigureFormula
 Particular uses of  or  elements shall have additional restrictions:  
 Block

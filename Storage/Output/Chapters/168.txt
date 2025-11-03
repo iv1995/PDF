@@ -1,5 +1,5 @@
 #Figure 
-30: Quadtone image" a single-component grayscale image is used to generate a quadtone result 
+30: Quadtone image#" a single-component grayscale image is used to generate a quadtone result 
 that uses four colourants: black and three PANTONE spot colours. See Example 4 in this subclause 
 for the code used to generate this image. 
 © ISO 2017 – All rights reserved 199 
@@ -7,24 +7,24 @@ for the code used to generate this image.
 ISO/DIS 32000-2
  ![Figure 29 Duotone image  .jpg](./Storage/Output/Images/Figure 29 Duotone image  .jpg)
 #Figure 29: Duotone image 
- ![Figure 30 Quadtone image  .jpg](./Storage/Output/Images/Figure 30 Quadtone image  .jpg)
-#Figure 30: Quadtone image 
- 
+ #![Figure 30 Quadtone image  .jpg](./Storage/Output/Images/Figure 30 Quadtone image  .jpg)#
+Figure 30: Quadtone image 
+ #
 DeviceN
  Separation 
  shall be used to represent colour spaces containing multiple components that correspond to 
-colourants of some target device. As withcolour spaces, ##PDF processors shall be able to 
+colourants of some target device. As withcolour spaces, ##PDF #processor#s shall be able to 
 approximate the colourants if they are not available on the current output device, such as a display. To 
-accomplish this, the colour space definition provides a tint transformation #function that shall be used to 
+accomplish this, the colour space definition provides a tint transformation #function #that shall be used to 
 convert all the components to an alternate colour space. 
  
  DeviceN NChannel
-colour spaces
-#PDF 1.6 extended the meaning ofto include colour spaces that are referred to as 
-. Such colour spaces may contain an ar#bitrary number of spot and process components, 
+colour spaces#
+PDF# 1.6 extended the meaning ofto include colour spaces that are referred to as 
+. Such colour spaces may contain an ar#bi#trary number of spot and process components, 
 which may or may not correspond to specific device colourants (the process components shall be from 
-a single process colour space). They provide information about each component that allows #PDF 
+a single process colour space). They provide information about each component that allow#s PDF# 
 NChannelSubtype
-processors more flexi#bility in converting colours. These colour spaces shall be# identified by a value of 
+processors more flex#ib#ility in converting colours. These colour spaces shall be# id#entified by a value of 
  DeviceN Subtype
  for the  entry of the attributes dictionary (see "

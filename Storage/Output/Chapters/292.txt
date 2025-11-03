@@ -1,5 +1,5 @@
 #Table 135: Standard non-separable blend modes 
-Name Result 
+#Name Result 
 Hue 
 SetLumSetSatSatLum 
 𝑏𝑏𝑓𝑓𝑓𝑓𝑏𝑏𝑏𝑏
@@ -34,7 +34,7 @@ saturation of the backdrop colour. This produces an inverse effect to that
 of the Color mode. 
  
 RGB
-DeviceRGBCalRG#BICCBased
+DeviceRGBCalRG#BI#CCBased
 CMYKCMYK
 DeviceCMYK ICCBased
 The formulas in this sub-clause apply to  spaces (including ,  and  
@@ -97,7 +97,7 @@ ISO/DIS 32000-2
  
  
 the compositing formula collapses to a simple weighted average of the backdrop and source colours, 
-controlled by the backdrop and source alpha values. For more interesting blend #functions, the backdrop 
+controlled by the backdrop and source alpha values. For more interesting blend #function#s, the backdrop 
 and source alphas control whether the effect of the blend mode is fully realised or is toned down by 
 mixing the result with the backdrop and source colours. 
 r
@@ -114,7 +114,7 @@ in 11.3.7.3, "Result shape and opacity". Thus, mathematically, the backdrop and 
 the influence of the backdrop and source colours, respectively, while their product controls the 
 sb
  = 0.0 or α = 0.0 results in no blend mode effect; 
-influence of the blend #function. An alpha value of α
+influence of the blend# functio#n. An alpha value of α
 sb
  = 1.0 and α = 1.0 results in maximum blend mode effect. 
 setting α
@@ -141,48 +141,48 @@ that conceptually these values are computed for every point on the page.
 11.3.7.2Source shape and opacity 
  
 Shape and opacity values may come from several sources. The transparency model provides for three 
-independent sources for each. However, the #PDF representation imposes some limitations on the a#bility 
+independent sources for each. However, the #PDF #representation imposes some limitations on the #ab#ility 
 to specify all of these sources independently (see 11.6.4, "Specifying shape and opacity"). 
-#Object shape
+#Object #shape
 • 
-. Elementary #objects such as strokes, fills, and text have an intrinsic shape, whose 
-value shall be 1.0 for points inside the #object and 0.0 outside. Similarly, an image with an explicit 
+. Elementary# objec#ts such as strokes, fills, and text have an intrinsic shape, whose 
+value shall be 1.0 for points inside th#e objec#t and 0.0 outside. Similarly, an image with an explicit 
 mask (see 8.9.6.3, "Explicit masking") has a shape that shall be 1.0 in the unmasked portions and 
-0.0 in the masked portions. The shape of a #group #object shall be the union (as defined in 11.3.7.3, 
-NOTE 1 Mathematically, elementary #objects have "hard" edges, with a shape value of# either 0.0 or 1.0 at 
-"Result shape and opacity") of the shapes of the #objects it contains. 
-every point. However, when such #objects are rasterized to device pixels, the shape values along the 
+0.0 in the masked portions. The shape of a #gro#up #obje#ct shall be the union (as defined in 11.3.7.3, 
+NOTE 1 Mathematically, element#ary ob#jects have "hard" edges, with a shape value of# ei#ther 0.0 or 1.0 at 
+"Result shape and opacity") of the shapes of# the o#bjects it contains. 
+every point. However, when# such #objects are rasterized to device pixels, the shape values along the 
 boundaries can be anti-aliased, taking on fractional values representing fractional coverage of 
 those pixels. When such anti-aliasing is performed, it is important to treat the fractional coverage 
 as shape rather than opacity. 
 Mask shape
 • 
-. Shape values for compositing an #object may be taken from an additional source, or soft 
-mask, independent of the #object itself, as described in 11.5, "Soft masks". 
+. Shape values for composit#ing an #object may be taken from an additional source, or soft 
+mask, independent# of the# object itself, as described in 11.5, "Soft masks". 
 © ISO 2017 – All rights reserved 390 
 
 ISO/DIS 32000-2
  
-NOTE 2 The use of a soft mask to modify the shape of an #object or #group, called soft clipping, can produce 
-effects such as a gradual transition between an #object and its backdrop, as in a vignette. 
+NOTE 2 The use of a soft mask to modify the sha#pe of a#n object or# grou#p, called soft clipping, can produce 
+effects such as a gradual transition b#etween #an object and its backdrop, as in a vignette. 
 Constant shape
 • 
 NOTE 3 This is merely a convenience, since the same effect could be achieved with a shape mask whose 
 . The source shape may be modified at every point by a scalar shape constant. 
-value is the same everywhere. 
-#Object opacity
+value is the same ev#erywher#e. 
+Object opacity
 • 
-. Elementary #objects have an opacity of 1.0 everywhere. The opacity of a #group #object 
+.# Eleme#ntary objects have an opacity of 1.0 everywhere. The opacit#y of #a g#rou#p object 
 Mask opacity
 • 
-shall be the result of the opacity computations for all of the #objects it contains. 
+shall be the result of the opacity computations f#or all# of the objects it contains. 
 . Opacity values, like shape values, may be provided by a soft mask independent of the 
-Constant opacity
+Const#ant opa#city
 • 
-#object being composited. 
+object being composited. 
 NOTE 4 It is useful to think of this value as the "current opacity," analogous to the current colour used 
 . The source opacity may be modified at every point by a scalar opacity constant. 
-when painting elementary #objects. 
+when pain#ting e#lementary objects. 
 All of the shape and opacity inputs shall have values in the range 0.0 to 1.0 (inclusive), with a default 
 value of 1.0. 
 The three shape inputs shall be multiplied together, producing an intermediate value called the source 

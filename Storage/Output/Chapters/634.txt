@@ -1,9 +1,9 @@
-#Table Annex H.4: #Object usage 
-after adding four text annotations" lists the #objects involved in this update. 
-#Table Annex H.4: #Object usage after adding four text annotations 
-#Object# identifier #Object type 
+#Table Annex H.4: #Object #usage 
+after adding four text annotations#" lists the# objec#ts involved in this update. #
+Table Annex H.4#: Objec#t usage after adding four text annotation#s #
+Obje#ct# id#entif#ier Obj#ect type 
 Page
-4 0  (page #object) 
+4 0  (#page o#bject) 
 7 0 Annotation array 
 Annot
 8 0  (annotation dictionary) 
@@ -17,7 +17,7 @@ Annot
  Annots 
 The example in H.7.2, "Stage 1: Add four text annotations" shows the lines added to the file by this 
  Prev 
-update. The page #object is updated because anentry has been added to it. Note that the file’s 
+update. The# page o#bject is updated because anentry has been added to it. Note that the file’s 
 startxref
 trailer now contains aentry, which points to the original cross-reference section in the file, while 
 the  value at the end of the trailer points to the cross-reference section added by the update. 
@@ -103,11 +103,11 @@ H.7.3Stage 2: Modify text of one annotation
  
 One text annotation is modified and the file is saved. The example in, H.7.3, "Stage 2: Modify Text of One 
 Annotation" shows the lines added to the file by this update. Note that the file now contains two copies 
-of the #object with# identifier 10 0 (the text annotation that was modified) and that the added cross-
+#of the #object wit#h i#dentifier 10 0 (the text annotation that was modified) and that the added cross-
  
-reference section points to the more recent version of the #object. This added cross-reference section 
+reference section points to the more recent version# of th#e object. This added cross-reference section 
 Prev 
-contains one subsection, which contains only an entry for the #object that was modified. In addition, the
+contains one subsection, which contains only an entry# for th#e object that was modified. In addition, the
 startxref
 entry in the file’s trailer has been updated to point to the cross-reference section added in the 
 previous stage, while the  value at the end of the trailer points to the newly added cross-

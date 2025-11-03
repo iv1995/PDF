@@ -1,39 +1,39 @@
-#Table 258: Entries in the UR transform parameters dictionary") specifies the additional rights that 
+#Table 258: Entries in the UR transform parameters dictionary#") specifies the additional rights that 
 shall be enabled if the signature is valid. If the signature is invalid because the document has been 
-modified in a way that is not permitted or the# identity of the signer is not granted the extended 
+modified in a way that is not permitted or the# id#entity of the signer is not granted the extended 
 permissions, additional rights shall not be granted. 
-A ##PDF processor that modifies a #PDF, with a UR signature in excess of the rights that are granted by that 
-signature, should remove that signature prior to writing the newly modified #PDF. 
-#PDF 1.6, #deprecated in #PDF 2.0
-UR3 #ByteRange 
+A ##PDF #processor #that modifies a# PD#F, with a UR signature in excess of the rights that are granted by that 
+signature, should remove that signature prior to writing the newly modifie#d P#DF#. 
+P#DF 1.6, #deprecated ##in #PDF 2.0
+UR3 #Byte#Range 
  (): Theentry in the signature dictionary (see "Table 255: 
- #ByteRange 
-Entries in a signature dictionary") shall be present. First, a ##PDF processor shall verify the #byte range 
+# Byt#eRange 
+Entries in a signature dictionary") shall be present. Firs#t, a## PDF processor# shall verify th#e byt#e range 
 digest to determine whether the portion of the document specified bycorresponds to the 
-state of the document at the time of signing. Next, a ##PDF processor shall examine the current version of 
-the document to see whether there have been modifications to any #objects that are not permitted by the 
-transform parameters. 
-#Table 258: Entries in the UR transform parameters dictionary 
+state of the document at the time of signing. Ne#xt, ##a PDF processo#r shall examine the current version of 
+the document to see whether there have been modifications to any #object#s that are not permitted by the 
+transform parameters. #
+Table 258: Entries in the UR transform parameters dictionary #
 Key Type Value 
 (Optional) 
 Type  
 TransformParams
  
-name The type of #PDF #object that this dictionary describes; if present, shall be
+name The t#ype o#f PDF# object# that this dictionary describes; if present, shall be
 for a transform parameters dictionary. 
 (Optional) 
 Document 
 FullSave
-array An array of names specifying additional document-wide usage rights 
-(#PDF 1.5) 
+array An array of names specifying additional document-wide usage r#ight#s 
+(PDF 1.5) 
 for the document. The only defined value shall be , which permits a user to 
 save the document along with modified form and/or annotation data. 
 FullSave 
 Any usage right that permits the document to be modified implicitly shall enable 
  UR3  
 the right. 
-Annots 
-If the #PDF document contains adictionary, only rights specified by the
+Annots# 
+If# the PDF document contains adictionary, only rights specified by the
 FullSave FullSave 
 entry that permit the document to be modified shall implicitly enable the 
 right. For all other rights, shall be explicitly enabled in order to 
@@ -41,7 +41,7 @@ save the document. (Signature rights shall permit saving as part of the signing
 process but not otherwise). 
 (Optional) 
 Msg 
-text string A text string that may be used to specify any ar#bitrary information, such 
+text string A text string that may be used to specify any ar#bi#trary information, such 
 as the reason for adding usage rights to the document. 
 © ISO 2017 – All rights reserved 556 
 
@@ -51,30 +51,30 @@ Key Type Value
 (Optional) 
 V  UR 
 name Thetransform parameters dictionary version. The value shall be 
-NOTE This value is a #name #object, not a number. 
+NOTE This value is a #nam#e objec#t#, not a number. 
 2.2. If an unknown version is present, no rights shall be enabled. 
 Default value: 2.2. 
-(Optional) 
-Annots 
-(#PDF 1.5) CreateDeleteModifyCopyImport
+(Optional) #
+Ann#ots 
+(PDF 1.5) CreateDeleteModifyCopyImport
 array An array of names specifying additional annotation-related usage rights 
 Export
 for the document. Valid names are , , , , , 
-and , which shall permit the user to perform the named operation on 
-(#PDF 1.6) 
+and , which shall permit the user to perform the named oper#atio#n on 
+(PDF 1.6) 
 annotations. 
 The following names are also permitted (see "Table 263: Entries in a 
 Online 
 permissions dictionary"): 
-Permits online commenting; that is, the a#bility to upload or 
+Permits online commenting; that is, the #ab#ility to upload or 
 SummaryView 
 download markup annotations from a server. 
  
 Permits a user interface to be shown that summarises the 
 comments (markup annotations) in a document.
 Form 
-(Optional) 
-(#PDF 1.5) 
+(#Opti#onal) 
+(PDF 1.5) 
 array An array of names specifying additional form-field-related usage rights 
 Add 
 for the document. Valid names are: 
@@ -94,8 +94,8 @@ Permits the user to export form data files asFDFor XFDF.
 Permits the user to submit form data when the document is 
 SpawnTemplate 
 not open in a Web browser. 
-Permits new pages to be instantiated from named page 
-(#PDF 1.6) 
+Permits new pages to be instantiated from #name#d page 
+(PDF 1.6) 
 templates. 
 BarcodePlaintext 
 The following names are also valid: 
@@ -104,23 +104,23 @@ Online
 two-dimensional barcode. 
  
 Permitsthe use of forms-specific online mechanisms such 
-as SOAP or Active Data #Object.
+as SOAP or Active Da#ta Obj#ect.
 (Optional) 
 Signature 
 Modify
 array An array of names specifying additional signature-related usage rights 
 for the document. The only defined value shall be , which permits a user to 
 apply a digital signature to an existing signature form field or clear a signed 
-signature form field. 
-(Optional; #PDF 1.6) 
+signature form field#. 
+(#Optional; PDF 1.6) 
 EF 
 CreateDeleteModify
 array An array of names specifying additional usage rights for named 
 Import
 embedded files in the document. Valid names shall be , , , and 
 , which shall permit the user to perform the named operation on named 
-embedded files. 
-(Optional; #PDF 1.6) false
+embedded file#s. 
+#(Optional; PDF 1.6) false
 P 
 false
 boolean If , any possible restriction may be ignored. Default value: 

@@ -1,5 +1,5 @@
-#Table 404: Additional entries specific to a trap network appearance stream". 
-#Table 404: Additional entries specific to a trap network appearance stream 
+#Table 404: Additional entries specific to a trap network appearance stream#". #
+Table 404: Additional entries specific to a trap network appearance stream #
 Key Type Value 
 Required
 PCM 
@@ -11,20 +11,20 @@ DeviceGray, DeviceRGB, DeviceCMYK, DeviceCMY, DeviceRGBKDeviceN
 Valid values are , and . 
 Optional
 SeparationColorNames 
-array () An array of names# identifying the colourants that were assumed when this 
+array () An array of names# id#entifying the colourants that were assumed when this 
 network was created; equivalent to the PostScript language page device parameter of the 
 same name (see clause 6.2.5 of the PostScript Language Reference, Third Edition). 
 Colourants implied by the process colour model PCM are available automatically and need 
 not be explicitly declared. If this entry is absent, the colourants implied by PCM shall be 
 assumed. 
-Optional; #deprecated in #PDF 2.0
+Optional; #deprecated #in #PDF #2.0
 TrapRegions TrapRegion
 array () An array of indirect references to  objects 
-, Portable #Job Ticket Format
+, Portable #Job Ticket #Format
 defining the page’s trapping zones and the associated trapping parameters, as described in 
 Adobe Technical Note #5620. These references refer to objects 
-comprising portions of a PJTF #job ticket that shall be embedded in the #PDF file. When the 
-trapping zones and parameters are defined by an external #job ticket (or by some other 
+comprising portions of a PJTF# job ticket# that shall be embedded in the# PDF# file. When the 
+trapping zones and parameters are defined by an externa#l job ticke#t (or by some other 
 means, such as JDF), this entry shall be absent. 
 Optional
 TrapStyles 
@@ -33,39 +33,39 @@ EXAMPLE To allow switching between trap networks.
 string network to the user. 
  
 Version
-A ##PDF writer that supports preseparation shall perform that operation after trapping, and not before. It 
+#A #PD#F writer #that supports preseparation shall perform that operation after trapping, and not before. It 
 is also responsible for calculating new  arrays for the separation trap networks. 
 © ISO 2017 – All rights reserved 796 
 
 ISO/DIS 32000-2
  
-NOTE Preseparated #PDF pages in preseperated files (see 14.11.4, "Separation dictionaries") cannot be 
+NOTE Preseparat#ed P#DF pages in preseperated files (see 14.11.4, "Separation dictionaries") cannot be 
 trapped because traps are defined along the borders between different colours and a 
 preseparated file uses only one colour. 
 14.11.7Open prepress interface (OPI) 
  
-The features described in this subclause are #deprecated with #PDF 2.0. 
+The features described in this subclause are# deprecated# w#ith #PDF 2.0. 
 The workflow in a prepress environment often involves multiple applications in areas such as graphic 
 design, page layout, word processing, photo manipulation, and document construction. As pieces of the 
 final document are moved from one application to another, it is useful to separate the data of high-
 resolution images, which can be quite large — in some cases, many times the size of the rest of the 
-document com#bined — from that of the document itself. The Open Prepress Interface (OPI) is a 
+document com#bi#ned — from that of the document itself. The Open Prepress Interface (OPI) is a 
 mechanism, originally developed by Aldus Corporation, for creating low-resolution placeholders, or 
 proxies, for such high-resolution images. The proxy typically consists of a downsampled version of the 
 full-resolution image, to be used for screen display and proofing. Before the document is printed, it 
-passes through a #filter known as an OPI server, which replaces the proxies with the original full-
+passes through a #filter #known as an OPI server, which replaces the proxies with the original full-
 resolution images. 
 NOTE 1 In PostScript programs, OPI proxies are defined by PostScript language code surrounded by 
 special OPI comments, which specify such information as the placement and cropping of the image 
-and adjustments to its size, rotation, colour, and other attributes. 
-#PDF 1.2
-In #PDF, proxies shall be embedded in a document as image or form X#Objects with an associated OPI 
+and adjustments to its size, rotation, colour, and other attribut#es. #
+PDF 1#.2
+#In PDF, proxies shall be embedded in a document as image or form X#Object#s with an associated OPI 
 dictionary (). This dictionary contains the same information that the OPI comments convey in 
 PostScript language. Two versions of OPI shall be supported, versions 1.3 and 2.0. In OPI 1.3, a proxy 
-consisting of a single image, with no changes in the #graphics state, may be represented as an image 
-X#Object; otherwise it shall be a form X#Object. In OPI 2.0, the proxy always entails changes in the 
-#graphics state and hence shall be represented as a form X#Object. 
+consisting of a single image, with no changes in the #graphics state#, may be represented as an image 
+#XObjec#t; otherwise it shall be a form# XObje#ct. In OPI 2.0, the proxy always entails changes in the #
+graphics state# and hence shall be represented as a for#m XObj#ect. 
 OPI
-An X#Object representing an OPI proxy shall contain an  entry in its image or form dictionary (see 
-"#Table 87: Additional entries specific to an image dictionary" and "#Table 93: Additional entries specific 
-to a Type 1 form dictionary"). The value of this entry is an OPI version dictionary ("
+#An XObj#ect representing an OPI proxy shall contain an  entry in its image or form dictionary (see 
+"#Table 87: Additional entries specific to an image dictionary#" and "#Table 93: Additional entries specific 
+to a Type 1 form dictionary#"). The value of this entry is an OPI version dictionary ("

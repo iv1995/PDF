@@ -1,28 +1,28 @@
 #Table 403: Additional entries 
-specific to a trap network annotation" shows the additional annotation dictionary entries specific to this 
+specific to a trap network annotation#" shows the additional annotation dictionary entries specific to this 
 type of annotation. 
 VersionAnnotStates
 Version
 The  and  entries, if present, shall be used to detect changes in the content of a 
-page that might require regenerating its trap networks. The  array# identifies elements of the 
+page that might require regenerating its trap networks. The  array# id#entifies elements of the 
 Version
 page’s content that might be changed by an editing application and thus invalidate its trap networks. 
 Because there is at most one  array per trap network annotation (and thus per page), any ##PDF 
-writer that generates a new trap network shall also verify the validity of existing trap networks by 
-enumerating the #objects# identified in the array and verifying that the results exactly match the array’s 
+#writer #that generates a new trap network shall also verify the validity of existing trap networks by 
+enumerating the #object##s i#dentified in the array and verifying that the results exactly match the array’s 
 current contents. Any trap networks found to be invalid shall be regenerated. 
 LastModifiedVersion
 LastModified
 The  entry may be used in place of the  array to track changes to a page’s trap 
 VersionAnnotStatesLastModified
-network. (The trap network annotation shall include# either a  entry or the com#bination of 
+network. (The trap network annotation shall include# ei#ther a  entry or the com#bi#nation of 
  and , but not all three.) If the modification date in the  entry of the 
-page #object (see 7.7.3.3, "Page #objects") is more recent than the one in the trap network annotation 
+page# object# (see 7.7.3.3, "Pag#e obje#cts") is more recent than the one in the trap network annotation 
 dictionary, the page’s trap networks are invalid and shall be regenerated. 
 NOTE 2 Not all editing applications correctly maintain these modification dates. 
 This method of tracking trap network modifications may be used reliably only in a controlled workflow 
-environment where the integrity of the modification dates is assured. 
-#Table 403: Additional entries specific to a trap network annotation 
+environment where the integrity of the modification dates is assured. #
+Table 403: Additional entries specific to a trap network annotation #
 Key Type Value 
 RequiredTrapNet
 Subtype   
@@ -30,7 +30,7 @@ name () The type of annotation that this dictionary describes; shall befor a
 trap network annotation. 
 Required if  and  are absent; shall be absent if  and 
 LastModified VersionAnnotStatesVersion
- are present; #PDF 1.4
+ are present;# PDF# 1.4
 AnnotStates
 date (
 ) The date and time (see 7.9.4, "Dates") when the trap 
@@ -38,23 +38,23 @@ network was most recently modified.
 Required if  is present; shall be absent if  is present
 Version AnnotStatesLastModified
 array () An 
-unordered array of all #objects present in the page description at the time the trap 
+unordered array of a#ll obj#ects present in the page description at the time the trap 
 networks were generated and that, if changed, could affect the appearance of the page. If 
 Contents
 • 
-present, the array shall include the following #objects: 
-All #content streams# identified in the page #object’s  entry (see 7.7.3.3, 
+present, the array shall include the follow#ing ob#jects: 
+All #content stream##s #identified in the #page o#bject’s  entry (see 7.7.3.3, 
 • 
-"Page #objects") 
-All resource #objects (other than procedure sets) in the page’s #resource dictionary 
-• 
+#"Page #objects") 
+All re#source# objects (other than procedure sets) in the page’s #resource dictionary 
+#• 
 (see 7.8.3, "Resource dictionaries") 
-All resource #objects (other than procedure sets) in the resource dictionaries of 
+All r#esourc#e objects (other than procedure sets) in the resource dictionaries of 
 • 
-any form X#Objects on the page (see 8.10, "Form X#Objects") 
-All OPI dictionaries associated with X#Objects on the page (see 14.11.7, "
+a#ny for#m XObjects on the page (see 8.1#0, "Fo#rm XObjects") 
+All OPI dictionaries associ#ated w#ith XObjects on the page (see 14.11.7, "
 Open 
-prepress interface (OPI)"). This entry is #deprecated in #PDF 2.0. 
+prepress interface (OPI)"). This entry is #deprecated #i#n PD#F 2.0. 
 © ISO 2017 – All rights reserved 795 
 
 ISO/DIS 32000-2
@@ -63,26 +63,26 @@ Key Type Value
 Required if  is present; shall be absent if  is present
 AnnotStates VersionLastModified
  AS 
-array () An array of 
-#name #objects representing the appearance states (value of theentry) for annotations 
+array () An arra#y of 
+##name object#s representing the appearance states (value of theentry) for annotations 
  Annots 
 associated with the page. The appearance states shall be listed in the same order as the 
  AS 
-7.7.3.3, "Page #objects"). For an annotation 
+7.#7.3.3,# "Page objects"). For an annotation 
 annotations in the page’sarray (see 
 with noentry, the corresponding array element should be null. No appearance state 
 shall be included for the trap network annotation itself. 
 Optional
-#FontFauxing 
-array () An array of font dictionaries representing #fonts that were fauxed (replaced by 
-substitute #fonts) during the generation of trap networks for the page. 
+#Font#Fauxing 
+array () An array of font dictionaries representing# fon#ts that were fauxed (replaced by 
+substitut#e fo#nts) during the generation of trap networks for the page. 
  
 14.11.6.3Trap network appearances 
  
 N
 Each entry in the  (normal) subdictionary of a trap network annotation’s appearance dictionary holds 
 an appearance stream defining a trap network associated with the given page. Like all appearances, a 
-trap network is a #stream #object defining a form X#Object (see 8.10, "Form X#Objects"). The body of the 
-stream contains the graphics #objects needed to paint the traps making up the trap network. Its 
+trap networ#k is a ##stream object #de#fining #a form XObject (s#ee 8.1#0, "Form XObjects"). The body of the 
+stream conta#ins th#e graphics objects needed to paint the traps making up the trap network. Its 
 dictionary entries include, besides the standard entries for a form dictionary, the additional entries 
 shown in "

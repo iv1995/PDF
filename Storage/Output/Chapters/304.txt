@@ -1,20 +1,20 @@
 #Figure 75: Blending and overprinting 
  
-Screen DeviceCMYK 
-EXAMPLE 2 "#Figure 75: Blending and overprinting" shows the effects of all four possible com#binations of blending and 
+#Screen DeviceCMYK 
+EXAMPLE 2 #"Figure 75: Blending and overprintin#g" shows the effects of all four possible com#bi#nations of blending and 
 overprinting, using the  blend mode in thecolour space. The label “overprint enabled” 
-means that the overprint parameter in the #graphics state is true and the overprint mode is 1. In the upper half 
+means that the overprint parameter in the #graphics state #is true and the overprint mode is 1. In the upper half 
 of the figure, a light green oval is painted opaquely (opacity = 1.0) over a backdrop shading from pure yellow 
-to pure magenta. In the lower half, the same #object is painted with transparency (opacity = 0.5). 
+to pure magenta. In the lower half, the same #object #is painted with transparency (opacity = 0.5). 
 11.7.4.4Special path-painting considerations 
  
-The overprinting considerations discussed in 11.7.4.3, "Compati#bility with opaque overprinting" also 
+The overprinting considerations discussed in 11.7.4.3, "Compat#ib#ility with opaque overprinting" also 
 BB*bb*
-affect those path-painting operations that com#bine filling and stroking a path in a single operation. 
+affect those path-painting operations that c#om#bine filling and stroking a path in a single operation. 
 These include the , , , and  operators (see 8.5.3, "Path-painting operators") and the painting of 
-#glyphs with text rendering mode 2 or 6 (9.3.6, "Text rendering mode"). For transparency compositing 
-purposes, the com#bined fill and stroke shall be treated as a single graphics #object, as if they were 
-enclosed in a transparency #group. This implicit #group is established and used as follows: 
+#glyph#s with text rendering mode 2 or 6 (9.3.6, "Text rendering mode"). For transparency compositing 
+purposes, the #co#mbined fill and stroke shall be treated as a single graphics# objec#t, as if they were 
+enclosed in a transparency #group#. This implicit# group# is established and used as follows: 
 © ISO 2017 – All rights reserved 422 
 
 ISO/DIS 32000-2
@@ -22,32 +22,32 @@ ISO/DIS 32000-2
 • 
 true
 If overprinting is enabled (the overprint parameters for both stroking and non-stroking operations 
-in the #graphics state are ) and the current stroking and nonstroking alpha constants are equal, 
-a non-isolated, non-knockout transparency #group shall be established. Within the #group, the fill 
+in the# graphics state# are ) and the current stroking and nonstroking alpha constants are equal, 
+a non-isolated, non-knockout transparenc#y grou#p shall be established. Within t#he gr#oup, the fill 
 and stroke shall be performed with an alpha value of 1.0 but with the special overprinting blend 
-mode described in the previous sub-clause. The #group results shall then be composited with the 
+mode described in the previous sub-clause. #The gr#oup results shall then be composited with the 
 • 
 backdrop, using the originally specified alpha and blend mode. 
-In all other cases, a non-isolated knockout #group shall be established. Within the #group, the fill and 
+In all other cases, a non-isolated knoc#kout g#roup shall be established. Withi#n the# group, the fill and 
 stroke shall be performed with their respective prevailing alpha constants and the prevailing 
 Normal
-blend mode. The #group results shall then be composited with the backdrop, using an alpha value of 
-NOTE 1 In the case of showing text with the com#bined filling and stroking text rendering modes, this 
+blend mod#e. The# group results shall then be composited with the backdrop, using an alpha value of 
+NOTE 1 In the case of showing text with the# c#ombined filling and stroking text rendering modes, this 
 1.0 and the  blend mode. 
-behaviour is independent of the text knockout parameter in the #graphics state (see 9.3.8, "Text 
+behaviour is independent of the text knockout parameter in th#e graphics stat#e (see 9.3.8, "Text 
 knockout"). 
 NOTE 2 The purpose of these rules is to avoid having a non-opaque stroke composite with the result of the 
 fill in the region of overlap, which would produce a double border effect that is usually 
 undesirable. The special case that applies when the overprint parameter is true is for backward 
-compati#bility with the overprinting behaviour of the opaque imaging model. If a desired effect 
-cannot be achieved with a com#bined filling and stroking operator or text rendering mode, it can 
-be achieved by specifying the fill and stroke with separate path #objects and an explicit 
-transparency #group. 
+co#mp#atibility with the overprinting behaviour of the opaque imaging model. If a desired effect 
+cannot be achieved with# a# combined filling and stroking operator or text rendering mode, it can 
+be achieved by specifying the fill and stroke with separate pat#h obje#cts and an explicit 
+trans#paren#cy group. 
 NOTE 3 Overprinting of the stroke over the fill does not work in the second case described previously 
-(although# either the fill or the stroke can still overprint the backdrop). Furthermore, if the 
-overprint #graphics state parameter is true, the results are discontinuous at the transition between 
+(although# ei#ther the fill or the stroke can still overprint the backdrop). Furthermore, if the 
+overpri#nt graphics sta#te parameter is true, the results are discontinuous at the transition between 
 equal and unequal values of the stroking and nonstroking alpha constants. For this reason, it is 
-best not to use overprinting for com#bined filling and stroking operations if the stroking and 
+best not to use overprinting #fo#r combined filling and stroking operations if the stroking and 
 nonstroking alpha constants are being varied independently. 
 11.7.4.5Summary of overprinting behaviour 
  

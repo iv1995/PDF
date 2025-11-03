@@ -1,49 +1,49 @@
-#Table 352: Marked-content operators" summarises the marked-content operators. 
+#Table 352: Marked-content operators#" summarises the marked-content operators. 
 tag
 EMC
 All marked-content operators except  shall take a  operand indicating the role or significance of 
-the marked-content element to the ##PDF processor. All such tags shall have second-class names 
+the marked-content element to the ##PDF #processor#. All such tags shall have second-class names 
 tag
  DP BDC
-registered with ISO (see Annex E, "#PDF Name Registry") to avoid conflicts between different 
-applications marking the same #content stream. In addition to the  operand, theand  
+registered with ISO (see Annex E, #"PDF# Name Registry") to avoid conflicts between different 
+applications marking the same #content stream#. In addition to the  operand, theand  
 operators shall specify a property list containing further information associated with the marked 
 content. Property lists are discussed further in 14.6.2, "Property lists". 
-NOTE 3 The  operand of marked-content operators have no relationship to Tagged #PDF (see 14.8 
-"Tagged #PDF") and thus should not be rolemapped. 
+NOTE 3 The  operand of marked-content operators have no relationship to Tagge#d PD#F (see 14.8 
+"Tagg#ed #PDF") and thus should not be rolemapped. 
 tag
-Marked-content operators may appear only between graphics #objects in the #content stream. They may 
+Marked-content operators may appear only between graphics #object#s in the# content strea#m. They may 
 © ISO 2017 – All rights reserved 695 
 
 ISO/DIS 32000-2
  
-not occur within a graphics #object or between a #graphics state operator and its operands. Marked-
+not occur within a graphics# object# or between a #graphics state #operator and its operands. Marked-
 content sequences may be nested one within another, but each sequence shall be entirely contained 
-within a single #content stream. 
+within a singl#e content stre#am. 
 NOTE 4 A marked-content sequence cannot cross page boundaries. 
 Contents
-The  entry of a page #object (see 7.7.3.3, "Page #objects"), whether a single stream or an array of 
-streams, is considered a single stream with respect to marked-content sequences. 
-#Table 352: Marked-content operators 
+The  entry of a pag#e objec#t (see 7.7.3.3, "Pa#ge obj#ects"), whether a single stream or an array of 
+streams, is considered a single stream with respect to marked-content sequences. #
+Table 352: Marked-content operators #
 Operands Operator Description 
 tag tag
 MP 
-Designate a marked-content point.  shall be a #name #object indicating 
+Designate a marked-content point.  shall be a #n#ame obje#ct #indicating 
 the role or significance of the point. 
 tag properties tag
 DP 
 Designate a marked-content point with an associated property list.  
 properties
-shall be a #name #object indicating the role or significance of the point. 
+shall be a# #name obj#ect# indicating the role or significance of the point. 
 Properties
- shall be# either an inline dictionary representing the property 
-list or a #name #object associated with it in the  subdictionary of 
-the current #resource dictionary (see 14.6.2, "Property lists"). 
+ shall be# ei#ther an inline dictionary representing the property 
+list or #a# name ob#jec#t associated with it in the  subdictionary of 
+the current #resource dictionary #(see 14.6.2, "Property lists"). 
 Tag 
 BMC EMC
 tag
 Begin a marked-content sequence terminated by a balancing  
-operator.  shall be a #name #object indicating the role or significance of 
+operator.  shall be# #a name o#bje#ct indicating the role or significance of 
 the sequence. 
 tag properties 
 BDC 
@@ -51,21 +51,21 @@ tag
 EMC
 Begin a marked-content sequence with an associated property list, 
 properties
-terminated by a balancing  operator.  shall be a #name #object 
+terminated by a balancing  operator.  shall b#e# a name o#bje#ct 
 indicating the role or significance of the sequence.  shall be 
 Properties
-either an inline dictionary representing the property list or a #name #object 
-associated with it in the  subdictionary of the current 
-#resource dictionary (see 14.6.2, "Property lists"). 
+either an inline dictionary representing the property list #o#r a name #obj#ect 
+associated with it in the  subdictionary of the current #
+resource dictionary# (see 14.6.2, "Property lists"). 
 — 
 EMC BMCBDC
 End a marked-content sequence begun by a  or  operator. 
  
 BMCBDCEMC
 BTETBMCEMCBDCEMC
-When the marked-content operators , , and  are com#bined with the text #object operators 
+When the marked-content operators , , and  are com#bi#ned with# the te#xt object operators 
 BTET
- and  (see 9.4, "Text #objects"), each pair of matching operators (…, …, or 
+ and  (see #9.4, "#Text objects"), each pair of matching operators (…, …, or 
 …) shall be properly (separately) nested. Therefore, the sequences 
    BMC 
     BT 
@@ -101,42 +101,42 @@ property list
  DP BDC
 property list
 The marked-content operatorsand  associate a  with a marked-content element 
-within a #content stream. The  is a dictionary containing information (either private or of 
-types defined in this International Standard) meaningful to the ##PDF processor. ##PDF processors should 
+within# a content str#eam. The  is a dictionary containing information (either private or of 
+types defined in this International Standard) meaningful to #the ##PDF proces#so#r.## PDF process#ors should 
 use the dictionary entries in a consistent way; the values associated with a given key should always be 
 of the same type (or small set of types). 
-NOTE Property lists are used by several #PDF features, including optional content (see 8.11, "Optional 
-content", tagged #PDF (see 14.8, "Tagged #PDF"), #object metadata (see 14.3.2, "Metadata streams") 
-and Associated Files (see 14.13.5, "Associated files linked to graphics #objects"). 
-If all of the values in a property list dictionary are #direct #objects, the dictionary may be written inline in 
+NOTE Property lists are used by se#vera#l PDF features, including optional content (see 8.11, "Optional 
+content", #tagg#ed PDF (see 14.8, "#Ta#g#ged PD#F"), object metadata (see 14.3.2, "Metadata streams") 
+and Associated Files (see 14.13.5, "Associated files linked# to gr#aphics objects"). 
+If all of the values in a property list dictionar#y are ##direct object#s, the dictionary may be written inline in 
 Properties
-the #content stream as a #direct #object. If any of the values are indirect references to objects outside the 
-#content stream, the property list dictionary shall be defined as a named resource in the  
+#the content str#ea#m as a## direct objec#t. If any of the values are indirect references to objects outside #the 
+content s#tream, the property list dictionary shall be defined as a named resource in the  
 properties
  DP BDC
-subdictionary of the current #resource dictionary (see 7.8.3, "Resource dictionaries") and referenced by 
+subdictionary of the curren#t resource dictionar#y (see 7.8.3, "Resource dictionaries") and referenced by 
 name as the  operand of theor  operator. 
 14.7Logical structure 
  
 14.7.1General 
  
-logical structure facilities
-#PDF’s  (#PDF 1.3) shall provide a mechanism for incorporating structural 
-information about a document’s content into a #PDF file. Such information may include the organization 
-of the document into chapters and sections or the# identification of special elements such as figures, 
-tables, and footnotes. The logical structure facilities shall be extensible, allowing ##PDF writers to choose 
-what structural information to include and how to represent it, while enabling ##PDF processors to 
+logical structure fa#cil#itie#s
+PD#F’s  (PDF 1.3) shall provide a mechanism for incorporating structural 
+information about a document’s cont#ent #into a PDF file. Such information may include the organization 
+of the document into chapters and sections or the# id#entification of special elements such as figures, 
+tables, and footnotes. The logical structure facilities shall be extensibl#e, a#llowing #PDF writer#s to choose 
+what structural information to include and how to represent it, wh#ile #enabli#ng PDF proces#sors to 
 navigate a file without knowing the producer’s structural conventions. 
-structure elements
-#PDF logical structure shares basic features with standard document markup languages such as HTML 
+struc#ture# elements
+PDF logical structure shares basic features with standard document markup languages such as HTML 
 and XML. A document’s logical structure shall be expressed as a hierarchy of , each 
-represented by a #dictionary #object. Like their counterparts in other markup languages, #PDF structure 
-elements may have content and attributes. In #PDF, rendered document content takes over the role 
-occupied #by text in HTML and XML. 
-A #PDF document’s logical structure shall be stored separately from its visible content, with pointers 
+represented b#y a #di#ctionary object#. Like their counterparts in other mar#kup #languages, PDF structure 
+elements may have content and# at#tributes. In PDF, rendered document content takes over the role 
+occupied #by te#xt in #HTML# and XML. 
+A PDF document’s logical structure shall be stored separately from its visible content, with pointers 
 from each to the other. This separation allows the ordering and nesting of logical elements to be 
 MarkInfo
-entirely independent of the order and location of graphics #objects on the document’s pages. The 
+entirely independent of the order and loca#tion o#f graphics objects on the document’s pages. The 
 mark information dictionary
  entry in the document catalog dictionary (see 7.7.2, "Document catalog dictionary") shall 
 specify a , whose entries are shown in "

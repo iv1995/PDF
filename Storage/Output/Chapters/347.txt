@@ -1,9 +1,9 @@
-#Figure 83: Square and circle annotations" shows two annotations, each with a border width of 18 
-points. Despite the names square and circle, the width and height of the annotation #rectangle need not 
+#Figure 83: Square and circle annotations#" shows two annotations, each with a border width of 18 
+points. Despite the names square and circle, the width and height of the annotation #rectangle #need not 
 be equal. "Table 180: Additional entries specific to a square or circle annotation" shows the annotation 
-dictionary entries specific to these types of annotations. ![Figure 83 Square and circle annotations  .png](./Storage/Output/Images/Figure 83 Square and circle annotations  .png)
-#Figure 83: Square and circle annotations 
- 
+dictionary entries specific to these types of annotations. ![Figure 83 Square and circle annotations  .png](./Storage/Output/Images/Figure 83 Square and circle annotations  .png)#
+Figure 83: Square and circle annotations 
+ #
 Table 180: Additional entries specific to a square or circle annotation 
 Key Type Value 
 (Required) 
@@ -15,19 +15,19 @@ name The type of annotation that this dictionary describes; shall be
 (Optional) 
 BS 
 dictionary A border style dictionary (see "#Table 168: Entries in a border style 
-dictionary") specifying the line width and dash pattern that shall be used in 
-drawing the #rectangle or ellipse. 
+dictionary#") specifying the line width and dash pattern that shall be used in 
+drawing the# rectangle# or ellipse. 
 © ISO 2017 – All rights reserved 476 
 
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; #PDF 1.4) 
+(Optional; #PDF #1.4) 
 IC 
 interior colour 
 array An array of numbers that shall be in the range 0.0 to 1.0 
-and shall specify the with which to fill the annotation’s 
-#rectangle or ellipse. The number of array elements determines the colour 
+and shall specify the with which to fill the annotation’s# 
+rectangl#e or ellipse. The number of array elements determines the colour 
 space in which the colour shall be defined: 
 DeviceGray
 0  No colour; transparent 
@@ -37,17 +37,17 @@ DeviceCMYK
  
 3   
 4  
-(Optional; #PDF 1.5) border effect dictionary 
+(Optional;# PDF# 1.5) border effect dictionary 
 BE 
 BS
-dictionary A descri#bing an effect applied to 
+dictionary A descri#bi#ng an effect applied to 
 the border described by the  entry (see "#Table 169: Entries in a border 
-effect dictionary"). 
-(Optional; #PDF 1.5) 
+effect dictionary#"). 
+(Optional#; PD#F 1.5) 
 RD 
 Rect
 rectangle A set of four numbers that shall describe the numerical 
-differences between two #rectangles: the  entry of the annotation and the 
+differences between t#wo rectan#gles: the  entry of the annotation and the 
 BE
 actual boundaries of the underlying square or circle. Such a difference may 
 Rect
@@ -65,8 +65,8 @@ of .
  
 12.5.6.9Polygon and polyline annotations 
  
-Polygon annotations#PDF 1.5
-Polyline annotations#PDF 1.5
+Polygon annotati#onsP#DF 1.5
+Polyline annotat#ions#PDF 1.5
  () display closed polygons on the page. Such polygons may have many 
 vertices connected by straight lines.  () are similar to polygons, except that 
 the first and last vertex are not implicitly connected. 

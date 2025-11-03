@@ -1,85 +1,85 @@
-#Table 88: Default decode arrays". 
+#Table 88: Default decode arrays#". 
 Optional
 Interpolate 
 false
 boolean () A flag indicating whether image interpolation should be performed 
-by a ##PDF processor (see 8.9.5.3, "Image interpolation"). Default value: . 
-Optional; #PDF 1.3
+by a ##PDF #processor #(see 8.9.5.3, "Image interpolation"). Default value: . 
+Optional;# PDF# 1.3
 Alternates 
 array () An array of alternate image dictionaries for this image (see 
 8.9.5.4, "Alternate images"). This entry shall not be present in an image X#Object 
-that is itself an alternate image. 
+#that is itself an alternate image. 
 © ISO 2017 – All rights reserved 254 
 
 ISO/DIS 32000-2
  
 Key Type Value 
-Optional; #PDF 1.4
+Optional#; PD#F 1.4
 SMask 
-stream () A subsidiary image X#Object defining a soft-mask image (see 
+stream () A subsidiary image #XObject# defining a soft-mask image (see 
 11.6.5.2, "Soft-mask images") that shall be used as a source of mask shape or 
 mask opacity values in the transparent imaging model. The alpha source 
-parameter in the #graphics state determines whether the mask values shall be 
+parameter in the #graphics state #determines whether the mask values shall be 
 interpreted as shape or opacity. 
 Mask
-If present, this entry shall override the current soft mask in the #graphics state, 
+If present, this entry shall override the current soft mask in the# graphics stat#e, 
 as well as the image’s  entry, if any. However, the other transparency-
  SMask SMaskInData
-related #graphics state parameters — blend mode and alpha constant — shall 
+relate#d graphics stat#e parameters — blend mode and alpha constant — shall 
 remain in effect. Ifis absent and  has value 0, the image 
 shall have no associated soft mask (although the current soft mask in the 
 NOTE 1 Interactions between ,  and the current soft mask 
-SMaskSMaskInData
-#graphics state may still apply). 
-in the #graphics state are set out in clause 11.6.4.3, "Mask shape and 
+SMaskSMaskInDa#ta
+graphics sta#te may still apply). 
+in #the graphics st#ate are set out in clause 11.6.4.3, "Mask shape and 
 opacity". 
-Optional for images that use the#filter, meaningless otherwise; #PDF 
+Optional for images that use the#filter#, meaningless otherwis#e; PD#F 
 SMaskInData  JPXDecode 
 1.5
 integer (
 ) A code specifying how soft-mask information (see 11.6.5.2, "Soft-mask 
 images") encoded with image samples shall be used: 
 0 If present, encoded soft-mask image information shall be ignored. 
-1 The image’s data stream includes encoded soft-mask values. A ##PDF 
-processor shall create a soft-mask image from the information to be used 
+1 The image’s data stream includes encoded soft-mask values#. A# P#DF 
+processor# shall create a soft-mask image from the information to be used 
 as a source of mask shape or mask opacity in the transparency imaging 
 model. 
 2 The image’s data stream includes colour channels that have been 
 premultiplied with an opacity channel; the image data also includes the 
-opacity channel. A ##PDF processor shall create a soft-mask image from the 
+opacity channe#l. A## PDF processo#r shall create a soft-mask image from the 
 opacity channel information to be used as a source of mask shape or 
  SMask 
 mask opacity in the transparency model. 
 If this entry has a non-zero value,shall not be specified. See also 7.4.9, 
 NOTE 2 Interactions between ,  and the current soft mask 
 SMaskSMaskInData
-"JPXDecode #filter". 
-in the #graphics state are set out in clause 11.6.4.3, "Mask shape and 
+"JPXDecode# filte#r". 
+in# the graphics s#tate are set out in clause 11.6.4.3, "Mask shape and 
 opacity". 
 Default value: 0. 
-Required in #PDF 1.0; optional otherwise; #deprecated in #PDF 2.0
+Requir#ed i#n PDF 1.0; optional otherwise; #deprecat#ed ##in PDF 2.0
 Name 
 name () The name by 
-which this image X#Object is referenced in the X#Object subdictionary of the 
-current #resource dictionary (see 7.8.3, "Resource dictionaries"). 
-Required if the image is a structural content item; #PDF 1.3
+which this image# XObjec#t is referenced in th#e XObje#ct subdictionary of the 
+current #resource dictionary #(see 7.8.3, "Resource dictionaries"). 
+Required if the image is a structural conten#t it#em; PDF 1.3
 StructParent 
 integer () The integer key of 
 the image’s entry in the structural parent tree (see 14.7.5.4, "Finding structure 
 elements from content items"). 
-Optional; #PDF 1.3; indirect reference preferred
+O#ptio#nal; PDF 1.3; indirect reference preferred
 ID 
-#byte string () The digital# identifier of the 
-image’s parent Web Capture content set (see 14.10.6, "#Object attributes related 
+#byte #string () The digital# id#entifier of the 
+image’s parent Web Capture content set (see 14.10.#6, "Obj#ect attributes related 
 to web capture"). 
-Optional; #PDF 1.2; #deprecated in #PDF 2.0
+#Opti#onal; PDF 1.2;# depr#ecat#ed# in PDF 2.0
 OPI 
 true
  ImageMask 
 dictionary () An OPI version dictionary for the 
 image; see 14.11.7, "Open prepress interface (OPI)". Ifis , this 
-entry shall be ignored. 
-Optional; #PDF 1.4
+entry shall be ignored.# 
+Op#tional; PDF 1.4
 Metadata 
 stream () A metadata stream containing metadata for the image (see 
 14.3.2, "Metadata streams"). 
@@ -87,38 +87,38 @@ stream () A metadata stream containing metadata for the image (see
 
 ISO/DIS 32000-2
  
-Key Type Value 
-Optional; #PDF 1.5
+Key Type Valu#e 
+O#ptional; PDF 1.5
 OC 
-dictionary () An optional content #group or optional content membership 
+dictionary () An optional content #group #or optional content membership 
 dictionary (see 8.11, "Optional content"), specifying the optional content 
-properties for this image X#Object. Before the image is processed by a ##PDF 
-processor, its visi#bility shall be determined based on this entry. If it is 
+properties for this im#age XO#bject. Before the image is p#roces#sed by# a PDF 
+proces#sor, its visi#bi#lity shall be determined based on this entry. If it is 
 Do
 determined to be invisible, the entire image shall be skipped, as if there were 
-no  operator to invoke it. 
-Optional; #PDF 2.0
+no  operator to invoke #it. #
+Optional; PDF 2.0
 AF 
 array of () An array of one or more file specification dictionaries 
   
 dictionaries (7.11.3, "File specification dictionaries") which denote the associated files for 
-thisImageX#Object. See 14.13, "Associated files" and 14.13.7, "Associated files 
-linked to X#Objects" for more details. 
-Optional; #PDF 2.0
+this#ImageX#Object. See 14.13, "Associated files" and 14.13.7, "Associated files 
+link#ed to #XObjects" for more deta#ils.# 
+Optional; PDF 2.0
 Measure 
 dictionary () A measure dictionary (see "Table 265: Entries in a measure 
-dictionary") that specifies the scale and units which shall apply to the image. 
-Optional; #PDF 2.0
+dictionary") that specifies the scale and units which shall apply to the i#mage#. 
+Optional; PDF 2.0
 PtData 
 dictionary () A point data dictionary (see "Table 271: Entries in a point 
 data dictionary") that specifies the extended geospatial data that shall apply to 
 the image. 
  
  DeviceGray 
-EXAMPLE This example defines an image 256 samples wide by 256 high, with 8 #bits per sample in thecolour 
+EXAMPLE This example defines an image 256 samples wide by 256 high, with 8# b#its per sample in thecolour 
 space. It paints the image on a page with its lower-left corner positioned at coordinates (45, 140) in current 
 user space and scaled to a width and height of 132 user space units. 
-20 0 obj             %Page #object 
+20 0 obj           #  %Page ob#ject 
   <</Type /Page 
    /Parent 1 0 R 
    /Resources 21 0 R 
@@ -127,21 +127,21 @@ user space and scaled to a width and height of 132 user space units.
   >> 
 endobj 
  
-21 0 obj             %#Resource dictionary for page 
-   <</X#Object <</Im1 22 0 R>> 
+21 0 obj             #%Resource dictionary# for page# 
+   <<#/XObject <</Im1 22 0 R>> 
   >> 
 endobj 
  
-22 0 obj             %ImageX#Object 
+22 0 obj          #   %ImageXOb#ject 
  
-  <</Type /X#Object 
+ # <</Type /X#Object 
    /Subtype /Image 
    /Width 256 
    /Height 256 
    /ColorSpace /DeviceGray 
-   /#BitsPerComponent 8 
+  # /#BitsPerComponent 8 
    /Length 83183 
-   /#Filter /#ASCII85Decode 
+  # /Filte#r /#ASCII#85Decode 
   >> 
 stream 
 9LhZI9h\GY9i+bb;,p:e;G9SP92/)X9MJ>^:f14d;,U(X8P;cO;G9e];c$=k9Mn\] 
@@ -154,10 +154,10 @@ endobj
 23 0 obj             %Contents of page 
   <</Length 56>> 
 stream 
-  q             %Save #graphics state 
+  q             #%Save graphics stat#e 
    132 0 0 132 45 140 cm     %Translate to (45,140) and scale by 132 
    /Im1 Do          %Paint image 
-  Q             %Restore #graphics state 
+  Q             %R#estore graphics #state 
 © ISO 2017 – All rights reserved 256 
 
 ISO/DIS 32000-2
@@ -169,12 +169,12 @@ endobj
  
 n
 n
-Each image's colour component data is initially decomposed into integers in the domain 0 to 2-1, 
-#BitsPerComponentJPXDecode
-where  is the #bit depth of the colour component. This #bit depth is specified as the value of the image 
+Each image's colour component data is initially decomposed into integers in the domain 0 to 2-1#, #
+BitsPerComponentJPXDecode
+where  is #th#e bit depth of the colour component. #Th#is bit depth is specified as the value of the image 
 Decode
-dictionary's  entry or, when the image uses the  #filter, is defined in the 
-#JPEG2000 data and can have different values per colour component. An image’s  array specifies 
+dictionary's  entry or, when the image uses th#e  fil#ter, is defined in the 
+#JPEG#2000 data and can have different values per colour component. An image’s  array specifies 
 a linear mapping of each integer component value to a number that would be appropriate as a 
 component value in the image’s colour space. 
 Decode
@@ -182,8 +182,8 @@ Decode
 Each pair of numbers in a  array specifies the lower and upper values to which the domain of 
  ColorSpace 
 sample values in the image is mapped. A  array shall contain one pair of numbers for each 
-component in the colour space specified by the image’sentry. The mapping for each colour 
-component, by a ##PDF processor shall be a linear transformation; that is, it shall use the following 
+component in the colour space specified by the image’sentry. The mapping for each colour# 
+co#mponent, b#y a PDF proces#sor shall be a linear transformation; that is, it shall use the following 
 formula for linear interpolation: 
 minmaxminmax
 (
@@ -245,7 +245,7 @@ min
 2−1
  
 where 
-n shall be the #bit depth of the corresponding colour component 
+n shall b#e #the bit depth of the corresponding colour component 
 n
 Decode
 x shall be the input value, in the domain 0 to 2 - 1 
@@ -261,8 +261,8 @@ minmax
 Decode
 D andD . "Table 88: Default 
 and those with intermediate values shall be mapped linearly between 
-decode arrays" lists the default  arrays which shall be used with the various colour spaces by a 
-##PDF processor. 
+decode arrays" lists the default  arrays which shall be used with the various c#olou#r spaces b#y a 
+PDF proc#essor. 
 © ISO 2017 – All rights reserved 257 
 
 ISO/DIS 32000-2
@@ -271,8 +271,8 @@ NOTE 2 For most colour spaces, the  arrays listed in the table map into the full
 Decode
 component values. For an  colour space, the default  array ensures that 
 IndexedDecode
-component values that index a colour table are passed through unchanged. 
-#Table 88: Default decode arrays 
+component values that index a colour table are passed through unchanged. #
+Table 88: Default decode arrays #
 Colour Space Decode Array 
 DeviceGray 
 [0.0 1.0] 
@@ -290,7 +290,7 @@ minmaxminmaxminmaxminmax
 [0 100a a b b ] wherae a, b, , anbd  correspond to the values in 
 the  array of the image’s colour space 
 ICCBased Range
-Same as the value of  in the #ICC profile of the image’s colour space 
+Same as the value of  in the #ICC profile #of the image’s colour space 
 NN
 Indexed 
 n
@@ -317,8 +317,8 @@ D
 minmax
 The and  parameters for a colour component need not fall within the range of values allowed for 
 that component. 
-NOTE 4 For instance, if an application uses 6-#bit numbers as its native image sample format, it can 
-represent those samples in #PDF in 8-#bit form, setting the two unused high-order #bits of each 
+NOTE 4 For instance, if an application #us#es 6-bit numbers as its native image sample format, it can 
+represe#nt t#hose samples in P#DF# in 8-bit form, setting the two unused hi#gh#-order bits of each 
 sample to 0. The image dictionary can then specify a  array of [0.00000 4.04762], which 
 Decode
 maps input values from 0 to 63 into the range 0.0 to 1.0 (4.04762 being approximately equal to 
@@ -330,25 +330,25 @@ Image interpolation is an attempt to produce a smooth transition between adjacen
 true
 Interpolate
 rendering an image whose resolution is significantly lower than that of the output device. Setting the 
-value of the  entry in an image dictionary to , is a way for a #PDF to declare to a ##PDF 
-processor that a specific image might render better if interpolation is used for this particular image. 
-However, this is only a hint, and a ##PDF processor may ignore it. 
+value of the  entry in an image dictionary# to #, is a way for #a PDF# to declare# to a PDF 
+proc#essor that a specific image might render better if interpolation is used for this particular image. 
+However, this# is #only a hint,# and a PDF pro#cessor may ignore it. 
 © ISO 2017 – All rights reserved 258 
 
 ISO/DIS 32000-2
  
-8.9.5.4Alternate images 
+8.9.5.4Alternate im#ages# 
  
-Alternate images#PDF 1.3
+Alternate imagesPDF 1.3
  () provide a straightforward and backward-compatible way to include multiple 
-versions of an image in a #PDF file for different purposes. These variant representations of the image 
+v#ersi#ons of an image in a PDF file for different purposes. These variant representations of the image 
 may differ, for example, in resolution or in colour space. The primary goal is to reduce the need to 
-maintain separate versions of a #PDF document for low-resolution on-screen viewing and high-
+mainta#in s#eparate versions of a PDF document for low-resolution on-screen viewing and high-
 resolution printing. 
 base image
 Alternates
 alternate image dictionaries
-A  (that is, the image X#Object referred to in a #resource dictionary) may contain an  
+A  (that is,# the im#age XObject referred to in #a resource dictiona#ry) may contain an  
 entry. The value of this entry shall be an array of  specifying variant 
-representations of the base image. Each alternate image dictionary shall contain an image X#Object for 
+representations of the base image. Each alternate image dictionary shall conta#in an i#mage XObject for 
 one variant and shall specify its properties. "

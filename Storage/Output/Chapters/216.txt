@@ -1,8 +1,8 @@
-#B image stored on a Web server. 
+#B i#mage stored on a Web server. 
 10 0 obj              %ImageX#Object 
  
-  <</Type /X#Object 
-   /Subtype /Image 
+  #<</Type /#XObject 
+  # /Subtype /Image 
 © ISO 2017 – All rights reserved 259 
 
 ISO/DIS 32000-2
@@ -10,10 +10,10 @@ ISO/DIS 32000-2
    /Width 100 
    /Height 200 
    /ColorSpace /DeviceGray 
-   /#BitsPerComponent 8 
+   #/B#itsPerComponent 8 
    /Alternates 15 0 R 
    /Length 2167 
-   /#Filter /DCTDecode 
+   /#Filter #/DCTDecode 
   >> 
 stream 
 …Imagedata … 
@@ -29,12 +29,12 @@ endobj
 endobj 
  
 16 0 obj              %Alternate image 
-  <</Type /X#Object 
-   /Subtype /Image 
+  <</Type #/XObject 
+ #  /Subtype /Image 
    /Width 1000 
    /Height 2000 
    /ColorSpace /DeviceRGB 
-   /#BitsPerComponent 8 
+  # /#BitsPerComponent 8 
    /Length 0          %This is an external stream 
  
    /F <</FS /URL 
@@ -55,27 +55,27 @@ opaque paint. All portions of the image, whether black, white, gray, or colour, 
 marks that may previously have existed in the same place on the page. In the graphic arts industry and 
 page layout applications, however, it is common to crop or mask out the background of an image and 
 then place the masked image on a different background so that the existing background shows through 
-the masked areas. A number of #PDF features are available for achieving such masking effects: 
+the masked areas. A number of #PDF #features are available for achieving such masking effects: 
  ImageMask 
 • 
 stencil mask
-Theentry in the image dictionary, specifies that the image data shall be used as a 
-#PDF 1.3
+Theentry in the image dictionary, specifies that the image data shall be used as a #
+PDF# 1.3
 Mask
 • 
  for painting in the current colour. 
 explicit mask
-The  entry in the image dictionary () specifies a separate image X#Object which shall 
-#PDF 1.3
+The  entry in the image dictionary () specifies a separate imag#e XObje#ct which shall# 
+PD#F 1.3
 Mask
 • 
 be used as an  specifying which areas of the image to paint and which to mask out. 
 colour key masking
 Alternatively, the  entry () specifies a range of colours which shall be masked out 
-NOTE Earlier versions of #PDF commonly simulated masking by defining a clipping path enclosing only 
+NOTE Earlier versions #of P#DF commonly simulated masking by defining a clipping path enclosing only 
 wherever they occur within the image. This technique is known as . 
 those of an image’s samples that are to be painted. However, if the clipping path is very complex 
-(or if there is more than one clipping path) not all #interactive ##PDF processors will render the 
+(or if there is more than one clipping path) not all #interact#ive ##PDF processor##s will render the 
 results in the same way. An alternative way to achieve the effect of an explicit mask is to define the 
 © ISO 2017 – All rights reserved 260 
 
@@ -85,8 +85,8 @@ image being clipped as a pattern, make it the current colour, and then paint the
 an image whoseentry is . 
  ImageMask 
  
-true
-#PDF 1.4#PDF 1.5
+#true#
+P#DF 1#.4PDF 1.5
 SMask SMaskInData
 In the transparent imaging model, a fourth type of masking effect, soft masking, is available through the
 entry () or the  entry () in the image dictionary; see 11.6.5, 
@@ -95,20 +95,20 @@ entry () or the  entry () in the image dictionary; see 11.6.5,
  
 true
  ImageMask 
-An image mask (an image X#Object whoseentry is ) is a monochrome image in which 
-each sample is specified by a single #bit. However, instead of being painted in opaque black and white, 
+An image mask (an ima#ge XObj#ect whoseentry is ) is a monochrome image in which 
+each sample is specified by a sing#le# bit. However, instead of being painted in opaque black and white, 
 the image mask is treated as a stencil mask that is partly opaque and partly transparent. Sample values 
 in the image do not represent black and white pixels; rather, they designate places on the page that 
-should# either be marked with the current colour or masked out (not marked at all). Areas that are 
+should# ei#ther be marked with the current colour or masked out (not marked at all). Areas that are 
 masked out retain their former contents. The effect is like applying paint in the current colour through a 
 cut-out stencil, which lets the paint reach the page in some places and masks it out in others. 
 An image mask differs from an ordinary image in the following significant ways: 
  ColorSpace 
 • 
-The image dictionary shall not contain aentry because sample values represent 
- #BitsPerComponent 
+The image dictionary shall not contain aentry because sample values represen#t #
+ BitsPerComponent 
 • 
-masking properties (1 #bit per sample) rather than colours. 
+masking propertie#s #(1 bit per sample) rather than colours. 
 DecodeDecode
 • 
 The value of theentry shall be 1. 
@@ -116,19 +116,19 @@ The  entry determines how the source samples shall be interpreted. If the  array
 Decode
 [0 1] (the default for an image mask), a sample value of 0 shall mark the page with the current 
 colour, and a 1 shall leave the previous contents unchanged. If the  array is [1 0], these 
-NOTE One of the most important uses of stencil masking is for painting #character #glyphs represented as 
-meanings shall be reversed. 
-#bitmaps. Using such a #glyph as a stencil mask transfers only its "black" #bits to the page, leaving the 
-"white" #bits (which are really just background) unchanged. For reasons discussed in 9.6.5.3, 
-"Encodings for Type 3 #fonts", an image mask, rather than an image, need almost always be used to 
-paint #glyph #bitmaps. 
+NOTE One of the most important uses of stencil masking is for painting #character ##glyph#s represented as 
+meanings shall be rever#se#d. 
+bitmaps. Using such a# glyph# as a stencil mask transfers only its "#bl#ack" bits to the page, leaving the 
+#"w#hite" bits (which are really just background) unchanged. For reasons discussed in 9.6.5.3, 
+"Encodings for Type 3 #font#s", an image mask, rather than an image, need almost always be used to 
+pain##t #glyp#h bitmaps. 
 If image interpolation (see 8.9.5.3, "Image interpolation") is requested during stencil masking, the effect 
 shall be to smooth the edges of the mask, not to interpolate the painted colour values. This effect can 
 minimise the jaggy appearance of a low-resolution stencil mask. 
 8.9.6.3Explicit masking 
  
-Mask
-In #PDF 1.3, the  entry in an image dictionary may be an image mask, as described in subclause 
+M#ask
+#In PDF 1.3, the  entry in an image dictionary may be an image mask, as described in subclause 
 WidthHeight
 8.9.6.2, "Stencil masking", which serves as an explicit mask for the primary (base) image. The base 
 image and the image mask need not have the same resolution ( and  values), but since all 
@@ -138,8 +138,8 @@ which shall be masked out (left unchanged). Unmasked areas shall be painted with
 portions of the base image; masked areas shall not be. 
 8.9.6.4Colour key masking 
  
-Mask
-In #PDF 1.3, the  entry in an image dictionary may be an array specifying a range of colours to be 
+#Mask#
+In PDF 1.3, the  entry in an image dictionary may be an array specifying a range of colours to be 
 masked out. Samples in the image that fall within this range shall not be painted, allowing the existing 
 background to show through. 
 © ISO 2017 – All rights reserved 261 
@@ -152,8 +152,8 @@ n
 For colour key masking, the value of the  entry shall be an array of 2 × 𝑛𝑛 integers, 
 11𝑛𝑛𝑛𝑛
 [min
-max…minmax], where  is the number of colour components in the image’s colour space. 
-#BitsPerComponent
+max…minmax], where  is the number of colour components in the image’s colou#r #space. 
+BitsPerComponent
 Decode
  - 1, representing colour values before decoding 
 Each integer shall be in the range 0 to 2
@@ -164,19 +164,19 @@ with the  array. An image sample shall be masked (not painted) if all of its col
 before decoding, 
 …, fall within the specified ranges (that is, if  ≤ i ≤  for all 1 ≤  ≤ ). 
  DCTDecode  JPXDecode 
-When colour key masking is specified, the use of aor lossy#filter for the stream 
+When colour key masking is specified, the use of aor loss#yfilter# for the stream 
 can produce unexpected results. 
-NOTE 2  is always a lossy #filter althoughhas a lossy #filter option. The use of a lossy 
-DCTDecode JPXDecode 
-#filter means that the output is only an approximation of the original input data. Therefore, the use 
-of this #filter can lead to slight changes in the colour values of image samples, possibly causing 
+NOTE 2  is always a loss#y filte#r althoughhas a los#sy filt#er option. The use of a lossy 
+DCTDecode JPXDeco#de 
+fil#ter means that the output is only an approximation of the original input data. Therefore, the use 
+of #this fi#lter can lead to slight changes in the colour values of image samples, possibly causing 
 samples that were intended to be masked to be unexpectedly painted instead, in colours slightly 
 different from the mask colour. 
 8.9.7Inline images 
  
-As an alternative to the image X#Objects described in 8.9.5, "Image dictionaries", a sampled image may 
+As an alternative to the im#age XO#bjects described in 8.9.5, "Image dictionaries", a sampled image may 
 be specified in the form of an inline image. This type of image shall be defined directly within the 
-#content stream in which it will be painted rather than as a separate #object. Because the inline format 
-gives the ##PDF processor less flexi#bility in managing the image data, it should be used only for small 
-images (4096 #bytes or less). 
+#content stream #in which it will be painted rather than as a sep#arate #object. Because the inline format 
+g#ives# the# PDF processor## l#ess flexibility in managing the image data, it should be used only for small 
+images (4096 #byte#s or less). 
 BI

@@ -1,57 +1,57 @@
-#Table 260: Sub#Filter value algorithm support" shows an overview of the  values along with 
-the algorithms that are supported for each Sub#Filter. 
-#Table 260: Sub#Filter value algorithm support 
+#Table 260: Sub#Filter #value algorithm support#" shows an overview of the  values along with 
+the algorithms that are supported for each Su#bFilte#r. #
+Table 260: S#ubFilte#r value algorithm support #
 ca
-Sub#Filter values adbe.pkcs7.detached, adbe.pkcs7.sha1adbe.x509.rsa_sha1 
+#SubFilt#er values adbe.pkcs7.detached, adbe.pkcs7.sha1adbe.x509.rsa_sha1 
 ETSI.CAdES.detached 
  
 or ETSI.RFC3161
-#PDF 1.3#PDF 1.3#PDF 1.3
+#PDF #1.#3PDF# 1#.3PD#F 1.3
     
  
 b
 Message Digest SHA1 ()SHA1 () SHA1 ()
-SHA256 (#PDF 1.6)  SHA256 (#PDF 1.6)  
-SHA384 (#PDF 1.7)  SHA384 (#PDF 1.7)  
+SHA25#6 (P#DF 1.6)  SHA2#56 (#PDF 1.6)  
+SHA#384 #(PDF 1.7)  SH#A384# (PDF 1.7)  
  1.7
-SHA512 (#PDF 1.7)  SHA512 (#PDF 1.7)  
-RIPEMD160 (#PDF) RIPEMD160 (#PDF 1.7) 
-(#PDF 1.3)  
-(#PDF 1.5)  
-RSA Algorithm Support Up to 1024-#bit See adbe.pkcs7.detached See adbe.pkcs7.detached 
-(#PDF 1.5)
-Up to 2048-#bit 
-Up to 4096-#bit  
-(#PDF 1.6)
-DSA Algorithm Support Up to 4096-#bits  See adbe.pkcs7.detached No 
-ECDSA Algorithm Support ANSI X9.62, Elliptic Curve No No 
-(#PDF 2.0
+S#HA51#2 (PDF 1.7)  #SHA5#12 (PDF 1.7)  
+RI#PEM#D160 (PDF) R#IPEM#D160 (#PDF #1.7) 
+(#PDF #1.3)  
+(PDF 1.5)  
+RSA Algorithm Support Up to 1024-#bi#t See adbe.pkcs7.detached See adbe.pkcs#7.de#tached 
+(PDF 1.5)
+Up to 2048#-b#it 
+Up t#o 40#9#6-#bit  
+(PDF 1.6)
+DSA Algorithm Support Up to 40#96#-bits  See adbe.pkcs7.detached No 
+ECDSA Algorithm Support ANSI X9.62, Elliptic# Cur#ve No No 
+(PDF 2.0
 (see RFC 5480) Digital Signature Algorithm 
 (ECDSA) ) 
 sha1
- Sub#Filter   
+# SubFilter#   
 a
   Despite the appearance of  in the name of thisvalue, supported encodings shall not be limited to theSHA1
   
-algorithm. The PKCS#1 #object contains an# identifier that indicates which algorithm shall be used. 
+algorithm. The PKCS#1 #object #contains an# id#entifier that indicates which algorithm shall be used. 
 b
   Other digest algorithms may be used to digest the signed-data field; however,SHA1shall be used to digest the data that is 
 adbe.x509.rsa_sha1adbe.pkcs7.sha1 
 being signed. 
 c
-  The values  and have been #deprecated with #PDF 2.0. 
+  The values  and have been #d#epre#cated #with PDF 2.0. 
  
 12.8.3.2PKCS#1 signatures 
  
 The PKCS#1 standard supports several public-key cryptographic algorithms and digest methods, 
-adbe.x509.rsa_sha1
- Sub#Filter 
-including RSA encryption, DSA signatures, and SHA-1 and MD5 digests. For signing #PDF files using 
+adbe.x509.rsa_sha1#
+ SubFil#ter 
+including RSA encryption, DSA signatures, and SHA-1 and MD5 dige#sts.# For signing PDF files using 
  
 PKCS#1, the only value ofthat should be used is , which uses the RSA 
 Cert 
 encryption algorithm and SHA-1 digest method. The certificate chain of the signer shall be stored in the
-entry. PKCS#1 signatures are #deprecated with #PDF 2.0. 
+entry. PKCS#1 signatures are## dep#recated# with PDF 2.0. 
 © ISO 2017 – All rights reserved 559 
 
 ISO/DIS 32000-2
@@ -61,53 +61,53 @@ ISO/DIS 32000-2
 12.8.3.3.1General 
  
 Contents
-When CMS signatures are used, the value of  shall be a DER-encoded CMS ##binary data #object 
+When CMS signatures are used, the value of  shall be a DER-encoded C#MS# #binary data ##object #
 containing the signature.  
 Contents
-#ByteRange
-For #byte range signatures,  shall be a hexadecimal string with "<" and ">" delimiters. It shall fit 
+#Byte#Range
+For# byte# range signatures,  shall be a hexadecimal string with "<" and ">" delimiters. It shall fit 
 Contents
-precisely in the space between the ranges specified by . Since the length of CMS #objects is 
+precisely in the space between the ranges specified by . Since the length of CM#S obje#cts is 
 not entirely predictable, the value of  shall be padded with zeros at the end of the string 
 (before the ">" delimiter) before writing the CMS to the allocated space in the file. 
-Internet RFC 5652, Cryptographic Message Syntax
- Sub#Filter 
-The CMS #object shall conform to . Different sub#filters 
-may be used and shall be registered in accordance with Annex E, "#PDF Name Registry".shall 
+Internet RFC 5652, Cryptographic Message Synta#x
+ SubFi#lter 
+The C#MS obje#ct shall conform to . Differ#ent su#bfilters 
+may be used and shall be registered in accorda#nce #with Annex E, "PDF Name Registry".shall 
 take one of the following values: 
 adbe.pkcs7.detached
 • 
-: The original signed message digest over the document’s #byte range shall be 
+: The original signed message digest over the document’#s byt#e range shall be 
 incorporated as the normal CMS SignedData field. No data shall be encapsulated in the CMS 
 adbe.pkcs7.sha1
  SHA1 
 • 
 SignedData field. 
-: Thedigest of the document’s #byte range shall be encapsulated in the CMS 
-adbe.pkcs7.sha1
+: Thedigest of the document#’s by#te range shall be encapsulated in the CMS 
+adbe.pkcs7.s#ha1
  Sub#Filter 
 SignedData field with ContentInfo of type Data. The digest of that SignedData shall be incorporated 
-as the normal CMS digest. The value  for thekey has been #deprecated 
-with #PDF 2.0. To support backward compati#bility, ##PDF readers should process this value for this 
-key, but ##PDF writers shall not use this value. 
+as the normal CMS digest. The value  for thekey has bee##n de#precated# 
+with PDF 2.0. To support bac#kwar#d co#mp#atibility, #PDF reader#s should process this val#ue f#or this 
+key, but #PDF writer#s shall not use this value. 
 Contents
-At minimum the CMS #object shall include the signer’s X.509 signing certificate. This certificate shall be 
+At minimum the #CMS obj#ect shall include the signer’s X.509 signing certificate. This certificate shall be 
 used to verify the signature value in . 
-If the #signature handler has on-line access, it may place into the CMS #object time stamping information 
-and/or revocation information.  
-Note: Since #PDF 2.0 supports two additional dictionaries, i.e. the DSS and the DTS dictionaries, 
+If the #signature handler #has on-line access, it may place into the# CMS ob#ject time stamping information 
+and/or revocation info#rmat#ion.  
+Note: Since PDF 2.0 supports two additional dictionaries, i.e. the DSS and the DTS dictionaries, 
 revocation information can be better placed in a DSS dictionary while time-stamping information 
-can also be placed in a DTS dictionary, in addition to being placed in the CMS #object.  
-In such a case, the CMS #object should contain the following: 
-#PDF 1.6
+can also be placed in a DTS dictionary, in addition to being placed in th#e CMS #object.  
+In such a case, t#he CMS #object should #cont#ain the following: 
+PDF 1.6
 • 
 Internet RFC 3161Internet RFC 5816
 Timestamp information as an unsigned attribute (): The timestamp token shall conform to 
 Internet RFC 3161Internet RFC 5816
- as updated by , and shall be computed and embedded into the 
-CMS #object as described in Appendix A of  as updated by . The 
-specific treatment of this timestamp tokens and its processing is left to the particular signature 
-#PDF 1.6
+ as updated by , and shall be computed and embedded into t#he 
+CMS# object as described in Appendix A of  as updated by . The 
+specific treatment of this timestamp tokens and its processing is left to t#he p#articular signature 
+PDF 1.6
 • 
 handlers to define. 
 Revocation information as a signed attribute (): This attribute may include all the 
@@ -118,8 +118,8 @@ should be able to construct the certification path and the associated revocation
 of the elements cannot be obtained (e.g. no connection is possible), a signature with this attribute 
 • 
 will not be possible. 
-The #signature handler should capture the chain of certificates, including the signer certificate, 
-along with the other certificates in the certificate chain, before signing. The #signature handler 
+The# signature handler# should capture the chain of certificates, including the signer certificate, 
+along with the other certificates in the certificate chain, before signing. Th#e signature handler# 
 should validate the certificate's chain before signing. However, if this is not possible, the DSS (see 
 © ISO 2017 – All rights reserved 560 
 
@@ -130,23 +130,23 @@ adbe.x509.rsa_sha1
 12.8.4.3, "Document Security Store (DSS)") may be used for adding the information as an 
  Cert 
 incremental update. This differs from the treatment when usingwhen the 
-certificates shall be placed in thekey of the signature dictionary as defined in "Table 260: 
-Internet RFC 3281#PDF 
+certificates shall be placed in thekey of the signature dictionary as defined in "Tab#le 260#: 
+Internet RFC 3281PD#F 
 • 
-Sub#Filter value algorithm support". 
+S#ubFilter value algorithm support". 
 1.7
 One or more  attribute certificates associated with the signer certificate (
-). The specific treatment of attribute certificates and their processing is left to the particular 
-#signature handlers to define. 
-The policy of how to establish trusted# identity lists to validate embedded certificates is up to the 
-validation #signature handler. 
+). The specific treatment of attribute certificates and their processing is left to the particula#r 
+signature hand#lers to define. 
+The policy of how to establish truste#d i#dentity lists to validate embedded certificates is up to the 
+validat#ion signature han#dler. 
 12.8.3.3.2Revocation of CMS-based signatures 
  
-ETSI.CAdES.detached
-Sub#filter
+ETSI.CAdES.de#tached
+#Subfilter
 For signatures with a  value other than , the following rules apply. 
-The adbe Revocation Information attribute #object# identifier is specified as follows using #ASN.1 notation: 
-adbe-revocationInfoArchival #OBJECT# IDENTIFIER::= 
+The adbe Revocation Information a#ttribut#e obje#ct #identifier is specified as follows using #ASN.1 #notation: 
+adbe-revocationInf#oArchiv#al OBJ#ECT# IDENTIFIER::= 
         {adbe(1.2.840.113583) acrobat(1) security(1) 8} 
  
 The value of the revocation information attribute can include any of the following data types: 
@@ -160,34 +160,34 @@ Public Key Infrastructure Online Certificate Status Protocol—OCSP
 Online Certificate Status Protocol (OCSP) Responses, described in  
 : These are generally small and 
 • 
-should be the data type included in the CMS #object. 
+should be the data type included #in the# CMS object. 
 Custom revocation information: The format is not prescribed by this specification, other than that 
 it be encoded as an OCTET STRING. The application should be able to determine the type of data 
-contained within the OCTET STRING by looking at the associated #OBJECT# IDENTIFIER. 
-The #ASN.1 type of adbe's Revocation Information attribute value is RevocationInfoArchival defined as 
-follows using #ASN.1 notation: 
+contained within the OCTET STRING by looking at the# associ#ated OB#JEC#T IDENTIFIER. 
+The# ASN.1# type of adbe's Revocation Information attribute value is RevocationInfoArchival defined as 
+follows usin#g ASN.#1 notation: 
   RevocationInfoArchival::= SEQUENCE { 
    crl  [0] EXPLICIT SEQUENCE of CRLs, OPTIONAL 
    ocsp [1] EXPLICIT SEQUENCE of OCSPResponse, OPTIONAL 
    otherRevInfo [2] EXPLICIT SEQUENCE of OtherRevInfo, OPTIONAL 
   } 
-  OtherRevInfo::= SEQUENCE {Type #OBJECT# IDENTIFIER 
+  OtherRevInfo::= SE#QUENCE #{Type O#BJE#CT IDENTIFIER 
   Value OCTET STRING 
   } 
  
-12.8.3.4CAdES signatures as used in #PDF 
+12.8.3.4C#AdES si#gnatures as used in PDF 
  
 12.8.3.4.1General 
  
 Internet RFC 5652
-ETSI.CAdES.detachedPAdES signatures
-Sub#filter
-The Cryptographic Message Syntax (CMS)(see ) is used by CAdES signatures. The #PDF 
+ETSI.CAdES.detachedPAdES sig#natures#
+Subfilter
+The Cryptographic Message Syntax (CMS)(see ) is us#ed by# CAdES signatures. The PDF 
 CAdES profiles
 signatures using the  value  are referred to as  and they 
 follow one of two CMS profiles created to be compatible with the corresponding  defined 
-in ETSI EN 319 122. Com#bined with 12.8.4, "Long term validation of signatures" and 12.8.5, "Document 
-timestamp (DTS) dictionary" as described in ETSI EN 319 142-1 (PAdES), compati#bility with additional 
+in ETSI EN 319 12#2.# Combined with 12.8.4, "Long term validation of signatures" and 12.8.5, "Document 
+timestamp (DTS) dictionary" as described in ETSI EN 319 142-1 (PAdES), #co#mpatibility with additional 
 CAdES profiles can be achieved. 
 © ISO 2017 – All rights reserved 561 
 
@@ -195,11 +195,11 @@ ISO/DIS 32000-2
  
 12.8.3.4.2Signature dictionary for PAdES signatures 
  
-ETSI.CAdES.detached
-Sub#filterContents
+ETSI.CAdES.#detach#ed
+SubfilterContents
 When the  value is , the value of  shall be a DER-encoded CMS 
-SignedData ##binary data #object containing the signature. The signature dictionary shall follow the 
-specification given in 12.7.5.5, "Signature fields" with the following additional restrictions/constraints: 
+Signe#dD#ata## binary# data# object containing the signature. The signature dictionary shall follow the 
+specification given in 12.7.5.5, "Signature fields" with the following additional restrictions/constraints#: 
  #ByteRange 
 • 
 Contents
@@ -210,12 +210,12 @@ Theshall cover the entire file, including the signature dictionary but excluding
 M
 • 
 The signature dictionary shall not contain aentry.# 
-Either the time of signing may be indicated by the value of the  entry in the signature dictionary 
+Ei#ther the time of signing may be indicated by the value of the  entry in the signature dictionary 
 12.8.3.4.3Attributes for PAdES signatures 
  
 or the signing-time attribute may be used, but not both. 
 Contents
-The attributes in the SignedData #object used as the value of the signature dictionary  key shall 
+The attributes in #the Sig#nedData object used as the value of the signature dictionary  key shall 
 obey the following rules: 
  
  
@@ -256,8 +256,8 @@ j)signer-attributes-v2: may be used and shall follow the definition given in cla
 12.8.3.4.4Profiles of ETSI.CAdES.detached 
  
 k)Unsigned signature attributes not explicitly noted here may be ignored. 
-ETSI.CAdES.detached
-Sub#filter
+ETSI.CAdES#.detach#ed
+Subfilter
 The signatures using the  value  may follow one of two profiles denoted as 
 PAdES-E-BES (Basic Electronic Signature) and PAdES-E-EPES (Explicit Policy Electronic Signature). 
 These are defined to be compatible with the corresponding profiles defined in ETSI EN 319 122-2 (i.e., 
@@ -269,7 +269,7 @@ ISO/DIS 32000-2
 NOTE 1 These two CMS profiles are also denoted as PAdES-E-BES (Basic Electronic Signature) and PAdES-
 E-PES (Explicit Policy Electronic Signature) in ETSI EN 319 142-2. If discrepancies exist between 
 this document and those of ETSI, this document prevails. 
-The following attributes may be present within the CMS SignedData #object depending on the profile 
+The following attributes may be present within the# CMS Si#gnedData object depending on the profile 
 employed: 
 For both the PAdES-E-BES and the PAdES-E-PES profiles,  
 • 
@@ -282,46 +282,46 @@ For the PAdES-E-EPES profile,
 • 
 a signature-policy-identifier shall be present as a signed attribute. The rules from clause 5.2.9 in 
 CAdES (ETSI EN 319 122-1) shall apply. The parameters of the signature policy shall take 
-precedence over the seed values defined in 12.7.5.5, "Signature fields". Conforming #signature 
-handlers should enforce seed value constraints at signing time, if not overridden, and should 
-enforce signature policies constraints at signing time when possible. During validation conforming 
-#signature handlers should not enforce seed values constraints, if present, but shall enforce 
+precedence over the seed values defined in 12.7.5.5, "Signature fields". Confor#ming signature 
+ha#ndlers should enforce seed value constraints at signing time, if not overridden, and should 
+enforce signature policies constraints at signing time when possible. During validation confor#ming 
+signature h#andlers should not enforce seed values constraints, if present, but shall enforce 
 NOTE 3 It is important not to confuse the EPES defined attribute parameters with the "seed values" 
 signature policy constraints. 
 defined in clause 12.7.5.5, "Signature fields". While both bear similarities, seed values are 
 workflow constraints for a given document, whereas signature policies represent general 
 endorsement rules agreed upon by the signer and the verifier. 
-Further CAdES-T compatible capa#bilities may be provided after the time of the signature using one of 
+Further CAdES-T compat#ib#le capabilities may be provided after the time of the signature using one of 
 the following methods: 
 • 
 with the addition, by the signer, of a timestamp attribute within its signature when sufficient space 
 • 
 has been prepared for it (see ETSI EN 319 122). 
-with the addition, by the verifier, of a timestamp token that applies to the #PDF document as a 
+with the addition, by the verifier, of a timesta#mp t#oken that applies to the PDF document as a 
 whole (see 12.8.5, "Document timestamp (DTS) dictionary"). 
 In both cases, this demonstrates that the signer’s signature was created before the UTC time contained 
 in the timestamp token. 
 All signed attributes shall be checked for proper values by signature validation software. 
-12.8.3.4.5Requirements for validation of PAdES signatures 
+12.8.3.4.5Requirements for validation of PAdES sig#natures# 
  
-Sub#filter
+Subfilter
 ETSI.CAdES.detached
 For all profiles of PAdES signatures covered in this document (i.e., those with a  value of 
-), when the user opens a signed document or requests verification of these 
-signatures present in the #PDF, a ##PDF processor, as the verifier, shall perform the following steps to 
-verify them. 
+), when the user opens a signed document or requests verification of the#se #
+si#gnat#ures present in the PDF, a #PDF processor#, as the verifier, shall perform the following steps to 
+verify them.# 
 • 
-A #signature handler shall compare the hash value of the signer's certificate, with the hash value 
+A signature h#andler shall compare the hash value of the signer's certificate, with the hash value 
 given in the signing-certificate attribute or the signing-certificate-v2 attribute. If  the hashes do not 
-match, then the signature is considered invalid. The #signature handler shall use the public key 
+match, then the signature is considered inval#id. The signature #handler shall use the public key 
 contained in the signer's certificate to verify that the document digest found in the signature is 
 correctly signed. If this is not the case, then the signature is considered invalid. 
 © ISO 2017 – All rights reserved 563 
 
 ISO/DIS 32000-2
- 
+# 
 • 
-The #signature handler shall validate the path of certificates used to verify the #binding between the 
+The signature# handler shall validate the path of certificates used to v#er#ify the binding between the 
 subject distinguished name and subject public key as specified in RFC 5280 clause 6, using a set of 
 validation parameters.  The signature may be verified against a time other than the current time if 
   
@@ -335,26 +335,26 @@ signatures")). Otherwise, the local current time converted into the UTC shall be
 trusted indication of the signing time. 
 • 
 When the signer's signature is verified against the time indicated in the timestamp token present 
-in the Document timestamp dictionary, then the #signature handler shall also validate the path of 
+in the Document timestamp dictionary,# then the signatur#e handler shall also validate the path of 
 certificates used to verify the timestamp unit's certificate, as specified in RFC 5280 clause 6, using 
 • 
 a set of validation parameters which may be different from the previous one. 
 The revocation status of the certification path shall be checked as specified in 12.8.3.4.6, "Signature 
 12.8.3.4.6Signature revocation checking model for PAdES signatures 
  
-revocation checking model for PAdES signatures". 
-A #signature handler shall use# either, or both, of the following methods to check the revocation status of 
+revocation checking model for PAdES signa#tures". 
+A signatu#re handler shall us#e e#ither, or both, of the following methods to check the revocation status of 
 every certificate belonging to a certification path: 
 • 
 Certificate Revocation Lists (CRLs) obtained from Certification Authorities (CAs) or CRL Issuers 
-that are# identified using a set of validation parameters. Using a CRL, the certificate in question shall 
+th#at #are identified using a set of validation parameters. Using a CRL, the certificate in question shall 
 NOTE 1 In addition to the certificate issue date and the issuing entities, the CRL specifies revoked 
 be checked against a list of revoked certificates. 
 certificates and can also specify the reasons for revocation. Each CRL also contains a date at the 
 latest for the next release. 
 • 
 Online Certificate Status Protocol (OCSP) responses for obtaining the revocation status of a given 
-certificate from trusted network servers that are# identified using a set of validation parameters. 
+certificate from trusted network servers t#hat# are identified using a set of validation parameters. 
 For the verification of a signer's signature at a time located before the expiry of the signer's certificate, 
 two cases need to be considered: 
  
@@ -407,14 +407,14 @@ The following explanations only apply when the certificate of the timestamping u
 the timestamp token has not yet expired at the time of the verification. The scenario when it has expired 
 is addressed in 12.8.5.3, "Subsequent document timestamp dictionaries". 
 The reason for the revocation of a timestamping certificate and of every CA certificate belonging to the 
-certification path shall be indicated# either in the CRLs or in the OCSP responses that are being used. 
+certification path shall be indicat#ed #either in the CRLs or in the OCSP responses that are being used. 
 The revocation status of each certificate of the certification path of the timestamping unit's certificate 
 shall be checked at the current UTC time (i.e. not at a time in the past):  
 • 
 If no certificate has been revoked, then the UTC time included in the timestamp token can be 
 • 
 considered as reliable. 
-If a certificate has been revoked for a reason which is# either "keyCompromise" or "cACompromise" 
+If a certificate has been revoked for a reason which# is# either "keyCompromise" or "cACompromise" 
 or if the revocation reason is missing, then the UTC time included in the timestamp token cannot 
 be considered as reliable and the time indicated in the timestamp token cannot be used. The 
 benefits of the timestamp token are then lost and revocation checking should thus be done at the 
@@ -439,21 +439,21 @@ Long term validation (LTV) of signatures is achieved by using two types of dicti
 document security store (DSS) dictionaries, and  
 12.8.4.2Introduction to the document security store (DSS) 
  
-document timestamp dictionaries (DTS) (see 12.8.5, "Document timestamp (DTS) dictionary"). 
-A #PDF signature may not be successfully verified unless its collateral validation components are 
-preserved, e.g., certificates, CRLs, timestamp tokens, revocation lists, and OCSP responses. To facilitate 
-long term signature validation, #PDF supports the a#bility to collect validation information to verify a 
+document timestamp dictionaries (DTS) (see 12.8.5, "Document t#imes#tamp (DTS) dictionary"). 
+A PDF signature may not be successfully verified unless its collateral validation components are 
+preserved, e.g., certificates, CRLs, timestamp tokens, revocation lists, and OCSP responses. To facilitate #
+lon#g term signature validation, PDF sup#po#rts the ability to collect validation information to verify a 
 signature at a later time if it has been verified once as being valid. Some of this information, i.e. 
 certificates, CRLs and OCSP responses, when not already present in the signature, shall be stored in a 
 document security store (DSS), see 12.8.4.3, "Document Security Store (DSS)". This will provide the 
 information needed to verify a signature as this was done when that signature was first verified. 
-Without an authoritative timestamp token, a #signature handler is not able to verify a signature at a date 
+Without an authoritative timesta#mp token, a signat#ure handler is not able to verify a signature at a date 
 in the past to get the same validation result.  
 To allow this verification, one of the following is required:  
 • 
 • 
 a signature timestamp attribute (which contains a timestamp token), or 
-a timestamp token that applies to the #PDF document as a whole (see 12.8.5, "Document timestamp 
+a ti#mest#amp token that applies to the PDF document as a whole (see 12.8.5, "Document timestamp 
 (DTS) dictionary"). 
 When that timestamp token is already present in the CAdES signature (see 12.8.3.4.7, "Revocation 
 checking PAdES signatures at the current time") and if that timestamp token is valid, then the UTC time 
@@ -463,8 +463,8 @@ DSS dictionary shall be used to collect the certificates, CRLs and OCSP response
 validate that signature.  
 When there is no valid timestamp token present in the CAdES signature, or when such a timestamp 
 token is present but is considered as invalid, the DSS dictionary shall be used to collect the certificates, 
-CRLs and OCSP responses that are relevant to validate that signature and afterwards a timestamp token 
-that applies to the #PDF document as a whole shall be used and placed in a Document timestamp 
+CRLs and OCSP responses that are relevant to validate that signature and afterwards a ti#mest#amp token 
+that applies to the PDF document as a whole shall be used and placed in a Document timestamp 
 dictionary (DTS) as noted in 12.8.5, "Document timestamp (DTS) dictionary"). 
 A timestamp token is itself signed. The case where the certificate of the timestamping unit which has 
 issued that timestamp token has expired is addressed in 12.8.5.3, "Subsequent document timestamp 
@@ -477,23 +477,23 @@ attribute or to document timestamps, see 12.8.5, "Document timestamp (DTS) dicti
 after
   
 before
-TheDSSsupports the a#bility to add this critical information  the signed document has been created 
+TheDSSsu#pp#orts the ability to add this critical information  the signed document has been created 
 and  this information is no longer available. At the time of signing, all of the collateral validation 
 © ISO 2017 – All rights reserved 566 
 
 ISO/DIS 32000-2
  
-components may not be available for various reasons including the ina#bility to connect to remote 
-servers that provide them (e.g. the user is offline) or the ina#bility of the signer to bear the financial or 
-time costs associated with obtaining these components. Also, in many workflows it is the recipient of a 
-signed #PDF document who is interested in a long term validation of the signatures and not the signer of 
+components may not be available for various reasons incl#ud#ing the inability to connect to remote 
+servers that provide them (e.g. the user is offli#ne#) or the inability of the signer to bear the financial or 
+time costs associated with obtaining these components. Also, in many workflo#ws i#t is the recipient of a 
+signed PDF document who is interested in a long term validation of the signatures and not the signer of 
 the document. 
-The relevant validation data for each signature may be# identified from the security store using a VRI 
-dictionary (see 12.8.4.4, "Validation-related information (VRI)") for optimisation or to remove 
-am#biguity of the validation data used to validate a specific signature. 
+The relevant validation data for each signatur#e m#ay be identified from the security store using a VRI 
+dictionary (see 12.8.4.4, "Validation-related information (VRI)") for optimisation o#r #to remove 
+ambiguity of the validation data used to validate a specific signature. 
 NOTE A benefit of using a DSS dictionary is that those components which are common to several 
 signatures (e.g. certificates and revocation lists) can be stored in this dictionary once and 
-referenced where ever they are needed. This can greatly reduce the size of a #PDF document that 
+referenced where ever they are needed. T#his #can greatly reduce the size of a PDF document that 
 contains several signatures. 
 12.8.4.3Document Security Store (DSS) 
  

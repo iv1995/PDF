@@ -1,12 +1,12 @@
 #Figure 58: 
-Horizontal scaling" shows the effect of horizontal scaling. 
+Horizontal scaling#" shows the effect of horizontal scaling. 
 © ISO 2017 – All rights reserved 296 
 
 ISO/DIS 32000-2
- ![Figure 58 Horizontal scaling  .png](./Storage/Output/Images/Figure 58 Horizontal scaling  .png)
-#Figure 58: Horizontal scaling 
+ ![Figure 58 Horizontal scaling  .png](./Storage/Output/Images/Figure 58 Horizontal scaling  .png)#
+Figure 58: Horizontal scaling 
  
- 
+ #
 9.3.5Leading 
  
 T

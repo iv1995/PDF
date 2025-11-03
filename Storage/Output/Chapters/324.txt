@@ -1,24 +1,24 @@
-#Table 164: Entries in a transition dictionary" shows the 
+#Table 164: Entries in a transition dictionary#" shows the 
 contents of the transition dictionary. (Some of the entries shown are needed only for certain transition 
 styles, as indicated in the table.) 
  Dur 
-Theentry in the page #object specifies the page’s display duration (also called its advance timing): 
+Theentry in the page #object #specifies the page’s display duration (also called its advance timing): 
 the maximum length of time, in seconds, that the page shall be displayed before the presentation 
 automatically advances to the next page. 
 NOTE 1 The user can advance the page manually before the specified time has expired. 
  Dur 
-If noentry is specified in the page #object, the page shall not advance automatically. 
+If noentry is specified in the page# objec#t, the page shall not advance automatically. 
 © ISO 2017 – All rights reserved 450 
 
 ISO/DIS 32000-2
- 
-#Table 164: Entries in a transition dictionary 
+ #
+Table 164: Entries in a transition dictionary #
 Key Type Value 
 (Optional) 
 Type  
 Trans
  
-name The type of #PDF #object that this dictionary describes; if present, shall be
+name The type of #PD#F #objec#t that this dictionary describes; if present, shall be
 for a transition dictionary. 
 (Optional) transition style 
 S 
@@ -28,14 +28,14 @@ Split
 another during a presentation. Default value: . 
 Two lines sweep across the screen, revealing the new page. The lines 
  Dm 
-may be# either horizontal or vertical and may move inward from the 
+may be# ei#ther horizontal or vertical and may move inward from the 
 M
 edges of the page or outward from the centre, as specified by the
 Blinds 
 and  entries, respectively. 
 Multiple lines, evenly spaced across the screen, synchronously sweep 
  Dm 
-in the same direction to reveal the new page. The lines may be# either 
+in the same direction to reveal the new page. The lines may b#e e#ither 
 horizontal or vertical, as specified by theentry. Horizontal lines 
 Box 
 move downward; vertical lines move to the right. 
@@ -57,7 +57,7 @@ R
 direction specified by theentry. 
 D
 The new page simply replaces the old one with no special transition 
-Fly (#PDF 1.5) 
+Fly #(PDF# 1.5) 
 M
 effect; the  entry shall be ignored. 
 Di
@@ -65,19 +65,19 @@ Changes are flown out or in (as specified by ), in the
 None
  Di 
 direction specified by , to or from a location that is offscreen except 
-Push (#PDF 1.5) 
+Push# (PD#F 1.5) 
 whenis . 
 Di
 The old page slides off the screen while the new page slides 
-Cover (#PDF 1.5) 
+Cove#r (P#DF 1.5) 
 in, pushing the old page out in the direction specified by . 
 Di
 The new page slides on to the screen in the direction 
-Uncove(#PDF 1.5) 
+Unc#ove(#PDF 1.5) 
 specified by , covering the old page. 
 Di Di
 r The old page slides off the screen in the direction specified 
-Fade (#PDF 1.5) 
+F#ade #(PDF 1.5) 
 by , uncovering the new page in the direction specified by. 
  
 The new page gradually becomes visible through the old 
@@ -116,8 +116,8 @@ Di
 number or The 
 name direction in which the specified transition effect shall moves, expressed in degrees 
 Rotate
-counterclockwise starting from a left-to-right direction. (This differs from the page 
-#object’s  entry, which is measured clockwise from the top.) 
+counterclockwise starting from a left-to-right direction. (This differs from the pag#e 
+obj#ect’s  entry, which is measured clockwise from the top.) 
 If the value is a number, it shall be one of: 
 Wipe
 0 Left to right 
@@ -133,7 +133,7 @@ If the value is a name, it shall be , which is relevant only for the  transition
  
 when the value ofis not 1.0. 
 Default value: 0.
-Optional; #PDF 1.5; Fly transition style only) 
+Opti#onal#; PDF 1.5; Fly transition style only) 
 SS 
 M
 number (The starting or ending scale at which 
@@ -145,7 +145,7 @@ specifies an outward transition, the scale of the changes drawn shall progress f
  
 1.0 toover the course of the transition 
 Default: 1.0.
-Optional; #PDF 1.5; Fly transition style onlytrue
+Opt#iona#l; PDF 1.5; Fly transition style onlytrue
 B 
 false
 boolean () If , the area that shall be flown in is 

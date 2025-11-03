@@ -1,13 +1,13 @@
-#Table 198: Entries in a page #object’s additional-actions dictionary
+#Table 198: Entries in a page #object#’s additional-actions dictionary
  
-and theentry in the document  (see "Table 29: Entries in the 
+#and theentry in the document  (see "Table 29: Entries in the 
 catalog dictionary"), if such actions are present.
 © ISO 2017 – All rights reserved 493 
 
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; #PDF 1.5) 
+(Optional; #PDF #1.5) 
 PC 
 dictionary An action that shall be performed when the page containing the 
 annotation is closed. 
@@ -16,19 +16,19 @@ a link annotation or outline item.
 C
 The action shall be executed before the  action in the page’s additional-actions 
  
-dictionary (see "#Table 198: Entries in a page #object’s additional-actions 
-dictionary"), if present.
-(Optional; #PDF 1.5) 
+dictionary (see #"Table 198: Entries in a page# objec#t’s additional-actions 
+dictionar#y"), if present.
+(Optional;# PDF# 1.5) 
 PV 
 dictionary An action that shall be performed when the page containing the 
 annotation becomes visible. 
-(Optional; #PDF 1.5) 
+(Optional#; PD#F 1.5) 
 PI 
 dictionary An action that shall be performed when the page containing the 
-annotation is no longer visible in the #interactive ##PDF processor’s user interface. 
-#Table 198: Entries in a page #object’s additional-actions dictionary 
+annotation is no longer visible in the #interacti#ve #P#DF processor##’s user interface.# 
+Table 198: Entries in a pag#e obje#ct’s additional-actions dictionary# 
 Key Type Value 
-(Optional; #PDF 1.2) 
+(Option#al; #PDF 1.2) 
 O 
 dictionary An action that shall be performed when the page is opened (for 
 example, when the user navigates to it from the next or previous page or by means 
@@ -36,7 +36,7 @@ example, when the user navigates to it from the next or previous page or by mean
 of a link annotation or outline item). This action is independent of any that may be 
 defined by theentry in the document catalog dictionary (see 7.7.2, 
 "Document catalog dictionary") and shall be executed after such an action. 
-(Optional; #PDF 1.2) 
+(Optio#nal;# PDF 1.2) 
 C 
 dictionary An action that shall be performed when the page is closed (for 
 example, when the user navigates to the next or previous page or follows a link 

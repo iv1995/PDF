@@ -1,22 +1,22 @@
 #Table 273: Entries common to all 
-requirement dictionaries". 
+requirement dictionaries#". 
 © ISO 2017 – All rights reserved 586 
 
 ISO/DIS 32000-2
- 
-#Table 273: Entries common to all requirement dictionaries 
+ #
+Table 273: Entries common to all requirement dictionaries #
 Key Type Description 
 (Optional) 
 Type 
 Requirement
   
-name The type of #PDF #object that this dictionary describes. If present, shall 
+name The type of #PDF ##object #that this dictionary describes. If present, shall 
 befor a requirement dictionary. 
 (Required) 
 S 
 name The type of requirement that this dictionary describes. See "Table 274: 
 Requirement types" for valid values. 
-(Optional; #PDF 2.0) 
+(Optional;# PDF# 2.0) 
 V 
 name or The minimum version level of support needed to satisfy the 
 dictionary requirement. See 12.11.4, "Requirement versions". If this entry is absent, 
@@ -24,22 +24,22 @@ determining if the requirement is satisfied shall be done without regard to
 version number. 
  
 Unless otherwise mentioned in the entries in "Table 274: Requirement types", the 
-value shall represent the #PDF version.
+value shall represent th#e PD#F version.
 (Optional) 
 RH 
 dictionary An alternative requirement handler dictionary or an array of such 
-or array of dictionaries. Each dictionary# identifies a requirement handler that shall be 
+or array of dictionaries. Each dictionary# id#entifies a requirement handler that shall be 
 S
-dictionaries disabled (not invoked) if the #interactive ##PDF processor can check the 
+dictionaries disabled (not invoked) if the #interacti#ve #P#DF processor ##can check the 
 requirement specified in the  entry (whether or not it can satisfy that 
  
 requirement). See 12.11.5, "Requirement handlers". 
 Default value: an empty array.
-(Optional; #PDF 2.0) 
+(Option#al; #PDF 2.0) 
 Penalty 
 integer An integer value that shall be between 0 and 100 (inclusive) 
 that represents the penalty value to be applied when this requirement cannot be 
-met by a ##PDF processor. 
+met #by a## PDF processo#r. 
 Default value is 100. 
  
 S

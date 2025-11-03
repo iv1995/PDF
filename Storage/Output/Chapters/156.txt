@@ -1,5 +1,5 @@
 #Table 62: Entries in a CalGray colour space dictionary 
-Key Type Value 
+#Key Type Value 
 WWW
 RequiredX
 WhitePoint 
@@ -41,7 +41,7 @@ The transformation defined by the  and  entries is
 A
  
 L, MN
-In other words, the  component shall be first decoded by the gamma #function, and the result shall be 
+In other words, the  component shall be first decoded by the gamma #function#, and the result shall be 
 L, MN
 multiplied by the components of the white point to obtain the , and  components of the 
 X, YZ
@@ -56,7 +56,7 @@ recommended D65 white point.
    <</WhitePoint [0.9505 1.00 1.0890]>> 
 ] 
 EXAMPLE 2 This example establishes a calibrated gray space with the CCIR XA/11–recommended D65 white point and 
-opto-electronic transfer #function. 
+opto-electronic transfer# functio#n. 
 [/CalGray 
    <</WhitePoint [0.9505 1.00 1.0890] 
      /Gamma 2.222 
@@ -76,9 +76,9 @@ Acolour space is a CIE-based  colour space with only one transformation stage in
 two. In this type of spaceand  represent calibrated red, green, and blue colour values. These three 
 colour components shall be in the range 0.0 to 1.0; component values falling outside that range shall be 
 ABC
-adjusted to the nearest valid value without error indication. The decoding #functions (denoted by 
+adjusted to the nearest valid value without error indication. The decodin#g functi#ons (denoted by 
 Gamma
-"Decode " in "#Figure 24: Component transformations in a CIE-based ABC colour space") are gamma 
-#functions whose coefficients shall be specified by the  entry in the colour space dictionary (see 
+"Decode " in "#Figure 24: Component transformations in a CIE-based ABC colour space#") are gamm#a 
+funct#ions whose coefficients shall be specified by the  entry in the colour space dictionary (see 
 ABC
 "

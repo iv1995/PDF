@@ -1,30 +1,30 @@
-#Table 348: Additional entry for components having metadata"). 
-#Object level metadata can also be associated with marked content within a #content stream, by including 
+#Table 348: Additional entry for components having metadata#"). 
+#Object #level metadata can also be associated with marked content within a #content stream#, by including 
 a metadata stream in the property list dictionary for this marked content. Because a stream dictionary 
-is always an #in#direct #object, a property list containing a metadata stream cannot be encoded inline in 
-the #content stream, but needs to be encoded as a named resource (see 14.6.2, "Property lists"). 
-In general, any #PDF stream or dictionary may have metadata attached to it as long as the stream or 
+is always an #in#direct# object###, a property list containing a metadata stream cannot be encoded inline in 
+the# content strea#m, but needs to be encoded as a named resource (see 14.6.2, "Property lists"). 
+In general, any #PDF #stream or dictionary may have metadata attached to it as long as the stream or 
 Metadata
-dictionary represents an actual information resource. When there is am#biguity about exactly which 
+dictionary represents an actual information resource. When there is am#bi#guity about exactly which 
 stream or dictionary may bear the  entry, the metadata shall be attached as closely as possible 
-to the #object that actually stores the data resource described. 
-#Table 348: Additional entry for components having metadata 
+to th#e objec#t that actually stores the data resource described. #
+Table 348: Additional entry for components having metadata #
 Key Type Value 
-Optional; #PDF 1.4
+Optional;# PDF# 1.4
 Metadata 
 stream () A metadata stream containing metadata for the component. 
  
-NOTE 1 Metadata descri#bing ancolour space needs to be attached to the #ICC profile stream 
+NOTE 1 Metadata descr#ib#ing ancolour space needs to be attached to the #ICC profile #stream 
  ICCBased 
-descri#bing it, and metadata for #fonts needs to be attached to #font file streams rather than to #font 
-dictionaries. Metadata descri#bing a tiling pattern needs to be attached to the pattern stream’s 
+desc#ri#bing it, and metadata for #font#s needs to be attached to# font# file streams rather than t#o font# 
+dictionaries. Metadata des#cr#ibing a tiling pattern needs to be attached to the pattern stream’s 
 dictionary, but a shading needs to have metadata attached to the shading dictionary rather than 
 to the shading pattern dictionary that refers to it. 
-NOTE 2 In tables defining document #objects, the  entry is listed only for those document #objects 
+NOTE 2 In tables defining docume#nt obj#ects, the  entry is listed only for those docum#ent ob#jects 
 Metadata
-in which it is most likely to be used. However, a  entry can appear in other #objects as 
+in which it is most likely to be used. However, a  entry can appear in o#ther o#bjects as 
 Metadata
-long as those #objects are represented as streams or dictionaries. 
+long as #those #objects are represented as streams or dictionaries. 
 © ISO 2017 – All rights reserved 690 
 
 ISO/DIS 32000-2
@@ -33,6 +33,6 @@ ISO/DIS 32000-2
  
  Info 
 document information dictionary
-Theentry in the trailer of a #PDF file (see 7.5.5, "File trailer") is optional and if present shall hold a 
+Theentry in the trailer of #a PD#F file (see 7.5.5, "File trailer") is optional and if present shall hold a 
 document information dictionary
  (see "

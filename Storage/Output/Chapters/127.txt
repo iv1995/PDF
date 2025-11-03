@@ -1,50 +1,50 @@
-#Figure 9: Graphics #Objects 
+#Figure 9: Graphics #Object#s 
  
-mre
+#mre
 WW
-EXAMPLE The path construction operators  and  signal the beginning of a path #object. Inside the path #object, 
+EXAMPLE The path construction operators  and  signal the beginning of a path# objec#t. Inside the pat#h obje#ct, 
 wJSf
 additional path construction operators are permitted, as are the clipping path operators  and *, but not 
-general #graphics state operators such as  or . A path-painting operator, such as  or , ends the path #object 
+general #graphics state #operators such as  or . A path-painting operator, such as  or , ends the pa#th objec#t 
 and returns to the page description level. 
-NOTE A ##PDF reader can process a #content stream whose operations violate these rules for descri#bing 
-graphics #objects and can produce unpredictable behaviour, even though it can display and print 
- correctly. ##PDF processors that attempt to extract graphics #objects for editing or other 
-purposes often depend on the #objects being well formed. The rules for graphics #objects are also 
+NOTE A ##PDF #reader #can process a #content stream #whose operations violate these rules for descri#bi#ng 
+graph#ics ob#jects and can produce unpredictable behaviour, even though it can display and print 
+ correctly.# #PDF# processor#s that attempt to extract grap#hics o#bjects for editing or other 
+purposes often depend o#n the #objects being well formed. The rules for gr#aphics# objects are also 
 the stream
 important for the proper interpretation of marked content (see 14.6, "Marked content"). 
-A graphics #object also implicitly includes all #graphics state parameters that affect its behaviour. For 
-instance, a path #object depends on the value of the current colour parameter at the moment the path 
-#object is defined. The effect shall be as if this parameter were specified as part of the definition of the 
-path #object. However, the operators that are invoked at the page description level to set #graphics state 
+A g#raphics# object also implicitly includes all# graphics state# parameters that affect its behaviour. For 
+instance#, a pat#h object depends on the value of the current colour parameter at the moment #the pat#h 
+object is defined. The effect shall be as if this parameter were specified as part of the definition of# the 
+#path object. However, the operators that are invoked at the page description level to se#t graphics state# 
 © ISO 2017 – All rights reserved 146 
 
 ISO/DIS 32000-2
  
-parameters shall not be considered to belong to any particular graphics #object. #Graphics state 
-parameters should be specified only when they change. A graphics #object can depend on parameters 
+parameters shall not be considered to belong to any particul#ar grap#hics objec#t. Graphics stat#e 
+parameters should be specified only when they change#. A gra#phics object can depend on parameters 
 that were defined much earlier. 
-Similarly, the individual #character strings within a text #object implicitly include the #graphics state 
-parameters on which they depend. Most of these parameters may be set inside or outside the text 
-#object. The effect is as if they were separately specified for each text string. 
-The important point is that there is no semantic significance to the exact arrangement of #graphics state 
-operators. When processing a #PDF #content stream a ##PDF processor may change an arrangement of 
-#graphics state operators to any other arrangement that achieves the same values of the relevant 
-#graphics state parameters for each graphics #object. ##PDF processors shall not infer any higher-level 
+Similarly, the individual #character #strings #within #a text object implicitly include #the graphics sta#te 
+parameters on which they depend. Most of these parameters may be set inside or out#side t#he text 
+object. The effect is as if they were separately specified for each text string. 
+The important point is that there is no semantic significance to the exact arrangemen#t of graphics st#ate 
+operators. When processing #a PDF## content stream## a# P#DF processor# may change an arrangemen#t of 
+graphics #state operators to any other arrangement that achieves the same values of the rel#evant 
+graphics# state parameters fo#r each# graphics obje#ct.# #PDF process#ors shall not infer any higher-level 
 marked content
-logical semantics from the arrangement of tokens constituting a graphics #object. A separate mechanism, 
+logical semantics from the arrangement of tokens constit#uting #a graphics object. A separate mechanism, 
  (see 14.6, "Marked content"), allows such higher-level information to be explicitly 
-associated with the graphics #objects. 
+associated #with t#he graphics objects. 
 8.3Coordinate systems 
  
 8.3.1General 
  
 Coordinate systems define the canvas on which all painting occurs. They determine the position, 
 orientation, and size of the text, graphics, and images that appear on a page. This subclause describes 
-each of the coordinate systems used in #PDF, how they are related, and how transformations among 
+each of the coordinate systems use#d i#n PDF, how they are related, and how transformations among 
 them are specified. 
-NOTE The coordinate systems discussed in this subclause apply to two-dimensional graphics. #PDF 1.6 
-introduced the a#bility to display 3D artwork, in which #objects are described in a three-dimensional 
+NOTE The coordinate systems discussed in this subclause apply to two-dimensional grap#hics#. PDF 1.6 
+introduced the #ab#ility to display 3D# artwo#rk, in which objects are described in a three-dimensional 
 coordinate system, as described in 13.6.5, "Coordinate systems for 3D". 
 8.3.2Coordinate spaces 
  
@@ -52,7 +52,7 @@ coordinate system, as described in 13.6.5, "Coordinate systems for 3D".
  
 coordinates
 xy
-Paths and positions shall be defined in terms of pairs o#f  on the Cartesian plane. A coordinate 
+Paths and positions shall be defined in terms of pairs o#f  on t#he Cartesian plane. A coordinate 
 coordinate space
 pair is a pair of real numbers  and  that locate a point horizontally and vertically within a two-
 dimensional . A coordinate space is determined by the following properties with 
@@ -63,8 +63,8 @@ xy
 The location of the origin 
 • 
 The orientation of the  and  axes 
-The lengths of the units along each axis 
-#PDF defines several coordinate spaces in which the coordinates specifying graphics #objects shall be 
+The lengths of the units along each# axi#s 
+PDF defines several coordinate spaces in which the coordinates #specif#ying graphics objects shall be 
 interpreted. The following subclauses describe these spaces and the relationships among them. 
 transformation matrices
 Transformations among coordinate spaces shall be defined by , which can 
@@ -87,7 +87,7 @@ printers and imagesetters in different directions, the axes of their device spac
 differently. For instance, vertical () coordinates may increase from the top of the page to the bottom on 
 some devices and from bottom to top on others. Finally, different devices have different resolutions; 
 some even have resolutions that differ in the horizontal and vertical directions. 
-NOTE If coordinates in a #PDF file were specified in device space, the file would be device-dependent and 
+NOTE If coordinat#es i#n a PDF file were specified in device space, the file would be device-dependent and 
 would appear differently on different devices. 
 EXAMPLE Images specified in the typical device spaces of a 72-pixel-per-inch display and a 600-dot-per-inch printer 
 would differ in size by more than a factor of 8; an 8-inch line segment on the display would appear less than 1 

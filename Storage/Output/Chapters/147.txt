@@ -1,11 +1,11 @@
-#Table 60: Clipping path operators") may appear after the last path construction operator and before 
-the path-painting operator that terminates a path #object. Although the clipping path operator appears 
+#Table 60: Clipping path operators#") may appear after the last path construction operator and before 
+the path-painting operator that terminates a path #object#. Although the clipping path operator appears 
 After
 before the painting operator, it shall not alter the clipping path at the point where it appears. Rather, it 
 shall modify the effect of the succeeding painting operator.  the path has been painted, the clipping 
-path in the #graphics state shall be set to the intersection of the current clipping path and the newly 
-constructed path. 
-#Table 60: Clipping path operators 
+path in the #graphics state #shall be set to the intersection of the current clipping path and the newly 
+constructed path. #
+Table 60: Clipping path operators #
 Operands Operator Description 
 — 
 W 
@@ -20,18 +20,18 @@ rule to determine which regions lie inside the clipping path.
 
 ISO/DIS 32000-2
  
-NOTE 1 In addition to path #objects, text #objects can also be used for clipping; see 9.3.6, "Text rendering 
+NOTE 1 In addition to path# objec#ts, tex#t obje#cts can also be used for clipping; see 9.3.6, "Text rendering 
 mode". 
 n
-The  operator (see "#Table 59: Path-painting operators") is a no-op path-painting operator; it shall 
+The  operator (see "#Table 59: Path-painting operators#") is a no-op path-painting operator; it shall 
 W n
 cause no marks to be placed on the page, but can be used with a clipping path operator to establish a 
 new clipping path. That is, after a path has been constructed, the sequence  shall intersect that path 
 with the current clipping path and shall establish a new clipping path. 
 NOTE 2 There is no way to enlarge the current clipping path or to set a new clipping path without 
-reference to the current one. However, since the clipping path is part of the #graphics state, its 
-effect can be localized to specific graphics #objects by enclosing the modification of the clipping 
-path and the painting of those #objects between a pair of and operators (see 8.4.2, "Graphics 
+reference to the current one. However, since the clipping path is part of the# graphics stat#e, its 
+effect can be localized to specific graphi#cs obj#ects by enclosing the modification of the clipping 
+path and the painting of th#ose ob#jects between a pair of and operators (see 8.4.2, "Graphics 
 q  Q
 state stack"). Execution of the  operator causes the clipping path to revert to the value that was 
 Q
@@ -41,12 +41,12 @@ q
  
 8.6.1General 
  
-#PDF includes facilities for specifying the colours of graphics #objects. The colour facilities are divided 
+#PDF #includes facilities for specifying the colours of grap#hics o#bjects. The colour facilities are divided 
 into two parts: 
 Colour specification
 • 
 colour spaces
-. A #PDF file may specify abstract colours in a device-independent way. Colours 
+. A# PDF# file may specify abstract colours in a device-independent way. Colours 
 RGB, CMYK
 may be described in any of a variety of colour systems, or . Some colour spaces are 
 related to device colour representation (grayscale, ), others to human visual perception 
@@ -54,19 +54,19 @@ related to device colour representation (grayscale, ), others to human visual pe
 Colour rendering
 • 
 separations, and high-fidelity and multitone colour. 
-. A ##PDF reader shall reproduce colours on the raster output device by a multiple-
-step process that includes some com#bination of colour conversion, gamma correction, halftoning, 
-and scan conversion. Some aspects of this process use information that is specified in #PDF. 
+. #A #PD#F reader #shall reproduce colours on the raster output device by a multiple-
+step process that includes some com#bi#nation of colour conversion, gamma correction, halftoning, 
+and scan conversion. Some aspects of this process use information that is specified #in #PDF. 
 However, unlike the facilities for colour specification, the colour-rendering facilities are device-
 dependent and should not be included in a page description. 
 When the device is a subtractive colour device, "rendering for separations" may be implemented (see 
-10.8.2, "Separations"). In addition, a ##PDF reader may optionally support "separation simulation" for any 
+10.8.2, "Separations"). In addition#, a ##PDF reader# may optionally support "separation simulation" for any 
 device (see 10.8.3, "Separation simulation"). In both cases overprinting (see 8.6.7, "Overprint control") 
-may be enabled. "#Figure 20: Colour specification" and "#Figure 21: Colour rendering" illustrate the 
-division between #PDF’s (device-independent) colour specification and (device-dependent) colour-
-rendering facilities. This subclause describes the colour specification features, covering everything that 
-#PDF documents need to specify colours. The facilities for controlling colour rendering are described in 
-clause 10, "Rendering"; a ##PDF processor should use these facilities only to configure or calibrate an 
+may be enabled. "#Figure 20: Colour specification#" and "#Figure 21: Colour rendering#" illustrate the 
+division bet#wee#n PDF’s (device-independent) colour specification and (device-dependent) colour-
+rendering facilities. This subclause describes the colour specification features, covering everything #that# 
+PDF documents need to specify colours. The facilities for controlling colour rendering are described in 
+clause 10, "Renderi#ng";# a #PDF processor #should use these facilities only to configure or calibrate an 
 output device or to achieve special device-dependent effects. 
 8.6.2Colour values 
  
@@ -74,7 +74,7 @@ fS
 current colour
 As described in 8.5.3, "Path-painting operators", marks placed on the page by operators such as  and  
 colour components
-shall have a colour that is determined by the  parameter of the #graphics state. A colour 
+shall have a colour that is determined by the  parameter of th#e graphics sta#te. A colour 
 value consists of one or more , which are usually numbers. A gray level shall be 
 specified by a single number ranging from 0.0 (black) to 1.0 (white). Full colour values may be specified 
 in any of several ways; a common method uses three numeric values to specify red, green, and blue 
@@ -85,25 +85,25 @@ ISO/DIS 32000-2
  
 CS
 Colour values shall be interpreted according to the current colour space, another parameter of the 
-cs
-#graphics state. A #PDF #content stream first selects a colour space by invoking the  operator (for the 
+#cs
+graphics st##ate.# A PDF #content stream #first selects a colour space by invoking the  operator (for the 
 SCsc
 stroking colour) or the  operator (for the nonstroking colour). It then selects colour values within that 
 , , , — 
 GgRGrgKk 
 colour space with the  operator (stroking) or the  operator (nonstroking). There are also 
 convenience operators — , , and that select both a colour space and a colour value 
-within it in a single step. "#Table 73: Colour operators" lists all the colour-setting operators. 
+within it in a single step. "#Table 73: Colour operators#" lists all the colour-setting operators. 
 Sampled images (see 8.9, "Images") specify the colour values of individual samples with respect to a 
-colour space designated by the image #object itself. While these values are independent of the current 
+colour space designated by the #image o#bject itself. While these values are independent of the current 
 SCsc
-colour space and colour parameters in the #graphics state, all later stages of colour processing shall treat 
+colour space and colour parameters in #the graphics s#tate, all later stages of colour processing shall treat 
 them in exactly the same way as colour values specified with the  or  operator. 
 8.6.3Colour space families 
  
 colour space families
 Colour spaces are classified into . Spaces within a family share the same general 
-#characteristics; they shall be distinguished by parameter values supplied at the time the space is 
+#character#istics; they shall be distinguished by parameter values supplied at the time the space is 
 specified. The families fall into three broad categories: 
 Device colour spaces
 • 
@@ -122,8 +122,8 @@ CIE-based colour spaces
 colour spaces. 
  shall be based on an international standard for colour specification created 
 by the Commission Internationale de l’Éclairage (International Commission on Illumination). 
-CalGrayCalRGBLa#bICCBased
-These spaces specify colours in a way that is independent of the #characteristics of any particular 
+CalGrayCalRGBL#ab#ICCBased
+These spaces specify colours in a way that is independent of the# characte#ristics of any particular 
 output device. Colour space families in this category include , , , and . 
 Individual colour spaces within these families shall be specified by means of dictionaries 
 Special colour spaces

@@ -1,26 +1,26 @@
 #Table 
-86: X#Object operator"). This operator applies to any type of X#Object — image or form. The syntax is the 
+86: X#Object #operator#"). This operator applies to any type of #XObject# — image or form. The syntax is the 
 same in all cases, although details of the operator’s behaviour differ depending on the type. 
 © ISO 2017 – All rights reserved 248 
 
 ISO/DIS 32000-2
- 
-#Table 86: X#Object operator 
+ #
+Table 86:# XObjec#t operator #
 Operands Operator Description 
 name name
-Do X#Object
-X#Object
+D#o XObje##ct
+XObj#ect
 Paint the specified . The operand  shall appear as a key in 
-the  subdictionary of the current #resource dictionary (see 7.8.3, 
-TypeX#ObjectDo
+the  subdictionary of the current #resource dictionary #(see 7.8.3, 
+#TypeXO#bjectDo
 "Resource dictionaries"). The associated value shall be a stream whose 
 Subtype Image 
  entry, if present, is . The effect of  depends on the value 
 Form
-of the X#Object’s  entry, which may be(see 8.9.5, "Image 
-dictionaries") or  (see 8.10, "Form X#Objects"). 
+of# the X#Object’s  entry, which may be(see 8.9.5, "Image 
+dictionaries") or  (see 8.10, #"Form #XObjects"). 
  
-Annex J, "X#Object Comparison", contains one method by which X#objects can be compared for 
+Ann#ex J, "#XObject Comparison", contains one method b#y whic#h Xobjects can be compared for 
 equivalency. 
 8.9Images 
  
@@ -28,7 +28,7 @@ equivalency.
  
 sampled image
 sample values
-#PDF’s painting operators include general facilities for dealing with sampled images. A  
+#PDF#’s painting operators include general facilities for dealing with sampled images. A  
 (or just image for short) is a rectangular array of , each representing a colour. The image 
 may approximate the appearance of some natural scene obtained through an input scanner or a video 
 camera, or it may be generated synthetically. ![Figure 48 Typical sampled image  .jpg](./Storage/Output/Images/Figure 48 Typical sampled image  .jpg)

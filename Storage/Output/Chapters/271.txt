@@ -1,15 +1,15 @@
-#Table 126: Predefined spot #functions" shows the predefined spot #functions. The table gives the 
-mathematical definition of each #function along with the corresponding PostScript language code as it 
-would be defined in a PostScript calculator #function (see 7.10.5, "Type 4 (PostScript calculator) 
-#functions"). The image accompanying each #function shows how the relative values of the #function are 
+#Table 126: Predefined spot #function#s#" shows the predefined spot# functio#ns. The table gives the 
+mathematical definition of eac#h functio#n along with the corresponding PostScript language code as it 
+would be defined in a PostScript calculat#or functi#on (see 7.10.5, "Type 4 (PostScript calculato#r) 
+func#tions"). The image accompanying #each func#tion shows how the relative values o#f the fun#ction are 
 distributed over the halftone cell, indicating the approximate order in which pixels are whitened. Pixels 
 corresponding to darker points in the image are whitened later than those corresponding to lighter 
 points. 
 © ISO 2017 – All rights reserved 359 
 
 ISO/DIS 32000-2
- 
-#Table 126: Predefined spot #functions 
+ #
+Table 126: Predefine#d spot f#unctions #
 Name Appearance Definition 
 SimpleDot 
 22

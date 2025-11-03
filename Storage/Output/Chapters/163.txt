@@ -1,14 +1,14 @@
-#Table 67: #ICC profile types" for specifying 
+#Table 67: #ICC profile #types#" for specifying 
 both
-calibrated colour spaces for colouring graphics #objects. Each of the indicated fields shall have one 
+calibrated colour spaces for colouring graphics #object#s. Each of the indicated fields shall have one 
 of the values listed for that field in the second column of the table. Profiles shall satisfy  the 
 • 
-criteria shown in the table. The terminology is taken from the #ICC specifications. 
+criteria shown in the table. The terminology is taken from the #ICC specification#s. 
 Profiles shall conform to the specification version indicated by the Profile version number in its 
-NOTE 1  and 16-#bit L*a*b* profiles are not listed. 
+NOTE 1  and 16-#bi#t L*a*b* profiles are not listed. 
 header. 
-XYZ
-#Table 67: #ICC profile types 
+XYZ#
+Table 67:# ICC profile# types #
 Header Field Required Value 
 deviceClass 
 icSigInputClass ('scnr') 
@@ -22,7 +22,7 @@ icSigCmykData ('CMYK')
 icSigLabData ('Lab ') 
  
  ICCBased 
-The terminology used in #PDF colour spaces and ICC colour profiles is similar, but sometimes the same 
+The terminology used in #PDF #colour spaces and ICC colour profiles is similar, but sometimes the same 
 terms are used with different meanings. The default value for each component in ancolour 
-space is 0. The range of each colour component is a #function of the colour space specified by the profile 
-and is indicated in the #ICC specification. The ranges for several ICC colour spaces are shown in "
+space is 0. The range of each colour component is a #function #of the colour space specified by the profile 
+and is indicated in the# ICC specificatio#n. The ranges for several ICC colour spaces are shown in "

@@ -1,4 +1,4 @@
-#Figure 116: Page boundaries" illustrates the relationships among these boundaries. (The crop box 
+#Figure 116: Page boundaries#" illustrates the relationships among these boundaries. (The crop box 
 is not shown in the figure because it has no defined relationship with any of the other boundaries.) 
 © ISO 2017 – All rights reserved 784 
 
@@ -14,9 +14,9 @@ Trim:10.5x8
 Printer’smarks
 Bleed box
 Media
-box
-#Figure 116: Page boundaries 
- 
+box#
+Figure 116: Page boundaries 
+ #
 NOTE 1 How the various boundaries are used depends on the purpose to which the page is being put. The 
 following are typical purposes: 
 •
@@ -24,7 +24,7 @@ following are typical purposes:
  
 the content that is to be placed in the application. Depending on the applicable usage 
 Placing the content of a page in another application
-conventions, the placed content can be clipped to# either the art box or the bleed box. For 
+conventions, the placed content can be clipped to# ei#ther the art box or the bleed box. For 
 example, a quarter-page advertisement to be placed on a magazine page might be clipped to 
 the art box on the two sides of the ad that face into the middle of the page and to the bleed box 
 on the two sides that bleed over the edge of the page. The media box and trim box are ignored. 
@@ -58,11 +58,11 @@ and fold marks are typically generated for the imposition as a whole.
  
 box 
 BoxColorInfo
-#Interactive ##PDF processors may offer the a#bility to display guidelines on the screen for the various page 
-colour information dictionary#PDF 1.4
-boundaries. The optional  entry in a page #object (see 7.7.3.3, "Page #objects") holds a 
- () specifying the colours and other visual #characteristics to be used 
-for such display. #interactive ##PDF processors typically provide a user interface to allow the user to set 
-these #characteristics interactively. 
+#Interactive ##PDF #processor##s may offer the a#bi#lity to display guidelines on the screen for the various page 
+colour information dictionar#yPDF# 1.4
+boundaries. The optional  entry in a page #object #(see 7.7.3.3, "Page# objec#ts") holds a 
+ () specifying the colours and other visual #character#istics to be used 
+for such display.# interactiv#e# PD#F processo##rs typically provide a user interface to allow the user to set 
+these# characte#ristics interactively. 
 NOTE This information is page-specific and can vary from one page to another. 
 As shown in "

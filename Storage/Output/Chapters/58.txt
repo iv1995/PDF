@@ -1,6 +1,6 @@
 #resource dictionary 
-associates resource names, used in #content streams, with the resource #objects themselves and is 
-organised into various categories (e.g., #Font, ColorSpace, Pattern) 
+#associates resource names, used in #content stream#s, with the resource #object#s themselves and is 
+organised into various categories (e.g., #Font#, ColorSpace, Pattern) 
 © ISO 2017 – All rights reserved 21 
 
 ISO/DIS 32000-2

@@ -1,8 +1,8 @@
-#Table 52: Device-dependent #graphics state parameters" control 
+#Table 52: Device-dependent #graphics state #parameters#" control 
 details of the rendering (scan conversion) process and are device-dependent; a page description that is 
 intended to be device-independent should not be written to modify these parameters. 
-#Table 51: Device-independent #graphics state parameters 
-Parameter Type Value 
+#Table 51: Device-independent# graphics state# parameters 
+#Parameter Type Value 
 current transformation matrix
 CTM 
 array The , which maps positions from user coordinates to 
@@ -30,8 +30,8 @@ black
 are two separate colour parameters: one for stroking and one for all other painting 
 operations. Initial value: . 
 text state 
-(various) A set of nine #graphics state parameters that pertain only to the painting of text. These 
-include parameters that select the #font, scale the #glyphs to an appropriate size, and 
+(various) A set of nin#e graphics stat#e parameters that pertain only to the painting of text. These 
+include parameters that select the #font#, scale the #glyph#s to an appropriate size, and 
 accomplish other effects. The text state parameters are described in 9.3, "Text state 
 parameters and operators". 
 line width 
@@ -62,7 +62,7 @@ colours (see 8.6.5.8, "Rendering intents"). Initial value: .
 ISO/DIS 32000-2
  
 Parameter Type Value 
-#PDF 1.2
+#PDF #1.2
 stroke adjustment 
 boolean () A flag specifying whether to compensate for possible rasterization effects 
 when stroking a path with a line width that is small relative to the pixel resolution of 
@@ -70,49 +70,49 @@ NOTE This is considered a device-independent parameter, even though the details 
 the output device (see 10.7.5, "Automatic stroke adjustment"). 
 its effects are device-dependent. 
 false
-Initial value: . 
-#PDF 1.4, array is #deprecated in #PDF 2.0
+Initial value: . #
+PDF# 1.4, array is #deprecated #i#n PD#F 2.0
 blend mode 
 name or () The current blend mode that shall be used in 
 array is 
-array the transparent imaging model (see 11.3.5, "Blend mode"). A ##PDF reader shall 
-#deprecated 
+array the transparent imaging model (see 11.3.5, "Blend mode").# A #P#DF reader #shall #
+deprecated #
 implicitly reset this parameter to its initial value at the beginning of execution of a 
-(
+(#
 in #PDF 2.0
-11.6.6, "Transparency #group X#Objects"). 
-transparency #group X#Object (see 
-The value shall be# either a #name #object, designating one of the standard blend modes 
+11.6.6, "Transparency #group #X#Object#s"). 
+transparency# group ##XObject# (see 
+The value shall be# ei#ther a #nam#e objec#t#, designating one of the standard blend modes 
 ) 
-listed in "#Table 134: Standard separable blend modes" and "Table 135: Standard non-
+listed in "#Table 134: Standard separable blend modes#" and "Table 135: Standard non-
 ", or an array of such names. In the 
 separable blend modes" in 11.3.5, "Blend mode
 Normal
-latter case, the ##PDF reader shall use the first blend mode in the array that it 
+latter case,# the## PDF reader# shall use the first blend mode in the array that it 
 Normal
 recognises (or  if it recognises none of them). 
-Initial value: . 
-#PDF 1.4
+Initial valu#e: .# 
+PDF 1.4
 soft mask 
 dictionary () A soft-mask dictionary (see 11.6.5.1, "Soft-mask dictionaries") specifying 
 or name the mask shape or mask opacity values that shall be used in the transparent imaging 
 None
 model (see 11.3.7.2, "Source shape and opacity" and 11.6.4.3, "Mask shape and 
-"), or the name  if no such mask is specified. A ##PDF reader shall implicitly 
+"), or the name  if no such mask is specif#ied.# #A PDF reade#r shall implicitly 
 opacity
 None
-reset this parameter to its initial value at the beginning of execution of a transparency 
-#group X#Object (see 11.6.6, "Transparency #group X#Objects"). Initial value: . 
-#PDF 1.4
+reset this parameter to its initial value at the beginning of execution of a transparency# 
+grou##p XObje#ct (see 11.6.6, "Transparen#cy gro##up XOb#jects"). Initial va#lue:# . 
+PDF 1.4
 alpha constant 
 number () The constant shape or constant opacity value that shall be used in the 
 transparent imaging model (see 11.3.7.2, "Source shape and opacity" and 11.6.4.4, 
 "Constant shape and opacity"). There are two separate alpha constant parameters: 
-one for stroking and one for all other painting operations. A ##PDF reader shall 
+one for stroking and one for all other painting opera#tion#s.# A PDF read#er shall 
 implicitly reset this parameter to its initial value at the beginning of execution of a 
-transparency #group X#Object (see 11.6.6, "Transparency #group X#Objects"). Initial 
-value: 1.0. 
-#PDF 1.4
+transpare#ncy gr##oup XOb#ject (see 11.6.6, "Transpar#ency g##roup X#Objects"). Initial 
+val#ue: #1.0. 
+PDF 1.4
 alpha source 
 truefalse
 boolean () A flag specifying whether the current soft mask and alpha constant 
@@ -121,24 +121,24 @@ parameters shall be interpreted as shape values () or opacity values (). This
 false
 .
 flag also governs the interpretation of theentry, if any, in an image dictionary 
-(see 8.9.5, "Image dictionaries"). Initial value:  
-(#PDF 2.0)
+(see 8.9.5, "Image dictionaries"). Initial# val#ue:  
+(PDF 2.0)
 black point compensation 
 name  The black point compensation algorithm that shall be used when converting 
 Default
 CIE-based colours (see 8.6.5.9, "Use of black point compensation"). Initial value: 
 . 
- 
-#Table 52: Device-dependent #graphics state parameters 
-Parameter Type Value 
-#PDF 1.2
+ #
+Table 52: Device-depende#nt graphics sta#te parameters #
+Parameter #Type# Value 
+PDF 1.2
 overprint 
 boolean () A flag specifying (on output devices that support the 
 overprint control feature) whether painting in one set of 
 falsetrue
 colourants should cause the corresponding areas of other 
 colourants to be erased () or left unchanged (); see 
-8.6.7, "Overprint control". #PDF 1.3, introduced two separate 
+8.6.7, "Overpri#nt c#ontrol". PDF 1.3, introduced two separate 
 false
 overprint parameters: one for stroking and one for all other 
 painting operations. Initial value: . 
@@ -146,42 +146,42 @@ painting operations. Initial value: .
 
 ISO/DIS 32000-2
  
-Parameter Type Value 
-#PDF 1.3
+Paramete#r Ty#pe Value 
+PDF 1.3
 overprint mode 
  DeviceCMYK 
 number () A code specifying whether a colour component value 
 of 0 in acolour space should erase that component 
 (0) or leave it unchanged (1) when overprinting (see 8.6.7, 
-"Overprint control"). Initial value: 0. 
-#PDF 1.2
+"Overprint control"). Init#ial #value: 0. 
+PDF 1.2
 black generation 
-#function or name () A #function that calculates the level of the black colour 
+#function #or name () A# function# that calculates the level of the black colour 
 component to use when converting RGB colours to CMYK (see 
-10.4.2.3, "Conversion from DeviceRGB to DeviceCMYK"). Initial 
-value: a ##PDF reader shall initialise this to a suitable device 
-dependent value. 
-#PDF 1.2
-undercolor removal 
-#function or name () A #function that calculates the reduction in the levels of 
+10.4.2.3, "Conversion from DeviceRGB to DeviceCMYK"). In#itia#l 
+value#: a PDF rea#der shall initialise this to a suitable device 
+d#epen#dent value. 
+PDF 1.2
+undercolor removal# 
+functio#n or name ()# A functi#on that calculates the reduction in the levels of 
 the cyan, magenta, and yellow colour components to 
 compensate for the amount of black added by black generation 
 10.4.2.3, "Conversion from DeviceRGB to DeviceCMYK"). 
-(see 
-Initial value: a ##PDF reader shall initialise this to a suitable device 
-dependent value. 
-#PDF 1.2
-transfer 
-#function, array, or () A #function that adjusts device gray or colour 
+(see #
+Ini#tial valu#e: a PDF re#ader shall initialise this to a suitable device #
+dep#endent value. 
+PDF 1.2
+transf#er 
+func#tion, array, or #() A func#tion that adjusts device gray or colour 
 name component levels to compensate for nonlinear response in a 
-particular output device (see 10.5, "Transfer #functions"). Initial 
-value: a ##PDF reader shall initialise this to a suitable device 
-dependent value. 
-#PDF 1.2
+particular output device (see 10.5, "Tra#nsfer fu#nctions")#. In#itial 
+val#ue: a PDF r#eader shall initialise this to a suitable devic#e 
+d#ependent value. 
+PDF 1.2
 halftone  
 dictionary, stream, or () A halftone screen for gray and colour rendering, 
 name specified as a halftone dictionary or stream (see 10.6, 
-"Halftones"). Initial value: a ##PDF reader shall initialise this to a 
+"Halftone#s").# Initial va#lue: a PDF #reader shall initialise this to a 
 suitable device dependent value. 
 flatness 
 number The precision with which curves shall be rendered on the output 
@@ -189,27 +189,27 @@ device (see 10.7.2, "Flatness tolerance"). The value of this
 parameter (positive number) gives the maximum error 
 tolerance, measured in output device pixels; smaller numbers 
 give smoother curves at the expense of more computation and 
-memory use. Initial value: 1.0. 
-smoothness 
-number (#PDF 1.3) The precision with which colour gradients are to be 
+memory use. Initial value: 1.0#. 
+s#moothness 
+number (PDF 1.3) The precision with which colour gradients are to be 
 rendered on the output device (see 10.7.3, "Smoothness 
 tolerance"). The value of this parameter (0 to 1.0) gives the 
 maximum error tolerance, expressed as a fraction of the range of 
 each colour component; smaller numbers give smoother colour 
-transitions at the expense of more computation and memory 
-use. Initial value: a ##PDF reader shall initialise this to a suitable 
+transitions at the expense of more computation and memory# 
+us#e. Initial v#alue: a PDF# reader shall initialise this to a suitable 
 device dependent value. 
  
-NOTE 1 Some #graphics state parameters are set with specific #PDF operators, some are set by including a 
-particular entry in a #graphics state parameter dictionary, and some can be specified# either way. 
+NOTE 1 S#ome graphics st#ate paramete#rs a#re set with specific PDF operators, some are set by including a 
+particular entry #in a graphics s#tate parameter dictionary, and some can be specifie#d e#ither way. 
 w
 LW
-EXAMPLE 2 The current line width can be set# either with the  operator or (in #PDF 1.3) with the  entry in a #graphics 
-state parameter dictionary, whereas the current colour is set only with specific operators, and the current 
-halftone is set only with a #graphics state parameter dictionary. 
-In general, a ##PDF reader, when interpreting the operators that set #graphics state parameters, shall 
+EXAMPLE 2 The current line width can be s#et #either #with# the  operator or (in PDF 1.3) with the  entry# in a graphics 
+#state parameter dictionary, whereas the current colour is set only with specific operators, and the current 
+halftone is set only #with a graphics# state parameter #dict#ionary. 
+In ge#neral, a P#DF reader, when interpreting the operators t#hat set graphic#s state parameters, shall 
 simply store them unchanged for later use when interpreting the painting operators. However, some 
-parameters have special properties or call for behaviour that a ##PDF reader shall handle: 
+parameters have special properties o#r ca#ll for behavio#ur that a P#DF reader shall handle: 
 • 
 Most parameters shall be of the correct type or have values that fall within a certain range. 
 © ISO 2017 – All rights reserved 157 
@@ -218,26 +218,26 @@ ISO/DIS 32000-2
  
 • 
 Parameters that are numeric values, such as the current colour, line width, and miter limit, shall be 
-clipped into valid range, if necessary. However, they shall not be adjusted to reflect capa#bilities of 
+clipped into valid range, if necessary. However, they shall not be adjusted to reflect capa#bi#lities of 
 the raster output device, such as resolution or number of distinguishable colours. Painting 
-operators perform such adjustments, but the adjusted values shall not be stored back into the 
+operators perform such adjustments, but the adjusted values shall not be stored back into# the 
 • 
-#graphics state. 
-NOTE 2 As indicated in "#Table 51: Device-independent #graphics state parameters" and "Table 52: Device-
-Paths shall be internal #objects that shall not be directly represented in #PDF. 
-dependent #graphics state parameters", some of the parameters — colourspace, colour, and 
-overprint — have two values, one used for stroking (of paths and text #objects) and one for all 
+graph#ics state. 
+NOTE 2 As indicated in #"Table 51: Device-in#dependent graph#ics state parameter#s" and "Table 52: Device-
+Paths shall be in#ternal# objects that shall no#t b#e directly represented in PDF. #
+dependent grap#hics state parameters", some of the parameters — colourspace, colour, and 
+overprint — have two values, one used for stroking (of paths a#nd tex#t objects) and one for all 
 other painting operations. The two parameter values can be set independently, allowing for 
-operations such as com#bined filling and stroking of the same path with different colours. Except 
+operations such as co#mb#ined filling and stroking of the same path with different colours. Except 
 where noted, a term such as current colour is to be interpreted to refer to whichever colour 
 parameter applies to the operation being performed. When necessary, the individual colour 
-parameters are distinguished explicitly as the stroking colour and the nonstroking colour. 
-8.4.2#Graphics state stack 
+parameters are distinguished explicitly as the stroking colour and the nonstroking co#lour. 
+8.#4.2G#ra#phics state stack 
  
-A #PDF document typically contains many graphical elements that are independent of each other and 
-nested to multiple levels. The #graphics state stack allows these elements to make local changes to the 
-#graphics state without distur#bing the #graphics state of the surrounding environment. The stack is a 
-LIFO (last in, first out) data structure in which the contents of the #graphics state may be saved and later 
+A PDF document typically contains many graphical elements that are independent of each other and 
+nested to multiple# levels. The gr#aphics state stack allows these elements to make local ch#anges to the 
+g#raphics state without #dist#ur#bing the #graphics state of the surrounding environment. The stack is a 
+LIFO (last in, first out) data structure in which the #contents of the# graphics state may be saved and later 
 restored using the following operators: 
 q
   
@@ -245,22 +245,22 @@ q
 Q
   
 • 
-Theoperator shall push a copy of the entire #graphics state onto the stack. 
-Theoperator shall restore the entire #graphics state to its former value by popping it from the 
-NOTE These operators can be used to encapsulate a graphical element so that it can modify parameters 
+Theoperator shall push a co#py of the entir#e graphics state onto the stack. 
+Theoperator shall r#estore the enti#re graphics state to its former value by popping it from the 
+NOTE These operators can be used to encapsulate a graphical element so that it can modify paramete#rs 
 stack. 
-of the #graphics state and later restore them to their previous values. 
+of #the graphics state and later restore them to their previous values. 
 qQ
     
 Contents
-Occurrences of theandoperators shall be balanced within a given #content stream (or within the 
-sequence of streams specified in a page dictionary’s  array). 
-8.4.3Details of #graphics state parameters 
+Occurrences of theandoperators shall be balanced within a given #content stream #(or within the 
+sequence of streams specified in a page dictionary’s  array#). 
+8.4.3Detail#s of graphics state parameters 
  
 8.4.3.1General 
  
-This subclause gives details of several of the device-independent #graphics state parameters listed in 
-"#Table 51: Device-independent #graphics state parameters". 
+This subclause gives details of several of th#e device-indepe#ndent graphics state parameters listed in #
+"Table 5#1: Device-indep#endent graphics state paramete#rs". 
 8.4.3.2Line width 
  
 The line width parameter specifies the thickness of the line used to stroke a path. It shall be a non-

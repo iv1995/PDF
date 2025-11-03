@@ -1,2 +1,2 @@
 #Figure 29: 
-Duotone image" shows an example that uses black and magenta colour components. In "
+Duotone image#" shows an example that uses black and magenta colour components. In "

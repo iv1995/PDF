@@ -1,12 +1,12 @@
 #Table 177: Additional entries specific to 
-a free text annotation" shows the annotation dictionary entries specific to this type of annotation. 
+a free text annotation#" shows the annotation dictionary entries specific to this type of annotation. 
 Subclause 12.7.4.3, "Variable text", describes the process of using these entries to generate the 
 © ISO 2017 – All rights reserved 470 
 
 ISO/DIS 32000-2
  
-appearance of the text in these annotations. 
-#Table 177: Additional entries specific to a free text annotation 
+appearance of the text in these annotations. #
+Table 177: Additional entries specific to a free text annotation #
 Key Type Value 
 (Required) 
 Subtype  
@@ -24,7 +24,7 @@ always visible. "
  
 annotation" shows the annotation dictionary entries specific to this type of 
 annotation. 12.7.4.3, "Variable text"
-(Optional; #PDF 1.4) quadding 
+(Optional; #PDF #1.4) quadding 
 Q 
 integer A code specifying the form of (justification) 
 that shall be used in displaying the annotation’s text: 
@@ -32,20 +32,20 @@ that shall be used in displaying the annotation’s text:
 1  Centred 
 2  Right-justified 
 Default value: 0 (left-justified). 
-(Optional; #PDF 1.5) AdobeXMLArchitecture,XMLForms 
+(Optional;# PDF# 1.5) AdobeXMLArchitecture,XMLForms 
 RC     
 Architecture (XFA) Specification, version 3.3
 text string or A rich text string (see 
  
 text stream ) that shall be used to generate 
 the appearance of the annotation.
-(Optional; #PDF 1.5) AdobeXML
+(Optional#; PD#F 1.5) AdobeXML
 DS   
 Architecture,XMLForms Architecture (XFA) Specification, version 3.3
   
 text string A default style string, as described in 
 . 
-(Optional; meaningful only ifis FreeTextCallout; #PDF 1.6) 
+(Optional; meaningful only ifis FreeTextCallou#t; P#DF 1.6) 
 CL  IT 
 array An array of four 
 23
@@ -59,30 +59,30 @@ coordinates of the line in default user space, as shown in "
 1122
 annotation with callout". Four numbers [   ] represent the starting 
 and ending coordinates of the line. 
-Optional; #PDF 1.6
+Option#al; #PDF 1.6
 IT 
  IT 
-name () A name descri#bing the intent of the free text annotation 
+name () A name descri#bi#ng the intent of the free text annotation 
 (see also theentry in "#Table 172: Additional entries in an annotation 
-dictionary specific to markup annotations"). The following values shall be 
+dictionary specific to markup annotations#"). The following values shall be 
 FreeText 
 valid: 
-The annotation is intended to #function as a plain 
+The annotation is intended to #function #as a plain 
 free-text annotation. A plain free-text annotation is 
 FreeTextCallout 
 also known as a text box comment. 
-The annotation is intended to #function as a callout. 
+The annotation is intended to# function# as a callout. 
 CL
 The callout is associated with an area on the page 
 FreeTextTypeWriter 
 through the callout line specified in . 
-The annotation is intended to #function as a click-
-to-type or typewriter #object and no callout line is 
+The annotation is intended t#o functio#n as a click-
+to-type or typewriter #object #and no callout line is 
 FreeText
  
 drawn. 
 Default value: 
-Optional; #PDF 1.6
+Optio#nal;# PDF 1.6
 BE 
 dictionary () A border effect dictionary (see "Table 169: Entries in a 
  BS 
@@ -93,12 +93,12 @@ dictionary specified by theentry.
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; #PDF 1.6) 
+(Opti#onal#; PDF 1.6) 
 RD 
  Rect 
-rectangle A set of four numbers descri#bing the numerical 
-differences between two #rectangles: theentry of the annotation and a 
-#rectangle contained within that #rectangle. The inner rectangle is where the 
+rectangle A set of four numbers descr#ib#ing the numerical 
+differences between two #rectangle#s: theentry of the annotation and a #
+rectangle# contained within tha#t rectang#le. The inner rectangle is where the 
  BS  BE 
 annotation’s text should be displayed. Any border styles and/or border 
 effects specified byandentries, respectively, shall be applied to the 
@@ -113,12 +113,12 @@ Rect
  
 , and the sum of the left and right differences shall be less than the width 
 of .
-Optional; #PDF 1.6
+Opt#iona#l; PDF 1.6
 BS 
 dictionary () A border style dictionary (see "#Table 168: Entries in a 
-border style dictionary") specifying the line width and dash pattern that shall 
+border style dictionary#") specifying the line width and dash pattern that shall 
 be used in drawing the annotation’s border. 
-Optional; meaningful only ifis present; #PDF 1.6
+Optional; meaningful only ifis p#rese#nt; PDF 1.6
 LE  CL 
 CL
 name () A name specifying the line 

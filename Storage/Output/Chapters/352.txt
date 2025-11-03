@@ -1,6 +1,6 @@
-#Table 184: Additional entries specific to a rubber stamp annotation" shows the 
-annotation dictionary entries specific to this type of annotation. 
-#Table 184: Additional entries specific to a rubber stamp annotation 
+#Table 184: Additional entries specific to a rubber stamp annotation#" shows the 
+annotation dictionary entries specific to this type of annotation. #
+Table 184: Additional entries specific to a rubber stamp annotation #
 Key Type Value 
 (Required) 
 Subtype 
@@ -10,7 +10,7 @@ for a rubber stamp annotation.
 (Optional) 
 Name 
 name The name of an icon that shall be used in displaying the 
-annotation. ##PDF writers should include this entry and ##PDF readers should 
+annotation. ##PDF #writer#s should include this entry and# #PDF# reader#s should 
 provide predefined icon appearances for at least the following standard 
 Approved, Experimental, NotApproved, AsIs, Expired, 
 names: 
@@ -24,14 +24,14 @@ Additional names may be supported as well. Default value: .
  
 If the  key is present and its value is not , this  key shall not be 
 present.
-(Optional; #PDF 2.0) 
+(Optional#; PD#F 2.0) 
 IT 
 name A name that shall describe the intent of the stamp. The 
 StampSnapshot 
 following values shall be valid: 
 The appearance of this annotation has been taken 
 StampImage 
-from preexisting #PDF content. 
+from preexisti#ng P#DF content. 
 Stamp 
 The appearance of this annotation is an Image. 
 Stamp
@@ -40,6 +40,6 @@ Default value:
  
 12.5.6.13Ink annotations 
  
-ink annotation#PDF 1.3
+ink annota#tion#PDF 1.3
 An  () represents a freehand "scribble" composed of one or more disjoint paths. 
 When opened, it shall display a popup window containing the text of the associated note. "

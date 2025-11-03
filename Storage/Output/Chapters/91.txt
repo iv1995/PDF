@@ -1,21 +1,21 @@
 #Table 20: Entries common to all encryption dictionaries 
-Key Type Value 
+#Key Type Value 
 Required
 #Filter 
- Sub#Filter 
+ #Su#bFilter #
 name () The name of the preferred security handler for this document. It shall be 
 the name of the security handler that was used to encrypt the document. If
 is not present, only this security handler shall be used when opening the document. 
-Sub#Filter
-If it is present, a ##PDF processor can use any security handler that implements the 
+S#ubFilte#r
+If it is present, a ##PDF #processor #can use any security handler that implements the 
 Standard
 format specified by . 
  shall be the name of the built-in password-based security handler. Names 
  
 for other security handlers may be registered by using the procedure described in 
-Annex E, "#PDF Name Registry".
-Optional; #PDF 1.3
-Sub#Filter 
+Annex E, #"PDF# Name Registry".
+Optional#; PD#F 1.3
+#SubFilte#r 
 name () A name that completely specifies the format and interpretation of 
 Filter
 the contents of the encryption dictionary. It allows security handlers other than the 
@@ -26,106 +26,106 @@ V
 number () A code specifying the algorithm to be used in encrypting and decrypting 
 the document: 
 #Deprecated
-0 An algorithm that is undocumented. This value shall not be used. 
+#0 An algorithm that is undocumented. This value shall not be used. 
 1 () Indicates the use of 7.6.3.1, "Algorithm 1: Encryption of data 
-using the RC4 or AES algorithms" (#deprecated) with a file encryption key 
-#PDF 1.4; #deprecated
-length of 40 #bits; see below. 
+using the RC4 or AES algorithms" #(deprecate#d) with a file encryption ke#y 
+P#DF 1.4#; deprecate#d
+length of 40 #bi#ts; see below. 
 2 () Indicates the use of 7.6.3.1, "Algorithm 1: Encryption of 
-data using the RC4 or AES algorithms" (#deprecated) but permitting file 
-#PDF 1.4; #deprecated
-encryption key lengths greater than 40 #bits. 
+data using the RC4 or AES algorithms#" (depreca#ted) but permitting fi#le 
+#PDF 1#.4; depreca#ted
+encryption key lengths greater than 40# b#its. 
 3 () An unpublished algorithm that permits file encryption 
-key lengths ranging from 40 to 128 #bits. This value shall not appear in a 
-#PDF 1.5; #deprecated
-conforming #PDF file. 
+key lengths ranging from 40 to 12#8 #bits. This value shall not appear i#n a 
+#PDF #1.5; deprec#ated
+confo#rmin#g PDF file. 
 CFStmFStrF
 4 () The security handler defines the use of encryption and 
 decryption in the document, using the rules specified by the , , and  
-entries using 7.6.3.1, "Algorithm 1: Encryption of data using the RC4 or AES 
-#PDF 2.0
-algorithms" (#deprecated) with a file encryption key length of 128 #bits. 
+entries using 7.6.3.1, "Algorithm 1: Encryption of data using the RC4 o#r AE#S 
+PDF 2.0
+algorit#hms" (depr#ecated) with a file encryption key length of 1#28# bits. 
 CFStmFStrFEFF
 5 () The security handler defines the use of encryption and decryption in 
 the document, using the rules specified by the , ,  and  entries 
 using 7.6.3.2, "Algorithm 1.A: Encryption of data using the AES algorithms" 
-with a file encryption key length of 256 #bits. 
+with a file encryption key length of #25#6 bits. 
 © ISO 2017 – All rights reserved 76 
 
 ISO/DIS 32000-2
  
 Key Type Value 
-Optional; #PDF 1.4; only if V is 2 or 3; #deprecated
+Op#tion#al; PDF 1.4; only if V is 2# or 3; depr#ecated
 Length 
 integer () The length of the file encryption 
-key, in #bits. The value shall be a multiple of 8, in the range 40 to 128. Default value: 
+key#, #in bits. The value shall be a multiple of 8, in the range 40 to 128. Default value: 
 40. 
-Optional; meaningful only when the value of  is 4 (#PDF 1.5or 5 #PDF 2.0
+Optional; meaningful only when the value o#f  i#s 4 (PD#F 1.#5or 5 PDF 2.0
 CF V
 dictionary () ()) A 
-dictionary whose keys shall be crypt #filter names and whose values shall be the 
-corresponding crypt #filter dictionaries (see "#Table 25: Entries common to all crypt 
-#filter dictionaries"). Every crypt #filter used in the document shall have an entry in 
-this dictionary, except for the standard crypt #filter names (see "Table 26: Standard 
-CF
-crypt #filter names"). 
-Table 26: Standard crypt #filter 
+dictionary whose keys shall be cr#ypt fil#ter names and whose values shall be the 
+corresponding c#rypt fi#lter dictionaries (see "#Table 25: Entries common to all c#rypt 
+f#ilter dictionaries#"). Every# crypt #filter used in the document shall have an entry in 
+this dictionary, except for the standar#d crypt# filter names (see "Table 26: Standard 
+#CF
+cryp#t filter names"). 
+Table 26: Stand#ard cryp#t filter 
 Any keys in the  dictionary that are listed in "
  
-names" shall be ignored by a ##PDF processor. Instead, the ##PDF processor shall use 
-properties of the respective standard crypt #filters.
-Optional; meaningful only when the value of  is 4 (#PDF 1.5#PDF 2.0
+names" shall be ig#nore#d by a# PDF processo#r. I#nste#ad, th#e PDF processo#r shall use 
+properties of the respective stan#dard c#rypt filters.
+Optional; meaningful only when the val#ue o#f # is #4 (PDF 1.5PDF 2.0
 StmF V
 name () or 5 ()) The name 
 CF
-of the crypt #filter that shall be used by default when decrypting streams. The name 
-shall be a key in the  dictionary or a standard crypt #filter name specified in "#Table 
+o#f the c#rypt filter that shall be used by default when decrypting streams. The name 
+shall be a key in the  dictionary or a st#andard #crypt filter name specified in "#Table 
  
-26: Standard crypt #filter names". All streams in the document, except for cross-
-Crypt #Filter
+26: S#tandard# crypt filter names#". All streams in the document, except fo#r cross#-
+Crypt Filter
 reference streams (see 7.5.8, "Cross-reference streams") or streams that have a
 "), shall be decrypted 
-entry in their  array (see "#Table 6: Standard #filters
-Identity
+entry in their  array (see "#Ta#ble 6:# Standard filters
+#Identity
  
-by the security handler, using this crypt #filter. 
+by the security handler, #using #this crypt filter. 
 Default value: .
-Optional; meaningful only when the value of V is 4 (#PDF 1.5) or 5 (#PDF 2.0)
+Optional; meaningful only when the va#lue #of V is 4 #(PDF# 1.5) or 5 (PDF 2.0)
 StrF 
-name () The name 
+name () The name# 
 CF
-of the crypt #filter that shall be used when decrypting all strings in the document. The 
-name shall be a key in the  dictionary or a standard crypt #filter name specified in# 
-Identity
+of# the crypt filter that shall be used when decrypting all strings in the document. The 
+name shall be a key in the  dictionary o#r a sta#ndard crypt filter name specified in# 
+Id#entity
  
-"#Table 26: Standard crypt #filter names". 
+#"Table# 26: St#andard crypt filter name#s". 
 Default value: .
-Optional; meaningful only when the value of  is 4#PDF 1.6#PDF 2.0
+Optional; meaningful only when t#he v#al#ue o#f  is 4PDF 1.6PDF 2.0
 EFF V
-name ( () or 5 ()) The name 
-CF
-of the crypt #filter that shall be used when encrypting embedded file streams that do 
-not have their own crypt #filter specifier; it shall correspond to a key in the  
-Table 26: Standard crypt #filter 
-dictionary or a standard crypt #filter name specified in "
+name ( () or 5 ()) The n#ame 
+CF#
+of the crypt filter that shall be used when encrypting embedded file streams that do 
+not# have t#heir own crypt filter specifier; it shall correspond to a key in the  
+Ta#ble 26: #Standard crypt filter 
+diction#ary or #a standard crypt filter name specified in "
 names". 
-This entry shall be provided by the security handler. ##PDF writers shall respect this 
-value when encrypting embedded files, except for embedded file streams that have 
-their own crypt #filter specifier. If this entry is not present, and the embedded file 
+This entry shall be provided by the# sec#urity handler. #PDF writer#s shall respect this 
+value when encrypting embedded files, except for embedded file streams th#at have# 
+their own crypt filter specifier. If this entry is not present, and the embedded file 
 StmF
-stream does not contain a crypt #filter specifier, the stream shall be encrypted using 
-the default stream crypt #filter specified by . 
+stream# does n#ot contain a crypt filter specifier, the stream shall be encrypted using# 
+the d#efault stream crypt filter specified by . 
  
 Unlike strings within the body of the document, those in the encryption dictionary shall be #direct 
-#objects. The values of the keys defined in "#Table 20: Entries common to all encryption dictionaries" 
-shall not be encrypted. However, a security handler may choose to encrypt any #objects that are private 
-to itself. 
-NOTE ##PDF writers have two choices if the encryption methods and syntax provided by #PDF are not 
-sufficient for their needs: they can provide an alternative security handler or they can encrypt 
-whole #PDF documents themselves, not making use of #PDF security. 
+#object##s. The values of the keys defined in #"Table 20: Entries common to all encryption dictionarie#s" 
+shall not be encrypted. However, a security handler may choose to encrypt any# objec#ts that are privat#e 
+t#o itself. 
+NOTE# PDF write#rs have two choices if the encryption methods an#d sy#ntax provided by PDF are not 
+sufficient for their needs: they can provide an alternative security handler or th#ey c#an encrypt 
+whole PDF documents themsel#ves,# not making use of PDF security. 
 7.6.3General encryption algorithm 
  
-One of the following algorithms shall be used when encrypting data in a #PDF file: 
+One of the following algorithms shall be used wh#en e#ncrypting data in a PDF file: 
 • 
 A proprietary encryption algorithm known as RC4. RC4 is a symmetric stream cipher: the same 
 algorithm shall be used for both encryption and decryption, and the algorithm does not change the 
@@ -134,123 +134,123 @@ length of the data. RC4 is a copyrighted, proprietary algorithm of RSA Security.
 
 ISO/DIS 32000-2
  
-software vendors may be required to license RC4 to develop software that encrypts or decrypts 
-http://www.emc.com/emc-
-#PDF documents. For further information, visit the RSA web site at 
-plus/rsa-labs/standards-initiatives/pkcs-rsa-cryptography-standard.htm. The use of this 
+software vendors may be required to license RC4 to develop software that encrypts or decrypts #
+htt#p://www.emc.com/emc-
+PDF documents. For further information, visit the RSA web site at 
+plus/rsa-labs/standards-initiatives/pkcs-rsa-cryptography-standard.htm. The use# of t#his 
 • 
-algorithm in #PDF 2.0 is #deprecated. 
-The AES (Advanced Encryption Standard) algorithm (beginning with #PDF 1.6). AES is a symmetric 
+algorithm in PDF# 2.0 is de#precated. 
+The AES (Advanced Encryption Standard)# alg#orithm (beginning with PDF 1.6). AES is a symmetric 
 block cipher: the same algorithm shall be used for both encryption and decryption, and the length 
 Advanced Encryption Standard (AES).
 of the data when encrypted is rounded up to a multiple of the block size, which is fixed to always 
 Internet RFC 
-be 16 #bytes, as specified in FIPS 197,  
+be 16 #byte#s, as specified in FIPS 197,  
 2898PKCS #5:Password-Based Cryptography Specification Version 2.0
 Strings and streams encrypted with AES shall use a padding scheme that is described in 
 ,  . For an original message length of 
-M, the pad shall consist of 16 - (M modulo 16) #bytes whose value shall also be 16 - (M modulo 16). 
-EXAMPLE A 9-#byte message has a pad of 7 #bytes, each with the value 0x07. The pad can be unam#biguously removed to 
+M, the pad shall consist of 16 - (M modulo 16)# byt#es whose value shall also be 16 - (M modulo 16). 
+EXAMPLE A #9-byt#e message has a pad of# 7 b#ytes, each with the value 0x07. The pad can b#e #unambiguously removed to 
 determine the original message length when decrypting. Note that the pad is present when M is evenly 
-divisible by 16; it contains 16 #bytes of 0x10. 
-NOTE  Since versions 1 to 4 are #deprecated, this has the effect of implicitly deprecating the use of 
+divisible by 16; it contains# 16 #bytes of 0x10. 
+NOTE  Since versions 1 #to 4 are d#eprecated, this has the effect of implicitly deprecating the use of 
 Encrypt 
 MD5 for key generation purposes. 
  Encrypt V
-Forversions 1-4, as defined by the  key of the encryption dictionary, #PDF’s standard 
+Forversions 1-4, as defined by the  key of# th#e encryption dictionary, PDF’s standard 
 Internet RFC 1321The MD5 Message-Digest Algorithm)
 Encrypt
 encryption methods also make use of the MD5 message-digest algorithm for key generation purposes 
 (described in , .  version 5 does not use 
 MD5. 
-encryption key
-The encryption of data in a #PDF file shall be based on the use of an  computed by the 
+encryption key#
+The# encryption of data in a PDF file shall be based on the use of an  computed by the 
 V
-security handler. Different security handlers compute the encryption key using their own mechanisms. 
-#PDF 1.7
-Encryption of data uses one of two algorithms. When the value of the  key of the encryption dictionary 
-#PDF 2.0
+security handler. Different security handlers compute the encryption key# usi#ng their own mechanisms. 
+PDF 1.7
+Encryption of data uses one of two algorithms. When the value of the  key# of #the encryption dictionary 
+PDF 2.0
 V
-is 1, 2, 3 or 4 (), 7.6.3.1, "Algorithm 1: Encryption of data using the RC4 or AES algorithms" 
+is 1, 2, 3 or 4 (), 7.6.3.1, "Algorithm 1: Encryption of data using the RC4 or AES algo#rithms" 
 (#deprecated) shall be used. When the value of the  key of the encryption dictionary is 5 () 
 7.6.3.2, "Algorithm 1.A: Encryption of data using the AES algorithms" shall be used. The difference is 
 that Algorithm 1.A uses the starting key directly and does not modify the file encryption key at all. 
-Algorithm 1.A is used only with the AES algorithm and 256-#bit file encryption keys. 
+Algorithm 1.A is used only with the AES algorithm a#nd# 256-bit file encryption keys. 
 Algorithms in 7.6, "Encryption" are uniquely numbered within this subclause in a manner that 
-maintains compati#bility with previous documentation. 
+maintains# c#ompatibility with previous documentation. 
 7.6.3.1Algorithm 1: Encryption of data using the RC4 or AES algorithms 
  
-This algorithm is #deprecated in #PDF 2.0. 
+Th#is a#l#gorithm is #deprecated in PDF 2.0. 
  
-a)Obtain the #object number and generation number from the #object# identifier of the string or stream to be 
-encrypted (see 7.3.10, "#In#direct #objects"). If the string is a #direct #object, use the# identifier of the #in#direct 
+a)Obtain th#e objec#t number and generation number from t#he obje#c#t i#dentifier of the string or stream to be 
+encrypted (see 7.3.10, "#I#ndir#ect obje#c#t#s"). If the string is #a di#rect ob#je#ct, use t#he #identifier of the## indire#ct 
  
-#object containing it. 
+obj#e#ct# containing it. 
 nn
-b)For all strings and streams without crypt #filter specifier; treating the #object number and generation 
-number as #binary integers, extend the original -#byte file encryption key to  + 5 #bytes by appending the 
+b)For all string#s and s#treams without crypt filter specifier; treati#ng the #object number and generation 
+n#um#ber as binary integers, extend the origi#nal -#byte file encryption key to#  + #5 bytes by appending the 
 V
-low-order 3 #bytes of the #object number and the low-order 2 #bytes of the generation number in that order, 
+low-o#rder# 3 bytes# of the# object number and the low-#orde#r 2 bytes of the generation number in that order, 
 n
 Length
-low-order #byte first. (n is 5 unless the value of  in the encryption dictionary is greater than 1, in which 
-case  is the value of  divided by 8.) For example, for #object number 258 and generation number 7, 
+l#ow-or#der byte first. (n is 5 unless the value of  in the encryption dictionary is greater than 1, in which 
+case  is the value of  divided by 8.) For exam#ple, fo#r object number 258 and generation number 7, 
 the hexadecimal values 0x02 0x01 0x00 0x07 0x00 would be appended to the file encryption key. 
-If using the AES algorithm, extend the file encryption key an additional 4 #bytes by adding the value 
+If using the AES algorithm, extend the file encryption key an add#itio#nal 4 bytes by adding the value 
 "sAlT", which corresponds to the hexadecimal values 0x73, 0x41, 0x6C, 0x54. (This addition is done 
 © ISO 2017 – All rights reserved 78 
 
 ISO/DIS 32000-2
  
-for backward compati#bility and is not intended to provide additional security.) 
+for backwa#rd# compatibility and is not intended to provide additional security.) 
  
 n
  
-c)Initialise the MD5 hash #function and pass the result of step (b) as input to this #function. 
-d)Use the first ( + 5) #bytes, up to a maximum of 16, of the output from the MD5 hash as the key for the RC4 
+c)Initialise the MD5 hash #function #and pass the result of step (b) as input to this# functio#n. 
+d)Use the fi#rst #( + 5) bytes, up to a maximum of 16, of the output from the MD5 hash as the key for the RC4 
 or AES symmetric key algorithms, along with the string or stream data to be encrypted. 
 If using the AES algorithm, the Cipher Block Chaining (CBC) mode, which requires an initialization 
-vector, is used. The block size parameter is set to 16 #bytes, and the initialization vector is a 16-#byte 
-random number that is stored as the first 16 #bytes of the encrypted stream or string. 
-The output is the encrypted data to be stored in the #PDF file. 
+vector, is used. The block size parameter i#s se#t to 16 bytes, and the initialization ve#ctor i#s a 16-byte 
+random number that is stored as# the# first 16 bytes of the encrypted stream or string. 
+The output is the en#cryp#ted data to be stored in the PDF file. 
 7.6.3.2Algorithm 1.A: Encryption of data using the AES algorithms 
  
- 
-a)Use the 32-#byte file encryption key for the AES-256 symmetric key algorithm, along with the string or 
+# 
+a)U#se the 32-byte file encryption key for the AES-256 symmetric key algorithm, along with the string or 
 stream data to be encrypted. 
 Use the AES algorithm in Cipher Block Chaining (CBC) mode, which requires an initialization vector. 
-The block size parameter is set to 16 #bytes, and the initialization vector is a 16-#byte random number 
-that is stored as the first 16 #bytes of the encrypted stream or string. 
-The output is the encrypted data to be stored in the #PDF file. 
-Stream data shall be encrypted after applying all stream encoding #filters and shall be decrypted before 
-Length
-applying any stream decoding #filters. The number of #bytes to be encrypted or decrypted shall be given 
+The block size paramet#er i#s set to 16 bytes, and the initializatio#n vec#tor is a 16-byte random number 
+that is store#d as# the first 16 bytes of the encrypted stream or string. 
+The output is the e#ncry#pted data to be stored in the PDF file. 
+Stream data shall be encrypted after #applyi#ng all stream encoding filters and shall be decrypted before 
+Length#
+applyi#ng any stream decoding filt#ers.# The number of bytes to be encrypted or decrypted shall be given 
 by the  entry in the stream dictionary. Decryption of strings (other than those in the encryption 
 dictionary) shall be done after escape-sequence processing and hexadecimal decoding as appropriate to 
-the string representation described in 7.3.4, "#String #objects". 
+the string representation described in 7.3.4#, "#Str#ing object#s". 
 7.6.4Standard security handler 
  
 7.6.4.1General 
  
-access permissions
+access permi#ssi#ons
 owner passworduser password
-#PDF’s standard security handler shall allow  and up to two passwords to be specified 
+PDF’s standard security handler shall allow  and up to two passwords to be specified 
 for a document: an  and a . An application’s decision to encrypt a 
-document shall be based on whether the user creating the document specifies any passwords or access 
+document shall be based on whether the user creating the document specifies any passwords #or a#ccess 
 restrictions. 
-EXAMPLE A ##PDF processor might have a security settings dialogue box that the user can invoke before saving the #PDF 
+EXAMPLE# A PDF process#or might have a security settings dialogue box that t#he us#er can invoke before saving the PDF 
 file. 
 If passwords or access restrictions are specified, the document shall be encrypted, and the permissions 
 userowner
 and information required to validate the passwords shall be stored in the encryption dictionary. 
-Documents in which only file attachments are encrypted shall use the same  and  passwords. 
-NOTE 1 A ##PDF processor might also create an encrypted document without any user interaction if it has 
+Documents in which only file attachments are encrypted shall us#e th#e same  and  passwords. 
+NOTE #1 A PDF proces#sor might also create an encrypted document without any user interaction if it has 
 some other source of information about what passwords and permissions to use. 
-If a user attempts to open an encrypted document that has a user password, the ##PDF reader shall first 
+If a user attempts to open an encrypted #docu#ment that has a user password, the #PDF reader #shall first 
 try to authenticate the encrypted document using the padding string defined in 7.6.4.3, "File encryption 
 key algorithm" (default user password): 
 • 
-If this authentication attempt is successful, the ##PDF reader may open, decrypt, render and 
+If this au#then#tication attempt is successful, the# PDF reader# may open, decrypt, render and 
 otherwise provide access to the document. 
 © ISO 2017 – All rights reserved 79 
 
@@ -258,8 +258,8 @@ ISO/DIS 32000-2
  
 • 
 owneruser
-If this authentication attempt fails, the #interactive ##PDF processor should prompt for a password. 
-Correctly supplying# either password ( or  password) should enable the user to gain 
+If this authen#tica#tion attempt fails, the #interac#tive PDF proces#sor #should prompt for a password. 
+Correctly supplying# ei#ther password ( or  password) should enable the user to gain 
 access to the document. 
 Whether additional operations shall be allowed on a decrypted document depends on which password 
 (if any) was supplied when the document was opened and on any access restrictions that were specified 
@@ -267,7 +267,7 @@ when the document was created:
 owner
 • 
 Opening the document with the correct  password should allow full (owner) access to the 
-document. This unlimited access includes the a#bility to change the document’s passwords and 
+document. This unlimited access inc#lu#des the ability to change the document’s passwords and 
 user
 • 
 access permissions. 
@@ -296,48 +296,48 @@ amounts to filling in existing signature fields, a type of interactive form fiel
 Assembling the document: inserting, rotating, or deleting pages and creating navigation elements 
 • 
 such as document outline items or thumbnail images (see 12.3, "Document-level navigation"). 
-Printing to a representation from which a faithful digital copy of the #PDF content could be 
+Printing to a representation #from# which a faithful digital copy of the PDF content could be 
 generated. Disallowing such printing may result in degradation of output quality. 
 In addition, security handlers of revisions 3 and greater shall enable the extraction of text, images and 
-graphics (in support of accessi#bility to users with disa#bilities or for other purposes) to be controlled 
-separately.# 
+graphics (in suppor#t #of accessibility to us#er#s with disabilities or for other purposes) to be controlled 
+separate#ly. #
 Identity
-If a security handler of revision 4 or 5 is specified, the standard security handler shall support crypt 
-StdCFAuthEvent
-#filters (see 7.6.6, "Crypt #filters"). The support shall be limited to the  crypt #filter (see "Table 26: 
-DocOpenV2
+If a security handler of revision 4 or 5 is specified, the standard security handler shall# suppo#rt crypt 
+StdCFAuthE#vent
+f#ilters (see 7.6.6, "Crypt filters"). The suppor#t shall# be limited to the  crypt filter (see "Table 26: 
+#DocOpen#V2
 CFMAESV2
-Standard crypt #filter names") and crypt #filters named  whose dictionaries contain an  
-AESV3
+Stand#ard cr#ypt filter names") and crypt filters named  whose dictionaries contain an  
+AESV3#
 CFM
-value of . For revision 4, the #filter  value shall be  (RC4) or  (AES-128). For 
-DefaultCrypt#Filter
-revision 6, the #filter  value shall be  (AES-256). Public-Key security handlers in this case shall 
+val#ue of . For revision 4, the filter  value shall be  (#RC4) or#  (AES-128). Fo#r 
+Defau#ltCryptFilter
+revision 6, the filter  value shall be  (AES-256). Public-Key security handlers in this case# shall# 
 DefEmbeddedFileStdCF
-use crypt #filters named  when all document content is encrypted, and shall use crypt 
-#filters named  when file attachments only are encrypted in place of  name. This 
+use crypt filters named  when all document con#tent i#s encrypted, and shall use crypt 
+filters named  when file attachments only are encrypted in place of  name. This 
 nomenclature shall not be used as an indicator of the type of the security handler or encryption. Use of 
-security handler revisions 1, 2, 3, 4 and 5 is #deprecated in #PDF 2.0. 
-Once the document has been opened and decrypted successfully, a ##PDF reader technically has access to 
+security handler rev#isio#ns 1, 2, 3,# 4 and 5 is# deprecated in PDF 2.0. 
+Once the document ha#s be#en opened and decrypted successfully, #a PDF reade#r technically has access to 
 © ISO 2017 – All rights reserved 80 
 
 ISO/DIS 32000-2
  
-the entire contents of the document. There is nothing inherent in #PDF encryption that enforces the 
-document permissions specified in the encryption dictionary. ##PDF readers shall respect the intent of the 
-document creator by restricting user access to an encrypted #PDF file according to the permissions 
+the entire contents o#f th#e document. There is nothing inherent in PDF encryption that enforces the 
+document permis#sion#s specified in the encryption dictionar#y. PDF rea#ders shall respect the intent of the 
+document crea#tor #by restricting user access to an encrypted PDF file according to #the #permissions 
 contained in the file. 
-NOTE 2 #PDF 1.5 introduces a set of access permissions that do not require the document to be encrypted 
+NOTE 2 PDF 1.5 introduces a set of access permissions that do not require the document to be encrypted 
 (see 12.8.6, "Permissions"). This enables limited access to a document when a user is not be able to 
-respond to a prompt for a password. For example, there might be non-interactive ##PDF readers 
+respond to a prompt for a passw#ord.# For example, there might be non-interact#ive PDF re#aders 
 that do not have a person running them such as printing off-line or on a server. 
 Internet RFC 4013
 All passwords for revision 6 shall be based on Unicode. Preprocessing of a user-provided password 
 Internet RFC 3454
 consists first of normalizing its representation by applying the "SASLPrep" profile () 
-of the "stringprep" algorithm () to the supplied password using the Normalize and 
-#BiDi options. Next, the password string shall be converted to UTF-8 encoding, and then truncated to the 
-first 127 #bytes if the string is longer than 127 #bytes (see 7.6.4.3.2, "Algorithm 2.A: Retrieving the 
+of the "stringprep" algorithm () to the supplied password using the N#or#malize and 
+BiDi options. Next, the password string shall be converted to UTF-8 encoding, and then truncate#d to# the 
+first 127 bytes if the strin#g is# longer than 127 bytes (see 7.6.4.3.2, "Algorithm 2.A: Retrieving the 
 encryption key from an encrypted document in order to decrypt it (revision 6 and later)", steps (a, b)). 
 7.6.4.2Standard encryption dictionary 
  

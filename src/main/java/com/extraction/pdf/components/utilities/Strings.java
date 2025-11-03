@@ -1,9 +1,7 @@
 package com.extraction.pdf.components.utilities;
 
 import java.util.ArrayList;
-
 import org.apache.commons.lang3.StringUtils;
-
 import edu.stanford.nlp.ling.TaggedWord;
 
 public class Strings {

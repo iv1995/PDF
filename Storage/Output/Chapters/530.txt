@@ -1,5 +1,5 @@
 #Table 336: Entries 
-in a RichMediaDeactivation dictionary") that specifies the condition and type of 
+in a RichMediaDeactivation dictionary#") that specifies the condition and type of 
 unloading (restart or pause) that occurs during deactivation. 
  
 13.7.2.2.1RichMediaActivation dictionary 
@@ -7,27 +7,27 @@ unloading (restart or pause) that occurs during deactivation.
 RichMediaActivation dictionary
 The  specifies the style of presentation, default script behavior, default 
 view information, and animation style when the annotation is activated. "#Table 335: Entries in a 
-RichMediaActivation dictionary" details the contents of the dictionary. 
+RichMediaActivation dictionary#" details the contents of the dictionary. 
 script array
 Assets
-The activation dictionary includes a . Each element contains an #in#direct ##object reference to 
-file specification #objects that are also referenced by the  #name tree of the RichMediaContent 
+The activation dictionary includes a . Each element contains an #in#direct ##object ###reference #to 
+file specification# objec#ts that are also referenced by the  #name tree #of the RichMediaContent 
   
 dictionary. When the annotation is activated, each script in the array shall be executed in order in a 
 common environment per annotation by the rich media run timeECMAScriptinterpreter. 
 Views
 There may be an optional reference to a view in the scene’s  array (see "#Table 341: Entries in a 
-RichMediaContent dictionary") that acts as the default view for the annotation. If not specified, the first 
+RichMediaContent dictionary#") that acts as the default view for the annotation. If not specified, the first 
 view in the views array shall be used. If there are no views specified, default values shall be used for all 
-camera and display parameters. 
-#Table 335: Entries in a RichMediaActivation dictionary 
+camera and display parameters. #
+Table 335: Entries in a RichMediaActivation dictionary #
 Key Type Value 
-Optional; #PDF 2.0
+Optional; #PDF #2.0
 Type 
 RichMediaActivation
-name () The type of #PDF #object that this dictionary describes. If present, shall 
+name () The type of# PD#F# objec#t that this dictionary describes. If present, shall 
 be . 
-Optional; #PDF 2.0
+Optional#; PD#F 2.0
 Condition 
 name () A name that shall specify the circumstances under which the 
 XA
@@ -43,6 +43,6 @@ annotation becomes visible.
 page although several are visible. 
 XA
 Default value: . 
-Optional; #PDF 2.0RichMediaAnimation dictionary
+Optiona#l; P#DF 2.0RichMediaAnimation dictionary
 Animation 
 dictionary () A  (see "

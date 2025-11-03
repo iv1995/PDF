@@ -1,24 +1,24 @@
-#Table 230: Additional entry specific to check box and radio button fields"). If present, 
+#Table 230: Additional entry specific to check box and radio button fields#"). If present, 
 theentry shall be an array of text strings representing the export value of each annotation in the 
 field. It may be used for the following purposes: 
 • 
-#PDFDocEncoding
+#PDF#DocEncoding
 To represent the export values of check box and radio button fields in non-Latin writing systems. 
-Because #name #objects in the appearance dictionary are limited to , they cannot 
+Because #name #object##s in the appearance dictionary are limited to , they cannot 
 • 
 represent non-Latin text. 
 To allow radio buttons or check boxes to be checked independently, even if they have the same 
 export value. 
-EXAMPLE 2 A #group of check boxes may be duplicated on more than one page such that the desired behaviour is that when 
+EXAMPLE 2 A #group #of check boxes may be duplicated on more than one page such that the desired behaviour is that when 
  Kids 
 a user checks a box, the corresponding boxes on each of the other pages are also checked. In this case, each of 
 the corresponding check boxes is a widget in thearray of a check box field. 
 RadiosInUnison
 For radio buttons, the same behaviour shall occur only if the  flag is set. If it is not set, at 
-most one radio button in a field shall be set at a time. 
-#Table 230: Additional entry specific to check box and radio button fields 
+most one radio button in a field shall be set at a time. #
+Table 230: Additional entry specific to check box and radio button fields #
 Key Type Value 
-(Optional; inheritable; #PDF 1.4) 
+(Optional; inheritable;# PDF# 1.4) 
 Opt 
  Kids 
 array of text An array containing one entry for each widget 
@@ -28,7 +28,7 @@ be a text string representing the on state of the corresponding widget annotatio
 When this entry is present, the names used to represent the on state in the
 Kids
 dictionary of each annotation may use numerical position (starting with 0) of the 
-annotation in the  array, encoded as a #name #object (for example: /0, /1). This 
+annotation in the  array, encoded as a# name# object## (for example: /0, /1). This 
  Opt 
 allows distinguishing between the annotations even if two or more of them have the 
 same value in thearray. 
@@ -43,7 +43,7 @@ automatically deselects all the others.
 NOTE An exception occurs when multiple radio buttons in a field have the same on state and the 
 RadiosInUnison flag is set. In that case, turning on one of the buttons turns on all of them. 
 Btn
-The field type is , the Pushbutton flag (see "#Table 229: Field flags specific to button fields") is clear, 
+The field type is , the Pushbutton flag (see "#Table 229: Field flags specific to button fields#") is clear, 
 and the Radio flag is set. This type of button field has an additional flag, NoToggleToOff, which specifies, 
 if set, that exactly one of the radio buttons shall be selected at all times. In this case, clicking the 
 currently selected button has no effect; if the NoToggleToOff flag is clear, clicking the selected button 
@@ -57,13 +57,13 @@ Theentry in the radio button field’s field dictionary (see "Table 226: Entries
 V
 dictionaries") holds an array of widget annotations representing the individual buttons in the set. The 
 OffV
-parent field’s  entry holds a #name #object corresponding to the appearance state of whichever child 
+parent field’s  entry holds #a nam#e objec##t corresponding to the appearance state of whichever child 
 ASAS
 field is currently in the on state; the default value for this entry is . The value of the  key shall also 
 V
 be the value of the  key. If they are not equal, then the value of the  key shall be used instead of the 
  key to determine which appearance to use. 
-EXAMPLE This example shows the #object definitions for a set of radio buttons. 
+EXAMPLE This example shows t#he obje#ct definitions for a set of radio buttons. 
 10 0 obj           %Radio button field 
   <</Type /Annot 
    /Subtype /Widget 
@@ -100,7 +100,7 @@ endobj
 endobj 
  
 8 0 obj           %Appearance stream for "on" state 
-  <</Type /X#Object 
+  <</Typ#e /XObject #
    /Subtype /Form 
    /BBox [0 0 20 20] 
    /Resources 20 0 R 
@@ -123,7 +123,7 @@ endobj
 
 ISO/DIS 32000-2
  
-  <</Type /X#Object 
+  <</Ty#pe /XObject# 
    /Subtype /Form 
    /BBox [0 0 20 20] 
    /Resources 20 0 R 
@@ -140,13 +140,13 @@ stream
  Q 
 endstream 
 endobj 
- 
-#PDF 
+# 
+PDF #
  Opt 
 1.4
 Like a check box field, a radio button field may use the optionalentry in the field dictionary (
 ) to define export values for its constituent radio buttons, using Unicode encoding for non-Latin 
-#characters (see "#Table 230: Additional entry specific to check box and radio button fields"). 
+#character#s (see# "Table 230: Additional entry specific to check box and radio button fiel#ds"). 
 12.7.5.3Text fields 
  
 text fieldTx

@@ -1,10 +1,10 @@
 #Table 266: Entries in a measure 
-dictionary") that specifies the scale and units that shall apply to measurements 
+dictionary#") that specifies the scale and units that shall apply to measurements 
 taken on the contents within the viewport. 
-(Optional; #PDF 2.0) 
+(Optional; #PDF #2.0) 
 PtData 
 dictionary A point data dictionary (see "#Table 272: Entries in a point 
-data dictionary") that shall specify the extended geospatial data that applies to 
+data dictionary#") that shall specify the extended geospatial data that applies to 
 the image. 
  
 A measure dictionary shall specify an alternative coordinate system for a region of a page. Along with 
@@ -13,7 +13,7 @@ coordinate system to coordinates in the measuring coordinate system. The measure
 provide information for formatting the resulting values into textual form for presentation in a graphical 
 user interface. 
 rectilinear
-"#Table 266: Entries in a measure dictionary" shows the entries in a measure dictionary. #PDF 1.6 defines 
+#"Table 266: Entries in a measure dictionar#y" shows the entries in a measure dictionary.# PDF# 1.6 defines 
 RLRLxy
   Subtype
 only a single type of coordinate system, a  coordinate system, that shall be specified by the 
@@ -21,19 +21,19 @@ geospatial
 valuefor the  entry.  is defined as one in which the  and  axes are perpendicular and 
 GEO
   Subtype
-have units that increment linearly (to the right and up, respectively). #PDF 2.0 defines a  
+have units that increment linearly (to the right and up, respectively)#. PD#F 2.0 defines a  
 coordinate system specified by the valuefor the  entry. Other subtypes may be used, 
-providing the flexi#bility to measure using other types of coordinate systems. 
+providing the flexi#bi#lity to measure using other types of coordinate systems. 
 GEO
 Subtype
 When the value of the  entry is , the dictionary shall define the relationship between points 
-or regions in the two dimensional #PDF #object space and points or regions with respect to an underlying 
-model of the earth (or, potentially, other ellipsoid #objects). 
-#Table 266: Entries in a measure dictionary 
+or regions in the two dimension#al PD#F #object #space and points or regions with respect to an underlying 
+model of the earth (or, potentially, other ellipsoid# objec#ts).# 
+Table 266: Entries in a measure dictionary# 
 Key Type Value 
 (Optional) Measure
 Type 
-name The type of #PDF #object that this dictionary describes; shall be  
+name The type# of P#D#F objec#t that this dictionary describes; shall be  
 for a measure dictionary. 
 © ISO 2017 – All rights reserved 577 
 
@@ -43,8 +43,8 @@ Key Type Value
 (Optional) 
 Subtype 
 RL
-name A name specifying the type of coordinate system to use for measuring. 
-GEO(#PDF 2.0) 
+name A name specifying the type of coordinate system to use for measuring. #
+GEO#(PDF 2.0) 
 : for a rectilinear coordinate system 
 RL
 : for a geospatial coordinate system 

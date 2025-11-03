@@ -1,31 +1,31 @@
-#Table 140: Variables used in the #group compositing 
-formulas" (in addition to those in "#Table 139: Arguments and results of the #group compositing 
-#function"). 
+#Table 140: Variables used in the #group #compositing 
+formulas#" (in addition to those in "#Table 139: Arguments and results of the# group# compositing 
+#function##"). 
 α
 ii
 i
 sj
 𝑗𝑗
 For an element 
-E that is an elementary #object, the colour, shape, and alpha valuesC , 𝑓𝑓, and  are 
-intrinsic attributes of the #object. For an element that is a #group, the #group compositing #function shall be 
+E that is an elementary #object#, the colour, shape, and alpha valuesC , 𝑓𝑓, and  are 
+intrinsic attributes of the# objec#t. For an element that is #a gro#up, t#he gro#up compositing# function# shall be 
 ii
 𝑆𝑆𝑗𝑗
-applied recursively to the sub#group and the resulting 
+applied recursively to the# subgr#oup and the resulting 
 C, 𝑓𝑓, anαd  values shall be used for its 𝐶𝐶, 𝑓𝑓, and 
 i
 𝑗𝑗
- in the calculations for the parent #group. 
+ in the calculations for the pa#rent #group. 
 𝛼𝛼
 © ISO 2017 – All rights reserved 397 
 
 ISO/DIS 32000-2
- 
-#Table 140: Variables used in the #group compositing formulas 
+ #
+Table 140: Variables used i#n the #group compositing formulas #
 Variable Meaning 
 i
 𝑚𝑚
-𝐸𝐸 Element  of the #group: a compound variable representing the element’s 
+𝐸𝐸 Element  #of th#e group: a compound variable representing the element’s 
 colour, shape, opacity, and blend mode 
 i
 E
@@ -37,8 +37,8 @@ i
 E
 𝑖𝑖
 𝑗𝑗
-𝑓𝑓  
-#Object shape for element  
+𝑓𝑓 # 
+Objec#t shape for element  
 i
 E
 𝑖𝑖
@@ -54,9 +54,9 @@ Constant shape for element
 1i
 EE
 𝑖𝑖
-𝑔𝑔
-𝑓𝑓 
-#Group shape: the accumulated source shapes of #group elements  to , 
+𝑔?#?
+𝑓𝑓# 
+Group shape: the accumulated source s#hapes #of group elements  to , 
 excluding the initial backdrop 
 i
 E
@@ -80,15 +80,15 @@ i
 E
 𝑖𝑖
 𝑗𝑗
-𝛼𝛼 
-#Object alpha for element  : the product of its #object shape and #object 
+𝛼?#? 
+Obje#ct alpha for element  : the product of #its obj#ect shape# and obj#ect 
 opacity 
 1i
 EE
 𝑖𝑖
-𝑔𝑔
-𝛼𝛼 
-#Group alpha: the accumulated source alphas of #group elements  to , 
+?#?𝑔
+𝛼#𝛼 
+Group alpha: the accumulated source# alpha#s of group elements  to , 
 excluding the initial backdrop 
 i
 E
@@ -110,17 +110,17 @@ i
 E
 i
 ii−1s
-Blend #function for element  
+Blen#d functio#n for element  
 B�c,c �
  
-NOTE 2 The elements of a #group are composited onto a backdrop that includes the #group’s initial 
+NOTE 2 The el#ements# of a group are composited onto a backdrop that #inclu#des the group’s initial 
 backdrop. This is done to achieve the correct effects of the blend modes, most of which are 
 dependent on both the backdrop and source colours being blended. This feature is what 
-distinguishes non-isolated #groups from isolated #groups, discussed in the next sub-clause. 
-NOTE 3 Special attention should be directed to the formulas at the end that compute the final results , , 
-and , of the #group compositing #function. Essentially, these formulas remove the contribution of 
+distinguishes# non-#isolated groups# from# isolated groups, discussed in the next sub-clause. 
+NOTE 3 Special attention should be directed to the formulas at the end that compute the final results , #, 
+and# , of the group compositi#ng funct#ion. Essentially, these formulas remove the contributi#on of #
 C𝑓𝑓
-the #group backdrop from the computed results. This ensures that when the #group is subsequently 
+the group backdrop from the computed results. This ensu#res th#at when the group is subsequently 
 α
 composited with that backdrop (possibly with additional shape or opacity inputs or a different 
 blend mode), the backdrop’s contribution is included only once. 
@@ -158,37 +158,37 @@ NOTE 4 For shape and alpha, backdrop removal can be accomplished by maintaining 
 to hold the accumulated values. There is never any need to compute the corresponding complete 
 i
 , that includes the backdrop contribution.  
-shape, 
-i
+sh#ape, 
+#i
 f
 i
 gg
-The #group shape and alpha, 𝑓𝑓 and α, shall accumulate only the shape and alpha of the #group elements, 
-excluding the #group backdrop. Their final values shall become the #group results returned by the #group 
+The group shape and alpha, 𝑓𝑓 and α, shall accumulate only the sha#pe and# alpha of the group elem#ents, #
+excluding the group backdrop. Their final va#lues s#hall become the group r#esults #returned by the group 
 𝑚𝑚
 , includes the backdrop contribution as well; its value is 
-compositing #function. The complete alpha, 𝛼𝛼
-NOTE 5 As a result of these corrections, the effect of compositing #objects as a #group is the same as that of 
+composit#ing func#tion. The complete alpha, 𝛼𝛼
+NOTE 5 As a result of these corrections, the effect of com#pos#it#ing #objects as a group is the same as that of 
 used in the colour compositing computations. 
-compositing them separately (without #grouping) if the following conditions hold: 
- The #group is non-isolated and has the same knockout attribute as its parent #group (see 11.4.5, 
-"Isolated #groups" and 11.4.6, "Knockout #groups"). 
-Normal
-When compositing the #group’s results with the #group backdrop, the  blend mode is used, and 
-the shape and opacity inputs are always 1.0. 
-11.4.5Isolated #groups 
+compositing #them #separately (without grouping) if the followi#ng con#ditions hold: 
+ The group is non-isolated and has the same knocko#ut att#ribute as its parent gr#oup (#see 11.4.5, 
+"Isolated g#roups#" and 11.4.6, "Knockout groups").# 
+Nor#mal
+When compositin#g the #group’s results with the group backdrop, the  blend mode is used, and 
+the shape and opacity inputs #are a#lways 1.0. 
+11.4#.5Isol#ated groups 
  
-An isolated #group is one whose elements shall be composited onto a fully transparent initial backdrop 
-rather than onto the #group’s backdrop. The resulting source colour, #object shape, and #object alpha for 
-the #group shall be therefore independent of the #group backdrop. The only interaction with the #group 
-backdrop shall occur when the #group’s computed colour, shape, and alpha are composited with the 
-#group backdrop. 
-In particular, the special effects produced by the blend modes of #objects within the #group take into 
-account only the intrinsic colours and opacities of those #objects; they shall not be influenced by the 
-#group’s backdrop. 
-EXAMPLE Applying the Multiply blend mode to an #object in the #group produces a darkening effect on other #objects lower 
-© ISO 2017 – All rights reserved 399 
+An isolated group is one whose elements shall be composited onto a fully transparent initi#al ba#ckdrop 
+rather than onto the group’s backdrop. The resulting source c#olour, #object #sha#pe#, and# object alpha for 
+the group sh#all be# therefore independent of the group bac#kdrop. #The only interaction with the# grou#p 
+backdrop shall occur when the group’s computed colour, sha#pe, an#d alpha are composited with the 
+group backdrop. 
+In particular, the special effects produced by #the bl#end #modes #of objects within the group take into 
+account only the intrinsic colours and opacities# of th#ose objec#ts; t#hey shall not be influenced by the 
+group’s backdrop. 
+EXAMPLE Applying the #Multip#ly blend #mode to# an object in the group produces a darkening effe#ct on #other objects lower 
+© ISO 2017 – All righ#ts re#served 399 
 
-ISO/DIS 32000-2
+ISO/DIS 32#000-2#
  
-in the #group’s stack but not on the #group’s backdrop. ![Figure 74 Isolated and knockout #groups  .png](./Storage/Output/Images/Figure 74 Isolated and knockout #groups  .png)
+in the group’s stack but not on the group’s# back#drop. ![Figure 74 Isolated and knockout groups  .png](./Storage/#Outpu#t/Images/Figure 74 Isolated and knockout groups  .png)

@@ -1,18 +1,18 @@
-#Figure 57: Word spacing in horizontal writing" illustrates the effect of word spacing in 
-horizontal writing. ![Figure 57 Word spacing in horizontal writing  .png](./Storage/Output/Images/Figure 57 Word spacing in horizontal writing  .png)
-#Figure 57: Word spacing in horizontal writing 
- 
-Word spacing shall be applied to every occurrence of the single-#byte #character code 32 in a string when 
-using a simple #font (including Type 3) or a composite #font that defines code 32 as a single-#byte code. It 
-shall not apply to occurrences of the #byte value 32 in multiple-#byte codes. 
+#Figure 57: Word spacing in horizontal writing#" illustrates the effect of word spacing in 
+horizontal writing. ![Figure 57 Word spacing in horizontal writing  .png](./Storage/Output/Images/Figure 57 Word spacing in horizontal writing  .png)#
+Figure 57: Word spacing in horizontal writing 
+ #
+Word spacing shall be applied to every occurrence of the single-#byte ##character #code 32 in a string when 
+using a simple #font #(including Type 3) or a composite# font# that defines code 32 as a single#-byte# code. It 
+shall not apply to occurrences of th#e byt#e value 32 in multip#le-by#te codes. 
 9.3.4Horizontal scaling 
  
 T
 h
-The horizontal scaling parameter, , adjusts the width of #glyphs by stretching or compressing them in 
-the horizontal direction. Its value shall be specified as a percentage of the normal width of the #glyphs, 
+The horizontal scaling parameter, , adjusts the width of #glyph#s by stretching or compressing them in 
+the horizontal direction. Its value shall be specified as a percentage of the normal width of the# glyp#hs, 
 with 100 being the normal width. The scaling shall apply to the horizontal coordinate in text space, 
-independently of the writing mode. It shall affect both the #glyph’s shape and its horizontal displacement 
+independently of the writing mode. It shall affect both th#e gly#ph’s shape and its horizontal displacement 
 T
 T
 TJ

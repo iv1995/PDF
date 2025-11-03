@@ -1,22 +1,22 @@
-#Table 22: User access permissions". 
+#Table 22: User access permissions#". 
 3 () if the document is encrypted with a  value of 2 or 3, or has 
 any "Security handlers of revision 3 or greater" access permissions set to 
 #Deprecated
-V
+#V
 0. 
-#PDF 2.0; #deprecated
+#PDF #2.0;# deprecated#
 4 () if the document is encrypted with a  value of 4. 
-5 () Shall not be used. This value was used by a 
-#PDF 2.0
+5 () Shall not be used. This value was used by a #
+PDF# 2.0
 V
- 
-#deprecated proprietary Adobe extension. 
+# 
+deprecate#d proprietary Adobe extension. 
 6 () if the document is encrypted with a  value of 5.
 Required
 O R
 R
-string () A #byte string, 32 #bytes long if the value of  is 4 or less and 48 
-#bytes long if the value of  is 6, based on both the owner and user passwords, 
+string () A #byte #string, 32# byt#es long if the value of  is 4 or less and 48# 
+by#tes long if the value of  is 6, based on both the owner and user passwords, 
 that shall be used in computing the file encryption key and in determining 
 whether a valid owner password was entered. 
  
@@ -25,8 +25,8 @@ For more information, see 7.6.4.3, "File encryption key algorithm" and 7.6.4.4,
 Required
 U R
 R
-string () A #byte string, 32 #bytes long if the value of  is 4 or less and 48 
-#bytes long if the value of  is 6, based on the owner and user password, that 
+string ()# A by#te string,# 32 #bytes long if the value of  is 4 or less and# 48 #
+bytes long if the value of  is 6, based on the owner and user password, that 
 shall be used in determining whether to prompt the user for a password and, if 
 so, whether a valid user or owner password was entered. For more 
 information, see 7.6.4.4, "Password algorithms". 
@@ -35,27 +35,27 @@ information, see 7.6.4.4, "Password algorithms".
 ISO/DIS 32000-2
  
 Key Type Value 
-Required if R is 6 (#PDF 2.0
+Required if R is 6# (PD#F 2.0
 OE 
-string ()) A 32-#byte string, based on the owner and user 
+string ())# A 32#-byte string, based on the owner and user 
 password, that shall be used in computing the file encryption key. For more 
 information, see 7.6.4.4, "Password algorithms". 
-Required if  is 6 (#PDF 2.0
+Required if  is #6 (P#DF 2.0
 UE R
-string ()) A 32-#byte string, based on the user password, 
+string ()#) A 3#2-byte string, based on the user password, 
 that shall be used in computing the file encryption key. For more information, 
 see 7.6.4.4, "Password algorithms". 
 Required
 P 
 integer () A set of flags specifying which operations shall be permitted when 
-the document is opened with user access (see "#Table 22: User access 
-permissions"). 
-Required if  is 6 (#PDF 2.0
+the document is opened with user access (see #"Table 22: User access 
+permission#s"). 
+Required if  is# 6 (#PDF 2.0
 Perms R
-string ()) A 16-#byte string, encrypted with the file 
+string (#)) A #16-byte string, encrypted with the file 
 encryption key, that contains an encrypted copy of the permissions flags. For 
 more information, see 7.6.4.4, "Password algorithms". 
-Optional; meaningful only when the value of  is 4 (#PDF 1.5) or 5 (#PDF 2.0)
+Optional; meaningful only when the value of  i#s 4 #(PDF 1.5) #or 5# (PDF 2.0)
 EncryptMetadata V
 boolean () 
 true
@@ -66,66 +66,66 @@ OU
 The values of the  and  entries in this dictionary shall be used to determine whether a password 
 entered when the document is opened is the correct owner password, user password, or neither. 
 P
-The value of the  entry shall be interpreted as an unsigned 32-#bit quantity containing a set of flags 
-specifying which access permissions shall be granted when the document is opened with user access. 
-"#Table 22: User access permissions" shows the meanings of these flags. #Bit positions within the flag 
-word shall be numbered from 1 (low-order) to 32 (high-order). A 1 #bit in any position shall enable the 
-corresponding access permission. Which #bits shall be meaningful, and in some cases how they shall be 
+The value of the  entry shall be interpreted as an unsigned 32-#bi#t quantity containing a set of flags 
+specifying which access permissions shall be granted when the document is opened with user access. #
+"Table 22: User access permissio#ns" shows the meanings of these flags.# B#it positions within the flag 
+word shall be numbered from 1 (low-order) to 32 (high-order). A #1 #bit in any position shall enable the 
+corresponding access permission. Whi#ch# bits shall be meaningful, and in some cases how they shall be 
 R
 interpreted, shall depend on the security handler’s revision number (specified in the encryption 
-dictionary’s  entry). 
-##PDF readers shall ignore all flags other than those at #bit positions 3, 4, 5, 6, 9, 10, 11, and 12. 
-NOTE #PDF #integer #objects can be interpreted as #binary values in a signed twos-complement form. Since 
-all the reserved high-order flag #bits in the encryption dictionary’s P value are required to be 1, the 
+dictionary’s  en#try)#. 
+#PDF reader#s shall ignore all flags other than those# a#t bit positions 3, 4, 5, 6, 9, 10, 11, and 12#. 
+NO#TE PDF #integer #object##s can be interprete#d #as binary values in a signed twos-complement form. Since 
+all the reserved high-order# f#lag bits in the encryption dictionary’s P value are required to be 1, the 
 integer value  is always specified as a negative integer. For example, assuming revision 2 of the 
 P
 security handler, the value -44 permits printing and copying but disallows modifying the contents 
-and annotations. 
-#Table 22: User access permissions 
-#Bit position Meaning 
+and annotations#. 
+Table 22: User access permiss#io#n#s 
+Bit position Meaning 
 3 (Security handlers of revision 2) Print the document. 
 (Security handlers of revision 3 or greater) Print the document 
-(possibly not at the highest quality level, depending on whether 
-#bit 12 is also set). 
+(possibly not at the highest quality level, depending on w#he#ther 
+bit 12 is also set). 
 4 Modify the contents of the document by operations other than 
-those controlled by #bits 6, 9, and 11. 
+those contr#ol#led by bits 6, 9, and 11. 
 © ISO 2017 – All rights reserved 82 
 
-ISO/DIS 32000-2
+ISO/DIS #32#000-2
  
-#Bit position Meaning 
+Bit position Meaning 
 5 Copy or otherwise extract text and graphics from the document. 
 However, for the limited purpose of providing this content to 
-assistive technology, a ##PDF reader should behave as if this #bit 
-NOTE For accessi#bility, ISO 32000-1 had this option restricted 
-was set to 1. 
-by #bit 10, but that exception has been #deprecated in #PDF 
+assistive techn#olog#y, a# PDF reader# should behave #as# if this bit 
+NOTE# F#or accessibility, ISO 32000-1 had this option restricted 
+was s#et# to 1. 
+by bit 10, but that exception has be#en depre#cat#e#d in PDF 
 2.0. 
-6 Add or modify text annotations, fill in interactive form fields, 
-and, if #bit 4 is also set, create or modify interactive form fields 
+6 Add or modify text annotations, fill in interactive form fie#ld#s, 
+and, if bit 4 is also set, create or modify interactive form fields 
 (including signature fields). 
 9 (Security handlers of revision 3 or greater) Fill in existing 
-interactive form fields (including signature fields), even if #bit 6 is 
+interactive form fields (including signature fi#el#ds), even if bit 6 is 
 clear. 
-10 Not used. This #bit was previously used to determine whether 
-content could be extracted for the purposes of accessi#bility, 
-however, that restriction has been #deprecated in #PDF 2.0. ##PDF 
-readers shall ignore this #bit and ##PDF writers shall always set this 
-#bit to 1 to ensure compati#bility with ##PDF readers following 
+10# N#ot used. This bit was previously used to determine whether 
+content could be extracted for the pu#rp#oses of accessibility, 
+however, that restriction has b#een depr#eca##ted #in PD#F 2.0#. PDF 
+read#ers sh#al#l ignore #this# bit and #PDF writer#s shal#l #always set this 
+bit to #1 t#o ensure compa#tibi#lity wi#th PDF rea#ders following 
 earlier specifications. 
 11 (Security handlers of revision 3 or greater) Assemble the 
 document (insert, rotate, or delete pages and create document 
-outline items or thumbnail images), even if #bit 4 is clear. 
+outline items or thumbn#ai#l images), even if bit 4 is clear. 
 12 (Security handlers of revision 3 or greater) Print the document 
-to a representation from which a faithful digital copy of the #PDF 
+to a representation from which a faithful digit#al co#py of the PDF 
 content could be generated, based on an implementation-
-dependent algorithm. When this #bit is clear (and #bit 3 is set), 
+dependent# a#lgorithm. When #th#is bit is clear (and bit 3 is set), 
 printing shall be limited to a low-level representation of the 
 appearance, possibly of degraded quality. 
  
 7.6.4.3File encryption key algorithm 
  
-As noted earlier, one #function of a security handler is to generate a file encryption key for use in 
+As noted earlier, one #function #of a security handler is to generate a file encryption key for use in 
 encrypting and decrypting the contents of a document. Given a password string, the standard security 
 handler computes a file encryption key. For revision 4 and earlier, the algorithm is as shown in 7.6.4.3.1, 
 "Algorithm 2: Computing an encryption key in order to encrypt a document (revision 4 and earlier)" 
@@ -134,15 +134,15 @@ from an encrypted document in order to decrypt it (revision 6 and later)".
 7.6.4.3.1Algorithm 2: Computing a file encryption key in order to encrypt a 
  
 document (revision 4 and earlier) 
-This algorithm is #deprecated in #PDF 2.0. 
+This algorith#m is# dep#rec#ate#d i#n PDF 2.0. 
  
-#PDFDocEncoding
-a)The password string is generated from host system codepage #characters (or system scripts) by first 
- #PDFDocEncoding 
+PDFDocEncoding
+a)The password string is generated from host system codepage #character#s (or system sc#rip#ts) by first 
+ PDFDocEncoding 
 converting the string to . If the input is Unicode, first convert to a codepage encoding, 
-and then tofor backward compati#bility. Pad or truncate the resulting password string 
-to exactly 32 #bytes. If the password string is more than 32 #bytes long, use only its first 32 #bytes; if it is less 
-than 32 #bytes long, pad it by appending the required number of additional #bytes from the beginning of the 
+and the#n #tofor backward compatibility. Pad or truncate the resulting password string 
+to ex#actl#y 32 bytes. If the password string is mor#e th#an 32 bytes long, use only it#s fi#rst 32 bytes; if it is le#ss 
+#than 32 bytes long, pad it by appending the required number o#f ad#ditional bytes from the beginning of the 
 © ISO 2017 – All rights reserved 83 
 
 ISO/DIS 32000-2
@@ -152,30 +152,30 @@ following padding string:
   2E 2E 00 B6 D0 68 3E 80 2F 0C A9 FE 64 53 69 7A> 
  
 n
-That is, if the password string is n #bytes long, append the first 32 -  #bytes of the padding string to 
+That is, if the passwor#d st#ring is n bytes long, append t#he f#irst 32 -  bytes of the padding string to 
 the end of the password string. If the password string is empty (zero-length), meaning there is no 
 user password, substitute the entire padding string in its place. 
  
 O
  
-b)Initialise the MD5 hash #function and pass the result of step (a) as input to this #function.  
+b)Initialise the MD5 hash# function# and pass the result of step (a) as input to thi#s functi#on.  
 O
-c)Pass the value of the encryption dictionary’s  entry to the MD5 hash #function. (7.6.4.4.1, "Algorithm 3: 
+c)Pass the value of the encryption dictionary’s  entry to the MD5 ha#sh funct#ion. (7.6.4.4.1, "Algorithm 3: 
 Computing the encryption dictionary’s O-entry value (revision 4 and earlier)" shows how the  value is 
 P
  
 computed.)  
-d)Convert the integer value of the  entry to a 32-#bit unsigned #binary number and pass these #bytes to the# 
+d)Convert the integer val#ue# of the  e#nt#ry to a 32-bit unsigned binary number# and# pass these bytes to the# 
  ID 
  
-MD5 hash #function, low-order #byte first.  
-e)Pass the first element of the file’s file# identifier array (the value of theentry in the document’s trailer 
+#MD5 h#ash fun#ct#ion#, low-order byte first.  
+e)Pass the first element of the file’s fil#e i#dentifier array (the value of theentry in the document’s trailer 
 Security handlers of revision 4 or greater
  
-dictionary; see "#Table 15: Entries in the file trailer dictionary") to the MD5 hash #function.  
-f)() If document metadata is not being encrypted, pass 4 #bytes with 
+dictionary; see "#Table 15: Entries in the file trailer dictionary#") to the MD5 #hash fun#ction.  
+f)() If document metadata is not being #encr#ypted, pass 4 bytes with 
 NOTE 1 This provision pertains only to document-level XMP metadata. 
-the value 0xFFFFFFFF to the MD5 hash #function.  
+the value 0xFFFFFFFF to the MD5# hash fu#nction.  
  
 Security handlers of revision 3 or greater
  
@@ -183,23 +183,23 @@ g)Finish the hash.
 n
 h)() Do the following 50 times: Take the output from the previous 
 Length
-MD5 hash and pass the first n #bytes of the output as input into a new MD5 hash, where  is the number of 
+MD5 hash an#d pa#ss the first n bytes of the output as input into a new MD5 hash, where  is #the #number of 
 nn
  
-#bytes of the file encryption key as defined by the value of the encryption dictionary’s  entry.  
-i)Set the file encryption key to the first  #bytes of the output from the final MD5 hash, where  shall always 
+bytes of the file encryption key as defined by the value of the encryption dictionary’s  entry.  
+i)Set the file encrypti#on k#ey to the first  bytes of the output from the final MD5 hash, where  shall always 
 Length
 be 5 for security handlers of revision 2 but, for security handlers of revision 3 or greater, shall depend on 
-NOTE 2 The first element of the  array, as used in 7.6.4.3.1, "Algorithm 2: Computing an encryption key# 
-ID
+NOTE 2 The first element of the  array, as used in 7.6.4.3.1, "Algorithm 2: Computing an encryption k#ey 
+I#D
 the value of the encryption dictionary’s  entry.  
 in order to encrypt a document (revision 4 and earlier)", step e, generally remains unchanged 
-across revisions of a given document. However, since this is not guaranteed, use of the  in# 
-ID
+across revisions of a given document. However, since this is not guaranteed, use of the # in 
+#ID
 computation of the file encryption key, as required when using 7.6.4.3.2, "Algorithm 2.A: 
 Retrieving the encryption key from an encrypted document in order to decrypt it (revision 6 and 
 later)", can complicate updates to the document. For this reason, security handlers are 
-encouraged to use Algorithm 2.A or higher, which do not use the  in file encryption key# 
+encouraged to use Algorithm 2.A or higher, which do not use the  in file encryption# key #
 ID
 computation. This algorithm, when applied to the user password string, produces the file 
 encryption key used to encrypt or decrypt string and stream data according to 7.6.3.1, "Algorithm 
@@ -210,15 +210,15 @@ the algorithms described below.
 document in order to decrypt it (revision 6 and later) 
 OU 
 Encrypt 
-To understand the algorithm below, it is necessary to treat the 48-#bytes of the  and  strings in the
-dictionary as made up of three sections, as described in Algorithms 8 and 9. The first 32 #bytes 
-are a hash value (explained below). The next 8 #bytes are called the Validation Salt. The final 8 #bytes are 
+To understand the algorithm below, it is nece#ssar#y to treat the 48-bytes of the  and  strings in the
+dictionary as made up of three sections, as described in Algorithms# 8 a#nd 9. The first 32 bytes 
+are a hash value (expla#ined# below). The next 8 bytes are called the Vali#dati#on Salt. The final 8 bytes are 
 called the Key Salt. Whenever UTF-8 password is used below, steps (a) and (b) are to be applied to the 
 relevant password string to generate the UTF-8 password. 
  
 Internet RFC 4013Internet RFC 3454
 a)The UTF-8 password string shall be generated from Unicode input by processing the input string with the 
-SASLprep () profile of stringprep () using the Normalize and #BiDi 
+SASLprep () profile of stringprep #()# using the Normalize and BiDi 
 options, and then converting to a UTF-8 representation. 
 © ISO 2017 – All rights reserved 84 
 
@@ -226,73 +226,73 @@ ISO/DIS 32000-2
  
  
  
-b)Truncate the UTF-8 representation to 127 #bytes if it is longer than 127 #bytes.  
+b)Truncate the UT#F-8 #representation to 127 byte#s if# it is longer than 127 bytes.  
 c)Test the password against the owner key by computing a hash using algorithm 2.B with an input string 
 U
-consisting of the UTF-8 password concatenated with the 8 #bytes of owner Validation Salt, concatenated 
-with the 48-#byte  string. If the 32-#byte result matches the first 32 #bytes of the O string, this is the owner 
+consisting of the UTF-8 passw#ord #concatenated with the 8 bytes of owner Validation Sal#t, con#catenated 
+with t#he 48#-byte  string. If the 32-by#te r#esult matches the first 32 bytes of the O string, this is the owner 
  
 password.  
 d)Compute an intermediate owner key by computing a hash using algorithm 2.B with an input string 
 UOE
-consisting of the UTF-8 owner password concatenated with the 8 #bytes of owner Key Salt, concatenated 
-with the 48-#byte  string. The 32-#byte result is the key used to decrypt the 32-#byte  string using AES-
-256 in CBC mode with no padding and an initialization vector of zero. The 32-#byte result is the file 
+consisting of the UTF-8 owner p#assw#ord concatenated with the 8 bytes of owner Key# Salt,# concatenated #
+with# the 48-byte  string. The 32-byte result# is th#e key used to decrypt the 32-byte  string using AES-
+256 in CBC mode with no padding and an in#itial#ization vector of zero. The 32-byte result is the file 
  
 encryption key.  
 e)Compute an intermediate user key by computing a hash using algorithm 2.B with an input string 
 UE
-consisting of the UTF-8 user password concatenated with the 8 #bytes of user Key Salt. The 32-#byte result 
-is the key used to decrypt the 32-#byte  string using AES-256 in CBC mode with no padding and an 
+consisting of the UTF-8 u#ser #password concatenated with# the #8 bytes of user Key Salt. The 32-byte res#ult 
+i#s the key used to decrypt the 32-byte  string using AES-256 in CBC mode with no padding and an 
  Perms 
- 
-initialization vector of zero. The 32-#byte result is the file encryption key. 
-f)Decrypt the 16-#bytestring using AES-256 in ECB mode with an initialization vector of zero and 
+# 
+ini#tialization vector of zero. The 32-byte result is th#e fi#le encryption key. 
+f)Decrypt the 16-bytestring using AES-256 in ECB mode with an initialization vector of zero and 
  Perms 
-the file encryption key as the key. Verify that #bytes 9-11 of the result are the #characters "a", "d", "b". #Bytes 
+the fi#le e#ncryption key as the key. Verify that bytes 9-11 of th#e re#sult are the# characte#rs "a", "d", "b". Bytes 
 P
 0-3 of the decryptedentry, treated as a little-endian integer, are the user permissions. They shall 
 7.6.4.3.3Algorithm 2.B: Computing a hash (revision 6 and later) 
  
 match the value in the  key. 
-Take the SHA-256 hash of the original input to the algorithm and name the resulting 32 #bytes, K. 
+Take the SHA-256 hash of the original input# to #the algorithm and name the resulting 32 bytes, K. 
 Perform the following steps (a)-(d) 64 times: 
 K1K
  
-a)Make a new string, , consisting of 64 repetitions of the sequence: input password, , the 48-#byte user 
+a)Make a new string, , consisting of 64 repetitio#ns of# the sequence: input# pass#word, , the 48-byte user 
 K1
-key. The 48 #byte user key is only used when checking the owner password or creating the owner key. If 
+key. The 48 byte user key is only used when checking the owner password or creating the owner key. If 
 K
 checking the user password or creating the user key,  is the concatenation of the input password and 
 K1K
  
 . 
 KE
-b)Encrypt  with the AES-128 (CBC, no padding) algorithm, using the first 16 #bytes of  as the key and the 
+b)Encrypt  with the AES-128 (#CBC,# no padding) algorithm, using the first# 16 #bytes of  as the key and the 
 E
  
-second 16 #bytes of  as the initialization vector. The result of this encryption is . 
-c)Taking the first 16 #bytes of  as an unsigned #big-endian integer, compute the remainder, modulo 3. If the 
+second 16 bytes of  as the initialization vector. The resul#t of# this encryption is . 
+c)Taking the first #16# bytes of  as an unsigned big-endian integer, compute the remainder, modulo 3. If the 
 result is 0, the next hash used is SHA-256, if the result is 1, the next hash used is SHA-384, if the result is 2, 
 EK
  
 the next hash used is SHA-512. 
-d)Using the hash algorithm determined in step c, take the hash of . The result is a new value of , which 
+d)Using the hash algorithm determined in step c, take the hash of . The result i#s a #new value of , which 
 K
-will be 32, 48, or 64 #bytes in length. 
+will be 32, 48, or 64 bytes in length. 
 Repeat the process (a-d) with this new value for . Following 64 rounds (round number 0 to round 
 number 63), do the following, starting with round number 64: 
-NOTE 2 The reason for multiple rounds is to defeat the possi#bility of running all paths in parallel. With 64 
-rounds (minimum) there are 3^64 possible paths through the algorithm. 
+NOTE 2 The reason for multiple #ro#unds is to defeat the possibility of running all paths in parallel. With 64 
+rounds (minimum) there are 3^64 possible paths t#hroug#h the algorithm. 
 E
  
-e)Look at the very last #byte of . If the value of that #byte (taken as an unsigned integer) is greater than the 
+e)L#ook a#t the very last byte of . If the value of that byte (taken as an unsigned integer) is greater than the 
  
 round number - 32, repeat steps (a-d) again. 
 NOTE 3 Tests indicate that the total number of rounds will most likely be between 65 and 80. 
-f)Repeat from steps (a-e) until the value of the last #byte is ≤ (round number) - 32. 
+f#)Repe#at from steps (a-e) until the value of th#e la#st byte is ≤ (round number) - 32. 
 K
-The first 32 #bytes of the final  are the output of the algorithm. 
+The first 32 bytes of the final  are the output of the algorithm. 
 © ISO 2017 – All rights reserved 85 
 
 ISO/DIS 32000-2
@@ -300,8 +300,8 @@ ISO/DIS 32000-2
 7.6.4.4Password algorithms 
  
 In addition to the file encryption key, the standard security handler shall provide the contents of the 
-#FilterV
-encryption dictionary ("#Table 20: Entries common to all encryption dictionaries" and "Table 21: 
+#Filter#V
+encryption dictionary ("#Table 20: Entries common to all encryption dictionaries#" and "Table 21: 
 LengthRPO
 Additional encryption dictionary entries for the standard security handler"). The values of the , , 
 UOUOE
@@ -312,20 +312,20 @@ password) and the  (user password) entries for encryption revision 4 and earlier
 require more explanation. 
 Algorithms 3 through 5 show how the values of the owner password and user password are computed 
 for revision 4 and earlier. Algorithm 6 and 7 show how to determine if a password is valid. Algorithms 8 
-through 10 show how to compute the values stored in the #PDF (by writers) to determine if a revision 6 
-password is valid. Algorithms 11 through 13 describe how to validate a password provided by a user or 
-owner to read the #PDF. 
- #PDFDocEncoding 
-Password for revision 4 and earlier are up to 32 #characters in length, and are limited to #characters in 
-the##character set (see Annex D, "##Character Sets and Encodings"). 
+through 10 show how to compute the va#lues# stored in the PDF (by writers) to determine if a revision 6 
+password is valid. Algorithms 11 through 13 describe how to validate a password provided by a user or# 
+o#wne#r t#o read the PDF. 
+ PDFDocEncoding 
+Password for revision 4 and earlier are up to 3#2 charact#ers in length, and are limited #to charac#ters in #
+the#charac#ter set #(see Annex# D, #"Chara#cter Se#ts and Encodings"). 
 In revision 4 and earlier, the result of running the password algorithm was the file encryption key. In 
 revision 6, the file encryption key is decoupled from the password algorithm to make the owner and 
-user keys independent. For algorithms 8 to 13, the file encryption key shall be a 256-#bit (32-#byte) value 
+user keys independent. For algorithms 8# to #13, the file #en#cryption key shall be a 256-bit (32-byte) value 
 generated with a strong random number generator. 
 7.6.4.4.1Algorithm 3: Computing the encryption dictionary’s O-entry value (revision 
  
 4 and earlier) 
-This algorithm is #deprecated in #PDF 2.0. 
+This algorit##hm #is depre#cated in PDF 2.0. 
  
 a)Pad or truncate the owner password string as described in step (b) of 7.6.4.3.1, "Algorithm 2: Computing 
 an encryption key in order to encrypt a document (revision 4 and earlier)". If there is no owner password, 
@@ -333,11 +333,11 @@ an encryption key in order to encrypt a document (revision 4 and earlier)". If t
 use the user password instead. 
 Security handlers of revision 3 or greater
  
-b)Initialise the MD5 hash #function and pass the result of step (a) as input to this #function.  
+b)Initialise the MD#5 hash fu#nction and pass the result of step (a) as input #to this #function.  
 c)() Do the following 50 times: Take the output from the previous 
  
-MD5 hash and pass it as input into a new MD5 hash.  
-d)Create an RC4 file encryption key using the first n #bytes of the output from the final MD5 hash, where n 
+MD5 hash and pass it as input into a new MD5 hash. # 
+d)#Create an RC4 file encryption key using the first n bytes of the output from the final MD5 hash, where n 
 Length
 shall always be 5 for security handlers of revision 2 but, for security handlers of revision 3 or greater, 
  
@@ -345,19 +345,19 @@ shall depend on the value of the encryption dictionary’s  entry.
 e)Pad or truncate the user password string as described in step (b) of 7.6.4.3.1, "Algorithm 2: Computing an 
  
 encryption key in order to encrypt a document (revision 4 and earlier)".  
-f)Encrypt the result of step (e), using an RC4 encryption #function with the file encryption key obtained in 
+f)Encrypt the result of step (e), using an RC4 en#cryption #function with the file encryption key obtained in 
 Security handlers of revision 3 or greater
  
 step (d).  
 g)() Do the following 19 times: Take the output from the previous 
-invocation of the RC4 #function and pass it as input to a new invocation of the #function; use a file 
-encryption key generated by taking each #byte of the encryption key obtained in step (d) and performing 
-an XOR (exclusive or) operation between that #byte and the single-#byte value of the iteration counter 
+invocation o#f the RC4# function and pass it as input to a new invocat#ion of th#e funct#ion; #use a file 
+encryption key generated by taking each byte of the encryption key obtained in step (d) and# perf#orming 
+an XOR# (exc#lusive or) operation between that byte and the single-byte value of the iteration counter 
 Store
 O
  
 (from 1 to 19). 
-h) the output from the final invocation of the RC4 #function as the value of the  entry in the encryption 
+h) the output from the final invocation# of the R#C4 function as the value of the  entry in the encryption 
 © ISO 2017 – All rights reserved 86 
 
 ISO/DIS 32000-2
@@ -366,13 +366,13 @@ ISO/DIS 32000-2
  
 dictionary. 
 handlers of revision 2) 
-This algorithm is #deprecated in #PDF 2.0. 
+This algori##thm# is depr#ecated in PDF 2.0. 
  
 a)Create a file encryption key based on the user password string, as described in 7.6.4.3.1, "Algorithm 2: 
  
-Computing an encryption key in order to encrypt a document (revision 4 and earlier)". 
-b)Encrypt the 32-#byte padding string shown in step (b) of 7.6.4.3.1, "Algorithm 2: Computing an encryption 
-key in order to encrypt a document (revision 4 and earlier)", using an RC4 encryption #function with the 
+Computing an encryption key in order to encr#ypt a# document (revision 4 and earlier)". 
+b)Encrypt the 32-byte padding string shown in step (b) of 7.6.4.3.1, "Algorithm 2: Computing an encryption 
+key in order to encrypt a document (revision 4 and earlier)", using an RC#4 encrypt#ion function with the 
 U
  
 file encryption key from the preceding step.  
@@ -380,46 +380,46 @@ file encryption key from the preceding step.
  
 c)Store the result of step (b) as the value of the  entry in the encryption dictionary.  
 value (Security handlers of revision 3 or 4) 
-This algorithm is #deprecated in #PDF 2.0. 
+This algor##ith#m is dep#recated in PDF 2.0. 
  
 a)Create a file encryption key based on the user password string, as described in 7.6.4.3.1, "Algorithm 2: 
  
-Computing an encryption key in order to encrypt a document (revision 4 and earlier)". 
-b)Initialise the MD5 hash #function and pass the 32-#byte padding string shown in step (b) of 7.6.4.3.1, 
-"Algorithm 2: Computing an encryption key in order to encrypt a document (revision 4 and earlier)" as# 
- ID 
+Computing an encryption key in order to encrypt a document (revision 4 and ea#rlier#)". 
+b)Initialise# the MD5 #hash function and pass the 32-byte padding string shown in step (b) of 7.6.4.3.1, 
+"Algorithm 2: Computing an encryption key in order to encrypt a document (revision 4 and earlier#)" as 
+ ID# 
+ #
+input t#o this function.  
+c)Pass the first element of the file’#s f#ile identifier array (the value of theentry in the document’s trailer 
  
-input to this #function.  
-c)Pass the first element of the file’s file# identifier array (the value of theentry in the document’s trailer 
- 
-dictionary; see "#Table 15: Entries in the file trailer dictionary") to the hash #function and finish the hash.  
-d)Encrypt the 16-#byte result of the hash, using an RC4 encryption #function with the encryption key from 
+dictionary; see #"Table 15: Entries in the file trailer dictionar#y"#)# to t#h#e hash function and finish the hash.  
+d)Encrypt the 16-byte result of the hash, using a#n RC4 enc#ryption function with the encryption key from 
  
 step (a).  
-e)Do the following 19 times: Take the output from the previous invocation of the RC4 #function and pass it as 
-input to a new invocation of the #function; use a file encryption key generated by taking each #byte of the 
-original file encryption key obtained in step (a) and performing an XOR (exclusive or) operation between 
+e)Do the following 19 times: Take the output from the previous invo#cation of# the RC4 function and pass it as 
+input to a new #invocatio#n of th#e fun#ction; use a file encryption key generated by taking each byte of the 
+original file encryption key obtained in step (a)# and #performing an #XOR (#exclusive or) operation between 
  
-that #byte and the single-#byte value of the iteration counter (from 1 to 19).  
+that byte and the single-by#te v#alue of the iteration counter (from 1 to 1#9)#.  
 U
-f)Append 16 #bytes of ar#bitrary padding to the output from the final invocation of the RC4 #function and 
-NOTE The standard security handler uses the algorithms 6 and 7 that follow, to determine whether a 
-store the 32-#byte result as the value of the  entry in the encryption dictionary.  
+f)Append 16 bytes of arbitrary padding to the output from the final in#vocation #of the RC4 function and 
+NOTE The standard security handler uses the al#gorit#hms 6 and 7 that follow, to determine whether a 
+store the 32-byte result as the value of the  entry in the encryption dictionary.  
 supplied password string is the correct user or owner password. Note too that algorithm 6 can be 
 used to determine whether a document’s user password is the empty string, and therefore whether 
 to suppress prompting for a password when the document is opened. 
 7.6.4.4.4Algorithm 6: Authenticating the user password (Security handlers of 
  
 revision 4 and earlier) 
-This algorithm is #deprecated in #PDF 2.0. 
+This algo##rit#hm is de#precated in PDF 2.0. 
  
 a)Perform all but the last step of 7.6.4.4.2, "Algorithm 4: Computing the encryption dictionary’s U-entry 
 value (Security handlers of revision 2)" or 7.6.4.4.3 "Algorithm 5: Computing the encryption dictionary’s 
 U
  
 U (user password) value (Security handlers of revision 3 or 4)" using the supplied password string. 
-b)If the result of step (a) is equal to the value of the encryption dictionary’s  entry (comparing on the first 
-16 #bytes in the case of security handlers of revision 3 or greater), the password supplied is the correct 
+b)If the result of step (a) is equal to the valu#e of# the encryption dictionary’s  entry (comparing on the first 
+16 bytes in the case of security handlers of revision 3 or greater), the password supplied is the correct 
 user password. The file encryption key obtained in step (a) (that is, in the first step of 7.6.4.4.2, "Algorithm 
 © ISO 2017 – All rights reserved 87 
 
@@ -431,7 +431,7 @@ ISO/DIS 32000-2
  
 revision 3 or 4)") shall be used to decrypt the document. 
 revision 4 and earlier) 
-This algorithm is #deprecated in #PDF 2.0. 
+This alg##ori#thm is d#eprecated in PDF 2.0. 
  
 a)Compute a file encryption key from the supplied password string, as described in step (a) to step (d) of 
 Security handlers of revision 2 only
@@ -439,14 +439,14 @@ O
  
 "Algorithm 3: Computing the encryption dictionary’s O-entry value (revision 4 and earlier)". 
 b)() Decrypt the value of the encryption dictionary’s  entry, using an 
-Security handlers of revision 3 or greater
-RC4 encryption #function with the file encryption key computed in step (a). 
+Security handlers of revision 3 or gr#eater
+RC4# encryption function with the file encryption key computed in step (a). 
 O
 () Do the following 20 times: Decrypt the value of the 
 encryption dictionary’s  entry (first iteration) or the output from the previous iteration (all 
-subsequent iterations), using an RC4 encryption #function with a different encryption key at each 
-iteration. The key shall be generated by taking the original key (obtained in step (a)) and 
-performing an XOR (exclusive or) operation between each #byte of the key and the single-#byte value 
+subsequent iterations), us#ing an RC#4 encryption function with a different encryption key at each 
+iteration. The key shall be generated by taking the original key (obtained in st#ep (a#)) and 
+performing an XOR# (exc#lusive or) operation between each byte of the key and the single-byte value 
 result
 of the iteration counter (from 19 to 0). 
  
@@ -455,95 +455,95 @@ c)The  of step (b) purports to be the user password. Authenticate this user pass
 7.6.4.4.6Algorithm 8: Computing the encryption dictionary’s U (user password) and 
  
 correct, the password supplied is the correct owner password.  
-UE (user encryption) values (Security handlers of revision 6) 
+UE (user encryp#tion#) values (Security handlers of revision 6) 
  
-a)Generate 16 random #bytes of data using a strong random number generator. The first 8 #bytes are the 
-User Validation Salt. The second 8 #bytes are the User Key Salt. Compute the 32-#byte hash using algorithm 
-2.B with an input string consisting of the UTF-8 password concatenated with the User Validation Salt. The 
+a)Generate 16 r#ando#m bytes of data using a strong random number #gene#rator. The first 8 bytes are the 
+User #Valid#ation Salt. The second 8 bytes are the User Key Salt. Compute the 32-byte hash using algorithm 
+2.B with an input string consisting of# the #UTF-8 password concatenated# with# the User Validation Salt. The 
 U
-48- #byte string consisting of the 32-#byte hash followed by the User Validation Salt followed by the User 
+48- byte string consisting of the 32-byte hash followed by the User Validation Sa#lt fo#llowed by the User 
  
 Key Salt is stored as the  key. 
-b)Compute the 32-#byte hash using algorithm 2.B with an input string consisting of the UTF-8 password 
+b)Compute the 32-byte hash using algorithm 2.B with an input string consisting of the UTF-8 password 
 concatenated with the User Key Salt. Using this hash as the key, encrypt the file encryption key using AES-
 UE
-256 in CBC mode with no padding and an initialization vector of zero. The resulting 32-#byte string is 
+256 in CB#C mod#e with no padding and an initialization vector of zero. The resulting 32-byte string is 
 7.6.4.4.7Algorithm 9: Computing the encryption dictionary’s O (owner password) 
  
 stored as the  key. 
-and OE (owner encryption) values (Security handlers of revision 6) 
+and OE (owne#r en#cryption) values (Security handlers of revision 6) 
  
-a)Generate 16 random #bytes of data using a strong random number generator. The first 8 #bytes are the 
-Owner Validation Salt. The second 8 #bytes are the Owner Key Salt. Compute the 32-#byte hash using 
-algorithm 2.B with an input string consisting of the UTF-8 password concatenated with the Owner 
-Validation Salt and then concatenated with the 48-#byte U string as generated in Algorithm 8. The 48-#byte 
+a)Gener#ate #16 random bytes of data using a strong random #numb#er generator. The first 8 bytes are the #
+Owne#r Validation Salt. The second 8 bytes are the Owner Key Salt. Compute the 32-byte hash using 
+algorithm 2.B with an input string consisting of the UTF-8 passw#ord c#oncatenated with the Owner 
+Validation Salt #and th#en concatenated with the 48-b#yte U# string as generated in Algorithm 8. The 48-byte 
 O
-string consisting of the 32-#byte hash followed by the Owner Validation Salt followed by the Owner Key 
+string consisting of the 32-byte hash followed by the Owner Valid#ation# Salt followed by the Owner Key 
  
 Salt is stored as the  key. 
-b)Compute the 32-#byte hash using 7.6.4.3.3, "Algorithm 2.B: Computing a hash (revision 6 and later)" with 
-an input string consisting of the UTF-8 password concatenated with the Owner Key Salt and then 
-concatenated with the 48-#byte U string as generated in 7.6.4.4.6, "Algorithm 8: Computing the encryption 
+b)Compute the 32-byte hash using 7.6.4.3.3, "Algorithm 2.B: Computing a hash (revision 6 and later)" with 
+an input string consisting of the #UTF-8# password concatenated with the Owner Key Salt and then 
+concatenated with the 48-byte U string as generated in 7.6.4.4.6, "Algorithm 8: Computing the encryption 
 dictionary’s U (user password) and UE (user encryption) values (Security handlers of revision 6)". Using 
 OE
-this hash as the key, encrypt the file encryption key using AES-256 in CBC mode with no padding and an 
-initialization vector of zero. The resulting 32-#byte string is stored as the  key. 
+this hash as the key, encrypt the file encryption key using AES-#256 i#n CBC mode with no padding and an 
+initialization vector of zero. The resulting 32-byte string is stored as the  key. 
 © ISO 2017 – All rights reserved 88 
 
 ISO/DIS 32000-2
  
-7.6.4.4.8Algorithm 10: Computing the encryption dictionary’s Perms (permissions) 
+7.6.4.4.8Algorithm 10: Computing the encryptio#n dic#tionary’s Perms (permissions) 
  
 value (Security handlers of revision 6) 
-Fill a 16-#byte block as follows: 
+Fill a 16-byte block as follows: 
  
 NOTE This allows for future extension without changing the format. 
-a)Extend the permissions (contents of the P integer) to 64 #bits by setting the upper 32 #bits to all 1’s. 
+a)Extend the permissions (con#te#nts of the P integer#) to# 6#4 #bits by setting th#e up#per 32 bits to all 1’s. 
  
-EncryptMetadata
+En#crypt#Metadata
  
-b)Record the 8 #bytes of permission in the #bytes 0-7 of the block, low order #byte first.  
+b)Rec#ord t#he 8 bytes of permission in the bytes 0-7 of the block, low order byte fir#st. # 
  
-c)Set #byte 8 to the #ASCII #character "T" or "F" according to the  Boolean.  
+c)Set byte 8 to the #A#SCII #char#acter "T" or "F" acco#rdin#g to the  Bo#olea#n.  
  
-d)Set #bytes 9-11 to the #ASCII #characters '"a", "d", "b". 
- 
-e)Set #bytes 12-15 to 4 #bytes of random data, which will be ignored.  
+d)Set bytes 9-11 to the# #ASCII# ch#aracters '"a", "d", "b". 
+# 
+e)S#et bytes 12-15 to 4 bytes of random data, which will be ignored.  
  Perms 
-f)Encrypt the 16-#byte block using AES-256 in ECB mode with an initialization vector of zero, using the file 
-encryption key as the key. The result (16 #bytes) is stored as thestring, and checked for validity 
+f)Encrypt the 16-byte block using AES-256 in ECB mode# wit#h an initialization vector of zero, using the file 
+encryption key as the key. The result (16 bytes) is stored as thestring, and checked for validity 
 7.6.4.4.9Algorithm 11: Authenticating the user password (Security handlers of 
  
-when the file is opened.  
+when# the #file is opened.  
 revision 6) 
  
-a)Test the password against the user key by computing the 32-#byte hash using 7.6.4.3.3, "Algorithm 2.B: 
-Computing a hash (revision 6 and later)" with an input string consisting of the UTF-8 password 
-concatenated with the 8 #bytes of User Validation Salt (see 7.6.4.4.6, "Algorithm 8: Computing the 
+a)Test the password against the user key by computing the 32-byte hash using 7.6.4.3.3, "Algorithm 2.B: 
+Computing a hash (re#visi#on 6 and later)" with an input string consisting of the UTF-8 password 
+concatenated with the 8 bytes of User Validation Salt (see 7.6.4.4.6, "Algorithm 8: Computing the 
 U
-encryption dictionary’s U (user password) and UE (user encryption) values (Security handlers of revision 
-7.6.4.4.10Algorithm 12: Authenticating the owner password (Security handlers of 
+encryption dictionary’s U (user password) and UE (user encryption) values (Security handlers of revision #
+7.6.#4.4.10Algorithm 12: Authent#icat#ing the owner password (Security handlers of 
  
-6)"). If the 32- #byte result matches the first 32 #bytes of the  string, this is the user password. 
+6)"). If the 32- byte result matches the first 32 bytes of the  string, th#is is# the user password. 
 revision 6) 
  
-a)Test the password against the owner key by computing the 32-#byte hash using algorithm 2.B with an 
+a)Test the password against the owner key by computing the 32-byte has#h us#ing algorithm 2.B with an 
 UO
-input string consisting of the UTF-8 password concatenated with the 8 #bytes of Owner Validation Salt and 
-the 48 #byte  string. If the 32 #byte result matches the first 32 #bytes of the  string, this is the owner 
-7.6.4.4.11Algorithm 13: Validating the permissions (Security handlers of revision 6) 
+input st#ring c#onsisting of the #UTF-8# password concatenated with# the# 8 bytes of Owner Validation Salt and 
+the 48 byte  string. If the 32 byte result matches the first 32 bytes of the  string, this is the owner 
+7.6.4.4.11Algorith#m 13#: Validating the permissions (Security handlers of revision 6) 
  
 password. 
  Perms 
  
-a)Decrypt the 16 #bytestring using AES-256 in ECB mode with an initialization vector of zero and the 
- Perms 
-file encryption key as the key. Verify that #bytes 9-11 of the result are the #characters ‘"a", ‘"d", "b". #Bytes 0-
+a)Decrypt the 16 bytestring using AES-256 in# ECB# mode with an initialization vector of zero and the 
+ Pe#rms #
+file encryption key as the key. Verify that bytes 9-11 of the result #are the c#haracters ‘"a", ‘"d", "b". Bytes 0-
 PEncryptMetadata
-3 of the decryptedentry, treated as a little-endian integer, are the user permissions. They should 
+3 of the decryptedentry, treated as a little-endian int#eger,# are the user permissions. They should 
 7.6.5Public-key security handlers 
  
-match the value in the  key. #Byte 8 should match the boolean value of the  key. 
+match the value in the  key. Byte 8 should match the boolean value of the  key. 
 7.6.5.1General 
  
 Security handlers may use public-key encryption technology to encrypt a document (or strings and 
@@ -551,24 +551,24 @@ streams within a document). When doing so, specifying one or more lists of recip
 has its own unique access permissions may be done. Only specified recipients shall open the encrypted 
 document or content, unlike the standard security handler, where a password determines access. The 
 permissions defined for public-key security handlers are shown in "#Table 24: Public-key security 
-handler user access permissions" in 7.6.5.2, "Public-key encryption dictionary". 
+handler user access permissions#" in 7.6.5.2, "Public-key encryption dictionary". 
 Public Key Cryptographic Standard Number 7
 Public-key security handlers use the industry standard  
 © ISO 2017 – All rights reserved 89 
 
 ISO/DIS 32000-2
  
-Internet RFC 5652Cryptographic Message Syntax
-(CMS) #binary encoding syntax to encode recipient list, decryption key, and access permission 
+Internet RFC 5652C#ry#ptographic Message Syntax
+(CMS) binary encoding syntax to encode recipient list, decryption key, and access permission 
 information. The CMS specification is in , . 
 When encrypting the data, each recipient’s X.509 public key certificate (as described in ITU-T 
-Recommendation X.509) shall be available. When decrypting the data, the ##PDF reader shall scan the 
+Recommendation X.509) shall be available. Whe#n de#crypting the data, #the PDF rea#der shall scan the 
 recipient list for which the content is encrypted and shall attempt to find a match with a certificate that 
 belongs to the user. If a match is found, the user requires access to the corresponding private key, which 
 may require authentication, possibly using a password. Once access is obtained, the private key shall be 
 used to decrypt the encrypted data. 
 7.6.5.2Public-key encryption dictionary 
  
-Encryption dictionaries for public-key security handlers contain the common entries shown in "#Table 
-20: Entries common to all encryption dictionaries", whose values are described above. In addition, they 
+Encryption dictionaries for public-key security handlers contain the common entries shown in #"Table 
+20: Entries common to all encryption dictionarie#s", whose values are described above. In addition, they 
 may contain the entry shown in "

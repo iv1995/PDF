@@ -1,23 +1,23 @@
-#Table 340: Entries in a RichMediaPosition dictionary" 
+#Table 340: Entries in a RichMediaPosition dictionary#" 
 for a detailed description. 
  
 RichMediaPosition
-The position of the window in the #interactive ##PDF processor presentation area is described by the 
+The position of the window in the #interactive ##PDF #processor ##presentation area is described by the 
  dictionary. The position of the window shall remain fixed, regardless of the page 
-translation. "#Table 340: Entries in a RichMediaPosition dictionary" details the contents of this 
+translation. #"Table 340: Entries in a RichMediaPosition dictionar#y" details the contents of this 
 dictionary. 
 © ISO 2017 – All rights reserved 681 
 
 ISO/DIS 32000-2
- 
-#Table 340: Entries in a RichMediaPosition dictionary 
+# 
+Table 340: Entries in a RichMediaPosition dictionary# 
 Key Type Value 
-Optional; #PDF 2.0
+Optional;# PDF# 2.0
 Type 
 RichMediaPosition
-name () The type of #PDF #object that this dictionary describes. If 
+name () The type o#f PDF# #object #that this dictionary describes. If 
 present, it shall be . 
-Optional; #PDF 2.0Near
+Optiona#l; P#DF 2.0Near
 HAlign 
 CenterFar
 name () Describes the horizontal alignment. Valid values are , 
@@ -25,7 +25,7 @@ Far
  
 , and . 
 Default value: 
-Optional; #PDF 2.0Near
+Option#al; #PDF 2.0Near
 VAlign 
 CenterFar
 name () Describes the vertical alignment. Valid values are , 
@@ -33,28 +33,28 @@ Near
  
 , and . 
 Default value: 
-Optional; #PDF 2.0
+Optio#nal;# PDF 2.0
 HOffset HAlign
 NearCenter
 HOffsetHAlign
 number () The offset from the alignment point specified by the  
 Far
 HOffset
-key. A positive value for , when  is# either  or , shall 
+key. A positive value for , when  is# ei#ther  or , shall 
 FarNear
 HAlign
 offset the position towards the  direction. A positive value for , when 
  
  is , shall offset the position towards the  direction. 
 Default value: 18
-Optional; #PDF 2.0
+Opti#onal#; PDF 2.0
 VOffset VAlign
 NearCenter
 VOffsetVAlign
 number () The offset from the alignment point specified by the  
 Far
 VOffset
-key. A positive value for , when  is# either  or , shall 
+key. A positive value for , when  i#s e#ither  or , shall 
 FarNear
 VAlign
 offset the position towards the  direction. A positive value for , when 
@@ -114,7 +114,7 @@ endobj
  
 Context
 In the above example, the toolbar or the navigation pane shall not be displayed on initial activation of 
-the annotation.  click events shall be handled by the #interactive ##PDF processor and shall not be 
+the annotation.  click events shall be handled by the# inter#acti#ve# PDF processor## and shall not be 
 passed to the annotation handler. The annotation appears as a separate window with an initial width of 
 four inches and an initial height of three inches and will be aligned 0.25 inches off the top right (in left 
 to right reading languages) corner of the document area. 
@@ -124,5 +124,5 @@ to right reading languages) corner of the document area.
  
 RichMediaContent dictionary
 The  contains content that is present within the annotation as referenced 
-by the RichMediaSettings dictionary (see "#Table 334: Entries in a RichMediaSettings dictionary"). 
+by the RichMediaSettings dictionary (see "#Table 334: Entries in a RichMediaSettings dictionary#"). 
 "

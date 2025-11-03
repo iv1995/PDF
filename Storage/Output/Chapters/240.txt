@@ -1,14 +1,14 @@
-#Figure 56: #Character spacing in horizontal writing 
+#Figure 56: #Character #spacing in horizontal writing 
  
  
-9.3.3Word spacing 
+#9.3.3Word spacing 
  
 T
-Word spacing works the same way as #character spacing but shall apply only to the #ASCII SPACE 
+Word spacing works the same way as# character# spacing but shall apply only to the #ASCII #SPACE 
 w
-T
-#character (20h). The word-spacing parameter, 
-, shall be added to the #glyph’s horizontal or vertical 
+#T
+characte#r (20h). The word-spacing parameter, 
+, shall be added to the #glyph#’s horizontal or vertical 
 w
 T
  has the 

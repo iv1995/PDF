@@ -1,4 +1,4 @@
-#Table 264: Entries in a legal attestation dictionary". This dictionary shall 
+#Table 264: Entries in a legal attestation dictionary#". This dictionary shall 
 be the value of the  entry in the document catalog dictionary (see "Table 29: Entries in the catalog 
  
 dictionary"). Its entries shall specify all content that may result in unexpected rendering of the 
@@ -6,8 +6,8 @@ Attestation
 document contents. The author may provide further clarification of such content by means of the
 entry. Reviewers should establish for themselves that they trust the author and contents of 
 the document. In the case of a legal challenge to the document, any questionable content can be 
-reviewed in the context of the information in this dictionary. 
-#Table 264: Entries in a legal attestation dictionary 
+reviewed in the context of the information in this dictionary. #
+Table 264: Entries in a legal attestation dictionary #
 Key Type Value 
 (Optional) 
 JavaScriptActions   
@@ -26,11 +26,11 @@ integer The number ofURIactions found in the document (see
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; #deprecated in #PDF 2.0) 
+(Optional; #deprecated #in #PDF #2.0) 
 MovieActions 
 integer The number of movie actions found in 
 the document (see 12.6.4.10, "Movie actions"). 
-(Optional; #deprecated in #PDF 2.0) 
+(Optional;# deprecated# in# PDF# 2.0) 
 SoundActions 
 integer The number of sound actions found in 
 the document (see 12.6.4.9, "Sound actions"). 
@@ -50,52 +50,52 @@ integer The number of alternate images found in the document (see
 ExternalStreams 
 integer The number of external streams found in the document. 
 (Optional) 
-TrueType#Fonts 
-integer The number of TrueType #fonts found in the document (see 
-9.6.3, "TrueType #fonts"). 
+TrueType#Font#s 
+integer The number of TrueType# fon#ts found in the document (see 
+9.6.3, "TrueTyp#e fo#nts"). 
 (Optional) 
-ExternalRefX#objects 
-integer The number of reference X#Objects found in the document (see 
-8.10.4, "Reference X#Objects"). 
-(Optional; #deprecated in #PDF 2.0) 
+ExternalRefX#object#s 
+integer The number of reference #XObjec#ts found in the document (see 
+8.10.4, "Reference# XObje#cts"). 
+(Optional#; deprecate#d i#n PD#F 2.0) 
 ExternalOPIdicts 
 integer The number of OPI dictionaries found 
 in the document (see 14.11.7, "Open prepress interface (OPI)"). 
 (Optional) 
-NonEmbedded#Fonts 
-integer The number of non-embedded #fonts found in the document 
-(see 9.9, "Embedded ##font programs") 
+NonEmbed#dedF#onts 
+integer The number of non-embed#ded #fonts found in the document 
+(see 9.9, "Embe#dded ##font program#s") 
 (Optional) 
 DevDepGS_OP  OP 
-integer The number of references to the #graphics state parameter
-found in the document (see "#Table 57: Entries in a #graphics state 
-parameter dictionary"). 
+integer The number of references to the #graphics state #parameter
+found in the document (see "#Table 57: Entries in a# graphics state #
+parameter dictionary#"). 
 (Optional) 
 DevDepGS_HT  HT 
-integer The number of references to the #graphics state parameter
-found in the document (see "#Table 57: Entries in a #graphics state 
-parameter dictionary"). 
+integer The number of references to th#e graphics stat#e parameter
+found in the document (see #"Table 57: Entries in# a graphics stat#e 
+parameter dictionar#y"). 
 (Optional) 
 DevDepGS_TR  TR 
-integer The number of references to the #graphics state parameter
-found in the document (see "#Table 57: Entries in a #graphics state 
-parameter dictionary"). 
+integer The number of references to #the graphics st#ate parameter
+found in the document (see# "Table 57: Entries #in a graphics st#ate 
+parameter dictiona#ry"). 
 (Optional) 
 DevDepGS_UCR  
 UCR 
-integer The number of references to the #graphics state parameter
-found in the document (see "#Table 57: Entries in a #graphics state 
-parameter dictionary"). 
+integer The number of references t#o the graphics #state parameter
+found in the document (se#e "Table 57: Entrie#s in a graphics #state 
+parameter diction#ary"). 
 (Optional) 
 DevDepGS_BG  BG 
-integer The number of references to the #graphics state parameter
-found in the document (see "#Table 57: Entries in a #graphics state 
-parameter dictionary"). 
+integer The number of references# to the graphic#s state parameter
+found in the document (s#ee "Table 57: Entr#ies in a graphic#s state 
+parameter dictio#nary"). 
 (Optional) 
 DevDepGS_FL  FL 
-integer The number of references to the #graphics state parameter
-found in the document (see "#Table 57: Entries in a #graphics state 
-parameter dictionary"). 
+integer The number of referenc#es to the graph#ics state parameter
+found in the document (#see "Table 57: En#tries in a graph#ics state 
+parameter dicti#onary"). 
 (Optional) 
 Annotations 
 integer The number of annotations found in the document (see 12.5, 
@@ -116,15 +116,15 @@ explaining the presence of any of the other entries in this dictionary or
 the presence of any other content affecting the legal integrity of the 
 document. 
  
-12.9Measurement properties 
+12.9Measurement properties #
  
-#PDF documents, such as those created by CAD software, may contain graphics that are intended to 
-represent real-world #objects. Users of such documents often require information about the scale and 
-units of measurement of the corresponding real-world #objects and their relationship to units in #PDF 
+P#DF documents, such as those created by CAD software, may contain graphics that are intended to 
+represent real-wor#ld obj#ects. Users of such documents often require information about the scale and 
+units of measurement of the corresponding real-wo#rld ob#jects and their relationship to units# in P#DF 
 user space. 
-This information enables users of #interactive ##PDF processors to perform measurements that yield 
+This information enables users of #interac#tive# #PDF processor##s to perform measurements that yield 
 results in the units intended by the creator of the document. A measurement in this context is the result 
-of a canonical #function that takes as input a set pairs 
+of a canonical #function #that takes as input a set pairs 
 00𝑛𝑛−1𝑛𝑛−1
 (
 )()
@@ -144,12 +144,12 @@ ii+1ii+1
 �𝑥𝑥
 i=0
  
-Beginning with #PDF 1.6, such information may be stored in a measure dictionary (see "#Table 266: 
-Entries in a measure dictionary"). Measure dictionaries provide information about measurement units 
-associated with a rectangular area of the document known as a viewport. 
-#PDF 1.6
+Beginning# wit#h PDF 1.6, such information may be stored in a measure dictionary (see "#Table 266: 
+Entries in a measure dictionary#"). Measure dictionaries provide information about measurement units 
+associated with a rectangular area of the document known as a view#port#. 
+PDF 1.6
  VP 
 A viewport () is a rectangular region of a page. The optionalentry in a page dictionary (see 
-"#Table 31: Entries in a page #object") shall specify an array of viewport dictionaries, whose entries shall 
+"#Table 31: Entries in a #page o#bject#") shall specify an array of viewport dictionaries, whose entries shall 
 Measure
 be as shown in "

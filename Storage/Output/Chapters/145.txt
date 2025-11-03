@@ -1,12 +1,12 @@
-#Figure 18: Non-zero winding number rule". For a path consisting of a five-pointed 
+#Figure 18: Non-zero winding number rule#". For a path consisting of a five-pointed 
 star, drawn with five connected straight line segments intersecting each other, the rule considers the 
 inside to be the entire area enclosed by the star, including the pentagon in the centre. For a path 
 composed of two concentric circles, the areas enclosed by both circles are considered to be inside, 
 provided that both are drawn in the same direction. If the circles are drawn in opposite directions, only 
-the doughnut shape between them is inside, according to the rule; the doughnut hole is outside. ![Figure 18 Non-zero winding number rule  .png](./Storage/Output/Images/Figure 18 Non-zero winding number rule  .png)
-#Figure 18: Non-zero winding number rule 
+the doughnut shape between them is inside, according to the rule; the doughnut hole is outside. ![Figure 18 Non-zero winding number rule  .png](./Storage/Output/Images/Figure 18 Non-zero winding number rule  .png)#
+Figure 18: Non-zero winding number rule 
  
- 
+ #
 8.5.3.3.3Even-odd rule 
  
 even-odd rule

@@ -1,6 +1,6 @@
 #Table 137: Variables used in the result shape and 
-opacity formulas". 
-#Table 137: Variables used in the result shape and opacity formulas 
+opacity formulas#". #
+Table 137: Variables used in the result shape and opacity formulas #
 Variable Meaning 
 𝑟𝑟
 𝑓𝑓 Result shape 
@@ -39,8 +39,8 @@ This formula can be used whenever the independent shape and opacity are not need
 This sub-clause is a summary of all the computations presented in sub-clause 11.3.1 through sub-clause 
 11.3.7. They are given in an order such that no variable is used before it is computed; also, some of the 
 formulas have been rearranged to simplify them. See "#Table 133: Variables used in the basic 
-compositing formula", "#Table 136: Variables used in the source shape and opacity formulas", and "#Table 
-137: Variables used in the result shape and opacity formulas" for the meanings of the variables used in 
+compositing formula#", "#Table 136: Variables used in the source shape and opacity formulas#", and# "Table 
+137: Variables used in the result shape and opacity formul#as" for the meanings of the variables used in 
 these formulas. 
  
 ()()()
@@ -96,66 +96,66 @@ Union𝑏𝑏,𝑠𝑠 =1−�1−𝑏𝑏×1−𝑠𝑠�
 𝐶𝐶
 𝑟𝑟𝑟𝑟
 𝛼𝛼𝛼𝛼
-11.4Transparency #groups 
+11.4Transparency #group#s 
  
  
 11.4.1General 
  
-transparency #group
-A  is a sequence of consecutive #objects in a transparency stack that shall be collected 
+transparency# group#
+A  is a sequence of consecutive #object#s in a transparency stack that shall be collected 
 together and composited to produce a single colour, shape, and opacity at each point. The result shall 
-then be treated as if it were a single #object for subsequent compositing operations. #Groups may be 
-nested within other #groups to form a tree-structured #group hierarchy. 
-NOTE This facilitates creating independent pieces of artwork, each composed of multiple #objects, and 
-then com#bining them, possibly with additional transparency effects applied during the 
-com#bination. 
-#group 
+then be treated as if it were a single# object# for subsequent compositing operations#. Gro#ups may be 
+nested within oth#er gr#oups to form a tree-structu#red gr#oup hierarchy. 
+NOTE This facilitates creating independent pieces of artwork, each composed of multipl#e obje#cts, and 
+then com#bi#ning them, possibly with additional transparency effects applied during the 
+co#mb#inati#on. 
+gr#oup 
 stack
-The #objects contained within a #group shall be treated as a separate transparency stack called the 
-. The #objects in the stack shall be composited against an initial backdrop (discussed later), 
-producing a composite colour, shape, and opacity for the #group as a whole. The result is an #object whose 
-shape is the union of the shapes of its constituent #objects and whose colour and opacity are the result of 
-the compositing operations. This #object shall then be composited with the #group’s backdrop in the usual 
+T#he obj#ects contained wit#hin a #group shall be treated as a separate transparency stack called the 
+. #The ob#jects in the stack shall be composited against an initial backdrop (discussed later), 
+producing a composite colour, shape, and opacity f#or the# group as a whole. The result i#s an ob#ject whose 
+shape is the union of the shapes of its consti#tuent #objects and whose colour and opacity are the result of 
+the compositing operations#. This #object shall then be composited w#ith t#he group’s backdrop in the usual 
 way. 
 © ISO 2017 – All rights reserved 393 
 
 ISO/DIS 32000-2
  
-In addition to its computed colour, shape, and opacity, the #group as a whole may have several further 
+In addition to its computed colour, shape, and opac#ity, t#he group as a whole may have several further 
 attributes: 
 • 
-All of the input variables that affect the compositing computation for individual #objects may also 
-be applied when compositing the #group with its backdrop. These variables include mask and 
+All of the input variables that affect the compositing computation for ind#ividua#l objects may also 
+be applied when compos#iting #the group with its backdrop. These variables include mask and 
 isolatednon-isolated
 • 
-constant shape, mask and constant opacity, and blend mode. 
-The #group may be  or , which shall determine the initial backdrop against 
-which its stack is composited. An isolated #group may specify its own blending colour space, 
+constant shape, mask and constant opacity, and blend #mode. #
+The group may be  or , which shall determine the initial backdrop against 
+which its stack is composited. #An iso#lated group may specify its own blending colour space, 
 knockoutnon-knockout
 • 
-independent of that of the #group’s backdrop. 
-The #group may be  or , which shall determine whether the #objects within the 
+independent of# that# of the group’s b#ackdro#p. 
+The group may be  or , which shall determine whe#ther t#he objects #within# the 
 • 
-#group stack are composited with one another or only with the #group’s backdrop. 
+group stack are composited with one another o#r onl#y with the group’s backdrop. 
 soft mask
-Instead of being composited onto the current page, a #group’s results may be used as a source of 
-11.4.2Notation for #group compositing computations 
+Instead of being composited onto the# curr#ent page, a group’s results may be used as a source of 
+1#1.4.2N#otation for group compositing computations 
  
 shape or opacity values for creating a  (see 11.5, "Soft masks"). 
-This sub-clause introduces some notation for dealing with #group compositing. Subsequent sub-clauses 
-describe the #group compositing formulas for a non-isolated, non-knockout #group and the special 
-properties of isolated and knockout #groups. 
-Since multiple #objects are being dealt with at a time, it is useful to have some notation for distinguishing 
+This sub-clause introduces some notatio#n for #dealing with group compositing. Subsequent sub-cl#auses #
+describe the group compositing formulas for a non-is#olated#, non-knockout group and the special 
+properties of #isola#ted and knockout groups. 
+Since# multi#ple objects are being dealt with at a time, it is useful to have some notation for distinguishing 
 among them. Accordingly, the variables introduced earlier are altered to include a second-level 
-subscript denoting an #object’s position in the transparency stack. 
+subscript d#enotin#g an object’s position in the transparency stack. 
 i
 th
 nn
 𝑖𝑖
 𝑓𝑓
 𝐶𝐶
- stands for the source colour of the  #object in the stack. The subscript 0 represents the initial 
-backdrop; subscripts 1 to  denote the bottommost to topmost #objects in an -element stack. In 
+ stands for the source col#our of #the  object in the stack. The subscript 0 represents the initial 
+backdrop; subscripts 1 to  denote the bottommos#t to t#opmost objects in an -element stack. In 
 bbbbrrr𝑟𝑟
 b andr  are dropped from the variables  C,f,q,α,C,f,q, and α; other 
 addition, the subscripts 
@@ -165,20 +165,20 @@ i
 These conventions permit the compositing formulas to be restated as recurrence relations among the 
 i
 C
-elements of a stack. For instance, the result of the colour compositing computation for #object  is 
+elements of a stack. For instance, the result of the colour compositing co#mputatio#n for object  is 
 i
 i
 r
 denoted by 
  (formerlCy  ). This computation takes as one of its inputs the immediate backdrop colour, 
 -1
-which is the result of the colour compositing computation for #object  - 1; this is denoted by 
+which is the result of the colour compositing c#omputati#on for object  - 1; this is denoted by 
 C 
 b
 (formerly 
 C). 
 nin
-The revised formulas for a simple -element stack (not including any #groups) shall be, for  = 1, …, : 
+The revised formulas for a simple -element st#ack (#not including any groups) shall be, for  = 1, …, : 
  
 𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖
 𝑓𝑓𝑗𝑗𝑚𝑚𝑘𝑘

@@ -1,11 +1,11 @@
-#Table 63: Entries in a CalRGB colour space dictionary"). The transformation matrix denoted by "Matrix 
+#Table 63: Entries in a CalRGB colour space dictionary#"). The transformation matrix denoted by "Matrix 
 LMN
 Matrix
-" in "#Figure 24: Component transformations in a CIE-based ABC colour space" shall be defined by 
+" in "#Figure 24: Component transformations in a CIE-based ABC colour space#" shall be defined by 
 LMN
 the dictionary’s  entry. Since there is no second transformation stage, "Decode " and "Matrix 
-" shall be implicitly taken to be# identity transformations. 
-#Table 63: Entries in a CalRGB colour space dictionary 
+" shall be implicitly taken to be# id#entity transformations. #
+Table 63: Entries in a CalRGB colour space dictionary #
 Key Type Value 
 WWW
 RequiredXYZ
@@ -36,12 +36,12 @@ ABC
 array () An array of nine numbers [ ] specifying the linear 
 XYZ
 interpretation of the decoded , , and  components of the colour space with respect to the 
-final  representation. Default value: the# identity matrix [1 0 0 0 1 0 0 0 1]. 
+final  representation. Default value: th#e i#dentity matrix [1 0 0 0 1 0 0 0 1]. 
  
 WhitePointBlackPoint
 The  and  entries in the colour space dictionary shall control the overall effect of 
 WhitePointBlackPoint
-the CIE-based gamut mapping #function described in subclause 10.3, "CIE-Based colour to device colour". 
+the CIE-based gamut mapping #function #described in subclause 10.3, "CIE-Based colour to device colour". 
 Typically, the colours specified by  and  shall be mapped to the nearly lightest 
 and nearly darkest achromatic colours that the output device is capable of rendering in a way that 
 preserves colour appearance and visual contrast. 
@@ -81,7 +81,7 @@ ISO/DIS 32000-2
  
 A, BC
 L, MN
-The , and  components shall first be decoded individually by the gamma #functions. The results shall 
+The , and  components shall first be decoded individually by the gamma# functio#ns. The results shall 
 X, 
 be treated as a three-element vector and multiplied by Matrix (a 3-by-3 matrix) to obtain the , and  
 YZ

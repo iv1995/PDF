@@ -1,5 +1,5 @@
 #Figure 47: Control points in a 
-tensor-product patch"): 
+tensor-product patch#"): 
 pppp
 03132333
     
@@ -16,9 +16,9 @@ pppp
 
 ISO/DIS 32000-2
  
- ![Figure 47 Control points in a tensor-product patch  .png](./Storage/Output/Images/Figure 47 Control points in a tensor-product patch  .png)
-#Figure 47: Control points in a tensor-product patch 
- 
+ ![Figure 47 Control points in a tensor-product patch  .png](./Storage/Output/Images/Figure 47 Control points in a tensor-product patch  .png)#
+Figure 47: Control points in a tensor-product patch 
+ #
 uv
 As in a Coons patch mesh, the geometry of the tensor-product patch is described by a surface defined 
 over a pair of parametric variables,  and , which vary horizontally and vertically over the unit square. 
@@ -30,7 +30,7 @@ ijij
 u×Bv
 Su,v=��p
 ×#B 
-i=0j=0
+i#=0j=0
 ijBBBernstein 
  
 ij

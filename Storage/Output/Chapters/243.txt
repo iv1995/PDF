@@ -1,18 +1,18 @@
-#Figure 59: Leading". ![Figure 59 Leading  .png](./Storage/Output/Images/Figure 59 Leading  .png)
-#Figure 59: Leading 
- 
+#Figure 59: Leading#". ![Figure 59 Leading  .png](./Storage/Output/Images/Figure 59 Leading  .png)#
+Figure 59: Leading 
+ #
 TDT*'"
 The leading parameter shall be used by the , , , and  operators; see "#Table 106: Text-positioning 
-operators" for a precise description of its effects. This parameter shall apply to the vertical coordinate 
+operators#" for a precise description of its effects. This parameter shall apply to the vertical coordinate 
 in text space, independently of the writing mode. 
 9.3.6Text rendering mode 
  
 T
 mode
-The text rendering mode, , determines whether showing text shall cause #glyph outlines to be 
-stroked, filled, used as a clipping boundary, or some com#bination of the three. Stroking, filling, and 
-clipping shall have the same effects for a text #object as they do for a path #object (see 8.5.3, "Path-
+The text rendering mode, , determines whether showing text shall cause #glyph #outlines to be 
+stroked, filled, used as a clipping boundary, or some com#bi#nation of the three. Stroking, filling, and 
+clipping shall have the same effects for a text #object #as they do for a path# object# (see 8.5.3, "Path-
 painting operators" and 8.5.4, "Clipping path operators"), although they are specified in an entirely 
-different way. The #graphics state parameters affecting those operations, such as line width, shall be 
+different way. The #graphics state #parameters affecting those operations, such as line width, shall be 
 interpreted in user space rather than in text space. 
 NOTE 1 The text rendering modes are shown in "

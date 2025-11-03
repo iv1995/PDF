@@ -119,6 +119,47 @@ public class Page {
 	
 	/**
 	 * 
+	 * NOT TESTED
+	 * 
+	 * @return The listings contained in this page
+	 */
+	public ArrayList<String> getListings(){
+			ArrayList<String> listings = new ArrayList<>();
+			StringBuilder listing = new StringBuilder();
+			
+			for(int i = 0;  i < objects.size(); i++) {
+				if(objects.get(i) instanceof Text && i < objects.size() -1) {
+					if(objects.get(i + 1) instanceof Text) {
+						Text enclosed = (Text)objects.get(i + 1);
+						
+						int cont = 0;
+						
+						while(enclosed.getRi().getCanvasTagHierarchy().get(0).getRole().equals(PdfName.Code)
+								&& (i + 1 + cont < objects.size() - 1)) {
+							
+							if(objects.get(i + 1 + cont) instanceof Text) {
+								enclosed = (Text)objects.get(i + 1 + cont);
+							}
+							
+							listing.append(enclosed.getChunk());
+							cont++;
+						}
+						
+						if(!listing.isEmpty()) {
+							listings.add(listing.toString());
+						}
+						
+						
+						listing = new StringBuilder();
+					}
+				}
+			}
+			
+			return listings;
+	}
+	
+	/**
+	 * 
 	 * @param img The image whose surrounding text we want to find
 	 * @param above If true returns the text immediately above otherwise the one below
 	 * @return The rows that are piled up one next to the other and immediately above the image

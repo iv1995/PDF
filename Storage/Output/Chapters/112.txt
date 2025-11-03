@@ -1,15 +1,15 @@
 #Table 38: Entries common to all #function 
-dictionaries". 
-#Table 38: Entries common to all #function dictionaries 
+#dictionaries#". #
+Table 38: Entries common to all# function# dictionaries #
 Key Type Value 
-Required
-#FunctionType 
-integer () The #function type: 
-0 Sampled #function 
-2 Exponential interpolation #function 
+Require#d
+Functi#onType 
+integer () T#he functi#on type: 
+0 Samp#led functi#on 
+2 Exponential interpola#tion functio#n 
  
-3 Stitching #function 
-4 PostScript calculator #function
+3 Stit#ching func#tion 
+4 PostScript calc#ulator fu#nction
 Required
 Domain 
 Domain
@@ -33,7 +33,7 @@ shall be clipped to the nearest boundary value.
 ISO/DIS 32000-2
  
 Key Type Value 
-Required for Type 4 and Type 4 #functions, optional otherwise; see below
+Required for Type 4 and# Type 4 #functions, optional otherwise; see below
 Range 
 nn
 array () 
@@ -55,13 +55,13 @@ Output values outside the declared range shall be clipped to the nearest
 boundary value. If this entry is absent, no clipping shall be done (subject 
 to implementation limits). 
  
-In addition, each type of function dictionary shall include entries appropriate to the particular #function 
+In addition, each type of function dictionary shall include entries appropriate to the pa#rticular f#unction 
 Range
-type. The number of output values can usually be inferred from other attributes of the #function; if not 
+type. The number of output values can usually be inferred from other attribut#es of th#e function; if not 
 DomainRange
-(as is always the case for Type 4 and Type 4 #functions), the  entry is required. The dimensionality 
-of the #function implied by the  and  entries shall be consistent with that implied by other 
-attributes of the #function. 
+(as is always the case for Type 4 #and Type# 4 functions), the  entry is required. The dimensional#ity 
+of t#he function implied by the  and  entries shall be consistent with that implied by other 
+attri#butes of# the function. 
 minmaxminmax
 (
 )
@@ -86,20 +86,20 @@ For a given value of , Interpolate calculates the  value on the line defined by 
 maxmax
 and (x
 , y). 
-7.10.2Type 0 (sampled) #functions 
+7.10.2Typ#e 0 (sam#pled) funct#ions 
  
-Type 0 #functions use a sequence of sample values (contained in a stream) to provide an approximation 
-for #functions whose domains and ranges are bounded. The samples are organised as an m-dimensional 
-table in which each entry has n components. 
-NOTE 1 Sampled #functions are highly general and offer reasonably accurate representations of ar#bitrary 
-analytic #functions at low expense. For example, a 1-input sinusoidal #function can be represented 
+#Type 0 functions use a sequence of sample values (contained in a stream) to provide an app#roximati#on 
+for functions whose domains and ranges are bounded. The samples are organised as an m-dimensional 
+table in which each entry has n components.# 
+NOTE 1# Sampled functions are highly general and offer reasonably accurate representations of ar##bi#trary #
+analytic functions at low expense. For example, a #1-input s#inusoidal function can be represented 
 over the range [0 180] with an average error of only 1 percent, using just ten samples and linear 
-interpolation. Two-input #functions require significantly more samples but usually not a 
-prohi#bitive number if the #function does not have high frequency variations. 
-There shall be no dimensionality limit of a sampled #function except for possible implementation limits. 
-NOTE 2 The number of samples required to represent #functions with high dimensionality multiplies 
+inter#polation#. Two-input functions require significantly more samples but usually not a 
+prohi##b#itive nu#mber if the function does not have high frequency variations. 
+There shall be no dimensionali#ty limit #of a sampled function except for possible implementation limits. 
+NOTE 2 The number of samples# require#d to represent functions with high dimensionality multiplies 
 rapidly unless the sampling resolution is very low. Also, the process of multilinear interpolation 
 becomes computationally intensive if the number of inputs m is greater than 2. The 
 multidimensional spline interpolation is even more computationally intensive. 
-In addition to the entries in "#Table 38: Entries common to all #function dictionaries", a Type 0 #function 
+In addition to the entries in# "Table 38#: Entries# common to all function# dictionar#i#es", a Type 0 function 
 dictionary includes those shown in "

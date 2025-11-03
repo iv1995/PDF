@@ -1,9 +1,9 @@
 #Table 111: Type 3 #font 
-operators" to pass width and bounding box information to the #font machinery. This shall precede the 
-execution of any path construction or path-painting operators descri#bing the #glyph. 
-NOTE 3 Type 3 #fonts in #PDF are very similar to those in the PostScript language. Some of the information 
-provided in Type 3 #font dictionaries and #glyph descriptions, although seemingly redundant or 
-unnecessary, is nevertheless required for correct results when a ##PDF processor prints to a 
+#operators#" to pass width and bounding box information to the# font# machinery. This shall precede the 
+execution of any path construction or path-painting operators descri#bi#ng the #glyph#. 
+NOTE 3 Type #3 fo#nts in #PDF #are very similar to those in the PostScript language. Some of the information 
+provided in Type# 3 fo#nt dictionaries and# glyph# descriptions, although seemingly redundant or 
+unnecessary, is nevertheless required for correct results when a# #PDF# processor #prints to a 
 PostScript language compatible output device. This applies particularly to the operands of the  
 d0
 and  operators, which are the equivalent of PostScript'sand . For 
@@ -13,13 +13,13 @@ PostScript Language Reference, Third Edition
 © ISO 2017 – All rights reserved 312 
 
 ISO/DIS 32000-2
- 
-#Table 111: Type 3 #font operators 
+ #
+Table 111: Typ#e 3 f#ont operators #
 Operands Operator Description 
 xy
 w w  
 d0 
-Set width information for the #glyph and declare that the #glyph description 
+Set width information for th#e glyp#h and declare that t#he gly#ph description 
 NOTE 1 This operator name ends in the digit 0. 
 specifies both its shape and its colour. 
 x
@@ -27,13 +27,13 @@ w
 y
 w
 Widths
- denotes the horizontal displacement in the #glyph coordinate system; it shall be 
+ denotes the horizontal displacement in #the gl#yph coordinate system; it shall be 
  shall be 0 
-consistent with the corresponding width in the #font’s  array. 
-(see 9.2.4, "#Glyph positioning and metrics"). 
+consistent with the corresponding width in# the# font’s  array. 
+(see 9.2#.4, "G#lyph positioning and metrics"). 
 CharProcs
 This operator shall only be permitted as the first operator in a #content stream 
-appearing in a Type 3 #font’s  dictionary. It is typically used only if the 
+#appearing in a T#ype #3 font’s  dictionary. It is typically used only if# the 
 #glyph description executes operators to set the colour or other colour-related 
 NOTE 2 An image does set the colour space and colour explicitly; an image mask 
 parameters explicitly. 
@@ -43,7 +43,7 @@ w w ll ll ur
 d1 
 y
 ur  
-Set width and bounding box information for the #glyph and declare that the #glyph 
+Set width and bounding box information f#or the# glyph and declare t#hat the# glyph 
 NOTE 3 This operator name ends in the digit 1. 
 description specifies only shape, not colour. 
 x
@@ -51,32 +51,32 @@ w
 y
 w
 Widths
- denotes the horizontal displacement in the #glyph coordinate system; it shall be 
+ denotes the horizontal displacemen#t in t#he glyph coordinate system; it shall be 
  shall be 0 
-consistent with the corresponding width in the #font’s  array. 
+consistent with the corresponding width #in t#he font’s  array. 
 xyxy
 llurur
 ll
-(see 9.2.4, "#Glyph positioning and metrics"). 
+(se#e 9.2.#4, "Glyph positioning and metrics"). 
  and  denote the coordinates of the lower-left corner, and  and  denote 
-the upper-right corner, of the #glyph bounding box. The #glyph bounding box is the 
-smallest #rectangle, oriented with the axes of the #glyph coordinate system, that 
-completely encloses all marks placed on the page as a result of executing the 
-#glyph’s description. The declared bounding box shall be correct — in other words, 
-sufficiently large to enclose the entire #glyph. If any marks fall outside this 
+the upper-right corn#er, of# the glyph boundi#ng box#. The glyph bounding box is the 
+smallest #rectangle#, oriented with the# axes #of the glyph coordinate system, that 
+completely encloses all marks placed on the page as a result of e#xecut#ing the 
+glyph’s description. The declared bounding box shall be correct — in other words, 
+sufficiently large to encl#ose t#he entire glyph. If any marks fall outside this 
 d1
-bounding box, the result is implementation-dependent. 
-A #glyph description that begins with the  operator should not execute any 
+bounding box, the result is implementatio#n-depe#ndent. 
+A glyph description that begins with the  operator should not execute any 
 operators that set the colour (or other colour-related parameters including 
-transparency) in the #graphics state; any use of such operators shall be ignored 
-and the #glyph stream continues to be processed without error (see 8.6.8, "Colour 
-operators"). The #glyph description is executed solely to determine the #glyph’s 
-shape. Its colour shall be determined by the #graphics state in effect each time this 
-#glyph is painted by a text-showing operator. For the same reason, the #glyph 
+transparency) in the #graphics state#; any use of such operators shall be #ignore#d 
+and the glyph stream continues to be processed without error (see 8.6.8, "Colour #
+opera#tors"). The glyph description is executed solel#y to #determine the glyph’s 
+shape. Its colour shall be determined by the# graphics state# in eff#ect ea#ch time this 
+glyph is painted by a text-showing operator. For #the sam#e reason, the glyph 
 description shall not include an image; however, an image mask is acceptable, 
 since it merely defines a region of the page to be painted with the current colour. 
 CharProcs
-This operator shall be used only in a #content stream appearing in a Type 3 #font’s 
+This operator shall be used only in a# content stream# appearing in a# Typ#e 3 font’s 
  dictionary. 
-EXAMPLE This example shows the definition of a Type 3 #font with only two #glyphs — a filled square and a filled triangle, 
-selected by the #character codes a and b. "
+EXAMPLE This example shows the definition of #a Typ#e# 3 fo#nt with only two glyphs — a filled square and a filled triangle, 
+selected by the #character #codes a and b. "

@@ -1,26 +1,26 @@
 #Table 332: Entries in the external 
-data dictionary of a projection annotation" describes the entries in the external data dictionary of 
+data dictionary of a projection annotation#" describes the entries in the external data dictionary of 
 S
 • 
 the projection annotation that are used for referencing a 3D measurement. 
 3D measurement: The value of the  entry in the 3D measurement dictionary is an indirect 
-reference to a projection annotation dictionary of the associated comment. 
-#Table 332: Entries in the external data dictionary of a projection annotation 
+reference to a projection annotation dictionary of the associated comment. #
+Table 332: Entries in the external data dictionary of a projection annotation #
 Key Type Value 
-Required; #PDF 2.0
+Required; #PDF #2.0
 Type 
 ExData
   
-name () The type of #PDF #object that this dictionary describes; if 
+name () The type of# PDF ##object #that this dictionary describes; if 
 present, shall befor an external data dictionary. 
-Required; #PDF 2.0
+Required#; PD#F 2.0
 Subtype 
 3DM
   
  
 name () The type of external data that this dictionary describes; shall 
 befor an association to a 3D measurement.
-Required; #PDF 2.0
+Require#d; P#DF 2.0
 M3DREF 
 dictionary () An indirect reference to a 3D measurement dictionary for 
 which this projection annotation is a comment. See 12.5.6.24, "Projection 
@@ -30,17 +30,17 @@ annotations".
  
 13.7.1General 
  
-rich media annotations
+rich media annotati#ons
 #PDF 2.0 introduces  providing a common framework for video, audio, animations 
 and other multimedia presentations. For the allowed instances of rich media see "#Table 342: Entries in 
-a RichMediaConfiguration dictionary". The framework includes general controls most of which are 
+a RichMediaConfiguration dictionary#". The framework includes general controls most of which are 
 commonly needed to stage, present and control an animation, video or other interactive presentation. 
 Such features as: when to activate and deactivate the presentation, supplying scripts that control the 
 presentation, setting viewing parameters such as lighting and camera angles (e.g., for 3D interactive 
 presentations), setting animation parameters such as speed and looping behaviour, supplying assets 
 including the base video, audio and animations files as well as any necessary auxiliary files (e.g., 
 scripts), determining how the rich media annotation relates to the page display (e.g., within a fixed 
-#rectangle on the page, or having its own window), and details determining configuration of toolbars, 
+#rectangle #on the page, or having its own window), and details determining configuration of toolbars, 
 navigation and other controls. 
 Not all of these common framework features are appropriate for all rich media types and selected 
 media types have additional features defined specific to that type. The details for the framework and 

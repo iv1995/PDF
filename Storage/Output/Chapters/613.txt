@@ -1,14 +1,14 @@
 # 
  
-##Character Sets and Encodings 
-(Normative) 
+##Character #Set#s and Encodings 
+#(Normative) 
 D.1General 
  
-This annex lists the# ##character sets and encodings that shall be predefined in any ##PDF processor. Simple 
-#fonts, encompassing Latin text and some symbols, are described here. See 9.7.5.2, "Predefined CMaps" 
-for a list of predefined CMaps for CID-keyed #fonts. 
-D.2, "Latin ##character set and encodings" describes the entire ##character set for the Standard Latin-text 
-StandardEncodingMacRomanEncodingWinAnsiEncoding#PDFDocEncoding
-  
-#fonts. For each named #character, an octal #character code is defined for four different encodings: 
+This annex lists the### character# se#ts and encodings# that shall be predefined in any ##PDF #processor#. Simple 
+#font#s, encompassing Latin text and some symbols, are described here. See 9.7.5.2, "Predefined CMaps" 
+for a list of predefined CMaps for CID-keyed# fon#ts. 
+D.2, "Lati##n characte#r se#t and encodings" describes the enti##re charact#er s#et for the Standard Latin-text 
+StandardEncodingMacRomanEncodingWinAnsiEncodin#gPD#FDocEncoding
+ # 
+fo#nts. For each na#med chara#cter, an o#ctal chara#cter code is defined for four different encodings: 
 , , , and(see "

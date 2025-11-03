@@ -1,29 +1,29 @@
-#Table 96: Entries in an optional content #group dictionary" shows the entries in an 
-optional content #group dictionary. 
-#Table 96: Entries in an optional content #group dictionary 
+#Table 96: Entries in an optional content #group #dictionary#" shows the entries in an 
+optional content# group# dictionary. #
+Table 96: Entries in an optional conten#t grou#p dictionary #
 Key Type Value 
 RequiredOCG
 Type 
-name () The type of #PDF #object that this dictionary describes; shall be  
-for an optional content #group dictionary. 
+name () The type of #PDF ##object #that this dictionary describes; shall be  
+for an optional conte#nt gro#up dictionary. 
 Required
 Name 
-text string () The name of the optional content #group, suitable for presentation 
-in an #interactive ##PDF processor’s user interface. 
+text string () The name of the optional cont#ent g#roup, suitable for presentation 
+in an #interactive# #PDF# processor##’s user interface. 
 Optional
 Intent 
 ViewDesign
 name or array () A single name or an array of names that represent the intended use 
-of the graphics in the #group. The values  and , or any second class 
-name may be used (see Annex E, "#PDF Name Registry"). A ##PDF processor may 
+of the graphics in# the #group. The values  and , or any second class 
+name may be used (see Annex E,# "PD#F Name Registry").# A# P#DF processor# may 
 View
-choose to use only #groups that have a specific intent and ignore others. 
+choose to use# only# groups that have a specific intent and ignore others. 
 Default value: . See 8.11.2.3, "Intent" for more information. 
 Optional
 Usage 
-dictionary () A usage dictionary descri#bing the nature of the content controlled 
-by the #group. It may be used by features that automatically control the state of 
-the #group based on outside factors. See 8.11.4.3, "Usage and usage application 
+dictionary () A usage dictionary descri#bi#ng the nature of the content controlled 
+#by th#e group. It may be used by features that automatically control the state #of 
+th#e group based on outside factors. See 8.11.4.3, "Usage and usage application 
 dictionaries" for more information. 
  
 TypeName
@@ -37,23 +37,23 @@ dictionaries").
 
 ISO/DIS 32000-2
  
-Individual content elements in a document may specify the optional content #group or #groups that affect 
-their visi#bility (see 8.11.3, "Making graphical content optional"). Any content whose visi#bility is affected 
-by a given optional content #group belongs to that #group. 
- ON OFF
-A #group shall be assigned a state, which is# eitheror . States themselves are not part of the #PDF 
-document but may be set programmatically or through the #interactive ##PDF processor’s user interface to 
-change the visi#bility of content. When a document is first opened by a ##PDF processor, the #groups’ states 
+Individual content elements in a document may specify the optional# conte#nt# grou#p or groups that affect 
+their vis#ib#ility (see 8.11.3, "Making graphical content optional"). Any content whose vi#si#bility is affected 
+by a given option#al con#tent group belo#ngs t#o that group#. 
+ ON# OFF
+A group shall be assigned a state, which is# ei#theror . States themselves are not part of #the P#DF 
+document but may be set programmatically or through the# interac#tive## PDF processo##r’s user interface to 
+change the v#is#ibility of content. When a document is first opened# by ##a PDF pr#oces##sor, the groups’ states 
 shall be initialised based on the document’s default configuration dictionary (see 8.11.4.3, "Optional 
 content configuration dictionaries"). 
 ONOFF
-Content belonging to a single #group shall be visible when the #group is  and invisible when it is . 
-Content may, however, belong to multiple #groups, when its #group is nested inside of another (parent) 
-#group. In such a case, the content shall only be visible if this #group and all its parent #groups indicate 
-visi#bility. In other words, if the visi#bility state of an outer level indicates that the content needs to be 
-hidden, all inner levels shall be hidden regardless of their individual visi#bility states. 
+Content belongi#ng to #a single group shall be v#isible# when the group is  and invisible when it is . 
+Content may, however, be#long #to multiple# group#s, when its group is nested inside of# anot#her (parent) 
+group. In such a case, the content shall only# be vi#sible if this grou#p and# all its parent groups indicate 
+#vi#sibility. In other words, if the# v#isibility state of an outer level indicates that the content needs to be 
+hidden, all inner levels shall be hidden regardless of their individua#l #visibility states. 
 8.11.2.2Optional content membership dictionaries 
  
-To express more complex visi#bility policies, content shall not declare itself to belong directly to an 
-optional content #group but rather to an optional content membership dictionary, whose entries are 
+To express more compl#ex# visibility policies, content shall not declare itself to belong directly to# an 
+o#ptional content group but rather to an optional content membership dictionary, whose entries are 
 shown in "

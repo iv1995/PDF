@@ -1,5 +1,5 @@
 #Table 262: Entries in the signature validation-related information (VRI) dictionary 
-Key Type Value 
+#Key Type Value 
 (Optional) VRI
 Type   
 name If present, shall befor a validation-related information dictionary. 
@@ -44,8 +44,8 @@ NOTE 2 The hash value to be contained in the timestamp token is left undefined. 
 PKCS#7 signatures the datum that is hashed and included in the messageImprint 
 field of the DER encoded timestamp stored in the TS entry (see Internet RFC 3161 
 as updated by Internet RFC 5816) is the encryptedDigest field in the signature's 
-PKCS#7 #object (as defined in Internet RFC 2315). 
-EXAMPLE 1 DSS dictionary (and associated #objects) 
+PKCS#7 #object #(as defined in Internet RFC 2315). 
+EXAMPLE 1 DSS dictionary (and associated# objec#ts) 
 100 0 obj 
   << 
    /Type /Catalog 
@@ -136,11 +136,11 @@ endstream
  
 The validation data contained in the DSS dictionary and those embedded in the signature itself may be 
  VRI 
-used by another party later relying on the signature. The applica#bility of thevalidation data in the 
+used by another party later relying on the signature. The applica#bi#lity of thevalidation data in the 
 DSS
    
 signaturedictionary is subject to external conditions such as a set of validation parameters. In the 
-presence ofin a #PDF document the preferred order of the search forvalidation data should be as 
+presence ofin a #PDF #document the preferred order of the search forvalidation data should be as 
 follows: 
 VRI
  
@@ -155,7 +155,7 @@ c)Validation data embedded in the signature.
 12.8.5.1General 
  
   
-Adocument timestamp dictionaryestablishes the exact contents of the complete #PDF file at the time 
+Adocument timestamp dictionaryestablishes the exact contents of the complete# PDF# file at the time 
 indicated in the timestamp token. 
 © ISO 2017 – All rights reserved 570 
 
@@ -165,10 +165,10 @@ ISO/DIS 32000-2
  
 The timestamp token shall be an RFC 3161 TimeStampToken, as updated by RFC 5816, obtained from a 
 trusted timestamp authority. A Document Timestamp dictionary is a standard signature dictionary as 
-described in "#Table 255: Entries in a signature dictionary". 
-#ByteRange
+described in "#Table 255: Entries in a signature dictionary#". 
+#Byte#Range
 The  key shall cover the entire file, including the signature dictionary but excluding the 
-Contents value. The hash value computed over that #byte range shall be sent to a timestamping authority 
+Contents value. The hash value computed over that# byte# range shall be sent to a timestamping authority 
 and the TimeStampToken which is received shall be placed in the Contents key. 
   
 The existence of one or more document timestamps shall be determined by examining signature fields 
@@ -179,16 +179,16 @@ using its own set of validation parameters, one can determine that the contents 
 have not been changed since a given past date.  
 12.8.5.3Subsequent document timestamp dictionaries 
  
-A timestamp token present# either in a signature timestamp attribute or in a document timestamp 
+A timestamp token present# ei#ther in a signature timestamp attribute or in a document timestamp 
 dictionary may expire due to the expiry of its certificate or the cryptographic strength of some of their 
 algorithms may not be resistant any longer to some new cryptographic attack. 
 It is thus necessary to apply a new timestamp token before the expiry of the certificate and/or before a 
 cryptographic attack may succeed but it is also necessary to be able to demonstrate that the certificates 
 related to the certification path of the timestamp authority certificate were not revoked for a reason 
-which is# either "keyCompromise" or "cACompromise" at the time when the new timestamp token has 
+which i#s e#ither "keyCompromise" or "cACompromise" at the time when the new timestamp token has 
 been applied to the document. 
 The certificates, CRLs or OCSP responses used to demonstrate that the certificates related to the 
-certification path of the previous timestamp token was not revoked for a reason which is# either 
+certification path of the previous timestamp token was not revoked for a reason which #is #either 
 "keyCompromise" or "cACompromise" just before the time the new timestamp token has been 
 requested shall be included into the DSS dictionary. 
 Then the new timestamp token shall be placed into a new document timestamp dictionary which will 
@@ -198,4 +198,4 @@ protect the whole structure.
 ISO/DIS 32000-2
  
 The process may be repeated several times as long as there is a need to reverify the signatures included 
-in the document. ![Figure 86 Illustration of a #PDF Document with repeated LTV  .png](./Storage/Output/Images/Figure 86 Illustration of a #PDF Document with repeated LTV  .png)
+in the document. ![Figure 86 Illustration of #a PD#F Document with repeated LTV  .png](./Storage/Output/Images/Figure 86 Illustration of# a P#DF Document with repeated LTV  .png)

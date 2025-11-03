@@ -1,3 +1,3 @@
 #Table 293: Entries in a media screen parameters 
-dictionary") shall specify where a media #object should be played. It shall contain  and
+dictionary#") shall specify where a media #object #should be played. It shall contain  and
 dictionaries (see "

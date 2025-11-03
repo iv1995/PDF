@@ -1,4 +1,4 @@
-#Table 343: Entries in a RichMediaInstance dictionary".) 
+#Table 343: Entries in a RichMediaInstance dictionary#".) 
  
 RichMediaConfiguration
   
@@ -15,28 +15,28 @@ when presenting content-specific user interfaces during the authoring or editing
 RichMediaInstance dictionary
  Instances
 The, referenced by the  entry of the RichMediaConfiguration 
-dictionary ("#Table 342: Entries in a RichMediaConfiguration dictionary"), describes a single instance of 
-an asset with settings to populate the artwork of an annotation, as described in "#Table 343: Entries in a 
-RichMediaInstance dictionary". 
-#Table 343: Entries in a RichMediaInstance dictionary 
+dictionary ("#Table 342: Entries in a RichMediaConfiguration dictionary#"), describes a single instance of 
+an asset with settings to populate the artwork of an annotation, as described in #"Table 343: Entries in a 
+RichMediaInstance dictionar#y".# 
+Table 343: Entries in a RichMediaInstance dictionary# 
 Key Type Value 
-(Optional; #PDF 2.0)
+(Optional; #PDF #2.0)
 Type 
 RichMediaInstance
-name  The type of #PDF #object that this dictionary describes. If 
+name  The type of# PDF ##object #that this dictionary describes. If 
 present, it shall be . 
-(Required; #PDF 2.0)
+(Required#; PD#F 2.0)
 Subtype 
 3DSoundVideo
 name  A name specifying the content type for the instance. 
 Valid values are , , and . The subtype shall match the asset file 
 type of the instance. 
-(Required; #PDF 2.0)
+(Require#d; P#DF 2.0)
 Asset 
 Assets
-dictionary  A dictionary that shall be an #in#direct ##object reference to a 
+dictionary  A dictionary that shall be an #in#direct# #object ###reference #to a 
 file specification dictionary that is also referenced in the  #name tree 
-specified in the RichMediaContent dictionary of the annotation. 
+#specified in the RichMediaContent dictionary of the annotation. 
  
 EXAMPLE 1 RichMediaInstance dictionaries 
 15 0 obj            %RichMediaInstances array 
@@ -63,4 +63,4 @@ View dictionaries
 3DV
 activated or selected. A View dictionary entry in a rich media annotation contains a superset of the 
 information present in a 3D view () dictionary as specified in "#Table 315: Entries in a 3D view 
-dictionary". "
+dictionary#". "

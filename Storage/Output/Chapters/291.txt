@@ -1,7 +1,7 @@
 #)
 (
 SetLumC, 𝑙𝑙 
-)
+#)
 (
  
 let 𝐵𝐵=𝑙𝑙−Lum𝐶𝐶
@@ -63,8 +63,8 @@ redgreenblueredgreenblue
 𝐶𝐶=𝑚𝑚𝐷𝐷�𝑥𝑥𝐶𝐶,𝐶𝐶,𝐶𝐶�−𝑚𝑚𝐷𝐷𝑛𝑛�𝐶𝐶,𝐶𝐶,𝐶𝐶� 
 Sat
 minmidmax
-The subscripts , , and  (in the next #function) refer to the colour components having the 
-minimum, middle, and maximum values upon entry to the #function. 
+The subscripts , , and  (in the next #function#) refer to the colour components having the 
+minimum, middle, and maximum values upon entry to the# functio#n. 
 )
 (
  
@@ -90,7 +90,7 @@ return
 makes it very sensitive to variations between implementations with respect to colour management 
 SetSat
 and quantisation of colour values. Therefore the visual appearance of elements can be very 
-different between different ##PDF processors used for viewing or printing pages containing elements 
+different between different ##PDF #processor#s used for viewing or printing pages containing elements 
 that use the Hue and Saturation blend modes that use the SetSat algorithm. 
 © ISO 2017 – All rights reserved 388 
 

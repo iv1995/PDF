@@ -1,5 +1,5 @@
 #Figure 
-53: Graphics clipped by a #glyph path". This state persists until an earlier clipping path is reinstated by the  
+53: Graphics clipped by a #glyph #path#". This state persists until an earlier clipping path is reinstated by the  
 operator. 
 BT 
   /F13 48 Tf 
@@ -7,51 +7,51 @@ BT
   7 Tr 
   (ABC) Tj 
 ET 
-… Graphics operators to draw a starburst … ![Figure 53 Graphics clipped by a #glyph path  .png](./Storage/Output/Images/Figure 53 Graphics clipped by a #glyph path  .png)
-#Figure 53: Graphics clipped by a #glyph path 
- 
-9.2.4#Glyph positioning and metrics 
+… Graphics operators to draw a starburst … ![Figure 53 Graphics clipped by a# glyph# path  .png](./Storage/Output/Images/Figure 53 Graphics clipped by #a glyp#h path  .png)#
+Figure 53: Graphics clipped by# a gly#ph path 
+ #
+9#.2.4Gl#yph positioning and metrics #
  
 A #glyph’s width — formally, its horizontal displacement — is the amount of space it occupies along the 
 baseline of a line of text that is written horizontally. In other words, it is the distance the current text 
-position shall move (by translating text space) when the #glyph is painted. 
-NOTE 1 The width is distinct from the dimensions of the #glyph outline. 
-In some #fonts, the width is constant; it does not vary from #glyph to #glyph. Such #fonts are called fixed-
-pitch or monospaced. They are used mainly for typewriter-style printing. However, most #fonts used for 
-high-quality typography associate a different width with each #glyph. Such #fonts are called proportional 
+position shall move (by translating text space) whe#n the #glyph is painted. 
+NOTE 1 The width is distinct from the dimensions #of the# glyph outline. 
+In some #font#s, the width is constant; it does not va#ry fro#m #glyph# to glyph. Such# fon#ts are called fixed-
+pitch or monospaced. They are used mainly for typewriter-style printing. However, mos#t fo#nts used for 
+high-quality typography associate a different width #with #each glyph. Su#ch f#onts are called proportional 
 © ISO 2017 – All rights reserved 291 
 
 ISO/DIS 32000-2
  
 Tj
-or variable-pitch #fonts. In# either case, the  operator shall position the consecutive #glyphs of a string 
+or variable-pi#tch #fonts. In# ei#ther case, the  operator shall position the c#onsec#utive glyphs of a string 
 according to their widths. 
-The width information for each #glyph shall be stored both in the #font dictionary and in the ##font program 
-itself. 
-These widths shall be consistent with the actual widths given in the ##font program. 
-NOTE 2 Storing this information in the #font dictionary, although redundant, enables a ##PDF processor to 
-determine #glyph positioning without having to look inside the ##font program. 
+The width informati#on for# each glyph shall be stored both in# the #font dictionary and i#n the# #font program 
+#itself. 
+These widths shall be consistent with the actual widths given #in th#e# font progra#m. 
+NOTE 2 Storing this information# in t#he font dictionary, although redundant, enables a ##PDF #processor #t#o 
+det#ermine glyph positioning without having to look in#side #th#e font progr#am. 
 NOTE 3 Due to differences in the way that TrueType and the  array store width information, there 
 Widths
-can be cases where widths are not# identical between the two. TrueType stores widths in units of 
+can be cases where widths are not# id#entical between the two. TrueType stores widths in units of 
 1024 or 2048 to an Em (a unit in the field of typography), equal to the currently specified point 
 size, however the  array stores widths in units of 1000 to an Em. Using real numbers 
 Widths
 instead of integers can mitigate rounding errors caused by this difference, and is recommended 
-when precise #character positioning is required. 
-NOTE 4 The operators for showing text are designed on the assumption that #glyphs are ordinarily 
+when precise #character #positioning is required. 
+NOTE 4 The operators for showing text are designed on the as#sumpt#ion that glyphs are ordinarily 
 positioned according to their standard widths. However, means are provided to vary the 
 positioning in certain limited ways. For example, the  operator enables the text position to be 
 TJ
-adjusted between any consecutive pair of #glyphs corresponding to #characters in a text string. 
-There are #graphics state parameters to adjust #character and word spacing systematically. 
-In addition to width, a #glyph has several other metrics that influence #glyph positioning and painting. For 
-most #font types, this information is largely internal to the ##font program and is not specified explicitly in 
-the #PDF font dictionary. However, in a Type 3 #font, all metrics are specified explicitly (see 9.6.4, "Type 3 
-#fonts"). 
-The #glyph coordinate system is the space in which an individual #character’s #glyph is defined. All path 
-coordinates and metrics shall be interpreted in #glyph space. For all #font types except Type 3, the units of 
+adjusted between any conse#cutiv#e pair of glyphs corresponding to# characte#rs in a text string. 
+There are #graphics state #parameters to adjus#t characte#r and word spacing systematically. 
+In addit#ion to# width, a glyph has several other metric#s that# influence glyph positioning and painting. #For 
+#most font types, this information is largely inter#nal t#o t#he font progr#am and is not specified explicitly in 
+the# PDF# font dictionary. However, #in a# Type 3 font, all metrics are specified explicitly (see 9.6#.4, #"Type# 3 
+fo#nts"). 
+The glyph coordinate system is the space in which an indivi#du#al #charac#ter’s glyph is defined. All path 
+coordinates and metrics shal#l be i#nterpreted in glyph s#pace.# For all font types except Type 3, the #units #of 
 FontMatrix
-#glyph space are one-thousandth of a unit of text space; for a Type 3 #font, the transformation from #glyph 
-space to text space shall be defined by a #font matrix specified in an explicit  entry in the #font. 
+glyph space are one-thousandth of a unit of text space#; fo#r a Type 3 font, th#e trans#formation from glyph 
+space to text space shall #be de#fined by a font matrix specified in an explic#it  #entry in the font. 
 "

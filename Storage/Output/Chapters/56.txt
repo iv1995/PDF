@@ -1,4 +1,4 @@
 #recipient record 
-set of #document parts that targets a specific recipient or specific #grouping of #document parts 
+#set of #document part#s that targets a specific recipient or specific #group#ing of# document par#ts 
 4.54 
  

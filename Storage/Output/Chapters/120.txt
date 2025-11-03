@@ -1,50 +1,50 @@
 #Table 45: Entries in an 
-embedded file parameter dictionary"). 
+embedded file parameter dictionary#"). 
  
 © ISO 2017 – All rights reserved 137 
 
 ISO/DIS 32000-2
- 
-#Table 45: Entries in an embedded file parameter dictionary 
+ #
+Table 45: Entries in an embedded file parameter dictionary #
 Key Type Value 
 Optional
 Size 
-integer () The size of the uncompressed embedded file, in #bytes. See 
-"#Table 155: Entries in a collection field dictionary". 
+integer () The size of the uncompressed embedded file, in #byte#s. See 
+"#Table 155: Entries in a collection field dictionary#". 
 Optional
 CreationDate 
 date () The date and time when the embedded file was created. See 
-"#Table 155: Entries in a collection field dictionary". 
+#"Table 155: Entries in a collection field dictionar#y". 
 Optional, required in the case of an embedded file stream used as an 
 ModDate 
 associated file
 date (
 ) The date and time when the embedded file was last 
-modified. See "#Table 155: Entries in a collection field dictionary". 
-Optional; #deprecated in #PDF 2.0
+modified. See# "Table 155: Entries in a collection field dictiona#ry". 
+Optional; #deprecated #in #PDF #2.0
 Mac 
   
 dictionary () A subdictionary containing additional 
 information specific toMacOS files. 
 Optional
 CheckSum 
-string () A 16-#byte string that is the checksum of the #bytes of the 
+string () A 16#-byte# string that is the checksum of th#e by#tes of the 
 uncompressed embedded file. The checksum shall be calculated by 
 Internet RFC 1321, The MD5 Message-Digest Algorithm
 applying the standard MD5 message-digest algorithm (described in 
-) to the #bytes of the 
+) to t#he b#ytes of the 
 NOTE 2 This is strictly a checksum, and is not used for security purposes. 
 embedded file stream. 
    
 7.11.4.2Related files arrays 
  
   
-In some circumstances, a #PDF file can refer to a #group of related files, such as the set of five files that 
+In some circumstances, a# PDF# file can refer to a #group #of related files, such as the set of five files that 
 make up aDCS1.0 colour-separated image. The file specification explicitly names only one of the files; 
-the rest shall be# identified by some systematic variation of that file name (such as by altering the 
-#PDF 1.3
+the rest shall be# id#entified by some systematic variation of that file name (such as by altering the# 
+PD#F 1.3
 RF
-extension). When such a file is to be embedded in a #PDF file, the related files shall be embedded as well. 
+extension). When such a file is to be embedded in# a P#DF file, the related files shall be embedded as well. 
 n
 This is accomplished by including a related files array () as the value of the  entry in the file 
 specification dictionary. The array shall have 2 ×  elements, which shall be paired in the form 
@@ -66,9 +66,9 @@ nn
 The first element of each pair shall be a string giving the name of one of the related files; the second 
 element shall be an embedded file stream holding the file’s contents. 
 RF
-EXAMPLE In the following example, #object 31 is an embedded file stream containing Encapsulated Postscript File (EPSF) 
+EXAMPLE In the following example, #object #31 is an embedded file stream containing Encapsulated Postscript File (EPSF) 
   
-file Sunset.eps. The file specification dictionary’s  entry specifies an array, #object 30,# identifying a set of 
+file Sunset.eps. The file specification dictionary’s  entry specifies an array,# object# 30#, i#dentifying a set of 
 embedded files, forming aDCS1.0 set. 
 10 0 obj          %File specification dictionary 
   <</Type /Filespec 
@@ -99,7 +99,7 @@ endobj
   
   <</Type /EmbeddedFile   %Sunset.eps 
    /Length … 
-   /#Filter… 
+   /#Filter#… 
   >> 
 stream 
 Data for Sunset.eps 
@@ -110,7 +110,7 @@ endobj
 32 0 obj          %Embedded file stream for related file 
   <</Type /EmbeddedFile   %Sunset.C 
    /Length … 
-   /#Filter… 
+   #/Filte#r… 
   >> 
 stream 
 Data for Sunset.C 
@@ -133,11 +133,11 @@ EXAMPLE The following example shows aURLspecification.
 >> 
  
   
-TheURLshall adhere to the #character-encoding requirements specified in RFC 3986. Because 7-#bit U.S. 
-#ASCII is a strict subset of #PDFDocEncoding, this value shall also be considered to be in #PDFDocEncoding. 
+TheURLshall adhere to the #character#-encoding requirements specified in RFC 3986. Because 7-#bi#t U.S. 
+#ASCII #is a strict subset# of# PDFDocEncoding, this value shall also be considered to b#e i#n PDFDocEncoding. 
 7.11.6Collection items 
  
 collection item dictionary
-Beginning with #PDF 1.7, a  shall contain the data described by the collection 
+Beginning# wit#h PDF 1.7, a  shall contain the data described by the collection 
  
 schema dictionary for a particular file in a collection (see 12.3.5, "Collections"). "

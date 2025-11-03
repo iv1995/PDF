@@ -1,11 +1,11 @@
 #Table 136: Variables used in the source shape and 
-opacity formulas". 
-#Table 136: Variables used in the source shape and opacity formulas 
+opacity formulas#". #
+Table 136: Variables used in the source shape and opacity formulas #
 Variable Meaning 
 𝒔𝒔
 𝒇𝒇 Source shape 
 𝒋𝒋
-𝒇𝒇 #Object shape 
+𝒇𝒇 #Object #shape 
 𝒎𝒎
 𝒇𝒇 Mask shape 
 𝒌𝒌
@@ -13,7 +13,7 @@ Variable Meaning
 𝒔𝒔
 𝒒𝒒 Source opacity 
 𝒋𝒋
-𝒒𝒒 #Object opacity 
+𝒒𝒒# Object# opacity 
 𝒎𝒎
 𝒒𝒒 Mask opacity 
 𝒌𝒌
@@ -24,15 +24,15 @@ input values decreases.
 
 ISO/DIS 32000-2
  
-When an #object is painted with a tiling pattern, the #object shape and #object opacity for points in the 
-#object’s interior are determined by those of corresponding points in the pattern, rather than being 1.0 
+When a#n objec#t is painted with a tiling pattern, t#he obje#ct shape #and obj#ect opacity for points in #the 
+o#bject’s interior are determined by those of corresponding points in the pattern, rather than being 1.0 
 everywhere (see 11.6.7, "Patterns and transparency"). 
 11.3.7.3Result shape and opacity 
  
 In addition to a result colour, the painting operation shall also compute an associated result shape and 
 result opacity. These computations shall be based on the union #function 
  
-()()()
+#()()()
 Union𝑏𝑏,𝑠𝑠 =1−�1−𝑏𝑏×1−𝑠𝑠�
 ()
 =𝑏𝑏+𝑠𝑠−𝑏𝑏×𝑠𝑠
@@ -42,7 +42,7 @@ bs
 where  and  shall be the backdrop and source values to be composited. 
 NOTE 1 This is a generalization of the conventional concept of union for opaque shapes, and it can be 
 thought of as an "inverted multiplication"—a multiplication with the inputs and outputs 
-complemented. The result tends toward 1.0: if# either input is 1.0, the result is 1.0. 
+complemented. The result tends toward 1.0: if# ei#ther input is 1.0, the result is 1.0. 
 The result shape and opacity shall be given by 
  
 𝑟𝑟𝑏𝑏𝑓𝑓

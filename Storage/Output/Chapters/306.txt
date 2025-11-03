@@ -1,10 +1,10 @@
 #12Interactive features 
  
-12.1General 
+#12.1General 
  
 EXDU
 For purposes of the trigger events  (enter),  (exit),  (down), and  (up), the term mouse denotes a 
-generic pointing device with the following #characteristics: 
+generic pointing device with the following #character#istics: 
 pressedheld downreleased
 • 
 A selection button that can be , , and . If there is more than one mouse 
@@ -16,9 +16,9 @@ focus
 • 
 is typically denoted by a screen cursor. 
 A notion of — that is, which element in the document is currently interacting with the with 
-the user. In many systems, this element is denoted by a blinking caret, a focus #rectangle, or a colour 
+the user. In many systems, this element is denoted by a blinking caret, a focus #rectangle#, or a colour 
 change. 
-This clause describes the #PDF features that allow a user to interact with a document on the screen, 
+This clause describes the #PDF #features that allow a user to interact with a document on the screen, 
 using the mouse and keyboard (with the exception of multimedia features, which are described in 13, 
 "Multimedia features"): 
 Preference settings
@@ -41,7 +41,7 @@ Interactive forms
 Digital signatures
 • 
  for gathering information from the user (12.7, "Forms") 
- that authenticate the# identity of a user and the validity of the document’s 
+ that authenticate the# id#entity of a user and the validity of the document’s 
 Measurement properties
 • 
 contents (12.8, "Digital signatures") 
@@ -51,16 +51,16 @@ geospatial coordinate system
 page (12.9, "Measurement properties") 
 A  is introduced in subclause 12.10, "Geospatial features" along with a 
 • 
-number of #PDF constructs to support geospatially registered content. 
-document to #function as intended
+number of# PDF# constructs to support geospatially registered content. 
+document to #function #as intended
 Subclause 12.11, "Document requirements" describes how a document may specify requirements 
-that an #interactive ##PDF processor should satisfy in order for the  
+that an #interactiv#e #PD#F processor ##should satisfy in order for the  
 12.2Viewer preferences 
  
 by the author. 
- ViewerPreferences 
-#PDF 1.2
+ ViewerPreference#s 
+P#DF 1.2
 Theentry in a document’s catalog dictionary (see 7.7.2, "Document catalog 
 dictionary") designates a viewer preferences dictionary () controlling the way the document 
-shall be presented on the screen or in print. If no such dictionary is specified, ##PDF processors should 
+shall be presented on the screen or in print. If no such dictionary is specifi#ed, ##PDF processo#rs should 
 behave in accordance with their own current user preference settings. "

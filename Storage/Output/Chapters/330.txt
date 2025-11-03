@@ -1,17 +1,17 @@
-#Figure 78: Coordinate adjustment with the NoRotate flag" shows how an annotation whose 
+#Figure 78: Coordinate adjustment with the NoRotate flag#" shows how an annotation whose 
 NoRotate flag is set remains upright when the page it is on is rotated 90 degrees clockwise. The 
 upper-left corner of the annotation remains at the same point in default user space; the 
-annotation pivots around that point. ![Figure 78 Coordinate adjustment with the NoRotate flag  .png](./Storage/Output/Images/Figure 78 Coordinate adjustment with the NoRotate flag  .png)
-#Figure 78: Coordinate adjustment with the NoRotate flag 
- 
+annotation pivots around that point. ![Figure 78 Coordinate adjustment with the NoRotate flag  .png](./Storage/Output/Images/Figure 78 Coordinate adjustment with the NoRotate flag  .png)#
+Figure 78: Coordinate adjustment with the NoRotate flag 
+ #
 12.5.4Border styles 
  
 An annotation may optionally be surrounded by a border when displayed or printed. If present, the 
  Border 
-border shall be drawn completely inside the annotation #rectangle. In #PDF 1.1, the #characteristics of the 
+border shall be drawn completely inside the annotation #rectangle#. In #PDF #1.1, the #character#istics of the 
 border shall be specified by theentry in the annotation dictionary ("Table 166: Entries common 
  BS 
-to all annotation dictionaries"). Beginning with #PDF 1.2, the border #characteristics for some types of 
+to all annotation dictionaries"). Beginning with# PDF# 1.2, the border# characte#ristics for some types of 
 annotations may instead be specified in a border style dictionary designated by the annotation’s
 entry. Such dictionaries may also be used to specify the width and dash pattern for the lines drawn by 
  Border  BS 

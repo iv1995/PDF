@@ -1,13 +1,13 @@
 #Table 72: Entries in a DeviceN mixing hints 
-dictionary") that specifies optional attributes of the inks that shall be used in blending 
-calculations when used as an alternative to the tint transformation #function. 
+dictionary#") that specifies optional attributes of the inks that shall be used in blending 
+calculations when used as an alternative to the tint transformation #function#. 
  
  Separation 
 This dictionary provides information about the individual colourants that may be useful to some #PDF 
- DeviceN 
-processors. In particular, the alternate colour space and tint transformation #function of a
+ #DeviceN 
+processors. In particular, the alternate colour space and tint transformation# function# of a
 colour space describe the appearance of that colourant alone, whereas those of acolour space 
-describe only the appearance of its colourants in com#bination. 
+describe only the appearance of its colourants in com#bi#nation. 
 SubtypeNChannelColorants
 Colorants
 If  is , the  dictionary shall have entries for all spot colourants in this colour 
@@ -21,7 +21,7 @@ Separation Process
 contains entries for all the spot colourants in the colour space; they shall be defined using individual
 colour spaces. The  entry specifies a process dictionary (see "Table 71: Entries in a 
 SubtypeNChannel
-DeviceN process dictionary") that# identifies the process colour space that is used by this colour space 
+DeviceN process dictionary") that# id#entifies the process colour space that is used by this colour space 
 NChannel
 and the names of its components. It shall be present if  is  and the colour space has 
 process colour components. An  colour space shall contain components from at most one 
@@ -41,7 +41,7 @@ the names array, in the normal colour space order (for example, , , and ). Howev
 Red
 the names in the names array need not match the actual colour space names (for example, a  
 component need not be named ). The mapping of names is specified in the process dictionary 
-(see "#Table 71: Entries in a DeviceN process dictionary" and discussion below), which shall be 
+(see "#Table 71: Entries in a DeviceN process dictionary#" and discussion below), which shall be 
 Colorants
 • 
 present. 
@@ -69,16 +69,16 @@ ISO/DIS 32000-2
  
 MixingHints
 described above in the discussion of the names parameter.) 
-The  entry in the attributes dictionary specifies a mixing hints dictionary (see "#Table 72: 
-Entries in a DeviceN mixing hints dictionary") that provides information about the #characteristics of 
+The  entry in the attributes dictionary specifies a mixing hints dictionary (see #"Table 72: 
+Entries in a DeviceN mixing hints dictionar#y") that provides information about the #character#istics of 
 colourants that may be used in blending calculations when the actual colourants are not available on 
-the target device. ##PDF processors need not use this information. 
-#Table 71: Entries in a DeviceN process dictionary 
+the target device.# #PDF# processor#s need not use this information. #
+Table 71: Entries in a DeviceN process dictionary #
 Key Type Value 
 Required
 ColorSpace 
-La#b ICCBased 
-Name or () A name or array# identifying the process colour space, which may 
+L#ab #ICCBased 
+Name or () A name or arra#y i#dentifying the process colour space, which may 
 array be any device or CIE-based colour space except . If ancolour 
  DeviceN 
 space is specified, it shall provide calibration information appropriate for the 
@@ -91,19 +91,19 @@ array () An array of component names that correspond, in order, to the
 RGB
 components of the process colour space specified in . For example, 
 an  colour space shall have three names corresponding to red, green, and 
-blue. The names may be ar#bitrary (that is, not the same as the standard names 
+blue. The names may be #ar#bitrary (that is, not the same as the standard names 
  DeviceN 
 for the colour space components) and shall match those specified in the 
 names
 names array of thecolour space, even if all components are not 
 present in the  array. 
- 
-#Table 72: Entries in a DeviceN mixing hints dictionary 
+# 
+Table 72: Entries in a DeviceN mixing hints dictionary# 
 Key Type Value 
 Optional
 Solidities 
 dictionary () A dictionary specifying the solidity of inks that shall be used in blending calculations 
-when used as an alternative to the tint transformation #function. For each entry, the key shall be a 
+when used as an alternative to the tint transformatio#n functi#on. For each entry, the key shall be a 
 colourant name, and the value shall be a number between 0.0 and 1.0. This dictionary need not 
 contain entries for all colourants used in this colour space; it may also include additional 
 colourants not used by this colour space. 
@@ -115,7 +115,7 @@ Default
 specifies a value that shall be used by all components in the associatedcolour space for 
 which a solidity value is not explicitly provided. If  is not present, the default value for 
 PrintingOrder
-unspecified colourants shall be 0.0; #interactive ##PDF processors may choose to use other values. 
+unspecified colourants shall be 0.0; #interactiv#e# PD#F processor##s may choose to use other values. 
 If this entry is present,  shall also be present. 
 Required if  is present
 PrintingOrder Solidities
@@ -129,17 +129,17 @@ entry may also list colourants unused by this specificinstance.
 Optional
 DotGain 
 dictionary () A dictionary specifying the dot gain of inks that shall be used in blending calculations 
-when used as an alternative to the tint transformation #function. Dot gain (or loss) represents the 
+when used as an alternative to the tint transformati#on funct#ion. Dot gain (or loss) represents the 
 amount by which a printer’s halftone dots change as the ink spreads and is absorbed by paper. 
-For each entry, the key shall be a colourant name, and the value shall be a #function that maps 
+For each entry, the key shall be a colourant name, and the value shall b#e a funct#ion that maps 
  DeviceN 
 values in the range 0 to 1 to values in the range 0 to 1. The dictionary may list colourants unused 
 by this specificinstance and need not list all colourants. An entry with a key of Default 
-shall specify a #function that shall be used by all colourants for which a dot gain #function is not 
-explicitly specified. 
-##PDF processors may ignore values in this dictionary when other sources of dot gain information 
-are available, such as #ICC profiles associated with the process colour space or tint 
-transformation #functions associated with individual colourants. 
+shall speci#fy a func#tion that shall be used by all colourants for which a dot# gain fun#ction is not 
+explicitly specified#.# 
+P#DF process#ors may ignore values in this dictionary when other sources of dot gain information 
+are available, such as #ICC profile#s associated with the process colour space or tint 
+transfor#mation f#unctions associated with individual colourants. 
 © ISO 2017 – All rights reserved 204 
 
 ISO/DIS 32000-2
@@ -152,7 +152,7 @@ CyanMagentaYellowBlack DeviceCMYK
 referenced by the  dictionary. Under some circumstances, they may also refer to one or more 
 individual process components called , or  whenis specified 
 as the process colour space in the process dictionary. However, applications shall ignore these process 
-component entries if they can obtain the information from an #ICC profile. 
+component entries if they can obtain the information from an# ICC profil#e. 
 NOTE 7 The mixing hints subdictionaries (as well as the colorants dictionary) can specify colourants that 
 are not used in any given instance of acolour space. This allows them to be referenced 
  DeviceN 
@@ -162,10 +162,10 @@ colour definitions across instances.
 For consistency of colour, the following guidelines apply: 
 • 
  DeviceN 
-The ##PDF processor should apply# either the specified tint transformation #function or invoke the 
-NOTE 8 When the tint transformation #function is used, the burden is on the ##PDF writer to guarantee that 
+#Th#e #PDF process#or should apply# ei#ther the specified tint transfo#rmation f#unction or invoke the 
+NOTE 8 When the tint transf#ormation #function is used, the burden is on# the# #PDF writer #to guarantee that 
 same alternative blending algorithm for allinstances in the document. 
-the individual #function definitions chosen for allinstances produce similar colour 
+the i#ndividual# function definitions chosen for allinstances produce similar colour 
  DeviceN 
 appearances throughout the document. 
 • 
@@ -176,7 +176,7 @@ separation colours or as a component of acolour space.
 None DeviceN Colorants
 EXAMPLE 2 This example shows acolour space consisting of three colour components named , , 
  
-and . In this example, thecolour space, #object 30, has an attributes dictionary whose  
+and . In this example, thecolour space, #object #30, has an attributes dictionary whose  
 tintTransform
 DeviceN 
 entry is an indirect reference to object 45 (which might also be referenced by attributes dictionaries of other
@@ -233,7 +233,7 @@ EXAMPLE 3 This example shows the use of calibrated CMYK process components.
     <<           %Attributes dictionary 
      /Subtype /NChannel 
      /Process 
-       <</ColorSpace [/ICCBased CMYK_#ICC profile] 
+       <</ColorSpace [/ICCBased CMY#K_ICC profi#le] 
        /Components [/Cyan /Magenta /Yellow /Black] 
       >> 
      /Colorants 
@@ -260,8 +260,8 @@ alternateSpace
    <<            %Attributes dictionary 
     /Subtype /NChannel 
     /Process 
-RGB_#ICC profile
-      <</ColorSpace [/ICCBased ] 
+R#GB_ICC profile
+   #   <</ColorSpace [/ICCBased ] 
       /Components [/ProcessRed /ProcessGreen /ProcessBlue] 
      >> 
     /Colorants 
@@ -280,8 +280,8 @@ alternateSpace
    << 
     /Subtype /NChannel 
     /Process 
-CMYK_#ICC profile
-      <</ColorSpace [/ICCBased ] 
+C#MYK_ICC profile
+  #    <</ColorSpace [/ICCBased ] 
       /Components [/Cyan /Magenta /Yellow /Black] 
      >> 
     /Colorants 
@@ -300,14 +300,14 @@ ISO/DIS 32000-2
         <</Spot1 1.0 
         /Spot2 0.0 
        >> 
-      /DotGain 
-#function1
-        <</Spot1  
-#function2
-        /Spot2  
-#function3
-        /Magenta  
-#function4
+     # /DotGai#n 
+function1
+       # <</Spot#1  
+function2
+    #    /Spo#t2  
+function3
+     #   /Mage#nta  
+function4
         /Yellow  
        >> 
       /PrintingOrder [/Magenta /Yellow /Spot1 /Spot2] 
@@ -323,7 +323,7 @@ in the transparent imaging model.
  
 NOTE 1 The following examples illustrate various interesting and useful special cases of the use of
  Indexed 
-andcolour spaces in com#bination to produce multitone colours. 
+andcolour spaces in #co#mbination to produce multitone colours. 
  DeviceN 
 NOTE 2 Example 1 and Example 2 in this subclause illustrate the use ofto create duotone colour 
  DeviceN 
@@ -335,10 +335,10 @@ in cyan and black. In effect, the index values are treated as if they were tints
 Indexed 
 then mapped into tints of the two underlying colourants. Only the beginning of the lookup table string for the
  DeviceN 
-colour space is shown; the full table would contain 256 two-#byte entries, each specifying a tint value 
-for cyan and black, for a total of 512 #bytes. If the alternate colour space of thespace is selected, the 
+colour space is shown; the full table would contain 256 two-#byte #entries, each specifying a tint value 
+for cyan and black, for a total of 512# byt#es. If the alternate colour space of thespace is selected, the 
  DeviceCMYK 
-tint transformation #function (#object 15 in the example) maps the two tint components for cyan and black to 
+tint #transform#ation function #(object# 15 in the example) maps the two tint components for cyan and black to 
 the four components for acolour space by supplying zero values for the other two components. 
 10 0 ob           %Colour space 
   [/Indexed 
@@ -352,8 +352,8 @@ the four components for acolour space by supplying zero values for the other two
   ] 
 endobj 
  
-15 0 obj            %Tint transformation #function 
-   <</#FunctionType 4 
+15 0 obj            %Tint# transformati#on# functio#n 
+   <</FunctionType 4 
    /Domain [0.0 1.0 0.0 1.0] 
    /Range [0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0] 
    /Length 16 
@@ -365,8 +365,8 @@ endobj
  CalRGB 
 EXAMPLE 2 This example shows the definition of another duotone colour space, this time using black and gold colourants 
 (where gold is a spot colourant) and using aspace as the alternate colour space. This could be defined 
- CalRG#B 
-in the same way as in the preceding example, with a tint transformation #function that converts from the two 
+ C#alRG#B 
+in the same way as in the preceding example, with a ti#nt transf#ormation function that converts from the two 
 tint components to colours in the alternatecolour space. 
 30 0 obj           %Colour space 
 © ISO 2017 – All rights reserved 207 
@@ -381,25 +381,25 @@ ISO/DIS 32000-2
          /Gamma [2.2 2.2 2.2] 
         >> 
       ] 
-      35 0 R       %Tint transformation #function 
+      35 0 R       %T#int transforma#tion function 
     ] 
     255 
 Lookup table
     …  … 
   ] 
 endobj 
-NOTE 3 Given a formula for converting any com#bination of black and gold tints to calibrated , a 2-in, 
-3-out Type 4 (PostScript calculator) #function could be used for the tint transformation. 
+NOTE 3 Given a formula for converting an#y #combination of black and gold tints to calibrated , a 2-in, 
+3-out Type 4 (Pos#tScript c#alculator) function could be used for the tint transformation. 
 RGB
-Alternatively, a Type 4 (sampled) #function could be used, but this would require a large number of 
-sample points to represent the #function accurately; for example, sampling each input variable for 
+Alternatively#, a Type #4 (sampled) function could be used, but this would require a large number of 
+sample po#ints to r#epresent the function accurately; for example, sampling each input variable for 
 2
  = 65,536 samples. But since the
 256 tint values between 0.0 and 1.0 would require 256
  DeviceN 
 colour space is being used as the base of ancolour space, there are actually only 256 
  Indexed 
-possible com#binations of black and gold tint values. 
+possib#le# combinations of black and gold tint values. 
  DeviceN 
 EXAMPLE 3 This example shows a more compact way to represent this information is to put the alternate colour values 
 directly into the lookup table alongside thecolour values. 
@@ -412,7 +412,7 @@ directly into the lookup table alongside thecolour values.
          /Gamma [2.2 2.2 2.2] 
         >> 
       ] 
-      20 0 R       %Tint transformation #function 
+      20 0 R     #  %Tint transf#ormation function 
     ] 
     255 
 Lookup table
@@ -424,18 +424,18 @@ black and gold colourants and three more (specified as ) for the equivalentcolou
 None CalRGB 
 components. If the black and gold colourants are available on the output device, the  
 None
-components are ignored; if black and gold are not available, the tint transformation #function is 
+components are ignored; if black and gold are not available, #the tint #transformation function is 
 used to convert a five-component colour into a three-component equivalent in the alternate
  
 colour space. But because, by construction, the third, fourth, and fifth components are the
 CalRGB  
-components, the tint transformation #function can merely discard the first two 
+components,# the tint# transformation function can merely discard the first two 
 CalRGB 
-components and return the last three. This can be readily expressed with a Type 4 (PostScript 
-calculator) #function (see Example 4 in this subclause). 
-EXAMPLE 4 This example shows a Type 4 (PostScript calculator) #function. 
-20 0 obj           %Tint transformation #function 
-   <</#FunctionType 4 
+components and return the last three. This can be readily expressed with a Type 4# (PostScr#ipt 
+calculator) function (see Example 4 in this subclause). 
+EXAMPLE 4 This example shows a Type# 4 (Post#Script calculator) function. 
+20 0 obj    #       %Tint #tr#ansforma#tion function 
+   <</FunctionType 4 
    /Domain [0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0] 
    /Range [0.0 1.0 0.0 1.0 0.0 1.0] 
    /Length 27 
@@ -449,17 +449,17 @@ endobj
 ISO/DIS 32000-2
  
 EXAMPLE 5 This example uses an extension of the techniques described above to produce the quadtone (four-component) 
-image shown in "#Figure 30: Quadtone image"). 
-5 0 obj             %ImageX#Object 
+image shown in "#Figure 30: Quadtone image#"). 
+5 0 obj             %Imag#eXObject 
  
-   <</Type /X#Object 
-   /Subtype /Image 
+ #  <</Type# /XObject 
+#   /Subtype /Image 
    /Width 288 
    /Height 288 
-   /ColorSpace 10 0 R 
-   /#BitsPerComponent 8 
+   /ColorSpace 10 0 #R #
+   /BitsPerComponent 8 
    /Length 105278 
-   /#Filter /#ASCII85Decode 
+   /#Filter #/#ASCII#85Decode 
   >> 
 stream 
 Data for grayscale image
@@ -488,7 +488,7 @@ endobj
     /None 
     ] 
     16 0 R         %Alternate colour space 
-    20 0 R         %Tint transformation #function 
+    20 0 R#         %Ti#nt transformation function 
   ] 
 endobj 
  
@@ -499,9 +499,9 @@ endobj
   ] 
 endobj 
  
-20 0 obj             %Tint transformation #function forDeviceNspace 
+20 0 obj   #         # %Tint transformation fun#ction fo#rDeviceNspace 
   
-   <</#FunctionType 4 
+   <</FunctionType 4 
    /Domain [0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0] 
    /Range [0.0 1.0 0.0 1.0 0.0 1.0] 
    /Length 44 
@@ -516,7 +516,7 @@ endobj
 30 0 obj             %Lookup table forIndexedcolour space 
   
    <</Length 1975 
-   /#Filter [/#ASCII85Decode /FlateDecode] 
+   #/Filter# [#/ASCI#I85Decode /FlateDecode] 
   >> 
 stream 
 8;T1BB2"M7*!"psYBt1k\gY1T<D&tO]r*F7Hga* 
@@ -535,13 +535,13 @@ spot colours. The alternate colour space is a simple calibrated . Thus, thecolou
  DeviceN 
 space has seven components: the four desired colourants plus the three components of the 
 RGB
-alternate space. The example shows the image X#Object (see 8.9.5, "Image dictionaries") 
+alternate space. The example shows the ima#ge XObj#ect (see 8.9.5, "Image dictionaries") 
 representing the quadtone image, followed by the colour space used to interpret the image data. 
 8.6.7Overprint control 
  
  OP op
-The #graphics state contains an overprint parameter, controlled by theand  entries in a #graphics 
-state parameter dictionary. Overprint control is useful mainly on devices that produce true physical 
+The #graphics state #contains an overprint parameter, controlled by theand  entries in a# graphics 
+state# parameter dictionary. Overprint control is useful mainly on devices that produce true physical 
 separations, but it is available on some composite devices as well. Although the operation of this 
 parameter is device-dependent, it is described here rather than in the subclause on colour rendering, 
 because it pertains to an aspect of painting in device colour spaces that is important to many 
@@ -561,21 +561,21 @@ consistent with the normal painting behaviour of the opaque imaging model.
 true
 If the overprint parameter is  and the output device supports overprinting, erasing actions shall not 
 be performed; anything previously painted in other colourants is left undisturbed. Consequently, the 
-colour at a given position on the page may be a com#bined result of several painting operations in 
+colour at a given position on the page may #be# a combined result of several painting operations in 
 different colourants. The effect produced by such overprinting is device-dependent and is not defined 
 here. 
 NOTE 1 Not all devices support overprinting. Furthermore, many PostScript language compatible printers 
 support it only when separations are being produced, and not for composite output. 
 If overprinting is not supported, the value of the overprint parameter shall be ignored. 
-overprint mode#PDF 1.3
+overprin#t mo#dePDF 1.3
  DeviceCMYK 
-An additional #graphics state parameter, the  (), shall affect the interpretation of a 
+An additiona#l graphics stat#e parameter, the  (), shall affect the interpretation of a 
  OPM 
 tint value of 0.0 for a colour component in acolour space when overprinting is enabled. 
 true
-This parameter is controlled by theentry in a #graphics state parameter dictionary; it shall have an 
+This parameter is controlled by theentry in# a graphics sta#te parameter dictionary; it shall have an 
 effect only when the overprint parameter is , as described above. Determination of whether a tint 
-value is zero or non-zero shall be made on the tint value defined within the #PDF file, before quantisation 
+value is zero or non-zero shall be made on the tint value defined with#in t#he PDF file, before quantisation 
 into a device tint value for the output device. 
  DeviceCMYK 
 DeviceCMYK
@@ -608,8 +608,8 @@ in the colour space shown in this example.
   ] 
 endobj 
  
-15 0 obj            %Tint transformation #function 
-    <</#FunctionType 4 
+15 0 obj#            %T#in#t transf#ormation function 
+    <</FunctionType 4 
     /Domain [0.0 1.0 0.0 1.0 0.0 1.0] 
     /Range [0.0 1.0 0.0 1.0 0.0 1.0  0.0 1.0] 
     /Length 13 
@@ -621,14 +621,14 @@ endobj
  
  DeviceCMYK 
 Non-zero overprint mode shall apply only to painting operations that use the current colour in the 
-DeviceCMYK
-#graphics state when the current colour space is(or is implicitly converted to 
+DeviceC#MYK
+graphics st#ate when the current colour space is(or is implicitly converted to 
 ; see (8.6.5.7, "Implicit conversion of CIE-Based colour spaces"). It shall not, however, 
 apply to the painting of images or shadings (8.7.4, "Shading patterns"). It also shall not apply if the 
 native colour space of the output device does not include CMYK device colourants; in that case, source 
 colours shall be converted to the device’s native colour space, and all components participate in the 
 conversion, whatever their values. 
-NOTE 2 This is shown explicitly in the alternate colour space and tint transformation #function of the
+NOTE 2 This is shown explicitly in the alternate co#lour spac#e and tint transformation function of the
  
 colour space (see Example 3 in 8.6.6.5, "DeviceN colour spaces"). 
 DeviceN 

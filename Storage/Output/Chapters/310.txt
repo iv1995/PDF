@@ -1,10 +1,10 @@
 #Table 150: Entries in the outline dictionary 
-Key Type Value 
+#Key Type Value 
 Optional
 Type 
 Outlines
   
-name () The type of #PDF #object that this dictionary describes; if present, 
+name () The type of #PDF ##object #that this dictionary describes; if present, 
 shall befor an outline dictionary. 
 Required if there are any open or closed outline entries; shall be an indirect 
 First 

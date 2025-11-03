@@ -1,6 +1,6 @@
-#Table 214: Additional entries specific to a hide action" shows the action dictionary entries specific to 
-this type of action. 
-#Table 214: Additional entries specific to a hide action 
+#Table 214: Additional entries specific to a hide action#" shows the action dictionary entries specific to 
+this type of action. #
+Table 214: Additional entries specific to a hide action #
 Key Type Value 
 (Required) Hide
 S 
@@ -32,5 +32,5 @@ boolean A flag indicating whether to hide the annotation () or show it
  
 12.6.4.12Named actions 
  
-named actions#PDF 1.2
+named actions#PDF #1.2
 "

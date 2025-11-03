@@ -1,5 +1,5 @@
 #X#FDF file 
-file conforming to the XML Forms Data Format 3.0 specification, which is an XML transliteration of 
+##file conforming to the XML Forms Data Format 3.0 specification, which is an XML transliteration of 
 Forms Data Format (FDF). See ISO/DIS 19444-1, Document management – XML Forms Data Format – 
 Part 1: XFDF 3.0. 
 4.62 

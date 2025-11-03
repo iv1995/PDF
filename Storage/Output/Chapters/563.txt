@@ -1,19 +1,19 @@
-#Table 369: Ruby and Warichu structure types" defines standard structure types for Ruby and Warichu 
-text. 
-#Table 369: Ruby and Warichu structure types 
+#Table 369: Ruby and Warichu structure types#" defines standard structure types for Ruby and Warichu 
+text. #
+Table 369: Ruby and Warichu structure types #
 Structure Category Description 
 Type 
 Ruby 
 RBRT
 Inline Structure element that wraps around an entire ruby assembly.  
 RPRTRP
-It shall contain one  element followed by# either an  element or a three-
+It shall contain one  element followed by# ei#ther an  element or a three-
 Ruby
 element sequence consisting of , , and . 
  structure elements and their content elements shall not break across 
 multiple lines. 
 RB R#B
-Inline (Ruby base text) The full-size text to which the ruby annotation is applied.  may 
+I#nline (Ruby base text) The full-size text to which the ruby annotation is applied.  may 
 RubyAlign
 contain text, other inline elements, or a mixture of both.  
 It may have the  attribute. 
@@ -27,7 +27,7 @@ Inline (Ruby punctuation) Punctuation surrounding the ruby annotation text. It i
 only when a ruby annotation cannot be properly formatted in a ruby style and 
 instead is formatted as a normal comment, or when it is formatted as a warichu. It 
 contains text (usually a single LEFT PARENTHESIS or RIGHT PARENTHESIS or 
-similar bracketing #character). 
+similar bracketing #character#). 
 Warichu 
 WPWTWPWarichu
 Inline (Warichu) The wrapper around the entire warichu assembly. It shall contain a 
@@ -42,7 +42,7 @@ two lines and placed between surrounding  elements.
 WP WT
 Inline (Warichu punctuation) The punctuation that surrounds the content in the  
 structure element. It typically contains text (usually a single LEFT PARENTHESIS 
-or RIGHT PARENTHESIS or similar bracketing #character). According to JIS X 4051-
+or RIGHT PARENTHESIS or similar bracketing# characte#r). According to JIS X 4051-
 1995, the parentheses surrounding a warichu may be converted to a SPACE 
 (nominally 1/4 EM in width) at the discretion of the formatter. 
  
@@ -55,7 +55,7 @@ ISO/DIS 32000-2
 14.8.4.8.1General 
  
 There are a number of other structure types that have a distinct internal structure on their own, or that 
-may be used as #grouping level structure elements, as block level structure elements or as inline level 
+may be used as #group#ing level structure elements, as block level structure elements or as inline level 
 structure elements, depending on the context in which they are used. 
 14.8.4.8.2Standard structure types for lists 
  

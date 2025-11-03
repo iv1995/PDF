@@ -1,7 +1,7 @@
-#Figure 69: Flatness tolerance". Flatness may be specified as the operand of the  operator (see "#Table 
-56: #Graphics state operators") or as the value of theentry in a #graphics state parameter dictionary 
-(see "#Table 57: Entries in a #graphics state parameter dictionary"). It shall be a positive number. 
-##PDF processors may choose to ignore any flatness tolerance specified within a #PDF file. 
+#Figure 69: Flatness tolerance#". Flatness may be specified as the operand of the  operator (see "#Table 
+56: #Graphics state #operators#") or as the value of theentry in a# graphics state# parameter dictionary 
+(see "#Table 57: Entries in #a graphics stat#e parameter dictionary#"). It shall be a positive number. 
+##PDF #processor#s may choose to ignore any flatness tolerance specified within a# PDF# file. 
 NOTE 1 Smaller values yield greater precision at the cost of more computation. 
 NOTE 2 Although the figure exaggerates the difference between the curved and flattened paths for the 
 sake of clarity, the purpose of the flatness tolerance is to control the precision of curve rendering, 
@@ -11,36 +11,36 @@ F
 latness e
 rror
 toler
-ance
-#Figure 69: Flatness tolerance 
- 
+ance#
+Figure 69: Flatness tolerance 
+ #
 10.7.3Smoothness tolerance 
  
-smoothness tolerance#PDF 1.3
+smoothness toleran#cePD#F 1.3
 sh
 The  () controls the quality of smooth shading (Type 2 patterns and the  
 operator) and thus indirectly controls the rendering performance. Smoothness is the allowable colour 
 error between a shading approximated by piecewise linear interpolation and the true value of a 
-(possibly nonlinear) shading #function. The error shall be measured for each colour component, and the 
+(possibly nonlinear) shading #function#. The error shall be measured for each colour component, and the 
 maximum independent error shall be used. The allowable error (or tolerance) shall be expressed as a 
 fraction of the range of the colour component, from 0.0 to 1.0. Thus, a smoothness tolerance of 0.1 
 SM
 represents a tolerance of 10 percent in each colour component. Smoothness may be specified as the 
-value of the  entry in a #graphics state parameter dictionary (see "#Table 57: Entries in a #graphics state 
-parameter dictionary"). 
+value of the  entry in# a graphics sta#te parameter dictionary (see #"Table 57: Entries i#n a graphics sta#te 
+parameter dictionar#y"). 
 Each output device may have internal limits on the maximum and minimum tolerances attainable. 
 Setting smoothness to 1.0 can result in an internal smoothness of 0.5 on a high-quality colour device, 
 although setting it to 0.0 on the same device can result in an internal smoothness of 0.01 if an error of 
 that magnitude is imperceptible on the device. 
 NOTE 1 The smoothness tolerance can also interact with the accuracy of colour conversion. In the case of a 
-colour conversion defined by a sampled #function, the conversion #function is unknown. Thus the 
+colour conversion defined by a sampled# functio#n, the conversio#n functio#n is unknown. Thus the 
 error can be sampled at too low a frequency, in which case the accuracy defined by the 
 © ISO 2017 – All rights reserved 374 
 
 ISO/DIS 32000-2
  
-smoothness tolerance cannot be guaranteed. In most cases, however, where the conversion 
-#function is smooth and continuous, the accuracy will normally be within the specified tolerance. 
+smoothness tolerance cannot be guaranteed. In most cases, however, where the conversio#n 
+functi#on is smooth and continuous, the accuracy will normally be within the specified tolerance. 
 NOTE 2 The effect of the smoothness tolerance is similar to that of the flatness tolerance. However, that 
 flatness is measured in device-dependent units of pixel width, whereas smoothness is measured as 
 a fraction of colour component range. 
@@ -52,14 +52,14 @@ with an image. Its coordinates are mapped into device space but not rounded to d
 boundaries. At this level, curves have been flattened to sequences of straight lines, and all "insideness" 
 computations have been performed. 
 half-open
-Pixel boundaries always fall on integer coordinates in device space. A pixel is a square region# identified 
+Pixel boundaries always fall on integer coordinates in device space. A pixel is a square region# id#entified 
 by the location of its corner with minimum horizontal and vertical coordinates. The region is , 
 xyixjy
 meaning that it includes its lower but not its upper boundaries. More precisely, for any point whose 
 i, jx′y′
 real-number coordinates are (, ), let  = floor() and  = floor(). The pixel that contains this point is 
 x′ijy′j
-the one# identified as (). The region belonging to that pixel is defined to be the set of points (, ) such 
+the on#e i#dentified as (). The region belonging to that pixel is defined to be the set of points (, ) such 
 that i ≤  <  + 1 and  ≤  <  + 1. 
 Like pixels, shapes to be painted by filling (8.5.3.3, "Filling") and stroking (8.5.3.2, "Stroking") 
 operations are also treated as half-open regions that include the boundaries along their "floor" sides, 
@@ -71,9 +71,9 @@ conversion rules. The area covered by painted pixels shall always be at least as
 original shape. This rule applies both to fill operations and to strokes with non-zero width. Zero-width 
 strokes may be done in an implementation-defined manner that may include fewer pixels than the rule 
 implies. 
-EXAMPLE A zero-width or zero-height #rectangle paints a line 1 pixel wide. 
+EXAMPLE A zero-width or zero-height #rectangle #paints a line 1 pixel wide. 
 The region of device space to be painted by a sampled image is determined similarly to that of a filled 
-shape, though not# identically. The ##PDF processor transforms the image’s source #rectangle into device 
+shape, though n#ot #identically. T#he# P#DF processor# transforms the image’s source# rectangle# into device 
 centres
 space and defines a half-open region, just as for fill operations. However, only those pixels whose 
  lie within the region shall be painted. The position of the centre of such a pixel — in other 
@@ -84,17 +84,17 @@ might not be used.
 For clipping, the clipping region consists of the set of pixels that would be included by a fill operation. 
 Subsequent painting operations shall affect a region that is the intersection of the set of pixels defined 
 by the clipping region with the set of pixels for the region to be painted. 
-Scan conversion of #character #glyphs may be performed by a different algorithm from the preceding one. 
+Scan conversion of #character ##glyph#s may be performed by a different algorithm from the preceding one. 
 © ISO 2017 – All rights reserved 375 
 
 ISO/DIS 32000-2
  
-NOTE 2 #Font rendering algorithms use hints in the #glyph descriptions and techniques that are specialised 
-to #glyph rasterization. 
+NOTE 2 #Font #rendering algorithms use hints in the# glyph# descriptions and techniques that are specialised 
+t#o glyp#h rasterization. 
 10.7.5Automatic stroke adjustment 
  
 When a stroke is drawn along a path, the scan conversion algorithm may produce lines of nonuniform 
 thickness because of rasterization effects. In general, the line width and the coordinates of the 
-endpoints, transformed into device space, are ar#bitrary real numbers not quantised to device pixels. A 
+endpoints, transformed into device space, are ar#bi#trary real numbers not quantised to device pixels. A 
 line of a given width can intersect with different numbers of device pixels, depending on where it is 
 positioned. "

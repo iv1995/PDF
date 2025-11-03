@@ -1,6 +1,6 @@
 #Figure 72: RGB blend modes 
  
-© ISO 2017 – All rights reserved 383 
+#© ISO 2017 – All rights reserved 383 
 
 ISO/DIS 32000-2
  ![Figure 73 CMYK blend modes  .jpg](./Storage/Output/Images/Figure 73 CMYK blend modes  .jpg)

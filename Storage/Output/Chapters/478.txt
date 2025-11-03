@@ -1,5 +1,5 @@
 #Algorithm: Comparing version arrays 
-An empty version array shall be treated as infinity; that is, it shall be considered greater than any other 
+#An empty version array shall be treated as infinity; that is, it shall be considered greater than any other 
 version array except another empty array. Two empty arrays are equal. 
 When comparing arrays that contain different numbers of elements, the smaller array shall be implicitly 
 padded with zero-valued integers to make the number of elements equal. 
@@ -7,7 +7,7 @@ EXAMPLE When comparing [5 1 2 3 4] to [5], the latter is treated as [5 0 0 0 0].
 The corresponding elements of the arrays shall be compared, starting with the first. When a difference 
 is found, the array containing the larger element shall be considered to have the larger version number. 
 If no differences are found, the versions are equal. 
-If a version array contains negative numbers, it is non-viable, as is the enclosing software# identifier. 
+If a version array contains negative numbers, it is non-viable, as is the enclosing software# id#entifier. 
 © ISO 2017 – All rights reserved 614 
 
 ISO/DIS 32000-2
@@ -15,5 +15,5 @@ ISO/DIS 32000-2
 13.2.7.5Monitor specifier 
  
 monitor specifier
-A  is an integer that shall# identify a physical monitor attached to a system. It may have 
+A  is an integer that shal#l i#dentify a physical monitor attached to a system. It may have 
 one of the values in "

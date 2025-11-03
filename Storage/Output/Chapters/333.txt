@@ -1,44 +1,44 @@
 #Algorithm: appearance streams 
- BBox 
+ #BBox 
  
 transformed appearance box
 Matrix
 1.The appearance’s bounding box (specified by itsentry) shall be transformed, using 
-, to produce a quadrilateral with ar#bitrary orientation. The  
-is the smallest upright #rectangle that encompasses this quadrilateral. 
+, to produce a quadrilateral with ar#bi#trary orientation. The  
+is the smallest upright #rectangle #that encompasses this quadrilateral. 
 A
  
 A
  Rect 
 2.A matrix  shall be computed that scales and translates the transformed appearance box to align 
 xy
-with the edges of the annotation’s #rectangle (specified by theentry).  maps the lower-left 
+with the edges of the annotation’s# rectangle# (specified by theentry).  maps the lower-left 
 corner (the corner with the smallest  and  coordinates) and the upper-right corner (the corner 
 with the greatest x and y coordinates) of the transformed appearance box to the corresponding 
-corners of the annotation’s #rectangle. 
+corners of the annotation’#s rectang#le. 
 AAA
 Matrix
  
 3. shall be concatenated with  to form a matrix  that maps from the appearance’s 
-coordinate system to the annotation’s #rectangle in default user space: 
+coordinate system to the annotation#’s rectang#le in default user space: 
 𝐴𝐴𝐴𝐴 = 𝑀𝑀𝐷𝐷𝑡𝑡𝑚𝑚𝐷𝐷𝑥𝑥 × 𝐴𝐴 
  
-The annotation may be further scaled and rotated if# either the NoZoom or NoRotate flag is set (see 
+The annotation may be further scaled and rotated if# ei#ther the NoZoom or NoRotate flag is set (see 
 12.5.3, "Annotation flags"). Any transformation applied to the annotation as a whole shall also applied 
 to the appearance within it. 
  #Group 
-Starting with #PDF 1.4, an annotation appearance may include transparency. If the appearance’s stream 
+#Starting with #PDF #1.4, an annotation appearance may include transparency. If the appearance’s stream 
 dictionary does not contain aentry, it shall be treated as a non-isolated, non-knockout 
-transparency #group. Otherwise, the isolated and knockout values specified in the #group dictionary (see 
-11.6.6, "Transparency #group X#Objects") shall be used. 
+transparency# grou#p. Otherwise, the isolated and knockout values specified in th#e grou#p dictionary (see 
+11.6.6, "Transparen#cy gro#up X#Object#s") shall be used. 
 Normal
-The transparency #group shall be composited with a backdrop consisting of the page content along with 
+The transpare#ncy gr#oup shall be composited with a backdrop consisting of the page content along with 
 None
 any previously painted annotations, using a blend mode of , an alpha constant of 1.0, and a soft 
 mask of . 
 NOTE 1 If a transparent annotation appearance is painted over an annotation that is drawn without using 
 an appearance stream, the effect is implementation-dependent. This is because such annotations 
-are sometimes drawn by means that do not conform to the ##PDF imaging model. Also, the effect of 
+are sometimes drawn by means that do not conform to the# #PDF# imaging model#. Also, the effect of 
 highlighting a transparent annotation appearance is implementation-dependent. 
 An annotation may define as many as three separate appearances: 
 normal appearance
@@ -63,4 +63,4 @@ cursor on the screen and has at least one button that can be pressed, held down,
  AP 
 The normal, rollover, and down appearances shall be defined in an appearance dictionary, which in turn 
 is the value of theentry in the annotation dictionary (see "#Table 166: Entries common to all 
-annotation dictionaries"). "
+annotation dictionaries#"). "

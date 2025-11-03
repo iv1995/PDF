@@ -1,5 +1,5 @@
 #Table 319: 
-Render modes" for specific values. If an unrecognised value is encountered, then this 
+Render modes#" for specific values. If an unrecognised value is encountered, then this 
 render mode dictionary shall be ignored. 
 © ISO 2017 – All rights reserved 640 
 
@@ -44,7 +44,7 @@ Table 192: Entries in an appearance
 colour for the host annotation shall be used (see "
 BG
  
-#characteristics dictionary"). 
+#character#istics dictionary"). 
 Default value: 
 Optional
 O 
@@ -66,14 +66,14 @@ opacity that shall be used. All such transparency effects use a standard additiv
 CV
 The  entry sets the crease value that shall be used when determining silhouette edges, which may be 
 used to adjust the appearance of illustrated render modes. An edge shared by two faces is a silhouette 
-edge if# either of the following conditions is met: 
+edge if# ei#ther of the following conditions is met: 
 • 
 • 
 One face is front-facing and the other is back-facing. 
 The angle between the two faces is greater than or equal to the crease value. 
-"#Table 319: Render modes" describes the render modes that may be specified in a render mode 
-dictionary. 
-#Table 319: Render modes 
+#"Table 319: Render mode#s" describes the render modes that may be specified in a render mode 
+dictionary.# 
+Table 319: Render modes# 
 Mode Description 
 Solid AC
 Displays textured and lit geometric shapes. The  entry shall be 
@@ -154,7 +154,7 @@ AC
 additional emissive term to remove poorly lit areas of the artwork. 
 The colour of these edges shall be determined by the  entry. 
  
-If a render mode type is encountered other than those described in "#Table 319: Render modes", the 
+If a render mode type is encountered other than those described i#n "Table 319: Render mo#des", the 
 render mode dictionary containing that entry shall be ignored by its consumers. This allows future 
 documents using new render modes to behave consistently with future documents using new 3D view 
 © ISO 2017 – All rights reserved 642 
@@ -164,7 +164,7 @@ ISO/DIS 32000-2
 constructs that are ignored by older viewers. 
 13.6.4.53D lighting scheme dictionaries 
  
-3D lighting scheme dictionary#PDF 1.7
+3D lighting scheme dictionary#PDF #1.7
 LS
 A  () specifies the lighting to apply to 3D artwork. The  entry in 
 the 3D view may include a 3D lighting scheme dictionary. 

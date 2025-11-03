@@ -1,20 +1,20 @@
 #Table 
-Annex F.1: Entries in the linearization parameter dictionary". All values in this dictionary shall be #direct 
-#objects. There shall be no references to this dictionary anywhere in the document; however, the first-
+Annex F.1: Entries in the linearization parameter dictionary#". All values in this dictionary shall be #direct 
+#object##s. There shall be no references to this dictionary anywhere in the document; however, the first-
 page cross-reference table (part 3) shall contain a normal entry for it. 
-The linearization parameter dictionary shall be entirely contained within the first 1024 #bytes of the #PDF 
-file. This limits the amount of data a ##PDF processor will have to read before deciding whether the file is 
-linearized. 
-#Table Annex F.1: Entries in the linearization parameter dictionary 
+The linearization parameter dictionary shall be entirely contained within the first 1024 #byte#s of the #PDF 
+#file. This limits the amount of data a# #PDF# processor #will have to read before deciding whether the file is 
+linearized. #
+Table Annex F.1: Entries in the linearization parameter dictionary #
 Parameter Type Value 
 Required
 Linearized 
-number () A version# identification for the linearized format. 
+number () A version# id#entification for the linearized format. 
 Required
 L 
-integer () The length of the entire file in #bytes. It shall be exactly equal to 
-the actual length of the #PDF file. A mismatch indicates that the file is not 
-linearized and shall be treated as ordinary #PDF, ignoring linearization 
+integer () The length of the entire file in# byt#es. It shall be exactly equal to 
+the actual length of th#e PD#F file. A mismatch indicates that the file is not 
+linearized and shall be treated as ordina#ry #PDF, ignoring linearization 
 information. (If the mismatch resulted from appending an update, the 
 linearization information may still be correct but requires validation; see 
 G.7, "Accessing an updated file" for details.) 
@@ -22,24 +22,24 @@ Required
 H 
 array () An array of two or four integers, [offset1 length1] or [offset1 
 length1 offset2 length2]. offset1 shall be the offset of the primary hint 
-stream from the beginning of the file. (This is the beginning of the #stream 
-#object, not the beginning of the stream data.) length1 shall be the length of 
+stream from the beginning of the file. (This is the beginning of the #stream #
+objec#t#, not the beginning of the stream data.) length1 shall be the length of 
 Length
-this stream, including #stream #object overhead. 
+this stream, including# strea#m objec#t# overhead. 
 If the value of the primary hint stream dictionary’s  entry is an 
-indirect reference, the #object it refers to shall immediately follow the 
-#stream #object, and length1 also shall include the length of the indirect 
-length #object, including #object overhead. 
+indirect reference, t#he obje#ct it refers to shall immediately follow the# 
+str#eam ob#je#ct, and length1 also shall include the length of the indirect 
+le#ngth o#bject, incl#uding o#bject overhead. 
  
 If there is an overflow hint stream, offset2 and length2 shall specify its 
 offset and length.
 Required
 O 
-integer () The #object number of the first page’s page #object. 
+integer #() The #object number of the first page#’s pag#e object. 
 Required
 E 
 integer () The offset of the end of the first page (the end of Example 6 in 
-F.3, "Linearized #PDF document structure"), relative to the beginning of the 
+F.3, "Lineari#zed #PDF document structure"), relative to the beginning of the 
 file. 
 Required
 N 
@@ -51,19 +51,19 @@ Parameter Type Value
 Required
 T 
 integer () In documents that use standard main cross-reference tables 
-(including hybrid-reference files; see 7.5.8.4, "Compati#bility with 
+(including hybrid-reference files; see 7.5.8.4, "Compati#bi#lity with 
 applications that do not support compressed reference streams"), this 
-entry shall represent the offset of the #white-space #character preceding the 
+entry shall represent the offset of the #white-space #character ##preceding the 
  Prev 
-first entry of the main cross-reference table (the entry for #object number 
+first entry of the main cross-reference table (the e#ntry fo#r object number 
 0), relative to the beginning of the file. Note that this differs from the
-entry in the first-page trailer, which gives the location of the xref line that 
-#PDF 1.5
+entry in the first-page trailer, which gives the location of the xref line t#hat #
+PDF 1.5
 precedes the table. 
 () Documents that use cross-reference streams exclusively (see 
  
 7.5.8, "Cross-reference streams"), this entry shall represent the offset of 
-the main cross-reference #stream #object.
+the main cross-referen##ce str#eam obj#ect.
 Optional
 P 
 integer () The page number of the first page; see F.3.4, "First-page cross-
@@ -71,38 +71,38 @@ reference table and trailer (Part 3)". Default value: 0.
  
 F.3.4First-page cross-reference table and trailer (Part 3) 
  
-Part 3 shall contain the cross-reference table for #objects belonging to the first page as well as for the 
-document catalog dictionary and document-level #objects appearing before the first page (discussed in 
-F.3.5, "Document catalog dictionary and document-level #objects (Part 4)"). Additionally, this cross-
+Part 3 shall contain the cross-reference# table# for objects belonging to the first page as well as for the 
+document catalog dictionary and doc#ument-#level objects appearing before the first page (discussed in 
+F.3.5, "Document catalog dictionary and do#cument#-level objects (Part 4)"). Additionally, this cross-
 reference table shall contain entries for the linearization parameter dictionary (at the beginning) and 
 the primary hint stream (at the end). This table shall be a valid cross-reference table as defined in 7.5.4, 
 "Cross-reference table", although its position in the file shall not be at the end of the file. It shall consist 
-of a single cross-reference subsection that has no free entries. 
-In #PDF 1.5 and later, cross-reference streams (see 7.5.8, "Cross-reference streams") may be used in 
+of a single cross-reference subsection that has no free entries#. 
+I#n PDF 1.5 and later, cross-reference streams (see 7.5.8, "Cross-reference streams") may be used in 
 linearized files in place of traditional cross-reference tables. The logic described in this section, along 
 with the appropriate syntactic changes for cross-reference streams shall still apply. 
  Prev 
 Below the table shall be the first-page trailer. The trailer’sentry shall give the offset of the main 
-cross-reference table near the end of the file. A ##PDF processor that does not support the linearized 
+cross-reference table near the end of the f#ile.# A# PDF processor# that does not support the linearized 
 feature shall process this correctly even though the trailers are linked in an unusual order. It interprets 
 the first-page cross-reference table as an update to an original document that is indexed by the main 
 cross-reference table. 
 Size Root 
 Size
 The first-page trailer shall contain valid  andentries, as well as any other entries needed to 
-display the document. The  value shall be the com#bined number of entries in both the first-page 
+display the document. The  value shall be the co#mb#ined number of entries in both the first-page 
 cross-reference table and the main cross-reference table. 
 startxref
 The first-page trailer may optionally end with , an integer, and %%EOF, just as in an ordinary 
 trailer. This information shall be ignored. 
-F.3.5Document catalog dictionary and document-level #objects (Part 4) 
+F.3.5Document catalog dictionary and d#ocumen#t-level objects (Part 4) 
  
-Following the first-page cross-reference table and trailer are the catalog dictionary and other #objects 
-that are required present when the document is opened. These additional #objects (constituting part 4) 
-shall include the values of the following entries if they are present and are #in#direct #objects: 
-Preferences
+Following the first-page cross-reference table and trailer are the catalog dictio#nary a#nd other objects 
+that are required present when the document is opened. T#hese a#dditional objects (constituting part 4) 
+shall include the values of the following entries if they are present an#d are #i##ndirect objec#t#s: 
+Preferences#
 • 
-The ##PDF processor  entry in the catalog dictionary. 
+#Th#e PDF processor#  entry in the catalog dictionary. 
 © ISO 2017 – All rights reserved 852 
 
 ISO/DIS 32000-2
@@ -114,7 +114,7 @@ Theentry in the catalog dictionary. Note that if the value ofis ,
 the outline hierarchy shall be located in part 6; otherwise, the outline hierarchy, if any, shall be 
 Threads
 • 
-located in part 9. See F.3.10, "Other #objects (Part 9)" for details. 
+located in part 9. S#ee F.3#.10, "Other objects (Part 9)" for details. 
 The  entry in the catalog dictionary, along with all thread dictionaries it refers to. This 
 does not include the threads’ information dictionaries or the individual bead dictionaries 
  OpenAction 
@@ -126,27 +126,27 @@ Theentry in the catalog dictionary.
 Theentry in the catalog dictionary. Only the top-level interactive form dictionary shall 
  Encrypt 
 • 
-be present, not the #objects that it refers to. 
+b#e pres#ent, not the objects that it refers to. 
 Theentry in the first-page trailer dictionary. All values in the encryption dictionary shall 
-also be located here. 
-All other #objects shall not be located here but instead shall be at the end of the file; see F.3.10, "Other 
-#objects (Part 9)". This includes #objects such as page tree nodes, the document information dictionary, 
-and the definitions for named destinations. 
-NOTE The #objects located here are indexed by the first-page cross-reference table, even though they are 
+also be locat#ed her#e. 
+All other objects shall not be located here but instead shall be at the end of the file;# see F#.3.10, "Other 
+objects (Pa#rt 9)"#. This includes objects such as page tree nodes, the document information dictionary, 
+and the definitions for named d#estina#tions. 
+NOTE The objects located here are indexed by the first-page cross-reference table, even though they are 
 not logically part of the first page. 
 F.3.6Hint streams (Parts 5 and 10) 
  
 The core of the linearization information shall be stored in data structures known as hint tables, whose 
-format is described in F.4, "Hint tables" They shall provide indexing information that enables the ##PDF 
-processor to construct a single request for all the #objects that are needed to display any page of the 
+format is described in F.4, "Hint tables" They shall provide indexing information that ena#bles #t#he PDF 
+process#or to construct a sin#gle re#quest for all the objects that are needed to display any page of the 
 document or to retrieve other information efficiently. The hint tables may contain additional 
-information to optimise access by ##PDF processor extensions to application-specific data. 
+information to optimise #acce#ss# by PDF proces#sor extensions to application-specific data. 
 The hint tables shall not be logically part of the information content of the document; they shall be 
 derived from the document. Any action that changes the document — for instance, appending an 
-incremental update — invalidates the hint tables. The document remains a valid #PDF file but is no 
+incremental update — invalidates the hint tables. The document remai#ns a# valid PDF file but is no 
 longer linearized; see G.7, "Accessing an updated file" for details. 
-The hint tables are ##binary data structures that shall be enclosed in a #stream #object. Syntactically, this 
-stream shall be a #PDF #in#direct #object. However, there shall be no references to the stream anywhere in 
+The hint tables are# ##binary data #structures that shall# be en#closed i#n a stream ob#ject. Syntactically, this 
+stream ##shall #be# a PDF ##indirect obje#c#t. However, there shall be no references to the stream anywhere in 
 the document. Therefore, it is not logically part of the document, and an operation that regenerates the 
 document may remove the stream. 
 Usually, all the hint tables shall be contained in a single stream, known as the primary hint stream. 
@@ -154,27 +154,27 @@ Optionally, there may be an additional stream containing more hints, known as th
 stream. The contents of the two hint streams shall be concatenated and treated as if they were a single 
 unbroken stream. 
 The primary hint stream, which shall be required, is shown as part 5 in Example 5. The order of this 
-part and the first-page section, shown as part 6, may be reversed; see Annex G, "Linearized #PDF Access 
+part and the first-page section, shown as part 6, may be reversed; see Annex G,# "Li#nearized PDF Access 
 Strategies" for considerations on the choice of placement. The overflow hint stream, part 10, is optional. 
 The location and length of the primary hint stream, and of the overflow hint stream if present, shall be 
 given in the linearization parameter dictionary at the beginning of the file. 
-The hint streams shall be assigned the last #object numbers in the file — that is, after the #object number 
+The hint streams #shall b#e assigned the last object numbers in th#e file #— that is, after the object number 
 © ISO 2017 – All rights reserved 853 
 
-ISO/DIS 32000-2 
-for the last #object in the first page. Their cross-reference table entries shall be at the end of the first-
-page cross-reference table. This #object number assignment shall be independent of the physical 
+I#SO/DIS #32000-2 
+for the last object in the first page. Their cross-reference table entries shall be at the end of the first-
+pag#e cross#-reference table. This object number assignment shall be independent of the physical 
 locations of the hint streams in the file. 
-NOTE This convention keeps their #object numbers from conflicting with the numbering of the linearized 
-#objects. 
+NO#TE This# convention keeps their object numbers from conflicting with t#he num#bering of the linearized 
+objects. 
 Length
-With one exception, the values of all entries in the hint streams’ dictionaries shall be #direct #objects and 
+With one exception, the values of all entries in the hint stream#s’ dict#ionaries shall #be direct obj#ects# and 
 H
-may contain no #in#direct ##object references. The exception is the stream dictionary’s  entry (see 
-the discussion of the  entry in "#Table Annex F.1: Entries in the linearization parameter dictionary". 
+m#ay contain n##o indirect #obj#ec#t reference#s. The exception is the stream dictionary’s  entry (see 
+the discussion of the  entry in# "Table Annex F.1: Entries in the linearization parameter dictiona#ry". 
 In addition to the standard stream attributes, the dictionary of the primary hint stream shall contain 
 entries giving the position of the beginning of each hint table in the stream. These positions shall be 
-counted in #bytes relative to the beginning of the stream data (after decoding #filters, if any, are applied) 
+counted i#n by#tes relative to the beginning of the stream data (after decoding #filter#s, if any, are applied) 
 and with the overflow hint stream concatenated if present. The dictionary of the overflow hint stream 
 shall not contain these entries. The keys designating the standard hint tables in the primary hint 
 stream’s dictionary are listed in "

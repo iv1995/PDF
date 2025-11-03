@@ -1,16 +1,16 @@
 #Table 247: 
-Additional entry in an embedded file stream dictionary for an encrypted #FDF file" to# identify the 
+Additional entry in an embedded file stream dictionary for an encrypted #FDF file##" to# id#entify the 
 revision number of the FDF encryption algorithm used to encrypt the file. Although the FDF encryption 
-mechanism is separate from the one for #PDF file encryption described in 7.6, "Encryption" revision 1 
-(the only one defined) uses a similar RC4 encryption algorithm based on a 40-#bit encryption key. The 
+mechanism is separate from the one for #PDF #file encryption described in 7.6, "Encryption" revision 1 
+(the only one defined) uses a similar RC4 encryption algorithm based on a 40-#bi#t encryption key. The 
 key shall be computed by means of an MD5 hash, using a padded user-supplied password as input. The 
-computation shall be# identical to steps (a) and (b) of the "Algorithm 2: Computing a file encryption key 
+computation shall b#e i#dentical to steps (a) and (b) of the "Algorithm 2: Computing a file encryption key 
  
 in order to encrypt a document (revision 4 and earlier)" in 7.6.4.3, "File encryption key algorithm"; the 
-first 5 #bytes of the result shall be the file encryption key for the embedded #FDFfile. 
-#Table 247: Additional entry in an embedded file stream dictionary for an encrypted #FDF file 
+first 5 #byte#s of the result shall be the file encryption key for the embedded# FDFfil#e. #
+Table 247: Additional entry in an embedded file stream dictionary for an encrypte#d FDF file# #
 Key Type Value 
-(Required if the#FDFfile is encrypted; #deprecated in #PDF 2.0) 
+(Required if #theFDFfi#le is encrypted; #deprecated #in# PDF# 2.0) 
 EncryptionRevision   
   
 integer The revision 
@@ -23,7 +23,7 @@ Theentry in theFDFdictionary holds an ECMAScriptdictionary containingECMAScript
   
 scripts that shall be defined globally at the document level, rather than associated with individual fields. 
   
-The dictionary may contain scripts definingECMAScript#functions for use by other scripts in the 
-document, as well as scripts that shall be executed immediately before and after the#FDFfile is 
-imported. "#Table 247: Additional entry in an embedded file stream dictionary for an encrypted #FDF file" 
+The dictionary may contain scripts definingECMAScript#function#s for use by other scripts in the 
+document, as well as scripts that shall be executed immediately before and after# theFDFf#ile is 
+imported.# "Table 247: Additional entry in an embedded file stream dictionary for an encry#pted FDF# fi#le" 
 shows the contents of this dictionary. 

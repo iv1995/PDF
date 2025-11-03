@@ -1,49 +1,49 @@
-#Table 358: Entries in an ##object reference 
-dictionary"). 
-NOTE 1 This form of reference is used only for entire #objects. If the referenced content forms only part of 
-the #object’s #content stream, it is instead handled as a marked-content sequence, as described in 
-14.7.5.2, "Marked-content sequences as content items". 
-#Table 358: Entries in an ##object reference dictionary 
+#Table 358: Entries in an ##object #reference 
+#dictionary#"). 
+NOTE 1 This form of reference is used only for entire# objec#ts. If the referenced content forms only part of 
+th#e obje#ct’s #content stream#, it is instead handled as a marked-content sequence, as described in 
+14.7.5.2, "Marked-content sequences as content items". #
+Table 358: Entries in #an# obje#ct reference# dictionary #
 Key Type Value 
 Required
 Type 
 OBJR
-name () The type of #PDF #object that this dictionary describes; shall be 
- for an ##object reference. 
+name () The type of ##PDF #obj#ect that this dictionary describes; shall be 
+ fo#r a#n ob#ject referen#ce. 
 Optional; shall be an indirect reference
 Pg 
 Pg
-dictionary () The page #object of the page on 
-which the #object shall be rendered. This entry overrides any  entry in 
-the structure element containing the ##object reference; it shall be used if 
+dictionary () The# page o#bject of the page on 
+whi#ch the #object shall be rendered. This entry overrides any  entry in 
+the structure element contain#ing th#e# object refere#nce; it shall be used if 
 the structure element has no such entry. 
 Required; shall be an indirect reference
 Obj 
-(any) () The referenced #object. 
+(any) () The re#ferenc#ed object. 
  
-NOTE 2 If the referenced #object is rendered on multiple pages, each rendering requires a separate ##object 
-reference. However, if it is rendered multiple times on the same page, just a single ##object reference 
-suffices to# identify all of them. (If it is important to distinguish between multiple renditions of the 
-same X#Object on the same page, they need to be accessed by means of marked-content sequences 
-enclosing particular invocations of the  operator rather than through ##object references.) 
+NOTE 2 If the r#eferenc#ed object is rendered on multiple pages, each rendering requires #a separa##te object 
+refer#ence. However, if it is rendered multiple times on the same page, ju#st a si##ngle object refere#nce 
+suffices to# id#entify all of them. (If it is important to distinguish between multiple renditions o#f the 
+#same XObject on the same page, they need to be accessed by means of marked-content sequences 
+enclosing particular invocations of the  operator rather# than t#h#rough object ref#erences.) 
 Do
 14.7.5.4Finding structure elements from content items 
  
-Because a stream cannot contain ##object references, there is no way for content items that are marked-
+Because a stream #cannot #c#ontain object re#ferences, there is no way for content items that are marked-
 structural parent tree
 content sequences to refer directly back to their parent structure elements (the ones to which they 
 belong as content items). Instead, a different mechanism, the , shall be provided 
-for this purpose. For consistency, content items that are entire #PDF #objects, such as X#Objects, shall also 
+for this purpose. For consistency, content items that# are e#ntire# PDF# o#bjects#, such as XObjects, shall also 
 use the parent tree to refer to their parent structure elements. 
 © ISO 2017 – All rights reserved 708 
 
 ISO/DIS 32000-2
  
 ParentTree
-The parent tree is a #number tree (see 7.9.7, "#Number trees"), accessed from the  entry in a 
-document’s structure tree root ("#Table 354: Entries in the structure tree root"). The tree shall contain 
-an entry for each #object that is a content item of at least one structure element and for each content 
+The parent tree is a #number tree #(see 7.9.7, #"Number tre#es"), accessed from the  entry in a 
+document’s structure tree root ("#Table 354: Entries in the structure tree root#"). The tree shall contain 
+#an entr#y for each object that is a content item of at least one structure element and for each content 
 StructParentStructParents
 stream containing at least one marked-content sequence that is a content item. The key for each entry 
-shall be an integer given as the value of the  or  entry in the #object (see 
+shall be an integer given as the value of the#  or  e#ntry in the object (see 
 "

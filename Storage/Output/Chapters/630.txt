@@ -1,33 +1,33 @@
 #Figure Annex H.1: 
-Output of the following example" shows the resulting output. (Each shape has a red border, and the 
+Output of the following example#" shows the resulting output. (Each shape has a red border, and the 
  ICCBased 
-#rectangle is filled with light blue.) The colours, but not the black fill, are specified as calibrated colours, 
+#rectangle #is filled with light blue.) The colours, but not the black fill, are specified as calibrated colours, 
 to increase colour fidelity on a range of devices. To achieve this ancolour space is used, such 
 as an embedded sRGB profile. 
 © ISO 2017 – All rights reserved 876 
 
 ISO/DIS 32000-2
  
-#Table Annex H.3: #Objects in simple graphics example 
-#Object number #Object type 
+#Table Annex H.3: #Object#s in simple graphics example #
+#Object# numbe#r Objec#t type 
 Catalog
 1  (document catalog) 
 2 ICCBased profile stream 
 Pages
 3  (page tree node) 
 Page
-4  (page #object) 
+4  (pa#ge obj#ect) 
 5 #Content stream 
-Metadata
+#Metadata
 6  (metadata stream) 
- 
-#Figure Annex H.1: Output of the following example 
- 
+ #
+Figure Annex H.1: Output of the following example 
+ #
 EXAMPLE  
-%#PDF-2.0 
-…              %at least 4 #binary #characters > 127 
+%#PDF#-2.0 
+…              %at least 4 #bi#nary #character#s > 127 
  
-1 0 obj             %Catalog (root) #object used to locate everything else 
+1 0 obj             %Catalog (ro#ot) obj#ect used to locate everything else 
   <</Type /Catalog 
    /Pages 3 0 R 
    /Metadata 6 0 R 
@@ -37,12 +37,12 @@ endobj
 2 0 obj             %ICCBasedcolour space profile stream dictionary 
  
   <</N 3           %Number of components – 3 for an RGB 
-   /#Filter /FlateDecode     %Indicate #filter (compression) used on profile 
+   /#Filter #/FlateDecode     %Indicate# filter# (compression) used on profile 
    /Length …        %Length of compressed data (not of raw profile) 
-              %Note that this kind of #object does not use a /Type key 
+              %Note that this kin#d of ob#ject does not use a /Type key 
   >> 
 stream 
-… Flate compressed data of #ICC profile for calibrated RGB colour space (raw #binary) … 
+… Flate compressed data of #ICC profile #for calibrated RGB colour space (raw# b#inary) … 
 … For example, this could be the compressed sRGB profile … 
 endstream 
 endobj 
@@ -64,14 +64,14 @@ endobj
    /Contents 5 0 R 
    /Resources 
     <</ColorSpace 
-      <</MyCS [/ICCBased 2 0 R] %MyCS, ar#bitrary resource name for calibrated RGB 
+      <</MyCS [/ICCBased 2 0 R] %MyCS, #ar#bitrary resource name for calibrated RGB 
       >> 
     >> 
   >> 
 endobj 
  
 5 0 obj %Page contents for page 1 
-number of #bytes in page marking operators >>
+number of #byte#s in page marking operators >>
   <</Length … … 
 stream 
  %Draw a line segment, using the default colour space, colour and line width. 
@@ -84,18 +84,18 @@ stream
  
  %Draw a thicker, dashed line segment. 
  q             %Save #graphics state 
- 4 w            %Set line width to 4 user space units 
+ #4 w            %Set line width to 4 user space units 
  [4 6] 0 d          %Set dash pattern to 4 units on, 6 units off 
  150 250 m 
  400 250 l 
  S 
- Q             %Restore #graphics state – undo w and d 
+ Q             %Restore# graphics state# – undo w and d 
  
  %Select the calibrated RGB colour space for filling and stroking 
- /MyCS cs           %Ar#bitrary name in #resource dictionary 
- /MyCS CS           %leading to embedded calibrated RGB profile stream 
+ /MyCS cs           #%A#rbitrary name in #resource dictionary 
+ #/MyCS CS           %leading to embedded calibrated RGB profile stream 
  
- %Draw a #rectangle with a 1-unit red border, filled with light blue. 
+ %Draw a# rectangle# with a 1-unit red border, filled with light blue. 
  1.0 0.0 0.0 SCN         %Red (in calibrated RGB) for stroke colour 
  0.5 0.75 1.0 scn         %Light blue (in calibrated RGB) for fill colour 
  200 300 50 75 re 
@@ -115,12 +115,12 @@ endobj
 6 0 obj             %Document metadata 
   <</Type /Metadata 
    /Subtype /XML 
-number of #bytes in metadata  
+number of# byt#es in metadata  
    /Length … …
   >> 
 stream 
 UTF-8 value of U+FEFF (efbbbf) 
-<?xpacket begin="… …"# id="W5M0MpCehiHzreSzNTczkc9d"?> 
+<?xpacket begin="… …"# id#="W5M0MpCehiHzreSzNTczkc9d"?> 
  document metadata 
 …… 
 <?xpacket end="w"?> 
@@ -134,27 +134,27 @@ endobj
 %Cross reference and trailer 
 xref 
 0 7 
-Note that the 10 digit #byte offsets here must be recalculated by the software producing the #PDF  
+Note that the 10 digi#t byt#e offsets here must be recalculated by the software producing the# PDF  #
 … …
- and that the entries must each occupy 20 #bytes including white-space  
+ and that the entries must each occupy #20 b#ytes including white-space  
 ……
 0000000000 65535 f 
-0000000009 00000 n 
-#byte offset for #object 2, exactly 10 digits 
-… … 00000 n 
-#byte offset for #object 3, exactly 10 digits 
+0000000009 00000# n 
+b#yte offse#t for o#bject 2, exactly 10 digits 
+… … 0000#0 n 
+#byte offs#et for #object 3, exactly 10 digits 
 … … 00000 n 
 0000002179 00000 n 
-0000002300 00000 n 
-#byte offset for #object 6, exactly 10 digits 
+0000002300 000#00 n #
+byte off#set for# object 6, exactly 10 digits 
 … … 00000 n 
 trailer 
 <</Size 7 /Root 1 0 R>> 
 startxref 
-… needs to be the exact #byte address of the word xref …
+… needs to be the# exac#t byte address of the word xref …
 2503  
 %%EOF 
 H.5Page tree example 
  
-The example in H.5, "Page tree example" is a fragment of a #PDF file illustrating the structure of the page 
+The example in H.5, "Page tree example" is a fragment of #a PD#F file illustrating the structure of the page 
 tree for a large document. It contains the page tree nodes for a 62-page document. "

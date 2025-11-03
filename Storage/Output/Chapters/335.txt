@@ -1,103 +1,103 @@
-#Table 171: Annotation types". The following 
+#Table 171: Annotation types#". The following 
 subclauses describe each of these types in detail. 
 Subtype
-The values in the first column of "#Table 171: Annotation types" represent the value of the annotation 
+The values in the first column of #"Table 171: Annotation type#s" represent the value of the annotation 
 dictionary’s  entry. The third column indicates whether the annotation is a markup annotation, 
 Contents
 as described in 12.5.6.2, "Markup annotations" The subclause also provides more information about the 
-value of the  entry for different annotation types. 
-#Table 171: Annotation types 
+value of the  entry for different annotation types.# 
+Table 171: Annotation types# 
 Annotation Description Markup Discussed in subclause 
 type 
 Text 
 Text annotation Yes 12.5.6.4, "Text annotations" 
 Link 
 Link annotation No 12.5.6.5, "Link annotations" 
-(#PDF 1.3) 
+(#PDF #1.3) 
 FreeText 
 Free text annotation Yes 12.5.6.6, "Free text annotations" 
-(#PDF 1.3) 
+#(PDF# 1.3) 
 Line 
-Line annotation Yes 12.5.6.7, "Line annotations" 
-(#PDF 1.3) 
+Line annotation Yes 12.5.6.7, "Line annotations" #
+(PD#F 1.3) 
 Square 
-Square annotation Yes 12.5.6.8, "Square and circle annotations" 
-(#PDF 1.3)
+Square annotation Yes 12.5.6.8, "Square and circle annotations"# 
+(P#DF 1.3)
 Circle  
-Circle annotation Yes 12.5.6.8, "Square and circle annotations" 
+Circle annotation Yes 12.5.6.8, "Square and circle annotations#" 
 (#PDF 1.5) 
 Polygon 
-Polygon annotation Yes 12.5.6.9, "Polygon and polyline annotations" 
-(#PDF 1.5) 
+Polygon annotation Yes 12.5.6.9, "Polygon and polyline annotation#s" 
+#(PDF 1.5) 
 PolyLine 
-Polyline annotation Yes 12.5.6.9, "Polygon and polyline annotations" 
-(#PDF 1.3) 
+Polyline annotation Yes 12.5.6.9, "Polygon and polyline annotatio#ns" #
+(PDF 1.3) 
 Highlight 
-Highlight annotation Yes 12.5.6.10, "Text markup annotations" 
-(#PDF 1.3) 
+Highlight annotation Yes 12.5.6.10, "Text markup annotati#ons"# 
+(PDF 1.3) 
 Underline 
-Underline annotation Yes 12.5.6.10, "Text markup annotations" 
-(#PDF 1.4) 
+Underline annotation Yes 12.5.6.10, "Text markup annotat#ions#" 
+(PDF 1.4) 
 Squiggly 
 Squiggly-underline Yes 12.5.6.10, "Text markup annotations" 
-annotation 
-(#PDF 1.3) 
+anno#tati#on 
+(PDF 1.3) 
 StrikeOut 
-Strikeout annotation Yes 12.5.6.10, "Text markup annotations" 
-(#PDF 1.5)
+Strikeout annotation Yes 12.5.6.10, "Text markup annot#atio#ns" 
+(PDF 1.5)
 Caret   
-Caretannotation Yes 12.5.6.11, "Caret annotations" 
-(#PDF 1.3) 
+Caretannotation Yes 12.5.6.11, "Caret anno#tati#ons" 
+(PDF 1.3) 
 Stamp 
-Rubber stamp annotation Yes 12.5.6.12, "Rubber stamp annotations" 
-(#PDF 1.3) 
+Rubber stamp annotation Yes 12.5.6.12, "Rubber stamp ann#otat#ions" 
+(PDF 1.3) 
 Ink 
-Ink annotation Yes 12.5.6.13, "Ink annotations" 
-(#PDF 1.3) 
+Ink annotation Yes 12.5.6.13, "Ink an#nota#tions" 
+(PDF 1.3) 
 Popup 
-Popup annotation No 12.5.6.14, "Pop-up annotations" 
-(#PDF 1.3) 
+Popup annotation No 12.5.6.14, "Pop-up a#nnot#ations" 
+(PDF 1.3) 
 FileAttachment 
 File attachment annotation Yes 12.5.6.15, "File attachment annotations" 
 © ISO 2017 – All rights reserved 464 
 
 ISO/DIS 32000-2
  
-Annotation Description Markup Discussed in subclause 
+Annotation Description Markup Discussed in sub#clau#se 
 type 
-(#PDF 1.2; #deprecated in #PDF 2.0) 
+(PDF 1.2; ##dep#recated #in PDF 2.0) 
 Sound 
-Sound Yes 12.5.6.16, "Sound annotations" 
-annotation 
-(#PDF 1.2; #deprecated in #PDF 2.0)
+Sound Yes 12.5.6.16, "Sound annotation#s" 
+#annotation 
+(PDF 1.2#;# d#eprecated# in PDF 2.0)
 Movie   
-MovieNo 12.5.6.17, "Movie annotations" 
+MovieNo 12.5.6.17, "Movie annotati#ons"# 
 annotation 
-(#PDF 1.5) 
+(PDF 1.5) 
 Screen 
-Screen annotation No 12.5.6.18, "Screen annotations" 
-(#PDF 1.2)
+Screen annotation No 12.5.6.18, "Sc#reen# annotations" 
+(PDF 1.2)
 Widget   
-Widgetannotation No 12.5.6.19, "Widget annotations" 
-(#PDF 1.4) 
+Widgetannotation No 12.5.6.19, "W#idge#t annotations" 
+(PDF 1.4) 
 PrinterMark 
-Printer’s mark annotation No 12.5.6.20, "Printer’s mark annotations" 
-(#PDF 1.3) 
+Printer’s mark annotation No 12.5.6.20, "Printer’#s ma#rk annotations" 
+(PDF 1.3) 
 TrapNet 
-Trap network annotation No 12.5.6.21, "Trap network annotations" 
-(#PDF 1.6) 
+Trap network annotation No 12.5.6.21, "Trap #netw#ork annotations" 
+(PDF 1.6) 
 Watermark 
-Watermark annotation No 12.5.6.22, "Watermark annotations" 
-(#PDF 1.6) 
+Watermark annotation No 12.5.6.22, "W#ater#mark annotations" 
+(PDF 1.6) 
 3D 
-3D annotation No 13.6.2, "3D Annotations" 
-(#PDF 1.7)
+3D annotation No 13#.6.2#, "3D Annotations" 
+(PDF 1.7)
 Redact   
-Redactannotation Yes 12.5.6.23, "Redaction annotations" 
-(#PDF 2.0) 
+Redactannotation Yes 12.5.6.23, #"Red#action annotations" 
+(PDF 2.0) 
 Projection 
-Projection annotation Yes 12.5.6.24, "Projection annotations" 
-(#PDF 2.0)
+Projection annotation Yes 12.5.6.24, #"Pro#jection annotations" 
+(PDF 2.0)
 RichMedia   
 RichMediaannotation No 13.7.2, "RichMedia annotations" 
  
@@ -108,8 +108,8 @@ As mentioned in 12.5.2, "Annotation dictionaries", the meaning of an annotation�
 by annotation type. Typically, it is the text that shall be displayed for the annotation or, if the annotation 
 Contents
 does not display text, an alternative description of the annotation’s contents in human-readable form. In# 
-either case, the  entry is useful when extracting the document’s contents in support of 
-accessi#bility to users with disa#bilities or for other purposes (see 14.9.3, "Alternate descriptions"). 
+ei#ther case, the  entry is useful when extracting the document’s contents in support of 
+accessi#bi#lity to users with dis#ab#ilities or for other purposes (see 14.9.3, "Alternate descriptions"). 
 markup annotations
 Many annotation types are defined as  because they are used primarily to mark up 
 PDF documents (see "

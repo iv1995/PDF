@@ -1,5 +1,5 @@
 #Table 310: Entries in a 3D activation 
-dictionary") that defines the times at which the annotation shall be activated 
+dictionary#") that defines the times at which the annotation shall be activated 
 and deactivated and the state of the 3D artwork instance at those times. 
 Default value: an activation dictionary containing default values for all its 
 entries. 
@@ -10,7 +10,7 @@ boolean () A flag indicating the primary use of the 3D annotation. If , it is
  
 intended to be interactive; if , it is intended to be manipulated 
 programmatically, as with an ECMAScriptanimation. #Interactive ##PDF 
-processors may present different user interface controls for interactive 3D 
+#processor##s may present different user interface controls for interactive 3D 
 annotations (for example, to rotate, pan, or zoom the artwork) than for those 
 true
  
@@ -18,9 +18,9 @@ managed by a script or other mechanism.
 Default value: .
 Optional
 3DB 
-#rectangle () The 3D view box, which is the rectangular area in which the 3D 
+#rectangle #() The 3D view box, which is the rectangular area in which the 3D 
  Rect 
-artwork shall be drawn. It shall be within the #rectangle specified by the 
+artwork shall be drawn. It shall be within the# rectangle# specified by the 
 annotation’sentry and shall be expressed in the annotation’s target 
  Rect 
 coordinate system (see discussion following this Table). 
@@ -30,12 +30,12 @@ Rect
  
 system. This value is [], where  and  are the width and 
 height, respectively, of .
-Optional; #PDF 2.0
+Optional;# PDF# 2.0
 3DU 
 dictionary () A 3D units dictionary that specifies the units definitions 
 for the 3D data associated with this annotation. See "#Table 325: Entries in a 
-3D units dictionary". 
-(Optional; #PDF 2.0)
+3D units dictionary#". 
+(Optional#; PD#F 2.0)
 GEO Geospatial3D
 dictionary  For  requirement type, a geospatial 
 GPTSLPTS
@@ -47,10 +47,10 @@ geo-reference coordinate tables to include 3D point values. See 12.10.2,
 3D view box
 3DB
  Rect 
-The  entry specifies the , a #rectangle in which the 3D artwork appears. The view box 
-shall fit within the annotation’s #rectangle (specified by itsentry). It may be the same size, or it may 
+The  entry specifies the , #a rectangl#e in which the 3D artwork appears. The view box 
+shall fit within the annotation#’s rectang#le (specified by itsentry). It may be the same size, or it may 
 be smaller if necessary to provide extra drawing area for additional 2D graphics within the annotation. 
-NOTE 1 Although 3D artwork can internally specify viewport size, #interactive ##PDF processors ignore it in 
+NOTE 1 Although 3D artwork can internally specify viewport size,# interacti#ve# P#DF processo##rs ignore it in 
 favour of information provided by the  entry. 
 3DB
 target coordinate system
@@ -59,12 +59,12 @@ The view box shall be specified in the annotation’s , whose origin is at the
 
 ISO/DIS 32000-2
  
-centre of the annotation’s #rectangle. Units in this coordinate system are the same as default user space 
+centre of the annotatio#n’s recta#ngle. Units in this coordinate system are the same as default user space 
 -w/2 -h/2 w/2 h/2
-units. Therefore, the coordinates of the annotation’s #rectangle in the target coordinate system are 
+units. Therefore, the coordinates of the annotati#on’s recta#ngle in the target coordinate system are 
 [] 
  
-given w and h as the #rectangle’s width and height. 
+given w and h a#s the rec#tangle’s width and height. 
 3DD
 3DD
 The  entry shall specify a 3D stream that contains the 3D artwork to be shown in the annotation; 

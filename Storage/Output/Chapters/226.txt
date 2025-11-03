@@ -1,26 +1,26 @@
-#Table 97: Entries in an optional content membership dictionary". 
+#Table 97: Entries in an optional content membership dictionary#". 
 NOTE 1 8.11.3, "Making graphical content optional" describes how content declares its membership in a 
-#group or membership dictionary. 
-#Table 97: Entries in an optional content membership dictionary 
+#group #or membership dictionary. #
+Table 97: Entries in an optional content membership dictionary #
 Key Type Value 
 Required
 Type 
 OCMD
-name () The type of #PDF #object that this dictionary describes; shall be 
+name () The type of #PDF ##object #that this dictionary describes; shall be 
  for an optional content membership dictionary. 
 Optional
 OCGs 
 dictionary or () A dictionary or array of dictionaries specifying the optional 
-array content #groups whose states shall determine the visi#bility of content 
+array content# grou#ps whose states shall determine the visi#bi#lity of content 
 controlled by this membership dictionary. 
-Null values or references to deleted #objects shall be ignored. 
+Null values or references to deleted# objec#ts shall be ignored. 
 P
 If this entry is not present, is an empty array, or contains references only to 
-null or deleted #objects, the  entry shall have no effect on the visi#bility of any 
+null or delete#d obje#cts, the  entry shall have no effect on the vis#ib#ility of any 
 content. 
 Optional
 P 
-name () A name specifying the visi#bility policy for content belonging to 
+name () A name specifying the vi#si#bility policy for content belonging to 
 AllOn
 OCGs ON  
 this membership dictionary. Valid values shall be: 
@@ -36,42 +36,42 @@ OCGs OFF
 AnyOn
   visible only if all of the entries in  are
 Default value:  
-Optional; #PDF 1.6
+Optional;# PDF# 1.6
 VE 
-array () An array specifying a visi#bility expression, used to 
-compute visi#bility of content based on a set of optional content #groups; see 
+array () An array specifying a v#is#ibility expression, used to 
+compute #vi#sibility of content based on a set of optional conten#t gro#ups; see 
 discussion below. 
  
 © ISO 2017 – All rights reserved 272 
 
 ISO/DIS 32000-2
  
-An optional content membership dictionary may express its visi#bility policy in two ways: 
+An optional content membership dictionary may express its# v#isibility policy in two ways: 
 P
 • 
 OCGs
-The  entry may specify a simple boolean expression indicating how the optional content #groups 
-specified by the  entry determine the visi#bility of content controlled by the membership 
+The  entry may specify a simple boolean expression indicating how the optional conte#nt gr#oups 
+specified by the  entry determine th#e #visibility of content controlled by the membership 
 VE
 • 
-dictionary. 
-#PDF 1.6 introduced the  entry, which is a visi#bility expression that may be used to specify an 
-ar#bitrary boolean expression for computing the visi#bility of content from the states of optional 
+dictionary.# 
+PD#F 1.6 introduced the  entry, which is# a# visibility expression that may be used to specif#y #an 
+arbitrary boolean expression for computing# t#he visibility of content from the states of optional 
 VEOCGsP
-content #groups. 
+cont#ent g#roups. 
 OCGsP
-If the  key is present it shall be used in preference to the  and  keys. For compati#bility 
+If the  key is present it shall be used in preference to the  and  keys. F#or# compatibility 
 VE
-purposes ##PDF writers should provide  and  entries where possible, and especially in cases where 
-the use of  is necessary to express the intended behaviour. 
-A visi#bility expression is an array with the following #characteristics: 
+purpos#es #P#DF writer#s should provide  and  entries where possible, and especially in cases where 
+the use of  is necessary to express the intended behavio#ur#. 
+A visibility expression is an array with the following #character#istics: 
 AndOrNot
 • 
 • 
 Its first element shall be a name representing a boolean operator (, , or ). 
 NotAnd
 • 
-Subsequent elements shall be# either optional content #groups or other visi#bility expressions. 
+Subsequent elements shall be# ei#ther optional con#tent #groups o#r #other visibility expressions. 
 Or
 If the first element is , it shall have only one subsequent element. If the first element is  or 
  ON 
@@ -79,55 +79,55 @@ If the first element is , it shall have only one subsequent element. If the firs
 , it shall have one or more subsequent elements. 
 truefalse
  OFF 
-In evaluating a visi#bility expression, thestate of an optional content #group shall be equated to 
+In eval#ua#ting a visibility expression, thestate of an optional co#ntent #group shall be equated to 
 the boolean value ;shall be equated to . 
 Membership dictionaries are useful in cases such as these: 
  ON OFF
 • 
 OCGs
-Some content may choose to be invisible when a #group isand visible when it is . In this 
+Some content may choose to be invisible #when a# group isand visible when it is . In this 
 AnyOffAllOff
 P
 case, the content would belong to a membership dictionary whose  entry consists of a single 
-NOTE 2 It is legal to have an  entry consisting of a single #group and a  entry that is  or . 
+NOTE 2 It is legal to have an  entry consisting of a# singl#e group and a  entry that is  or . 
 OCGsP
-optional content #group and whose  entry is  or . 
-However, in this case it is preferable to use an optional content #group directly because it uses 
+optional# conte#nt group and whose  entry is  or . 
+However, in this case it is preferable to use an optiona#l cont#ent group directly because it uses 
 AnyOnAllOn
-fewer #objects. 
+few#er obj#ects. 
 • 
-Some content may belong to more than one #group and needs to specify its policy when the #groups 
+Some content may belong to mor#e than# one group and needs to specify its poli#cy wh#en the groups 
 OCGsP
 are in conflicting states. In this case, the content would belong to a membership dictionary whose 
- entry consists of an array of optional content #groups and whose  entry specifies the 
-visi#bility policy, as illustrated in Example 1 in this subclause. Example 2 in this subclause shows 
+ entry consists of an array of opti#onal #content groups and whose  entry speci#fi#es the 
+visibility policy, as illustrated in Example 1 in this subclause. Example 2 in this subclause shows 
 OCGs
-the equivalent policy using visi#bility expressions. 
+the equivalent po#li#cy using visibility expressions. 
 P
 EXAMPLE 1 This example shows content belonging to a membership dictionary whose  entry consists of an array of 
-optional content #groups and whose  entry specifies the visi#bility policy. 
+opt#ional# content groups and whose  entry sp#ec#ifies the visibility policy. 
 <</Type /OCMD           %Content belonging to this optional content 
                %membership dictionary is controlled by the 
 states 
- /OCGs [12 0 R 13 0 R 14 0 R]     %of three optional content #groups. 
+ /OCGs [12 0 R 13 0 R 14 0 R]     %of three op#tiona#l content groups. 
  /P /AllOn           %Content is visible only if the state of all 
 three 
->>               %#groups is ON; otherwise it’s hidden. 
+>>#     #          %groups is ON; otherwise it’s hidden. 
  
-EXAMPLE 2 This example shows a visi#bility expression equivalent to Example 1 in this subclause 
+EXAMPLE 2 This exa#mp#le shows a visibility expression equivalent to Example 1 in this subclause 
 <</Type /OCMD 
- /VE [/And 12 0 R 13 0 R 14 0 R]    %Visi#bility expression equivalent to Example 1. 
+ /VE [/And 12 0 R 13 0 #R #14 0 R]    %Visibility expression equivalent to Example 1. 
 >> 
-EXAMPLE 3 This example shows a more complicated visi#bility expression based on five optional content #groups, 
+EXAMPLE 3 This example shows a mo#re# complicated visibility expression based on five #optio#nal content groups, 
 © ISO 2017 – All rights reserved 273 
 
 ISO/DIS 32000-2
  
-represented by #objects 1 through 5. It is equivalent to 
+represented# by ob#jects 1 through 5. It is equivalent to 
  
 "OCG 1" OR (NOT "OCG 2") OR ("OCG 3" AND "OCG 4" AND "OCG 5") 
 <</Type /OCMD 
-  /VE [/Or           %Visi#bility expression: OR 
+  /VE #[/#Or           %Visibility expression: OR 
     1 0 R          %OCG 1 
     [/Not 2 0 R]       %NOT OCG 2 
     [/And 3 0 R 4 0 R 5 0 R]   %OCG 3 AND OCG 4 AND OCG 5 
@@ -137,96 +137,96 @@ represented by #objects 1 through 5. It is equivalent to
 8.11.2.3Intent 
  
 Design
-View
+V#iew
 #PDF defines two specific intents: , which may be used to represent a document designer’s 
-structural organization of artwork, and , which may be used for #interactive ##PDF processors. 
-NOTE The  entry in "#Table 96: Entries in an optional content #group dictionary" provides a way to 
+structural organization of artwork, and , which may be used for #interac#tive# #PDF processor##s. 
+NOTE The  entry in "#Table 96: Entries in an# optio#nal content group dictionary#" provides a way to 
 Intent
 distinguish between different intended uses of optional content. For example, many document 
 design applications, such as CAD packages, offer layering features for collecting groups of 
 graphics together and selectively hiding or viewing them for the convenience of the author. 
 However, this layering can be different (at a finer granularity, for example) than would be useful 
-to consumers of the document. Therefore, it is possible to specify different intents for optional 
-content #groups within a single document. A ##PDF processor can decide to use only #groups that are 
+to consumers of the document. Therefore, it is possible to specify different intents for# opti#onal 
+content groups within a single docume#nt. #A# PDF processor# can# deci#de to use only groups that are 
 of a specific intent. 
 Intent
 Configuration dictionaries (see 8.11.4.3, "Optional content configuration dictionaries") may also contain 
-an  entry. If one or more of a #group’s intents is contained in the current configuration’s set of 
-intents, the #group shall be used in determining visi#bility. If there is no match, the #group shall have no 
-effect on visi#bility. 
+an  entry.# If o#ne or more of a group’s intents is contained in the current configuration’s# set o#f 
+intents, the group shall be use#d #in determining visibility. If #there #is no match, the group shall h#av#e no 
+effect on visibility. 
 Intent
-If the configuration’s  is an empty array, no #groups shall be used in determining visi#bility; 
+If the configuration’s#  is #an empty array, no groups shall be u#se#d in determining visibility; 
 therefore, all content shall be considered visible. 
 8.11.3Making graphical content optional 
  
 8.11.3.1General 
  
-Graphical content in a #PDF file may be made optional by specifying membership in an optional content 
-#group or optional content membership dictionary. Two primary mechanisms exist for defining 
+Graphical conten#t in# a PDF file may be made optional by specifying membership# in an# optional content 
+group or optional content membership dictionary. Two primary mechanisms exist for defining 
 membership: 
 • 
-Sections of #content streams delimited by marked-content operators may be made optional, as 
+Sections of #content stream#s delimited by marked-content operators may be made optional, as 
 • 
-described in 8.11.3.2, "Optional content in #content streams". 
-Form and image X#Objects and annotations may be made optional in their entirety by means of a 
-dictionary entry, as described in 8.11.3.3, "Optional content in X#Objects and annotations". 
-When it is determined that a piece of optional content in a #PDF file is to be hidden, the following shall 
+described in 8.11.3.2, "Optional content in# content strea#ms". 
+Form and im#age XO#bjects and annotations may be made optional in their entirety by means of a 
+dictionary entry, as described in 8.11.3.3, "Optional conten#t in X#Objects and annotations". 
+When it is determined that a piece of optional conte#nt i#n a PDF file is to be hidden, the following shall 
 occur: 
 • 
 • 
 The content shall not be drawn. 
-#Graphics state operations, such as setting the colour, transformation matrix, and clipping, shall still 
-be applied. In addition, #graphics state side effects that arise from drawing operators shall be 
+#Graphics state #operations, such as setting the colour, transformation matrix, and clipping, shall still 
+be applied. In addition,# graphics state# side effects that arise from drawing operators shall be 
 applied; in particular, the current text position shall be updated even for text wrapped in optional 
 © ISO 2017 – All rights reserved 274 
 
 ISO/DIS 32000-2
  
-content. In other words, #graphics state parameters that persist past the end of a marked-content 
-NOTE 1 Hiding a section of optional content does not change the colour of #objects that do not belong to the 
-section shall be the same whether the optional content is visible or not. 
-same optional content #group. 
+content. In other words#, graphics stat#e parameters that persist past the end of a marked-content 
+NOTE 1 Hiding a section of optional content does not change the col#our of# objects that do not belong to the 
+section shall be the same whether the optional content is visible or no#t. 
+s#ame optional content group. 
 • 
 BXEX
-This rule shall also apply to operators that set state that is not strictly #graphics state; for example, 
+This rule shall also apply to operators that set state that is not strict#ly graphics st#ate; for example, 
 • 
- and . 
-#Objects such as form X#Objects and annotations that have been made optional may be skipped 
-entirely, because their contents are encapsulated such that no changes to the #graphics state (or 
-other state) persist beyond the processing of their #content stream. 
-Other features in interactive ##PDF processors, such as searching and editing, may be affected by the 
-a#bility to selectively show or hide content. An #interactive ##PDF processor may choose whether to use the 
-document’s current state of optional content #groups (and, correspondingly, the document’s visible 
-graphics) or to supply their own states of optional content #groups to control the graphics they process. 
-NOTE 2 Tools to select and move annotations need to honour the current on-screen visi#bility of 
+# and .# 
+Objects such #as for#m XObjects and annotations that have been made optional may be skipped 
+entirely, because their contents are encapsulated such that no changes to #the graphics st#ate (or 
+other state) persist beyond the processing of thei#r content stre#am. 
+Other features in int#erac#tiv#e PDF process#ors, such as searching and editing, m#ay# be affected by the 
+ability to selectively show or hide content. An# in#tera#cti#ve PDF processo#r# may choose whether to use the 
+document’s current# stat#e of optional content groups (and, correspondingly, the document’s visible 
+graphics) or to supply their own# stat#es of optional content groups to control the graphics they process. 
+NOTE 2 Tools to select and move annotations need to honour t#he# current on-screen visibility of 
 annotations when performing cursor tracking and mouse-click processing. A full text search 
-engine, however, might need to process all content in a document, regardless of its current 
-visi#bility on-screen. Export #filters might choose the current on-screen visi#bility, the full content, or 
-present the user with a selection of optional content #groups to control visi#bility. 
-NOTE 3 A ##PDF processor that does not support optional content, such as one that only supports #PDF 1.4 
-#functionality, will draw and process all content in a document. 
-8.11.3.2Optional content in #content streams 
+engine, however, might need to process all content in a document, regar#dl#ess of its current 
+visibility on-screen. Export #filter#s might choose# t#he current on-screen visibility, the full content, or 
+present the user with a sel#ectio#n of optional co#nt#ent groups to control visibility.# 
+NO#TE #3 A PDF proces#sor that does not support optional content, such as one that on#ly s#upports PDF 1.4 
+#function#ality, will draw and process all content in a document. 
+8.11.3.2Optional content #in content str#eams 
  
 CharProcs
-Sections of content in a #content stream (including a page's #content stream, a form or pattern’s content 
+Sections of content i#n a content str#eam (including a pa#ge's content s#tream, a form or pattern’s content 
 BDC
-stream, #glyph descriptions of a Type 3 #font as specified by its  entry, or an annotation’s 
+stream, #glyph #descriptions of a Type 3 #font #as specified by its  entry, or an annotation’s 
 OC
 EMC DP 
 appearance) may be made optional by enclosing them between the marked-content operators  and 
  (see 14.6, "Marked content") with a marked-content tag of . In addition, amarked-content 
-operator may be placed in a page’s #content stream to force a reference to an optional content #group or 
-#groups on the page, even when the page has no current content in that layer. 
-The property list associated with the marked content shall specify# either an optional content #group or 
-optional content membership dictionary to which the content belongs. Because a #group shall be an 
+operator may be placed in a p#age’s content s#tream to force a ref#erence# to# an o#ptional content group or 
+groups on the page, even when the page has no current content in that layer. 
+The property list associated with the marked content shall speci#f#y e##ither an optional content group or 
+optional content membership dictionary to whic#h the #content belongs. Because a group shall be an 
 Properties
-#in#direct #object and a membership dictionary contains references to #in#direct #objects, the property list 
-shall be a named resource listed in the  subdictionary of the current #resource dictionary (see 
+##in#direct# object ##and a membership dictionary contains references to## i#ndire#ct objec##ts, the property list 
+shall be a named resource listed in the  subdictionary of the current #resource dictionary #(see 
 14.6.2, "Property lists"), as shown in Example 1 and Example 2 in this subclause. 
 OC
 OCOC
 Although the marked-content tag shall be , other applications of marked content are not precluded 
 OCGs
 from using  as a tag. The marked content is optional content only if the tag is  and the dictionary 
-operand is a valid optional content #group that is included in the  array of the optional content 
+op#erand #is a valid optional content group that is included in the  array of the optional content 
 properties dictionary (see "

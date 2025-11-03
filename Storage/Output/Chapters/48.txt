@@ -1,5 +1,5 @@
-##object reference 
-#object value used to allow one #object to refer to another; that has the form "<n> <m> R" where <n> is an 
-#in#direct #object number, <m> is its generation number and R is the uppercase letter R 
+##object #reference #
+#object# value used to allow on#e objec#t to refer to another; that has the form "<n> <m> R" where <n> is an 
+#in#dire#ct object# ##number, <m> is its generation number and R is the uppercase letter R 
 4.46 
  

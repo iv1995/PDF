@@ -1,59 +1,59 @@
 #Table 95: Entries in a reference 
-dictionary" shows the contents of the reference dictionary. 
+dictionary#" shows the contents of the reference dictionary. 
 © ISO 2017 – All rights reserved 269 
 
 ISO/DIS 32000-2
- 
-#Table 95: Entries in a reference dictionary 
+ #
+Table 95: Entries in a reference dictionary #
 Key Type Value 
 Required
 F 
 file specification () The file containing the target document. 
 Required
 Page 
-integer or text () A page index or page label (see 12.4.2, "Page labels")# identifying the 
+integer or text () A page index or page label (see 12.4.2, "Page labels")# id#entifying the 
 string page of the target document containing the content to be imported. This reference 
 is a weak one and may be inadvertently invalidated if the referenced page is 
 changed or replaced in the target document after the reference is created. 
 Optional
 ID 
-array () An array of two #byte strings constituting a file# identifier (14.4, "File# 
-identifiers") for the file containing the target document. The use of this entry 
-improves a ##PDF processor’s chances of finding the intended file and allows it to 
+array () An array of two #byte #strings constituting a fil#e i#dentifier (14.4, "Fi#le 
+#identifiers") for the file containing the target document. The use of this entry 
+improves a ##PDF #processor#’s chances of finding the intended file and allows it to 
 warn the user if the file has changed since the reference was created. 
  
 Matrix 
-When the imported content replaces the proxy, it shall be transformed according to the proxy #object’s 
+When the imported content replaces the proxy, it shall be transformed according to the proxy #object#’s 
 BBox 
 transformation matrix and clipped to the boundaries of its bounding box, as specified by the  and
-entries in the proxy’s form dictionary (see 8.10.2, "Form dictionaries"). The com#bination of the 
-proxy #object’s matrix and bounding box thus implicitly defines the bounding box of the imported page. 
+entries in the proxy’s form dictionary (see 8.10.2, "Form dictionaries"). The com#bi#nation of the 
+proxy# objec#t’s matrix and bounding box thus implicitly defines the bounding box of the imported page. 
 This bounding box typically coincides with the imported page’s crop box or art box (see 14.11.2, "Page 
  #Group 
-boundaries"), but may not correspond to any of the defined page boundaries. If the proxy #object’s form 
-dictionary contains aentry, the specified #group attributes shall apply to the imported page as 
-well, which allows the imported page to be treated as a #group without further modification. 
-8.10.4.2Printing reference X#Objects 
+#boundaries"), but may not correspond to any of the defined page boundaries. If the prox#y obje#ct’s form 
+dictionary contains aentry, the specified# group# attributes shall apply to the imported page as 
+well, which allows the imported page to be treated as #a grou#p without further modification. 
+8.10.4.2Printing referenc#e XObj#ects 
  
-When printing a page containing reference X#Objects, a ##PDF processor may emit any of the following 
-items, depending on its capa#bilities, the user’s preferences, and the nature of the print job: 
+When printing a page containing referen#ce XOb#jects, a## PDF# processor# may emit any of the following 
+items, depending on its cap#ab#ilities, the user’s preferences, and the nature of the print job: 
 • 
 • 
-The imported content designated by the reference X#Object 
+The imported content designated by the refere#nce XObj#ect 
 8.10.4.3Special considerations 
  
-The reference X#Object as a proxy for the imported content 
-Certain special considerations arise when reference X#Objects interact with other #PDF features: 
+The refer#ence XO#bject as a proxy for the imported content 
+Certain special considerations arise when refe#rence #XObjects interact with othe#r PD#F features: 
 • 
-When the page imported by a reference X#Object contains annotations (see 12.5, "Annotations"), all 
+When the page imported by a ref#erence #XObject contains annotations (see 12.5, "Annotations"), all 
 annotations that contain a printable, unhidden, visible appearance stream (12.5.5, "Appearance 
 streams") shall be included in the rendering of the imported page. If the proxy is a snapshot image 
 of the imported page, it shall also include the annotation appearances. These appearances shall 
-therefore be converted into part of the proxy’s #content stream,# either as subsidiary form X#Objects 
+therefore be converted into part of the proxy’s #content stream#,# ei#ther as subsidia#ry for#m XObjects 
 • 
-or by flattening them directly into the #content stream. 
+or by flattening them directly into the# content strea#m. 
 Logical structure information associated with a page (see 14.7, "Logical structure") may be ignored 
-when importing that page into another document with a reference X#Object. In a target document 
+when importing that page into another document with a r#eferen#ce XObject. In a target document 
 with multiple pages, structure elements occurring on the imported page are typically part of a 
 larger structure pertaining to the document as a whole; such elements cannot meaningfully be 
 incorporated into the structure of the containing document. In a one-page target document or one 
@@ -68,24 +68,24 @@ ISO/DIS 32000-2
  
 8.11.1General 
  
-Optional content#PDF 1.5
- () refers to sections of content in a #PDF document that can be selectively 
-viewed or hidden by document authors or consumers. This capa#bility is useful in items such as CAD 
+Optional cont#entP#DF 1.5
+ () refers to sections of content i#n a #PDF document that can be selectively 
+viewed or hidden by document authors or consumers. This ca#pa#bility is useful in items such as CAD 
 drawings, layered artwork, maps, and multi-language documents. 
-The following subclauses describe the #PDF structures used to implement optional content: 
+The following subclauses describe# the# PDF structures used to implement optional content: 
 • 
-8.11.2, "Optional content #groups" describes the primary structures used to control the visi#bility of 
+8.11.2, "Optional conte#nt gr#oups" describes the primary structures used to control the v#is#ibility of 
 • 
 the document. 
 8.11.3, "Making graphical content optional", describes how individual pieces of content in a 
 • 
-document can declare themselves as belonging to one or more optional content #groups. 
-8.11.2Optional content #groups 
+document can declare themselves as belonging to one or more optional cont#ent g#roups. 
+8.11.2Optional con#tent #groups 
  
-8.11.4, "Configuring optional content", describes how the states of optional content #groups are set. 
+8.11.4, "Configuring optional content", describes how the states of optional co#ntent# groups are set. 
 8.11.2.1General 
  
-An optional content #group is a dictionary representing a collection of graphics that can be made visible 
-or invisible dynamically by ##PDF processors. The graphics belonging to such a #group may reside 
-anywhere in the document: they need not be consecutive in drawing order, nor even belong to the same 
-#content stream. "
+An optional c#ontent# group is a dictionary representing a collection of graphics that can be made visible 
+or invisible dynamical#ly b##y PDF process#ors. The graphics belonging to# such #a group may reside 
+anywhere in the document: they need not be consecutive in drawing order, nor even belong to the same# 
+content stre#am. "

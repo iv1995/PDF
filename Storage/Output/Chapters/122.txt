@@ -1,9 +1,9 @@
-#Table 47: Entries in a collection su#bitem dictionary"). 
+#Table 47: Entries in a collection su#bi#tem dictionary#"). 
 dictionary 
-The type of each entry shall match the type of data# identified by the collection 
-field dictionary (see "#Table 155: Entries in a collection field dictionary") 
+The type of each entry shall match the type of data# id#entified by the collection 
+field dictionary (see "#Table 155: Entries in a collection field dictionary#") 
 referenced by the same key in the collection schema dictionary (see "#Table 154: 
-Entries in a collection schema dictionary"). 
+Entries in a collection schema dictionary#"). 
 S
 Subtype
 EXAMPLE If the corresponding collection field has a  entry of , 
@@ -11,29 +11,29 @@ then the entry is a text string.
 A single collection item dictionary may contain multiple entries, with one entry 
 representing each key (see Example 1 in 12.3.5, "Collections"). 
  
-A collection su#bitem dictionary provides the data corresponding to the related fields in the collection 
+A collection s#ub#item dictionary provides the data corresponding to the related fields in the collection 
 dictionary, and it provides a means of associating a prefix string with that data value. The prefix shall be 
-ignored by the sorting algorithm. "#Table 47: Entries in a collection su#bitem dictionary" describes the 
-entries in a collection su#bitem dictionary. 
-#Table 47: Entries in a collection su#bitem dictionary 
+ignored by the sorting algorithm. #"Table 47: Entries in a collection #su#bitem dictionar#y" describes the 
+entries in a collection# s#ubitem dictionary.# 
+Table 47: Entries in a collectio#n #subitem dictionary# 
 Key Type Value 
 Optional
 Type 
-CollectionSu#bitem
-name () The type of #PDF #object that this dictionary describes; if present, shall 
+Collect#io#nSubitem
+name () The type of #PDF ##object #that this dictionary describes; if present, shall 
 be  for a collection item dictionary. 
 Optional
 D 
 text string, () The data corresponding to the related entry in the collection field 
-date, or dictionary (see "#Table 155: Entries in a collection field dictionary"). The type of 
+date, or dictionary (see #"Table 155: Entries in a collection field dictionar#y"). The type of 
 none
-number data shall match the data type# identified by the corresponding collection field 
+number data shall match the data typ#e i#dentified by the corresponding collection field 
 dictionary. Default: . 
 Optional
 P 
 text string () A prefix string that shall be concatenated with the text string presented 
 none
-to the user. This entry is ignored when an #interactive ##PDF processor sorts the 
+to the user. This entry is ignored when an #interactive# #PDF# processor ##sorts the 
 items in the collection. Default: . 
  
 7.12Extensions dictionary 

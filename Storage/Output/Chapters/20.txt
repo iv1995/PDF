@@ -1,5 +1,5 @@
 #dictionary #object 
-associative table containing pairs of #objects, the first #object being a #name #object serving as the key and 
-the second #object serving as the value and may be any kind of #object including another dictionary 
+##associative table containing pairs of# objec#ts, the firs#t objec#t being a #na#me objec#t #serving as the key and 
+the sec#ond obj#ect serving as the value and may be any kin#d of ob#ject including another dictionary 
 4.18 
  

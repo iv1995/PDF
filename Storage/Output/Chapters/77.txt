@@ -1,35 +1,35 @@
-#Table 8: Optional parameters for LZWDecode and FlateDecode #filters" shows the parameters that may 
-optionally be specified forand#filters. Except where otherwise noted, all 
+#Table 8: Optional parameters for LZWDecode and FlateDecode #filter#s#" shows the parameters that may 
+optionally be specified foran#dfilte#rs. Except where otherwise noted, all 
 © ISO 2017 – All rights reserved 45 
 
 ISO/DIS 32000-2
  
-values supplied to the decoding #filter for any optional parameters shall match those used when the data 
-was encoded. 
-#Table 8: Optional parameters for LZWDecode and FlateDecode #filters 
+values supplied to the decodin#g filte#r for any optional parameters shall match those used when the data 
+was encoded. #
+Table 8: Optional parameters for LZWDecode and FlateDeco#de fil#ters #
 Key Type Value 
 Predictor 
 integer A code that selects the predictor algorithm, if any. If the value of this entry 
-is 1, the #filter shall assume that the normal algorithm was used to encode 
-the data, without prediction. If the value is greater than 1, the #filter shall 
+is 1, #the fil#ter shall assume that the normal algorithm was used to encode 
+the data, without prediction. If the value is greater than 1,# the fi#lter shall 
 Predictor
 assume that the data was differenced before being encoded, and 
 Predictor
  selects the predictor algorithm. For more information 
 regarding  values greater than 1, see 7.4.4.4, "LZW and Flate 
-predictor #functions". Default value: 1. 
+predictor #function#s". Default value: 1. 
 (May be used only if  is greater than 1)
 Colors Predictor
 #PDF 
-integer  The number of 
-#PDF 1.3
+#integer  The number of #
+PDF# 1.3
 1.0
 interleaved colour components per sample. Valid values are 1 to 4 (
 ) and 1 or greater (). Default value: 1. 
 (May be used only if  is greater than 1)
-#BitsPerComponent Predictor
-integer  The number of #bits used 
-#PDF 1.5
+#Bi#tsPerComponent Predictor
+integer  The number of# b#its used# 
+PD#F 1.5
 to represent each colour component in a sample. Valid values are 1, 2, 4, 8, 
 and () 16. Default value: 8. 
 (May be used only if  is greater than 1)
@@ -45,24 +45,24 @@ code early. This parameter is included because LZW sample code
 distributed by some vendors increases the code length one code earlier 
 than necessary. Default value: 1. 
  
-7.4.4.4LZW and Flate predictor #functions 
+7.4.4.4LZW and Flate predictor# functio#ns 
  
 LZW and Flate encoding compress more compactly if their input data is highly predictable. One way of 
-increasing the predicta#bility of many continuous-tone sampled images is to replace each sample with 
-the difference between that sample and a predictor #function applied to earlier neighbouring samples. If 
-the predictor #function works well, the postprediction data clusters toward 0. 
-#PDF supports two #groups of predictor #functions. The first, the TIFF #group, consists of the single #function 
+increasing the predic#ta#bility of many continuous-tone sampled images is to replace each sample with 
+the difference between that sample and a predicto#r functio#n applied to earlier neighbouring samples. If 
+the predict#or functi#on works well, the postprediction data clusters toward 0#. 
+P#DF supports two #group#s of predic#tor func#tions. The first, the TIFF# grou#p, consists of the si#ngle funct#ion 
 that is Predictor 2 in the TIFF 6.0 specification. 
 NOTE 1 (In the TIFF 6.0 specification, Predictor 2 applies only to LZW compression, but here it applies to 
 Flate compression as well.) TIFF Predictor 2 predicts that each colour component of a sample is 
 the same as the corresponding colour component of the sample immediately to its left. 
 InternetRFC 
-The second supported #group of predictor #functions, the PNG group, consists of the #filters of the World 
+The second supporte#d grou#p of pred#ictor fu#nctions, the PNG group, consists o#f the #filters of the World 
 2083, PNG (Portable Network Graphics) Specification
 Wide Web Consortium’s Portable Network Graphics recommendation, documented in  
 . 
 The term predictors is used here instead of filters to avoid confusion. 
-There are five basic PNG predictor algorithms (and a sixth that chooses the optimum predictor #function 
+There are five basic PNG predictor algorithms (and a sixth that chooses the optimum pre#dictor fun#ction 
 separately for each row). 
 © ISO 2017 – All rights reserved 46 
 

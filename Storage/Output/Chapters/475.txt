@@ -1,16 +1,16 @@
-#Table 302: Entries in a media player info dictionary") shall associate information with a 
+#Table 302: Entries in a media player info dictionary#") shall associate information with a 
 particular version or range of versions of a player. The  entry shall provide information about the 
-player, as described in 13.2.7.4, "Software# identifier dictionary". 
-#Table 302: Entries in a media player info dictionary 
+player, as described in 13.2.7.4, "Software# id#entifier dictionary". #
+Table 302: Entries in a media player info dictionary #
 Key Type Value 
 Optional
 Type 
 MediaPlayerInfo
-name () The type of #PDF #object that this dictionary describes; if present, shall 
+name () The type of #PDF ##object #that this dictionary describes; if present, shall 
 be  for a media player info dictionary. 
 Required
 PID 
-dictionary () A software# identifier dictionary (see 13.2.7.4, "Software# identifier 
+dictionary () A softwar#e i#dentifier dictionary (see 13.2.7.4, "Softwa#re #identifier 
 dictionary") that shall specify the player name, versions, and operating systems 
 to which this media player info dictionary applies. 
 Optional
@@ -30,16 +30,16 @@ dictionary () A dictionary containing entries that need only be honoured in a "b
 effort" sense. 
 Currently, there are no defined entries for this dictionary 
  
-13.2.7.4Software# identifier dictionary 
+13.2.7.4Softw#are# identifier dictionary 
  
 13.2.7.4.1General 
  
-software# identifier dictionary
-A  shall allow software to be# identified by name, range of versions, and 
-operating systems; its entries are listed in "#Table 303: Entries in a software# identifier dictionary". An 
-#interactive ##PDF processor uses this information to determine whether a given media player may be 
-used in a given situation. If the dictionary contains keys that are unrecognised by the #interactive ##PDF 
-processor, it shall be considered to be partially recognised. The #interactive ##PDF processor may or may 
-not decide to treat the software# identifier as viable, depending on the context in which it is used. 
+soft#war#e identifier dictionary
+A  shall allow software #to #be identified by name, range of versions, and 
+operating systems; its entries are listed in "#Table 303: Entries in a so#ftw#are identifier dictionary#". An 
+#interactive# #PDF# processor ##uses this information to determine whether a given media player may be 
+used in a given situation. If the dictionary contains keys that are unrecognised by the# interactiv#e# PDF# 
+processo##r, it shall be considered to be partially recognised. Th#e interacti#v#e P#DF processo##r may or may 
+not decide to treat the s#oft#ware identifier as viable, depending on the context in which it is used. 
 The following procedure shall be used to determine whether a piece of software is considered to match 
-a software# identifier dictionary: 
+a #sof#tware identifier dictionary: 

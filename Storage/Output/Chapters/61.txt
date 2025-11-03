@@ -1,4 +1,4 @@
 #stream #object 
-dictionary followed by zero or more #bytes bracketed between the keywords stream and endstream 
+##dictionary followed by zero or more #byte#s bracketed between the keywords stream and endstream 
 4.59 
  

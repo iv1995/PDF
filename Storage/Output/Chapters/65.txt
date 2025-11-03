@@ -1,5 +1,5 @@
 #XMP packet 
-structured wrapper for serialised XML metadata that can be embedded in a wide variety of file formats 
+#structured wrapper for serialised XML metadata that can be embedded in a wide variety of file formats 
 [ISO 16684-1:2012] 
 © ISO 2017 – All rights reserved 22 
 

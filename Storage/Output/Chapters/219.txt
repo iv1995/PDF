@@ -1,28 +1,28 @@
 # 
   
 Table 90: Inline image operators 
-Operands Operator Description 
+#Operands Operator Description 
 — 
 #BI 
-Begin an inline image #object. 
+#Begin an inline image #object#. 
 —# 
 ID 
-Begin the image data for an inline image #object. 
+#Begin the image data for an inline image# objec#t. 
 —# 
 EI 
-End an inline image #object. 
- 
-#BI
-E# ID #BI
-Inline image #objects shall not be nested; that is, two  operators shall not appear without an# 
-EI #ASCIIHexDecode  #ASCII85Decode#  ID 
-intervening I to close the first #object. Similarly, anoperator shall only appear between a  and its 
-balancing . Unless the image usesoras one of its #filters, the
-operator shall be followed by a single #white-space #character, and the next #character shall be interpreted 
+#End an inline imag#e obje#ct. 
+ #
+BI#
+#E I#D# B#I
+Inline ima#ge obj#ects shall not be nested; that is, two  operators shall not appear without a#n 
+EI ##ASCII#HexDecode # ASCI#I85Deco#de  ID# 
+intervening I to close the fi#rst ob#ject. Similarly, anoperator shall only appear between a  and its 
+balancing . Unless the image usesoras one of its #filter#s, the
+operator shall be followed by a single #white-space #character##, and the next# character# shall be interpreted 
 © ISO 2017 – All rights reserved 262 
 
 ISO/DIS 32000-2
  
-as the first #byte of image data. 
-#BI# ID 
+as the first #byte #of image data#. 
+##BI I#D 
 The key-value pairs appearing between the  andoperators (as listed in "

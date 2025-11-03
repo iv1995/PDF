@@ -1,2 +1,2 @@
-#Table 121: #Font flags" shows the meanings of the flags; all undefined 
-flag #bits are reserved and shall be set to 0 by ##PDF writers. "
+#Table 121: #Font #flags#" shows the meanings of the flags; all undefined 
+flag #bi#ts are reserved and shall be set to 0 by ##PDF #writer#s. "

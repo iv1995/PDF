@@ -1,10 +1,10 @@
 #Table 305: Additional entries specific to a sound #object 
-Key Type Value 
+##Key Type Value 
 Optional
 Type 
 Sound
-name () The type of #PDF #object that this dictionary describes; if present, shall 
-be  for a sound #object. 
+name () The type of #PDF# #object# that this dictionary describes; if present, shall 
+be  for a soun#d obje#ct. 
 Required
 R 
 number () The sampling rate, in samples per second. 
@@ -13,7 +13,7 @@ C
 integer () The number of sound channels. Default value: 1. 
 Optional
 #B 
-integer () The number of #bits per sample value per channel. Default value: 8. 
+i#nteger () The number of# b#its per sample value per channel. Default value: 8. 
 Optional
 E 
 Raw
@@ -30,9 +30,9 @@ Default value: .
 Optional
 CO 
 #Filter
-name () The sound compression format used on the sample data. (This is 
-separate from any stream compression specified by the sound #object’s  
-entry; see "#Table 5: Entries common to all stream dictionaries" and 7.4, "#Filters") 
+#name () The sound compression format used on the sample data. (This is 
+separate from any stream compression specified by the sou#nd obj#ect’s  
+entry; see "#Table 5: Entries common to all stream dictionaries#" and 7.4, #"Filte#rs") 
 R
 If this entry is absent, sound compression shall not be used; the data contains 
 sampled waveforms that shall be played at  samples per second per channel. 
@@ -42,31 +42,31 @@ CP
 (various) () Optional parameters specific to the sound compression format used. 
 No standard values have been defined for theand  entries. 
  
-Sample values shall be stored in the stream with the most significant #bits first (#big-endian order for 
-samples larger than 8 #bits). Samples that are not a multiple of 8 #bits shall be packed into consecutive 
-#bytes, starting at the most significant end. If a sample extends across a #byte boundary, the most 
-significant #bits shall be placed in the first #byte, followed by less significant #bits in subsequent #bytes. For 
+Sample values shall be stored in the stream with the most significan#t #bits firs#t #(big-endian order for 
+samples larger tha#n #8 bits). Samples that are not a multiple #of# 8 bits shall be packed into consecutive 
+#byte#s, starting at the most significant end. If a sample extends across a# byte# boundary, the most 
+signif#ic#ant bits shall be placed in the firs#t by#te, followed by less signi#fi#cant bits in subseque#nt b#ytes. For 
 dual-channel stereophonic sounds, the samples shall be stored in an interleaved format, with each 
 sample value for the left channel (channel 1) preceding the corresponding sample for the right (channel 
 2). 
-To maximise the porta#bility of #PDF documents containing embedded sounds, #interactive ##PDF 
-processors should support at least the following formats (assuming the platform has sufficient 
+To maximise t#he# portability of# PDF# documents containing embedded sounds, #interactiv#e #PDF# 
+processor##s should support at least the following formats (assuming the platform has sufficient 
 hardware and OS support to play sounds at all): 
 R
  8000, 11,025, or 22,050 samples per second 
 C
  1 or 2 channels 
 B
- 8 or 16 #bits per channel 
+# 8# or 16 bits per channel 
 Raw, SignedmuLaw
 E
  , or  encoding 
-RawSigned
+RawSi#gne#d
 ER
-RC#B
+RCB
 If the encoding () is  or ,  shall be 11,025 or 22,050 samples per channel. If the encoding is 
-muLaw,  shall be 8000 samples per channel,  shall be 1 channel, and  shall be 8 #bits per channel. 
-Sound players shall convert between formats, downsample rates, and com#bine channels as necessary to 
+muLaw,  shall be 8000 samples per channel,  shall be 1 channel, and  #sh#all be 8 bits per channel. 
+Sound players shall convert between formats, downsample ra#te#s, and combine channels as necessary to 
 © ISO 2017 – All rights reserved 616 
 
 ISO/DIS 32000-2
@@ -74,9 +74,9 @@ ISO/DIS 32000-2
 render sound on the target platform. 
 13.4Movies 
  
-The features described in this subclause are #deprecated with #PDF 2.0. They are superseded by the 
+The features described in this subclause are #deprecated #wi#th P#DF 2.0. They are superseded by the 
 general multimedia framework described in 13.2, "Multimedia". 
-movie annotations
+movie annotati#ons
 #PDF may embed movies within a document by means of  (see 12.5.6.17, "Movie 
  Movie A
 annotations"). Despite the name, a movie may consist entirely of sound with no visible images to be 

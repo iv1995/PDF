@@ -1,8 +1,8 @@
-#Table 294: Entries in a media screen parameters MH/BE dictionary"), which shall 
-#function as discussed in 13.2.2, "Via#bility". All media clips that are being played shall be associated with 
+#Table 294: Entries in a media screen parameters MH/BE dictionary#"), which shall 
+#function #as discussed in 13.2.2, "Via#bi#lity". All media clips that are being played shall be associated with 
 a particular document and shall be stopped when the document is closed. 
-Document-based security attacks are possible if windows containing ar#bitrary media content can be 
-displayed without indicating to the user that the window is only hosting a media #object. This 
+Document-based security attacks are possible if windows containing a#rb#itrary media content can be 
+displayed without indicating to the user that the window is only hosting a media #object#. This 
 recommendation can be relaxed if it is possible to communicate the nature of such windows to the user; 
 for example, with text in a floating window’s title bar. 
 © ISO 2017 – All rights reserved 606 
@@ -10,45 +10,45 @@ for example, with text in a floating window’s title bar.
 ISO/DIS 32000-2
  
 #Table 293: Entries in a media screen parameters dictionary 
-Key Type Value 
+#Key Type Value 
 Optional
 Type 
 MediaScreenParams
-name () The type of #PDF #object that this dictionary describes; if present, shall 
+name () The type of #PDF# #object# that this dictionary describes; if present, shall 
 be  for a media screen parameters dictionary. 
 Optional
 MH 
-dictionary () A dictionary whose entries (see "#Table 294: Entries in a media screen 
-parameters MH/BE dictionary") shall be honoured for the media screen 
+dictionary () A dictionary whose entries (see #"Table 294: Entries in a media screen 
+parameters MH/BE dictionar#y") shall be honoured for the media screen 
 parameters to be considered viable. 
 Optional
 BE 
-dictionary () A dictionary whose entries (see "#Table 294: Entries in a media screen 
-parameters MH/BE dictionary") should be honoured. 
+dictionary () A dictionary whose entries (see# "Table 294: Entries in a media screen 
+parameters MH/BE dictiona#ry") should be honoured. #
  
-#Table 294: Entries in a media screen parameters MH/BE dictionary 
+Table 294: Entries in a media screen parameters MH/BE dictionar#y 
 Key Type Value 
 Optional
 W 
-integer () The type of window that the media #object shall play in:  
+integer () The type of window that the medi#a objec#t shall play in:  
 0 A floating window 
 1 A full-screen window that obscures all other windows 
 2 A hidden window 
-3 The #rectangle occupied by the screen annotation (see 12.5.6.18, "Screen 
+3 The #rectangle #occupied by the screen annotation (see 12.5.6.18, "Screen 
 MHBE
 annotations") associated with the media rendition 
-Default value: 3. Unrecognised value in : #object is non-viable; in : treat as 
+Default value: 3. Unrecognised value in# : obje#ct is non-viable; in : treat as 
 default value. 
 Optional
 B 
  DeviceRGB 
 array () An array of three numbers in the range 0.0 to 1.0 that shall specify the 
-components in thecolour space of the background colour for the 
-#rectangle in which the media is being played. This colour shall be used if the 
-media #object does not entirely cover the #rectangle or if it has transparent 
+components in thecolour space of the background colour for the #
+rectangle# in which the media is being played. This colour shall be used if the 
+me#dia obj#ect does not entirely cover th#e rectangl#e or if it has transparent 
 sections. It shall be ignored for hidden windows. 
  W
-Default value: implementation-defined. The #interactive ##PDF processor should 
+Default value: implementation-defined. The #interactive# #PDF# processor ##should 
 choose a reasonable value based on the value of. 
 EXAMPLE 1 A system default background colour for floating windows or a 
 user-preferred background colour for full-screen windows. 
@@ -77,13 +77,13 @@ ISO/DIS 32000-2
 Key Type Value 
 Optional
 M 
-integer () A monitor specifier (see "#Table 304: Monitor specifier values") that 
+integer () A monitor specifier (see "#Table 304: Monitor specifier values#") that 
 shall specify which monitor in a multi-monitor system, a floating or full-screen 
 MH
 window shall appear on. Ignored for other types. 
 BE
  
-Default value: 0 (document monitor). Unrecognised value in : #object is non-
+Default value: 0 (document monitor). Unrecognised value #in : ob#ject is non-
 viable; in : treat as default value.
 Required if the value of  is 0; otherwise ignored
 F W

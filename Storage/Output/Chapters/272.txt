@@ -1,18 +1,18 @@
-#Figure 64: Various halftoning effects" illustrates the effects of some of the predefined spot #functions. ![Figure 64 Various halftoning effects  .png](./Storage/Output/Images/Figure 64 Various halftoning effects  .png)
-#Figure 64: Various halftoning effects 
- 
+#Figure 64: Various halftoning effects#" illustrates the effects of some of the predefined spot #function#s. ![Figure 64 Various halftoning effects  .png](./Storage/Output/Images/Figure 64 Various halftoning effects  .png)#
+Figure 64: Various halftoning effects 
+ #
 10.6.4Threshold arrays 
  
 Another way to define a halftone screen is with a threshold array that directly controls individual device 
 pixels in a halftone cell. This technique provides a high degree of control over halftone rendering. It also 
-permits halftone cells to be ar#bitrary #rectangles, whereas those controlled by a spot #function are always 
+permits halftone cells to be ar#bi#trary #rectangle#s, whereas those controlled by a spot# function# are always 
 square. 
 A threshold array is much like a sampled image — a rectangular array of pixel values — but shall be 
-defined entirely in device space. Depending on the halftone type, the threshold values occupy 8 or 16 
-#bits each. Threshold values nominally represent gray levels in the usual way, from 0 for black up to the 
+defined entirely in device space. Depending on the halftone type, the threshold values occupy 8 or 16 #
+b#its each. Threshold values nominally represent gray levels in the usual way, from 0 for black up to the 
 maximum (255 or 65,535) for white. The threshold array shall be replicated to tile the entire device 
-space: each pixel in device space shall be mapped to a particular sample in the threshold array. On a 
-#bilevel device, where each pixel is# either black or white, halftoning with a threshold array shall proceed 
+space: each pixel in device space shall be mapped to a particular sample in the threshold array. On a# 
+#bilevel device, where each pixel is# ei#ther black or white, halftoning with a threshold array shall proceed 
 as follows: 
  
 a)For each device pixel that is to be painted with some gray level, consult the corresponding threshold 
@@ -27,36 +27,36 @@ white. Gray levels in the range 0.0 to 1.0 correspond to threshold values from 0
 (255 or 65,535). 
 A threshold value of 0 shall be treated as if it were 1; therefore, a gray level of 0.0 paints all pixels black, 
 regardless of the values in the threshold array. 
-This scheme easily generalizes to monochrome devices with multiple #bits per pixel, where each pixel 
+This scheme easily generalizes to monochrome devices with multip#le# bits per pixel, where each pixel 
 can directly represent intermediate gray levels in addition to black and white. For any device pixel that 
 is specified with some in-between gray level, the halftoning algorithm shall consult the corresponding 
 value in the threshold array to determine whether to use the next-lower or next-higher representable 
 gray level. In this situation, the threshold values do not represent absolute gray levels, but rather 
 gradations between any two adjacent representable gray levels. 
-EXAMPLE If there are 2 #bits per pixel, each pixel can directly represent one of four different gray levels: black, dark gray, 
+EXAMPLE If there ar#e #2 bits per pixel, each pixel can directly represent one of four different gray levels: black, dark gray, 
 light gray, or white, encoded as 0, 1, 2, and 3, respectively. 
 NOTE A halftone defined in this way can also be used with colour displays that have a limited number of 
 values for each colour component. The red, green, and blue components are simply treated 
 independently as gray levels, applying the appropriate threshold array to each. (This technique 
-also works for a screen defined as a spot #function, since the spot #function is used to compute a 
+also works for a screen defined as a spo#t functi#on, since the sp#ot functi#on is used to compute a 
 threshold array internally.) 
 10.6.5Halftone dictionaries 
  
 10.6.5.1General 
  
-In #PDF 1.2, the #graphics state includes a current halftone parameter. A ##PDF processor may choose to use 
-this halftone to perform painting operations if required for the current output device. Alternatively the 
-##PDF processor may choose to ignore some or all of the halftones specified in the #PDF file and use 
+In #PDF #1.2, the #graphics state #includes a current halftone parameter. A# #PDF# processor #may choose to use 
+this halftone to perform painting operations if required for the current output device. Alternatively the# #
+PD#F processor# may choose to ignore some or all of the halftones specified in t#he P#DF file and use 
 different halftones that may be better suited for that device (see Annex N, "Best practice for halftones").  
  HT 
-The current halftone may be specified as the value of theentry in a #graphics state parameter 
-dictionary; see "#Table 57: Entries in a #graphics state parameter dictionary". It may be defined by# either 
+The current halftone may be specified as the value of theentry in a# graphics state# parameter 
+dictionary; see "#Table 57: Entries in #a graphics stat#e parameter dictionary#". It may be defined b#y e#ither 
 a dictionary or a stream, depending on the type of halftone; the term halftone dictionary is used 
-generically throughout this clause to refer to# either a #dictionary #object or the dictionary portion of a 
-#stream #object. (The halftones that are defined by streams are specifically# identified as such in the 
+generically throughout this clause to refer #to #either a #dictionary #object ##or the dictionary portion of a 
+#stream# objec#t#. (The halftones that are defined by streams are specifically# id#entified as such in the 
 descriptions of particular halftone types; unless otherwise stated, they are understood to be defined by 
 simple dictionaries instead.) 
 HalftoneType
 Every halftone dictionary shall have a  entry whose value shall be an integer specifying 
 the overall type of halftone definition. The remaining entries in the dictionary are interpreted according 
-to this type. #PDF supports the halftone types listed in "
+to this ty#pe. #PDF supports the halftone types listed in "

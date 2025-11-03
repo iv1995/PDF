@@ -1,96 +1,96 @@
-#Figure 1: #PDF Components". 
-#Objects
+#Figure 1: #PDF #Components#". 
+#Object#s
 • 
-. A #PDF document is a data structure composed from a small set of basic types of data 
-#objects. Subclause 7.2, "Lexical conventions" describes the ##character set used to write #objects and 
-other syntactic elements. Subclause 7.3, "#Objects" describes the syntax and essential properties of 
-the #objects. Subclause 7.3.8, "#Stream #objects" provides complete details of the most complex data 
-type, the #stream #object. Subclause 7.4, "#Filters" introduces stream #filters primarily used to make 
+. A# PDF# document is a data structure composed from a small set of basic types of data #
+objec#ts. Subclause 7.2, "Lexical conventions" describes the ##character #set #used to writ#e obje#cts and 
+other syntactic elements. Subclause 7.3#, "Obj#ects" describes the syntax and essential properties of 
+#the ob#jects. Subclause 7.3.8, "#St#ream o#bject#s" provides complete details of the most complex data 
+type, the# s#tream #objec#t. Subclause 7.4, "#Filter#s" introduces stream# filte#rs primarily used to make 
 File structure
-• 
-#PDF files smaller by applying compression technology to stream data. 
-. The #PDF file structure determines how #objects are stored in a #PDF file, how they are 
-accessed, and how they are updated. This structure is independent of the semantics of the #objects. 
+•# 
+PD#F files smaller by applying compression technology to stream data. 
+. T#he P#DF file structure determin#es how# objects are stored i#n a #PDF file, how they are 
+accessed, and how they are updated. This structure is independent of the semantics# of th#e objects. 
 Subclause 7.5, "File structure" describes the file structure. Subclause 7.6, "Encryption" describes a 
 Document structure
 • 
 file-level mechanism for protecting a document’s content from unauthorised access. 
-. The #PDF document structure specifies how the basic #object types are used to 
-represent components of a #PDF document: pages, #fonts, annotations, and so forth. Subclause 7.7, 
+.# The# PDF document structure specifies how t#he basi#c object types are used to 
+represent components# of #a PDF document: pages, #font#s, annotations, and so forth. Subclause 7.7, 
 "Document structure" describes the overall document structure; later clauses address the detailed 
-#Content streams
+#Content stream#s
 • 
-semantics of the components. 
-. A #PDF #content stream contains a sequence of instructions descri#bing the 
-appearance of a page or other graphical entity. These instructions, while also represented as 
-#objects, are conceptually distinct from the #objects that represent the document structure and are 
-described separately. Subclause 7.8, "#Content streams and resources" discusses #PDF #content 
-streams and their associated resources. ![Figure 1 #PDF Components  .png](./Storage/Output/Images/Figure 1 #PDF Components  .png)
-#Figure 1: #PDF Components 
- 
-In addition, this clause describes some data structures, built from basic #objects, that are so widely used 
-that they can almost be considered basic #object types in their own right. These #objects are covered in: 
-7.9, "Common data structures"; 7.10, "#Functions"; and 7.11, "File specifications". Subclause 7.12, 
-"Extensions dictionary" describes a dictionary used to# identifying #developer-defined extensions to this 
+semantics of the components#. 
+. #A PDF# content stream# contains a sequence of instructions descri#bi#ng the 
+appearance of a page or other graphical entity. These instructions, while also repres#ented #as 
+objects, are conceptually distinc#t from# the objects that represent the document structure and are 
+described separately. Subclause 7.8,# "Content stre#ams and resources" di#scuss#es P#DF content 
+str#eams and their associated resources. ![#Figu#re 1 PDF Components  .png](./Storage/Output/Images#/Fig#ure 1 PDF Components  .png)##
+Fig#ure 1: PDF Components 
+ #
+In addition, this clause describes some data structures, built# from #basic objects, that are so widely used 
+that they can almost be cons#idered #basic object types in their own# right#. These objects are covered in: 
+7.9, "Common data structures"; 7.10, "#Function#s"; and 7.11, "File specifications". Subclause 7.12, 
+"Extensions dictionary" describes a dictionary used to# id#entifying #developer#-defined extensions to this 
 part of ISO 32000 that are used in the file. 
-NOTE Variants of #PDF’s #object and file syntax are also used as the basis for other file formats. These 
+NOTE Va#r#i#ants o#f PDF’s object and file syntax are also used as the basis for other file formats. These 
 include the Forms Data Format (FDF), described in 12.7.8, "Forms data format", and the Portable 
-#Job Ticket Format (PJTF), described in Adobe Technical Note #5620, Portable #Job Ticket Format. 
+#Job Ticket #Format (PJTF), described in Adobe Technical Note #5620, Portable# Job Ticket# Format. 
 © ISO 2017 – All rights reserved 26 
 
 ISO/DIS 32000-2
  
-Annex H, "Example #PDF Files” presents several examples showing the structure of #PDF files. 
+Annex# H, #"Example PDF Files” presents several examples showing the# str#ucture of PDF files. 
 7.2Lexical conventions 
  
 7.2.1General 
  
 , “”
-At the most fundamental level, a #PDF file is a sequence of #bytes. These #bytes can be #grouped into tokens 
+At the most fundam#enta#l level, a PDF file is a sequence of #byte#s. These# byt#es can be #group#ed into tokens 
 according to the syntax rules described in subclauses 7.2.2Representation through 7.2.4, 
-“Comments”. One or more tokens are assembled to form higher-level syntactic entities, principally 
-#objects, which are the basic data values from which a #PDF document is constructed. 
-A #PDF file is represented as a sequence of 8-#bit #bytes, some of which are interpreted as #character codes 
-in the #ASCII ##character set and some of which are treated as ar#bitrary ##binary data depending upon the 
+“Comments”. One or more tokens are assembled to form higher-level syntactic entitie#s, pri#ncipally 
+objects, which are the basic data valu#es f#rom which a PDF document is# con#structed. 
+A PDF file is represented as a sequence of 8#-bi##t by#tes, some of which are interpreted as# character# codes 
+in the #ASCII# ##characte#r set# and some of which are treated as #ar#bitrar#y ##binary data #depending upon the 
 context. 
-The contents (data) of a string or #stream #object in some contexts are interpreted as #character codes in 
-the #PDFDocEncoding, UTF-8 or UTF-16 ##character set as described in 7.9.2, "#String #object types" and 
-7.3.8, "#Stream #objects" respectively. 
-The contents of a string within a #PDF #content stream in some situations are interpreted as #character 
-codes that select #glyphs to be drawn on the page according to a #character encoding that is associated 
-with the text #font as described in clause 9, "Text". 
-7.2.2Representation 
+The contents (data) of a #string #o#r stream objec#t in some contexts are interpreted #as charact##er# codes in 
+the PDFDocEncoding, UTF-8 or UTF#-1#6 charac#ter se#t as described #in 7.9.#2, "#String object #types" a#nd 
+7.#3.8#, "Stream obj#ects" respectively. 
+The contents of #a st#ring within a #PDF content str#eam in some situations are interprete#d as charac#ter 
+codes that select #glyph#s to be drawn on the page according# to a char#acter encoding that is associated 
+with the text# font# as described in clause 9, "Text". 
+7.2.2Representation# 
  
-A non-encrypted #PDF can be entirely represented using #byte values corresponding to the visible 
-printable subset of the #ASCII ##character set defined in ANSI X3.4-1986, plus #white-space #characters. 
-However, a #PDF file is not restricted to the #ASCII ##character set; it may contain ar#bitrary #bytes, subject to 
+#A non-encrypted PDF can be entirely represented usi#ng by#te values corresponding to the visible 
+printable subset of the# #ASCI#I# cha#racter s#et defined in ANSI X3.4-1986, plus #whit#e-space c#ha#ract#er#s. 
+However, a PDF file is not restricted to th##e ASC#I#I c#haracter# set; it may contai#n #arbitr#ary #bytes, subject to 
 the following considerations: 
 • 
-The tokens that delimit #objects and that describe the structure of a #PDF file shall use the #ASCII 
-##character set. In addition all the reserved words and the names used as keys in #PDF standard 
+The #tokens# that delimit objects and that descri#be t#he structure of a PDF file shall use t#h#e ASCI##I 
+#characte#r set. In addition all the reserved words and the# nam#es used as keys in PDF standard 
 • 
-dictionaries and certain types of arrays shall be defined using the #ASCII ##character set. 
-The data values of strings and streams #objects may be written# either entirely using the #ASCII 
-##character set or entirely in ##binary data. In actual practice, data that is naturally #binary, such as 
+dictionaries and certain types of arrays shall be defined using ##the AS##CII# charact#er set. 
+The data values of# strin#gs and streams objects may be written# ei#ther entirely using# #the AS##CII# 
+charact#er set or entirely# i#n# binary dat#a. In actual practice, data that is natu#ra#lly binary, such as 
 • 
-sampled images, is usually represented in #binary for compactness and efficiency. 
-A #PDF file containing ##binary data shall be transported as a #binary file rather than as a text file to 
-NOTE 1 A #binary file is not portable to environments that impose reserved #character codes, maximum line 
-ensure that all #bytes of the file are faithfully preserved. 
+sampled images, is usually represen#te#d in binary for compact#ness# and efficiency. 
+A PDF file cont#ai#nin#g binary dat#a shall be transpor#te#d as a binary file rather than as a text file to #
+N#OTE 1 A binary file is not portable to environments that imp#ose reserv#ed character codes, maximum line 
+ensure that# all# bytes of the file are faithfully preserved. 
 lengths, end-of-line conventions, or other restrictions. 
-NOTE 2 In this clause, the usage of the term #character is entirely independent of any logical meaning that 
+NOTE 2 In this clause, the usag#e of the t#erm character is entirely independent of any logical meaning that 
 the value can have when it is treated as data in specific contexts, such as representing human-
-readable text or selecting a #glyph from a #font. 
-7.2.3##Character set 
+readable text or selecting a# glyph# from# #a fo#nt.# 
+#7.2.3#Char#acter## set 
  
-The #PDF ##character set is divided into three classes referred to as regular, delimiter, and #white-space 
-#characters. This classification enables the #grouping of #characters into tokens including separating 
-syntactic constructs such as names and numbers from each other. The rules defined in this subclause 
-apply to all #characters in the file except within strings, streams, and comments. 
+#Th#e PDF chara#cter set is divided into three classes referred to as regular, delimiter, #and# white#-space 
+characte#rs. This classification enable#s the# gro#u#ping of characters into tokens including separating 
+syntactic constructs such as names and numbers from each other. The rules defined in this subcl#ause 
+app#ly to all characters in the file except within strings, streams, and comments. 
 © ISO 2017 – All rights reserved 27 
 
 ISO/DIS 32000-2
  
-NOTE 1 See 7.3.4, "#String #objects", 7.3.8, "#Stream #objects" and 7.2.4, "Comments". 
-#PDF treats any sequence of consecutive whitespace #characters, not inside of a string or stream, as one 
-#character. The #characters that are considered #white-space #characters are shown in "
+NOTE# 1 See# 7.3.4, #"String ob#jec#ts"#, 7.3.#8, "Stream ob#jects#" an#d 7.2.4, "Comments". 
+PDF treats any sequence of con#secutive #whitespace characters, not inside of a strin#g or stre#am, a#s one 
+ch#aracter. The characters that are #considere##d white-space charact#ers are shown in "

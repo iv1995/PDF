@@ -1,21 +1,21 @@
-#Figure 71: Transparency #groups 
+#Figure 71: Transparency #group#s 
  
-EXAMPLE "#Figure 71: Transparency #groups" illustrates the effects of transparency #grouping. In the upper two figures, 
-three coloured circles are painted as independent #objects with no #grouping. At the upper left, the three #objects 
-are painted opaquely (opacity = 1.0); each #object completely replaces its backdrop (including previously 
-painted #objects) with its own colour. At the upper right, the same three independent #objects are painted with 
+#EXAMPLE #"Figure 71: Transparency# group##s" illustrates the effects of transparenc#y gro#uping. In the upper two figures, 
+three coloured circles are painted as independent #object#s with #no gr#ouping. At the upper left, the three# objec#ts 
+are painted opaquely (opacity = 1.0); eac#h objec#t completely replaces its backdrop (including previously 
+paint#ed obj#ects) with its own colour. At the upper right, the same three independ#ent ob#jects are painted with 
 an opacity of 0.5, causing them to composite with each other and with the gray and white backdrop. In the 
 Normal
-lower two figures, the three #objects are com#bined as a transparency #group. At the lower left, the individual 
-#objects have an opacity of 1.0 within the #group, but the #group as a whole is painted in the  blend mode 
-with an opacity of 0.5. The #objects thus completely overwrite each other within the #group, but the resulting 
-group then composites transparently with the gray and white backdrop. At the lower right, the #objects have 
+lower two figures, the t#hree o#bjects are com#bi#ned as a transpare#ncy g#roup. At the lower left, the indivi#dual 
+#objects have an opacity of 1.0 within# the #group, bu#t the #group as a whole is painted in the  blend mode 
+with an opacity of 0.#5. The# objects thus completely overwrite each other with#in th#e group, but the resulting 
+group then composites transparently with the gray and white backdrop. At the lower rig#ht, th#e objects have 
 HardLight
-an opacity of 0.5 within the #group and thus composite with each other. The #group as a whole is painted against 
+an opacity of 0.5 wit#hin th#e group and thus composite with each ot#her. T#he group as a whole is painted against 
 the backdrop with an opacity of 1.0 but in a different blend mode (), producing a different visual 
 effect. 
 soft mask
-The colour result of compositing a #group may be converted to a single-component luminosity value and 
+The colour result of comp#ositin#g a group may be converted to a single-component luminosity value and 
 treated as a . Such a mask may then be used as an additional source of shape or opacity values 
 soft clipping
 for subsequent compositing operations. When the mask is used as a shape, this technique is known as 
@@ -25,9 +25,9 @@ for subsequent compositing operations. When the mask is used as a shape, this te
  
 11.3.1General 
  
-This sub-clause describes the basic computations for compositing a single #object with its backdrop. 
-These computations are extended in 11.4, "Transparency #groups" to cover #groups consisting of multiple 
-#objects. 
+This sub-clause describes the basic computations for compositing #a singl#e object with its backdrop. 
+These computations are extended in 11.4, "Tr#anspa#rency group#s" to# cover groups consisting of #multip#le 
+objects. 
 11.3.2Basic notation for compositing computations 
  
 In general, variable names in this clause consisting of a lowercase letter denote a scalar quantity, such 
@@ -50,23 +50,23 @@ In certain computations, one or more variables may have undefined values; for in
 is equal to zero, the corresponding colour is undefined. A quantity can also be undefined if it results 
 from division by zero. In any formula that uses such an undefined quantity, the quantity has no effect on 
 the ultimate result because it is subsequently multiplied by zero or otherwise cancelled out. It is 
-significant that although any ar#bitrary value may be chosen for such an undefined quantity, the 
-computation shall not mal#function because of exceptions caused by overflow or division by zero. In 
+significant that although any a#rb#itrary value may be chosen for such an undefined quantity, the 
+computation shall not mal#function #because of exceptions caused by overflow or division by zero. In 
 addition, the convention that 0÷0=0 shall also be adopted. 
 11.3.3Basic compositing formula 
  
 result colour
 The primary change in the imaging model to accommodate transparency is in how colours are painted. 
 backdrop colour
-In the transparent model, the result of painting (the ) is a #function of both the colour being 
+In the transparent model, the result of painting (the ) is a# function# of both the colour being 
 painted (the source colour) and the colour it is painted over (the ). Both of these colours 
-may vary as a #function of position on the page; however, this sub-clause focuses on some fixed point on 
+may vary as #a functio#n of position on the page; however, this sub-clause focuses on some fixed point on 
 the page and assumes a fixed backdrop and source colour. 
 alpha
 blend
 This computation uses two other parameters: , which controls the relative contributions of the 
 basic colour compositing formulabasic compositing formula
-backdrop and source colours, and the  #function, which specifies how they shall be com#bined in the 
+backdrop and source colours, and th#e  funct#ion, which specifies how they shall be c#om#bined in the 
 painting operation. The resulting  (or just  for 
 short) shall determine the result colour produced by the painting operation: 
 𝑠𝑠𝑠𝑠

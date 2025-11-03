@@ -1,9 +1,9 @@
-#Table 373: Standard structure type Figure" defines the  standard structure type. 
+#Table 373: Standard structure type Figure#" defines the  standard structure type. 
 Figure
 BTET
 The standard structure type  encloses content that represents one or more complete graphics 
-#objects. It shall not appear between the  and  operators delimiting a text #object (see 9.4, "Text 
-#objects").  
+#object#s. It shall not appear between the  and  operators delimiting a text# object# (see 9.4, "Text# 
+obje#cts").  
 © ISO 2017 – All rights reserved 740 
 
 ISO/DIS 32000-2
@@ -15,18 +15,18 @@ purposes it may be treated as visually static, without examining its internal co
  attribute (see 14.8.5, "Standard structure attributes"). 
 FigureAlt
 ActualText
-For repurposing and accessi#bility purposes, a  element should have# either an  entry or an 
+For repurposing and accessi#bi#lity purposes, a  element should have# ei#ther an  entry or an 
  entry in its structure element dictionary (see 14.9.3, "Alternate descriptions" and 14.9.4, 
 "Replacement text"). 
-NOTE  is a description of the graphics #objects enclosed by the  element, whereas  
+NOTE  is a description of the graphi#cs obj#ects enclosed by the  element, whereas  
 AltFigureActualText
-gives the exact text equivalent of a graphical illustration that has the appearance of text. 
-#Table 373: Standard structure type Figure 
+gives the exact text equivalent of a graphical illustration that has the appearance of text. #
+Table 373: Standard structure type Figure #
 Structure Category Description 
 Type 
 Figure 
 BBox
-#Grouping, Encloses graphical content.  
+#Group#ing, Encloses graphical content.  
 Block or Inline  
 The  attribute (see 14.8.5, "Standard structure attributes") should be 
 present for a figure appearing in its entirety on a single page to indicate the area 

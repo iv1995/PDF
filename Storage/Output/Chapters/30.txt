@@ -1,5 +1,5 @@
-##font program 
-software program written in a special-purpose language, such as the Type 1, TrueType, or OpenType 
-#font format, that is understood by a specialized #font interpreter 
+##font #program 
+#software program written in a special-purpose language, such as the Type 1, TrueType, or OpenType #
+font# format, that is understood by a specialize#d fon#t interpreter 
 4.28 
  

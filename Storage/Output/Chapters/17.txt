@@ -1,5 +1,5 @@
 #decimal radix separator 
-full stop #character (PERIOD (2Eh)) placed between the integral and fractional parts of a real number 
+#full stop #character #(PERIOD (2Eh)) placed between the integral and fractional parts of a real number 
 #object 
-4.15 
+#4.15 
  

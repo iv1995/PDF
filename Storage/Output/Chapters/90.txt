@@ -1,39 +1,39 @@
 #Table 19: Additional entries in a hybrid-reference file’s trailer dictionary 
-Key Type Value 
+#Key Type Value 
 Optional
 XRefStm 
-integer () The #byte offset in the decoded stream from the beginning of the file of a 
+integer () The #byte #offset in the decoded stream from the beginning of the file of a 
 cross-reference stream. 
  
-When a ##PDF reader opens a hybrid-reference file, #objects with entries in cross-reference streams are 
+When a ##PDF #reader #opens a hybrid-reference file, #object#s with entries in cross-reference streams are 
  XRefStm 
-not hidden. When the ##PDF reader searches for an #object, if an entry is not found in any given standard 
+not hidden. When the## PDF# reader# searches for an# objec#t, if an entry is not found in any given standard 
  Prev 
 cross-reference section, the search shall proceed to a cross-reference stream specified by the
 entry before looking in the previous cross-reference section (theentry in the trailer). 
-NOTE Hidden #objects, therefore, have two cross-reference entries. One is in the cross-reference stream. 
+NOTE Hidde#n obje#cts, therefore, have two cross-reference entries. One is in the cross-reference stream. 
 The other is a free entry in some previous section, typically the section referenced by the
  Prev 
 entry.  
-A ##PDF reader shall look in the cross-reference stream first, find the #object there, and shall ignore the 
+##A PD#F reade#r shall look in the cross-reference stream first, find t#he obje#ct there, and shall ignore the 
 free entry in the previous section.  
-EXAMPLE In this example, an #ASCIIHexDecode #filter is specified to make the format and contents of the cross-reference 
+EXAMPLE In this example, an #ASCII#HexDecode #filter #is specified to make the format and contents of the cross-reference 
 stream readable. This example shows a hybrid-reference file containing a main cross-reference section and 
-an update cross-reference section with an XRefStm entry that points to a cross-reference stream (#object 11), 
-which in turn has references to an ##object stream (#object 2). 
- In this example, the catalog dictionary (#object 1) contains an indirect reference (3 0 R) to the root of the 
-structure tree. The search for the #object starts at the update cross-reference table, which has no objects in it. 
-The search proceeds depending on the version of the ##PDF reader. 
- One choice for a ##PDF reader designed only to support versions of #PDF before #PDF 1.5 is to continue the search 
-by following the Prev pointer to the main cross-reference table. That table defines #object 3 as a free #object, 
+an update cross-reference section with an XRefStm entry that points to a cross-reference stre#am (obj#ect 11), 
+which in turn has references t#o an #ob#ject st#ream #(o#bject 2). 
+ In this example, the catalog dicti#onary (#object 1) contains an indirect reference (3 0 R) to the root of the 
+structure tree. The search #for the# object starts at the update cross-reference table, which has no objects in it. 
+The search proceeds depending on the version of t##he P#DF rea#der. 
+ One choice fo#r# a #PDF rea#der designed only to support version#s of# PDF b#efor#e PDF 1.5 is to continue the search 
+by following the Prev pointer to the main cross-reference table. That table# define#s object 3 #as a f#ree object, 
 © ISO 2017 – All rights reserved 72 
 
 ISO/DIS 32000-2
  
-which is treated as the #null #object. Therefore, the entry is considered missing, and the document has no 
+which is treated as# the #n#ull object#. Therefore, the entry is considered missing, and the document has no 
 structure tree.  
- Another choice for a ##PDF reader, is to continue the search by following the XRefStm pointer to the cross-
-reference stream (#object 11). It defines #object 3 as a compressed #object, stored at index 0 in the ##object stream 
+ Another choice# fo#r# a PDF r#eader, is to continue the search by following the XRefStm pointer to the cross-
+refere#nce str#eam (object 11)#. It de#fines object 3 as# a com#pressed object, stored at #index 0# in the# object stream #
 (2 0 obj). Therefore, the document has a structure tree. 
 1 0 obj          %The document root, at offset 23. 
    <</Type /Catalog 
@@ -50,8 +50,8 @@ endobj
 … 
 endobj 
  
-%The main xref section, at offset 2664 is next with entries for #objects 0-99. 
-%#Objects 2 through 11 are marked free and #objects 12, 13 and 99 are marked in use. 
+%The main xref section, at offset 2664 is next w#ith en#tries for# objec#ts 0-99. 
+%Objects 2 through 11 ar#e mark#ed free and objects 12, 13 and 99 are marked in use. 
 xref 
 0 100 
 0000000002 65535 f 
@@ -68,7 +68,7 @@ xref
 0000000000 65535 f 
 0000000045 00000 n 
 0000000179 00000 n 
-… cross-reference entries for #objects 14 through 98 … 
+… cross-ref#erence# entries for objects 14 through 98 … 
 0000002201 00000 n 
 trailer 
    <</Size 100 
@@ -80,15 +80,15 @@ startxref
   2664 
 %%EOF 
  
-2 0 obj          %The ##object stream, at offset 3722 
+2 #0 obj  #        %Th#e object stre#am, at offset 3722 
    <</Length … 
-   /N 8        %This stream contains 8 #objects. 
-   /First 47      %The stream-offset of the first #object 
+   /N 8        %Th#is str#eam contains 8 objects. 
+   /First 47      %The strea#m-offset o#f the first object 
   >> 
 stream 
-… the numbers and stream-offsets of the remaining 5 #objects followed by 
-  3 0 4 50 5 72 
-#dictionary #objects 3-5 …
+… the numbers and stream-offs#ets of# the remaining 5 objects followed by 
+  3 0# 4 50 5# 72 
+#dictionary object#s 3-5 …
  
    <</Type /StructTreeRoot 
    /K 4 0 R 
@@ -109,18 +109,18 @@ ISO/DIS 32000-2
    /Worksheet /Sect 
    /TextBox /Figure 
    /Shape /Figure 
-  >> 
-  … definitions for #objects 6 through 10  
+ # >> 
+ # … definitions for objects 6 through 10  
 …
 endstream 
 endobj 
  
 11 0 obj          %The cross-reference stream, at offset 4899 
    <</Type /XRef 
-   /Index [2 10]     %This stream contains entries for #objects 2 through 11 
+   /Index [2 10]     %This st#ream c#ontains entries for objects 2 through 11 
    /Size 100 
-   /W [1 2 1]       %The #byte-widths of each field 
-   /#Filter /#ASCIIHexDecode  %For reada#bility only 
+   /W [1 2 1]       %The# byt#e-widths of each field 
+   #/Filter ##/ASCI#IHexDecode  %For reada#bi#lity only 
    … 
 >> 
 stream 
@@ -137,9 +137,9 @@ stream
 endstream 
 endobj 
  
-%The entries above are for: #object 2 (0x0E8A = 3722), #object 3 (in ##object stream 2, index 0), 
-%#object 4 (in ##object stream 2, index 1) … #object 10 (in ##object stream 2, index 7), 
-%#object 11 (0x1323 = 4899). 
+%#The ent#ries above are for#: objec#t 2 (#0x0E8A #= 3722), object 3 (i#n# object# stre##am 2, i#ndex 0), 
+%object 4 ##(in obj#ect st#r#eam 2,# index 1) … object 10## (in ob#ject st#ream 2, index 7), 
+%object 11 (0x1323 = 4899). 
  
 %The update xref section starting at offset 5640. There are no entries in this section. 
 xref 
@@ -155,96 +155,96 @@ startxref
 5640 
 %%EOF 
  
-The previous example illustrates several other points: 
+The previous example illustr#ates se#veral other points: 
+•# 
+The object s#tream is unencoded and the cross-reference stream uses a#n ASCI#I hexadecimal 
+encoding for clarity. In practice, both streams should be Flate-e#ncod#ed. PDF comments shall not be 
 • 
-The ##object stream is unencoded and the cross-reference stream uses an #ASCII hexadecimal 
-encoding for clarity. In practice, both streams should be Flate-encoded. #PDF comments shall not be 
-• 
-included in a cross-reference table or in cross-reference streams. 
-The hidden #objects, 2 through 11, are numbered consecutively. In practice, hidden #objects and 
+included in a cross-reference table or in c#ross-r#eference streams. 
+The hidden objects, 2 through 11, are numbere#d cons#ecutively. In practice, hidden objects and 
 • 
 other free items in a cross-reference table need not be linked in ascending order until the end. 
-The update cross-reference table need not contain any entries. A ##PDF writer that uses the hybrid-
+The update cross-reference table need not contain any en#trie#s. A #PDF writer #that uses the hybrid-
 reference format creates the main cross-reference table, the update cross-reference table, and the 
 © ISO 2017 – All rights reserved 74 
 
 ISO/DIS 32000-2
  
-cross-reference stream at the same time. #Objects 12 and 13, for example, are not compressed. They 
-might have entries in the update table. Since #objects 2 and 11, the ##object stream and the cross-
+cro#ss-ref#erence stream at the same time. Objects 12 and 13, for example, are not compressed. They 
+might h#ave en#tries in the up#date ta#ble. Since objects 2 and 1#1, the object #stream and the cross-
 reference stream, are not compressed, they might also be defined in the update table. Since they 
 are part of the hidden section, however, it makes sense to define them in the cross-reference 
 • 
 stream. 
-The update cross-reference section shall appear at the end of the file, but otherwise, there are no 
-ordering restrictions on any of the #objects or on the main cross-reference section. However, a file 
+The update cross-reference section shall appear at the end of the file, but otherwise, there are# no 
+o#rdering restrictions on any of the objects or on the main cross-reference section. However, a file 
 that uses both the hybrid-reference format and the linearized format has ordering requirements 
 7.6Encryption 
  
-(see Annex F, "Linearized #PDF"). 
-7.6.1General 
- 
-#PDF 1.1
-A #PDF document can be encrypted () to protect its contents from unauthorised access. 
+(see Annex F, "L#ine#arized PDF"). 
+7.6.1#Gene#ral 
+# 
+PD#F 1.1
+A PDF document can be encrypted () to protect its contents from unauthorised access. 
 7.6.2Application of encryption 
  
-Encryption applies to all strings and streams in the document's #PDF file, with the following exceptions:# 
+Encryption applies to all strings and streams in th#e do#cument's PDF file, with the following exceptions:# 
  ID 
-• 
+#• 
  Encrypt 
 • 
 The values for theentry in the trailer 
 • 
 Any strings in andictionary 
-Any strings that are inside streams such as #content streams and compressed ##object streams, which 
+Any strings that are inside streams# such a#s #content stream#s and com#pressed objec#t streams, which 
 Contents
 • 
 themselves are encrypted 
-Any hexadecimal strings representing the value of the  key in a Signature dictionary 
-Encryption is not applied to other #object types such as integers and boolean values, which are used 
+Any hexadecimal strings representing the value of the  key in a Signature dict#ionary #
+Encryption is not applied to other object types such as integers and boolean values, which are used 
 primarily to convey information about the document's structure rather than its contents. Leaving these 
-values unencrypted allows random access to the #objects within a document, whereas encrypting the 
-strings and streams protects the document's contents. 
-When a #PDF #stream #object (see 7.3.8, "#Stream #objects") refers to an external file, the stream’s contents 
-shall not be encrypted, since they are not part of the #PDF file itself. However, if the contents of the 
-stream are embedded within the #PDF file (see 7.11.4, "Embedded file streams"), they shall be encrypted 
-like any other stream in the file. Beginning with #PDF 1.5, embedded files can be encrypted in an 
-otherwise unencrypted document (see 7.6.6, "Crypt #filters"). 
+val#ues un#encrypted allows random access to the objects within a document, whereas encrypting the 
+strings and streams protects# the do#cument's conten#ts. ##
+When #a PDF #stream object #(see 7.3.8, #"Stream objec#ts") refers to an external file, the stream’s contents 
+shall not be encrypted, since they are n#ot p#art of the PDF file itself. However, if the contents of the 
+stream are embe#dded# within the PDF file (see 7.11.4, "Embedded file streams"), they shall be encrypted 
+like any other stream in the file#. Be#ginning with PDF 1.5, embedded files can be encrypted in an 
+otherwise unencrypted document (see 7.6.6, "Cryp#t filt#ers"). 
  Encrypt 
 Encryption-related information shall be stored in a document’s encryption dictionary, which shall be 
 the value of theentry in the document’s trailer dictionary (see "#Table 15: Entries in the file 
-trailer dictionary"). The absence of this entry from the trailer dictionary means that a ##PDF processor 
-shall consider the document to be not encrypted. The entries shown in "Table 20: Entries common to all 
+trailer dictionary#"). The absence of this entry from the trailer dictio#nary# means that a #PDF processor 
+#shall consider the document to be not encrypted. The entries shown in "Table 20: Entries common to all 
 Encrypt
 encryption dictionaries" are common to all encryption dictionaries. For document with multiple 
-versions the  entry should be# identical in all copies of the trailer. 
-#Filter
-The encryption dictionary’s  entry# identifies the file’s security handler, a software module that 
+versions the  entry should b#e i#dentical in all copies of the trailer#. 
+Filt#er
+The encryption dictionary’s  ent#ry #identifies the file’s security handler, a software module that 
 implements various aspects of the encryption process and controls access to the contents of the 
-encrypted document. #PDF specifies a standard password-based security handler that all ##PDF processors 
-shall support, but ##PDF processors can optionally provide additional security handlers of their own. 
- Sub#Filter 
-Theentry specifies the syntax of the encryption dictionary contents. It allows interopera#bility 
+e#ncry#pted document. PDF specifies a standard password-based securi#ty h#andler that all# PDF processo#rs# 
+sh#all support, bu#t PDF process#ors can optionally provide additional security handlers of their own. 
+# SubFilt#er 
+Theentry specifies the syntax of the encryption dictionary contents. It allows interoper#ab#ility 
 © ISO 2017 – All rights reserved 75 
 
-ISO/DIS 32000-2
+ISO/DIS 32000#-2
  
-#FilterSub#Filter
+F#il#terSubF#ilter
 between handlers; that is, a document can be decrypted by a handler other than the preferred one (the 
  entry) if they both support the format specified by . 
 V
 V
 The  entry, in specifying which algorithm to use, determines the length of the file encryption key, on 
 LengthV
-which the encryption (and decryption) of data in a #PDF file shall be based. For  values 2 and 3, the 
- entry specifies the exact length of the file encryption key. In #PDF 1.5, a value of 4 for  permits 
-#PDF 2.0
-the security handler to use its own encryption and decryption algorithms and to specify crypt #filters 
+which the encryption (and dec#rypt#ion) of data in a PDF file shall be based. For  values 2 and 3, the 
+ entry specifies the exact length of the f#ile #encryption key. In PDF 1.5, a v#alue# of 4 for  permits 
+PDF 2.0
+the security handler to use its own encryption and decryption algorithms and to specify# crypt# filters 
 V
-with a key length of 128 #bits (16 #bytes) to use on specific streams (see 7.6.6, "Crypt #filters"). () A 
+with a key length of 12#8 #bits (1#6 by#tes) to use on specific streams (see 7.6.6,# "Cryp#t filters"). () A 
 V
-value of 5 for  permits the specification of crypt #filters with a file encryption key length of 256 #bits (32 
-#bytes). Values less than 5 for the  entry are #deprecated. 
+value of 5 for  permits the specification #of cry#pt filters with a file encryption key length of 2#56# bits (3#2 
+b#ytes). Values less than 5 for the  entry are #deprecated#. 
 The remaining contents of the encryption dictionary shall be determined by the security handler and 
 may vary from one handler to another. Entries for the standard security handler are described in 7.6.4, 
 "Standard security handler". Entries for public-key security handlers are described in 7.6.5, "Public-key 

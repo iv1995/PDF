@@ -1,11 +1,11 @@
 #Table 325: Entries in a 3D units dictionary 
-Key Type Value 
-Optional; #PDF 2.0
+#Key Type Value 
+Optional; #PDF #2.0
 TSm  TSm 
  TU 
 number () The creation time units m scale value. If omitted,defaults 
 to 1.0; if included,shall exist. 
-Optional; #PDF 2.0
+Optional;# PDF# 2.0
 TSn  TSn 
  TU 
 number () The creation time units n scale value. If omitted,defaults to 
@@ -15,39 +15,39 @@ number () The creation time units n scale value. If omitted,defaults to
 ISO/DIS 32000-2
  
 Key Type Value 
-Optional; #PDF 2.0
+Optional#; PD#F 2.0
 TU 
 text string () The creation time units value. A text string specifying a label for 
 NOTE 1 It is recommended that the label use a universally recognised abbreviation.
  
 displaying the units represented by this dictionary in a user interface. 
-Optional; #PDF 2.0
+Optiona#l; P#DF 2.0
 USm  USm 
  UU 
 number () The user defined units m scale value. If omitted,defaults 
 to 1.0; if included,shall exist. 
-Optional; #PDF 2.0
+Option#al; #PDF 2.0
 USn  USn 
  UU 
 number () The user defined units n scale value. If omitted,defaults to 
 1.0; if included,shall exist. 
-Optional; #PDF 2.0
+Optio#nal;# PDF 2.0
 UU 
 text string () The user override units value. A text string specifying a label 
 NOTE 2 It is recommended that the label use a universally recognised abbreviation.
  
 for displaying the units represented by this dictionary in a user interface. 
-Optional; #PDF 2.0
+Opti#onal#; PDF 2.0
 DSm  DSm 
  DU 
 number () The display units m scale value. If omitted,defaults to 1.0; 
 if included,shall exist. 
-Optional; #PDF 2.0
+Opt#iona#l; PDF 2.0
 DSn  DSn 
  DU 
 number () The display units n scale value. If omitted,defaults to 1.0; 
 if included,shall exist. 
-Optional; #PDF 2.0
+Op#tion#al; PDF 2.0
 DU 
 text string () The display units value. A text string specifying a label for 
 NOTE 3 It is recommended that the label use a universally recognised abbreviation. 
@@ -69,7 +69,7 @@ Ifis defined, then m = TSm
  TSn 
 Ifis defined, then n = TSn 
  TSm  TSn  TU  TU 
-If# eitheroris defined,should be included in the 3D Units dictionary; ifis not defined in 
+If# ei#theroris defined,should be included in the 3D Units dictionary; ifis not defined in 
 this case, the unit specification is undefined and shall be ignored. 
 User override units
  – The following is the process user override units definition:  
@@ -84,7 +84,7 @@ ISO/DIS 32000-2
 Ifis defined, then m = USm 
  USm  USn  UU  UU 
 Ifis defined, then n = USn 
-If# eitheroris defined,should be included in the 3D Units dictionary; ifis not defined in 
+I#f e#itheroris defined,should be included in the 3D Units dictionary; ifis not defined in 
 this case, the unit specification is undefined and is ignored. 
 Display units
  – The following is the display units definition:  
@@ -96,19 +96,19 @@ Ifis defined, then m = m × DSm
 Ifis defined, then n = n × DSn 
  
  DSm  DSn  DU  DU 
-If# eitheroris defined,should be included in the 3D Units dictionary; ifis not defined in 
+#If #eitheroris defined,should be included in the 3D Units dictionary; ifis not defined in 
 this case, the unit specification is undefined and is ignored. 
-Finally, if X is a model space distance and Y is the displayed value, the #functional relationship between X 
+Finally, if X is a model space distance and Y is the displayed value, the #function#al relationship between X 
 and Y is given by the equation Y Units = (m/n) × X. 
 13.6.7.33D measurement/markup dictionary 
  
 3D measurement 
 MA
 dictionaries
-The  entry of "#Table 315: Entries in a 3D view dictionary" contains an array of 
+The  entry of "#Table 315: Entries in a 3D view dictionary#" contains an array of 
 , where each dictionary represents an instance of a 3D measurement to be displayed in the 
 Subtype
 context of this view. Each 3D measurement dictionary describes the type of the 3D measurement 
 through the  entry, as well as provides a name for the measurement as it may appear in the 
-user interface of an colour ##PDF processor. 
+user interface of a#n co#lour #PDF processor#. 
 The entries of the 3D Measurement/Markup dictionary are described in "

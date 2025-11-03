@@ -1,5 +1,5 @@
 #function 
-special type of #object that represents parameterised classes, including mathematical formulas and 
-sampled representations with ar#bitrary resolution 
+#special type of #object #that represents parameterised classes, including mathematical formulas and 
+sampled representations with ar#bi#trary resolution 
 4.29 
  

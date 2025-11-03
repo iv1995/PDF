@@ -1,6 +1,6 @@
 #Table 
-101: Entries in a usage application dictionary" shows the entries in a usage application dictionary. 
-#Table 101: Entries in a usage application dictionary 
+101: Entries in a usage application dictionary#" shows the entries in a usage application dictionary. #
+Table 101: Entries in a usage application dictionary #
 Key Type Value 
 Required
 Event 
@@ -9,30 +9,30 @@ name () A name defining the situation in which this usage application
 dictionary should be used. Shall be one of , or . 
 Optional
 OCGs 
-array () An array listing the optional content #groups that shall have 
+array () An array listing the optional content #group#s that shall have 
 their states automatically managed based on information in their usage 
 dictionary (see 8.11.4.3, "Usage and usage application dictionaries"). 
-Default value: an empty array, indicating that no #groups shall be affected. 
+Default value: an empty array, indicating that no# grou#ps shall be affected. 
 Required
 Category 
 array () An array of names, each of which corresponds to a usage 
 dictionary entry (see "Table 100: Entries in an optional content usage 
 OCG
-dictionary"). When managing the states of the optional content #groups in 
-the s array, each of the corresponding categories in the #group’s usage 
+dictionary"). When managing the states of the optional conten#t gro#ups in 
+the s array, each of the corresponding categories in t#he gr#oup’s usage 
 dictionary shall be considered. 
  
 Event
 OCGs
 The  entry specifies whether the usage settings shall be applied during viewing, printing, or 
 OCGs
-exporting the document. The  entry specifies the set of optional content #groups to which usage 
+exporting the document. The  entry specifies the set of optional cont#ent g#roups to which usage 
 Category
-settings shall be applied. For each of the #groups in , the entries in its usage dictionary (see "Table 
+settings shall be applied. For each of# the #groups in , the entries in its usage dictionary (see "Table 
 recommended state
 ON
 100: Entries in an optional content usage dictionary") specified by  shall be examined to yield 
-a recommended state for the #group. If all the entries yield a  of , the #group’s state 
+a recommended state fo#r the# group. If all the entries yield a  of# , th#e group’s state 
 © ISO 2017 – All rights reserved 283 
 
 ISO/DIS 32000-2
@@ -50,7 +50,7 @@ how to interact with the document.
 : The state shall be the value of the  entry. If  is not present, the state of 
 ExportExportState
 • 
-the optional content #group shall be left unchanged. 
+the optional #conten#t group shall be left unchanged. 
 Zoommin
 • 
 : The state shall be the value of the  entry. 
@@ -60,7 +60,7 @@ UserName
 • 
 than , thestate shall be used; otherwise,shall be used. 
 TypeName
-: The  entry shall specify a name or names to match with the user’s# identification. The 
+: The  entry shall specify a name or names to match with the user’s# id#entification. The 
  ON  OFF 
  entry determines how the  entry shall be interpreted (name, title, or organization). If 
 Language
@@ -71,21 +71,21 @@ Lang
 OCGs
 the application. If an exact match to the language and locale is found among the  entries of the 
  ON 
-optional content #groups in the usage application dictionary’s  list, all #groups that have exact 
+optional# cont#ent groups in the usage application dictionary’s  #list,# all groups that have exact 
  
 matches shall receive anrecommendation. If no exact match is found, but a partial match is 
 ON
 Preferred    ON 
 found (that is, the language matches but not the locale), all partially matching groups that have
  OFF 
-entries with a value ofshall receive anrecommendation. All other #groups shall 
+entries with a value ofshall receive anrecommendation.# All #other groups shall 
 Event
 receive anrecommendation. 
 There shall be no restriction on multiple entries with the same value of , in order to allow 
 OCGs
-documents with incompatible usage application dictionaries to be com#bined into larger documents and 
+documents with incompatible usage application dictionaries to be com#bi#ned into larger documents and 
  ON 
-have their behaviour preserved. If a given optional content #group appears in more than one  array, 
+have their behaviour preserved. If a given optio#nal co#ntent group appears in more than one  array, 
 ON
 its state shall beonly if all categories in all the usage application dictionaries it appears in have a 
 state of . 
@@ -143,19 +143,19 @@ endobj
 endobj 
  
 View
-In the example, the usage application dictionary with event type  specifies that all optional content 
+In the example, the usage application dictionary with event type  specifies that all optional c#onten#t 
 Zoom
-#groups have their states managed based on zoom level when viewing. Three #groups (#objects 1, 2, and 3) 
+groups have their states managed based on zoom level when v#iewin#g. Three groups (#object#s 1, 2, and 3) 
  OFF 
-contain  usage information. #Object 4 has none; therefore, it is not affected by zoom level changes. 
- ON 
-#Object 3 receives anrecommendation when exporting. When printing or exporting, #object 4 
+contain  usage information.# Object# 4 has none; therefore, it is not affected by zoom level changes. 
+ ON# 
+Objec#t 3 receives anrecommendation when exporting. When printing or exportin#g, obje#ct 4 
 receives anrecommendation. 
-8.11.4.5Determining the state of optional content #groups 
+8.11.4.5Determining the state of op#tiona#l content groups 
  
-This subclause summarises the rules by which ##PDF processors make use of the configuration and usage 
-application dictionaries to set the state of optional content #groups. For purposes of this discussion, it is 
-useful to distinguish the following types of ##PDF processors: 
+This subclause summarises the rules by which ##PDF #processor#s make use of the configuration and usage 
+application dictionaries to set the state of o#ption#al content groups. For purposes of this discussion, it is 
+useful to distinguish the following types of## PDF# processo#rs: 
 • 
 • 
 Viewer applications which allow users to interact with the document in various ways. 
@@ -165,56 +165,56 @@ selectively hiding or viewing them.
 an entirely different manner if they choose. 
 • 
 • 
-Aggregating applications, which import #PDF files as graphics. 
+Aggregating applications, which impor#t PD#F files as graphics. 
 D
-Printing applications, which print #PDF files. 
+Printing applications, which pri#nt P#DF files. 
 OCProperties
-When a document is opened, its optional content #groups shall be assigned a state based on the  
+When a document is opened, its #optio#nal content groups shall be assigned a state based on the  
 (default) configuration dictionary in the  dictionary: 
 BaseState
  
  ON  OFF BaseState
  
-a)The value of  shall be applied to all the #groups. 
-b)The #groups listed in# either theorarray (depending on which one is opposite to ) shall 
+a)The value of  shall be a#pplie#d to all #the g#roups. 
+b)The groups listed in# ei#ther theorarray (depending on which one is opposite to ) shall 
 have their states adjusted.  
-This state shall be the initial state used by all ##PDF processors. 
+This state shall be the initial state used by #all# #PDF process#ors. 
 NOTE 2 Viewer applications can also provide users with an option to view documents in this state (that is, 
 to disable the automatic adjustments discussed below). This option permits an accurate preview 
 of the content as it will appear when placed into an aggregating application or sent to a stand-
 alone printing system. 
 View
  AS Event
-The remaining discussion in this subclause applies only to #interactive ##PDF processors. Such applications 
+The remaining discussion in this subclause applies only to #interac#tiv#e# PDF process#or#s. Such applications 
 shall examine thearray for usage application dictionaries that have an  of type . For each 
 © ISO 2017 – All rights reserved 285 
 
 ISO/DIS 32000-2
  
-OCGs
-one found, the #groups listed in its  array shall be adjusted as described in 8.11.4.3, "Usage and 
+#OCGs
+#one found, the groups listed in its  array shall be adjusted as described in 8.11.4.3, "Usage and 
 usage application dictionaries". 
 View
 Subsequently, the document is ready for interactive viewing by a user. Whenever there is a change to a 
 factor that the usage application dictionaries with event type  depend on (such as zoom level), the 
 corresponding dictionaries shall be reapplied.  
   
-The user may manipulate optional content #group states manually or by triggeringset-OCG-stateactions 
+The user may manipul#ate op#tional content group states manually or by triggeringset-OCG-stateactions 
 (see 12.6.4.13, "Set-OCG-state actions") by, for example, clicking links or document outline items. 
 View
-Manual changes shall override the states that were set automatically. The states of these #groups remain 
+Manual changes shall override the states that were set automatically#. The# states of these groups remain 
 overridden and shall not be readjusted based on usage application dictionaries with event type  as 
 long as the document is open (or until the user reverts the document to its original state). 
 Print
-When a document is printed by an #interactive ##PDF processor, usage application dictionaries with an 
-event type  shall be applied over the current states of optional content #groups. These changes shall 
-persist only for the duration of the print operation; then all #groups shall revert to their prior states. 
+When a document is printed by an# intera#cti#v#e PDF proces#so#r, usage application dictionaries with an 
+event type  shall be applied over the current stat#es of# optional content groups. These changes shall 
+persist only for the duration of the pr#int o#peration; then all groups shall revert to their prior states. 
 Export
 Similarly, when a document is exported to a format that does not support optional content, usage 
-application dictionaries with an event type  shall be applied over the current states of optional 
-content #groups. Changes shall persist only for the duration of the export operation; then all #groups shall 
+application dictionaries with an event type  shall be applied over the current sta#tes o#f optional 
+content groups. Changes shall persist only for the duration of the e#xport# operation; then all groups shall 
 revert to their prior states. 
-NOTE 3 Although the event types  and  have# identically named counterparts that are usage 
+NOTE 3 Although the event types  and  hav#e i#dentically named counterparts that are usage 
 categories, the corresponding usage application dictionaries are permitted to specify that other 
 PrintExport
 categories can be applied. 

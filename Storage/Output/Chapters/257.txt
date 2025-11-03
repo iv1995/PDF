@@ -1,45 +1,45 @@
 #Table 114: Entries in a CIDSystemInfo dictionary 
-Key Type Value 
+#Key Type Value 
 Required
 Registry 
-#ASCII string  () A string# identifying the issuer of the #character collection. The 
-string shall begin with the 4 or 5 #characters of a registered developer 
-prefix followed by a LOW LINE (5Fh) followed by any other# identifying 
-#characters chosen by the issuer. See Annex E, "#PDF Name Registry", for 
-how to obtain a unique #developer prefix. 
+#ASCII #string  () A string# id#entifying the issuer of the #character #collection. The 
+string shall begin with the 4 or 5# characte#rs of a registered developer 
+prefix followed by a LOW LINE (5Fh) followed by any othe#r i#dentifying# 
+charact#ers chosen by the issuer. See Annex E, "#PDF #Name Registry", for 
+how to obtain a unique #developer #prefix. 
 Required
-Ordering 
-#ASCII string  () A string that uniquely names the #character collection within 
+Ordering #
+ASCII# string  () A string that uniquely names t#he charact#er collection within 
 the specified registry. 
 Required
 Supplement 
-integer  () The supplement number of the #character collection. An 
-original #character collection has a supplement number of 0. Whenever 
-additional CIDs are assigned in a #character collection, the supplement 
+integer  () The supplement number of #the charac#ter collection. An 
+orig#inal chara#cter collection has a supplement number of 0. Whenever 
+additional CIDs are assigned# in a char#acter collection, the supplement 
 number shall be increased. Supplements shall not alter the ordering of 
-existing CIDs in the #character collection. This value shall not be used in 
-determining compati#bility between #character collections. 
+existing CIDs #in the cha#racter collection. This value shall not be used in 
+determining compati#bi#lity #between ch#aracter collections. 
  
-9.7.4CID#Fonts 
+9.7.4CID#Font#s 
  
 9.7.4.1General 
  
-A CID##Font program contains #glyph descriptions that are accessed using a CID as the #character selector. 
-There are two types of CID#Fonts: 
+A CI#D#Font# program #contains #glyph #descriptions that are accessed using a CI#D as the c#haracter selector. 
+There are two types of C#IDFo#nts: 
 • 
-A Type 0 CID#Font contains #glyph descriptions based on CFF 
+A Type 0 #CIDFo#nt contains# glyph# descriptions based on CFF 
 © ISO 2017 – All rights reserved 322 
 
 ISO/DIS 32000-2
  
-NOTE The term "Type 0" when applied to a CID#Font has a different meaning than for a "Type 0 #font". 
+NOTE The term "Type 0" when applied to a# CIDF#ont has a different meaning than for a "Ty#pe 0# font". 
 • 
-A Type 2 CID#Font contains #glyph descriptions based on the TrueType #glyph technology. 
-#Font
-TypeEncoding
-A CID#Font dictionary is a #PDF #object that contains information about a CID##Font program. Although its 
- #Font Tf
- value is , a CID#Font is not actually a #font. It does not have an  entry, it may not be 
-listed in thesubdictionary of a #resource dictionary, and it may not be used as the operand of the  
-operator. It shall be used only as a descendant of a Type 0 #font. The CMap in the Type 0 #font shall be 
-what defines the encoding that maps #character codes to CIDs in the CID#Font. "
+A Type# 2 CI#DFont contain#s glyp#h descriptions based on the TrueTy#pe gly#ph techno#logy.# 
+Font
+TypeEncodi#ng
+A #CIDFont dictionary is a# PDF ##object #that contains information ab#out a# CI#DFont progra#m. Altho#ugh i#ts 
+ Font Tf
+ value# is ,# a CIDFont is not# act#ually a font. It does not have an  entry, it may not be 
+listed in thesubdictionary of a #resource dictionary#, and it may not be used as the operand of the  
+operator. It shall be used only as a descendant# of #a Type 0 font. The CMap #in th#e Type 0 font shall be 
+what defines the encoding #that maps #character codes to #CIDs# in the CIDFont. "

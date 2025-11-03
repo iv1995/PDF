@@ -1,10 +1,10 @@
-#Table 44: Additional entries in an embedded file stream dictionary". 
-#Table 44: Additional entries in an embedded file stream dictionary 
+#Table 44: Additional entries in an embedded file stream dictionary#". #
+Table 44: Additional entries in an embedded file stream dictionary #
 Key Type Value 
 Optional) 
 Type 
 EmbeddedFile
-name (The type of #PDF #object that this dictionary describes; if present, 
+name (The type of #PDF ##object #that this dictionary describes; if present, 
 shall be  for an embedded file stream. 
 Optional, required in the case of an embedded file stream used as as 
 Subtype 
@@ -15,11 +15,11 @@ InternetRFC
 2046, Multipurpose Internet Mail Extensions (MIME), Part Two: Media 
 shall conform to the MIME media type names defined in  
 Types
-, with the provision that #characters not permitted in names shall use 
+, with the provision that #character#s not permitted in names shall use 
 7.3.5, "Name 
-the 2-#character hexadecimal code format described in 
-NOTE 1 The MIME type for #PDF is defined by RFC XXXX. 
-#objects". 
+the 2#-character# hexadecimal code format described in 
+NOTE 1 The MIME type for# PDF# is defined by RFC XXXX. #
+objec#ts". 
 Optional, required in the case of an embedded file stream used as an 
 Params 
 associated file

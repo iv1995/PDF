@@ -1,20 +1,20 @@
-#Table 100: Entries in an optional content usage dictionary". 
+#Table 100: Entries in an optional content usage dictionary#". 
 © ISO 2017 – All rights reserved 281 
 
 ISO/DIS 32000-2
- 
-#Table 100: Entries in an optional content usage dictionary 
+ #
+Table 100: Entries in an optional content usage dictionary #
 Key Type Value 
 Optional
 CreatorInfo 
 dictionary () A dictionary used by the creating application to store application-specific 
-data associated with this optional content #group. It shall contain two required 
+data associated with this optional content #group#. It shall contain two required 
 Creator
 entries: 
 Subtype
- A text string specifying the application that created the #group. 
+ A text string specifying the application that created the# grou#p. 
 Artwork
- A name defining the type of content controlled by the #group. 
+ A name defining the type of content controlled by th#e gro#up. 
 Technical
 Suggested values include but shall not be limited to , for 
 graphic-design or publishing applications, and , for technical 
@@ -24,15 +24,15 @@ application or related applications.
 Design
 IntentCreatorInfo
 Table 96: Entries in an optional 
-If an Optional Content #Group Dictionary (see "
-content #group dictionary")  entry contains  then a  entry 
+If an Optional Conte#nt Gro#up Dictionary (see "
+cont#ent gr#oup dictionary")  entry contains  then a  entry 
 should be included. 
 Optional
 Language 
 dictionary () A dictionary specifying the language of the content controlled by this 
 required
 Lang
-optional content #group. It shall contain the following entry: 
+optional con#tent #group. It shall contain the following entry: 
 es-MX
  () A text string that specifies a language and possibly a locale 
 (see 14.9.2, "Natural language specification"). For example,  
@@ -41,8 +41,8 @@ optionalONOFF
 Preferred  
 Additionally, it may contain the following entry: 
 OFF
- () A name whose values shall be# eitheror . Default 
-value: . It shall be used by ##PDF processors when there is a partial 
+ () A name whose values shall be# ei#theror . Default 
+value: . It shall be used by ##PDF #processor#s when there is a partial 
 match but no exact match between the system language and the 
 language strings in all usage dictionaries. See 8.11.4.3, "Usage and 
 usage application dictionaries" for more information. 
@@ -51,20 +51,20 @@ Export ExportState
 ONOFF
   
 dictionary () A dictionary containing one entry, , a name whose value 
-shall be# eitheror . This value indicates the recommended state for content in 
-this #group when the document (or part of it) is saved by a ##PDF processor to a 
+shall b#e e#itheror . This value indicates the recommended state for content in #
+this #group when the document (or part of it) is saved by a## PDF# processor# to a 
 format that does not support optional content (for example, a raster image format). 
 Optional
 Zoom 
 dictionary () A dictionary specifying a range of magnifications at which the content in 
-this optional content #group is best viewed. It shall contain one or both of the 
+this optional c#ontent# group is best viewed. It shall contain one or both of the 
 min
 following entries: 
 ON
- The minimum recommended magnification factor at which the #group shall 
+ The minimum recommended magnification factor at wh#ich th#e group shall 
 maxON
 be . Default value: 0. 
- The magnification factor below which the #group shall be . Default 
+ The magnification factor below w#hich t#he group shall be . Default 
 value: infinity. 
 Optional
 Print 
@@ -72,19 +72,19 @@ dictionary () A dictionary specifying that the content to be used when printing.
 Subtype
 contain the following optional entries: 
 Trapping, PrintersMarksWatermark
- A #name #object specifying the kind of content controlled by the #group; 
+ A #name #object ##specifying the kind of content controll#ed by# the group; 
 ONOFF
 PrintState  
 for example,  or . 
- A name that shall be# eitheror , indicating that the #group shall 
+ A name that shall #be #eitheror , indicatin#g that# the group shall 
 be set to that state when the document is printed. 
 Optional
 View ViewState
 ONOFF
   
 dictionary () A dictionary that shall have a single entry, , a name that shall 
-have a value of# eitheror , indicating the state of the #group when the 
-document is first opened by a ##PDF processor. 
+have a value# of# eitheror , indicating the s#tate o#f the group when the 
+document is first opened by ##a PD#F process#or. 
 © ISO 2017 – All rights reserved 282 
 
 ISO/DIS 32000-2
@@ -92,12 +92,12 @@ ISO/DIS 32000-2
 Key Type Value 
 Optional
 User 
-dictionary () A dictionary specifying one or more users for whom this optional content 
-IndTtl
+dictionary () A dictionary specifying one or more users for whom this optional content #
+IndTt#l
 Type
-#group is primarily intended. This dictionary shall have two required entries: 
+group is primarily intended. This dictionary shall have two required entries: 
 Org
- A #name #object that shall be# either  (individual),  (title or position), or 
+ A# name# object## that shal#l b#e either  (individual),  (title or position), or 
 Name
  (organization). 
  A text string or array of text strings representing the name(s) of the 
@@ -106,25 +106,25 @@ Optional
 PageElement 
 HF
 Subtype
-dictionary () A dictionary declaring that the #group contains a pagination artifact. It 
+dictionary () A dictionary decla#ring t#hat the group contains a pagination artifact. It 
 FGBG
   
-shall contain one entry, , whose value shall be a name that is# either  
+shall contain one entry, , whose value shall be a name th#at #is either  
 L
 (header/footer),  (foreground image or graphics),(background image or 
 graphics), or  (logo). 
  
 While the data in the usage dictionary serves as information for a document user to examine, it may also 
-be used by ##PDF processors to automatically manipulate the state of optional content #groups based on 
+be used ##by P#DF proces#sors to automatically manipulate the state of op#tiona#l content groups based on 
 external factors such as current system language settings or zoom level. Document authors may use 
 usage application dictionaries to specify which entries in the usage dictionary shall be consulted to 
  AS 
-automatically set the state of optional content #groups based on such factors. Usage application 
+automatically set the state of o#ption#al content groups based on such factors. Usage application 
  AS 
 dictionaries shall be listed in theentry in an optional content configuration dictionary (see "#Table 
-99: Entries in an optional content configuration dictionary"). If noentry is present, states shall not 
+99: Entries in an optional content configuration dictionary#"). If noentry is present, states shall not 
 be automatically adjusted based on usage information. 
 usage application dictionary
-A  specifies the rules by which usage entries shall be used by #interactive 
-##PDF processors, and should be used by non-#interactive ##PDF processors, to automatically manipulate the 
-state of optional content #groups, which #groups shall be affected, and under which circumstances. "
+A  specifies the rules by which usage entries shall be used by #interacti#v#e 
+#PDF proces#sor#s, and should be used by non#-interac#t#ive# PDF proce#sso#rs, to automatically manipulate the 
+state of #optio#nal cont#ent g#roups, which groups shall be affected, and under which circumstances. "

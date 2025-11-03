@@ -1,5 +1,5 @@
 #Figure 15: 
-Miter length"). When the limit is exceeded, the join is converted from a miter to a bevel. 
+Miter length#"). When the limit is exceeded, the join is converted from a miter to a bevel. 
 j
 The ratio of miter length to line width is directly related to the angle  between the segments in user 
 space by the following formula:  
@@ -15,9 +15,9 @@ NOTE Very large miter lengths are allowed.
 jj
 j
 EXAMPLE A miter limit of 1.414 converts miters to bevels for  less than 90 degrees, a limit of 2.0 converts them for  less 
-than 60 degrees, and a limit of 10.0 converts them for  less than approximately 11.5 degrees. ![Figure 15 Miter length  .png](./Storage/Output/Images/Figure 15 Miter length  .png)
-#Figure 15: Miter length 
- 
+than 60 degrees, and a limit of 10.0 converts them for  less than approximately 11.5 degrees. ![Figure 15 Miter length  .png](./Storage/Output/Images/Figure 15 Miter length  .png)#
+Figure 15: Miter length 
+ #
 8.4.3.6Line dash pattern 
  
 line dash pattern

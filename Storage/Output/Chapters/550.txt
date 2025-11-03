@@ -1,6 +1,6 @@
-#Table 356: Entries in a namespace dictionary" shows 
+#Table 356: Entries in a namespace dictionary#" shows 
 the entries in the namespace dictionary. The  entry shall specify the namespace name, which should 
-take the form of a uniform resource# identifier (URI). 
+take the form of a uniform resource# id#entifier (URI). 
 NOTE 1 It is not generally expected that aURIfor a namespace name will resolve. It is instead used for 
   
 uniqueness. AURIspecified here might correspond to an existingXMLnamespace (e.g. 
@@ -11,44 +11,44 @@ uniqueness. AURIspecified here might correspond to an existingXMLnamespace (e.g.
 ISO/DIS 32000-2
  
 Schema
-An optional  entry may be provided to# identify the schema file for the namespace. 
+An optional  entry may be provided t#o i#dentify the schema file for the namespace. 
 NOTE 2 There is no requirement that the schema be provided in any specific format (e.g. RelaxNG or W3C 
 Schema), though the expectation is that the format would be machine readable. 
 RoleMapNS
 A  entry may also be provided to map the entries in the namespace to those of another 
-namespace. For a document that is compliant with tagged #PDF (see 14.8, "Tagged #PDF"), all structure 
+namespace. For a document that is compliant with tagged #PDF #(see 14.8, "Tagged# PD#F"), all structure 
 element types shall be role mapped to one of the standard structure namespaces (see 14.8.6, "Standard 
-structure namespaces"), which can be achieved# either directly in the provided role map or transitively 
+structure namespaces"), which can be achieved# ei#ther directly in the provided role map or transitively 
 through one or more namespaces which eventually provide a role map to one of the standard structure 
-namespaces. 
-#Table 356: Entries in a namespace dictionary 
+namespaces. #
+Table 356: Entries in a namespace dictionary #
 Key Type Value 
-Optional; #PDF 2.0
+Optional#; PD#F 2.0
 Type 
 Namespace
-name () The type of #PDF #object that this dictionary describes. If present, 
+name () The type #of PD#F #object #that this dictionary describes. If present, 
 shall be . 
-Required; #PDF 2.0
+Requir#ed; #PDF 2.0
 NS 
-text string () The string defining the namespace name which this entry# 
-identifies (conventionally a uniform resource# identifier, or URI). 
-Optional; #PDF 2.0
+text string () The string defining the namespace name which this ent#ry 
+#identifies (conventionally a uniform resou#rce# identifier, or URI). 
+Optio#nal;# PDF 2.0
 Schema 
-file () A file specification# identifying the schema file, which defines this 
+file () A file specifica#tio#n identifying the schema file, which defines this 
 specification namespace. 
-(Optional; #PDF 2.0)
+(Opti#onal#; PDF 2.0)
 RoleMapNS 
 dictionary  A dictionary that shall, if present, map the names of structure 
 types used in the namespace to their approximate equivalents in another namespace. 
 The dictionary shall be comprised of a set of keys representing structure element 
 types in the namespace defined within this namespace dictionary. The corresponding 
-value for each of these keys shall# either be a single name# identifying a structure 
+value for each of these keys shal#l e#ither be a single# na#me identifying a structure 
 element type in the default namespace or an array where the first value shall be a 
 structure element type name in a target namespace with the second value being an 
 indirect reference to the target namespace dictionary. 
  
 NS
-When the owner is specified by an  entry, the namespace name shall be considered as# identifying the 
+When the owner is specified by an  entry, the namespace name shall be conside#red# as identifying the 
 owner.  For common namespace names which correspond to the values of owner entries defined in 
 Table 356 "Entries in a namespace dictionary", they shall be considered equivalent. 
 14.7.5Structure content 
@@ -56,16 +56,16 @@ Table 356 "Entries in a namespace dictionary", they shall be considered equivale
 14.7.5.1General 
  
 Any structure element may have associated graphical content, consisting of one or more content items. 
-Content items shall be graphical #objects that exist in the document independently of the structure tree 
+Content items shall be graphical# objec#ts that exist in the document independently of the structure tree 
 but are associated with structure elements as described in the following subclauses.  
 14.7.5.1.1Content items 
  
 Content items are of two kinds: 
 • 
-Marked-content sequences within #content streams (14.7.5.2, "Marked-content sequences as 
+Marked-content sequences within #content stream#s (14.7.5.2, "Marked-content sequences as 
 • 
 content items") 
-Complete #PDF #objects such as annotations and X#Objects (see 14.7.5.3, "#PDF #objects as content 
+Co#mplet#e PD#F obje#cts such as annotations an#d XObj#ects (see 14.7#.5.3#, "#PDF ob#jects as content 
 © ISO 2017 – All rights reserved 703 
 
 ISO/DIS 32000-2
@@ -86,13 +86,13 @@ marked-content sequence for a structure content item nested within it though non
 Do
 • 
 marked content shall be allowed. 
-A structure content item shall not invoke (with the  operator) an X#Object that is itself a 
+A structure content item shall not invoke (with the  operator)# an XOb#ject that is itself a 
 structure content item. Logical structure information associated with a page may be ignored when 
-importing that page into another document with a reference X#Object (see 8.10.4.3 "Special 
+importing that page into another document with a refer#ence XO#bject (see 8.10.4.3 "Special 
 14.7.5.2Marked-content sequences as content items 
  
 considerations").  
-A sequence of graphics operators in a #content stream may be specified as a content item of a structure 
+A sequence of graphics operators in a# content stream# may be specified as a content item of a structure 
 element in the following way: 
 BDCEMC
 • 
@@ -101,20 +101,20 @@ The operators shall be bracketed as a marked-content sequence between  and  oper
 directly related to the document’s logical structure, it should be the same as the structure type of 
 • 
 the associated structure element. 
-marked-content# identifier
+marked-#con#tent identifier
 MCID
 The marked-content sequence shall contain a property list (see 14.6.2, "Property lists") containing 
-an  entry, which shall be an integer  that uniquely# identifies the 
-marked-content sequence within its #content stream, as shown in the following example: 
+an  entry, which shall be an integer  that #uni#quely identifies the 
+marked-content sequence within it#s content stre#am, as shown in the following example: 
 EXAMPLE 1  
-2 0 obj            %Page #object 
+2 0 obj           # %Page ob#ject 
  <</Type /Page 
-  /Contents 3 0 R       %#Content stream 
+  /Contents 3 0 R     #  %Content stream #
   … 
  >> 
 endobj 
  
-3 0 obj            %Page's #content stream 
+3 0 obj            %Pag#e's content strea#m 
  <</Length …>> 
 stream 
  … 
@@ -128,7 +128,7 @@ stream
 endstream 
 endobj 
  
-NOTE This example and the following examples omit required  entries in the #objects used 
+NOTE This example and the following examples omit required  entries# in th#e objects used 
 StructParents
 14.7.5.4, "Finding structure elements from content items"). 
 as content items (see 
@@ -142,4 +142,4 @@ referring to them in its  entry (see "Table 355: Entries in a structure element 
 reference may have two forms: 
 marked-content reference
 • 
-A #dictionary #object called a . "
+A #di#ctionary# object #called a . "

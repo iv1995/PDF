@@ -1,9 +1,9 @@
-#Table 18: Entries in a cross-reference stream" describes 
-the types of entries and their fields. For #PDF 1.5,  always contains three 
-integers; the value of each integer shall be the number of #bytes (in the decoded 
+#Table 18: Entries in a cross-reference stream#" describes 
+the types of entries and their fields. For #PDF #1.5,  always contains three 
+integers; the value of each integer shall be the number of #byte#s (in the decoded 
 stream) of the corresponding field. 
-EXAMPLE [1 2 1] means that the fields are one #byte, two #bytes, and one 
-#byte, respectively. 
+EXAMPLE [1 2 1] means that the fields are one# byt#e, tw#o by#tes, and on#e 
+b#yte, respectively. 
 W
 A value of zero for an element in the  array indicates that the corresponding 
 field shall not be present in the stream, and the default value shall be used, if 
@@ -14,63 +14,63 @@ Index
 The sum of the items shall be the total length of each entry; it can be used with 
 W
 the  array to determine the starting position of each subsection. 
-Different cross-reference streams in a #PDF file may use different values for . 
+Different cross-reference streams in a# PDF# file may use different values for . 
  
 7.5.8.3Cross-reference stream data 
  
 Each entry in a cross-reference stream shall have one or more fields, the first of which designates the 
-entry’s type (see "#Table 18: Entries in a cross-reference stream"). In #PDF 1.5 through #PDF 2.0, only 
-types 0, 1, and 2 are allowed. Any other value shall be interpreted as a reference to the #null #object, thus 
+entry’s type (see #"Table 18: Entries in a cross-reference strea#m"). I#n PD#F 1.5 throu#gh P#DF 2.0, only 
+types 0, 1, and 2 are allowed. Any other value shall be interpreted as a reference to the #null #object##, thus 
 permitting new entry types to be defined in the future. 
 W
 The fields are written in increasing order of field number; the length of each field shall be determined 
 by the corresponding value in the  entry (see "#Table 17: Additional entries specific to a cross-
-reference stream dictionary"). Fields requiring more than one #byte are stored with the high-order #byte 
-first. 
-#Table 18: Entries in a cross-reference stream 
+reference stream dictionary#"). Fields requiring more than #one b#yte are stored with the high-o#rder b#yte 
+first.# 
+Table 18: Entries in a cross-reference stream# 
 Type Field Description 
 0 
 f
 1 The type of this entry, which shall be 0. Type 0 entries define the 
-linked list of free #objects (corresponding to  entries in a cross-
+linked list of free# objec#ts (corresponding to  entries in a cross-
 reference table). Default value: 0. 
  
-2 The #object number of the next free #object. 
+2 Th#e objec#t number of the next fr#ee obj#ect. 
  
-3 The generation number to use if this #object number is used again. 
+3 The generation number to use if t#his obj#ect number is used again. 
 Default value: 0. 
 1 
-1 The type of this entry, which shall be 1. Type 1 entries define 
-#objects that are in use but are not compressed (corresponding to 
+1 The type of this entry, which shall be 1. Type 1 entries def#ine 
+o#bjects that are in use but are not compressed (corresponding to 
 n entries in a cross-reference table). 
  
-2 The #byte offset of the #object, starting from the beginning of the 
+#2 The# byte offset o#f the #object, starting from the beginning of the 
 file. Default value: 0. 
  
-3 The generation number of the #object. Default value: 0. 
+3 The generation number #of the# object. Default value: 0. 
 2 
 1 The type of this entry, which shall be 2. Type 2 entries define 
-compressed #objects. 
+com#presse#d objects. 
 © ISO 2017 – All rights reserved 71 
 
 ISO/DIS 32000-2
  
-Type Field Description 
+Type Field Description #
  
-2 The #object number of the ##object stream in which this #object is 
-stored. (The generation number of the ##object stream shall be 
+2 Th#e object numb#er of t#he #object stream #in #which t#his object is 
+stored. (The generation nu#mber of# the# object stream# shall be 
 implicitly 0.) 
  
-3 The index of this #object within the ##object stream. 
+3 The i#ndex of# this obje#ct with#in th#e object stre#am. 
  
-Like any stream, a cross-reference stream shall be an #in#direct #object. Therefore, an entry for it shall 
-exist in# either a cross-reference stream (usually itself) or in a cross-reference table (in hybrid-reference 
-files; see 7.5.8.4, "Compati#bility with applications that do not support compressed reference streams"). 
-7.5.8.4Compati#bility with applications that do not support compressed 
+Like any stream, a cross-reference stream shall be# an #in##direct object##. Therefore, an entry for it shall 
+exist in# ei#ther a cross-reference stream (usually itself) or in a cross-reference table (in hybrid-reference 
+files; see 7.5.8.4, "Compati#bi#lity with applications that do not support compressed reference streams"). 
+7.5.8.4Compat#ib#ility with applications that do not support compressed 
  
 reference streams 
-A hybrid-reference file is readable by ##PDF processors designed only to support versions of #PDF before 
-#PDF 1.5. Such a file contains #objects referenced by standard cross-reference tables in addition to objects 
-in ##object streams that are referenced by cross-reference streams. 
+A hybrid-reference file is readable# by ##PDF processor#s designed only to support version#s of# PDF be#fore# 
+PDF 1.5. Such #a file# contains objects referenced by standard cross-reference tables in additio#n to ob#jects 
+#in object str#eams that are referenced by cross-reference streams. 
 In these files, the trailer dictionary may contain, in addition to the entry for trailers shown in "#Table 15: 
-Entries in the file trailer dictionary", an entry, as shown in the following table. 
+Entries in the file trailer dictionary#", an entry, as shown in the following table. 

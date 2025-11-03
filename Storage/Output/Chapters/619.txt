@@ -1,5 +1,5 @@
 #Table Annex F.3: Page offset hint table, 
-header section", followed by one or more per-page entries, described in "Table Annex F.4: Page offset 
+header section#", followed by one or more per-page entries, described in "Table Annex F.4: Page offset 
 hint table, per-page entry". 
 NOTE The items making up each per-page entry are not contiguous; they are broken up with items from 
 entries for other pages. 
@@ -11,146 +11,146 @@ a)Item 1 for all pages, in page order starting with the first page
 b)Item 2 for all pages, in page order starting with the first page 
  
 c)Item 3 for all pages, in page order starting with the first page 
-d)Item 4 for all shared #objects in the second page, followed by item 4 for all shared #objects in the third page, 
+d)Item 4 for all shared #object#s in the second page, followed by item 4 for all shared# objec#ts in the third page, 
  
 and so on 
-e)Item 5 for all shared #objects in the second page, followed by item 5 for all shared #objects in the third page, 
+e)Item 5 for all share#d obje#cts in the second page, followed by item 5 for all shar#ed obj#ects in the third page, 
  
 and so on 
  
 f)Item 6 for all pages, in page order starting with the first page 
 g)Item 7 for all pages, in page order starting with the first page 
-All the items in "#Table Annex F.3: Page offset hint table, header section" that specify a number of #bits 
-needed, such as item 3, have values in the range 0 through 32. Although that range requires only 6 #bits, 
-16-#bit numbers shall be used. 
-#Table Annex F.3: Page offset hint table, header section 
-Item Size (#bits) Description 
-1 32 The least number of #objects in a page (including the page #object itself). 
-2 32 The location of the first page’s page #object. 
-3 16 The number of #bits needed to represent the difference between the 
-greatest and least number of #objects in a page. 
-4 32 The least length of a page in #bytes. This shall be the least length from the 
-beginning of a page #object to the last #byte of the last #object used by that 
+All the items in #"Table Annex F.3: Page offset hint table, header sectio#n" that specify a number of #bi#ts 
+needed, such as item 3, have values in the range 0 through 32. Although that range requires only 6# b#its, 
+1#6-#bit numbers shall be used.# 
+Table Annex F.3: Page offset hint table, header section# 
+Item Siz#e #(bits) Description 
+1 32 The least number# of ob#jects in a page (including the #page ob#ject itself). 
+2 32 The location of the first page’s# page #object. 
+3 16 The number# o#f bits needed to represent the difference between the 
+greatest and least num#ber of# objects in a page. 
+4 32 The least length of a page in #byte#s. This shall be the least length from the 
+beginning of# a page# object to the last# byte# of #the las#t object used by that 
 page. 
-5 16 The number of #bits needed to represent the difference between the 
-greatest and least length of a page, in #bytes. 
-6 32 The least offset of the start of any #content stream, relative to the 
+5 16 The numbe#r #of bits needed to represent the difference between the 
+greatest and least length of a page, i#n by#tes. 
+6 32 The least offset of the start of any #content stream#, relative to the 
 beginning of its page. 
-7 16 The number of #bits needed to represent the difference between the 
-greatest and least offset to the start of the #content stream. 
+7 16 The numb#er# of bits needed to represent the difference between the 
+greatest and least offset to the start of the# content strea#m. 
 © ISO 2017 – All rights reserved 859 
 
 ISO/DIS 32000-2 
-Item Size (#bits) Description 
-8 32 The least #content stream length. 
-9 16 The number of #bits needed to represent the difference between the 
-greatest and least #content stream length. 
-10 16 The number of #bits needed to represent the greatest number of shared 
-##object references. 
-11 16 The number of #bits needed to represent the numerically greatest shared 
-#object# identifier used by the pages (discussed further in "Table Annex F.4: 
+Item# S#ize (bits) Description 
+8 32 The leas#t content strea#m length. 
+9 16 The nu#mb#er of bits needed to represent the difference between the 
+greatest and lea#st content stre#am length. 
+10 16 The n#um#ber of bits needed to represent the greatest number o#f share#d 
+#object reference#s. 
+11 16 The #nu#mber of bits needed to represent the numerically greate#st shar#ed 
+object# id#entifier used by the pages (discussed further in "Table Annex F.4: 
 Page offset hint table, per-page entry", item 4). 
-12 16 The number of #bits needed to represent the numerator of the fractional 
-position for each shared ##object reference. For each shared ##object 
-referenced from a page, there shall be an indication of where in the page’s 
-#content stream the #object is first referenced. That position shall be given 
+12 16 The# n#umber of bits needed to represent the numerator of the fractional 
+position for #each sh#ared# object referenc#e. For# each sh#are#d object 
+referen#ced from a page, there shall be an indication of where in the page#’s 
+conten#t str#e#am the object is first referenced. That position shall be given 
 as the numerator of a fraction, whose denominator is specified once for 
 the entire document (in the next item in this table). The fraction is 
 explained in more detail in "Table Annex F.4: Page offset hint table, per-
 page entry", item 5. 
-13 16 The denominator of the fractional position for each shared ##object 
-reference. 
-Table Annex F.4: Page offset hint table, per-page entry 
-Item Size (#bits) Description 
-1 See "Table Annex F.3: Page A number that, when added to the least number of #objects in a page 
-offset hint table, header ("#Table Annex F.3: Page offset hint table, header section", item 1), shall 
+13 16 The denominator of the fractional position f#or each #shar#ed object 
+refere#nce. 
+Table Annex F.4: Page offset hint table, per-page entry #
+I#tem Size (bits) Description 
+1 See "Table Annex F.3: Page A number that, when added to the #least #number of objects in a page 
+offset hint table, header# ("Table Annex F.3: Page offset hint table, header sect#ion", item 1), shall 
 O
-section", item 3 give the number of #objects in the page. The first #object of the first page 
-shall have an #object number that is the value of the  entry in the 
-linearization parameter dictionary at the beginning of the file. The first 
-#object of the second page shall have an #object number of 1. #Object 
-numbers for subsequent pages shall be determined by accumulating the 
-number of #objects in all previous pages. 
+section", item 3 gi#ve the# number of objects in th#e page.# The first object of the first p#age 
+sh#all have an object number that is the value of the  entry in the 
+linearization parameter dictionary at the beginning of t#he file#. The first 
+object of the secon#d page #shall have a#n object# number of 1. Object 
+numbers for subsequent pages shall be determined by accum#ulatin#g the 
+number of objects in all previous pages. 
 2 See "Table Annex F.3: Page A number that, when added to the least page length ("Table Annex F.3: 
 offset hint table, header Page offset hint table, header section", item 4), shall give the length of the 
 O
-section", item 5 page in #bytes. The location of the first #object of the first page may be 
-determined from its #object number (the  entry in the linearization 
-parameter dictionary) and the cross-reference table entry for that #object; 
+section", item 5 page #in b#ytes. Th#e locat#ion of the first object of the first page may# be 
+de#termined from its object number (the  entry in the linearization 
+parameter dictionary) and the cross-refer#ence t#able entry for that object; 
 F.3.4, "First-page cross-reference table and trailer (Part 3)". The 
 see 
 locations of subsequent pages shall be determined by accumulating the 
-lengths of all previous pages. A ##PDF processor shall skip over the primary 
+lengths of all previous pages. A ##PDF #processor #shall skip over the primary 
 hint stream, wherever it is located. 
-3 See "Table Annex F.3: Page The number of shared #objects referenced from the page. For the first page, 
+3 See "Table Annex F.3:# Page #The number of shared objects referenced from the page. For the first page, 
 offset hint table, header this number shall be 0; the next two items start with the second page. 
 section", item 10 
-4 See "Table Annex F.3: Page (One item for each shared ##object referenced from the page) A shared 
-offset hint table, header #object# identifier — that is, an index into the shared #object hint table 
-section", item 11 (described in F.4.3, "Shared #object hint table"). A single entry in the 
-shared #object hint table may designate a #group of shared #objects, but only 
-one of which shall be referenced from outside the #group. That is, shared 
-#object# identifiers shall not be directly related to object numbers. 
+4 See "Table Annex F.3: Pag#e (One #item for each sha#red object refer#enced from the page) A share#d 
+offs#et hint table, header objec#t i#dentifier — that# is, an# index into the shared object hint table 
+section", item 1#1 (desc#ribed in F.4.3, "Shared object hint table")#. A sin#gle entry in the 
+shared object hint table# may d#esignate a #group #of shared objects, but only 
+one of which shall be referenced from ou#tside t#he# grou#p. That is, shared 
+obje#ct #identifiers shall not be directly related to object numbers. 
  
-This# identifier com#bines with the numerators provided in item 5 to form a 
-shared ##object reference.
+T#his #i#de#ntifier combines with the numerators pr#ovided #in item 5 to form a 
+sh#ared object refe#rence.
 © ISO 2017 – All rights reserved 860 
 
-ISO/DIS 32000-2
- 
-Item Size (#bits) Description 
-5 See "Table Annex F.3: Page (One item for each shared ##object referenced from the page) The 
-offset hint table, header numerator of the fractional position for each shared ##object reference, 
+ISO/DIS 32000-2#
+ #
+Item Size (bits) Description 
+5 See "Table Annex #F.3: Pa#ge (One item for each s#hared object ref#erenced from the page) The 
+offset hint table, header numerator of the# fracti#onal position for each #shared object re#ference, 
 section", item 12 which shall be in the same order as the preceding item. The fraction shall 
-indicate where in the page’s #content stream the shared #object is first 
+indicate where in t#he pa#g#e’s content st#ream the shared object is first 
 referenced. This item shall be interpreted as the numerator of a fraction 
 Table 
 whose denominator is specified once for the entire document ("
 EXAMPLE If the denominator is d, a numerator ranging from 0 to d - 
 Annex F.3: Page offset hint table, header section", item 13). 
-1 indicates the corresponding portion of the page’s 
-#content stream. For example, if the denominator is 4, a 
+1 indicates the corresponding portion of the pa#ge’s 
+content #stream. For example, if the denominator is 4, a 
 numerator of 0, 1, 2, or 3 indicates that the first reference 
-lies in the first, second, third, or fourth quarter of the 
-#content stream, respectively. There are two (or more) 
-other possible values for the numerator, which shall 
-indicate that the shared #object is not referenced from the 
-#content stream but instead is needed by annotations or 
-other #objects that are drawn after the contents. The value 
-d shall indicate that the shared #object is needed before 
-image X#Objects and other nonshared #objects that are at 
-the end of the page. A value of d + 1 or greater shall 
-indicate that the shared #object is needed after those 
-#objects. 
+lies in the first, second, third, or fourth quarter o#f the 
+content# stream, respectively. There are two (or more) 
+other possible values for the numerator,# which #shall 
+indicate that the shared object is not referenced fr#om the 
+content# stream but ins#tead i#s needed by annotations or 
+other objects that are drawn after the contents. The# value #
+d shall indicate that t#he sha#red object is needed #before# 
+image XObjects and other nonshared objects that are at 
+the end of the page. A value of d + 1# or gre#ater shall 
+indicate t#hat th#e shared object is needed after those 
+objects. 
 NOTE This method of dividing the page into fractions is only 
-approximate. Determining the first reference to a shared #object 
-entails inspecting the unencoded #content stream. The relationship 
+approximate#. Determ#ining the first reference to a shared object 
+entails inspecting the u#nencoded conte#nt stream. The relationship 
 between positions in the unencoded and encoded streams is not 
 necessarily linear.
  
 6 See "Table Annex F.3: Page A number that, when added to the least offset to the start of the content 
-offset hint table, header stream ("#Table Annex F.3: Page offset hint table, header section", item 6), 
-section", item 7 shall give the offset in #bytes of the start of the page’s #content stream (the 
-#stream #object, not the stream data), relative to the beginning of the page. 
-7 See "Table Annex F.3: Page A number that, when added to the least #content stream length ("Table 
+offset hint table, header strea#m ("Table Annex F.3: Page offset hint table, header sec#tion", item 6), 
+section", item 7 shall give the offset# in #bytes of the sta#rt of #t#he page’s conte#nt stream (the 
+#stream object#, not the stream data), relative to the beginning of the page. 
+7 See "Table Annex F.3: Page A number that, when added to# the least cont#ent stream length ("Table 
 offset hint table, header Annex F.3: Page offset hint table, header section", item 8), shall give the 
-section", item 9 length of the page’s #content stream in #bytes. This length shall include 
-#object overhead preceding and following the stream data. 
+section", item 9 length of# the page’s cont#en#t strea##m in# bytes. This length shall include 
+object overhead precedi#ng and #following the stream dat#a. 
  
-F.4.3Shared #object hint table 
+F#.4.3Shared object hint table 
  
-The shared #object hint table gives information required to locate shared #objects; see F.3.9, "Shared 
-#objects (Part 8)". Shared #objects may be physically located in# either of two places: #objects that are 
-referenced from the first page shall be located with the first-page #objects (part 6); all other shared 
-#objects shall be located in the shared #objects section (part 8). 
-A single entry in the shared #object hint table may describe a #group of adjacent #objects under the 
-following condition: Only the first #object in the #group is referenced from outside the #group; the 
-remaining #objects in the #group are referenced only from other #objects in the same #group. The #objects in 
-a #group shall have adjacent #object numbers. 
-The page offset hint table, interactive form hint table, and logical structure hint table shall refer to an 
-entry in the shared #object hint table by a simple index that is its sequential position in the table, 
+The shared object hint# table# gives information req#uired #to locate shared ob#jects;# see F.3.9, "Shared 
+objects (Part 8)". Shared objec#ts may# be physically located in# ei#ther of two places: objects that are 
+referenced fr#om the# first page shall be located #with t#he first-page objects (part 6); #all ot#her shared 
+objects shall be located in the share#d objec#ts section (part 8). 
+A single entry in the# share#d object hint table may describe #a grou#p of adja#cent ob#jects under the 
+following condition: Only the first object in th##e grou##p is referenced from outside #the g#roup; the 
+#remain#ing objects in# the gr#oup# are r#eferenced only from other objects# in the## same# group. The objects# in 
+a# group shall have adjacent object numbers. 
+The page offset hint table, interactive form hint table, and log#ical st#ructure hint table shall refer to an 
+entry in the shared object hint table by a simple index that is its sequential position in the table, 
 counting from 0. 
-© ISO 2017 – All rights reserved 861 
+©# ISO 20#17 – All rights reserved 861 
 
 ISO/DIS 32000-2 
-The shared #object hint table shall consist of a header section ("
+The shared object hint table shall consist of a header section ("

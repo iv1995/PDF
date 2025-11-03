@@ -1,18 +1,18 @@
 #Figure 34: Radial 
-shadings depicting a cone" depict the results of extending the shading at the smaller and larger 
+shadings depicting a cone#" depict the results of extending the shading at the smaller and larger 
 ends, respectively. 
 © ISO 2017 – All rights reserved 231 
 
 ISO/DIS 32000-2
- ![Figure 34 Radial shadings depicting a cone  .png](./Storage/Output/Images/Figure 34 Radial shadings depicting a cone  .png)
-#Figure 34: Radial shadings depicting a cone 
- 
+ ![Figure 34 Radial shadings depicting a cone  .png](./Storage/Output/Images/Figure 34 Radial shadings depicting a cone  .png)#
+Figure 34: Radial shadings depicting a cone 
+ #
 s
 Conceptually, all of the blend circles shall be painted in order of increasing values of , from smallest to 
 tt
 s
 #Function
-largest. Blend circles extending beyond the starting circle shall be painted in the same colour defined by 
+#largest. Blend circles extending beyond the starting circle shall be painted in the same colour defined by 
 tt
 s
 0

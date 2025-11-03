@@ -1,6 +1,6 @@
 #Figure 43: Coordinate mapping from a unit square to a four-sided Coons Patch 
  
-u
+#u
 S
 Two surfaces can be described that are linear interpolations between the boundary curves. Along the  
 C

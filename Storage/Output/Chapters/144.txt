@@ -1,6 +1,6 @@
-#Table 59: Path-painting operators" lists all the path-painting 
-operators. 
-#Table 59: Path-painting operators 
+#Table 59: Path-painting operators#" lists all the path-painting 
+operators. #
+Table 59: Path-painting operators #
 Operands Operator Description 
 — 
 S 
@@ -16,8 +16,8 @@ closed before being filled.
 — 
 F f
 f
-Equivalent to ; #deprecated in #PDF 2.0 and included only for compati#bility. Although ##PDF 
-readers shall be able to accept this operator, ##PDF writers should use  instead. 
+Equivalent to ; #deprecated #in #PDF #2.0 and included only for compati#bi#lity. Although# #PDF #
+reader#s shall be able to accept this operator#, #PD#F writer#s should use  instead. 
 — 
 f* 
 Fill the path, using the even-odd rule to determine the region to fill (see 8.5.3.3.3, "Even-odd 
@@ -26,10 +26,10 @@ rule").
 B 
 Fill and then stroke the path, using the non-zero winding number rule to determine the region 
 fS
-to fill. This operator shall produce the same result as constructing two# identical path #objects, 
+to fill. This operator shall produce the same result as constructing two# id#entical path #object#s, 
 NOTE The filling and stroking portions of the operation consult different values of several 
 painting the first with  and the second with . 
-#graphics state parameters, such as the current colour. See also 11.7.4.4, "Special path-
+#graphics state #parameters, such as the current colour. See also 11.7.4.4, "Special path-
 painting considerations". 
 — 
 B* 
@@ -52,7 +52,7 @@ operator shall have the same effect as the sequence . See also 11.7.4.4, "Specia
 painting considerations". 
 — 
 n 
-End the path #object without filling or stroking it. This operator shall be a path-painting no-op, 
+End the path# object# without filling or stroking it. This operator shall be a path-painting no-op, 
 used primarily for the side effect of changing the current clipping path (see 8.5.4, "Clipping 
 path operators"). 
  
@@ -63,8 +63,8 @@ The  operator shall paint a line along the current path. The stroked line shall 
 curved segment in the path, centred on the segment with sides parallel to it. Each of the path’s subpaths 
 shall be treated separately. 
 S
-The results of the  operator shall depend on the current settings of various parameters in the #graphics 
-state (see 8.4, "#Graphics state", for further information on these parameters): 
+The results of the  operator shall depend on the current settings of various parameters in the# graphics 
+state# (see 8.4,# "Graphics sta#te", for further information on these parameters): 
 • 
 • 
 The width of the stroked line is defined by the current line width parameter (8.4.3.2, "Line width"). 
@@ -75,7 +75,7 @@ ISO/DIS 32000-2
  
 • 
 operations. 
-The line may be painted# either solid or with a dash pattern, as specified by the current line dash 
+The line may be painted# ei#ther solid or with a dash pattern, as specified by the current line dash 
 • 
 pattern (8.4.3.6, "Line dash pattern"). 
 If a subpath is open, the unconnected ends shall be treated according to the current line cap style, 
@@ -90,13 +90,13 @@ lh
 Points at which unconnected segments happen to meet or intersect receive no special treatment. In 
 particular, using an explicit  operator to give the appearance of closing a subpath, rather than using , 
 may result in a messy corner, because line caps are applied instead of a line join. 
-stroke adjustment#PDF 1.2
+stroke adjustm#entP#DF 1.2
 • 
 The  parameter () specifies that coordinates and line widths be adjusted 
 automatically to produce strokes of uniform thickness despite rasterization effects (see 10.7.5, 
 • 
 "Automatic stroke adjustment"). 
-For transparency compositing purposes a path shall be treated as a single graphics #object as 
+For transparency compositing purposes a path shall be treated as a single graphic#s objec#t as 
 described in 11.6.2, "Specifying source and backdrop colours". 
 S
 If a subpath is degenerate (consists of a single-point closed path or of two or more points at the same 
@@ -139,7 +139,7 @@ W
 number rule is more versatile than the even-odd rule and shall be the standard rule the  operator uses. 
 Similarly, the  operator shall use this rule to determine the inside of the current clipping path. The 
 f*W*
-even-odd rule is occasionally useful for special effects or for compati#bility with other graphics systems; 
+even-odd rule is occasionally useful for special effects or for compat#ib#ility with other graphics systems; 
 the  and  operators invoke this rule. 
 8.5.3.3.2Non-zero winding number rule 
  
@@ -150,7 +150,7 @@ segment of the path crosses the ray. Starting with a count of 0, the rule adds 1
 crosses the ray from left to right and subtracts 1 each time a segment crosses from right to left. After 
 counting all the crossings, if the result is 0, the point is outside the path; otherwise, it is inside. 
 The method just described does not specify what to do if a path segment coincides with or is tangent to 
-the chosen ray. Since the direction of the ray is ar#bitrary, the rule simply chooses a ray that does not 
+the chosen ray. Since the direction of the ray is #ar#bitrary, the rule simply chooses a ray that does not 
 encounter such problem intersections. 
 For simple convex paths, the non-zero winding number rule defines the inside and outside as one would 
 intuitively expect. The more interesting cases are those involving complex or self-intersecting paths like 

@@ -1,7 +1,7 @@
-#Table 395: Entries in a Web Capture command settings dictionary" shows the contents of this 
+#Table 395: Entries in a Web Capture command settings dictionary#" shows the contents of this 
 type of dictionary. If this entry is omitted, default values are assumed. Command settings dictionaries 
-may be shared by any command dictionaries that use the same settings. 
-#Table 395: Entries in a Web Capture command settings dictionary 
+may be shared by any command dictionaries that use the same settings. #
+Table 395: Entries in a Web Capture command settings dictionary #
 Key Type Value 
 Optional
 G 
@@ -16,7 +16,7 @@ found in the dictionary, default settings shall be used.
  
 C
 Each key in the  dictionary represents the internal name of a conversion engine, which shall be a #name 
-#object of the following form (without any spaces): 
+#object ##of the following form (without any spaces): 
 /company:product:version:contentType 
  
 where 
@@ -25,42 +25,42 @@ product
  denotes the name (or abbreviation) of the company that created the conversion engine. 
  denotes the name of the conversion engine. This field may be left blank, but the trailing 
 #character
-COLON 
+#COLON 
 version
  (3Ah) is still required. 
 contentType
  denotes the version of the conversion engine. 
- denotes an# identifier for the content type the associated settings. shall be used because 
+ denotes an# id#entifier for the content type the associated settings. shall be used because 
 © ISO 2017 – All rights reserved 782 
 
 ISO/DIS 32000-2
  
 some converters may handle multiple content types. 
-EXAMPLE /ADBE:H2#PDF:1.0:HTML 
+EXAMPLE /ADBE:H2#PDF#:1.0:HTML 
 All fields in the internal name are case-sensitive. The company field shall conform to the naming 
-guidelines described in Annex E, "#PDF Name Registry". The values of the other fields shall be 
+guidelines described in Annex E, #"PDF# Name Registry". The values of the other fields shall be 
 unrestricted, except that they shall not contain a COLON. 
-The directed graph of #PDF #objects rooted by the command settings dictionary shall be entirely self-
-contained; that is, it shall not contain any #object referred to from elsewhere in the #PDF file. 
+The directed graph o#f PDF## objec#ts rooted by the command settings dictionary shall be entirely self-
+contained; that is, it shall not contain an#y objec#t referred to from elsewhere in t#he P#DF file. 
 NOTE This facilitates the operation of making a deep copy of a command settings dictionary without 
 explicit knowledge of the settings it can contain. 
-14.10.6#Object attributes related to web capture 
+14.1#0.6Obje#ct attributes related to web capture 
  
-A given page #object or image X#Object may belong to at most one Web Capture content set, called its 
-parent content set. However, the #object shall not have direct pointer to its parent content set. Such a# 
- ID 
-pointer may present problems for an application that traces all pointers from an #object to determine 
-what resources the #object depends on. Instead, the #object’sentry (see "Table 31: Entries in a page# 
+A given p#age obj#ect or im#age XOb#ject may belong to at most one Web Capture content set, called its 
+parent content set. However#, the o#bject shall not have direct pointer to its parent content set. Such #a 
+ ID #
+pointer may present problems for an application that traces all pointers f#rom an #object to determine 
+what resour#ces the# object depends on. Inst#ead, t#he object’sentry (see "Table 31: Entries in a #pa#ge 
+##IDS
+object" and "#Table 87: Additional entries specific to an image dictionary#") contains the digi#tal# identi#fier# 
 IDS
-#object" and "#Table 87: Additional entries specific to an image dictionary") contains the digital# identifier# 
-IDS
-of the parent content set, which shall be used to locate the parent content set using the  #name tree in 
+of the parent content set, which shall be used to locate the parent content set using the  #name tree #in 
 O
-the document’s name dictionary. (If the  entry for the# identifier contains an array of content sets, the 
-parent may be found by searching the array for the content set whose  entry includes the child #object.) 
+the document’s name dictionary. (If the  entry fo#r t#he identifier contains an array of content sets, the 
+parent may be found by searching the array for the content set whose  entry includes# the c#hild object.) 
 PZ
-In the course of creating #PDF pages from HTML files, Web Capture frequently scales the contents down 
-to fit on fixed-sized pages. The  (preferred zoom) entry in a page #object (see 7.7.3.3, "Page #objects") 
+In the course of creat#ing #PDF pages from HTML files, Web Capture frequently scales the contents down 
+to fit on fixed-sized pages. The  (preferred zoom) entr#y in a #page object (see 7.#7.3.3,# "Page objects") 
 specifies a magnification factor by which the page may be scaled to undo the downscaling and view the 
 page at its original size. That is, when the page is viewed at the preferred magnification factor, one unit 
 in default user space corresponds to one original source pixel. 
@@ -68,7 +68,7 @@ in default user space corresponds to one original source pixel.
  
 14.11.1General 
  
-This subclause describes features of #PDF that support prepress production workflows: 
+This subclause describes feature#s of# PDF that support prepress production workflows: 
 page boundaries
 • 
 The specification of  governing various aspects of the prepress process, such as 
@@ -83,7 +83,7 @@ Information for generating  for pages in a document (14.11.4, "Separation
 Output intents
 • 
 dictionaries") 
- for matching the colour #characteristics of a document with those of a target output 
+ for matching the colour# characte#ristics of a document with those of a target output 
 generation of traps
 • 
 device or production environment in which it will be printed (14.11.5, "Output intents") 
@@ -92,7 +92,7 @@ Open Prepress Interface (OPI)
 • 
 multiple colourants (14.11.6, "Trapping support") 
 The  for creating low-resolution proxies for high-resolution images 
-(14.11.7, "Open prepress interface (OPI)"). This feature is #deprecated with #PDF 2.0. 
+(14.11.7, "Open prepress interface (OPI)"). This feature is #deprecated ##wit#h PDF 2.0. 
 © ISO 2017 – All rights reserved 783 
 
 ISO/DIS 32000-2
@@ -100,20 +100,20 @@ ISO/DIS 32000-2
 • 
 When overprinting (see 8.6.7, "Overprint control") is enabled, and the device is a subtractive 
 colour device, "rendering for separations" may be implemented (see 10.8.2, "Separations"). In 
-addition, a ##PDF processor may optionally support "separation simulation" for any device (see 
+addit#ion,# a #PDF processor #may optionally support "separation simulation" for any device (see 
 14.11.2Page boundaries 
  
 10.8.3, "Separation simulation"). 
 14.11.2.1General 
  
 finished medium
-intermediate medium
-A #PDF page may be prepared# either for a , such as a sheet of paper, or as part of a 
+intermediate m#ediu#m
+A PDF page may be prepared# ei#ther for a , such as a sheet of paper, or as part of a 
 prepress process in which the content of the page is placed on an , such as film or 
 an imposed reproduction plate. In the latter case, it is important to distinguish between the 
 intermediate page and the finished page. The intermediate page may often include additional 
 production-related content, such as bleeds or printer marks, that falls outside the boundaries of the 
-finished page. To handle such cases, a #PDF page may define as many as five separate boundaries to 
+finished page. To handle such #case#s, a PDF page may define as many as five separate boundaries to 
 control various aspects of the imaging process: 
 media box
 • 
@@ -123,34 +123,34 @@ such purposes. It may also include areas close to the edges of the medium that c
 because of physical limitations of the output device. Content falling outside this boundary may 
 crop box
 • 
-safely be discarded without affecting the meaning of the #PDF file. 
+safely be discarded without affecting the meani#ng o#f the PDF file. 
 The  defines the region to which the contents of the page shall be clipped (cropped) when 
 displayed or printed. Unlike the other boxes, the crop box has no defined meaning in terms of 
 physical page geometry or intended use; it merely imposes clipping on the page contents. 
 However, in the absence of additional information (such as imposition instructions specified in a 
-JDF #job ticket), the crop box determines how the page’s contents shall be positioned on the output 
-bleed box#PDF 1.3
+JDF #job ticket#), the crop box determines how the page’s contents shall be positioned on the output# 
+bl#eed boxPDF 1.3
 • 
 medium. The default value is the page’s media box. 
 The  () defines the region to which the contents of the page shall be clipped when 
 output in a production environment. This may include any extra bleed area needed to 
 accommodate the physical limitations of cutting, folding, and trimming equipment. The actual 
-printed page may include printing marks that fall outside the bleed box. The default value is the 
-trim box#PDF 1.3
+printed page may include printing marks that fall outside the bleed box. The default value is t#he 
+#trim boxPDF 1.3
 • 
 page’s crop box. 
 The  () defines the intended dimensions of the finished page after trimming. It may 
-be smaller than the media box to allow for production-related content, such as printing 
-art box#PDF 1.3
+be smaller than the media box to allow for production-related content, such as prin#ting# 
+art boxPDF 1.3
 • 
 instructions, cut marks, or colour bars. The default value is the page’s crop box. 
-The  () defines the extent of the page’s meaningful content (including potential 
-page #object dictionary
+The  () defines the extent of the page’s meaningful content (including po#tential# 
+page object dictionary
 MediaBoxCropBoxBleedBoxTrimBox
 white-space) as intended by the page’s creator. The default value is the page’s crop box. 
 ArtBox 
 The  specifies these boundaries in the , , , , 
-and entries, respectively (see "#Table 31: Entries in a page #object"). All of them are rectangles 
+and entries, respectively (see "#Table 31: Ent#ries i#n a page object#"). All of them are rectangles 
 expressed in default user space units. The crop, bleed, trim, and art boxes should not ordinarily extend 
 beyond the boundaries of the media box. If the bounds of the crop, trim, bleed or art box extends 
 outside of the bounds of the media box, a processor shall treat the box as its intersection with the media 

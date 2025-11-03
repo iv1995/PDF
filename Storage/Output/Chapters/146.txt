@@ -1,30 +1,30 @@
-#Figure 19: Even-odd rule" shows the effects of applying the even-odd rule to complex paths. For the 
+#Figure 19: Even-odd rule#" shows the effects of applying the even-odd rule to complex paths. For the 
 © ISO 2017 – All rights reserved 172 
 
 ISO/DIS 32000-2
  
 five-pointed star, the rule considers the triangular points to be inside the path, but not the pentagon in 
 the centre. For the two concentric circles, only the doughnut shape between the two circles is 
-considered inside, regardless of the directions in which the circles are drawn. ![Figure 19 Even-odd rule  .png](./Storage/Output/Images/Figure 19 Even-odd rule  .png)
-#Figure 19: Even-odd rule 
- 
+considered inside, regardless of the directions in which the circles are drawn. ![Figure 19 Even-odd rule  .png](./Storage/Output/Images/Figure 19 Even-odd rule  .png)#
+Figure 19: Even-odd rule 
+ #
 8.5.4Clipping path operators 
  
 current clipping path
-The #graphics state shall contain a  that limits the regions of the page affected by 
+The #graphics state #shall contain a  that limits the regions of the page affected by 
 painting operators. The closed subpaths of this path shall define the area that can be painted. Marks 
 falling inside this area shall be applied to the page; those falling outside it shall not be. Subclause 8.5.3.3, 
 f
 "Filling" defines what is inside a path as well as stating rules for closing paths and for degenerate paths. 
 For a given path definition, the same area that would be filled by the  operator is the area that would be 
 used for a clip. 
-#PDF 1.4
+#PDF #1.4
 In the context of the transparent imaging model (), the current clipping path constrains an 
-#object’s shape (see 11.2, "Overview of transparency"). The effective shape is the intersection of the 
-#object’s intrinsic shape with the clipping path; the source shape value shall be 0.0 outside this 
-intersection. Similarly, the shape of a transparency #group (defined as the union of the shapes of its 
-constituent #objects) shall be influenced both by the clipping path in effect when each of the #objects is 
-painted and by the one in effect at the time the #group’s results are painted onto its backdrop. 
+#object#’s shape (see 11.2, "Overview of transparency"). The effective shape is the intersection of the #
+objec#t’s intrinsic shape with the clipping path; the source shape value shall be 0.0 outside this 
+intersection. Similarly, the shape of a transparency #group #(defined as the union of the shapes of its 
+constituen#t obje#cts) shall be influenced both by the clipping path in effect when each of t#he obj#ects is 
+painted and by the one in effect at the time the# grou#p’s results are painted onto its backdrop. 
 WW*
 The initial clipping path shall include the entire page. A clipping path operator ( or , shown in 
 "

@@ -1,12 +1,12 @@
 #Table 133: Variables used in the basic compositing 
-formula". 
+formula#". 
 NOTE This formula represents a simplified form of the compositing formula in which the shape and 
-opacity values are com#bined and represented as a single alpha value; the more general form is 
-presented later. This #function is based on the  operation defined in the article "Compositing 
+opacity values are com#bi#ned and represented as a single alpha value; the more general form is 
+presented later. This #function #is based on the  operation defined in the article "Compositing 
 over
 Digital Images," by Porter and Duff, extended to include a blend mode in the region of overlapping 
-coverage. 
-#Table 133: Variables used in the basic compositing formula 
+coverage. #
+Table 133: Variables used in the basic compositing formula #
 Variable Meaning 
 𝑏𝑏
 𝐶𝐶 Backdrop colour 
@@ -26,13 +26,13 @@ ISO/DIS 32000-2
  
 Variable Meaning 
 𝑏𝑏𝑓𝑓
-𝐵𝐵(𝐶𝐶,𝐶𝐶) Blend #function 
- 
+𝐵𝐵(𝐶𝐶,𝐶𝐶) Blend# function 
+ #
 The following sub-clauses elaborate on the meaning and implications of this formula. 
 11.3.4Blending colour space 
  
 nn
-The compositing formula shown in 11.3.3, "Basic compositing formula" represents a vector #function: 
+The compositing formula shown in 11.3.3, "Basic compositing formula" represents a vecto#r functi#on: 
 i
 the colours it operates on are represented in the form of -element vectors, where  denotes the 
 th
@@ -51,7 +51,7 @@ on the colour space in which the colours are represented. For this reason, the c
 compositing, called the , is explicitly made part of the transparent imaging model. 
 The backdrop and source colours are normally converted to the blending colour space before the 
 compositing computation. 
-Of the #PDF colour spaces described in 8.6, "Colour spaces", the following shall be supported as blending 
+Of the #PDF #colour spaces described in 8.6, "Colour spaces", the following shall be supported as blending 
 colour spaces: 
 DeviceGray 
 • 
@@ -66,16 +66,16 @@ CalRGB
 • 
 ICCBased
 • 
-La#b
- ICCBased 
+L#ab
+ #ICCBased #
  #bi-directional  ‘GRAY’, ‘RGB ’, and ‘CMYK’ colour spaces 
 L*a*b*, L*u*v*,HSV
 The  space andspaces that represent lightness and chromaticity separately (such as 
  and ) shall not be used as blending colour spaces because the compositing 
  ICCBased 
 computations in such spaces do not give meaningful results when applied separately to each 
-component. In addition, anspace used as a blending colour space shall be #bi-directional; that 
-is, the #ICC profile shall be capable of both device to PCS and PCS to device transformations. 
+component. In addition, anspace used as a blending colour space shall #be# bi-directional; that 
+is, the #ICC profile #shall be capable of both device to PCS and PCS to device transformations. 
 When performing blending, process colours (see 10.2, "Raster output device native colour") shall be 
  Separation  DeviceN 
 converted to the blending colour space. Although blending may also be done on individual spot colours 
@@ -83,12 +83,12 @@ specified in aorcolour space, such colours shall not be converted to a blending
 colour space (except in the case where they first revert to their alternate colour space, as described 
 under 8.6.6.4, "Separation colour spaces" and 8.6.6.5, "DeviceN colour spaces"). Instead, the specified 
 colour components shall be blended individually with the corresponding components of the backdrop. 
-The blend #functions for the various blend modes are defined such that the range for each colour 
+The ble#nd funct#ions for the various blend modes are defined such that the range for each colour 
 DeviceCMYKICCBasedSeparationDeviceN
 component shall be 0.0 to 1.0 and that the colour space shall be additive. When performing blending 
 operations in subtractive colour spaces (,  ‘CMYK’, , and ), 
-the colour component values shall be complemented (subtracted from 1.0) before the blend #function is 
-applied and the results of the #function shall then be complemented back before being used. 
+the colour component values shall be complemented (subtracted from 1.0) before the bl#end funct#ion is 
+applied and the results of# the func#tion shall then be complemented back before being used. 
 © ISO 2017 – All rights reserved 382 
 
 ISO/DIS 32000-2
@@ -98,13 +98,13 @@ ISO/DIS 32000-2
 11.3.5.1General 
  
 𝑟𝑟
-In principle, any #function of the backdrop and source colours that yields another colour, 𝐶𝐶, for the 
+In principle#, any fun#ction of the backdrop and source colours that yields another colour, 𝐶𝐶, for the 
 𝑏𝑏𝑓𝑓
-result may be used as a blend #function 𝐵𝐵(𝐶𝐶
+result may be used as a# blend fu#nction 𝐵𝐵(𝐶𝐶
 ,𝐶𝐶), in the compositing formula to customise the blending 
-operation. #PDF defines a standard set of named blend #functions, or blend modes, listed in "Table 134: 
+operation.# PDF# defines a standard set of name#d blend #functions, or blend modes, listed in "Table 134: 
 RGB
-Standard separable blend modes" and "#Table 135: Standard non-separable blend modes". "Figure 72: 
+Standard separable blend modes" and "#Table 135: Standard non-separable blend modes#". "Figure 72: 
 CMYK
-RGB blend modes" and "#Figure 73: CMYK blend modes" illustrate the resulting visual effects for  
+RGB blend modes" and "#Figure 73: CMYK blend modes#" illustrate the resulting visual effects for  
 and  colours, respectively. ![Figure 72 RGB blend modes  .jpg](./Storage/Output/Images/Figure 72 RGB blend modes  .jpg)

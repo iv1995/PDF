@@ -1,6 +1,6 @@
-#Figure 86: Illustration of a #PDF Document with repeated LTV 
+#Figure 86: Illustration of a #PDF #Document with repeated LTV 
  
- DocMDP 
+ #DocMDP 
  DSS 
 When evaluating therestrictions (see 12.8.2.2, "DocMDP") the presence of a document 
 timestamp and/orinformation shall be ignored. 
@@ -56,16 +56,16 @@ endobj
 6 0 obj 
   << 
    /Type /DocTimeStamp 
-   /#Filter /Adobe.PPKLite 
-   /Sub#Filter /ETSI.RFC3161 
+   /#Filter #/Adobe.PPKLite 
+   /Su#bFilter# /ETSI.RFC3161 
    /Contents <00000>       %values go here inside of <> 
-   /#ByteRange [0 0 0 0]      %values go here inside of [] 
+   /#Byte#Range [0 0 0 0]      %values go here inside of [] 
   >> 
 endobj 
  
 12.8.6Permissions 
  
- Perms 
-#PDF 1.5
+ Perms #
+PDF# 1.5
 Theentry in the document catalog dictionary (see "Table 29: Entries in the catalog dictionary") 
 shall specify a permissions dictionary (). Each entry in this dictionary (see "

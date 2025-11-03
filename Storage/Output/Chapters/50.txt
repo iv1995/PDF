@@ -1,11 +1,11 @@
-#PDF #objects, except those of Type  
+#PDF ##object#s, except those of Type  
 © ISO 2017 – All rights reserved 20 
 
 ISO/DIS 32000-2
  
 4.47 
- 
-#PDF 
+ #
+PDF #
 Portable Document Format file format defined by this International Standard 
 4.48 
  

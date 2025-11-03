@@ -1,20 +1,20 @@
-#Table 346: Predefined procedure set"). Each procedure set corresponds to a named 
+#Table 346: Predefined procedure set#"). Each procedure set corresponds to a named 
 resource containing the implementations of the operators in that procedure set. The  entry in a 
-#content stream’s #resource dictionary (see 7.8.3, "Resource dictionaries") shall hold an array consisting 
-of the names of the procedure sets used in that #content stream. These procedure sets shall be used only 
-when the #content stream is printed to a PostScript language compatible output device. The names# 
-identify PostScript language procedure sets that shall be sent to the device to interpret the #PDF 
-© ISO 2017 – All rights reserved 688 
+#content stream#’s #resource dictionary #(see 7.8.3, "Resource dictionaries") shall hold an array consisting 
+of the names of the procedure sets used in that# content strea#m. These procedure sets shall be used only 
+when th#e content strea#m is printed to a PostScript language compatible output device. The names# 
+id#entify PostScript language procedure sets that shall be sent to the device to interpret the #PDF 
+#© ISO 2017 – All rights reserved 688 
 
 ISO/DIS 32000-2
  
-operators in the #content stream. Each element of this array shall be one of the predefined names shown 
-in "#Table 346: Predefined procedure set". 
-#Table 346: Predefined procedure set 
-Name Category of operators 
-#PDF 
+operators in t#he content str#eam. Each element of this array shall be one of the predefined names shown 
+in #"Table 346: Predefined procedure se#t".# 
+Table 346: Predefined procedure set# 
+Name Category of operators #
+PDF #
 Painting and #graphics state 
-Text 
+#Text 
 Text 
 ImageB 
 Grayscale images or image masks 
@@ -27,41 +27,41 @@ Indexed (colour-table) images
  
 14.3.1General 
  
-A #PDF document may include general information, such as the document’s title, author, and creation 
+#A PD#F document may include general information, such as the document’s title, author, and creation 
 document metadata
 and modification dates. Such global information about the document (as opposed to its actual content 
-or structure) is called . Beginning with #PDF 1.4, it is possible to include metadata for 
-individual #objects in a document. Such #object-specific metadata is called #object-level metadata. 
-Metadata can be stored in a #PDF document in the following ways: 
-metadata stream#PDF 1.4
+or structure) is called . Beginning wi#th P#DF 1.4, it is possible to include metadata for 
+individual #object#s in a document. Such# objec#t-specific metadata is calle#d obje#ct-level metadata. 
+Metadata can be stored i#n a #PDF document in the following ways: 
+metadata s#trea#mPDF 1.4
 • 
-For document data and for #object-level metadata: In a  () associated with 
+For document data and f#or obj#ect-level metadata: In a  () associated with 
 the document or a component of the document (14.3.2, "Metadata streams"). Metadata streams are 
 document information dictionary
 • 
-the preferred method in #PDF 2.0. 
+the preferred meth#od i#n PDF 2.0. 
 For document metadata only: In a  associated with the document 
 CreationDate
-(14.3.3, "Document information dictionary"). Beginning with #PDF 2.0, the use of the document 
+(14.3.3, "Document information dictionary"). Beginnin#g wi#th PDF 2.0, the use of the document 
 ModDate
-information dictionary for document metadata has been #deprecated, except for the  
-and  entries. 
-#PDF’s document information dictionaries provided the initial means of including metadata in a #PDF file. 
-When metadata streams began to be used in #PDF 1.4, XMP was introduced to provide a much richer 
+information dictionary for document metadata has been #deprecated#, except for the  
+and  en#tri#es. 
+PDF’s document information dictionaries provided the initial means of including metad#ata #in a PDF file. 
+When metadata streams began to b#e us#ed in PDF 1.4, XMP was introduced to provide a much richer 
 mechanism to represent metadata entries. Using XMP, a document’s title can be in more than one 
 language or a document’s authors can be represented as a list. Machine-generated metadata for date 
-and time of creation or last modification of a #PDF document can adequately be represented in the 
+and time of creation or last modific#atio#n of a PDF document can adequately be represented in the 
 PieceInfo
 document information dictionary and in the document’s metadata stream. In some cases document 
 information dictionary entries are required, such as when  dictionaries (see "14.5, "Page-
 piece dictionaries") are used; they can be present in both the document information dictionary and the 
 document-level metadata stream as needed. 
-14.3.2Metadata streams 
+14.3.2Metadata# str#eams 
  
-#PDF 1.4metadata streams
-Metadata, both for an entire document and for #objects within a document, can be stored in stream 
+PDF 1.4metadata streams
+Metadata, both for an entire document and #for ob#jects within a document, can be stored in stream 
 dictionaries (). These streams are called . Besides the entries common to all 
-stream dictionaries (see "#Table 5: Entries common to all stream dictionaries"), a metadata stream 
+stream dictionaries (see "#Table 5: Entries common to all stream dictionaries#"), a metadata stream 
 © ISO 2017 – All rights reserved 689 
 
 ISO/DIS 32000-2

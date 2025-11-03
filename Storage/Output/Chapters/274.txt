@@ -1,17 +1,17 @@
 #Table 128: Entries in a Type 1 halftone dictionary 
-Key Type Value 
+#Key Type Value 
 Optional
 Type 
 Halftone
-name () The type of #PDF #object that this dictionary describes; if present, shall be 
+name () The type of #PDF ##object #that this dictionary describes; if present, shall be 
  for a halftone dictionary. 
 Required
 HalftoneType 
-integer () A code# identifying the halftone type that this dictionary describes; shall 
+integer () A code# id#entifying the halftone type that this dictionary describes; shall 
 be 1 for this type of halftone. 
 Optional
 HalftoneName 
-#byte string () The name of the halftone dictionary. 
+#byte #string () The name of the halftone dictionary. 
 Required
 Frequency 
 number () The screen frequency, measured in halftone cells per inch in device 
@@ -25,18 +25,18 @@ counterclockwise angle in device space corresponds to a clockwise angle
 in default user space and on the physical medium. 
 Required
 Spot#Function 
-#function, name or () A #function #object defining the order in which device pixels within a 
-array screen cell shall be adjusted for different gray levels, or the name of a spot 
-#function, or an array of names of spot #functions. A name should be one of the 
-Spot#Function
-#Table 126: Predefined spot #functions"). If the 
-predefined spot #functions (see "
-value of  is an array the ##PDF processor shall use the first name 
+##functio#n, name or () #A functio#n# object# defining the order in which device pixels within a 
+array screen cell shall be adjusted for different gray levels, or the name of a spo#t 
+funct#ion, or an array of names of s#pot func#tions. A name should be one of the #
+SpotFunc#tion
+#Table 126: Predefined# spot fu#nctions#"). If the 
+predefine#d spot f#unctions (see "
+value of  is an array the# #PDF# processor #shall use the first name 
 within the array that it recognizes. If a name is provided that is not defined in 
-"#Table 126: Predefined spot #functions" and the ##PDF processor does not 
+#"Table 126: Predefin#ed spot #function#s" and th#e# PD#F processor# does not 
 Table 
 understand that name, or if none of the names in an array are defined in "
-126: Predefined spot #functions" or are understood by the ##PDF processor, the 
+126: Predefi#ned spot# functions" or are understood by t#h#e P#DF process#or, the 
 processor shall use the default halftone. 
 Optional
 AccurateScreens 
@@ -44,20 +44,20 @@ boolean () A flag specifying whether to invoke a special halftone algorithm that
 false
 extremely precise but computationally expensive; see Note 1 for further 
 discussion. Default value: . 
-Optional
-Transfer#Function 
-#function or name () A transfer #function, which overrides the current transfer #function in the 
-#graphics state for the same component. This entry shall be present if the 
-dictionary is a component of a Type 5 halftone (see 10.6.5.6, "Type 5 halftones")# 
-Identity
-and represents# either a nonprimary or nonstandard primary colour component 
-Transfer#Function
+Optiona#l
+Transfer##Function# 
+function or name ()# A trans#fer function, which overrides the curr#ent trans#fer function in the 
+#graphics state #for the same component. This entry shall be present if the 
+dictionary is a component of a Type 5 halftone (see 10.6.5.6, "Type 5 halftones"#) 
+I#dentity
+and represents# ei#ther a nonprimary or nonstandard primary colour compo#nent 
+Tra#nsferFunction
 "). The name  may be used to specify the 
-(see 10.5, "Transfer #functions
-identity #function. The  key should only be used to convey tone 
+(see 1#0.5, "Tr#ansfer fun#ctions
+i#dentity function. The  key should only be used to convey tone 
 reproduction compensation (sometimes called gamma curve correction); it should 
-not be used to specify artistic intent. If the key is required by some other clause in# 
-Identity
+not be used to specify artistic intent. If the key is required by some other clause #in 
+#Identity
 this International Standard but no compensation is necessary then the value 
 should be the name . 
  
@@ -72,8 +72,8 @@ NOTE 1 Accurate halftoning achieves the requested screen frequency and angle wit
 whereas ordinary halftoning adjusts them so that a single screen cell is quantised to device pixels. 
 High accuracy is important mainly for making colour separations on high-resolution devices. 
 However, it might be computationally expensive and therefore is ordinarily disabled. 
-NOTE 2 In principle, #PDF permits the use of halftone screens with ar#bitrarily large cells — in other words, 
-ar#bitrarily low frequencies. However, cells that are very large relative to the device resolution or 
+NOTE 2 In princip#le, #PDF permits the use of halftone screens with ar#bi#trarily large cells — in other words, 
+a#rb#itrarily low frequencies. However, cells that are very large relative to the device resolution or 
 that are oriented at unfavourable angles can exceed the capacity of available memory. If this 
 © ISO 2017 – All rights reserved 366 
 
@@ -86,9 +86,9 @@ EXAMPLE The following shows a halftone dictionary for a Type halftone.
    <</Type /Halftone 
    /HalftoneType 1 
    /Frequency 120 
-   /Angle 30 
-   /Spot#Function /CosineDot 
-   /Transfer#Function /Identity 
+   /A#ngle 30 
+#   /SpotFunction /Cosin#eDot 
+   #/TransferFunction /Identity 
   >> 
 endobj 
  
@@ -99,9 +99,9 @@ a stream containing the threshold values; the parameters defining the halftone s
 entries in the stream dictionary. This dictionary may contain the entries shown in "Table 129: 
 WidthHeight
 Additional entries specific to a Type 6 halftone dictionary" in addition to the usual entries common to 
-all streams (see "#Table 5: Entries common to all stream dictionaries"). The  and  entries 
+all streams (see "#Table 5: Entries common to all stream dictionaries#"). The  and  entries 
 shall specify the dimensions of the threshold array in device pixels; the stream shall contain 
-𝑙𝑙𝐷𝐷𝐵𝐵𝑡𝑡ℎ × 𝐻𝐻𝑚𝑚𝐷𝐷𝑔𝑔ℎ𝑡𝑡 #bytes, each representing a single threshold value. Threshold values are defined in 
+𝑙𝑙𝐷𝐷𝐵𝐵𝑡𝑡ℎ × 𝐻𝐻𝑚𝑚𝐷𝐷𝑔𝑔ℎ𝑡𝑡# byt#es, each representing a single threshold value. Threshold values are defined in 
 device space in the same order as image samples in image space (see "#Figure 49: Source image 
-coordinate system"), with the first value at device coordinates (0, 0) and horizontal coordinates 
+coordinate system#"), with the first value at device coordinates (0, 0) and horizontal coordinates 
 changing faster than vertical coordinates. 

@@ -1,72 +1,72 @@
-#Figure 7: Relationship between string types". ![Figure 7 Relationship between string types  .png](./Storage/Output/Images/Figure 7 Relationship between string types  .png)
-#Figure 7: Relationship between string types 
- 
+#Figure 7: Relationship between string types#". ![Figure 7 Relationship between string types  .png](./Storage/Output/Images/Figure 7 Relationship between string types  .png)#
+Figure 7: Relationship between string types 
+ #
 7.9.2.2Text string type 
  
-The text string type shall be used for #character strings that contain information intended to be human-
+The text string type shall be used for #character #strings that contain information intended to be human-
 readable, such as text annotations, document outline item names, article names, and so forth. 
 NOTE 1 Text string type is a subtype of string type and represents data encoded using specific conventions. 
 ,
-The text string type shall be used for #character strings that shall be encoded in #PDFDocEncoding the 
+The text string type shall be used for# character# strings that shall be encoded in #PDF#DocEncoding the 
   
-UTF-16BE Unicode #character encoding scheme, or (#PDF 2.0) the UTF-8 Unicode #character encoding 
-scheme.#PDFDocEncodingcan encode all of the ISO Latin 1 ##character set and is documented in Annex D, 
-"##Character Sets and Encodings". UTF-16BE and UTF-8 can encode all Unicode #characters. UTF-16BE, 
+UTF-16BE Unicod#e characte#r encoding scheme, or #(PDF# 2.0) the UTF-8 Unico#de charact#er encoding 
+schem#e.P#DFDocEncodingcan encode all of the ISO Lati#n 1 #charac#ter set #and is documented in Annex #D, 
+#"Chara#cter Se#ts and Encodings". UTF-16BE and UTF-8 can encode all Un#icode cha#racters. UTF-16BE, 
 © ISO 2017 – All rights reserved 116 
 
 ISO/DIS 32000-2
  
 The Unicode Standard
-UTF-8 and Unicode #character encoding are described in  by the Unicode 
+UTF-8 and U#nicode cha#racter encoding are described in  by the Unicode 
 Consortium. 
-EXAMPLE 1 A #PDF dictionary containing key ‘Key’ with the value that is the text string "text‰" will look like 
+EXAMPLE 1# A P#DF dictionary containing key ‘Key’ with the value that is the text string "text‰" will look like 
 <</Key(text?)>> 
  
-where the #character ‘?’ after the ‘text’ is represented by the hex code 8B (octal code 213 - that is according to 
-NOTE 2  does not support all Unicode #characters whereas UTF-16BE and UTF-8 do. 
-#PDFDocEncoding
-"D.2 Latin ##character set and encodings")." 
-For text strings encoded in UTF-16BE, the first two #bytes shall be 254 followed by 255. These two #bytes 
-represent the Unicode #byte order marker, ZERO WIDTH NO-BREAK SPACE (U+FEFF), indicating that 
-the string is encoded in the UTF-16BE (#big-endian) encoding scheme specified in Unicode. 
-EXAMPLE 2 A #PDF dictionary containing key ‘Key’ with the value that is the text string "тест" (that is what the word in 
+wh#ere the ch#aracter ‘?’ after the ‘text’ is represented by the hex code 8B (octal code 213 - that is according to 
+NOTE 2  does not support all# Unicode #characters whereas UTF-16BE and UTF-8 d#o. #
+PDFDocEncoding
+"#D.2 Latin# #character se#t and encodings")." 
+For text strings encoded in UTF-16BE, the first two #byte#s shall be 254 followed by 255. These two# byt#es 
+represent the Unicod#e byt#e order marker, ZERO WIDTH NO-BREAK SPACE (U+FEFF), indicating that 
+the string is encoded in the UTF-16BE (#bi#g-endian) encoding scheme specified in Unicode. 
+EXAMPLE# 2 A# PDF dictionary containing key ‘Key’ with the value that is the text string "тест" (that is what the word in 
 Russian with the translation to English as ‘test’) will look like 
-<</Key(??????????)>> 
-where the #characters in parentheses is the sequence of #bytes with hex codes FE, FF, 04, 42, 
+<</Key(??????????)>> #
+where th#e characters in parentheses is the sequence #of b#ytes with hex codes FE, FF, 04, 42, 
 04, 35, 04, 41, 04, 42. 
-NOTE 3 This mechanism precludes beginning a string using#PDFDocEncodingwith the two #characters 
+NOTE 3 This mechanism precludes beginning a string# us#ingPDFDocEncodingw#ith the t#wo characters 
   
 thorn ydieresis, which is unlikely to be a meaningful beginning of a word or phrase. 
-For text strings encoded in UTF-8, the first three #bytes shall be 239 followed by 187, followed by 191. 
-These three #bytes represent the Unicode #byte order marker indicating that the string is encoded in the 
+For text strings encoded in UTF-8, the first th#ree #bytes shall be 239 followed by 187, followed by 191. 
+These t#hree# bytes represent the Un#icode# byte order marker indicating that the string is encoded in the 
 UTF-8 encoding scheme specified in Unicode. 
-NOTE 4 This mechanism precludes beginning a string using #PDFDocEncoding with the three #characters 
+NOTE 4 This mechanism precludes beginning a string# us#ing PDFDocEncoding wi#th the th#ree characters 
 dieresis, guillemotright, questiondown, which is unlikely to be a meaningful beginning of a word 
-or phrase. 
-##PDF readers that process #PDF files containing Unicode text strings shall be prepared to handle 
-supplementary #characters; that is, #characters requiring more than two #bytes to represent. 
+or p#hras#e. 
+#PDF reader#s that# pro#cess PDF files containing Unicode text strings shall be prepared to handle 
+#supplemen#tary charac#ters; tha#t is, characters requiring more th#an t#wo bytes to represent. 
 NOTE 5 UTF-16BE must not be confused with UCS2 (i.e., wchar_t). UTF-16 is not a fixed width encoding 
 scheme. 
 7.9.2.2.1Text string language escape sequences 
  
 Escape sequences may appear anywhere in a Unicode text string to indicate the language in which 
 subsequent text shall be written. 
-NOTE 6 This is useful when the language cannot be determined from the #character codes used in the text. 
+NOTE 6 This is useful when the language cannot be dete#rmined fro#m the character codes used in the text. 
 The escape sequence shall consist of the following elements, in order: 
  
-a)The Unicode value ESCAPE (U+001B) (that is, for strings encoded in UTF-16BE, the #byte sequence 0 
+a)The Unicode value ESCAPE (U+001B) (that is, for strings encoded in UTF-16#BE, t#he byte sequence 0 
  
-followed by 27; for strings encoded in UTF-8 the #byte value 27). 
-b)A 2- #byte BCP 47 language code. 
-EXAMPLE 3 en for English or ja for Japanese encoded as ASCII #characters. 
+followed by 27; for strings encoded in U#TF-8 #the byte value 27)#. 
+b)#A 2- byte BCP 47 language code. 
+EXAMPLE 3 en for English or ja for Japanese #encoded a#s ASCII characters. 
 Optional
- 
-c)() A 2-#byte BCP 47 country code.  
+# 
+c)(#) A 2-byte BCP 47 country code.  
 © ISO 2017 – All rights reserved 117 
 
 ISO/DIS 32000-2
  
-EXAMPLE 4 US for the United States or JP for Japan encoded as ASCII #characters. 
+EXAMPLE 4 US for the United States or JP for Japan# encoded #as ASCII characters. 
  
 NOTE 7 The complete list of codes defined by BCP 47 can be obtained from the Internet Engineering Task 
 d)The Unicode value ESCAPE (U+001B).  
@@ -74,34 +74,34 @@ Force and the International Organization for Standardization, respectively.
 NOTE 8 Since Unicode defines an escape sequence for indicating the language of the text, this mechanism 
 enables the alternate description to change from the language specified by the prevailing  
 Lang
-entry. 
-7.9.2.3#PDFDocEncoded string type 
+entry#. 
+#7.9.2.3PDFDocEncoded stri#ng #type 
  
-#PDFDocEncoding
-A #PDFDocEncoded string is a #character string in which the #characters shall be represented in a single 
-#byte using . 
-NOTE  does not support all Unicode #characters whereas UTF-16BE or UTF-8 do. 
-#PDFDocEncoding
-7.9.2.4#Byte string type 
+PDFDo#cEn#coding
+A PDFDocE#ncoded str#ing is a character #string in# which the characters shall be represented i#n a s#ingle 
+byte using . 
+NOTE  does not# support #all Unicode characters whereas UTF-16BE o#r U#TF-8 do. 
+PDFDocEnc#oding#
+7.9.2.4Byte strin#g typ#e 
  
-The #byte string type shall be used for ##binary data that shall be represented as a series of #bytes, where 
-each #byte may be any value representable in 8 #bits. #Byte string type is a subtype of string type. For 
-example, #byte strings are used to define a file# identifier (see 14.4, "File# identifiers") that is specified in# 
-ID entry of #PDF file trailer (see "#Table 15: Entries in the file trailer dictionary"). In such case #byte string 
+The byte string type shall be used for ##b#inary data #that shall be represented #as a# series of byt#es, w#here 
+each byte may be any value represen#table# in #8 #bits. Byte string type is a subtype of string ty#pe. F#or 
+example, byte strings are used to define a file# id#entifier (see 14.4, "Fil#e i#dentifiers") that is specified i#n# 
+ID## entry of PDF file trailer (see "#Table 15: Entries in the file trailer dictiona#ry#").# In such case byte string 
 is written in hexadecimal form (see 7.3.4.3, "Hexadecimal strings") and looks like 
 <B6FB54F3F8554D478DC874F11DAD0F11> 
-NOTE The string can represent #characters but the encoding is not known. The #bytes of the string might 
-not represent #characters. 
-7.9.3Text streams 
+NOTE The# string c#an represent characters but the encodin#g is# not known. The bytes of the strin#g might 
+#not represent characters. 
+7.9.3Text streams# 
  
-text stream#PDF 1.5
-A  () shall be a #PDF #stream #object (7.3.8, "#Stream #objects") whose unencoded #bytes 
-shall meet the same requirements as a text string (7.9.2.2, "Text string type") with respect to encoding, 
-#byte order, and lead #bytes. 
+#text streamPDF 1.5
+A#  ()# shall be a PDF #stream #object ##(7.3.8, #"Stream# objec###ts")# whose unencoded bytes 
+shall meet the same requirements as a text string (7.9.2.2, "Text string type") with #respe#ct to encoding,# 
+by#te order, and lead bytes. 
 7.9.4Dates 
  
-Date values used in a #PDF shall conform to a standard date format, which closely follows that of the 
-international standard #ASN.1 (Abstract Syntax Notation One), defined in ISO/IEC 8824. A date shall be a 
+Date #valu#es used in a PDF shall conform to a standard date format, which closely follows that of the 
+international standard #ASN.1 #(Abstract Syntax Notation One), defined in ISO/IEC 8824. A date shall be a 
 text string containing no whitespace, of the form 
 YYYYMMDDHHmmSSOHH'mm
 (D:) 
@@ -123,8 +123,8 @@ ISO/DIS 32000-2
 SS
 O
  shall be the second (00–59) 
- shall be the relationship of local time to Universal Time (UT), and shall be denoted by one of the 
-#characters PLUS SIGN (U+002B) (+), HYPHEN-MINUS (U+002D) (-), or LATIN CAPITAL LETTER Z 
+ shall be the relationship of local time to Universal Time (UT), and shall be# denoted #by one of the 
+characters PLUS SIGN (U+002B) (+), HYPHEN-MINUS (U+002D) (-), or LATIN CAPITAL LETTER Z 
 HH
 (U+005A) (Z) (see below) 
  followed by APOSTROPHE (U+0027) (') shall be the absolute value of the offset from UT in hours 
@@ -141,13 +141,13 @@ earlier than UT, and the LATIN CAPITAL LETTER Z signifies that local time is equ
 information is specified, the relationship of the specified time to UT shall be considered to be GMT. 
 Regardless of whether the time zone is specified, the rest of the date shall be specified in local time. 
 EXAMPLE For example, December 23, 1998, at 7:52 PM, U.S. Pacific Standard Time, is represented by the string: 
-D:199812231952-08'00 
-NOTE #PDF versions up to and including 1.7 defined a date string to include a terminating apostrophe. 
-##PDF processors are recommended to accept date strings that still follow that convention. 
-7.9.5#Rectangles 
- 
-#Rectangles are used to describe locations on a page and bounding boxes for a variety of #objects. A 
-#rectangle shall be written as an array of four numbers giving the coordinates of a pair of diagonally 
+D:1998122#3195#2-08'00 
+NOTE PDF versions up to and including 1.7 defined a date string to include a termin#atin#g apostrophe. 
+#PDF processor#s are recommended to accept date strings that still follow that convention. 
+7.9.5#Rectangle#s 
+ #
+Rectangl#es are used to describe locations on a page and bounding boxes for a variety o#f obje#cts. A# 
+rectangl#e shall be written as an array of four numbers giving the coordinates of a pair of diagonally 
 opposite corners. 
 Typically, the array takes the form 
 xyxy
@@ -159,34 +159,34 @@ xyxy
 xy
 ll
 ur
-specifying the lower-left , lower-left , upper-right , and upper-right  coordinates of the #rectangle, in 
+specifying the lower-left , lower-left , upper-right , and upper-right  coordinates of t#he rectan#gle, in 
 xy
 ur
 ll
-that order. The other two corners of the #rectangle are then assumed to have coordinates (
+that order. The other two corners of #the rectan#gle are then assumed to have coordinates (
 , ) and 
 (
 , ). 
-7.9.6#Name trees 
+7.9.6#Name tree#s 
  
-A #name tree serves a similar purpose to a dictionary — associating keys and values — but by different 
-means. A #name tree differs from a dictionary in the following important ways: 
+A# name tree# serves a similar purpose to a dictionary — associating keys and values — but by different 
+means. #A name tre#e differs from a dictionary in the following important ways: 
 • 
 • 
-Unlike the keys in a dictionary, which are #name #objects, those in a name tree are strings. 
+Unlike the keys in a dictionary, which are #na#me obje#ct#s, those in a name tree are strings. 
 • 
 The keys are ordered. 
-The values associated with the keys may be #objects of any type. #Stream #objects shall be specified 
-by #in#direct ##object references (7.3.8, "#Stream #objects"). The dictionary, array, and #string #objects 
-should be specified by #in#direct ##object references, and other #PDF #objects (nulls, numbers, booleans, 
-and names) should be specified as #direct #objects. 
+The values associated with the keys may# be ob#jects of any type#. St#ream o#bje#cts shall be specified 
+by #in#d#irect #obj#ect ##reference#s (7.3.8,# "#Stream# obj#ects"). The dictionary, array, and# #strin#g object#s 
+should be specified by# i##ndirect ##object## refer#enc##es, and #other #PDF objects (nulls, numbers, booleans, 
+and names) should be specified #a#s dir#ect obje#cts. 
 © ISO 2017 – All rights reserved 119 
 
 ISO/DIS 32000-2
  
 • 
-The data structure can represent an ar#bitrarily large collection of key-value pairs, which can be 
-looked up efficiently without requiring the entire data structure to be read from the #PDF file. (In 
+The data structure can represent an# a#rbitrarily large collection of key-value pairs, which can be 
+looked up efficiently without requiring the entire data structure# to #be read from the PDF file. (In 
 contrast, a dictionary can be subject to an implementation limit on the number of entries it can 
-contain.) 
-A #name tree shall be constructed of nodes, each of which shall be a #dictionary #object. "
+contain.) #
+A name tr#ee shall be constructed of nodes, each of which shall be a ##dictio#nary object#. "

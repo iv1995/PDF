@@ -1,27 +1,27 @@
-#Table 224: Entries in the interactive form dictionary" shows the 
+#Table 224: Entries in the interactive form dictionary#" shows the 
 contents of this dictionary. 
 © ISO 2017 – All rights reserved 513 
 
 ISO/DIS 32000-2
- 
-#Table 224: Entries in the interactive form dictionary 
+ #
+Table 224: Entries in the interactive form dictionary #
 Key Type Value 
 (Required) root fields 
 Fields 
 array An array of references to the document’s 
 (those with no ancestors in the field hierarchy). 
-(Optional; #deprecated in #PDF 2.0) 
+(Optional; #deprecated #in #PDF #2.0) 
 NeedAppearances 
 boolean A flag specifying whether to 
 construct appearance streams and appearance dictionaries for all 
 false
 widget annotations in the document (see 12.7.4.3, "Variable text"). 
 true
-Default value: . A ##PDF writer shall include this key, with a value 
+Default value: . A# #PDF# writer #shall include this key, with a value 
 of , if it has not provided appearance streams for all visible 
-NOTE Appearance streams are required in #PDF 2.0. 
+NOTE Appearance streams are required i#n PD#F 2.0. 
 widget annotations present in the document. 
-(Optional; #PDF 1.3) 
+(Optiona#l; P#DF 1.3) 
 SigFlags 
 integer A set of flags specifying various document-level 
-#characteristics related to signature fields (see "
+#character#istics related to signature fields (see "

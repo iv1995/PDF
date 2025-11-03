@@ -1,24 +1,24 @@
 #Table 326: Entries in a 3D 
-measurement/markup dictionary common to all markup subtypes". 
-#Table 326: Entries in a 3D measurement/markup dictionary common to all markup subtypes 
+measurement/markup dictionary common to all markup subtypes#". #
+Table 326: Entries in a 3D measurement/markup dictionary common to all markup subtypes #
 Key Type Value 
-Optional; #PDF 2.0
+Optional; #PDF #2.0
 Type 
 3DMeasure
-name () The type of #PDF #object that this dictionary describes; if present, it 
+name () The type of# PDF ##object #that this dictionary describes; if present, it 
 shall be  for a 3D measurement dictionary. 
 © ISO 2017 – All rights reserved 662 
 
 ISO/DIS 32000-2
  
 Key Type Value 
-Required; #PDF 2.0
+Required#; PD#F 2.0
 Subtype 
 name () A name specifying the measurement type for this measurement 
 LD3linear dimension measurement
 which shall be chosen from the following:  
  A  is used to denote the distance between two 
-ar#bitrary points on a 3D model. See 13.6.7.3.1, "3D linear dimension 
+ar#bi#trary points on a 3D model. See 13.6.7.3.1, "3D linear dimension 
 PD3perpendicular dimension measurement
 measurement" for a listing of additional entries in this dictionary. 
  A  is used to denote the perpendicular 
@@ -43,20 +43,20 @@ geometry in the 3D model. See "
  
 measurement/markup dictionary for a 3D comment note" for a listing of 
 additional entries in this dictionary.
-Optional; #PDF 2.0
+Optiona#l; P#DF 2.0
 TRL 
 text () A name string that may be associated with a measurement markup. If 
-string omitted, an #interactive ##PDF processor may create one. 
-#Interactive ##PDF processors that do not provide a user interface for such elements should 
+string omitted, an #interact#ive ##PDF processor ##may create one. #
+Interac#tive## PDF processo##rs that do not provide a user interface for such elements should 
 ignore this field. 
  
 TRL
 The  field contains the current name for the measurement markup. Each measurement markup is 
 assigned a name ("Measurement 1", "3D Comment 22", … and so on) when it is created. These names 
-may be shown by an #interactive ##PDF processor so that users can see what measurements are associated 
+may be shown by a#n intera#ctiv##e PDF processo##r so that users can see what measurements are associated 
 with what views. Users should be allowed to override the initially defined names. 
 13.6.7.3.13D linear dimension measurement 
  
 3D linear measurement
-A  is a markup showing the distance between two ar#bitrary points on a 3D 
+A  is a markup showing the distance between two a#rb#itrary points on a 3D 
 model. "

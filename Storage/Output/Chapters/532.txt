@@ -1,5 +1,5 @@
 #Table 338: Entries in a 
-RichMediaPresentation dictionary") that contains information as to how the annotation 
+RichMediaPresentation dictionary#") that contains information as to how the annotation 
 and user interface elements will be visually laid out and drawn. 
  
 13.7.2.2.2RichMediaDeactivation dictionary 
@@ -8,13 +8,13 @@ RichMediaDeactivation dictionary
 The second component of the RichMediaSettings dictionary is the , 
 which specifies the condition that causes deactivation of the annotation. 
 #Table 336: Entries in a RichMediaDeactivation dictionary 
-Key Type Value 
-Optional; #PDF 2.0
+#Key Type Value 
+Optional; #PDF #2.0
 Type 
 RichMediaDeactivation
-name () The type of #PDF #object that this dictionary describes. If 
+name () The type of# PDF ##object #that this dictionary describes. If 
 present, shall be . 
-Optional; #PDF 2.0
+Optional#; PD#F 2.0
 Condition 
 name () A name specifying the circumstances under which the 
 XD
@@ -32,40 +32,40 @@ Default value: .
 13.7.2.2.3RichMediaAnimation dictionary 
  
 RichMediaAnimation dictionary
-A  specifies the preferred method that #interactive ##PDF processors should 
+A  specifies the preferred method that #interacti#ve #P#DF processor##s should 
 Animation
 use to apply timeline scaling to keyframe animations. It can also specify that keyframe animations be 
 played repeatedly. The  entry of the RichMediaActivation dictionary ("#Table 335: Entries in a 
-RichMediaActivation dictionary") can specify a RichMediaAnimation dictionary. 
+RichMediaActivation dictionary#") can specify a RichMediaAnimation dictionary. 
 keyframe animation
 A  can be provided as part of 3D model content. "#Table 337: Entries in a 
-RichMediaAnimation dictionary" shows the entries in a RichMediaAnimation dictionary. 
+RichMediaAnimation dictionary#" shows the entries in a RichMediaAnimation dictionary. 
 © ISO 2017 – All rights reserved 678 
 
 ISO/DIS 32000-2
  
 NOTE Keyframe animation is an interactive feature that is highly dependent on the behaviour and 
-controls provided by the #interactive ##PDF processor. 
-#Table 337: Entries in a RichMediaAnimation dictionary 
+controls provided by the# interact#ive ##PDF processo##r. #
+Table 337: Entries in a RichMediaAnimation dictionary #
 Key Type Value 
-Optional; #PDF 2.0
+Optio#nal;# PDF 2.0
 Type 
 RichMediaAnimation
-name () The type of #PDF #object that this dictionary describes. If present, 
+name () The ty#pe of# PDF# object# that this dictionary describes. If present, 
 the type shall be . 
-Optional; #PDF 2.0
+Opt#iona#l; PDF 2.0
 Subtype 
 NoneLinearOscillating
 name () The animation style described by this dictionary. Valid values 
 are , , and . 
-See "#Table 313: Animation styles" for descriptions of these animation styles. 
+See "#Table 313: Animation styles#" for descriptions of these animation styles. 
 None
 If an animation style is encountered other than those described, an animation style 
 None
  
 of  shall be used. 
 Default value: 
-Optional; #PDF 2.0
+Op#tion#al; PDF 2.0
 PlayCount 
 integer () An integer specifying the play count for this animation style. A 
 nonnegative integer shall represent the number of times the animation is played. A 
@@ -73,7 +73,7 @@ None
  
 negative integer shall indicate that the animation is infinitely repeated. 
 This value shall be ignored for an animation subtype of type . Default value: -1
-Optional; #PDF 2.0
+O#ptio#nal; PDF 2.0
 Speed 
 number () A positive number specifying the speed that shall be used when 
 running the animation. A value greater than one shall shorten the time it takes to 
@@ -98,7 +98,7 @@ EXAMPLE A RichMediaSettings dictionary
    >> 
    /Presentation 21 0 R 
    /Scripts [32 0 R 33 0 R]    %References to scripts in Resources #name tree 
-  >> 
+  #>> 
   /Deactivation        %RichMediaDeactivation dictionary 
   <</Type /RichMediaDeactivation 
    /Condition /XD 
@@ -112,18 +112,18 @@ RichMediaPresentation dictionary
 The  contains information about how the annotation and user 
 3D
 RichMediaConfiguration
-interface elements should be visually laid out and drawn by an #interactive ##PDF processor. The visi#bility 
+interface elements should be visually laid out and drawn by a#n in#tera#ctiv#e PDF process##or. The visi#bi#lity 
 of the Toolbar is specified, and it will only take effect if the  subtype is . 
 © ISO 2017 – All rights reserved 679 
 
 ISO/DIS 32000-2
  
-(See "#Table 342: Entries in a RichMediaConfiguration dictionary") 
+(See "#Table 342: Entries in a RichMediaConfiguration dictionary#") 
 User interface items such as a navigation panes and toolbars can be displayed or hidden by default. Such 
-user interface elements may only be implemented by those #interactive ##PDF processors where it is 
+user interface elements may only be implemented by tho#se i#nter#acti#ve PDF proces##sors where it is 
 appropriate to do so. 
 NOTE The navigation pane is a user interface item that would be used to display the hierarchical 
 relationship of entities within the artwork. (See 13.6.2, "3D Annotations".) 
 StyleEmbedded
-The  of the annotation can be presented  within the #PDF page or separately Windowed. 
+The  of the annotation can be presented # wit#hin the PDF page or separately Windowed. 
 If a Windowed state is chosen, the default dimensions and position of the window may be given. "

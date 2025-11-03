@@ -1,81 +1,81 @@
-#Table 33: Compati#bility operators"). These operators shall occur in pairs and may be nested. They 
-bracket a compati#bility section, a portion of a #content stream within which unrecognised operators 
-shall be ignored without error. This mechanism enables a ##PDF processor to use operators defined in 
+#Table 33: Compati#bi#lity operators#"). These operators shall occur in pairs and may be nested. They 
+bracket a compat#ib#ility section, a portion of a #content stream #within which unrecognised operators 
+shall be ignored without error. This mechanism enables a ##PDF #processor #to use operators defined in 
 BX EX 
-later versions of #PDF without sacrificing compati#bility with older applications. It should be used only in 
+later versions of# PDF# without sacrificing compa#ti#bility with older applications. It should be used only in 
 cases where ignoring such newer operators is the appropriate thing to do. The  andoperators are 
 © ISO 2017 – All rights reserved 112 
 
 ISO/DIS 32000-2
  
-not themselves part of any graphics #object (see 8.2, "Graphics #objects") or of the #graphics state (8.4, 
-"#Graphics state"). 
-#Table 33: Compati#bility operators 
+not themselves part of any graphics #object #(see 8.2, "Graphics# objec#ts") or of the #graphics state #(8.4, 
+#"Graphics stat#e"). #
+Table 33: Comp#at#ibility operators #
 Operands Operator Description 
-— #PDF 1.1
+#— PD#F 1.1
 BX 
 EX
-() Begin a compati#bility section. Unrecognised operators (along with 
+() Begin a com#pa#tibility section. Unrecognised operators (along with 
 their operands) shall be ignored without error until the balancing  
-operator is encountered. 
-— #PDF 1.1
+operator is encountered. #
+— P#DF 1.1
 EX BX
-() End a compati#bility section begun by a balancing  operator. 
+() End a co#mp#atibility section begun by a balancing  operator. 
 BX
 Ignore any unrecognised operands and operators from previous matching 
  onward. 
  
 7.8.3Resource dictionaries 
  
-As stated in 7.8.2, "#Content streams" the operands supplied to operators in a #content stream shall only 
-be #direct #objects; #in#direct #objects and ##object references shall not be permitted. In some cases, an 
-operator shall refer to a #PDF #object that is defined outside the #content stream, such as a #font dictionary 
-or a stream containing image data. This shall be accomplished by defining such #objects as named 
-resources and referring to them by name from within the #content stream. 
-Named resources shall be meaningful only in the context of a #content stream. The scope of a resource 
-name shall be local to a particular #content stream and shall be unrelated to externally known# identifiers 
-for #objects such as #fonts. References from one #object outside of #content streams to another outside of 
-#content streams shall be made by means of #in#direct ##object references rather than named resources. 
-A #content stream’s named resources shall be defined by a #resource dictionary, which shall enumerate 
-the named resources needed by the operators in the #content stream and the names by which they can 
+As stated in 7.8.2, #"Content strea#ms" the operands supplied to operators in #a content strea#m shall only 
+be #direc#t objec#t#s; #i#ndire#ct objec##t#s #and #obj#ect reference#s shall not be permitted. In some cases, an 
+operator shall refer to# a# #PDF ob#ject that is defined outside t#he content str#eam, such as a #font #dictionary 
+or a stream containing image data. This shall be accomplished by defining# such #objects as named 
+resources and referring to them by name from within #the content st#ream. 
+Named resources shall be meaningful only in the context #of a content s#tream. The scope of a resource 
+name shall be local to a parti#cular content s#tream and shall be unrelated to externally known# id#entifier#s 
+for# objects such as# fon#ts. References f#rom one# object outs#ide of content# streams to another outs#ide of 
+conten#t streams shall be made by means of ###indirect ##objec#t# referenc#es rather than named resou#rces. 
+A conte#nt stream’s named resources shall be defined by a #resource dictionary#, which shall enumerate 
+the named resources needed by the operato#rs in the conte#nt stream and the names by which they can 
 be referred to. 
-EXAMPLE 1 If a text operator appearing within the #content stream needs a certain #font, the #content stream’s #resource 
-dictionary can associate the name F42 with the corresponding #font dictionary. The text operator can use this 
-name to refer to the #font. 
-A #resource dictionary shall be associated with a #content stream in one of the following ways: 
-Contents
+EXAMPLE 1 If a text operator appearing #within the cont#ent stream needs a certai##n fo#nt, the co#ntent stream’s# resource 
+dictionary# can associate the name F42 with the correspondi#ng fo#nt dictionary. The text operator can use this 
+name to refer to #the #font. 
+#A resource dictionar#y shall be assoc#iated with a co#ntent stream in one of the following ways: 
+Conten#ts
 • 
  
-For a #content stream that is the value of a page’s  entry (or is an element of an array that 
+For a c#ontent stream that is the value of a page’s  entry (or is an element of an array that 
 Resources 
-is the value of that entry), the #resource dictionary shall be designated by the page dictionary’s
+is the value of that entry), t#he resource dictiona#ry shall be designated by the page dictionary’s
 entry or is inherited, as described under 7.7.3.4, "Inheritance of page attributes" from 
-some ancestor node of the page #object. ##PDF writers should not use this inheritance feature of #PDF 
-as its use can cause undue complexity for a ##PDF reader. A ##PDF writer should only include resource 
+some ancestor node of# the p#age obj#ect.# #PDF writer#s should not use this inheritance featu#re of# PDF 
+as its use can cause undue complexity# for# a #PDF re#ader##. A# PDF writer# should only include resource 
  Resources 
-definitions for resources that are actually referenced by the #content streams of the associated page 
+definitions for resources that are actually ref#erenced by the# content streams of the associated page 
  Resources 
-in thedictionary. If the #content streams of multiple pages require exactly the same set 
+in thedic#tionary. If th#e content streams of multiple pages require exactly the same set 
 of resources, a singledictionary may be shared between them by using indirect 
  Resources 
 references. If each page requires different sets of resources, then each should be written with its 
  Resources 
 • 
-owndictionary. 
-For other #content streams, a ##PDF writer shall include aentry in the stream's dictionary 
-specifying the #resource dictionary which contains all the resources used by that #content stream. 
-This shall apply to #content streams that define form X#Objects, patterns, Type 3 #fonts, and 
+owndictio#nary. 
+For oth#er content st#ream#s, #a PDF write#r shall include aentry in the stream's dictionary 
+specifying #the resource diction#ary which contains all the resou#rces used by t#hat content stream. 
+T#his shall appl#y to content streams that de#fine f#orm XObjects, patterns, Ty#pe 3# fonts, and 
 © ISO 2017 – All rights reserved 113 
 annotation appearences. 
 
 ISO/DIS 32000-2
  
- Resources 
+ Reso#urce#s 
 • 
-#PDF files written obeying earlier versions of #PDF may have omitted theentry in all 
-form X#Objects and Type 3 #fonts used on a page. All resources that are referenced from those forms 
-current #resource dictionary
-and #fonts shall be inherited from the #resource dictionary of the page on which they are used. 
-In the context of a given #content stream, the term  refers to the #resource 
-dictionary associated with the stream in one of the ways described above. Each key in a #resource 
-dictionary shall be the name of a resource type, as shown in "
+PDF files written obeying earlier v#ersi#ons of PDF may have omitted theentry in# all 
+#form XObjects and T#ype #3 fonts used on a page. All resources that are referenced from those forms 
+cur#rent resource diction#a#ry
+a#nd fonts shall be inherited fro#m the resource dicti#onary of the page on which they are used. 
+In the# context of a #given content stream, the term  refers #to the resource 
+dict#ionary associated with the stream in one of the ways described above. Each k#ey in a resource 
+dic#tionary shall be the name of a resource type, as shown in "

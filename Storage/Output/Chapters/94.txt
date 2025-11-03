@@ -1,42 +1,42 @@
 #Table 23: Additional encryption dictionary entries for public-key 
-security handlers" as described below. 
+security handlers#" as described below. 
 #Filter
-The  entry shall be the name of a public-key security handler. This #filter entry shall be the name of 
+#The  entry shall be the name of a public-key security handler. This# filter# entry shall be the name of 
 the public key handler used to encrypt the document. See "#Table 20: Entries common to all encryption 
-dictionaries". 
+dictionaries#". 
 NOTE Examples of existing security handlers that support public-key encryption are Entrust.PPKEF, 
 Adobe.PPKLite, and Adobe.PubSec.  
- Sub#Filter 
+ S#ubFilter# 
 adbe.pkcs7.s3adbe.pkcs7.s4
 Permitted values of theentry for use with conforming public-key security handlers are 
 adbe.pkcs7.s5
-, , which shall be used when not using crypt #filters (see 7.6.6, "Crypt #filters") 
-and , which shall be used when using crypt #filters. 
+, , which shall be used when not using cry#pt fil#ters (see 7.6.6, "Cr#ypt fi#lters") 
+and , which shall be used when using c#rypt f#ilters. 
 adbe.pkcs7.s5
-CFStmFStrF Sub#Filter 
-The , , and  entries may be present whenis . 
-#Table 23: Additional encryption dictionary entries for public-key security handlers 
+CFStmFSt#rF SubFi#lter 
+The , , and  entries may be present whenis . #
+Table 23: Additional encryption dictionary entries for public-key security handlers #
 Key Type Value 
-Required whenis adbe.pkcs7.s3 or adbe.pkcs7.s4; #PDF 1.3
-Recipients  Sub#Filter 
+Required whenis adbe.pkcs7.s3 or adbe.pkcs7.s4; #PDF #1.3
+Recipien#ts  SubF#ilter 
 array () An array of 
-#byte-strings, where each string is a CMS #object listing recipients who have been 
-granted equal access rights to the document. The data contained in the CMS 
-#object shall include both a cryptographic key that shall be used to decrypt the 
+#byte#-strings, where each string is a CMS #object #listing recipients who have been 
+granted equal access rights to the document. The data contained in the CMS #
+object# shall include both a cryptographic key that shall be used to decrypt the 
 Table 24: Public-key security 
 encrypted data and the access permissions (see "
 handler user access permissions") that apply to the recipient list. There shall be 
-only one CMS #object per unique set of access permissions; if a recipient appears 
+only one CM#S objec#t per unique set of access permissions; if a recipient appears 
 in more than one list, the permissions used shall be those in the first matching 
-adbe.pkcs7.s5
+adbe.pkcs7#.s5
  Sub#Filter 
 list. 
-Whenis , recipient lists shall be specified in the crypt 
-#filter dictionary; see "#Table 27: Additional crypt #filter dictionary entries for 
-public-key security handlers". 
+Whenis , recipient lists shall be specified in th#e crypt# 
+filter dictionary; see "#Table 27: Additio#nal cry#pt filter dictionary entries for 
+public-key security handlers#". 
 Required
 P 
 integer () A set of flags specifying which operations shall be permitted when 
-the document is opened with user access. If #bit 2 is set to 1, all other #bits are 
-ignored and all operations are permitted. If #bit 2 is set to 0, permission for 
+the document is opened with user access. If #bi#t 2 is set to 1, all other# b#its are 
+ignored and all operations are permitted. I#f #bit 2 is set to 0, permission for 
 operations are based on the values of the remaining flags defined in "

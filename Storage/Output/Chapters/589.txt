@@ -1,10 +1,10 @@
-#Table 392: Entries in a URL alias dictionary" shows the 
-contents of this type of dictionary. 
-#Table 392: Entries in a URL alias dictionary 
+#Table 392: Entries in a URL alias dictionary#" shows the 
+contents of this type of dictionary. #
+Table 392: Entries in a URL alias dictionary #
 Key Type Value 
 Required
 U   C
-#ASCII string () The destinationURLto which all of the chains specified by the  entry lead. 
+#ASCII #string () The destinationURLto which all of the chains specified by the  entry lead. 
 Optional
 C 
 U
@@ -17,7 +17,7 @@ value shall be an array of arrays, each representing a chain of URLs leading to 
 Within each chain, the URLs shall be stored as ASCII strings in the order in which they occur in the 
 U
 redirection sequence. The common destination (the last URL in a chain) may be omitted, since it is 
-already# identified by the  entry. 
+already# id#entified by the  entry. 
 14.10.5.3Command dictionaries 
  
 Web Capture command dictionary

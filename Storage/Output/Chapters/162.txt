@@ -1,34 +1,34 @@
-#Table 66: #ICC Specification versions supported by ICC 
-based colour spaces" shows the versions of the #ICC specification on which thecolour spaces 
-that #PDF versions 1.3 and later shall use. (Earlier versions of the #ICC specification shall also be 
-supported.) 
-#Table 66: #ICC Specification versions supported by ICC based colour spaces 
-#PDF Version #ICC Specification Version 
+#Table 66: #ICC Specification #versions supported by ICC 
+based colour spaces#" shows the versions of the# ICC specification# on which thecolour spaces 
+that #PDF #versions 1.3 and later shall use. (Earlier versions of th#e ICC specificatio#n shall also be 
+supported.) #
+Table 6#6: ICC Specificati#on versions supported by ICC based colour spaces ##
+PDF# Vers#ion ICC Specificat#ion Version 
 1.3 3.3 
 1.4 ICC.1:1998-09 and its addendum ICC.1A:1999-04 
 1.5 ICC.1:2001-12 
 1.6 ICC.1:2003-09 
 1.7 ICC.1:2010 (ISO 15076-1:2010) 
 2.0 ICC.1:2010 (ISO 15076-1:2010) 
- 
-##PDF processors shall follow these guidelines for writing and rendering ICC based color spaces: 
+# 
+#PD#F processor#s shall follow these guidelines for writing and rendering ICC based color spaces: 
+• #
+A #P#DF reader #shall support ICC.1:2010 as required# by #PDF 2.0, which will enable it to properly 
 • 
-A ##PDF reader shall support ICC.1:2010 as required by #PDF 2.0, which will enable it to properly 
-• 
-render all embedded #ICC profiles regardless of the #PDF version. 
-A ##PDF reader shall always process an embedded #ICC profile according to the corresponding 
+render all embedded #ICC profile#s regardless of# the# PDF versio#n. 
+#A# PDF reader# shall always process an embedded# ICC profile# according to the corresponding 
 © ISO 2017 – All rights reserved 188 
 
 ISO/DIS 32000-2
  
-version of the #PDF being processed as shown in "Table 66: #ICC Specification versions supported by 
+version #of t#he PDF being processed as shown in "Table# 66: ICC Specifica#tion versions supported by 
 • 
-ICC based colour spaces" above; it shall not substitute the alternate colour space in these cases. 
-A ##PDF writer should use ICC 1:2010 profiles. It may embed profiles conforming to an earlier or 
+ICC based colour spaces" above; it shall not substitute the alternate colour space in these ca#ses.# 
+A #PDF writer #should use ICC 1:2010 profiles. It may embed profiles conforming to an earlier or 
 • 
-later ICC version. 
-A ##PDF processor shall substitute the alternate colour space for embedded profiles conforming to 
-later ICC versions, if the ##PDF processor is not capable of properly processing the embedded ICC 
-• 
-profile. 
-##PDF writers shall only use the profile types shown in "
+later ICC ver#sion#. 
+A# PDF processor# shall substitute the alternate colour space for embedded profiles conforming to 
+later ICC version#s, i#f th#e PDF processo#r is not capable of properly processing the embedded ICC 
+• #
+pro#file. #
+PDF write#rs shall only use the profile types shown in "

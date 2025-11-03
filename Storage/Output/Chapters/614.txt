@@ -1,65 +1,65 @@
 #Table Annex D.1: 
-Latin-text encodings"). Unencoded #characters are indicated by a dash (—). 
-All #characters listed in D.2, "Latin ##character set and encodings" shall be supported for the Times, 
-Helvetica, and Courier #font families, as listed in 9.6.2.2, "Standard Type 1 #fonts (standard 14 #fonts) (#PDF 
-1.0-1.7)" by a ##PDF processor that supports #PDF 1.0 to 1.7. 
-D.3, "Expert set and MacExpert encoding" describes the "expert" ##character set, which contains 
+Latin-text encodings#"). Unencoded #character#s are indicated by a dash (—). 
+All# characte#rs listed in D.2, "Lati#n #characte#r set #and encodings" shall be supported for the Times, 
+Helvetica, and Courier #font #families, as listed in 9.6.2.2, "Standard Type 1# fon#ts (standard 1#4 fo#nts) (#PDF 
+#1.0-1.7)" by a# #PDF# processor #that support#s PD#F 1.0 to 1.7. 
+D.3, "Expert set and MacExpert encoding" describes the "exper#t"# charact#er se#t, which contains 
 MacExpertEncoding
-additional #characters useful for sophisticated typography, such as small capitals, ligatures, and 
-fractions. For each named #character, an octal #character code is given in . 
-NOTE The built-in encoding in an expert ##font program can be different from . 
+additio#nal chara#cters useful for sophisticated typography, such as small capitals, ligatures, and 
+fractions. For each n#amed char#acter, an #octal char#acter code is given in . 
+NOTE The built-in encoding in an expe#rt #fo#nt program #can be different from . 
 MacExpertEncoding
-D.4, "Symbol set and encoding" and D.5, "ZapfDingbats set and encoding" describe the ##character sets 
-and built-in encodings for the Symbol and ZapfDingbats (ITC Zapf Dingbats) ##font programs, which 
-belong to the standard 14 predefined #fonts. These #fonts have built-in encodings that are unique to each 
-#font. The #characters for ZapfDingbats are ordered by code instead of by name, since the names in that 
-#font are meaningless. 
-#Table Annex D.1: Latin-text encodings 
+D.4, "Symbol set and encoding" and D.5, "ZapfDingbats set and encoding" descri#be th#e cha#racter s#ets 
+and built-in encodings for the Symbol and ZapfDingbats (ITC Zapf Dingba#ts)# f#ont progra#ms, which 
+belong to the standard 14 predef#ined# fonts. #Thes#e fonts have built-in encodings that are unique to# each# 
+fo#nt. The c#haracters for ZapfDingbats are ordered by code instead of by name, since the names i#n tha#t 
+font are meaningless. #
+Table Annex D.1: Latin-text encodings #
 Encoding Description 
 StandardEncoding 
-Standard Latin-text encoding. This is the built-in encoding defined in Type 1 Latin-
-text ##font programs (but generally not in TrueType ##font programs). ##PDF processors 
+Standard Latin-text encoding. This is the built-in encoding defined in Type 1 Lat#in-
+t#ex#t font progr#ams (but generally not in# True#Ty#pe font prog#rams#).# P#DF processo#rs 
 shall not have a predefined encoding named StandardEncoding. However, it is 
-necessary to describe this encoding, since a #font’s built-in encoding can be used as the 
+necessary to describe this encodin#g, s#ince a font’s built-in encoding can be used as the 
 base encoding from which differences may be specified in an encoding dictionary. 
 MacRomanEncoding 
 MacRomanEncoding
   
-Mac OS standard encoding for Latin text in Western writing systems. ##PDF processors 
+Mac OS standard encoding for Latin text in Western writing syste#ms.# #PDF process#ors 
 shall have a predefined encoding namedthat may be used with 
-both Type 1 and TrueType #fonts. 
+both Type 1 a#nd T#rueType fonts. 
 WinAnsiEncoding 
 Windows Code Page 1252, often called the "Windows ANSI" encoding. This is the 
 TM
 WinAnsiEncoding
   
 standard Microsoft Windows specific encoding for Latin text in Western writing 
-systems. ##PDF processors shall have a predefined encoding named
-that may be used with both Type 1 and TrueType #fonts. 
+syst#ems#.# PDF proces#sors shall have a predefined encoding named
+that may be used with both Type 1 #and #TrueType fonts. 
 © ISO 2017 – All rights reserved 820 
 
 ISO/DIS 32000-2
  
-Encoding Description 
-#PDFDocEncoding 
-Encoding for text strings in a #PDF document outside the document’s #content streams. 
-This is one of two encodings (the other being Unicode) that may be used to represent 
-#PDFDocEncoding
-text strings; see 7.9.2.2, "Text string type". #PDF does not have a predefined encoding 
-named ; it is not customary to use this encoding to show text from 
-#fonts. 
+Encoding Descrip#tio#n 
+PDFDocEncoding 
+Encoding for text string#s in# a PDF document outside the document’s #content stream#s. 
+This is one of two encodings (the other being Unicode) that may be used to rep#res#ent 
+PDFDocEncoding
+text strings; see 7.9.2.2, "Text strin#g ty#pe". PDF does not have a predefined encoding 
+named ; it is not customary to use this encoding to sh#ow t#ext from 
+fonts. 
 MacExpertEncoding 
 MacExpertEncoding
-An encoding for use with expert #fonts — ones containing the expert ##character set. 
-##PDF processors shall have a predefined encoding named . Despite 
-its name, it is not a platform-specific encoding; however, only certain #fonts have the 
-appropriate ##character set for use with this encoding. No such #fonts are among the 
-standard 14 predefined #fonts. 
-D.2Latin ##character set and encodings 
+An encoding for u#se w#ith expert fonts — ones containing th#e expe#rt c#haract#er ##se#t. 
+PDF proce#ssors shall have a predefined encoding named . Despite 
+its name, it is not a platform-specific encoding; howeve#r, o#nly certain fonts have the 
+ap#propria#te #character #set for use with this e#ncod#ing. No such fonts are among the 
+stand#ard #14 predefined fonts.# 
+D.2La#tin# character# set and encodings 
  
 CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCTAL) 
-STD MAC WIN #PDF 
-STD MAC WIN #PDF 
+S#TD MA#C WIN PDF 
+#STD M#AC WIN PDF 
 A Œ 
 A 101 101 101 101  OE 352 316 214 226 
 Æ Ó 
@@ -103,9 +103,9 @@ Euro — — 200 240  Ugrave — 364 331 331
 
 ISO/DIS 32000-2
  
-CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCTAL) 
-STD MAC WIN #PDF 
-STD MAC WIN #PDF 
+CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCTAL) #
+STD #MAC WIN PDF# 
+STD# MAC WIN PDF 
 F V 
 F 106 106 106 106  V 126 126 126 126 
 G W 
@@ -119,7 +119,7 @@ Iacute — 352 315 315  Yacute — — 335 335
 Î Ÿ 
 Icircumflex — 353 316 316  Ydieresis — 331 237 230 
 Ï Z# 
-Idieresis — 354 317 317  Z 132 132 132 132 
+Id#ieresis — 354 317 317  Z 132 132 132 132 
 Ì Ž 
 2
 Igrave — 355 314 314  Zcaron — — 216 231 
@@ -142,9 +142,9 @@ O 117 117 117 117  ampersand 046 046 046 046
 å ð 
 aring — 214 345 345  eth — — 360 360 
 ^ ! 
-#asciicircum 136 136 136 136  exclam 041 041 041 041 
-~ ¡ 
-#asciitilde 176 176 176 176  exclamdown 241 301 241 241 
+#ascii#circum 136 136 136 136  exclam 041 041 041 041 
+~ ¡ #
+asci#itilde 176 176 176 176  exclamdown 241 301 241 241 
 * f 
 asterisk 052 052 052 052  f 146 146 146 146 
 @ fi 
@@ -167,9 +167,9 @@ bracketleft 133 133 133 133  germandbls 373 247 337 337
 
 ISO/DIS 32000-2
  
-CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCTAL) 
-STD MAC WIN #PDF 
-STD MAC WIN #PDF 
+CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCTAL#) 
+ST#D MAC WIN P#DF 
+S#TD MAC WIN PDF 
 ] ` 
 bracketright 135 135 135 135  grave 301 140 140 140 
 ˘ > 
@@ -200,7 +200,7 @@ colon 072 072 072 072  iacute — 222 355 355
 , î 
 comma 054 054 054 054  icircumflex — 224 356 356 
 © ï 
-copyright — 251 251 251#  idieresis — 225 357 357 
+copyright — 251 251 25#1  i#dieresis — 225 357 357 
 ¤ ì 
 1
 currency 250 333 244 244  igrave — 223 354 354 
@@ -236,11 +236,11 @@ egrave — 217 350 350  ntilde — 226 361 361
 
 ISO/DIS 32000-2
  
-CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCTAL) 
-STD MAC WIN #PDF 
-STD MAC WIN #PDF 
+CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCT#AL) 
+#STD MAC WIN# PDF #
+STD MAC WIN PDF 
 8# # 
-eight 070 070 070 070  numbersign 043 043 043 043 
+ei#ght 070 070 070 070  numbersign 043 043 043 043 
 … o 
 ellipsis 274 311 205 203  o 157 157 157 157 
 — ó 
@@ -300,9 +300,9 @@ question 077 077 077 077  ugrave — 235 371 371
 
 ISO/DIS 32000-2
  
-CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCTAL) 
-STD MAC WIN #PDF 
-STD MAC WIN #PDF 
+CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (O#CTAL)# 
+STD MAC W#IN PD#F 
+STD MAC WIN PDF 
 ¿ _ 
 questiondown 277 300 277 277  underscore 137 137 137 137 
 " v 
@@ -327,58 +327,58 @@ r 162 162 162 162  zcaron — — 236 236
 ® 0 
 registered — 250 256 256  zero 060 060 060 060 
 ˚  
-ring 312 373 — 036       
+ring 312 373 — 036      # 
+ #
  
- 
-WinAnsiEncoding#PDFDocEncoding
-1.In #PDF 1.3, the euro #character was added to the Adobe standard Latin ##character set. It is 
+WinAnsiEncodi#ngPD#FDocEncoding
+1.In PDF 1.#3, the eur#o character was added to the Adobe st#andard L#at#in charact#er set. It is 
   
 encoded as 200 in  and 240 in , assigning codes that were 
 previously unused. Apple changed theMacOS Latin-text encoding for code 333 from the 
-MacRomanEncoding
-currency #character to the euro #character. However, this incompatible change has not been 
-reflected in #PDF’s , which continues to map code 333 to currency. If the euro 
-MacRomanEncoding
-#character is desired, an encoding dictionary can be used to specify this single difference from 
-. 
-WinAnsiEncoding
+MacRomanEnco#ding
+curre#ncy charact#er to the# euro character. However, this incompatible change has #not# been 
+reflected in PDF’s , which continues to map code 333 to currency. If the euro 
+M#acRomanEnc#oding
+character is desired, an encoding dictionary can be used to specify this single difference from 
+. #
+Win#AnsiEncoding
  
-2.In #PDF 1.3, the existing Zcaron and zcaron #characters were added to  as the 
+2.In PDF 1.3, the existing Z#caron and# zcaron characters were added to  as the 
 previously unused codes 216 and 236. 
 WinAnsiEncoding
  
-3.In , all unused codes greater than 40 map to the bullet #character. However, 
-only code 225 is specifically assigned to the bullet #character; other codes are subject to future 
-reassignment. 
+3.In , all unused codes greater than 40 #map to th#e bullet character. However, 
+only code 225 is specifically assi#gned to t#he bullet character; other codes are subject to future 
+rea#ssignment.# 
  
-4.The #character names guillemotleft and guillemotright are misspelled. The correct spelling for 
-this punctuation #character is guillemet. However, the misspelled names are the ones actually 
-used in the #fonts and encodings containing these #characters. 
-WinAnsiEncoding
+4.The character names guillemotleft and guillemotright are misspelled. The correct spelling f#or 
+this p#unctuation character is guillemet. However, the misspelled names are the ones act#uall#y 
+used in the fonts and encod#ings cont#aining these characters. 
+WinAnsiE#ncoding
  
-5.The hyphen #character is also encoded as 255 in . The meaning of this duplicate 
+#5.The hyphen character is also encoded as 255 in . The meaning of this duplicate 
 code is "soft hyphen," but it is typographically the same as hyphen. 
 MacRomanEncoding
 6.
  
-WinAnsiEncoding
-The space #character is also encoded as 312 in  and as 240 in 
+Wi#nAnsiEncod#ing
+The space character is also encoded as 312 in  and as 240 in 
  
 . This duplicate code signifies a nonbreaking space; it is typographically the 
 same as SPACE (U+0020). 
-© ISO 2017 – All rights reserved 825 
+© ISO 2017 – All rights reserved 825 #
 
-ISO/DIS 32000-2
+I#SO/DIS 320#00-2
  
-D.3#PDFDocEncoding ##character set 
+D.3#PDFDocEn#coding character #set 
  
 The column titled Notes uses the following abbreviations: 
 • 
 • 
-U Undefined code point in #PDFDocEncoding 
-SR Unicode codepoint that may require special representation in XML in some contexts. 
+#U U#ndefined code point in PDFDocEncoding 
+SR Unicode codepoint that may require special representation in# XML in so#me contexts. 
  
-#Character Dec Hex Octal Unicode Unicode #character name or Notes 
+Character Dec# Hex Octal# Unicode Unicode character name or Notes 
 (alternative alias) 
  
 ^@
@@ -408,10 +408,10 @@ SR Unicode codepoint that may require special representation in XML in some cont
 7 0x07 0007 U+0007 (BELL) U 
  
 ^I
-8 0x08 0010 U+0008 (BACKSPACE) U 
+8 0x08 0010 U+0008 (BACKSPACE) #U 
  
 ^J
-9 0x09 0011 U+0009 (#CHARACTER TABULATION) SR 
+9 #0x09 0011 U+0009 (CHARACTER TABULATION) SR 
  
 ^K
 10 0x0a 0012 U+000A (LINE FEED) SR 
@@ -454,7 +454,7 @@ ISO/DIS 32000-2
 ^V
  
 ^W
-22 0x16 0026 U+0017 (SYNCRONOUS# IDLE) U 
+22 0x16 0026 U+0017 (SYNCRONO#US #IDLE) U 
  
 u
 23 0x17 0027 U+0017 (END OF TRANSMISSION BLOCK) U 
@@ -530,7 +530,7 @@ ISO/DIS 32000-2
 8 
 55 0x37 0067 U+0037 DIGIT SEVEN  
 9 
-56 0x38 0070 U+0038 DIGIT# EIGJT  
+56 0x38 0070 U+0038 DIGI#T E#IGJT  
 : 
 57 0x39 0071 U+0039 DIGIT NINE  
 ; 
@@ -1154,8 +1154,8 @@ Gsmall 147  Ucircumflexsmall 236
 Í 
 Iacutesmall 222  ᴜ Usmall 165 
 Î 
-Icircumflexsmall 224  ᴠ Vsmall 166 
-Ï# 
+Icircumflexsmall 224  ᴠ Vsmall 166# 
+Ï #
 Idieresissmall 225  ᴡ Wsmall 167 
 X 
 Ì 
@@ -1178,7 +1178,7 @@ a
 asuperior 201  hyphensuperior 321 
 #b 
 i 
-bsuperior 365  isuperior 351 
+#bsuperior 365  isuperior 351 
 © ISO 2017 – All rights reserved 836 
 
 ISO/DIS 32000-2
@@ -1208,10 +1208,10 @@ dollarinferior 266  1 onefitted 174
 $ dollaroldstyle 044  ½ onehalf 110 
 $ 
 dollarsuperior 045  ₁ oneinferior 301 
-d dsuperior 353  1 oneoldstyle 061 
-₈# eightinferior 245  ¼ onequarter 107 
-8# eightoldstyle 070  ¹ onesuperior 332 
-⁸# eightsuperior 241  ⅓ onethird 116 
+d dsuperior 353  1 oneoldstyle 061 #
+₈ #eightinferior 245  ¼ onequarter 107# 
+8# eightoldstyle 070  ¹ onesuperior 33#2 
+#⁸ eightsuperior 241  ⅓ onethird 116 
 O 
 e esuperior 344  osuperior 257 
 ¡ exclamdownsmall 326  ₍ parenleftinferior 133 
@@ -1350,9 +1350,9 @@ copyrightsans 343  ≤ lessequal 243
 diamond 250  ◊ lozenge 340 
  
 ÷ divide 270  − minus 055 
-dotmath 327  ′ minute 242 
-⋅ 
-8# eight 070  µ mu 155 
+dotmath 327  ′ minute 242 #
+⋅ #
+8 eight 070  µ mu 155 
 element 316  × multiply 264 
 ∈ 
 … ellipsis 274  9 nine 071 

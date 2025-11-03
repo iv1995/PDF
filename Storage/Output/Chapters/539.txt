@@ -1,19 +1,19 @@
 #Table 345: Entries in a View Params dictionary 
-Key Type Value 
-Required; #PDF 2.0
+#Key Type Value 
+Required; #PDF #2.0
 Instance  
  Instances
-dictionary () A dictionary that shall be an #in#direct ##object reference to a
+dictionary () A dictionary that shall be an #in#direct ##object ###reference #to a
 RichMediaInstancedictionary that is also present in the  array of the 
 annotation. 
-Required; #PDF 2.0
+Required;# PDF# 2.0
 Data 
 text string () A text string or stream containing state data that shall be 
 or stream passed to the instance when the view is triggered. 
  
 Data
 InstanceView
-The  entry ("#Table 345: Entries in a View Params dictionary") is used to store and load opaque 
+The  entry (#"Table 345: Entries in a View Params dictionar#y") is used to store and load opaque 
 data specific to the  referenced in the same dictionary when a  is activated. 
 NOTE This system allows content-specific state information to be stored when a view is created, such as 
 during a comment or drawing markup. 

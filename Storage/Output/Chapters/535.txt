@@ -1,37 +1,37 @@
-#Table 341: Entries in a RichMediaContent dictionary" details the elements of the RichMediaContent 
-dictionary. 
-#Table 341: Entries in a RichMediaContent dictionary 
+#Table 341: Entries in a RichMediaContent dictionary#" details the elements of the RichMediaContent 
+dictionary. #
+Table 341: Entries in a RichMediaContent dictionary #
 Key Type Value 
-Optional; #PDF 2.0
+Optional; #PDF #2.0
 Type 
 RichMediaContent
-name () The type of #PDF #object that this dictionary describes. If 
+name () The type of# PDF ##object #that this dictionary describes. If 
 present, it shall be . 
-Optional; #PDF 2.0
+Optional#; PD#F 2.0
 Assets 
-#name tree () A #name tree of embedded file specification dictionaries as 
+#name tree #() A# name tree# of embedded file specification dictionaries as 
 detailed in 7.11.3, "File specification dictionaries". 
-Optional; #PDF 2.0
+Optiona#l; P#DF 2.0
 Configurations 
-array () An array where each element is an #in#direct ##object reference 
-to a RichMediaConfiguration dictionary. 
-Optional; #PDF 2.0
+array () An array where each element is an #in#direct# #object ###reference 
+#to a RichMediaConfiguration dictionary. 
+Option#al; #PDF 2.0
 Views 
-array () An array where each element is an #in#direct ##object reference 
-to a 3D view dictionary. See "#Table 315: Entries in a 3D view dictionary" for the 
+array () An array where each element is an# i#ndirec#t# object### reference #
+to a 3D view dictionary. See "#Table 315: Entries in a 3D view dictionary#" for the 
 details of the entries of this dictionary. 
 Default value: If no views are specified, default values shall used for the 
 components of a view dictionary, including rendering/lighting modes, 
 background colour, and camera data. 
  
-13.7.2.3.2The assets #name tree 
- 
+13.7.2.3.2The asset#s name tree 
+# 
 embedded file specification dictionaries
 Assets
-The  entry takes a #name tree of . (For usage, see "#Table 
-341: Entries in a RichMediaContent dictionary" and "#Table 343: Entries in a RichMediaInstance 
-dictionary".) 
-The text string that represents the file name in the #name tree shall match the values stored for both the 
+The  entry takes# a name tr#ee of . (For usage, see# "Table 
+341: Entries in a RichMediaContent dictiona#ry" and "#Table 343: Entries in a RichMediaInstance 
+dictionary#".) 
+The text string that represents the file name in #the name t#ree shall match the values stored for both the 
 © ISO 2017 – All rights reserved 683 
 
 ISO/DIS 32000-2
@@ -41,18 +41,18 @@ F UF  URI
 the following naming restrictions: 
 • 
 • 
-The string shall be a #PDF text string. 
+The string shall #be a# PDF text string. 
 • 
-The string shall not contain any embedded NULL (U+0000) #characters. 
+The string shall not contain any embedded NULL (U+0000) #character#s. 
 • 
-The number of #characters in the string shall be between 1 and 255 inclusive. 
-The string shall not contain any of these six #characters: COLON (U+003A) (:), ASTERISK (U+002A) 
+The number of# characte#rs in the string shall be between 1 and 255 inclusive. 
+The string shall not contain any of these si#x charact#ers: COLON (U+003A) (:), ASTERISK (U+002A) 
 (*), QUOTATION MARK (U+0022) ("), LESS-THAN SIGN (U+003C) (<), GREATER-THAN SIGN 
 • 
 (U+003E) (>), and VERTICAL LINE (U+007C) (|). 
-The last #character shall not be a FULL STOP (U+002E) (.). 
-EXAMPLE Assets #name tree 
-29 0 obj            % Assets #name tree 
+The la#st charact#er shall not be a FULL STOP (U+002E) (.). 
+EXAMPLE As#sets name t#ree 
+29 0 obj            % A#ssets name t#ree 
  << /Names 
   [(3D.prc) 30 0 R 
    … more name value pairs where each value is a file specification dictionary reference … 
@@ -71,7 +71,7 @@ endobj
 40 0 obj            % Embedded file stream for 3D file 
  << /Type /EmbeddedFile       % 3D.prc 
   /Length … 
-  /#Filter … 
+  /#Filter #… 
  >> 
 stream 
 … Data for 3D.prc … 

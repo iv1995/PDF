@@ -1,5 +1,5 @@
-#boolean #objects 
-truefalse
+#boolean #object#s 
+#truefalse
 either the keyword  or the keyword  
 4.8 
  

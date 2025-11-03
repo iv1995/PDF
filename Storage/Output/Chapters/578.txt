@@ -1,8 +1,8 @@
-#Table 384: Standard table attributes", may only be defined in 
+#Table 384: Standard table attributes#", may only be defined in 
 Layout, List, PrintFieldArtifact
-attribute #objects whose  (owner) entry has the value  or whose owner is any other owner 
-excluding  and . 
-#Table 384: Standard table attributes 
+attribute #object#s whose  (owner) entry has the value  or whose owner is any other owner 
+excluding  and . #
+Table 384: Standard table attributes #
 Key Type Value 
 (Optional; not inheritable)
 RowSpan 
@@ -26,21 +26,21 @@ Default value: 1.
 This entry shall only have an effect for structure elements of type of  or  
 (Optional; not inheritable)
 Headers# 
-IDTH
-array  An array of #byte strings, where each string shall be the element# 
-identifier (see the  entry in "Table 355: Entries in a structure element dictionary") for a  
+ID#TH
+array  An array of #byte #strings, where each string shall be the elemen#t 
+i#dentifier (see the  entry in "Table 355: Entries in a structure element dictionary") for a  
 THTD
 structure element that shall be used as a header associated with this cell. 
 HeadersID
-This entry shall only have an effect for structure elements of type of  or .# 
-IDID
-The order in which the entries in the  array are listed shall be row s followed by# 
+This entry shall only have an effect for structure elements of type of  or# . 
+#IDID
+The order in which the entries in the  array are listed shall be row s followed# by #
 IDHeaders
 column s. The row and column s shall be ordered from most specific to most general. 
 If the scope for any cells with an  listed in the  attribute of a cell cannot be 
 Scope
 determined by the default algorithm defined in 14.8.4.8.3, "Table structure types", those 
-header cells shall specify a  so that the header can be determined to be# either a row 
+header cells shall specify a  so that the header can be determined to be# ei#ther a row 
 THTD
 header, a column header or both. 
 Headers
@@ -53,7 +53,7 @@ headers associated with any cell shall be those in its  array plus those in the
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; not inheritable; #PDF 1.5)Row, 
+(Optional; not inheritable; #PDF #1.5)Row, 
 Scope 
 B
 Column
@@ -82,8 +82,8 @@ Scope
 otherwise, if it is in the first column, the  is assumed to be . 
 otherwise, the  is assumed to be . 
 These assumptions are used by the algorithm following "#Table 371: Table standard structure 
-types" for determining which headers are associated with a cell. 
-(Optional; not inheritable; #PDF 2.0)
+types#" for determining which headers are associated with a cell. 
+(Optional; not inheritable;# PDF# 2.0)
 Short TH
 text  Contains a short form of the content of a  structure 
 TH

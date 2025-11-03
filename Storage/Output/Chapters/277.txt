@@ -1,4 +1,4 @@
-#Figure 66: Angled halftone cell divided into two squares" shows how the halftone cell can be 
+#Figure 66: Angled halftone cell divided into two squares#" shows how the halftone cell can be 
 divided into two squares. If the squares and the original cell are tiled across device space, the area 
 to the right of the upper square maps exactly into the empty area of the lower square, and vice 
 versa (see "

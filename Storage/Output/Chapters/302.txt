@@ -1,5 +1,5 @@
 #Table 144: Additional entry in a soft-mask 
-image dictionary") is present, shall be the same as the  
+image dictionary#") is present, shall be the same as the  
 value of the parent image; otherwise independent of it. Both 
 images shall be mapped to the unit square in user space (as are 
 all images), regardless of whether the samples coincide 
@@ -8,7 +8,7 @@ Height Width
 Same considerations as for . 
 ColorSpace DeviceGray
 Required; shall be . 
-#BitsPerComponent 
+#Bi#tsPerComponent 
 Required. 
 Intent 
 Ignored. 
@@ -29,17 +29,17 @@ Ignored.
 StructParent 
 Ignored.# 
 ID 
-Ignored. 
+#Ignored. 
 OPI 
 Ignored. 
 © ISO 2017 – All rights reserved 411 
 
 ISO/DIS 32000-2
  
- 
-#Table 144: Additional entry in a soft-mask image dictionary 
+ #
+Table 144: Additional entry in a soft-mask image dictionary #
 Key Type Value 
-Optional; #PDF 1.4
+Optional; #PDF #1.4
 Matte 
 array () An array of component values specifying the matte colour with 
 nn
@@ -56,29 +56,29 @@ When pre-blended image data is used in transparency blending and compositing com
 c
 results shall be the same as if the original, unblended image data were used and no matte colour were 
 c′
-specified. In particular, the inputs to the blend #function shall be the original colour values. To derive  
-from , the ##PDF processor may sometimes need to invert the formula shown previously. The resulting c 
+specified. In particular, the inputs to the blend #function #shall be the original colour values. To derive  
+from , the# #PDF# processor #may sometimes need to invert the formula shown previously. The resulting c 
 value shall lie within the range of colour component values for the image colour space. 
 NOTE When deriving c from c’ and α is 0.0, the inverted formula will result in a divide by zero. In this 
-special case an ar#bitrary value for c may be chosen within the range of colour component values 
-for the image colour space. Because α is 0.0, the ar#bitrary value of c does not affect output as 
+special case an a#rb#itrary value for c may be chosen within the range of colour component values 
+for the image colour space. Because α is 0.0, the #ar#bitrary value of c does not affect output as 
 described in 11.3.2 "Basic notation for compositing computations". 
  
 ColorSpace 
 The pre-blending computation shall be done in the colour space specified by the parent image’s
-entry. This is independent of the #group colour space into which the image may be painted. 
+entry. This is independent of the #group #colour space into which the image may be painted. 
  Indexed 
 If a colour conversion is required, inversion of the pre-blending shall precede the colour conversion. If 
 the image colour space is anspace (see 8.6.6.3, "Indexed colour spaces"), the colour values in 
 the colour table (not the index values themselves) shall be pre-blended. 
-11.6.6Transparency #group X#Objects 
+11.6.6Transparency# group# X#Object#s 
  
-A transparency #group is represented in #PDF as a special type of #group X#Object (see 8.10.3, "#Group 
- #Group 
-X#Objects") called a transparency #group X#Object. A #group X#Object is in turn a type of form X#Object, 
+A transparenc#y grou#p is represented i#n PD#F as a special type #of grou#p #XObject# (see 8.10.#3, "Grou##p 
+ Gro#up #
+XObje#cts") called a transpa#rency g#rou#p XObj##ect. A #gro#up XObj#ect is in turn a type of f#orm XO#bject, 
 distinguished by the presence of aentry in its form dictionary (see 8.10.2, "Form dictionaries"). 
-The value of this entry is a #group attributes dictionary defining the properties of the #group. The format 
+The value of this ent#ry is #a group attributes dictionary defining the propertie#s of #the group. The format 
 Transparency
 S
-and meaning of the dictionary’s contents is determined by its #group subtype, which is specified by the 
-dictionary’s  entry. The entries for a transparency #group (subtype ) are shown in "
+and meaning of the dictionary’s contents is determin#ed by #its group subtype, which is specified by the 
+dictionary’s  entry. The entries for a tr#anspar#ency group (subtype ) are shown in "

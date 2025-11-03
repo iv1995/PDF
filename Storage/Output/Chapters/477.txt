@@ -1,17 +1,17 @@
-#Table 303: Entries in a software# identifier dictionary 
-Key Type Value 
+#Table 303: Entries in a software# id#entifier dictionary 
+#Key Type Value 
 Optional
 Type 
 SoftwareIdentifier
-name () The type of #PDF #object that this dictionary describes; if present, shall 
-be  for a software# identifier dictionary. 
+name () The type of #PDF ##object #that this dictionary describes; if present, shall 
+be  for a softwar#e i#dentifier dictionary. 
 Required
 U   
-#ASCII string () AURIthat# identifies a piece of software (see 13.2.7.4.2, "Software 
+#ASCII #string () AURIth#at #identifies a piece of software (see 13.2.7.4.2, "Software 
 URIs"). 
 Optional
 L 
-array () The lower bound of the range of software versions that this software# 
+array () The lower bound of the range of software versions that this softw#are #
 identifier dictionary specifies (see 13.2.7.4.3, "Version arrays"). Default value: 
 the array [0]. 
 Optionaltrue
@@ -24,7 +24,7 @@ that is, the software version shall be greater than or equal to  (see 13.2.7.4.3
 "Version arrays"). If , it shall not be inclusive. Default value: .
 Optional
 H 
-array () The upper bound of the range of software versions that this software# 
+array () The upper bound of the range of software versions that this soft#ware# 
 identifier dictionary specifies (see 13.2.7.4.3, "Version arrays"). Default value: an 
 empty array []. 
 Optionaltrue
@@ -42,33 +42,33 @@ ISO/DIS 32000-2
 Key Type Value 
 Optional
 OS 
-array () An array of #byte strings representing operating system# identifiers 
+array () An array of #byte #strings representing operating s#yst#em identifiers 
 systemOperatingSystem
-that shall indicate to which operating systems this #object applies. The defined 
+that shall indicate to which operating systems this# object# applies. The defined 
 values are the same as those defined for SMIL 2.0’s  
-attribute. There may not be multiple copies of the same# identifier in the array. 
+attribute. There may not be multiple copies of th#e s#ame identifier in the array. 
 An empty array represents all operating systems. Default value: an empty array. 
  
 13.2.7.4.2Software URIs 
  
 U 
 vnd.adobe.swname
-The  entry is aURI (universal resource# identifier) that# identifies a piece of software. It shall be 
+The  entry is aURI (universal r#eso#urce identifi#er)# that identifies a piece of software. It shall be 
 interpreted according to its scheme; the only presently defined scheme is . The 
-scheme name is case-insensitive; if it is not recognised by the #interactive ##PDF processor, the software 
+scheme name is case-insensitive; if it is not recognised by the #interactive# #PDF# processor##, the software 
 shall be considered a non-match. The syntax of URIs of this scheme is 
 software_name
-software_nameUniform Resource# Identifiers 
+software_nameUniform# Re#source Identifiers 
 "vnd.adobe.swname:"  
 (URI): Generic Syntaxsoftware_name
 where  shall be reg_name as defined in Internet RFC 3986, 
   
-. Also,  shall be a sequence of UTF-8-encoded #characters that have 
+. Also,  shall be a sequence of UTF-8-encoded #character#s that have 
 software name, software_name
 been escaped with one pass ofURLescaping (see 14.10.3.2, "URL strings"). That is, to recover the 
-original  shall be unescaped and then treated as a sequence of UTF-8 
-#characters. The actual software names shall be compared in a case-sensitive fashion. 
-Software names shall be second-class names (see Annex E, "#PDF Name Registry"). 
+original  shall be unescaped and then treated as a sequence of UTF-8 #
+characte#rs. The actual software names shall be compared in a case-sensitive fashion. 
+Software names shall be second-class names (see Annex E,# "PD#F Name Registry"). 
  
 EXAMPLE TheURI for Adobe Acrobat is  
 vnd.adobe.swname:ADBE_Acrobat. 

@@ -1,7 +1,7 @@
-#Figure 82: Line with a caption appearing as part of the offset" illustrates the effect of applying a caption 
+#Figure 82: Line with a caption appearing as part of the offset#" illustrates the effect of applying a caption 
 to a line annotation that has a leader offset. ![43.png](./Storage/Output/Images/43.png)
- 
-#Figure 82: Line with a caption appearing as part of the offset 
+ #
+Figure 82: Line with a caption appearing as part of the offset #
 Table 179: Line ending styles 
 Name Appearance Description ![44.png](./Storage/Output/Images/44.png)
  
@@ -19,7 +19,7 @@ connected by a third line to form a triangular closed arrowhead filled with
 the annotation’s , if any ![49.jpg](./Storage/Output/Images/49.jpg)
  
 None No line ending 
-(#PDF 1.5) ![50.png](./Storage/Output/Images/50.png)
+(#PDF #1.5) ![50.png](./Storage/Output/Images/50.png)
  
 Butt A short line at the endpoint perpendicular to the line itself 
 © ISO 2017 – All rights reserved 475 
@@ -27,24 +27,24 @@ Butt A short line at the endpoint perpendicular to the line itself
 ISO/DIS 32000-2
  
 Name Appearance Description 
-(#PDF 1.5) ![51.png](./Storage/Output/Images/51.png)
+#(PDF# 1.5) ![51.png](./Storage/Output/Images/51.png)
  
-ROpenArrow Two short lines in the reverse direction from OpenArrow 
-(#PDF 1.5) ![52.png](./Storage/Output/Images/52.png)
+ROpenArrow Two short lines in the reverse direction from OpenArrow #
+(PD#F 1.5) ![52.png](./Storage/Output/Images/52.png)
  
 RClosedArrow A triangular closed arrowhead in the reverse direction from 
-ClosedArrow 
-(#PDF 1.6) ![53.png](./Storage/Output/Images/53.png)
+ClosedArrow# 
+(P#DF 1.6) ![53.png](./Storage/Output/Images/53.png)
  
 Slash A short line at the endpoint approximately 30 degrees clockwise 
 from perpendicular to the line itself 
  
 12.5.6.8Square and circle annotations 
  
-Squarecircle annotations#PDF 1.3
- and  () shall display, respectively, a #rectangle or an ellipse on the page. 
+Squarecircle annotat#ions#PDF 1.3
+ and  () shall display, respectively, a #rectangle #or an ellipse on the page. 
 When opened, they shall display a popup window containing the text of the associated note. The 
  Rect 
-rectangle or ellipse shall be inscribed within the annotation #rectangle defined by the annotation 
-dictionary’sentry (see "#Table 170: Entries in an appearance dictionary"). 
+rectangle or ellipse shall be inscribed within the annotation# rectangle# defined by the annotation 
+dictionary’sentry (see "#Table 170: Entries in an appearance dictionary#"). 
 "

@@ -1,11 +1,11 @@
-#Table 42:# Operators in Type 4 #functions" lists the operators that can be used in this type of function. 
+#Table 42:# Operators in Type 4 #function#s##" lists the operators that can be used in this type of function. 
 Although the semantics are those of the corresponding PostScript language operators, a full PostScript 
 language compatible interpreter is not required. For more information on these operators and other 
-syntax rules of the PostScript language, see the PostScript Language Reference, Third Edition. 
-#Table 42:# Operators in Type 4 #functions 
+syntax rules of the PostScript language, see the PostScript Language Reference, Third Edition. #
+Table 42#: Operators in Type 4# functio#ns ##
 Operator Type Operators 
 Arithmetic operators abs cvi floor mod sin 
-add cvr# idiv mul sqrt 
+add cvr# id#iv mul sqrt 
 atan div ln neg sub 
 ceiling exp log round truncate 
  
@@ -14,8 +14,8 @@ cos
    
 and false le not true 
 Relational, boolean, 
-and #bitwise 
-#bitshift ge lt or xor 
+and #bi#twise #
+b#itshift ge lt or xor 
 operators 
   
 eq gt ne 
@@ -27,8 +27,8 @@ Stack operators copy exch pop
 dup index roll 
  
  
-The operand syntax for Type 4 #functions shall follow #PDF conventions rather than PostScript language 
-conventions. The entire code stream defining the #function shall be enclosed in braces { } (using LEFT 
+The operand syntax for Type #4 functi#ons shall follow #PDF #conventions rather than PostScript language 
+conventions. The entire code stream defining t#he functi#on shall be enclosed in braces { } (using LEFT 
 if ifelse 
 CURLY BRACE (7Bh) and RIGHT CURLY BRACE (07hD)). Braces also shall delimit expressions that are 
 executed conditionally by the  andoperators: 
@@ -43,22 +43,22 @@ ifelse
  {}  
  {
 } {}  
-This construct is purely syntactic; unlike in the PostScript language, no "procedure #objects" shall be 
+This construct is purely syntactic; unlike in the PostScript language, no "procedure #object#s" shall be 
 involved. 
-7.10.5.3Type 4 #function dictionary 
+7.10.5.3Typ#e 4 funct#ion dictionary 
  
-A Type 4 #function dictionary shall include the entries in "#Table 38: Entries common to all #function 
-dictionaries", as well as other appropriate stream attributes (see "Table 5: Entries common to all stream 
+A Ty#pe 4 func#tion dictionary shall include the entries in "#Table 38: Entries common t#o all func#tion 
+dictionaries#", as well as other appropriate stream attributes (see "Table 5: Entries common to all stream 
 DoubleDot
-dictionaries"). The following example shows a Type 4 #function equivalent to the predefined spot 
-#function  (see 10.6.3, "Spot #functions"). 
+dictionaries"). The following example shows a #Type 4 fu#nction equivalent to the predefine#d spot 
+fu#nction  (see 10.6.#3, "Spot# functions"). 
 © ISO 2017 – All rights reserved 131 
 
 ISO/DIS 32000-2
  
 EXAMPLE 
-10 0 obj 
-  <</#FunctionType 4 
+10 0 #obj 
+  <#</FunctionType 4 
    /Domain [-1.0 1.0 -1.0 1.0] 
    /Range [-1.0 1.0] 
    /Length 71 
@@ -75,56 +75,56 @@ endobj
  
 DomainRange
 The  and  entries shall both be required. The input variables shall constitute the initial 
-operand stack; the items remaining on the operand stack after execution of the #function shall be the 
+operand stack; the items remaining on the operand stack after execut#ion of th#e function shall be the 
 Range
 output variables. It shall be an error for the number of remaining operands to differ from the number of 
-output variables specified by  or for any of them to be #objects other than numbers. 
-Implementations of Type 4 #functions shall provide a stack with room for at least 100 entries. No 
+output variables specified by  or for any of them to be# objec#ts other than numbers. 
+Implementation#s of Typ#e 4 functions shall provide a stack with room for at least 100 entries. No 
 implementation shall be required to provide a larger stack, and it shall be an error to overflow the stack. 
-A ##PDF writer shall not use a nesting depth for { } greater than 255 in order to prevent unwanted stack 
-overflows. Annex B, "Operators in Type 4 #Functions", contains a summary of these operators. 
+A# #PDF# writer #shall not use a nesting depth for { } greater than 255 in order to prevent unwanted stack 
+overflows. Annex B, "Operato#rs in Ty#pe 4 Functions", contains a summary of these operators. 
 7.11File specifications 
  
 7.11.1General 
  
-file specification#PDF 1.1
-A #PDF file can refer to the contents of another file by using a  (), which shall take# 
-either of two forms: 
+file specificati#onPD#F 1.1#
+A P#DF file can refer to the contents of another file by using a  (), which shall take# 
+ei#ther of two forms: 
 simple
 • 
 A  file specification shall give just the name of the target file in a standard format, 
-independent of the naming conventions of any particular file system. It shall take the form of# either 
+independent of the naming conventions of any particular file system. It shall take the form o#f e#ither 
 full
 • 
 a string or a dictionary. 
 A  file specification shall include information related to one or more specific file systems. It shall 
 only be represented as a dictionary. 
-A file specification shall refer to a file external to the #PDF file or to a file embedded within the referring 
-#PDF file, allowing its contents to be stored or transmitted along with the #PDF file. The file is considered 
-external to the #PDF file in# either case. 
+A file specification shall refer to a file external to #the #PDF file or to a file embedded within the referr#ing #
+PDF file, allowing its contents to be stored or transmitted along wit#h th#e PDF file. The file is considered 
+external #to t#he PDF file #in #either case. 
 7.11.2File specification strings 
  
 7.11.2.1General 
  
 The standard format for representing a simple file specification in string form divides the string into 
-component substrings separated by the SOLIDUS #character (2Fh) (/). The SOLIDUS is a generic 
+component substrings separated by the SOLIDUS #character #(2Fh) (/). The SOLIDUS is a generic 
 component separator that shall be mapped to the appropriate platform-specific separator when 
 generating a platform-dependent file name. Any of the components may be empty. If a component 
-contains one or more literal SOLIDIUS #character, each shall be preceded by a REVERSE SOLIDUS (5Ch) 
+contains one or more literal SOLIDIUS# characte#r, each shall be preceded by a REVERSE SOLIDUS (5Ch) 
 © ISO 2017 – All rights reserved 132 
 
 ISO/DIS 32000-2
  
 (\), which in turn shall be preceded by another REVERSE SOLIDUS to indicate that it is part of the string 
-and not an escape #character. 
+and not an escap#e charact#er. 
 EXAMPLE  
 (in\\/out) 
 represents the file name  
 in/out 
  
-The REVERSE SOLIDIUS #character shall be removed in processing the string; they are needed only to 
+The REVERSE SOLIDI#US charact#er shall be removed in processing the string; they are needed only to 
 distinguish the component values from the component separators. The component substrings shall be 
-stored as #bytes and shall be passed to the operating system without interpretation or conversion of any 
+stored as #byte#s and shall be passed to the operating system without interpretation or conversion of any 
 sort. 
 7.11.2.2Absolute and relative file specifications 
  
@@ -133,28 +133,28 @@ A simple file specification that begins with a SOLIDUS shall be an  file specifi
 component shall be the file name; the preceding components shall specify its context. In some file 
 specifications, the file name may be empty; for example, URL (uniform resource locator) specifications 
 can specify directories instead of files. A file specification that does not begin with a SOLIDUS shall be a 
-relative file specification giving the location of the file relative to that of the #PDF file containing it. 
+relative file specification giving the location of the file relative to that# of #the PDF file containing it. 
 Internet RFC 1808Relative Uniform Resource 
 Locators
 In the case of a URL-based file system, the rules of , 
 , shall be used to compute an absolute URL from a relative file specification and the 
 Internet RFC 3986Uniform Resource Locators
-specification of the #PDF file. Prior to this process, the relative file specification shall be converted to a 
+specificatio#n of# the PDF file. Prior to this process, the relative file specification shall be converted to a 
 relative URL by using the escape mechanism of , , to 
-represent any #bytes that would be# either unsafe according to RFC 3986 or not representable in 7-#bit 
-U.S. #ASCII. In addition, such URL-based relative file specifications shall be limited to paths as defined in 
-RFC 1808. The scheme, network location/login, fragment# identifier, query information, and parameter 
+represent any# byt#es that would# be# either unsafe according to RFC 3986 or not representable in #7-#bit 
+U.S. #ASCII#. In addition, such URL-based relative file specifications shall be limited to paths as defined in 
+RFC 1808. The scheme, network location/login, fragmen#t i#dentifier, query information, and parameter 
 sections shall not be allowed. 
 In the case of other file systems, a relative file specification shall be converted to an absolute file 
-specification by removing the file name component from the specification of the containing #PDF file and 
+specification by removing the file name component from the specification of the c#onta#ining PDF file and 
 appending the relative file specification in its place. 
 EXAMPLE 1 The relative file specification 
-  ArtFiles/Figure1.#pdf 
+  ArtFil#es/Figure#1.pdf 
  
-  /HardDisk/#PDFDocuments/AnnualReport/Summary.#pdf  
-appearing in a #PDF file whose specification is 
+#  /#HardDisk/PDFDocuments/AnnualRe#port/S#ummary.pdf  
+a#ppea#ring in a PDF file whose specification is #
  
-  /HardDisk/#PDFDocuments/AnnualReport/ArtFiles/Figure1.#pdf 
+#  /HardDisk/PDFDocuments/AnnualReport/A#rtFil#es/Figure1.pdf 
 yields the absolute specification 
  
 The special component . . (two PERIODs) (2Eh) can be used in a relative file specification to move up a 
@@ -166,16 +166,16 @@ specification and the process is repeated.
 ISO/DIS 32000-2
  
 EXAMPLE 2 The relative file specification from Example 1 in this subclause using the .. (two PERIODs) special component 
-      ../../ArtFiles/Figure1.#pdf 
+      ../../#ArtFil#es/Figure1.pdf 
  would yield the absolute specification 
-      /HardDisk/ArtFiles/Figure1.#pdf 
+      /HardDisk#/ArtFil#es/Figure1.pdf 
  
 7.11.3File specification dictionaries 
  
-The dictionary form of file specification provides more flexi#bility than the string form, allowing different 
+The dictionary form of file specification provides more fl#ex#ibility than the string form, allowing different 
 F
 files to be specified for different file systems or platforms. "Table 43: Entries in a file specification 
 UF
-dictionary" shows the entries in a file specification dictionary. ##PDF writers should use the  entries to 
+dictionary" shows the entries in a file specifi#cati#on dictionary.# PDF write#rs should use the  entries to 
 specify files. The  entry is optional, but should be included because it enables cross-platform and 
-cross-language compati#bility. 
+cross-language com#pa#tibility. 

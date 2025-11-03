@@ -1,5 +1,5 @@
 #byte 
-#group of 8 #binary digits (an 8-#bit value) which collectively can be configured to represent one of 256 
+##group #of 8 #bi#nary digits (an 8#-b#it value) which collectively can be configured to represent one of 256 
 different values 
 4.9 
  

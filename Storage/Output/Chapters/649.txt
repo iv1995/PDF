@@ -1,11 +1,11 @@
 # 
  
 Parent-child relationships between standard structure elements 
-(Normative) 
+#(Normative) 
 The table in this Annex sets out the acceptable children of the standard structure elements defined in 
-#PDF 2.0. 
+#PDF #2.0. 
 A matrix representation of this information is attached to this document as “ISO32000-
-2_AnnexL_matrix-version.#pdf”. 
+2_AnnexL_matrix-version#.pd#f”. 
 The structure elements in the leftmost columns are acceptable child elements of the structure elements 
 in the Parents column. Values in the occurrence column indicate the valid usage of standard structure 
 types relative to other standard structure types as follows: 
@@ -64,7 +64,7 @@ DocumentFragment
 0..n Artifact 
 0..n Document 0..n #Document 
 Part 
-0..n DocumentFragment 0..n DocumentFragment 
+#0..n DocumentFragment 0..n DocumentFragment 
 0..n Part 0..n Part 
 0..n Div 0..n Div 
 0..n Aside 0..n Aside 

@@ -1,17 +1,17 @@
-#Table 168: Entries in a border style dictionary" summarises 
+#Table 168: Entries in a border style dictionary#" summarises 
 the contents of the border style dictionary. If neither thenor theentry is present, the border 
 shall be drawn as a solid line with a width of 1 point. 
 © ISO 2017 – All rights reserved 460 
 
 ISO/DIS 32000-2
- 
-#Table 168: Entries in a border style dictionary 
+ #
+Table 168: Entries in a border style dictionary #
 Key Type Value 
 (Optional) 
 Type 
 Border
   
-name The type of #PDF #object that this dictionary describes; if present, shall 
+name The type of #PDF ##object #that this dictionary describes; if present, shall 
 befor a border style dictionary. 
 (Optional) 
 W 
@@ -22,20 +22,20 @@ S
 S 
 name The border style: 
 D 
-(Solid) A solid #rectangle surrounding the annotation. Default value. 
+(Solid) A solid #rectangle #surrounding the annotation. Default value. 
 D
-(Dashed) A dashed #rectangle surrounding the annotation. The dash pattern 
+(Dashed) A dashed# rectangle# surrounding the annotation. The dash pattern 
 B 
 may be specified by the  entry. 
-(Beveled) A simulated embossed #rectangle that appears to be raised above 
+(Beveled) A simulated embosse#d rectangl#e that appears to be raised above 
 I 
 the surface of the page. 
-(Inset) A simulated engraved #rectangle that appears to be recessed below 
+(Inset) A simulated engrav#ed rectang#le that appears to be recessed below 
 U 
 the surface of the page. 
-(Underline) A single line along the bottom of the annotation #rectangle. 
+(Underline) A single line along the bottom of the annotat#ion recta#ngle. 
 S
-An #interactive ##PDF processor shall tolerate other border styles that it does not 
+An #interactive# #PDF# processor ##shall tolerate other border styles that it does not 
 recognise and shall use the default value (which is ). 
 (Optional) dash array 
 D 
@@ -52,7 +52,7 @@ alternating with 2-point gaps.
 Default value: [3]. 
  
  BE 
-Beginning with #PDF 1.5, some annotations (square, circle, and polygon) may have aentry, which is a 
+Beginning wit#h PD#F 1.5, some annotations (square, circle, and polygon) may have aentry, which is a 
  BE 
 border effect dictionary that specifies an effect that shall be applied to the border of the annotations. 
-Beginning with #PDF 1.6, free text annotations may also have aentry "
+Beginning wi#th P#DF 1.6, free text annotations may also have aentry "

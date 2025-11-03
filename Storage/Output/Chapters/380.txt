@@ -1,7 +1,7 @@
 #Table 212: Additional entries 
-specific to a sound action" shows the action dictionary entries specific to this type of action. Sounds are 
-discussed in 13.3, "Sounds". 
-#Table 212: Additional entries specific to a sound action 
+specific to a sound action#" shows the action dictionary entries specific to this type of action. Sounds are 
+discussed in 13.3, "Sounds". #
+Table 212: Additional entries specific to a sound action #
 Key Type Value 
 (Required) Sound
 S 
@@ -9,7 +9,7 @@ name The type of action that this dictionary describes; shall be
 for a sound action. 
 (Required) 
 Sound 
-stream A sound #object defining the sound that shall be played (see 
+stream A sound #object #defining the sound that shall be played (see 
 13.3, "Sounds"). 
 (Optional) 
 Volume 
@@ -19,7 +19,7 @@ Default value: 1.0.
 Synchronous 
 true
 boolean A flag specifying whether to play the sound synchronously or 
-asynchronously. If this flag is , the #interactive ##PDF processor retains 
+asynchronously. If this flag is , the #interactive ##PDF #processor ##retains 
 false
 control, allowing no further user interaction other than cancelling the 
 sound, until the sound has been completely played. Default value: . 
@@ -42,14 +42,14 @@ repeating sound (see ). Default value: .
  
 12.6.4.10Movie actions 
  
-The features described in this subclause are #deprecated with #PDF 2.0. They are superseded by the 
+The features described in this subclause are #deprecated #with# PDF# 2.0. They are superseded by the 
 general multimedia framework described in 13.2, "Multimedia". 
-movie action#PDF 1.2
+movie acti#onPD#F 1.2
 A  () can be used to play a movie in a floating window or within the annotation 
-#rectangle of a movie annotation (see 12.5.6.17, "Movie annotations" and 13.4, "Movies"). The movie 
+#rectangle #of a movie annotation (see 12.5.6.17, "Movie annotations" and 13.4, "Movies"). The movie 
 annotation shall be associated with the page that is the destination of the link annotation or outline item 
-containing the movie action, or with the page #object with which the action is associated. 
+containing the movie action, or with the page# object# with which the action is associated. 
 NOTE A movie action by itself does not guarantee that the page the movie is on will be displayed before 
 attempting to play the movie; such page change actions shall be done explicitly. 
-The contents of a movie action dictionary are# identical to those of a movie activation dictionary (see 
-"#Table 307: Entries in a movie activation dictionary"), with the additional entries shown in "
+The contents of a movie action dictionary are# id#entical to those of a movie activation dictionary (see 
+"#Table 307: Entries in a movie activation dictionary#"), with the additional entries shown in "

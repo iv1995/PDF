@@ -1,14 +1,14 @@
-#Table 206: Entries in a GoToDPart dictionary" shows the action dictionary entries 
-specific to this type of action. 
-#Table 206: Entries in a GoToDPart dictionary 
+#Table 206: Entries in a GoToDPart dictionary#" shows the action dictionary entries 
+specific to this type of action. #
+Table 206: Entries in a GoToDPart dictionary #
 Key Type Value 
-(Required; #PDF 2.0) 
+(Required; #PDF #2.0) 
 S 
 GoToDp
  
 name The type of action that this dictionary describes; shall 
-be  for a go-to #document part action.
-(Required; #PDF 2.0) 
+be  for a go-to #document part #action.
+(Required;# PDF# 2.0) 
 Dp 
 dictionary The indirect reference to a DPart dictionary to go to. 
 GoToDp

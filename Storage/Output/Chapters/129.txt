@@ -1,65 +1,65 @@
-#Figure 11: User Space" shows how this allows an #object specified in user space 
+#Figure 11: User Space#" shows how this allows an #object #specified in user space 
 to appear the same regardless of the device on which it is rendered. 
-The default user space provides a consistent, dependable starting place for #PDF page descriptions 
+The default user space provides a consistent, dependable starting place for #PDF #page descriptions 
 coordinate transformation operatorcm
-regardless of the output device used. If necessary, a #PDF #content stream may modify user space to be 
+regardless of the output device used. If necessary, a# PDF ##content stream #may modify user space to be 
 more suitable to its needs by applying the ,  (see 8.4.4, "#Graphics 
-state operators"). Thus, what might appear to be absolute coordinates in a #content stream are not 
+state #operators"). Thus, what might appear to be absolute coordinates in a# content stream# are not 
 absolute with respect to the current page because they are expressed in a coordinate system that can 
 slide around and shrink or expand. Coordinate system transformation not only enhances device-
 independence but is a useful tool in its own right. 
-EXAMPLE A #content stream originally composed to occupy an entire page can be incorporated without change as an 
+EXAMPLE #A content strea#m originally composed to occupy an entire page can be incorporated without change as an 
 © ISO 2017 – All rights reserved 149 
 
 ISO/DIS 32000-2
  
-element of another page by shrinking the coordinate system in which it is drawn. ![Figure 11 User Space  .png](./Storage/Output/Images/Figure 11 User Space  .png)
-#Figure 11: User Space 
- 
+element of another page by shrinking the coordinate system in which it is drawn. ![Figure 11 User Space  .png](./Storage/Output/Images/Figure 11 User Space  .png)#
+Figure 11: User Space 
+ #
 8.3.2.4Other coordinate spaces 
  
-In addition to device space and user space, #PDF uses a variety of other coordinate spaces for specialised 
+In addition to device space and user space#, PD#F uses a variety of other coordinate spaces for specialised 
 purposes: 
 text space
 • 
 text matrix
 The coordinates of text shall be specified in . The transformation from text space to user 
-space shall be defined by a  in com#bination with several text-related parameters in the 
-#glyph space
-• 
-#graphics state (see 9.4.2, "Text-positioning operators"). 
-#font matrix
-#Character #glyphs in a #font shall be defined in  ("see 9.2.4, "#Glyph positioning and 
-metrics"). The transformation from #glyph space to text space shall be defined by the . 
-For most types of fonts, this matrix shall be predefined to map 1000 units of #glyph space to 1 unit 
-of text space; for Type 3 #fonts, the #font matrix shall be given explicitly in the #font dictionary ("see 
+space shall be defined by a  in com#bi#nation with several text-related parameters in the 
+#glyph #space
+• #
+graphics state# (see 9.4.2, "Text-positioning operators"). 
+#font #matrix
+#Character ##glyp#hs in a# font# shall be defined in  ("see 9.2.4,# "Glyp#h positioning and 
+metrics"). The transformation fr#om gly#ph space to text space shall be defined by the . 
+For most types of fonts, this matrix shall be predefined to map 1000 units# of gl#yph space to 1 unit 
+of text space; for Type #3 fo#nts, t#he fo#nt matrix shall be given explicitly in #the f#ont dictionary ("see 
 image space
 • 
-9.6.4, "Type 3 #fonts"). 
+9.6.4, "Ty#pe 3# fonts"). 
 All sampled images shall be defined in . The transformation from image space to user 
 space shall be predefined and cannot be changed. All images shall be 1 unit wide by 1 unit high in 
 user space, regardless of the number of samples in the image. To be painted, an image shall be 
 • 
-mapped to a region of the page #by temporarily altering the CTM. 
-A form X#Object (discussed in 8.10, "Form X#Objects") is a self-contained #content stream that can be 
+mapped to a region of the page #by te#mporarily altering the CTM. 
+A form #XObject# (discussed in 8.10, "Form# XObje#cts") is a self-contain#ed content stre#am that can be 
 form spaceform 
-treated as a graphical element within another #content stream. The space in which it is defined is 
+treated as a graphical element within anot#her content st#ream. The space in which it is defined is 
 matrix
 called . The transformation from form space to user space shall be specified by a 
 pattern
 • 
- contained in the form X#Object. 
-#PDF 1.2 defined a type of colour known as a , discussed in 8.7, "Patterns". A pattern shall be 
+ contained in the for#m XObj#ect#. 
+P#DF 1.2 defined a type of colour known as a , discussed in 8.7, "Patterns". A pattern shall be 
 pattern 
-defined# either by a #content stream that shall be invoked repeatedly to tile an area or by a shading 
+defined# ei#ther #by a content st#ream that shall be invoked repeatedly to tile an area or by a shading 
 spacepattern matrix
-whose colour is a #function of position. The space in which a pattern is defined is called 
+whose colour is a #function #of position. The space in which a pattern is defined is called 
 . The transformation from pattern space to user space shall be specified by a  
 contained in the pattern. 
 © ISO 2017 – All rights reserved 150 
 
 ISO/DIS 32000-2
- 
+ #
 • 
 #PDF 1.6 embedded 3D artwork, which is described in three-dimensional coordinates (see 13.6.5, 
 "Coordinate systems for 3D") that are projected into an annotation’s target coordinate system (see 

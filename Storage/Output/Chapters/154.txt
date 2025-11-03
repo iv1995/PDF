@@ -1,8 +1,8 @@
 #Colour spaces in the CIE-based families shall be defined by an array 
-[name dictionary] 
+#[name dictionary] 
 namedictionary
 where  is the name of the family and  is a dictionary containing parameters that further 
-#characterise the space. The entries in this dictionary have specific interpretations that depend on the 
+#character#ise the space. The entries in this dictionary have specific interpretations that depend on the 
 colour space; some entries are required and some are optional. See the subclauses on specific colour 
 space families for details. 
 Setting the current stroking or nonstroking colour space to any CIE-based colour space shall initialise 
@@ -11,18 +11,18 @@ component does not include 0.0, in which case the nearest valid value shall be s
 NOTE 3 The model and terminology used here — CIE-based  (above) and  (below) — are 
 derived from the PostScript language, which supports these colour space families in their full 
 ABCCIE-based A
-generality. #PDF supports specific useful cases of CIE-based  and CIE-based  spaces; most 
+generality. #PDF #supports specific useful cases of CIE-based  and CIE-based  spaces; most 
 others can be represented asspaces. 
  ICCBased 
 ABCA
 8.6.5.2CalGray colour spaces 
- 
-#PDF 1.1
+ #
+PDF# 1.1
  CalGray 
 CIE-based A 
 Acolour space () is a special case of a single-component CIE-based colour space, known 
 ABCA
 as a colour space. This type of space is the one-dimensional (and usually achromatic) analog 
-of CIE-based  spaces. Colour values in a CIE-based  space shall have a single component, ar#bitrarily 
+of CIE-based  spaces. Colour values in a CIE-based  space shall have a single component, ar#bi#trarily 
 AXYZXYZ
 named A. "

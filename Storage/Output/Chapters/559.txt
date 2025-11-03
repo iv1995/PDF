@@ -1,10 +1,10 @@
-#Table 365: #Grouping 
-level structure types", that are used to organise the overall structure of content in a tagged #PDF. 
-#Table 365: #Grouping level structure types 
+#Table 365: #Group#ing 
+level structure types#", that are used to organise the overall structure of content in a tagged #PDF#. #
+Table 365:# Grou#ping level structure types #
 Structure Category Description 
 Type 
-Part 
-#Grouping Encloses content that would typically be perceived as an# identifiable part of a 
+Part# 
+Gro#uping Encloses content that would typically be perceived as an# id#entifiable part of a 
 document, whether as an article, prologue, section, chapter or any other 
  Part
 identifiable subdivision of content within a logical document.  
@@ -24,11 +24,11 @@ articles in a newspaper or magazine
 •
 recipes in a cooking book 
  
-•
-a #group of advertisements 
+•#
+a gro#up of advertisements 
  
-Div 
-#Grouping Encloses content structured in fashion that is orthogonal to the semantic structure. 
+D#iv 
+G#rouping Encloses content structured in fashion that is orthogonal to the semantic structure. 
 It can be used as a role mapping target for custom tags for which no suitable 
 standard structure element is available, or where attributes are applied in a non-
 NOTE 1 Nesting structure elements allows content to be subdivided. 
@@ -47,12 +47,12 @@ Div
 EXAMPLE 2 The following is just one of the possible types of content that 
 could be marked as : 
 •
-associating a language attribute to #group of content 
+associating a language attribut#e to g#roup of content 
  
 items without implying any semantic aspects 
-(#PDF 2.0) 
-Aside 
-#Grouping Encloses content that is distinct from other content within its parent 
+#(PDF# 2.0) 
+A#side #
+Grouping Encloses content that is distinct from other content within its parent 
 structure element. 
 Aside
 EXAMPLE 3 The following are just a few of the possible types of content that 

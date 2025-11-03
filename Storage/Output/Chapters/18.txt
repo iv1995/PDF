@@ -1,5 +1,5 @@
 #developer 
-entities, including individuals, companies, non-profits, standards bodies, open source #groups, etc., 
+#entities, including individuals, companies, non-profits, standards bodies, open source #group#s, etc., 
 developing standards or software to use and extend this part of ISO 32000 
 4.16 
  

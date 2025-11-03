@@ -1,33 +1,33 @@
 #Table 28: Entries in an 
-encrypted payload dictionary") with details of the cryptographic #filter needed to decrypt the encrypted 
+encrypted payload dictionary#") with details of the cryptographic #filter #needed to decrypt the encrypted 
 payload. 
 © ISO 2017 – All rights reserved 97 
 
 ISO/DIS 32000-2
- 
-#Table 28: Entries in an encrypted payload dictionary 
+ #
+Table 28: Entries in an encrypted payload dictionary #
 Key Type Value 
 (Optional)
 Type 
 EncryptedPayload
-name  The type of #PDF #object that this dictionary describes; if present, 
+name  The type of #PDF ##object #that this dictionary describes; if present, 
 shall be  for an encrypted payload file specification. 
 (Required)
 Subtype 
-name  The name of the cryptographic #filter used to encrypt the 
-encrypted payload document. This allows a ##PDF processor to easily 
-determine whether it has the appropriate cryptographic #filter. 
+name  The name of the cryptographic# filter# used to encrypt the 
+encrypted payload document. This allows a# #PDF# processor #to easily 
+determine whether it has the appropriate cryptographi#c filt#er. 
 (Optional)
 Version 
-name  The version number of the cryptographic #filter used to encrypt 
+name  The version number of the cryptograph#ic filt#er used to encrypt 
 NOTE  The value of  is not to be interpreted as a real number but 
 Version
 the encrypted payload referenced by this dictionary. 
 as integers with a PERIOD (2Eh) between them. 
-EXAMPLE This example shows details of an unencrypted wrapper document containing an encrypted payload document. 
-%#PDF-2.0  
+EXAMPLE This example shows details of an unencrypted wrapper document containing an encrypted payload document. #
+%P#DF-2.0  
 15 0 obj  
-  <</Length 377 /#Filter /FlateDecode>> 
+  <</Length 3#77 /Fil#ter /FlateDecode>> 
 stream 
  … 
 endstream 
@@ -35,11 +35,11 @@ endobj
  
 17 0 obj           %File Specification Dictionary 
   << 
-   /Desc (This embedded file is encrypted using the Acme Custom Crypto #filter) 
+   /Desc (This embedded file is encrypted using the Acme Custom Cr#ypto f#ilter) 
    /EF <</F 18 0 R>> 
-   /F (AcmeCustomCrypto Protected #PDF.#pdf) 
+   /F (AcmeCustomCrypto Protect#ed ##PDF#.pdf) 
    /Type /Filespec 
-   /UF (AcmeCustomCrypto Protected #PDF.#pdf) 
+   /UF (AcmeCustomCrypto Prote#cte##d P#DF.pdf) 
    /EP 
    << 
     /Type /EncryptedPayload 
@@ -53,8 +53,8 @@ endobj
 18 0 obj           %Embedded File stream 
   << 
    /Type /EmbeddedFile 
-   /DL 123456 
-   /#Filter /FlateDecode 
+   /DL 123456# 
+   /F#ilter /FlateDecode 
    /Length 123456 
    /Params 
    << 
@@ -63,7 +63,7 @@ endobj
     /ModDate (D:20130228170141-08'00') 
     /Size 123456 
    >> 
-   /Subtype /application#2F#pdf 
+   /Subtype /applica#tion#2F#pdf 
   >> 
 stream 
 … Flate-encoded contents of encrypted payload document …  
@@ -79,7 +79,7 @@ ISO/DIS 32000-2
    /Type/Catalog 
    /Collection  
    << 
-    /D (AcmeCustomCrypto Protected #PDF.#pdf) 
+    /D (AcmeCustomCrypto Pr#ote##cte#d PDF.pdf) 
     /View /H 
    >> 
    /Names 20 0 R 
@@ -90,11 +90,11 @@ ISO/DIS 32000-2
 endobj 
  
 20 0 obj           %Document #Name tree 
-  <</EmbeddedFiles 21 0 R>> 
+  #<</EmbeddedFiles 21 0 R>> 
 endobj 
  
 21 0 obj           %Embedded Files Name dictionary 
-  <</Names [(AcmeCustomCrypto Protected #PDF.#pdf) 17 0 R]>> 
+  <</Names [(AcmeCustomCrypto #Pro##tec#ted PDF.pdf) 17 0 R]>> 
 endobj 
  
 12 0 obj %Page tree 
@@ -119,9 +119,9 @@ startxref
  
 7.7Document structure 
  
-7.7.1General 
+7.7.1G#ener#al 
  
-A #PDF document can be regarded as a hierarchy of #objects contained in the body section of a #PDF file. At 
+A PDF document can be regarded as a hierarchy of# objec#ts contained in the body #sect#ion of a PDF file. At 
 the root of the hierarchy is the document’s catalog dictionary (see 7.7.2, "Document catalog 
 dictionary"). 
-NOTE Most of the #objects in the hierarchy are dictionaries. "
+NOTE Most of th#e obje#cts in the hierarchy are dictionaries. "

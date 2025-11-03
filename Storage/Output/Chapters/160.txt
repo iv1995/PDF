@@ -1,21 +1,21 @@
 #Figure 27: 
-Colour gamuts" compares the gamuts (ranges of representable colours) for, and  
+Colour gamuts#" compares the gamuts (ranges of representable colours) for, and  
 spaces. ![Figure 26 Lab colour space   .png](./Storage/Output/Images/Figure 26 Lab colour space   .png)
 #Figure 26: Lab colour space  
  
-© ISO 2017 – All rights reserved 186 
+#© ISO 2017 – All rights reserved 186 
 
 ISO/DIS 32000-2
- ![Figure 27 Colour gamuts   .png](./Storage/Output/Images/Figure 27 Colour gamuts   .png)
-#Figure 27: Colour gamuts  
- 
+ ![Figure 27 Colour gamuts   .png](./Storage/Output/Images/Figure 27 Colour gamuts   .png)#
+Figure 27: Colour gamuts  
+ #
 Lab
 XYZABCABC
-A  colour space shall not specify explicit decoding #functions or matrix coefficients for# either stage of 
+A  colour space shall not specify explicit decoding #function#s or matrix coefficients for# ei#ther stage of 
 LMNLMN
 the transformation from L*a*b* space to  space (denoted by "Decode ," "Matrix ," "Decode 
 ," and "Matrix " in "#Figure 24: Component transformations in a CIE-based ABC colour space
-"). 
+#"). 
 Instead, these parameters shall have constant implicit values. The first transformation stage shall be 
 defined by the equations 
 ∗∗
@@ -53,7 +53,7 @@ gx
 ()
 ×𝑔𝑔𝑁𝑁
 𝑍𝑍=𝑍𝑍
-where the #function () shall be defined as 
+where the# function# () shall be defined as 
  
 6
 3
@@ -74,15 +74,15 @@ lie in the useful range -128 to +127.
  
 8.6.5.5ICCBased colour spaces 
  
-#PDF 1.3
+#PDF #1.3
 ICCBased
 CalGrayCalRGBLab
  colour spaces () shall be based on a cross-platform colour profile as defined by the 
  ICCBased 
 International Color Consortium (ICC). Unlike the , , and  colour spaces, which are 
-#characterised by entries in the colour space dictionary, ancolour space shall be #characterised 
-by a sequence of #bytes in a standard format. Details of the profile format can be found in the #ICC 
-specification. 
+#character#ised by entries in the colour space dictionary, ancolour space shall be# characte#rised 
+by a sequence of #byte#s in a standard format. Details of the profile format can be found in the #ICC 
+specification#. 
 stream
  ICCBased 
 Ancolour space shall be an array: [/ICCBased ] 
@@ -90,6 +90,6 @@ Ancolour space shall be an array: [/ICCBased ]
 
 ISO/DIS 32000-2
  
-The stream shall contain the #ICC profile. Besides the usual entries common to all streams (see "#Table 5: 
-Entries common to all stream dictionaries"), the profile stream shall have the additional entries listed in 
+The stream shall contain the #ICC profile#. Besides the usual entries common to all streams (see "#Table 5: 
+Entries common to all stream dictionaries#"), the profile stream shall have the additional entries listed in 
 "

@@ -1,7 +1,7 @@
-#Figure 25: Component transformations in a CIE-based A colour space" illustrates the 
-transformations of the  component to , , and  components of the CIE 1931  space. ![Figure 25 Component transformations in a CIE-based A colour space  .png](./Storage/Output/Images/Figure 25 Component transformations in a CIE-based A colour space  .png)
-#Figure 25: Component transformations in a CIE-based A colour space 
- 
+#Figure 25: Component transformations in a CIE-based A colour space#" illustrates the 
+transformations of the  component to , , and  components of the CIE 1931  space. ![Figure 25 Component transformations in a CIE-based A colour space  .png](./Storage/Output/Images/Figure 25 Component transformations in a CIE-based A colour space  .png)#
+Figure 25: Component transformations in a CIE-based A colour space 
+ #
 A
  CalGray 
 Acolour space shall be a CIE-based  colour space with only one transformation stage instead 
@@ -12,14 +12,14 @@ component shall be in the range 0.0 to 1.0; component values falling outside tha
 ISO/DIS 32000-2
  
 A
-to the nearest valid value without error indication. The decoding #function (denoted by "Decode " in 
-Gamma
-"#Figure 25: Component transformations in a CIE-based A colour space") is a gamma #function whose 
+to the nearest valid value without error indication. The decoding #function #(denoted by "Decode " in 
+Gamma#
+"Figure 25: Component transformations in a CIE-based A colour spa#ce") is a gamma# function# whose 
 A
 coefficient shall be specified by the  entry in the colour space dictionary (see "Table 62: Entries 
 WhitePoint
 in a CalGray colour space dictionary"). The transformation matrix denoted by "Matrix " in the figure is 
 LMNLMN
 derived from the dictionary’s  entry, as described below. Since there is no second 
-transformation stage, "Decode " and "Matrix " shall be implicitly taken to be# identity 
+transformation stage, "Decode " and "Matrix " shall be implicitly taken to be# id#entity 
 transformations. 

@@ -1,7 +1,7 @@
-#Figure 24: Component transformations in a CIE-based ABC colour space"). 
+#Figure 24: Component transformations in a CIE-based ABC colour space#"). 
 © ISO 2017 – All rights reserved 181 
 
 ISO/DIS 32000-2
- ![Figure 24 Component transformations in a CIE-based ABC colour space  .png](./Storage/Output/Images/Figure 24 Component transformations in a CIE-based ABC colour space  .png)
-#Figure 24: Component transformations in a CIE-based ABC colour space 
- 
+ ![Figure 24 Component transformations in a CIE-based ABC colour space  .png](./Storage/Output/Images/Figure 24 Component transformations in a CIE-based ABC colour space  .png)#
+Figure 24: Component transformations in a CIE-based ABC colour space 
+# 

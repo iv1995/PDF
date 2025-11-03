@@ -1,21 +1,21 @@
-#Figure 42: Coons patch mesh"). 
+#Figure 42: Coons patch mesh#"). 
 Coordinates are mapped from the unit square into a four-sided patch whose sides are not 
-necessarily linear (see the lower figure in "#Figure 42: Coons patch mesh". The mapping is 
+necessarily linear (see the lower figure in #"Figure 42: Coons patch mes#h". The mapping is 
 continuous: the corners of the unit square map to corners of the patch and the sides of the unit 
 square map to sides of the patch, as shown in "#Figure 43: Coordinate mapping from a unit square 
-to a four-sided Coons Patch". 
+to a four-sided Coons Patch#". 
  
 © ISO 2017 – All rights reserved 239 
 
 ISO/DIS 32000-2
- ![Figure 42 Coons patch mesh  .jpg](./Storage/Output/Images/Figure 42 Coons patch mesh  .jpg)
-#Figure 42: Coons patch mesh 
- 
+ ![Figure 42 Coons patch mesh  .jpg](./Storage/Output/Images/Figure 42 Coons patch mesh  .jpg#)
+Figure 42: Coons patch mesh 
+# 
 , C
 , C, D,  D
 1212
 uv
-The sides of the patch are given by four cu#bic Bézier curves
+The sides of the patch are given by four cu#bi#c Bézier curves
 and, defined over a pair of 
 parametric variables,  and , that vary horizontally and vertically across the unit square. The four 
 corners of the Coons patch satisfy the following equations: 

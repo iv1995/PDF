@@ -1,8 +1,8 @@
-#Table 51: Device-independent #graphics state parameters" and "Table 52: Device-
+#Table 51: Device-independent #graphics state #parameters#" and "Table 52: Device-
 © ISO 2017 – All rights reserved 154 
 
 ISO/DIS 32000-2
  
-dependent #graphics state parameters". "#Table 51: Device-independent #graphics state parameters" lists 
-those #graphics state parameters that are device-independent and are appropriate to specify in page 
+dependent# graphics state# parameters". #"Table 51: Device-independen#t graphics stat#e parameter#s" lists 
+tho#se graphics sta#te parameters that are device-independent and are appropriate to specify in page 
 descriptions. The parameters listed in "

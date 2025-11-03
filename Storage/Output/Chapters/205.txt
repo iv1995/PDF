@@ -1,19 +1,19 @@
-#Table 84: Data Values in a Coons Patch Mesh" summarises the required data values for 
+#Table 84: Data Values in a Coons Patch Mesh#" summarises the required data values for 
 various values of the edge flag. ![Figure 46 Edge connections in a Coons Patch Mesh  .png](./Storage/Output/Images/Figure 46 Edge connections in a Coons Patch Mesh  .png)
 #Figure 46: Edge connections in a Coons Patch Mesh 
  
-#Function
-c
+##Function
+#c
  c
 If the shading dictionary contains a  entry, the colour data for each corner of a patch shall be 
 t 
 1n
 specified by a single parametric value t rather than by n separate colour components 
-…. All linear 
-#Function
+…. All linear #
+Function#
 interpolation within the mesh shall be done using the values. After interpolation, the results shall be 
-passed to the #function(s) specified in the  entry to determine the colour at each point. 
-#Table 84: Data Values in a Coons Patch Mesh 
+passed to th#e functi#on(s) specified in the  entry to determine the colour at each point. #
+Table 84: Data Values in a Coons Patch Mesh #
 Edge Flag Next Set of Data Values 
 f
  
@@ -133,14 +133,14 @@ cc
  
 8.7.4.5.8Type 7 (tensor-product patch mesh) shadings 
  
-Type 7 (tensor-product patch mesh) shadings are# identical to Type 6, except that they are based on a 
-#bicu#bic tensor-product patch defined by 16 control points instead of the 12 control points that define a 
+Type 7 (tensor-product patch mesh) shadings are# id#entical to Type 6, except that they are based on a 
+#bi#c#ub#ic tensor-product patch defined by 16 control points instead of the 12 control points that define a 
 ShadingType
 Coons patch. The shading dictionaries representing the two patch types differ only in the value of the 
  entry and in the number of control points specified for each patch in the data stream. 
 NOTE Although the Coons patch is more concise and easier to use, the tensor-product patch affords 
 greater control over colour mapping. 
 Like the Coons patch mapping, the tensor-product patch mapping is controlled by the location and 
-shape of four cu#bic Bézier curves marking the boundaries of the patch. However, the tensor-product 
+shape of four #cu#bic Bézier curves marking the boundaries of the patch. However, the tensor-product 
 patch has four additional, "internal" control points to adjust the mapping. The 16 control points can be 
 arranged in a 4-by-4 array indexed by row and column, as follows (see "

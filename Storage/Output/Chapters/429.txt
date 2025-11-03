@@ -1,16 +1,16 @@
 #Table 259: Entries in the FieldMDP 
-transform parameters dictionary". 
+transform parameters dictionary#". 
 © ISO 2017 – All rights reserved 557 
 
 ISO/DIS 32000-2
- 
-#Table 259: Entries in the FieldMDP transform parameters dictionary 
+ #
+Table 259: Entries in the FieldMDP transform parameters dictionary #
 Key Type Value 
 (Optional) 
 Type  
 TransformParams
  
-name The type of #PDF #object that this dictionary describes; if present, shall be
+name The type of #PDF ##object #that this dictionary describes; if present, shall be
 for a transform parameters dictionary. 
 (Required) 
 Action Fields
@@ -30,61 +30,61 @@ Only those form fields not specified in .
 Fields Action
 array An array of text strings containing field 
 names. 
-(Optional #PDF 1.5 required
+(Optional# PDF# 1.5 required
 V 
 name :) The transform parameters dictionary version. The 
-NOTE This value is a #name #object, not a number. 
-value for #PDF 1.5 and later shall be 1.2. 
+NOTE This value is a #name# object##, not a number. 
+value fo#r PD#F 1.5 and later shall be 1.2. 
 Default value: 1.2. 
  
 On behalf of a document author creating a document containing both form fields and signatures the 
-following shall be supported by ##PDF writers: 
+following shall be supported #by #P#DF writer#s: 
 • 
 P DocMDP 
 The author specifies that form fields shall be filled in without invalidating the approval or 
-#certification signature. The  entry of thetransform parameters dictionary shall be set to 
+#certification signature#. The  entry of thetransform parameters dictionary shall be set to 
 •# 
-either 2 or 3 (see "#Table 257: Entries in the DocMDP transform parameters dictionary"). 
+ei#ther 2 or 3 (see "#Table 257: Entries in the DocMDP transform parameters dictionary#"). 
 The author can also specify that after a specific recipient has signed the document, any 
 modifications to specific form fields shall invalidate that recipient’s signature. There shall be a 
 separate signature field for each designated recipient, each having an associated signature field 
-lock dictionary (see "#Table 236: Entries in a signature field lock dictionary") specifying the form 
+lock dictionary (see "#Table 236: Entries in a signature field lock dictionary#") specifying the form 
 • 
 fields that shall be locked for that user. 
 ActionFields
 When the recipient signs the field, the signature, signature reference, and transform parameters 
 dictionaries shall be created. The  and  entries in the transform parameters 
-NOTE This copying is done because all #objects in a signature dictionary shall be #direct #objects if the 
+NOTE This copying is done because al#l obje#cts in a signature dictionary shall be #dire#ct obje#ct#s if the 
 dictionary shall be copied from the corresponding fields in the signature field lock dictionary. 
-dictionary contains a #byte range signature. Therefore, the transform parameters dictionary 
+dictionary contains a #byte #range signature. Therefore, the transform parameters dictionary 
 cannot reference the signature field lock dictionary indirectly. 
 FieldMDP DocMDP 
  signatures shall be validated in a similar manner tosignatures. See 12.8.2.2.2, 
 "Validating signatures that use the DocMDP transform method" for details. 
-12.8.3Signature interopera#bility 
+12.8.3Signature interopera#bi#lity 
  
 12.8.3.1General 
  
-It is intended that ##PDF processors allow interopera#bility between #signature handlers; that is, a #PDF file 
+It is intended t#hat ##PDF processor#s allow interoper#ab#ility between #signature handler#s; that i#s, a# PDF file 
 signed with a handler from one vendor should be able to be validated with a handler from a different 
-vendor when they use the same set of validation parameters. #PDF 2.0 defines new signature formats for 
-PAdES signatures (#PDF Advanced Electronic Signatures) as defined in ETSI EN 319 142.  
+vendor when they use the same set of validation parame#ters#. PDF 2.0 defines new signature formats for 
+PAdES signa#ture#s (PDF Advanced Electronic Signatures) as defined in ETSI EN 319 142.  
 © ISO 2017 – All rights reserved 558 
 
 ISO/DIS 32000-2
  
  Sub#Filter 
-#Filter
+##Filter#
 If present, theentry in the signature dictionary shall specify the encoding of the signature 
 value and key information, while the  entry shall specify the preferred handler that should be 
- Sub#Filter 
-used to validate the signature. When handlers are being registered according to Annex E, "#PDF Name 
+ S#ubFilter# 
+used to validate the signature. When handlers are being registered according to An#nex #E, "PDF Name 
 Registry" they shall specify theencodings they support enabling handlers other than the 
 preferred handler to validate the signatures that the preferred handler creates. 
- Sub#Filter 
+ #SubFilte#r 
 There are several defined values for theentry, all based on public-key cryptographic 
 standards published by RSA Security and also as part of the standards issued by the Internet 
 Engineering Task Force (IETF) Public Key Infrastructure (PKIX) working group and the European 
-Telecommunications Standards Institute (ETSI). 
-Sub#Filter
+Telecommunications Standards Institute (ETSI). #
+SubFil#ter
 "

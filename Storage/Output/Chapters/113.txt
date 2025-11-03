@@ -1,62 +1,62 @@
 #Table 39: Additional entries specific to a Type 0 #function 
-dictionary". 
+#dictionary#". 
 DomainEncodeSize
 SizeEncode
-The , , and  entries determine how the #function’s input variable values are mapped 
+The , , and  entries determine how the# functio#n’s input variable values are mapped 
 Encode
 into the sample table. For example, if  is [21 31], the default  array shall be [0 20 0 30], 
 which maps the entire domain into the full set of sample table entries. Other values of  may be 
 used. 
 DomainEncodeSize
 DecodeRange
-The interpolate #function (7.10.1, "General") explains the relationship between , , , 
+The interpolat#e functio#n (7.10.1, "General") explains the relationship between , , , 
 , and . 
 © ISO 2017 – All rights reserved 125 
 
 ISO/DIS 32000-2
- 
-#Table 39: Additional entries specific to a Type 0 #function dictionary 
+ #
+Table 39: Additional entries specific to a Type# 0 functi#on dictionary #
 Key Type Value 
 Required
 Size 
 array () An array of m positive integers that shall specify the number of 
 samples in each input dimension of the sample table. 
 Required
-#BitsPerSample 
+#Bi#tsPerSample 
  
-integer () The number of #bits that shall represent each sample. (If the 
-#BitsPerSample 
-#function has multiple output values, each one shall occupy
-#bits.) Valid values shall be 1, 2, 4, 8, 12, 16, 24, and 32. 
+integer () The number of# b#its that shall represent each sample. (If the# 
+#BitsPerSamp#le 
+funct#ion has multiple output values, each one shall occu#py#
+bits.) Valid values shall be 1, 2, 4, 8, 12, 16, 24, and 32. 
 Optional
 Order 
 integer () The order of interpolation between samples. Valid values shall 
-be 1 and 3, specifying linear and cu#bic spline interpolation, respectively. 
+be 1 and 3, specifying linear an#d #cubic spline interpolation, respectively. 
 Default value: 1. 
 Optionalm
 Encode 
 array () An array of 2 ×  numbers specifying the linear mapping of 
 SizeSize
-input values into the domain of the #function’s sample table. Default value: 
+input values into the domain of# the fun#ction’s sample table. Default value: 
 01
 [0 ( -1) 0 ( - 1)…]. 
 Optionaln
 Decode 
 array () An array of 2 ×  numbers specifying the linear mapping of 
 Range
-sample values into the range appropriate for the #function’s output values. 
+sample values into the range appropriate fo#r the fu#nction’s output values. 
 Default value: same as the value of . 
 Optional
 other stream 
 attributes 
 (various) () Other attributes of the stream that shall provide the sample 
 values, as appropriate (see "#Table 5: Entries common to all stream 
-dictionaries"). 
+dictionaries#"). 
  
 i
 x
 im
-When a sampled #function is called, each input value 
+When a s#ampled fu#nction is called, each input value 
 , for 0 ≤  < , shall be clipped to the domain: 
 ′
 i2i2i+1
@@ -88,9 +88,9 @@ The encoded input values shall be real numbers, not restricted to integers. Inte
 jn
 determine output values from the nearest surrounding values in the sample table. Each output value 
 , 
-for 0 ≤  < , shall then be decoded: 
+for 0 ≤  < , shall then be decoded#: #
 ′
-#BitsPerSample
+BitsPerSample
 j2j2j+1
 j
 r
@@ -103,57 +103,57 @@ j
 y
 =min(max �r,Range�,Range )
  
-Sample data shall be represented as a stream of #bytes. The #bytes shall constitute a continuous #bit 
- #BitsPerSample 
-stream, with the high-order #bit of each #byte first. Each sample value shall be represented as a sequence 
-of#bits. Successive values shall be adjacent in the #bit stream; there shall be no padding 
+Sample data shall be represented as a stream of #byte#s. The# byt#es shall constitute a conti#nu#ous# b#it 
+ BitsPerSample 
+stream, with the hig#h-#order bit of eac#h byt#e first. Each sample value shall be represented as a seq#ue#nce 
+ofbits. Successive values shall be adjace#nt# in the bit stream; there shall be no padding 
 © ISO 2017 – All rights reserved 126 
 
 ISO/DIS 32000-2
  
-at #byte boundaries. 
-For a #function with multidimensional input (more than one input variable), the sample values in the 
+#at by#te boundaries.# 
+For a f#unction with multidimensional input (more than one input variable), the sample values in the 
 first dimension vary fastest, and the values in the last dimension vary slowest. 
 fa, b, ca, bc
 ffffffffff
-EXAMPLE 1 For a #function (), where , and  vary from 0 to 9 in steps of 1, the sample values would appear in this 
+EXAMPLE# 1 For a #function (), where , and  vary from 0 to 9 in steps of 1, the sample values would appear in this 
 f
 order: (0, 0, 0), (1, 0, 0),…, (9, 0, 0), (0, 1, 0), (1, 1, 0),…, (9, 1, 0), (0, 2, 0), (1, 2, 0),…, (9, 9, 0), (0, 0, 1), 
 (1, 0, 1), and so on. 
-Range
-For a #function with multidimensional output (more than one output value), the values shall be stored in 
-the same order as . 
-SizeRange
-#BitsPerSample
+Ra#nge
+For a# function with multidimensional output (more than one output value), the values shall be stored in 
+the same order as . #
+S#izeRange
+BitsPerSample
 The stream data shall be long enough to contain the entire sample array, as indicated by , , 
 and ; see 7.3.8.2, "Stream extent". 
 xy
-Example 2 illustrates a sampled #function with 4-#bit samples in an array containing 21 columns and 31 
+Example 2 illustrates# a sample#d func#ti#on with 4-bit samples in an array containing 21 columns and 31 
 zx
-rows (651 values). The #function takes two arguments,  and , in the domain [-1.0 1.0], and returns one 
+rows (651 v#alues). T#he function takes two arguments,  and , in the domain [-1.0 1.0], and returns one 
 y
-value, , in that same range. The  argument shall be linearly transformed by the encoding to the domain 
+value, , in that same range. The  argument shall be linearly transformed by the encoding to th#e #domain 
 z
- #BitsPerSample 
-[0 20] and the  argument to the domain [0 30]. Using #bilinear interpolation between sample points, the 
+ BitsPerSample 
+[0 20] and the  argument to the domain #[0# 30]. Using bilinear interpolation between sample po#ints, the# 
 z
-#function computes a value for , which (becauseis 4) will be in the range [0 15], and the 
+function computes a value for , which (becauseis 4) will be in the range [0 15], and the 
 decoding transforms  to a number in the range [-1.0 1.0] for the result. The sample array shall be 
-stored in a string of 326 #bytes, calculated as follows (rounded up): 
-326 #bytes = 31 rows × 21 samples /row × 4 #bits /sample ÷ 8 #bits /#byte 
-The first #byte contains the sample for the point (-1.0, -1.0) in the high-order 4 #bits and the sample for 
-the point (-0.9, -1.0) in the low-order 4 #bits. 
+stored in a string of #326 #bytes, calculated as follows (rounded up): #
+326# bytes = 31 rows × 21 sa#mp#les /row × 4 bi#ts# /sample ÷ 8 #bits /#byte 
+The# firs#t byte contains the sample for the point (-1.0, -1.0) in #th#e high-order 4 bits and the sample for 
+the point (-0.9, -1.0) i#n #the low-order 4 bits. 
 EXAMPLE 2 
-14 0 obj 
-  <</#FunctionType 0 
+1#4 0 obj #
+  <</FunctionType 0 
    /Domain [-1.0 1.0 -1.0 1.0] 
    /Size [21 31] 
-   /Encode [0 20 0 30] 
-   /#BitsPerSample 4 
+   /Encod#e #[0 20 0 30] 
+   /BitsPerSample 4 
    /Range [-1.0 1.0] 
    /Decode [-1.0 1.0] 
    /Length … 
-   /#Filter… 
+   /#Filter#… 
   >> 
 stream 
 651 sample values
@@ -163,9 +163,9 @@ endobj
  
 NOTE 3 The  entry can be used creatively to increase the accuracy of encoded samples 
 Decode
-corresponding to certain values in the range. 
- #BitsPerSample Decode 
-EXAMPLE 3 If the range of the #function is [-1.0 1.0] andis 4, the usual value of would be [-1.0 1.0] 
+corresponding to certain val#ue#s in the range. 
+ BitsPerSample Decode 
+EXAMPLE 3 If th#e range o#f the function is [-1.0 1.0] andis 4, the usual value of would be [-1.0 1.0] 
 and the sample values would be integers in the interval [0 15] (as shown in "Figure 8: Mapping with the 
 Decode
 Decode array"). But if these values are used, the midpoint of the range, 0.0, is not represented exactly by any 

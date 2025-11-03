@@ -1,12 +1,12 @@
-#Table 107: Text-showing operators", update T
+#Table 107: Text-showing operators#", update T
  
 (by altering its  and  translation components) to take into account the horizontal or vertical 
-displacement of each #glyph painted as well as any #character or word-spacing parameters in the text 
+displacement of each #glyph #painted as well as any #character #or word-spacing parameters in the text 
 state. 
 T
 T
 lm
-Additionally, within a text #object, a ##PDF processor shall keep track of a text line matrix, 
+Additionally, within a text #object#, a ##PDF #processor #shall keep track of a text line matrix, 
 , which 
 T
 m
@@ -15,15 +15,15 @@ captures the value of
 lm
 operators shall read and set 
  on specific occasions mentioned in "#Table 106: Text-positioning 
-operators" and "#Table 107: Text-showing operators". 
+operators#" and #"Table 107: Text-showing operator#s". 
 NOTE This can be used to compactly represent evenly spaced lines of text. 
 9.4.3Text-showing operators 
  
-The text-showing operators ("#Table 107: Text-showing operators") shall show text on the page, 
+The text-showing operators #("Table 107: Text-showing operato#rs") shall show text on the page, 
 repositioning text space as they do so. All of the operators shall interpret the text string and apply the 
-text state parameters as described in "#Table 107: Text-showing operators". 
-The text-showing operators shall only appear within text #objects. 
-#Table 107: Text-showing operators 
+text state parameters as described i#n "Table 107: Text-showing operat#ors". 
+The text-showing operators shall only appear within text# objec#t#s. 
+Table 107: Text-showing operato#rs 
 Operands Operator Description 
 string 
 Tj 
@@ -42,7 +42,7 @@ wcw
 Move to the next line and show a text string, using  as the word spacing 
 aa
 c
-and  as the #character spacing (setting the corresponding parameters in 
+and  as the# character# spacing (setting the corresponding parameters in 
 wc
 the text state).  and  shall be numbers expressed in unscaled text 
 a Tw  
@@ -58,8 +58,8 @@ ISO/DIS 32000-2
 Operands Operator Description 
 Array 
 TJ  
-Show zero or more text strings, allowing individual #glyph positioning. 
-Each element of array shall be# either a string or a number. If the element 
+Show zero or more text strings, allowing individual# glyph# positioning. 
+Each element of array shall be# ei#ther a string or a number. If the element 
 is a string, this operator shall show the string. If it is a number, the 
 T
 operator shall adjust the text position by that amount; that is, it shall 
@@ -70,9 +70,9 @@ translate the text matrix,
 thousandths of a unit of text space (see 
 amount shall be subtracted from the current horizontal or vertical 
 coordinate, depending on the writing mode. In the default coordinate 
-system, a positive adjustment has the effect of moving the next #glyph 
+system, a positive adjustment has the effect of moving the nex#t glyph# 
 Figure 61: 
-painted# either to the left or down by the given amount. "
+painte#d e#ither to the left or down by the given amount. "
 TJ
 Operation of the TJ operator in horizontal writing" shows an example of 
 the effect of passing offsets to . ![Figure 61 Operation of the TJ operator in horizontal writing  .png](./Storage/Output/Images/Figure 61 Operation of the TJ operator in horizontal writing  .png)

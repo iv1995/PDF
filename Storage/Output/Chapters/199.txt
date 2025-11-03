@@ -1,12 +1,12 @@
 #D
 Along the  axis, the surface 
  is given by 
-D12
+#D12
 ()()()()
 S
 u,v=1−u×Dv+u×Dv 
  
-A third surface is the #bilinear interpolation of the four corners: 
+A third surface is the #bi#linear interpolation of the four corners: 
 B1122
 ()()[()()()][()()()]
 Su,v=1−v×1−u×C0+u×C1+v ×1−u×C0+u×C1 

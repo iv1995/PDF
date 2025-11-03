@@ -149,6 +149,11 @@ public class Book {
 		
 		ArrayList<String> title = getBookTitles(this.pages);
 		ArrayList<String> unique = makeUnique(title);
+		
+		for(int i = 0; i < unique.size(); i++) {
+			System.out.println(unique.get(i));
+		}
+		
 		ArrayList<String> copy = unique;
 		
 		ArrayList<String> chapters = Chapters.chapters(all.toString(), copy);
@@ -157,25 +162,13 @@ public class Book {
 			File dest = new File("./Storage/Output/Chapters/" + i + ".txt");
 			dest.createNewFile();
 			
-			String chpt = markdown(chapters.get(i), unique);
+			String chpt = markdown(chapters.get(i), unique, "#", false);
 			
 			FileWriter writer = new FileWriter(dest);
 			writer.write(chpt);
 			writer.flush();
 			writer.close();
 		}
-		
-		
-		
-//		String txt = markdown(all.toString(), getBookTitles(pages));
-		
-//		File text = new File("./Storage/Output/Chapters/Book.txt");
-//		text.createNewFile();
-//		
-//		FileWriter writer = new FileWriter(text);
-//		writer.write(txt);
-//		writer.flush();
-//		writer.close();
 	}
 	
 	public ArrayList<String> makeUnique(ArrayList<String> phrases){
@@ -211,26 +204,20 @@ public class Book {
 	 * @return The string that contains the markdown symbols
 	 * @throws IOException 
 	 */
-	public String markdown(String all, ArrayList<String> phrases) throws IOException {
-		
-		String book = new String();
-		Scanner input = new Scanner(all);
-		
-//		while(input.hasNextLine()) {
-//			String line = input.nextLine();
+	public String markdown(String all, ArrayList<String> phrases, String symbol, boolean both) throws IOException {
 			
-			String line = all;
-		
-			for(String phrase : phrases) {
-				if(phrase.isBlank()){
-					continue;
-				}
-				line = Markdown.markdown(line, phrase, "#", false);
+		String line = all;
+	
+		for(String phrase : phrases) {
+			if(phrase.isBlank()){
+				continue;
 			}
-//			book += (line + "\n");
-//		}
-		
-		input.close();
+			if(both) {
+				line = Markdown.markdown(line, phrase, symbol, false);
+			} else {
+				line = Markdown.markdown(line, phrase, symbol, true);
+			}
+		}
 		
 		return line;
 	}
@@ -281,6 +268,23 @@ public class Book {
 		}
 		
 		return images;
+	}
+	
+	/**
+	 * 
+	 * NOT TESTED
+	 * 
+	 * @param pages The pages that are going to be analyzed
+	 * @return All the listings that have been found
+	 */
+	public ArrayList<String> getListings(ArrayList<Page> pages) {
+		ArrayList<String> codes = new ArrayList<String>();
+		
+		for(int i = 0; i < pages.size(); i++) {
+			codes.addAll(pages.get(i).getListings());
+		}
+		
+		return codes;
 	}
 	
 	/**

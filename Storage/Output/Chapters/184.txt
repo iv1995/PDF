@@ -1,5 +1,5 @@
 #Extend = [true true], Background specified 
-Figure 33: Axial shading 
+#Figure 33: Axial shading 
 8.7.4.5.4Type 3 (radial) shadings 
  
 Type 3 (radial) shadings define a colour blend that varies between two circles. Shadings of this type are 

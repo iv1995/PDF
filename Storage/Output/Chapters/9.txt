@@ -1,4 +1,4 @@
-##binary data 
-sequence of #bytes 
+##bi#nary data 
+#sequence of #byte#s 
 4.7 
  

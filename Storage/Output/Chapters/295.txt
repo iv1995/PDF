@@ -1,126 +1,126 @@
 #Table 138: Revised variables for the basic 
-compositing formulas". 
+compositing formulas#". 
 NOTE Compare these formulas with those shown in 11.3.8, "Summary of basic compositing 
-computations". 
-#Table 138: Revised variables for the basic compositing formulas 
+computations". #
+Table 138: Revised variables for the basic compositing formulas #
 Variable Meaning 
 i
 𝑖𝑖
 𝑓𝑓
 𝑓𝑓 
 Source shape for #object  
-i
+#i
 𝑖𝑖
 𝑗𝑗
-𝑓𝑓 
-#Object shape for #object  
+𝑓𝑓 #
+Object# shape fo#r object # 
 i
 𝑖𝑖
 𝑚𝑚
 𝑓𝑓  
-Mask shape for #object  
+Mask shape f#or object#  
 i
 𝑖𝑖
 𝑘𝑘
 𝑓𝑓 
-Constant shape for #object  
+Constant shape #for objec#t  
 i
 𝑚𝑚
-𝑓𝑓 Result shape after compositing #object  
+𝑓𝑓 Result shape after composi#ting obje#ct  
 i
 𝑖𝑖
 𝑓𝑓
 𝑞𝑞 
-Source opacity for #object  
+Source opacit#y for obj#ect  
 i
 𝑖𝑖
-𝑗𝑗
+𝑗𝑗#
 𝑞𝑞 
-#Object opacity for #object  
+#Object opac#ity for o#bject  
 i
 𝑖𝑖
 𝑚𝑚
 𝑞𝑞 
-Mask opacity for #object  
+Mask opa#city for #object  
 i
 𝑖𝑖
 𝑘𝑘
 𝑞𝑞 
-Constant opacity for #object  
+Constant op#acity for# object  
 i
 𝑚𝑚
-𝑞𝑞 Result opacity after compositing #object  
+𝑞𝑞 Result opacity after c#ompositin#g object  
 i
 𝑖𝑖
 𝑓𝑓
 𝛼𝛼 
-Source alpha for #object  
+Sourc#e alpha f#or object  
 i
 𝑚𝑚
-𝛼𝛼 Result alpha after compositing #object  
+𝛼𝛼 Result alpha after# composit#ing object  
 i
 𝑖𝑖
 𝑓𝑓
 𝑐𝑐 
-Source colour for #object  
+Sour#ce colour# for object  
 i
 𝑚𝑚
-𝐶𝐶 Result colour after compositing #object  
+𝐶𝐶 Result colour aft#er compos#iting object  
 i
 i
 ii−1s
-Blend #function for #object  
+Blend# #functio#n #for object  
 B�C,C �
  
-11.4.3#Group structure and nomenclature 
+11.4.3#Group #structure and nomenclature 
  
-As stated earlier, the elements of a #group shall be treated as a separate transparency stack, referred to 
-as the #group stack. These #objects shall be composited against a selected initial backdrop and the 
-resulting colour, shape, and opacity shall then be treated as if they belonged to a single #object. The 
-resulting #object is in turn composited with the #group’s backdrop in the usual way. 
-NOTE This computation entails interpreting the stack as a tree. For an -element #group that begins at 
-position  in the stack, it treats the next  #objects as an -element substack, whose elements are 
+As stated earlier, the elements of a# group# shall be treated as a separate transparency stack, referred to 
+as th#e gr#ou#p st#ack. These objects shall be composited against a selected initial backdrop and the 
+resulting colour, shape, and opacity shall then be treated as if they bel#onged #to a single obje#ct. The# 
+resulting object is in turn composited with t#he gr#oup’s backdrop in the usual way. 
+NOTE This computation entails interpreting the stack as a tree. For an -elem#ent gr#oup that begins at 
+position  in the stack, #it tre#ats the next  objects as an -element substack, whose elements are 
 n
-given an independent numbering of 1 to . These #objects are then removed from the #object 
+given an independent numbe#ring o#f 1 to . These objects are #then rem#oved from the object 
 inn
-numbering in the parent (containing) stack and replaced by the #group #object, numbered , 
+numbering in the parent (containing) stack and# repla#ced by# the g#roup object, numbered , 
 n
-followed by the remaining #objects to be painted on top of the #group, renumbered starting at  + 1. 
+fo#llowed# by the remaining objects to be painted on top o#f the# group, renumbered starting at  + 1. 
 i
-This operation applies recursively to any nested sub#groups. 
+This operation applies recursively to any nes#ted s#ubgroups. 
 i
 © ISO 2017 – All rights reserved 395 
 
 ISO/DIS 32000-2
  
 i
-E ) refers to a member of some #group; it can be# either an individual #object 
+E ) refers to a member #of so#me group; it can# be# ei#th#er an individual object 
 The term element (denoted 
-or a contained sub#group. 
-From the perspective of a particular element in a nested #group, there are three different backdrops of 
-interest: 
-#group backdrop
+or a cont#ained# subgroup. 
+From the perspective of a particular element in# a ne#sted group, there are three different backdrops of 
+#intere#st: 
+group backdrop
 • 
 The  is the result of compositing all elements up to but not including the first 
-element in the #group. (This definition is altered if the parent #group is a knockout #group; see 11.4.6, 
-initial backdrop
+ele#ment #in the group. (This definition is altered i#f the #parent group #is a #knockout group; see 11.4.6, 
+initial backdro#p
 • 
-"Knockout #groups"). 
-The  is a backdrop that is selected for compositing the #group’s first element. This is# 
-either the same as the #group backdrop (for a non-isolated #group) or a fully transparent backdrop 
+#"Knockout groups"). 
+The  is a backdrop that is selected for #compo#siting the group’s first element. This i#s 
+e#ither# the s#ame as the group backdrop (f#or a #non-isolated group) or a fully transparent backdrop 
 immediate backdrop
-• 
-(for an isolated #group). 
-The  is the result of compositing all elements in the #group up to but not 
+•# 
+(fo#r an isolated group). 
+The  is the result of compositing #all el#ements in the group up to but not 
 including the current element. 
-When all elements in a #group have been composited, the result shall be treated as if the #group were a 
-single #object, which shall then be composited with the #group backdrop. This operation shall occur 
-whether the initial backdrop chosen for compositing the elements of the #group was the #group backdrop 
-or a transparent backdrop. A ##PDF processor shall ensure that the backdrop’s contribution to the overall 
-result is applied only once. 
-11.4.4#Group compositing computations 
+Wh#en all# elements in a group have been composited, the result shall #be trea#ted as if# the g#roup were a 
+single object, which shall then #be com#posited with the group backdrop. This operation shall occur 
+whether the initial backdrop chosen for composit#ing th#e eleme#nts of# the group was the group backdrop 
+or a transparent backdrop. A ##PDF #processor #shall ensure that the backdrop’s contribution to the overall 
+result is #applie#d only once. 
+11.4.4Group compositing computations 
  
-The colour and opacity of a #group shall be defined by the #group compositing #function: 
+T#he col#our and opacity of a gr#oup sh#all be defined by the group compositing# functio#n: 
  
 Composite
 00

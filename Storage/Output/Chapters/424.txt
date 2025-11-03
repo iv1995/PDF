@@ -1,13 +1,13 @@
 #Table 254: Additional entry for 
-annotation dictionaries in an #FDF file") that shall indicate the page of the source document to which the 
+annotation dictionaries in an #FDF file##") that shall indicate the page of the source document to which the 
 annotation is attached. 
 © ISO 2017 – All rights reserved 548 
 
 ISO/DIS 32000-2
- 
-#Table 254: Additional entry for annotation dictionaries in an #FDF file 
+ #
+Table 254: Additional entry for annotation dictionaries in an# FDF file ##
 Key Type Value 
-(Required for annotations in#FDFfiles) 
+(Required for annotations #inFDFfi#les) 
 Page   
 integer The ordinal page number on which 
 this annotation shall appear, where page 0 is the first page. 
@@ -16,20 +16,20 @@ this annotation shall appear, where page 0 is the first page.
  
 Unlike interactive forms, non-interactive forms do not use widget annotations but are represented with 
 page content. Non-interactive forms are defined by the PrintField attribute (14.8.5.6, "PrintField 
-Attributes") for repurposing and accessi#bility purposes. 
+Attributes") for repurposing and accessi#bi#lity purposes. 
 12.8Digital signatures 
  
 12.8.1General 
  
-#PDF 1.3
+#PDF #1.3
 A digital signature () may be used to verify the integrity of the document’s contents using 
 verification information related to a signer. The signature may be purely mathematical, such as a 
-public/private-key encrypted document digest, or it may be a #biometric form of# identification, such as a 
+public/private-key encrypted document digest, or it may be a# b#iometric form of# id#entification, such as a 
 #signature handler
-handwritten signature, fingerprint, or retinal scan. The specific form of authentication used shall be 
-implemented by a special software module called a . #Signature handlers shall be# 
-identified in accordance with the rules defined in Annex E, "#PDF Name Registry". 
-Digital signatures in #PDF support four activities:  
+#handwritten signature, fingerprint, or retinal scan. The specific form of authentication used shall be 
+implemented by a special software module called a .# Signature handle#rs shall b#e 
+i#dentified in accordance with the rules defined in Annex E, #"PDF# Name Registry". 
+Digital signatures i#n PD#F support four activities:  
 • 
 • 
 the addition of a digital signature to a document, 
@@ -39,8 +39,8 @@ the addition of DSS dictionaries and of validation related information (VRI) to 
 • 
 verifications (see 12.8.4.4, "Validation-related information (VRI)"), and 
 the addition of document timestamp dictionaries (DTS) to allow for later verifications (see 12.8.5, 
-"Document timestamp (DTS) dictionary"). 
-#PDF 2.0 processors should support digital signatures based on the Cryptographic Message Syntax (CMS) 
+"Document timestamp (DTS) dictionary")#. 
+P#DF 2.0 processors should support digital signatures based on the Cryptographic Message Syntax (CMS) 
 and CAdES (ETSI EN 319 122). 
 signature dictionary
 Signature information shall be contained in a , whose entries are listed in "

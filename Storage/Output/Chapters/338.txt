@@ -1,6 +1,6 @@
 #Table 174: Annotation 
-states". 
-#Table 174: Annotation states 
+states#". #
+Table 174: Annotation states #
 State model State Description 
 Marked 
 Marked The annotation has been marked by the user. 
@@ -19,7 +19,7 @@ The  entry (see "Table 172: Additional entries in an annotation dictionary speci
  IRT 
 • 
 annotations") shall specify the user. 
-Theentry (see "#Table 176: Additional entries specific to a link annotation") shall refer to the 
+Theentry (see "#Table 176: Additional entries specific to a link annotation#") shall refer to the 
 State StateModel 
 • 
 original annotation. 

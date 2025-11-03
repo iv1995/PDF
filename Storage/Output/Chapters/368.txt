@@ -1,32 +1,32 @@
 #Table 200: Entries in the document catalog’s additional-actions dictionary 
-Key Type Value 
-(Optional; #PDF 1.4) 
+#Key Type Value 
+(Optional; #PDF #1.4) 
 WC  
  WC 
 dictionary An ECMAScriptaction that shall be performed before closing a 
 document. (The namestands for "will close.") 
-(Optional; #PDF 1.4) 
+(Optional;# PDF# 1.4) 
 WS  
  WS 
 dictionary An ECMAScriptaction that shall be performed before saving a 
 document. (The namestands for "will save.") 
-(Optional; #PDF 1.4) 
+(Optional#; PD#F 1.4) 
 DS  
  DS 
 dictionary An ECMAScriptaction that shall be performed after saving a 
 document. (The namestands for "did save.") 
-(Optional; #PDF 1.4) 
+(Optiona#l; P#DF 1.4) 
 WP  
  WP 
 dictionary An ECMAScriptaction that shall be performed before printing a 
 document. (The namestands for "will print.") 
-(Optional; #PDF 1.4) 
+(Option#al; #PDF 1.4) 
 DP  
  DP 
 dictionary An ECMAScriptaction that shall be performed after printing a 
 document. (The namestands for "did print.") 
  
-#Interactive ##PDF processors shall ensure the presence of such a device, or equivalent controls for 
+#Interac#tive# #PDF processor##s shall ensure the presence of such a device, or equivalent controls for 
 simulating one, for the corresponding actions to be executed correctly. Mouse-related trigger events are 
 subject to the following constraints: 
 E
@@ -51,9 +51,9 @@ F
 prior to display, it is possible for an action triggered by this event to perform a calculation or 
 make any other modification to the document. 
  NeedAppearances 
-These field-related trigger events can occur# either through user interaction or programmatically, such 
+These field-related trigger events can occur# ei#ther through user interaction or programmatically, such 
  FDF 
-as in response to theentry (#deprecated in #PDF 2.0) in the interactive form 
+as in response to theentry (#deprecate#d #i#n PDF 2.0) in the interactive form 
  ECMAScript 
 dictionary (see 12.7.3, "Interactive form dictionary"), importation ofdata (12.7.8, "Forms data 
 format"), oractions (12.6.4.17, "ECMAScript actions"). For example, the user’s modifying a 
@@ -61,6 +61,6 @@ field value can trigger a cascade of calculations and further formatting and val
 the document. 
 12.6.4Action types 
  
-12.6.4.1General 
+12.6.4.1Gene#ral #
  
-#PDF supports the standard action types listed in "
+PDF supports the standard action types listed in "

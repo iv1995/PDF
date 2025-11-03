@@ -1,27 +1,27 @@
-#Table 132: Entries in a Type 5 halftone dictionary") is a composite 
+#Table 132: Entries in a Type 5 halftone dictionary#") is a composite 
 dictionary containing independent halftone definitions for multiple colourants. Its keys shall be #name 
-#objects representing the names of individual colourants or colour components. The values associated 
+#object##s representing the names of individual colourants or colour components. The values associated 
 with these keys shall be other halftone dictionaries, each defining the halftone screen and transfer 
-#function for a single colourant or colour component. The component halftone dictionaries shall not be 
+#function #for a single colourant or colour component. The component halftone dictionaries shall not be 
 © ISO 2017 – All rights reserved 371 
 
 ISO/DIS 32000-2
  
-of halftone Type 5. 
-#Table 132: Entries in a Type 5 halftone dictionary 
+of halftone Type 5. #
+Table 132: Entries in a Type 5 halftone dictionary #
 Key Type Value 
 Optional
 Type 
 Halftone
-name () The type of #PDF #object that this dictionary describes; if present, shall be 
+name () The type of #PDF# #object# that this dictionary describes; if present, shall be 
  for a halftone dictionary. 
 Required
 HalftoneType 
-number () A code# identifying the halftone Type that this dictionary describes; shall 
+number () A code# id#entifying the halftone Type that this dictionary describes; shall 
 be 5 for this Type of halftone. 
 Optional
 HalftoneName 
-#byte string () The name of the halftone dictionary. 
+#byte #string () The name of the halftone dictionary. 
 Required, one per colourant
 any colourant 
 name 
@@ -31,7 +31,7 @@ Required
 Default 
 dictionary or () A halftone that shall be used for any colourant or colour component that 
 stream does not have an entry of its own. The value shall not be 5. If there are any 
-nonprimary colourants, the default halftone shall have a transfer #function. 
+nonprimary colourants, the default halftone shall have a transfer# functio#n. 
  
 Default
 The colourants or colour components represented in a Type 5 halftone dictionary (aside from the 
@@ -49,11 +49,11 @@ nonstandard.
 When a halftone dictionary of some other Type appears as the value of an entry in a Type 5 halftone 
 dictionary, it shall apply only to the single colourant or colour component named by that entry’s key. 
 This is in contrast to such a dictionary’s being used as the current halftone parameter in the #graphics 
-state, which shall apply to all colour components. If nonprimary colourants are requested when the 
+state#, which shall apply to all colour components. If nonprimary colourants are requested when the 
 current halftone is defined by any means other than a Type 5 halftone dictionary, the gray halftone 
-screen and transfer #function shall be used for all such colourants. 
-EXAMPLE In this example, the halftone dictionaries for the colour components and for the default all use the same spot 
-#function.  
+screen and transfe#r functio#n shall be used for all such colourants. 
+EXAMPLE In this example, the halftone dictionaries for the colour components and for the default all use the same spo#t 
+funct#ion.  
 27 0 obj 
    <</Type /Halftone 
    /HalftoneType 5 
@@ -70,7 +70,7 @@ endobj
    /HalftoneType 1 
    /Frequency 89.827 
    /Angle 15 
-   /Spot#Function /Round 
+   /#SpotFunct#ion /Round 
 © ISO 2017 – All rights reserved 372 
 
 ISO/DIS 32000-2
@@ -84,7 +84,7 @@ endobj
    /HalftoneType 1 
    /Frequency 89.827 
    /Angle 75 
-   /Spot#Function /Round 
+   #/SpotFunc#tion /Round 
    /AccurateScreens true 
   >> 
 endobj 
@@ -94,7 +94,7 @@ endobj
    /HalftoneType 1 
    /Frequency 90.714 
    /Angle 0 
-   /Spot#Function /Round 
+  # /SpotFun#ction /Round 
    /AccurateScreens true 
   >> 
 endobj 
@@ -104,7 +104,7 @@ endobj
    /HalftoneType 1 
    /Frequency 89.803 
    /Angle 45 
-   /Spot#Function /Round 
+ #  /SpotFu#nction /Round 
    /AccurateScreens true 
   >> 
 endobj 
@@ -114,7 +114,7 @@ endobj
    /HalftoneType 1 
    /Frequency 90.0 
    /Angle 45 
-   /Spot#Function /Round 
+#   /SpotF#unction /Round 
    /AccurateScreens true 
   >> 
 endobj 
@@ -124,12 +124,12 @@ endobj
 10.7.1General 
  
 scan conversion
-The final step of rendering shall be . The ##PDF processor executes a scan conversion 
+The final step of rendering shall be . The# #PDF# processor #executes a scan conversion 
 algorithm to paint graphics, text, and images in the raster memory of the output device. 
-NOTE The specifics of the scan conversion algorithm are not defined as part of #PDF. Different 
+NOTE The specifics of the scan conversion algorithm are not defined as part o#f P#DF. Different 
 implementations might perform scan conversion in different ways; techniques that are 
 appropriate for one device might be inappropriate for another. Still, it is useful to have a general 
-understanding of how scan conversion works, particularly when creating #PDF files intended for 
+understanding of how scan conversion works, particularly when creati#ng P#DF files intended for 
 viewing on a display. At the low resolutions typical of displays, variations of even one pixel’s width 
 can have a noticeable effect on the appearance of painted shapes. 
 Most scan conversion details are not under program control, but a few are; the parameters for 

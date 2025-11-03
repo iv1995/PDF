@@ -1,6 +1,6 @@
 #Table 219: Additional entries specific 
-to a transition action"). Once this transition completes, drawing shall be suspended again. 
-#Table 219: Additional entries specific to a transition action 
+to a transition action#"). Once this transition completes, drawing shall be suspended again. #
+Table 219: Additional entries specific to a transition action #
 Key Type Value 
 (Required) Trans
 S   
@@ -9,10 +9,10 @@ transition action.
 (Required) 
 Trans 
 dictionary The transition to use for the update of the display (see "#Table 164: 
-Entries in a transition dictionary"). 
+Entries in a transition dictionary#"). 
  
 12.6.4.16Go-To-3D-View actions 
  
-go-to-3D-view action#PDF 1.6
-A  ()# identifies a 3D annotation and specifies a view for the annotation to 
+go-to-3D-view action#PDF #1.6
+A  ()# id#entifies a 3D annotation and specifies a view for the annotation to 
 use (see 13.6, "3D Artwork"). "

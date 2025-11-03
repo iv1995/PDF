@@ -1,15 +1,15 @@
-#Table 409: Entries in a DPart dictionary" defines entries in a DPart dictionary. 
+#Table 409: Entries in a DPart dictionary#" defines entries in a DPart dictionary. 
 © ISO 2017 – All rights reserved 803 
 
 ISO/DIS 32000-2
- 
-#Table 409: Entries in a DPart dictionary 
+ #
+Table 409: Entries in a DPart dictionary #
 Key Type Value 
-Optional; #PDF 2.0DPart
+Optional; #PDF #2.0DPart
 Type 
-name () If present, it shall have the value  to# identify the dictionary as a DPart 
+name () If present, it shall have the value  to# id#entify the dictionary as a DPart 
 dictionary. 
-Required; #PDF 2.0
+Required;# PDF# 2.0
 Parent DPartRootNode
 Parent
 dictionary () If this DPart dictionary is referenced from the  key of the 
@@ -17,63 +17,63 @@ Parent
 DPartRoot dictionary, then the value of this  key shall be an indirect reference to the 
 DPartRoot dictionary. In all other cases the value of this  key shall be an indirect 
 reference to the DPart dictionary that is its immediate ancestor in the hierarchy. 
-Shall not be present if a  key is present; #PDF 2.0
+Shall not be present if a  key is present#; PD#F 2.0
 DParts Start
 array () An array of arrays. Each element in the 
 array is an array of indirect references to immediate descendant DPart dictionaries. The array 
 shall not be empty. 
-Shall not be present if a  key is present; shall be an indirect reference; #PDF 2.0
+Shall not be present if a  key is present; shall be an indirect referenc#e; P#DF 2.0
 Start DParts
 Start
 dictionary () If 
-present, the  key shall be an indirect reference to the page #object that defines the first 
+present, the  key shall be an indirect reference to the page #object #that defines the first 
 page of the range of pages belonging to this DPart dictionary. 
 Required if there is a  key and the page range has more than one page, not present 
 End Start
-otherwise; shall be an indirect reference; #PDF 2.0
+otherwise; shall be an indirect referen#ce; #PDF 2.0
 End
 dictionary (
 ) If present, the  key shall be an indirect 
-reference to the page #object that defines the last #PDF page of the range of pages belonging to 
+reference to the page# object# that defines the #last# PDF page of the range of pages belonging to 
 this DPart dictionary. 
-Optional; #PDF 2.0
+Opti#onal#; PDF 2.0
 DPM 
-NOTE See 14.12.4.2, "##Document part metadata" for a description of the use of DPM 
-dictionary () If present shall specify a ##document part metadata dictionary. 
+NOTE See 14.12.4.2, "##Document part #metadata#" for a description of the use of DPM 
+dictionary () If present shall specify a## document part# metadata# dictionary. 
 dictionaries for specifying . 
 DPM
-Optional; #PDF 2.0
+Opt#iona#l; PDF 2.0
 AF 
 array of () An array of one or more file specification dictionaries (7.11.3, "File 
-dictionaries specification dictionaries") which denote the associated files for this #document part (DPart). 
+dictionaries specification dictionaries") which denote the associated files for thi#s document par#t (DPart). 
 See 14.13, "Associated files" and 14.13.8, "Associated files linked to DParts". 
-Optional; #PDF 2.0; shall be an indirect reference
+Op#tion#al; PDF 2.0; shall be an indirect reference
 Metadata 
 stream () A metadata stream that shall contain 
-metadata for this #document part (see 14.3.2, "Metadata streams"). 
+metadata for th#is document pa#rt (see 14.3.2, "Metadata streams"). 
  
 NOTE The use of the  key, to refer to a descendant DPart dictionary, and the use of the  and 
 DPartsStart
  keys, to refer to a range of pages, are exclusive. The restrictions on the use of the  and 
 EndStart
- keys only permit DPart dictionary leaf nodes to refer to a range of one or more #PDF pages. 
+ keys only permit DPart dictionary leaf nodes to refer to a range of one# or #more PDF pages. 
 End
-Non-leaf DPart dictionary nodes of the hierarchy cannot refer to a range of #PDF pages, only to 
+Non-leaf DPart dictionary nodes of the hierarchy cannot refer to a# ran#ge of PDF pages, only to 
 descendent DPart dictionaries. 
-14.12.4.2##Document part metadata 
- 
-##Document Part Metadata
+14.12#.4#.2Document p#art metadat#a 
+## 
+Document #Part Metada#ta
 .
- (DPM) is a means by which ##PDF writers, such as #PDF authoring applications, 
-communicate information about the various #document parts to a downstream production workflow 
-NOTE 1 #Job ticket formats such as JDF have specific constructs designed for use with structured page 
-description language formats that contain metadata in their #document part structure. In support 
-of that, #PDF provides ##document part metadata (DPM) that may occur as a DPM dictionary entry 
-in any DPart dictionary of the ##document part hierarchy. 
-DPM is application-specific information communicated between the creator of #PDF data and a receiving 
-system, and may be used to classify the #PDF file and its various #document parts. The receiving system 
+ (DPM) is a mean#s by# which #PDF write#r#s, #such as PDF authoring applications, 
+communicate information about the va#rious documen#t parts to a downstream production workflow 
+NOTE 1 #Job ticket #formats such as JDF have specific constructs designed for use with structured page 
+description language formats that contain metadata in# their documen#t part structure. In suppo#rt 
+#of that, PDF p#rovi#des docume#nt part metad#ata (DPM) that may occur as a DPM dictionary entry 
+in any DPart dictionar#y of the #docum#ent part hierarchy#. 
+DPM is application-specific information communicated between t#he c#reator of PDF data and a receiving 
+system, and may be used t#o cl#assify the PDF file and it#s various doc#ument parts. The receiving system 
 may, for example, use this information in the purposing of page content to print or to some other 
-messaging channel. The DPM may also be referenced in a #job definition, such as a JDF #job ticket, to vary 
+messaging channel. The DPM may also be referenced in a #job definition#, such as a JDF# job ticke#t, to vary 
 processing control as necessary for print production. 
 © ISO 2017 – All rights reserved 804 
 
@@ -82,42 +82,42 @@ ISO/DIS 32000-2
 The DPM specified within a DPM dictionary shall only apply to the DPart node in which it is defined. 
   
 The name of all keys present in the DPM dictionary or any other dictionaries contained within a DPM 
-dictionary shall conform to the rules of anXMLname token as well as the rules for #PDF #name #objects. 
-NOTE 2 This ensures that the representativeXMLname for the #PDF key is a sequence ofXML#characters 
-    
-where all #PDF name # escape sequences present in the #PDF key name are expanded. For more 
-information on # escape sequences refer to 7.3.5, "#Name #objects". 
+dictionary shall conform to the rules of anXMLname token as well a#s the# rules for PDF #nam#e objec#t#s. 
+NOTE 2 This ensures that the representativ#eXML#name for the PDF key is a sequence ofXML#character##s 
+ #   
+where all PDF name # escape sequen#ces #present in the PDF key name are expanded. For more 
+information on # escape sequences refer to 7.3.5, #"Na#me obje#c#ts". 
   
-The values of keys present in the DPM dictionary, or of any dictionary or#array #objectpresent in the 
+The values of keys present in the DPM dictionary, or of any dictionary or#ar#ray obj#ect#present in the 
 DPM dictionary, shall only be of type text string, date string, array, dictionary, boolean or numeric as 
-defined in 7.3, "#Objects". Other #PDF value types shall not be used. 
+defined in 7#.3#, "O##bjects". Other PDF value types shall not be used. 
 14.13Associated files 
  
 14.13.1General 
  
 Associated files
 file specification 
- provide a means to associate content in other formats with #objects of a #PDF file and to 
+ provide a means to associate content in other formats## wi#th #objects of a PDF file and to 
 dictionaries 
 AF
 identify the relationship between them. Such associated files are designated using 
-(see 7.11.3, "File specification dictionaries"), and  keys are used in #object dictionaries to 
+(see 7.11.3, "File specification dictionaries"), and  keys are u#sed in #object dictionaries to 
 AF
-connect the associated file’s specification dictionaries with those #objects. Some #PDF #objects that can 
-provide the  keys are: 
+connect the associated file’s specification dictionaries wit#h #thos##e objects. #Some P#DF objects that can 
+provide #the # keys are: 
 • 
-the #PDF document catalog dictionary (14.13.3, "Associated files linked to the #PDF document’s 
+the PDF document catalog dictionary (14.13.3, "Associa#ted #files linked to the PDF document’s 
 • 
 catalog") 
 • 
 a page dictionary (14.13.4, "Associated files linked to a page dictionary") 
-a graphics #object (using a marked content property list dictionary, 14.13.5, "Associated files linked 
+a# graphi#cs object (using a marked content property list dictionary, 14.13.5, "Associated files linked 
 • 
-to graphics #objects") 
+t#o grap#hics objects") 
 • 
-a structure element dictionary (14.13.6, "Associated files linked to structure elements") 
-• 
-an X#Object dictionary (14.13.7, "Associated files linked to X#Objects") 
+a structure element dictionary (14.13.6, "Associated files linked to structure element#s") 
+• #
+an XObject dictionary (14.13.7, "Associated file#s link#ed to XObjects") 
 • 
 a DParts dictionary (14.13.8, "Associated files linked to DParts") 
 • 
@@ -125,12 +125,12 @@ an annotation dictionary (14.13.9, "Associated files linked to an annotation dic
 AFRelationship
 a metadata stream dictionary (14.3.2, "Metadata streams") 
 For associated files their associated file specification dictionaries shall include the  key 
-indicating one of several possible relationships that the file has to the associated #PDF #object (See 7.11.3, 
+indicating one of several possible relationships that the file# has# to the a#ssociat#ed PDF object (See 7.11.3, 
 "File specification dictionaries"). 
 14.13.2Embedded associated files 
  
-The file specification for an associated file represents# either a file external to the #PDF file or an 
-embedded file stream (see 7.11.4, "Embedded file streams") within the #PDF file. 
+The file specification for an associated file represents# ei#th#er a# file external to the PDF file or an 
+embedded file stream (see 7.11.4, "Embedded# fil#e streams") within the PDF file. 
 NOTE 1 A file specification dictionary allows for both embedded data (via the  key) and 
 EF
 referenced/external data (via the  andkeys). Both types are allowed for associated files but 
@@ -147,21 +147,21 @@ Table 44: Additional entries in an embedded file stream
 ISO/DIS 32000-2
  
 Subtype
-dictionary" and "#Table 45: Entries in an embedded file parameter dictionary"). The embedded file 
+dictionary" and "#Table 45: Entries in an embedded file parameter dictionary#"). The embedded file 
 application/octet-stream
 stream dictionary shall include a valid MIME type value for the  key. If the MIME type is not 
 known, the value "" shall be used. 
-NOTE 2 As described in RFC 2046, 4.5.1, the "" subtype is used to indicate ar#bitrary ##binary 
-data. 
+NOTE 2 As described in RFC 2046, 4.5.1, the "" subtype is used to indicate ar#bi#trary ##b#inary 
+data#. 
 octet-stream
  EmbeddedFiles 
  EmbeddedFiles 
 In addition, an embedded file stream may be referenced from the document’snames 
 tree (see thekey in 7.7.4, "Name dictionary"). 
 NOTE 3 Doing so will enable a user to extract the file directly as any other attachment to the document 
-and also allow it to be considered when doing an "attachments only" encryption. 
-EXAMPLE A #PDF document is to be created from a text processing application file that contains textual content, a 
-mathematical equation, and a chart derived from a spreadsheet application. In this case the resulting #PDF 
+and also allow it to be considered when doing an "attachments o#nly"# encryption. 
+EXAMPLE A PDF document is to be created from a text processing application file that contains textual content, a 
+mathematical equation, and a chart derived from a spreadsheet application#. In #this case the resulting PDF 
 document might contain the following embedded files: 
 
 Source
@@ -174,34 +174,34 @@ AFRelationship
  
 the document catalog 
 MathML version of the equation embedded with an  value , and associated 
-using a structure element or a Form X#Object depending on how the equation is rendered in the page’s 
+using a structure elem#ent or #a Form XObject depending on how the equation is rendered in the page’s 
 
 Source
 AFRelationship 
  
-#content stream. 
+#content stream#. 
  
 Spreadsheet application file embedded with a  value  and associated with the
 
 Data
 AFRelationship  
- 
-Imageor Form X#Object presenting the chart. 
-CSV file embedded with a  value  and associated with theImageor Form X#Object 
+# 
+Image#or Form XObject presenting the chart. 
+CSV file embedded with a  value  and associated with #theImage#or Form XObject 
 for presenting the chart. 
-14.13.3Associated files linked to the #PDF document’s catalog 
+14.13.3A#ssoc#iated files linked to the PDF document’s catalog 
  
-One or more files may be associated with the #PDF document as a whole by including a file specification 
+One or more fi#les #may be associated with the PDF document as a whole by including a file specification 
 AF
 dictionary (7.11.3, "File specification dictionaries") for each file as one of the members of the array 
 AFRelationship
 value of the  key in the document catalog (7.7.2, "Document catalog dictionary"). The relationship 
-that the associated files have to the #PDF document is supplied by the  key in each file 
+that t#he a#ssociated files have to the PDF document is supplied by the  key in each file 
 specification dictionary. 
 14.13.4Associated files linked to a page dictionary 
  
 AF
-One or more files may be associated with any #PDF page by including a file specification dictionary 
+One or more #file#s may be associated with any PDF page by including a file specification dictionary 
 (7.11.3, "File specification dictionaries") for each file as one of the members of the array value of the  
 AFRelationship
 key in the appropriate page dictionary (14.13.4, "Associated files linked to a page dictionary"). The 
@@ -211,10 +211,10 @@ NOTE Associated files serve not only as alternative to  (which is vendor specifi
 PieceInfo
 enable richer semantic content when doing page/document merging or conversion of simple 
 page-based elements (e.g., images). 
-14.13.5Associated files linked to graphics #objects 
+14.13.5Associated files l#inked #to graphics objects 
  
 BDCEMC
-One or more files may be associated with sections of content in a #content stream by enclosing those 
+One or more files may be associated with sections of content in a# content stream# by enclosing those 
 AF
 sections between the marked content operators  and  (see 14.6, "Marked content") with a 
 marked content tag of .  
@@ -222,8 +222,8 @@ marked content tag of .
 
 ISO/DIS 32000-2
  
-NOTE 1 This applies to a page’s #content stream, a form or pattern’s #content stream, #glyph descriptions in a 
-Type 3 #font as specified by its  entry, or an annotation’s appearance (). 
+NOTE 1 This applies to a page’#s content stre#am, a form or pattern#’s content str#eam, #glyph #descriptions in a 
+Type 3 #font #as specified by its  entry, or an annotation’s appearance (). 
 CharProcsAP
 NOTE 2 The  operator does not take properties and therefore cannot be used with the  key. 
 BMCAF
@@ -231,16 +231,16 @@ DPMP
 AF
 Unlike other types of marked content tags, the  or  marked-content operators shall not be used 
 with the  tag when that tag is used to refer to a file specification dictionary. 
-NOTE 3 The com#bination of aor  operator with an  tag (when used to refer to a file specification 
+NOTE 3 The c#om#bination of aor  operator with an  tag (when used to refer to a file specification 
  DP MPAF
-dictionary) is for#bidden, as these operators only mark a single point and thus don’t enable 
+dictionary) is #fo#rbidden, as these operators only mark a single point and thus don’t enable 
 connections between any specific sequence of content operators and their associated file. 
 Property List
 The property list associated with the marked content shall specify an array of file specification 
 dictionaries to which the content is associated. The named resource in the  (see 14.6.2, 
 "Property lists") shall specify an array of file specification dictionaries to which the content is 
 AFRelationship
-associated. The relationship that the associated files have to the #PDF content is supplied by the 
+associated. The relationship that# the# associated files have to the PDF content is supplied by the 
  key in each file specification dictionary. 
 AF
 AFAF
@@ -249,9 +249,9 @@ from using  as a tag. The marked content is connected with associated files only
 the property list is defined as a valid array of file specification dictionaries. To avoid conflict with other 
 features that use marked content, such as 14.7, "Logical structure", where content is to be tagged with 
 source content markers as well as other markers, the other markers should be nested inside the source 
-content markers. 
+c#ont#ent markers. 
 AF
-When writing a #PDF, the use of structure and associating the  with the structure element (see 
+When writing a PDF, the use of structure and associating the  with the structure element (see 
 14.13.6, "Associated files linked to structure elements") is preferred instead of the use of explicit 
 marked content. 
 14.13.6Associated files linked to structure elements 
@@ -265,20 +265,20 @@ element dictionary shall contain an  entry which represents the associated files
 AFRelationship
 element. The relationship that the associated files have to the structure element is supplied by the 
  key in each file specification dictionary. 
-14.13.7Associated files linked to X#Objects 
+14.13.7Associate#d file#s linked to XObjects 
  
   
 AF
-One or more files may be associated with Type 1 Form X#Objects andImageX#Objects (see 8.8, "External 
-#objects"). To associate files with X#Objects, the X##Object stream dictionary shall contain an  entry 
+One or more files may be associate#d with# Type 1 Fo#rm XOb#jects andImageXObjects# (see #8.8, "External 
+objects"). To# assoc#iate fi#les wit#h XObjects, the X#Object stream #dictionary shall contain an  entry 
 whose value is an array of file specification dictionaries. This entry represents the associated files for 
-AFRelationship
-the entire X#Object. The relationship that the associated files have to the X#Object is supplied by the 
+AF#Relati#onship
+the entire XObject. The relationship that the asso#ciated #files have to the XObject is supplied by the 
  key in each file specification dictionary. 
 14.13.8Associated files linked to DParts 
  
 AF
-One or more files may be associated with any DPart (see 14.12, "#Document parts"). To associate files 
+One or more files may be associated with any DPart (s#ee 14.12, "Do#cument parts"). To associate files 
 with a DPart, the appropriate DPart dictionary shall contain an  entry whose value is an array of file 
 specification dictionaries. This entry represents the associated files for the entire DPart. The 
 © ISO 2017 – All rights reserved 807 
@@ -288,13 +288,13 @@ ISO/DIS 32000-2
 AFRelationship
 relationship that the associated files have to the DPart is supplied by the  key in each 
 file specification dictionary. 
-NOTE This could be useful when merging multiple documents together, the original #PDF or even the 
+NOTE This could be useful when merging multip#le d#ocuments together, the original PDF or even the 
 original source material could be embedded here. 
 14.13.9Associated files linked to an annotation dictionary 
  
 One or more files may be associated with annotations. 
 NOTE For some annotation types (such as 13.7.2, "RichMedia annotations") it is useful to have the data 
-used for dynamic rendering be easily# identifiable by a reader. 
+used for dynamic rendering be easil#y i#dentifiable by a reader. 
 AF
 To associate files with annotations, the annotation dictionary shall contain an  entry which 
 AFRelationship
@@ -302,7 +302,7 @@ represents the associated files for that annotation. The relationship that the a
 annotation is supplied by the  key in each file specification dictionary. 
 14.13.10Associated file examples 
  
-EXAMPLE 1 Associated file linked to the #PDF document as a whole 
+EXA#MPLE# 1 Associated file linked to the PDF document as a whole 
 19 0 obj            %Document Catalog 
 << 
   /Type /Catalog 
@@ -324,7 +324,7 @@ endobj
  
 21 0 obj            %embedded file stream 
   << 
-   /#Filter /FlateDecode 
+   /#Filter #/FlateDecode 
    /Length 1975 
    /Type /EmbeddedFile 
    /Subtype /application#2Fvnd.ms-powerpoint 
@@ -345,8 +345,8 @@ endobj
 
 ISO/DIS 32000-2
  
-EXAMPLE 2 Associated file linked to a #Content Stream 
-…              %Within a #content stream 
+EXAMPLE 2 Associated file linked t#o a Content Stre#am 
+…              %With#in a content str#eam 
 /AF /AF1 BDC           %Begin content marked with an associated file 
 BT 
  /F1 1 Tf 
@@ -356,7 +356,7 @@ ET
 EMC             %End of associated content 
  … 
 <<              %This dictionary maps the name AF1 to an 
- /Properties  <</AF1 [12 0 R]>>   %embedded file specification (#object 12) 
+ /Properties  <</AF1 [12 0 R]>>   %em#bedded #file specification (object 12) 
 >> 
  
 12 0 obj            %file specification dictionary 
@@ -371,7 +371,7 @@ endobj
  
 5 0 obj            %embedded file stream 
 << 
-  /#Filter /FlateDecode 
+  #/Filter# /FlateDecode 
   /Length 20000 
   /Type /EmbeddedFile 
   /Subtype /application#2Fvnd.ms-word 
@@ -387,10 +387,10 @@ stream
  … 
 endstream 
 endobj 
-EXAMPLE 3 Associated file linked to an X#Object 
-19 0 obj            %some X#Object 
+EXAMPLE 3 As#sociated# file linked to an XObject# 
+19 0 o#bj           # %some XOb#ject 
 << 
-  /Type /X#Object 
+  /Type /XObject 
   /Subtype /Form 
   … 
   /AF [20 0 R] 
@@ -412,7 +412,7 @@ endobj
 
 ISO/DIS 32000-2
  
-  /#Filter /FlateDecode 
+ # /Filte#r /FlateDecode 
   /Length 1975 
   /Type /EmbeddedFile 
   /Subtype /application#2Fxhtml+xml 
