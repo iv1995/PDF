@@ -1,4 +1,4 @@
-Figure Annex K.1: Comparing 
+#Figure Annex K.1: Comparing 
 two arrays" shows non-equal arrays. 
 © ISO 2017 – All rights reserved 905 
 
@@ -7,7 +7,7 @@ ISO/DIS 32000-2 ![69.png](./Storage/Output/Images/69.png)
 #Figure Annex K.1: Comparing two arrays 
 J.3.6#Dictionary #objects 
  
-Comparison of dictionaries is a relatively complex operation because of the flexi#bility of dictionary 
+Comparison of dictionaries is a relatively complex operation because of the flexi#bility of #dictionary 
 #objects in #PDF. 
 First, the order of keys in a dictionary is not defined - they may be alphabetically sorted, sorted by entry 
 into the dictionary, or any other ordering that a producer chooses. This, of course, leads to the 

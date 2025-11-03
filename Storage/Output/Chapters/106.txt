@@ -28,18 +28,18 @@ Ignore any unrecognised operands and operators from previous matching
 7.8.3Resource dictionaries 
  
 As stated in 7.8.2, "#Content streams" the operands supplied to operators in a #content stream shall only 
-be #direct #objects; in#direct #objects and ##object references shall not be permitted. In some cases, an 
+be #direct #objects; #in#direct #objects and ##object references shall not be permitted. In some cases, an 
 operator shall refer to a #PDF #object that is defined outside the #content stream, such as a #font dictionary 
 or a stream containing image data. This shall be accomplished by defining such #objects as named 
 resources and referring to them by name from within the #content stream. 
 Named resources shall be meaningful only in the context of a #content stream. The scope of a resource 
 name shall be local to a particular #content stream and shall be unrelated to externally known# identifiers 
 for #objects such as #fonts. References from one #object outside of #content streams to another outside of 
-#content streams shall be made by means of in#direct ##object references rather than named resources. 
+#content streams shall be made by means of #in#direct ##object references rather than named resources. 
 A #content stream’s named resources shall be defined by a #resource dictionary, which shall enumerate 
 the named resources needed by the operators in the #content stream and the names by which they can 
 be referred to. 
-EXAMPLE 1 If a text operator appearing within the #content stream needs a certain #font, the #content stream’s resource 
+EXAMPLE 1 If a text operator appearing within the #content stream needs a certain #font, the #content stream’s #resource 
 dictionary can associate the name F42 with the corresponding #font dictionary. The text operator can use this 
 name to refer to the #font. 
 A #resource dictionary shall be associated with a #content stream in one of the following ways: 
@@ -74,8 +74,8 @@ ISO/DIS 32000-2
 • 
 #PDF files written obeying earlier versions of #PDF may have omitted theentry in all 
 form X#Objects and Type 3 #fonts used on a page. All resources that are referenced from those forms 
-current resource dictionary
+current #resource dictionary
 and #fonts shall be inherited from the #resource dictionary of the page on which they are used. 
-In the context of a given #content stream, the term  refers to the resource 
-dictionary associated with the stream in one of the ways described above. Each key in a resource 
+In the context of a given #content stream, the term  refers to the #resource 
+dictionary associated with the stream in one of the ways described above. Each key in a #resource 
 dictionary shall be the name of a resource type, as shown in "

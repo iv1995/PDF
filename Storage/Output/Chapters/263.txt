@@ -1,8 +1,8 @@
-Table 120: Entries common to 
+#Table 120: Entries common to 
 all #font descriptors". Additional entries in the #font descriptor for a CID#Font are described in 9.8.3, "#Font 
 descriptors for CID#Fonts". All dimensional values shall be units in #glyph space. The conversion from 
 #glyph space to text space is described in 9.2.4, "#Glyph positioning and metrics". 
-Table 120: Entries common to all #font descriptors 
+#Table 120: Entries common to all #font descriptors 
 Key Type Value 
 Required
 Type 
@@ -11,7 +11,7 @@ name  () The type of #PDF #object that this dictionary describes; shall be
  for a #font descriptor. 
 Required
 #FontName 
-BaseFont
+Base#Font
 name  () The PostScript name of the #font. This name shall be the same as the value 
 of  in the #font or CID#Font dictionary that refers to this #font descriptor. 
 Optional; #PDF 1.5
@@ -114,7 +114,7 @@ ISO/DIS 32000-2
 Key Type Value 
 Optional
 #FontFile 
-stream  () A stream containing a Type 1 ##font program (see 9.9, "Embedded #font 
+stream  () A stream containing a Type 1 ##font program (see 9.9, "Embedded ##font 
 programs"). 
 Optional; #PDF 1.1
 #FontFile2 
@@ -124,7 +124,7 @@ Optional; #PDF 1.2
 #FontFile3 
 Subtype
 stream  () A stream containing a ##font program whose format is specified by 
-the  entry in the stream dictionary (see "Table 124: Embedded #font 
+the  entry in the stream dictionary (see "#Table 124: Embedded #font 
 organization for various #font types"). 
 Optional; meaningful only in Type 1 #fonts; #PDF 1.1; #deprecated in #PDF 2.0
 CharSet 

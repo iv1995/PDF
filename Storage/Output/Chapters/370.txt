@@ -22,7 +22,7 @@ destinations"). If present, the structure destination should take precedence ove
 destination in the  entry. 
 NOTE Specifying a go-to action in the  entry of a link annotation or outline item (see "Table 176: 
 A
-Additional entries specific to a link annotation" and "Table 151: Entries in an outline item 
+Additional entries specific to a link annotation" and "#Table 151: Entries in an outline item 
 dictionary") has the same effect as specifying the destination directly with the  entry. For 
 Dest
 example, the link annotation shown in the Example in 12.6.4.13, "Set-OCG-state actions" which 

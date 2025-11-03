@@ -1,11 +1,11 @@
-Figure 1: #PDF Components". 
+#Figure 1: #PDF Components". 
 #Objects
 • 
 . A #PDF document is a data structure composed from a small set of basic types of data 
 #objects. Subclause 7.2, "Lexical conventions" describes the ##character set used to write #objects and 
 other syntactic elements. Subclause 7.3, "#Objects" describes the syntax and essential properties of 
-the #objects. Subclause 7.3.8, "Stream #objects" provides complete details of the most complex data 
-type, the stream #object. Subclause 7.4, "#Filters" introduces stream #filters primarily used to make 
+the #objects. Subclause 7.3.8, "#Stream #objects" provides complete details of the most complex data 
+type, the #stream #object. Subclause 7.4, "#Filters" introduces stream #filters primarily used to make 
 File structure
 • 
 #PDF files smaller by applying compression technology to stream data. 
@@ -24,9 +24,9 @@ semantics of the components.
 . A #PDF #content stream contains a sequence of instructions descri#bing the 
 appearance of a page or other graphical entity. These instructions, while also represented as 
 #objects, are conceptually distinct from the #objects that represent the document structure and are 
-described separately. Subclause 7.8, "#Content streams and resources" discusses #PDF content 
+described separately. Subclause 7.8, "#Content streams and resources" discusses #PDF #content 
 streams and their associated resources. ![Figure 1 #PDF Components  .png](./Storage/Output/Images/Figure 1 #PDF Components  .png)
-Figure 1: #PDF Components 
+#Figure 1: #PDF Components 
  
 In addition, this clause describes some data structures, built from basic #objects, that are so widely used 
 that they can almost be considered basic #object types in their own right. These #objects are covered in: 
@@ -53,16 +53,16 @@ according to the syntax rules described in subclauses 7.2.2Representation throug
 A #PDF file is represented as a sequence of 8-#bit #bytes, some of which are interpreted as #character codes 
 in the #ASCII ##character set and some of which are treated as ar#bitrary ##binary data depending upon the 
 context. 
-The contents (data) of a string or stream #object in some contexts are interpreted as #character codes in 
-the #PDFDocEncoding, UTF-8 or UTF-16 ##character set as described in 7.9.2, "String #object types" and 
-7.3.8, "Stream #objects" respectively. 
+The contents (data) of a string or #stream #object in some contexts are interpreted as #character codes in 
+the #PDFDocEncoding, UTF-8 or UTF-16 ##character set as described in 7.9.2, "#String #object types" and 
+7.3.8, "#Stream #objects" respectively. 
 The contents of a string within a #PDF #content stream in some situations are interpreted as #character 
 codes that select #glyphs to be drawn on the page according to a #character encoding that is associated 
 with the text #font as described in clause 9, "Text". 
 7.2.2Representation 
  
 A non-encrypted #PDF can be entirely represented using #byte values corresponding to the visible 
-printable subset of the #ASCII ##character set defined in ANSI X3.4-1986, plus white-space #characters. 
+printable subset of the #ASCII ##character set defined in ANSI X3.4-1986, plus #white-space #characters. 
 However, a #PDF file is not restricted to the #ASCII ##character set; it may contain ar#bitrary #bytes, subject to 
 the following considerations: 
 • 
@@ -83,7 +83,7 @@ the value can have when it is treated as data in specific contexts, such as repr
 readable text or selecting a #glyph from a #font. 
 7.2.3##Character set 
  
-The #PDF ##character set is divided into three classes referred to as regular, delimiter, and white-space 
+The #PDF ##character set is divided into three classes referred to as regular, delimiter, and #white-space 
 #characters. This classification enables the #grouping of #characters into tokens including separating 
 syntactic constructs such as names and numbers from each other. The rules defined in this subclause 
 apply to all #characters in the file except within strings, streams, and comments. 
@@ -91,6 +91,6 @@ apply to all #characters in the file except within strings, streams, and comment
 
 ISO/DIS 32000-2
  
-NOTE 1 See 7.3.4, "String #objects", 7.3.8, "Stream #objects" and 7.2.4, "Comments". 
+NOTE 1 See 7.3.4, "#String #objects", 7.3.8, "#Stream #objects" and 7.2.4, "Comments". 
 #PDF treats any sequence of consecutive whitespace #characters, not inside of a string or stream, as one 
-#character. The #characters that are considered white-space #characters are shown in "
+#character. The #characters that are considered #white-space #characters are shown in "

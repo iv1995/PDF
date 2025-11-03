@@ -1,4 +1,4 @@
-Figure 47: Control points in a 
+#Figure 47: Control points in a 
 tensor-product patch"): 
 pppp
 03132333
@@ -29,7 +29,7 @@ ijij
 ()
 u×Bv
 Su,v=��p
-×B 
+×#B 
 i=0j=0
 ijBBBernstein 
  

@@ -1,4 +1,4 @@
-Table 8: Optional parameters for LZWDecode and FlateDecode #filters" shows the parameters that may 
+#Table 8: Optional parameters for LZWDecode and FlateDecode #filters" shows the parameters that may 
 optionally be specified forand#filters. Except where otherwise noted, all 
 © ISO 2017 – All rights reserved 45 
 
@@ -6,7 +6,7 @@ ISO/DIS 32000-2
  
 values supplied to the decoding #filter for any optional parameters shall match those used when the data 
 was encoded. 
-Table 8: Optional parameters for LZWDecode and FlateDecode #filters 
+#Table 8: Optional parameters for LZWDecode and FlateDecode #filters 
 Key Type Value 
 Predictor 
 integer A code that selects the predictor algorithm, if any. If the value of this entry 

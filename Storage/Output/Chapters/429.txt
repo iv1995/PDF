@@ -1,4 +1,4 @@
-Table 259: Entries in the FieldMDP 
+#Table 259: Entries in the FieldMDP 
 transform parameters dictionary". 
 © ISO 2017 – All rights reserved 557 
 
@@ -43,7 +43,7 @@ following shall be supported by ##PDF writers:
 P DocMDP 
 The author specifies that form fields shall be filled in without invalidating the approval or 
 #certification signature. The  entry of thetransform parameters dictionary shall be set to 
-• 
+•# 
 either 2 or 3 (see "#Table 257: Entries in the DocMDP transform parameters dictionary"). 
 The author can also specify that after a specific recipient has signed the document, any 
 modifications to specific form fields shall invalidate that recipient’s signature. There shall be a 
@@ -74,7 +74,7 @@ PAdES signatures (#PDF Advanced Electronic Signatures) as defined in ETSI EN 319
 ISO/DIS 32000-2
  
  Sub#Filter 
-Filter
+#Filter
 If present, theentry in the signature dictionary shall specify the encoding of the signature 
 value and key information, while the  entry shall specify the preferred handler that should be 
  Sub#Filter 
@@ -86,5 +86,5 @@ There are several defined values for theentry, all based on public-key cryptogra
 standards published by RSA Security and also as part of the standards issued by the Internet 
 Engineering Task Force (IETF) Public Key Infrastructure (PKIX) working group and the European 
 Telecommunications Standards Institute (ETSI). 
-SubFilter
+Sub#Filter
 "

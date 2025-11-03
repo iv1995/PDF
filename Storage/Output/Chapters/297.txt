@@ -1,5 +1,5 @@
-Table 140: Variables used in the #group compositing 
-formulas" (in addition to those in "Table 139: Arguments and results of the #group compositing 
+#Table 140: Variables used in the #group compositing 
+formulas" (in addition to those in "#Table 139: Arguments and results of the #group compositing 
 #function"). 
 α
 ii

@@ -1,4 +1,4 @@
-Table 111: Type 3 #font 
+#Table 111: Type 3 #font 
 operators" to pass width and bounding box information to the #font machinery. This shall precede the 
 execution of any path construction or path-painting operators descri#bing the #glyph. 
 NOTE 3 Type 3 #fonts in #PDF are very similar to those in the PostScript language. Some of the information 
@@ -14,7 +14,7 @@ PostScript Language Reference, Third Edition
 
 ISO/DIS 32000-2
  
-Table 111: Type 3 #font operators 
+#Table 111: Type 3 #font operators 
 Operands Operator Description 
 xy
 w w  

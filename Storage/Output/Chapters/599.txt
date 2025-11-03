@@ -180,7 +180,7 @@ embedded file specification (7.11.4, "Embedded file streams") or a URL file spec
 NOTE:  #ICC profiles referenced via the  array do not have to conform to the  
 URLsICCBased
 "URL specifications"). 
-requirements of "Table 67: #ICC profile types" and thus can also support N-component 
+requirements of "#Table 67: #ICC profile types" and thus can also support N-component 
 output profiles. 
  
 In addition to the output intent subtype being different in #PDF/X, #PDF/A and #PDF/E, these standards 
@@ -192,7 +192,7 @@ colour spaces" and 8.6.5.6, "Default colour spaces"). Those mechanisms are speci
 descri#bing the #characteristics of source colour component values. An output intent can be used in 
 conjunction with them to convert source colours to those required for a specific production condition or 
 to enable the display or proofing of the intended output. 
-The data in an output intent dictionary shall be provided for informational purposes only, and #PDF 
+The data in an output intent dictionary shall be provided for informational purposes only, and ##PDF 
 processors are free to disregard it. If a ##PDF processor chooses to respect output intents it shall give 
 priority to a page-level output intent, if present. In particular, there is no expectation that #PDF 
 production tools automatically convert colours expressed in the same source colour space to the 

@@ -216,21 +216,23 @@ public class Book {
 		String book = new String();
 		Scanner input = new Scanner(all);
 		
-		while(input.hasNextLine()) {
-			String line = input.nextLine();
+//		while(input.hasNextLine()) {
+//			String line = input.nextLine();
 			
+			String line = all;
+		
 			for(String phrase : phrases) {
 				if(phrase.isBlank()){
 					continue;
 				}
 				line = Markdown.markdown(line, phrase, "#", false);
 			}
-			book += (line + "\n");
-		}
+//			book += (line + "\n");
+//		}
 		
 		input.close();
 		
-		return book;
+		return line;
 	}
 	
 	/**

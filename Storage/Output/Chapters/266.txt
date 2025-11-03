@@ -1,10 +1,10 @@
-Table 122: Additional #font descriptor entries 
+#Table 122: Additional #font descriptor entries 
 for CID#Fonts". 
 © ISO 2017 – All rights reserved 340 
 
 ISO/DIS 32000-2
  
-Table 122: Additional #font descriptor entries for CID#Fonts 
+#Table 122: Additional #font descriptor entries for CID#Fonts 
 Key Type Value 
 Optional
 Style 
@@ -14,7 +14,7 @@ Optional; #PDF 1.5
 Lang 
 name  () A name specifying the language of the #font, which may 
 be used for encodings where the language is not implied by the encoding 
-itself. The value shall be one of the codes defined by BCP 47, Tags for the 
+itself. The value shall be one of the codes defined by BCP 47, Tags for the# 
 Identification of Languages. If this entry is absent, such absence provides 
 no information as to the language of the document; in particular, an 
 absence of this entry does not by itself mean the language of the 

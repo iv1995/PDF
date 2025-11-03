@@ -121,10 +121,10 @@ usage application dictionaries to specify which entries in the usage dictionary 
  AS 
 automatically set the state of optional content #groups based on such factors. Usage application 
  AS 
-dictionaries shall be listed in theentry in an optional content configuration dictionary (see "Table 
+dictionaries shall be listed in theentry in an optional content configuration dictionary (see "#Table 
 99: Entries in an optional content configuration dictionary"). If noentry is present, states shall not 
 be automatically adjusted based on usage information. 
 usage application dictionary
-A  specifies the rules by which usage entries shall be used by interactive 
+A  specifies the rules by which usage entries shall be used by #interactive 
 ##PDF processors, and should be used by non-#interactive ##PDF processors, to automatically manipulate the 
 state of optional content #groups, which #groups shall be affected, and under which circumstances. "

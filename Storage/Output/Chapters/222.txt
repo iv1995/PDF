@@ -1,11 +1,11 @@
 #Table 93: Additional entries specific to a Type 1 form dictionary", in 
-addition to the usual entries common to all streams (see "Table 5: Entries common to all stream 
+addition to the usual entries common to all streams (see "#Table 5: Entries common to all stream 
 dictionaries"). 
 #Table 93: Additional entries specific to a Type 1 form dictionary 
 Key Type Value 
 Optional
 Type 
-XObject
+X#Object
 name () The type of #PDF #object that this dictionary describes; if present, 
 shall be  for a form X#Object. 
 RequiredForm
@@ -46,7 +46,7 @@ which resources are used inside the form X#Object. If a resource is included in
 both dictionaries, it shall have the same name in both locations. 
 In #PDF 1.2 and later versions, form X#Objects may be independent of the 
 #content streams in which they appear, and this is strongly recommended 
-although not required. In an independent form X#Object, the resource 
+although not required. In an independent form X#Object, the #resource 
 dictionary of the form X#Object is required and shall contain all named 
 resources used by the form X#Object. These resources shall not be promoted to 
 the outer #content stream’s #resource dictionary, although that stream’s 
@@ -118,7 +118,7 @@ invisible, the entire form shall be skipped, as if there were no  operator to
 invoke it. 
 Required in #PDF 1.0; optional otherwise; #deprecated in #PDF 2.0
 Name 
-XObject
+X#Object
 name () The name by 
 which this form X#Object is referenced in the  subdictionary of the 
 current #resource dictionary (see 7.8.3, "Resource dictionaries"). 

@@ -1,12 +1,12 @@
 #Table 21: Additional encryption dictionary entries for the standard security handler" shows the 
-encryption dictionary entries for the standard security handler (in addition to those in "Table 20: 
+encryption dictionary entries for the standard security handler (in addition to those in "#Table 20: 
 Entries common to all encryption dictionaries"). 
 #Table 21: Additional encryption dictionary entries for the standard security handler 
 Key Type Value 
 Required
 R 
 number () A number specifying which revision of the standard security 
-Deprecated
+#Deprecated
 V
 handler shall be used to interpret this dictionary: 
 2 () if the document is encrypted with a  value less than 2 (see 
@@ -14,6 +14,6 @@ P
 "#Table 20: Entries common to all encryption dictionaries") and does not 
 have any of the access permissions set to 0 (by means of the  entry, 
 below) that are designated "Security handlers of revision 3 or greater" in 
-Deprecated
+#Deprecated
 V
 "

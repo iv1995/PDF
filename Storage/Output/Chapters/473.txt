@@ -7,7 +7,7 @@ name () The type of #PDF #object that this dictionary describes; if present, sha
 be  for a media players dictionary. 
 Optional
 MU 
-array () An array of media player info dictionaries (see "Table 302: Entries in 
+array () An array of media player info dictionaries (see "#Table 302: Entries in 
 a media player info dictionary") that shall specify a set of players, one of which 
 NUMU
 shall be used in playing the associated media #object. 
@@ -27,7 +27,7 @@ may be used in playing the associated media #object. If  is also present and
 non-empty,  shall be ignored. 
 Optional
 NU 
-array () An array of media player info dictionaries (see "Table 302: Entries in 
+array () An array of media player info dictionaries (see "#Table 302: Entries in 
 a media player info dictionary") that shall specify a set of players that shall not 
 MU
 be used in playing the associated media #object (even if they are also specified in 

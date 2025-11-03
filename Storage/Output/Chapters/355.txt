@@ -1,4 +1,4 @@
-Table 187: Additional entries specific to a file attachment 
+#Table 187: Additional entries specific to a file attachment 
 annotation" shows the annotation dictionary entries specific to this type of annotation. 
 Contents
 #PDF 1.6

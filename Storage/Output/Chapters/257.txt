@@ -35,7 +35,7 @@ ISO/DIS 32000-2
 NOTE The term "Type 0" when applied to a CID#Font has a different meaning than for a "Type 0 #font". 
 • 
 A Type 2 CID#Font contains #glyph descriptions based on the TrueType #glyph technology. 
-Font
+#Font
 TypeEncoding
 A CID#Font dictionary is a #PDF #object that contains information about a CID##Font program. Although its 
  #Font Tf

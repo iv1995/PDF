@@ -1,4 +1,4 @@
-Table 366: Block 
+#Table 366: Block 
 level structure types", that consist of #running text and other content laid out in the form of conventional 
 paragraphs (as opposed to more specialised types of content such as lists and tables). 
 #Table 366: Block level structure types 

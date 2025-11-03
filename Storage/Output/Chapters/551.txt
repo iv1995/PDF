@@ -1,4 +1,4 @@
-Table 357: Entries in a marked-content 
+#Table 357: Entries in a marked-content 
 reference dictionary" shows the contents of this type of dictionary, which shall specify the marked-
 content# identifier, as well as other information# identifying the stream in which the sequence is 
 contained. Example 2 in this subclause illustrates the use of a marked-content reference to the 

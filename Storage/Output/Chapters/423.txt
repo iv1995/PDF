@@ -1,9 +1,9 @@
-Table 253: Entries in an 
+#Table 253: Entries in an 
 FDF named page reference dictionary") that shall specify the location of the 
 template. 
 (Optional) 
 Fields  FDF 
-array An array of references tofield dictionaries (see "Table 249: 
+array An array of references tofield dictionaries (see "#Table 249: 
 Entries in an FDF field dictionary") descri#bing the root fields that shall be 
 imported (those with no ancestors in the field hierarchy). 
 (Optional) 
@@ -24,12 +24,12 @@ NOTE The names of fields imported from a template can sometimes conflict with th
 in the target document. This can occur, for example, if the same template page is imported more 
 than once or if two different templates have fields with the same names. 
 Rename
-Although the  flag does not define a renaming algorithm, this might be implemented by a #PDF 
+Although the  flag does not define a renaming algorithm, this might be implemented by a ##PDF 
 processor renaming fields by prepending a page number, a template name, and an ordinal number to 
 the field name. 
  TRef   
 Theentry in anFDFtemplate dictionary shall hold a named page reference dictionary that shall 
-describe the location of external templates or page elements. "Table 253: Entries in an FDF named page 
+describe the location of external templates or page elements. "#Table 253: Entries in an FDF named page 
 reference dictionary" shows the contents of this type of dictionary. 
 #Table 253: Entries in an FDF named page reference dictionary 
 Key Type Value 

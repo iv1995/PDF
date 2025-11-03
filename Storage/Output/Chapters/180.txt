@@ -36,7 +36,7 @@ adjusted to the nearest valid value.
  
 Domain
 The domain #rectangle () establishes an internal coordinate space for the shading that is 
-Function
+#Function
 independent of the target coordinate space in which it shall be painted. The colour #function(s) 
 Matrix
 () specify the colour of the shading at each point within this domain #rectangle. The 

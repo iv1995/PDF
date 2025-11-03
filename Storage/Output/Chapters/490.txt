@@ -1,4 +1,4 @@
-#Figure 87: Default view of artwork" through "Figure 89: Shared artwork 
+#Figure 87: Default view of artwork" through "#Figure 89: Shared artwork 
 (annotations 2 & 3) modified" show three annotations that use the same 3D artwork. #Object 100 (Annotation 
 1) has its own run-time instance of the 3D stream (#object 200); #object 101(Annotation 2) and #object 102 
 (Annotation 3) share a run-time instance through the 3D reference dictionary (#object 201). 

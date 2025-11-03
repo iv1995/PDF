@@ -1,4 +1,4 @@
-Table 161: Entries in a page label 
+#Table 161: Entries in a page label 
 dictionary" shows the contents of a page label dictionary. 
 © ISO 2017 – All rights reserved 447 
 
@@ -67,7 +67,7 @@ interior pages.
 #PDF 1.1
 To represent such sequences of physically discontiguous but logically related items, a #PDF document 
 may define one or more articles (). The sequential flow of an article shall be defined by an article 
-thread; the individual content items that make up the article are called beads on the thread. Interactive 
+thread; the individual content items that make up the article are called beads on the thread. #Interactive 
 ##PDF processors may provide navigation facilities to allow the user to follow a thread from one bead to 
 the next. 
 © ISO 2017 – All rights reserved 448 

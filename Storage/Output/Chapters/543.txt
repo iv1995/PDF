@@ -1,7 +1,7 @@
 #Table 348: Additional entry for components having metadata"). 
 #Object level metadata can also be associated with marked content within a #content stream, by including 
 a metadata stream in the property list dictionary for this marked content. Because a stream dictionary 
-is always an in#direct #object, a property list containing a metadata stream cannot be encoded inline in 
+is always an #in#direct #object, a property list containing a metadata stream cannot be encoded inline in 
 the #content stream, but needs to be encoded as a named resource (see 14.6.2, "Property lists"). 
 In general, any #PDF stream or dictionary may have metadata attached to it as long as the stream or 
 Metadata

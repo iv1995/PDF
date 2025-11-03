@@ -68,7 +68,7 @@ NOTE 1 A common implementation for this is to have the strip of thumbnails acros
 and a large preview of the selected file or folder shown above it.  
 FreeForm
 The  layout provides a simple layout, in which thumbnails for each item in the collection 
-contents are displayed at a random location on the view. When a thumbnail is selected, an interactive 
+contents are displayed at a random location on the view. When a thumbnail is selected, an #interactive 
 ##PDF processor should display the attachment. 
 Linear
 The  layout provides a view of an attachment, which is usually larger than just a thumbnail, with 

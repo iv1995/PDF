@@ -1,5 +1,5 @@
-Table 127: #PDF halftone types". 
-Table 127: #PDF halftone types 
+#Table 127: #PDF halftone types". 
+#Table 127: #PDF halftone types 
 Type Meaning 
 1 Defines a single halftone screen by a frequency, angle, and spot #function. 
 © ISO 2017 – All rights reserved 364 

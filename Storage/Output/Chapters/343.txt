@@ -1,4 +1,4 @@
-Table 178: Additional 
+#Table 178: Additional 
 entries specific to a line annotation" shows the annotation dictionary entries specific to this type of 
 annotation. 
 #Table 178: Additional entries specific to a line annotation 

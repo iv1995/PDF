@@ -1,11 +1,11 @@
-Table 56: #Graphics state operators" shows the operators that set the values of parameters in the 
+#Table 56: #Graphics state operators" shows the operators that set the values of parameters in the 
 #graphics state. (See also the colour operators listed in "#Table 73: Colour operators" and the text state 
 operators in "#Table 103: Text state operators".) 
-Table 56: #Graphics state operators 
+#Table 56: #Graphics state operators 
 Operands Operator Description 
 — 
 q 
-Save the current #graphics state on the #graphics state stack (see 8.4.2, "Graphics 
+Save the current #graphics state on the #graphics state stack (see 8.4.2, "#Graphics 
 state stack"). 
 — 
 Q 
@@ -57,7 +57,7 @@ operator  (). The operand supplied to this operator shall be the name of a #grap
  ExtGState 
 parameter dictionary whose contents specify the values of one or more #graphics state parameters. This 
 name shall be looked up in thesubdictionary of the current #resource dictionary. 
-The #graphics state parameter dictionary is also used by Type 2 patterns, which do not have a content 
+The #graphics state parameter dictionary is also used by Type 2 patterns, which do not have a #content 
 stream in which the #graphics state operators could be invoked (see 8.7.4, "Shading patterns"). 
 © ISO 2017 – All rights reserved 162 
 

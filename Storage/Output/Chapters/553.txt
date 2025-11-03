@@ -18,7 +18,7 @@ parent tree, the current value of  shall be used as its key. The value shall be 
 incremented to prepare for the next new entry to be added. 
 StructParentStructParents
 To locate the relevant parent tree entry, each #object or #content stream that is represented in the tree 
-shall contain a special dictionary entry,  or  (see "Table 359: Additional 
+shall contain a special dictionary entry,  or  (see "#Table 359: Additional 
 dictionary entries for structure element access"). Depending on the type of content item, this entry may 
 appear in the page #object of a page containing marked-content sequences, in the stream dictionary of a 
 form or image X#Object, or in an annotation dictionary. Its value shall be the integer key under which the 

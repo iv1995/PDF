@@ -38,8 +38,8 @@ StmFStrF
 For , which supports the use of crypt #filters, the permissions shall be the same as 
  Crypt 
  when the crypt #filter is referenced from the  or  entries of the encryption 
-dictionary. When referenced from the#filter decode parameter dictionary of a stream #object 
-(see "Table 14: Optional parameters for Crypt #filters"), the 4 #bytes of permissions shall be absent 
+dictionary. When referenced from the#filter decode parameter dictionary of a #stream #object 
+(see "#Table 14: Optional parameters for Crypt #filters"), the 4 #bytes of permissions shall be absent 
 from the enveloped data. 
 The algorithms that shall be used to encrypt the enveloped data in the CMS #object are:  
 • 
@@ -97,14 +97,14 @@ crypt #filter dictionary, whose entries are shown in "Table 25: Entries common t
 • 
 dictionaries". 
 A stream #filter type, the#filter (see 7.4.10, "Crypt #filter") can be specified for any stream in 
-the document to override the default #filter for streams. A ##PDF processor shall provide a standard 
-Identity #filter which shall pass the data unchanged (see "Table 26: Standard crypt #filter names") to 
+the document to override the default #filter for streams. A ##PDF processor shall provide a standard# 
+Identity #filter which shall pass the data unchanged (see "#Table 26: Standard crypt #filter names") to 
  DecodeParms  Crypt 
 allow specific streams, such as document metadata, to be unencrypted in an otherwise encrypted 
 Name
-document. The stream’sentry shall contain a#filter decode parameters 
+document. The stream’sentry shall contain a#filter decode parameters# 
 Identity
-dictionary (see "Table 14: Optional parameters for Crypt #filters") whose  entry specifies the 
+dictionary (see "#Table 14: Optional parameters for Crypt #filters") whose  entry specifies the 
 particular crypt #filter that shall be used (if missing,  is used). Different streams may 
 specify different crypt #filters. 
 AuthEvent

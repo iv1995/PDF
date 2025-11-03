@@ -1,4 +1,4 @@
-Table 382: Standard list 
+#Table 382: Standard list 
 attributes" control the interpretation of the  element as it relates to other  elements that are not its 
 immediate parent. 
 #Table 382: Standard list attributes 
@@ -9,7 +9,7 @@ Lbl
 name  The numbering system used to generate the content of the  
 (Label) elements in a numbered list, or the type of symbol in the content of the  
 ListNumbering
-(Label) elements used to# identify list items in an unnumbered list (see "Table 368: 
+(Label) elements used to# identify list items in an unnumbered list (see "#Table 368: 
 General inline level structure types"). The value of the  shall be one of 
 None
 Lbl
@@ -62,7 +62,7 @@ list in the structure tree (), or not (). Default value: .
 If the  attribute is not present, the continuation is from the preceding 
 list at the same level in the structure hierarchy. 
 (Optional; #PDF 2.0)
-ContinuedFrom ID
+ContinuedFrom# ID
 ID (#byte  The  (see Table 355, "Entries in a structure element dictionary") 
 string) of the list for which this list is a continuation. 
 NOTE  The  attribute allows a content extraction tool to autonumber a list. However, the 

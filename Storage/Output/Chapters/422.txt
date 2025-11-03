@@ -1,4 +1,4 @@
-Table 252: Entries in 
+#Table 252: Entries in 
 an FDF template dictionary") that shall describe the named pages that serve 
 as templates on the page. 
 (Optional) FDF page information dictionary 

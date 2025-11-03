@@ -1,4 +1,4 @@
-in these 
+#in these 
 circumstances: 
 d1
 • 
@@ -64,8 +64,8 @@ Pattern
 Patterns shall be specified in a special family of colour spaces named . These spaces shall use 
 pattern #objects as the equivalent of colour values instead of the numeric component values used with 
 other spaces. A pattern #object shall be a dictionary or a stream, depending on the type of pattern; the 
-term pattern dictionary is used generically throughout this subclause to refer to# either a dictionary 
-#object or the dictionary portion of a stream #object. (Those pattern #objects that are streams are 
+term pattern dictionary is used generically throughout this subclause to refer to# either a #dictionary 
+#object or the dictionary portion of a #stream #object. (Those pattern #objects that are streams are 
 Pattern
 specifically# identified as such in the descriptions of particular pattern types; unless otherwise stated, 
 they are understood to be simple dictionaries instead.) This subclause describes  colour spaces 
@@ -92,7 +92,7 @@ A pattern’s appearance is described with respect to its own internal coordinat
 ISO/DIS 32000-2
  
 pattern matrix
-parentcontent stream
+parent#content stream
 has a , a transformation matrix that maps the pattern’s internal coordinate system to the 
 default coordinate system of the pattern’s   (the #content stream in which the 
 pattern coordinate space

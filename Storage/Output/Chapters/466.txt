@@ -18,12 +18,12 @@ name () The type of #PDF #object that this dictionary describes; if present, sha
 be  for a media screen parameters dictionary. 
 Optional
 MH 
-dictionary () A dictionary whose entries (see "Table 294: Entries in a media screen 
+dictionary () A dictionary whose entries (see "#Table 294: Entries in a media screen 
 parameters MH/BE dictionary") shall be honoured for the media screen 
 parameters to be considered viable. 
 Optional
 BE 
-dictionary () A dictionary whose entries (see "Table 294: Entries in a media screen 
+dictionary () A dictionary whose entries (see "#Table 294: Entries in a media screen 
 parameters MH/BE dictionary") should be honoured. 
  
 #Table 294: Entries in a media screen parameters MH/BE dictionary 

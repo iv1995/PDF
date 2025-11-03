@@ -1,6 +1,6 @@
-Table 38: Entries common to all #function 
+#Table 38: Entries common to all #function 
 dictionaries". 
-Table 38: Entries common to all #function dictionaries 
+#Table 38: Entries common to all #function dictionaries 
 Key Type Value 
 Required
 #FunctionType 
@@ -9,7 +9,7 @@ integer () The #function type:
 2 Exponential interpolation #function 
  
 3 Stitching #function 
-4 PostScript calculator function
+4 PostScript calculator #function
 Required
 Domain 
 Domain
@@ -101,5 +101,5 @@ NOTE 2 The number of samples required to represent #functions with high dimensio
 rapidly unless the sampling resolution is very low. Also, the process of multilinear interpolation 
 becomes computationally intensive if the number of inputs m is greater than 2. The 
 multidimensional spline interpolation is even more computationally intensive. 
-In addition to the entries in "Table 38: Entries common to all #function dictionaries", a Type 0 #function 
+In addition to the entries in "#Table 38: Entries common to all #function dictionaries", a Type 0 #function 
 dictionary includes those shown in "

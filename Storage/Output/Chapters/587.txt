@@ -34,5 +34,5 @@ image set, the corresponding entry in the  array shall be removed also.
  
 SI
 source information dictionaries
-The  entry in a content set dictionary (see "Table 388: Entries common to all Web Capture content 
+The  entry in a content set dictionary (see "#Table 388: Entries common to all Web Capture content 
 sets") shall contain one or more , (see "

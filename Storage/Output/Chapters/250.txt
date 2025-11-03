@@ -1,11 +1,11 @@
-Table 108: #Font types" lists the types of fonts that are supported in ISO 32000 along with the value that 
+#Table 108: #Font types" lists the types of fonts that are supported in ISO 32000 along with the value that 
 shall be used for the  key in the #font dictionary that represents the #font. No values for  
 other than those listed in the table are valid. Type 0 #fonts are called composite #fonts; other types of 
-#fonts are called simple #fonts. In addition to #fonts, #PDF supports two classes of font-related #objects, 
+fonts are called simple #fonts. In addition to #fonts, #PDF supports two classes of font-related #objects, 
 called CID#Fonts and CMaps, described in 9.7.2, "CID-Keyed #fonts overview". CID#Fonts are listed in 
-"Table 108: #Font types" because, like #fonts, they are collections of #glyphs; however, a CID#Font shall not 
+"#Table 108: #Font types" because, like #fonts, they are collections of #glyphs; however, a CID#Font shall not 
 be used directly but only as a component of a Type 0 #font. 
-Table 108: #Font types 
+#Table 108: #Font types 
 Type Subtype Value Description 
 Type0  #PDF 1.2
 Type 0  
@@ -36,7 +36,7 @@ CID#FontType2 #PDF 1.2
 () A CID#Font whose #glyph descriptions are based on 
 TrueType #glyph technology (see 9.7.4, "CID#Fonts") 
  
-NOTE 2 Embedding of OpenType ##font programs (files) in #PDF is described in "Table 124: Embedded #font 
+NOTE 2 Embedding of OpenType ##font programs (files) in #PDF is described in "#Table 124: Embedded #font 
 organization for various #font types" when the value of thekey is . The #font 
  #FontFile3 
 dictionary that refers to it can have a  of , , , or 
@@ -49,7 +49,7 @@ CID#FontType2
 For all #font types, the term #font dictionary refers to a #PDF dictionary containing information about the 
 #font; likewise, a CID#Font dictionary contains information about a CID#Font. Except for Type 3, this 
 dictionary is distinct from the ##font program that defines the #font’s #glyphs. That ##font program may be 
-embedded in the #PDF file as a stream #object or be obtained from some external source. 
+embedded in the #PDF file as a #stream #object or be obtained from some external source. 
 © ISO 2017 – All rights reserved 305 
 
 ISO/DIS 32000-2

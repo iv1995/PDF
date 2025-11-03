@@ -1,10 +1,10 @@
-Table 125: Additional entries in an embedded #font stream dictionary". 
-Table 125: Additional entries in an embedded #font stream dictionary 
+#Table 125: Additional entries in an embedded #font stream dictionary". 
+#Table 125: Additional entries in an embedded #font stream dictionary 
 Key Type Value 
 Required for Type 1 and TrueType ##font programs
 Length1 
 integer  () The length in #bytes of the clear-
-Filter
+#Filter
 text portion of the Type 1 ##font program, or the entire TrueType ##font program, after it 
 has been decoded using the #filters specified by the stream’s  entry, if any. 
 Required for Type 1 ##font programs
@@ -55,7 +55,7 @@ endstream
 endobj 
  
   
-As noted in "Table 124: Embedded #font organization for various #font types", a Type 1–equivalent #font 
+As noted in "#Table 124: Embedded #font organization for various #font types", a Type 1–equivalent #font 
 Length1Length2Length3
 program or a Type 0 CID##Font program may be represented in the Compact#FontFormat (CFF). The 
 , , and  entries are not needed in that case and shall not be present. Although 
@@ -86,7 +86,7 @@ The "vhea" and "vmtx" tables that specify vertical metrics shall never be used b
 only way to specify vertical metrics in #PDF shall be by means of the  and  entries in a CID#Font 
 dictionary. 
 NOTE 3 Beginning with #PDF 1.6, ##font programs can be embedded using the OpenType format, which is an 
-extension of the TrueType format that allows inclusion of font programs using the CompactFont
+extension of the TrueType format that allows inclusion of font programs using the Compact#Font
   
 Format (CFF). It also allows inclusion of data to describe #glyph substitutions, kerning, and 
 baseline adjustments. In addition to rendering glyphs, ##PDF processors can use the data in 
@@ -97,7 +97,7 @@ The process of finding glyph descriptions in OpenType #fonts by a ##PDF processo
 For Type 1 #fonts using "CFF " tables, the process shall be as described in 9.6.5.2, "Encodings for 
 • 
 Type 1 #fonts". 
-For TrueType #fonts using "glyf" tables, the process shall be as described in 9.6.5.4, "Encodings for 
+For TrueType #fonts using "glyf" tables, the process shall be as described in 9.6.5.4, "Encodings for# 
 Identity-H
 TrueType #fonts". Since this process sometimes produces am#biguous results, ##PDF writers, instead 
 of using a simple #font, should use a Type 0 #font with an  encoding and use the #glyph 
@@ -119,7 +119,7 @@ Subtype
 These differences allow a ##PDF processor to recognise #font subsets and to merge documents containing 
 different subsets of the same #font. (For more information on #font descriptors, see 9.8, "#Font 
 descriptors".) 
-BaseFont
+Base#Font
 #FontName
 For a #font subset, the PostScript name of the #font, that is, the value of the #font’s  entry and the 
 #font descriptor’s  entry, shall begin with a tag followed by a plus sign (+) followed by the 
@@ -157,7 +157,7 @@ converted to Unicode values without additional information using the following m
 ToUnicode
 • 
 This information can be provided as an optional  entry in the #font dictionary (#PDF 1.2; 
-see 9.10.3, "ToUnicode CMaps"), whose value shall be a stream #object containing a special kind of 
+see 9.10.3, "ToUnicode CMaps"), whose value shall be a #stream #object containing a special kind of 
 ActualText
 • 
 CMap file that maps #character codes to Unicode values. 
@@ -175,9 +175,9 @@ to convert the #character code to Unicode.
 If the #font is a simple #font and the #glyph selection algorithm (see 9.6.5, "#Character encoding") uses 
 a #glyph name, that name can be looked up in the Adobe #Glyph List to obtain the corresponding 
 • 
-Unicode value. 
+Unicode value.# 
 Identity–HIdentity–V
-If the #font is a composite #font that uses one of the predefined CMaps listed in "Table 116: 
+If the #font is a composite #font that uses one of the predefined CMaps listed in "#Table 116: 
 Predefined CJK CMap names" (except  and ) or whose descendant CID#Font 
 uses the Adobe-GB1, Adobe-CNS1, Adobe-Japan1, or Adobe-Korea1 #character collection: 
 © ISO 2017 – All rights reserved 348 
@@ -201,7 +201,7 @@ e.Map the CID obtained in step (a) according to the CMap obtained in step (d), p
 value. 
 Type 0 #fonts whose descendant CID#Fonts use the Adobe-GB1, Adobe-CNS1, Adobe-Japan1, or Adobe-
 Korea1 #character collection (as specified in the CIDSystemInfo dictionary) shall have a supplement 
-number corresponding to the version of #PDF supported by the ##PDF processor. See "Table 117: 
+number corresponding to the version of #PDF supported by the ##PDF processor. See "#Table 117: 
 #Character collections for predefined CMaps, by #PDF version" for a list of the #character collections 
 corresponding to a given #PDF version. Other supplements of these #character collections may be used, 
 but if the supplement is higher-numbered than the one corresponding to the supported #PDF version, 
@@ -233,7 +233,7 @@ It shall use the , , , and  operators to define the
 mapping from #character codes to Unicode #character sequences expressed in UTF-16BE encoding. 
 For simple #fonts, #character codes shall be written as 1 #byte in the ToUnicode CMap. 
 For CID keyed #fonts #character codes may have 1 #byte, 2 #bytes, or more than 2 #bytes in the ToUnicode 
-CMap. 
+CMap.# 
 Identity-H
 Identity
 EXAMPLE 1 This example illustrates a Type 0 #font that uses the  CMap to map from #character codes to CIDs and 
@@ -265,7 +265,7 @@ endobj
   >> 
 endobj 
 ToUnicode
-EXAMPLE 2 In this example, the value of the  entry is a stream #object that contains the definition of the CMap. 
+EXAMPLE 2 In this example, the value of the  entry is a #stream #object that contains the definition of the CMap. 
 begincodespacerangeendcodespacerange
  The  and  operators define the source #character code range to be 
 the 2-#byte #character codes from <00 00> to <FF FF>. The specific mappings for several of the #character codes 

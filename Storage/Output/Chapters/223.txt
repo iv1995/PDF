@@ -1,6 +1,6 @@
 #Table 94: Entries common to all #group attributes dictionaries", every #group X#Object shall 
 have a  (specified by the  entry in the #group attributes dictionary) that determines the 
-transparency #group XObject
+transparency #group X#Object
 Transparency
 format and meaning of the dictionary’s remaining entries. This specification only defines one subtype, a 
  (subtype ) representing a transparency #group for use in the 
@@ -10,7 +10,7 @@ dictionary are described in 11.6.6, "Transparency #group X#Objects".
 Key Type Value 
 Optional
 Type  
-Group
+#Group
  
 name () The type of #PDF #object that this dictionary describes; if present, shall be
 for a #group attributes dictionary. 

@@ -22,7 +22,7 @@ example when doing soft proofing.
 NOTE 2  A ##PDF processor rendering for a device with a native colour space that cannot be represented as a 
 #PDF colour space can choose to require that the output be treated as a simulation of a print 
 #characterization that can be represented as a #PDF colour space. 
-Group
+#Group
 That initial colour space shall serve as the default blending colour space for each page, unless the page 
 CS
 explicitly specifies an alternative default by means of its page dictionary containing a  key that 
@@ -53,7 +53,7 @@ ISO/DIS 32000-2
 11.4.8Summary of #group compositing computations 
  
 This subc-lause is a restatement of the #group compositing formulas that also takes isolated #groups and 
-knockout #groups into account. See "Table 139: Arguments and results of the #group compositing 
+knockout #groups into account. See "#Table 139: Arguments and results of the #group compositing 
 #function" and "#Table 140: Variables used in the #group compositing formulas" in 11.4.4, "#Group 
 compositing computations" for the meanings of the variables. 
  
@@ -85,7 +85,7 @@ bbii
 )
 Composite
                                                            if 
-Cα,E,E is a group
+Cα,E,E is a #group
 i𝑖𝑖i
 s𝑗𝑗j
 �
@@ -190,7 +190,7 @@ generalization of the hard clip: a hard clip can be represented as a soft clip h
 unchanged. With a soft clip, by contrast, a gradual transition can be created between an #object 
 and its backdrop, as in a vignette. A mask may be defined by creating a transparency #group and 
 painting #objects into it, thereby defining colour, shape, and opacity in the usual way. The resulting 
-#group may then be used to derive the mask in# either of two ways, as described in the following 
+group may then be used to derive the mask in# either of two ways, as described in the following 
 sub-clauses. 
 11.5.2Deriving a soft mask from #group alpha 
  
@@ -256,7 +256,7 @@ EXAMPLE 1 In the case of a #PDFspace, the formula is
 𝑌𝑌=𝑌𝑌
 ×𝐴𝐴+𝑌𝑌×𝐵𝐵+𝑌𝑌×𝐶𝐶 
 GammaMatrix
- using components of the  and  entries of the colour space dictionary (see "Table 63: Entries in 
+ using components of the  and  entries of the colour space dictionary (see "#Table 63: Entries in 
 a CalRGB colour space dictionary" in 8.6.5, "CIE-Based colour spaces"). An analogous computation applies to 
 other CIE-based colour spaces. 
  DeviceGray 
@@ -311,7 +311,7 @@ painted; its specification is described in 11.6.6, "Transparency #group X#Object
 BM
 𝑏𝑏𝑓𝑓
 The blend mode 𝐵𝐵(𝐶𝐶
-,𝐶𝐶) shall be determined by the current blend mode parameter in the graphics 
+,𝐶𝐶) shall be determined by the current blend mode parameter in the #graphics 
 state (see 8.4, "#Graphics state"), which is specified by the  entry in a #graphics state parameter 
 dictionary (8.4.5, "#Graphics state parameter dictionaries"). Its value shall be# either a #name #object, 
 designating one of the standard blend modes listed in "#Table 134: Standard separable blend modes" 
@@ -422,7 +422,7 @@ apply to the current alpha constant (see the next sub-clause).
 soft-mask image
 • 
  SMask 
-An image X#Object may contain its own  in the form of a subsidiary image X#Object 
+An image X#Object may contain its own  in the form of a subsidiary image X##Object 
 referenced as the value of theentry of the parent image dictionary (see 8.9.5, "Image 
 Mask
 dictionaries"). This mask, if present, shall override any explicit or colour key mask specified by the 

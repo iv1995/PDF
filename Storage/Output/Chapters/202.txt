@@ -1,6 +1,6 @@
 #Table 83: Additional entries specific to a Type 6 shading dictionary" shows the shading dictionary 
 entries specific to this type of shading, in addition to those common to all shading dictionaries (see 
-"#Table 77: Entries common to all shading dictionaries") and stream dictionaries (see "Table 5: Entries 
+"#Table 77: Entries common to all shading dictionaries") and stream dictionaries (see "#Table 5: Entries 
 common to all stream dictionaries"). 
 #Table 83: Additional entries specific to a Type 6 shading dictionary 
 Key Type Value 
@@ -28,7 +28,7 @@ xxyycc cc
 arrays"). The ranges shall be specified as follows: 
 minmaxminmaxmin,maxn,minn,max
 c
-Function
+#Function
 [    , … ]  
 Only one pair of  values shall be specified if a  entry is present. 
 © ISO 2017 – All rights reserved 242 

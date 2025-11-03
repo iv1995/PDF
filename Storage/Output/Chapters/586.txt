@@ -1,4 +1,4 @@
-Table 389: Additional 
+#Table 389: Additional 
 entries specific to a Web Capture page set" defines the content set dictionary entries specific to Page 
 Sets. 
 The TID (text# identifier) entry may be used to store an# identifier generated from the text of the pages 

@@ -1,9 +1,9 @@
-Table 266: Entries in a measure 
+#Table 266: Entries in a measure 
 dictionary") that specifies the scale and units that shall apply to measurements 
 taken on the contents within the viewport. 
 (Optional; #PDF 2.0) 
 PtData 
-dictionary A point data dictionary (see "Table 272: Entries in a point 
+dictionary A point data dictionary (see "#Table 272: Entries in a point 
 data dictionary") that shall specify the extended geospatial data that applies to 
 the image. 
  

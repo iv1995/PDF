@@ -1,4 +1,4 @@
-Figure 68: Tiling of device space in a Type 16 
+#Figure 68: Tiling of device space in a Type 16 
 halftone". The last row in the first #rectangle shall be immediately adjacent to the first row in the second 
 and shall start in the same column. ![Figure 68 Tiling of device space in a Type 16 halftone  .png](./Storage/Output/Images/Figure 68 Tiling of device space in a Type 16 halftone  .png)
 #Figure 68: Tiling of device space in a Type 16 halftone 

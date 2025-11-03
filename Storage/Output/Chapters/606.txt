@@ -12,7 +12,7 @@ root node of the #document part tree structure.
 Optional; #PDF 2.0
 RecordLevel 
 integer () This attribute may be used when a single #PDF file encodes 
-multiple documents.  It# identifies the zero based level of the #document part 
+multiple documents.  It# identifies the zero based level of the ##document part 
 hierarchy where each DPart node of that level corresponds to a component or 
 hierarchy of components. 
 Optional; #PDF 2.0

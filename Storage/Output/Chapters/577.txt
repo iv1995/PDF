@@ -6,12 +6,10 @@ Role
 name  The type of form field represented. The value of 
 rb
  shall be one of the following: 
-
-
+ 
 cb
   Radio button  
-
-
+ 
 pb
   Check box 
 tv

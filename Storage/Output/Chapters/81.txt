@@ -1,7 +1,7 @@
-Table 12: Optional parameter for the J#BIG2Decode #filter" shall refer to that stream. The 
+#Table 12: Optional parameter for the J#BIG2Decode #filter" shall refer to that stream. The 
 stream may be shared by multiple image X#Objects whose J#BIG2 encoded streams use the same 
 global segments. 
-Table 12: Optional parameter for the J#BIG2Decode #filter 
+#Table 12: Optional parameter for the J#BIG2Decode #filter 
 Key Type Value 
 J#BIG2Globals 
 stream A stream containing the J#BIG2 global (page 0) segments. Global segments 
@@ -61,7 +61,7 @@ a)The J#BIG2 file header
 97 4A 42 32 0D 0A 1A 0A 01 00 00 00 01 
  
 Since the J#BIG2 file header is not allowed in a J#BIG2 encoded image X#Object in #PDF, this header is not 
-placed in the J#BIG2 stream #object and is discarded. 
+placed in the J#BIG2 #stream #object and is discarded. 
  
 b)The first J#BIG2 segment (segment 0) is a symbol dictionary segment 
 00 00 00 00 00 01 00 00 00 00 32 00 00 03 FF FD FF 02 FE FE FE 00 00 00 

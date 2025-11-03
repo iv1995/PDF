@@ -1,7 +1,7 @@
-Table 276: Entries 
+#Table 276: Entries 
 in a requirement handler dictionary" describes the entries in an alternative requirement handler 
 dictionary. 
-A requirement handler is a program that verifies certain requirements are satisfied. "Table 276: Entries 
+A requirement handler is a program that verifies certain requirements are satisfied. "#Table 276: Entries 
 in a requirement handler dictionary" describes the entries in a requirement handler dictionary. 
 © ISO 2017 – All rights reserved 591 
 

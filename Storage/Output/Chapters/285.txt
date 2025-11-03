@@ -85,8 +85,8 @@ value, called , which controls both the colour compositing computation and the f
 see 11.4.6, "Knockout #groups" 
 NOTE 2 Raster-based implementations might need to maintain a separate shape parameter to do anti-
 aliasing properly; it is therefore convenient to have shape as an explicit part of the model. 
-transparency group
-group
+transparency #group
+#group
 One or more consecutive #objects in a stack may be collected together into a  (often 
 referred to hereafter simply as a ). The #group as a whole may have various properties that modify 
 the compositing behaviour of #objects within the #group and their interactions with the #group backdrop. 

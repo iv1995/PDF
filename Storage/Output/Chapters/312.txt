@@ -5,7 +5,7 @@ Default value: 0.
 F
 The value of the outline item dictionary’s  entry () shall be an integer interpreted as one-#bit 
 flags specifying style #characteristics for displaying the item. #Bit positions within the flag word are 
-numbered from low-order to high-order #bits, with the lowest-order #bit numbered 1. "Table 152: Outline 
+numbered from low-order to high-order #bits, with the lowest-order #bit numbered 1. "#Table 152: Outline 
 item flags" shows the meanings of the flags; all other #bits of the integer shall be 0. 
 © ISO 2017 – All rights reserved 435 
 
@@ -94,7 +94,7 @@ collection dictionary
 A  specifies the viewing and organisational #characteristics of portable collections. If 
  EmbeddedFiles 
 this dictionary is present in a #PDF document, the #interactive ##PDF processor shall present the document 
-as a portable collection. The#name tree specifies file attachments (see "Table 32: 
+as a portable collection. The#name tree specifies file attachments (see "#Table 32: 
 Entries in the name dictionary"). 
 View
 When an #interactive ##PDF processor first opens a #PDF document containing a collection, it shall display 

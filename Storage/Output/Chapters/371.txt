@@ -26,8 +26,8 @@ ISO/DIS 32000-2
 Key Type Value 
 (Optional; #PDF 2.0)
 SD 
-array  The structure destination to jump to (see 12.3.2.3, 
-# ID 
+array  The structure destination to jump to (see 12.3.2.3,# 
+ ID 
 "Structure destinations"). The first element in the array shall be a #byte 
 string representing a structure elementin the remote document, 
 instead of an indirect reference to a structure element dictionary. 

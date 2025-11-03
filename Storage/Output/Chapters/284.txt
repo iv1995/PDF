@@ -68,7 +68,7 @@ subtractive device, or  values, if available for a subtractive device, should be
 determine the process colours to use (see 14.11.5, "Output intents"). 
  
 b)Convert each separation into "flat XYZ" (no gamma) and using a background matte of all white.  
-c)Blend the resulting separations into a single result using a multiply blend (see "Table 133: Variables used 
+c)Blend the resulting separations into a single result using a multiply blend (see "#Table 133: Variables used 
  
 in the basic compositing formula"). 
 d)Convert the result to the actual device colour space and output it.  

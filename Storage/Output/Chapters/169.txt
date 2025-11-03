@@ -1,4 +1,4 @@
-Table 70: Entries in a DeviceN colour 
+#Table 70: Entries in a DeviceN colour 
 space attributes dictionary"). A value offor the  entry, or no value, shall mean that 
  DeviceN 
 only the previous features shall be supported. ##PDF processors that do not support #PDF 1.6 shall treat 

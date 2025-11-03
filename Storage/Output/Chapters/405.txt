@@ -2,7 +2,7 @@
 information that constrains the properties of a signature that is applied to this 
 field. 
  
-The signature field lock dictionary (described in "Table 236: Entries in a signature field lock 
+The signature field lock dictionary (described in "#Table 236: Entries in a signature field lock 
 dictionary") contains the names of form fields whose values shall no longer be changed after this 
 signature has been signed. 
 #Table 236: Entries in a signature field lock dictionary 
@@ -82,7 +82,7 @@ dictionary. A value of 1 for the flag indicates that the associated entry is a
 required constraint. A value of 0 indicates that the associated entry is an optional 
 LegalAttestationAddRevInfoDigestMethod
 constraint. #Bit positions are 1 (); 2 (); 3 (); 4 (); 5 
-LockdocumentAppearanceFilter
+LockdocumentAppearance#Filter
 (); 6 (); and 7 ():for #PDF 2.0 the 
 following #bit flags are added: 8 (); and 9 (). 
 Default value: 0. 

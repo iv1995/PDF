@@ -1,10 +1,10 @@
-Table 
+#Table 
 37: Entries in a #number tree node dictionary" shows the entries in a #number tree’s node dictionaries. 
 © ISO 2017 – All rights reserved 122 
 
 ISO/DIS 32000-2
  
-Table 37: Entries in a #number tree node dictionary 
+#Table 37: Entries in a #number tree node dictionary 
 Key Type Value 
 (Root and intermediate nodes only; required in intermediate nodes; present in the root 
 Kids 
@@ -103,23 +103,23 @@ is replaced with 0, the nearest value in the defined range.
 ,𝑥𝑥+𝑥𝑥 
 A #function #object may be a dictionary or a stream, depending on the type of function. The term #function 
 dictionary is used generically in this subclause to refer to# either a #dictionary #object or the dictionary 
-portion of a stream #object. A #function dictionary specifies the #function’s representation, the set of 
-#FunctionType
+portion of a #stream #object. A #function dictionary specifies the #function’s representation, the set of 
+FunctionType
 attributes that parameterize that representation, and the additional data needed by that representation. 
 Four types of functions are available, as indicated by the dictionary’s  entry: 
 #PDF 1.2sampled #functionsample values
 • 
 () A  (Type 4) uses a table of  to define the #function. Various 
 techniques are used to interpolate values between the sample values; see 7.10.2, "Type 0 
-#PDF 1.3exponential interpolation function
+#PDF 1.3exponential interpolation #function
 • 
 (sampled) #functions" 
 () An  (Type 2) defines a set of coefficients for an 
-#PDF 1.3stitching function
+#PDF 1.3stitching #function
 • 
 exponential #function; see 7.10.3, "Type 2 (exponential interpolation) #functions" 
 () A  (Type 3) is a com#bination of other #functions, partitioned across a 
-#PDF 1.3PostScript calculator function
+#PDF 1.3PostScript calculator #function
 • 
 domain; see 7.10.4, "Type 3 (stitching) #functions" 
 () A  (Type 4) uses operators from the PostScript language to 

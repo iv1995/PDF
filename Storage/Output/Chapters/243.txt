@@ -2,7 +2,7 @@
 #Figure 59: Leading 
  
 TDT*'"
-The leading parameter shall be used by the , , , and  operators; see "Table 106: Text-positioning 
+The leading parameter shall be used by the , , , and  operators; see "#Table 106: Text-positioning 
 operators" for a precise description of its effects. This parameter shall apply to the vertical coordinate 
 in text space, independently of the writing mode. 
 9.3.6Text rendering mode 

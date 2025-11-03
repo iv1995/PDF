@@ -35,7 +35,7 @@ XA
 annotation becomes visible. 
  The annotation shall remain inactive until explicitly activated by a script or user 
 action. 
-At any one time, only a single page shall be considered open in an interactive #PDF 
+At any one time, only a single page shall be considered open in an #interactive ##PDF 
 processor, even though more than one page might be visible, depending on the page 
 XA
 layout. 
@@ -74,7 +74,7 @@ XD
 annotation becomes invisible. 
  The annotation shall remain active until explicitly deactivated by a script or user 
 action. 
-At any one time, only a single page shall be considered open in an interactive #PDF 
+At any one time, only a single page shall be considered open in an #interactive ##PDF 
 processor, even though more than one page might be visible, depending on the page 
 PI
 layout. 

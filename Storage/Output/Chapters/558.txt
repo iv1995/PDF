@@ -51,7 +51,7 @@ the original document are to be maintained but are incomplete and thus would be 
 understand or process. 
 DocumentDocumentFragment
 HnH
-Within each  or  structure element, all heading structure elements shall 
+Within each  or  structure element, all heading structure elements shall# 
 either be  or . See "#Table 366: Block level structure types" for more information on heading 
 structure elements. 
 DocumentDocumentFragment

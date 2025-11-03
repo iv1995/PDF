@@ -1,4 +1,4 @@
-Table 292: Entries 
+#Table 292: Entries 
 in a media duration dictionary". It specifies a temporal duration. 
 NOTE 1 The  entry dictionary temporal duration corresponds to the notion of a simple duration in SMIL. 
 D
@@ -44,7 +44,7 @@ does not recognise the value of this entry.
 Required if the value of  is T otherwise ignored
 T S;
 dictionary () A timespan dictionary 
-specifying an explicit duration (see "Table 300: Entries in a timespan 
+specifying an explicit duration (see "#Table 300: Entries in a timespan 
 dictionary"). A negative duration shall not be permitted. 
  
 13.2.6Media screen parameters 

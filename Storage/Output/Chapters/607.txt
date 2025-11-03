@@ -62,7 +62,7 @@ Non-leaf DPart dictionary nodes of the hierarchy cannot refer to a range of #PDF
 descendent DPart dictionaries. 
 14.12.4.2##Document part metadata 
  
-#Document Part Metadata
+##Document Part Metadata
 .
  (DPM) is a means by which ##PDF writers, such as #PDF authoring applications, 
 communicate information about the various #document parts to a downstream production workflow 
@@ -151,7 +151,7 @@ dictionary" and "#Table 45: Entries in an embedded file parameter dictionary"). 
 application/octet-stream
 stream dictionary shall include a valid MIME type value for the  key. If the MIME type is not 
 known, the value "" shall be used. 
-NOTE 2 As described in RFC 2046, 4.5.1, the "" subtype is used to indicate ar#bitrary #binary 
+NOTE 2 As described in RFC 2046, 4.5.1, the "" subtype is used to indicate ar#bitrary ##binary 
 data. 
 octet-stream
  EmbeddedFiles 

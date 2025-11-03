@@ -1,4 +1,4 @@
-Figure 
+#Figure 
 55: Metrics for horizontal and vertical writing modes" illustrates the metrics for the two writing modes: 
 • 
 llurw0

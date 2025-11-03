@@ -13,7 +13,7 @@ displayed.
 Snapshot
 If the  entry exists, the image it describes shall be displayed in place of the current artwork. 
 Because the snapshot image should be integrated by the player with other elements, such as user 
-interface controls for video playback, the colour space of the image may be modified by the interactive 
+interface controls for video playback, the colour space of the image may be modified by the #interactive 
 ##PDF processor. 
 13.7.2.3.6View params dictionary 
  

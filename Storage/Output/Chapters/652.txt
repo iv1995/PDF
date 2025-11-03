@@ -1,14 +1,14 @@
- 
+# 
  
 Fragment# identifiers 
 (Normative) 
-O.1General 
+O.1General# 
  
 Fragment# identifiers (https://www.w3.org/DesignIssues/Fragment.html) are added at the end of a URI 
-to provide a reference to subordinate content within the target of the URI. These fragment# identifiers 
+to provide a reference to subordinate content within the target of the URI. These# fragment# identifiers 
 anchor onto specific content or #characteristics of the document to which the URI refers. #PDF is just one 
-type of document that can be referenced from a URI and the fragment# identifiers that are relevant to a 
-#PDF are different from those of other document formats. This clause describes the fragment# identifiers 
+type of document that can be referenced from a URI and the# fragment# identifiers that are relevant to a 
+#PDF are different from those of other document formats. This clause describes the# fragment# identifiers 
 that are generally applicable to #PDF documents. 
 O.2Fragment# identifiers 
  
@@ -16,7 +16,7 @@ The fragment# identifier is comprised of one or more parameters which are append
 each of which is separated by the AMPERSAND (28h) #character. Each parameter represents# either an 
 action to be performed on the document when it is opened or an #object within the document. 
 Arguments to those parameters, which represent information needed to qualify the action or #object, 
-shall be COMMA (2Ch) separated when more than one is required. Fragment# identifiers shall be 
+shall be COMMA (2Ch) separated when more than one is required.# Fragment# identifiers shall be 
 processed and (if required) executed from left to right as they appear in the #character string that makes 
 up the fragment# identifier. 
 O.2.1#PDF #object# identifiers 
@@ -52,7 +52,7 @@ structID
 hierarchy of the structure element or  does not match a structure element, the 
 first page in the document shall be# identified. 
 When used as part of a #PDF open parameter, the ##PDF processor shall open to the page 
-on which the first content item, hierarchically contained within the structure element 
+on which the first content item, hierarchically contained within the structure element# 
 identified by the structure# ID, is located.   
 commentID commentID
 NM
@@ -82,8 +82,8 @@ the user or even prevent opening of the file.
  
 O.2.2#PDF open parameters 
  
-The fragment# identifiers listed in this clause operate on the document at the point it is opened, and are 
-therefore referred to as #PDF open parameters. These fragment# identifiers should be processed 
+The# fragment# identifiers listed in this clause operate on the document at the point it is opened, and are 
+therefore referred to as #PDF open parameters. These# fragment# identifiers should be processed 
 immediately after any other document-specified open parameters have been processed. 
 leftrighttopbottom
 All coordinate values (, , , and ) shall be expressed in the default user space 
@@ -133,9 +133,9 @@ space #characters.
 for a URI. 
 URI 
 URIURI
-fdf Open the document and then import the data from the specified FDF or X#FDF file. The 
+fdf Open the document and then import the data from the specified FDF or #X#FDF file. The 
 fdf
- shall be# either a relative or absolute  to an FDF or X#FDF file. 
+ shall be# either a relative or absolute  to an FDF or #X#FDF file. 
 NOTE 2 The  parameter is recommended to be the last parameter so that the 
 fdf
 The  parameter should be specified as the last parameter to a given URI. 

@@ -2,13 +2,13 @@
 (see 13.2.2, "Via#bility"). 
 rendition dictionaries. The  entry in a rendition dictionary specifies a name that can be used to 
 N
-access the rendition #object by means of #name tree lookup (see "Table 32: Entries in the name 
+access the rendition #object by means of #name tree lookup (see "#Table 32: Entries in the name 
 dictionary").ECMAScriptactions (see 12.6.4.17, "ECMAScript actions"), for example, use this 
   
 mechanism. 
-Since the values referenced by #name trees shall be in#direct #objects, all rendition #objects should be 
-in#direct #objects. 
-NOTE 2 A rendition dictionary is not required to have a #name tree entry. When it does, the interactive #PDF 
+Since the values referenced by #name trees shall be #in#direct #objects, all rendition #objects should be 
+#in#direct #objects. 
+NOTE 2 A rendition dictionary is not required to have a #name tree entry. When it does, the #interactive ##PDF 
 processor needs to ensure that the name specified in the tree is kept the same as the value of the  
 N
 entry (for example, if the user interface allows the name to be changed). As a consequence it is 
@@ -22,7 +22,7 @@ described in 13.2.2, "Via#bility". For renditions, these dictionaries shall have
 ISO/DIS 32000-2
  
 278: Entries in a rendition MH/BE dictionary"), whose value shall have a media criteria dictionary 
-specifying a set of criteria that shall be met for the rendition to be considered viable (see "Table 279: 
+specifying a set of criteria that shall be met for the rendition to be considered viable (see "#Table 279: 
 Entries in a media criteria dictionary"). 
 MHBE
 The media criteria dictionary behaves somewhat differently than other / entries, as they are 

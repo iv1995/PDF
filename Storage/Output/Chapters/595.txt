@@ -1,4 +1,4 @@
-Table 397: Entries 
+#Table 397: Entries 
 in a box style dictionary". If a given entry is absent, the #interactive ##PDF processor shall use its own 
 current default settings instead. 
 #Table 396: Entries in a box colour information dictionary 

@@ -1,6 +1,6 @@
-Table 260: Sub#Filter value algorithm support" shows an overview of the  values along with 
+#Table 260: Sub#Filter value algorithm support" shows an overview of the  values along with 
 the algorithms that are supported for each Sub#Filter. 
-Table 260: Sub#Filter value algorithm support 
+#Table 260: Sub#Filter value algorithm support 
 ca
 Sub#Filter values adbe.pkcs7.detached, adbe.pkcs7.sha1adbe.x509.rsa_sha1 
 ETSI.CAdES.detached 
@@ -143,7 +143,7 @@ validation #signature handler.
 12.8.3.3.2Revocation of CMS-based signatures 
  
 ETSI.CAdES.detached
-Subfilter
+Sub#filter
 For signatures with a  value other than , the following rules apply. 
 The adbe Revocation Information attribute #object# identifier is specified as follows using #ASN.1 notation: 
 adbe-revocationInfoArchival #OBJECT# IDENTIFIER::= 
@@ -181,7 +181,7 @@ follows using #ASN.1 notation:
  
 Internet RFC 5652
 ETSI.CAdES.detachedPAdES signatures
-Subfilter
+Sub#filter
 The Cryptographic Message Syntax (CMS)(see ) is used by CAdES signatures. The #PDF 
 CAdES profiles
 signatures using the  value  are referred to as  and they 
@@ -209,7 +209,7 @@ Theshall cover the entire file, including the signature dictionary but excluding
  entry. 
 M
 • 
-The signature dictionary shall not contain aentry. 
+The signature dictionary shall not contain aentry.# 
 Either the time of signing may be indicated by the value of the  entry in the signature dictionary 
 12.8.3.4.3Attributes for PAdES signatures 
  
@@ -257,7 +257,7 @@ j)signer-attributes-v2: may be used and shall follow the definition given in cla
  
 k)Unsigned signature attributes not explicitly noted here may be ignored. 
 ETSI.CAdES.detached
-Subfilter
+Sub#filter
 The signatures using the  value  may follow one of two profiles denoted as 
 PAdES-E-BES (Basic Electronic Signature) and PAdES-E-EPES (Explicit Policy Electronic Signature). 
 These are defined to be compatible with the corresponding profiles defined in ETSI EN 319 122-2 (i.e., 
@@ -282,7 +282,7 @@ For the PAdES-E-EPES profile,
 • 
 a signature-policy-identifier shall be present as a signed attribute. The rules from clause 5.2.9 in 
 CAdES (ETSI EN 319 122-1) shall apply. The parameters of the signature policy shall take 
-precedence over the seed values defined in 12.7.5.5, "Signature fields". Conforming signature 
+precedence over the seed values defined in 12.7.5.5, "Signature fields". Conforming #signature 
 handlers should enforce seed value constraints at signing time, if not overridden, and should 
 enforce signature policies constraints at signing time when possible. During validation conforming 
 #signature handlers should not enforce seed values constraints, if present, but shall enforce 
@@ -304,7 +304,7 @@ in the timestamp token.
 All signed attributes shall be checked for proper values by signature validation software. 
 12.8.3.4.5Requirements for validation of PAdES signatures 
  
-Subfilter
+Sub#filter
 ETSI.CAdES.detached
 For all profiles of PAdES signatures covered in this document (i.e., those with a  value of 
 ), when the user opens a signed document or requests verification of these 

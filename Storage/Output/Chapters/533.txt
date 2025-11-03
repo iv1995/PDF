@@ -1,4 +1,4 @@
-Table 
+#Table 
 339: Entries in a RichMediaWindow dictionary" contains a description of each element. 
 #Table 338: Entries in a RichMediaPresentation dictionary 
 Type Value 
@@ -23,7 +23,7 @@ dictionary ( ) A RichMediaWindow Dictionary that describes the
 Windowed
 Style
 size and position of the floating user interface window when the value 
-for  is set to . See "Table 339: Entries in a 
+for  is set to . See "#Table 339: Entries in a 
 RichMediaWindow dictionary" for a detailed description. 
 Optional; #PDF 2.0
 Transparent 
@@ -95,7 +95,7 @@ window extent to be within the presentation area of the #interactive ##PDF proce
 All coordinates shall be expressed in default user space units although do not rotate or scale the 
 window to match the orientation and magnification of the page. The expected behavior of the 
 #interactive ##PDF processor is similar to how it presents an annotation when the flags NoZoom and 
-NoRotate are set to true. (See 12.5.3, "Annotation flags".) "Table 339: Entries in a RichMediaWindow 
+NoRotate are set to true. (See 12.5.3, "Annotation flags".) "#Table 339: Entries in a RichMediaWindow 
 dictionary" details the contents of this dictionary. 
 #Table 339: Entries in a RichMediaWindow dictionary 
 Key Type Value 

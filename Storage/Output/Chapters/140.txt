@@ -1,15 +1,15 @@
-Table 57: Entries in a #graphics state parameter dictionary". All entries need not be present 
+#Table 57: Entries in a #graphics state parameter dictionary". All entries need not be present 
 gs
 for every invocation of theoperator; the supplied parameter dictionary may include any com#bination 
 of parameter entries. The results of  shall be cumulative; parameter values established in previous 
 invocations persist until explicitly overridden. 
-NOTE Note that some parameters appear in both "Table 56: #Graphics state operators" and "Table 57: 
+NOTE Note that some parameters appear in both "#Table 56: #Graphics state operators" and "#Table 57: 
 Entries in a #graphics state parameter dictionary"; these parameters can be set# either with 
 individual #graphics state operators or with . It is expected that any future extensions to the 
 #graphics state will be implemented by adding new entries to the #graphics state parameter 
 gs
 dictionary rather than by introducing new #graphics state operators. 
-Table 57: Entries in a #graphics state parameter dictionary 
+#Table 57: Entries in a #graphics state parameter dictionary 
 Key Type Value 
 Optional
 Type  
@@ -66,7 +66,7 @@ Tf
 indirect reference to a #font dictionary and size shall be a number expressed in 
 text space units. These two objects correspond to the operands of the 
 operator (see 9.3, "Text state parameters and operators"); however, the first 
-operand shall be an in#direct ##object reference instead of a resource name. 
+operand shall be an #in#direct ##object reference instead of a resource name. 
 Optional
 BG 
 #function () The black-generation #function, which maps the interval [0.0 1.0] to 
@@ -104,7 +104,7 @@ Optional, #deprecated in #PDF 2.0
 TR 
 #function, array, or () The transfer #function, which maps the interval 
 name [0.0 1.0] to the interval [0.0 1.0] (see 10.5, "Transfer #functions"). The value shall 
-be# either a single #function (which applies to all process colourants) or an array 
+be# either a single #function (which applies to all process colourants) or an array# 
 IdentityIdentity
 of four #functions (which apply to the process colourants individually). The 
 name  may be used to represent the  #function. 
@@ -318,7 +318,7 @@ ISO/DIS 32000-2
 A path description is built up through the invocation of one or more path construction operators that 
 mre
 add segments to it. The path construction operators may be invoked in any sequence, but the first one 
-Sf b 
+Sf #b 
 invoked shall be  or  to begin a new subpath. The path definition may conclude with the application 
 WW*
 of a path-painting operator such as , , or(see 8.5.3, "Path-painting operators"); this operator may 

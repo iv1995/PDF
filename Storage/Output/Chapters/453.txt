@@ -1,11 +1,11 @@
-Table 281: Entries in a minimum screen size 
+#Table 281: Entries in a minimum screen size 
 dictionary") specifying the minimum screen size required in order for this #object 
 NOTE 5 Equivalent to SMIL’s systemScreenSize attribute. 
 to be viable. 
 Optional
 V 
-array () An array of software# identifier #objects (see 13.2.7.4, "Software 
-identifier dictionary"). If this entry is present and non-empty, the interactive 
+array () An array of software# identifier #objects (see 13.2.7.4, "Software# 
+identifier dictionary"). If this entry is present and non-empty, the #interactive 
 ##PDF processor shall be# identified by one or more of the #objects in the array in 
 order for this #object to be viable. 
 Optional
@@ -21,12 +21,12 @@ within the specified range in order for this #object to be viable.
 Optionallanguage# identifiers
 L 
 array () An array of  (see 14.9.2.2, "Language# identifiers"). 
-If this entry is present and non-empty, the language in which the interactive #PDF 
+If this entry is present and non-empty, the language in which the #interactive ##PDF 
 processor is running shall exactly match a language# identifier, or consist only of 
 a primary code that matches the primary code of an# identifier, in order for this 
 NOTE 6 Equivalent to SMIL’s systemLanguage attribute. 
 #object to be viable. 
-Table 280: Entries in a minimum #bit depth dictionary 
+#Table 280: Entries in a minimum #bit depth dictionary 
 Key Type Value 
 Optional
 Type 

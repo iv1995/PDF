@@ -1,9 +1,9 @@
-Table 249: Entries in an FDF field 
+#Table 249: Entries in an FDF field 
 dictionary" shows the contents of this type of dictionary. Most of the entries have the same form and 
-meaning as the corresponding entries in a field dictionary ("Table 226: Entries common to all field 
-dictionaries", "#Table 228: Additional entries common to all fields containing variable text", "Table 232: 
+meaning as the corresponding entries in a field dictionary ("#Table 226: Entries common to all field 
+dictionaries", "#Table 228: Additional entries common to all fields containing variable text", "#Table 232: 
 Additional entry specific to a text field", and "#Table 234: Additional entries specific to a choice field") or 
-a widget annotation dictionary ("#Table 170: Entries in an appearance dictionary" and "Table 191: 
+a widget annotation dictionary ("#Table 170: Entries in an appearance dictionary" and "#Table 191: 
   
 Additional entries specific to a widget annotation"). Unless otherwise indicated in the table, importing a 
 field causes the values of the entries in theFDFfield dictionary to replace those of the corresponding 
@@ -15,8 +15,8 @@ Kids
 array An array containing the immediate children of this field. 
   
  
-Unlike the children of fields in a #PDF file, which shall be specified as in#direct #object 
-references, those of anFDFfield may be# either direct or in#direct #objects.
+Unlike the children of fields in a #PDF file, which shall be specified as #in#direct ##object 
+references, those of anFDFfield may be# either direct or #in#direct #objects.
 (Required) 
 T 
 text string The partial field name (see 12.7.4.2, "Field names"). 
@@ -27,8 +27,8 @@ the descriptions of individual field types in 12.7.5, "Field types" for further
 information. 
 (Optional) 
 Ff 
-integer A set of flags specifying various #characteristics of the field (see "Table 
-227: Field flags common to all field types", "Table 229: Field flags specific to button 
+integer A set of flags specifying various #characteristics of the field (see "#Table 
+227: Field flags common to all field types", "#Table 229: Field flags specific to button 
 fields", "#Table 231: Field flags specific to text fields", and "Table 233: Field flags 
  Ff 
 "). When imported into an interactive form, the value of this 
@@ -105,7 +105,7 @@ similar to an appearance dictionary (see "Table 170: Entries in an appearance
 "), except that the values of the , and  entries shall all be named 
 dictionary
  AP 
-page reference dictionaries ("Table 253: Entries in an FDF named page reference 
+page reference dictionaries ("#Table 253: Entries in an FDF named page reference 
 dictionary"). This entry shall be ignored if anentry is present. 
 (Optional; #PDF 1.3; button fields only) 
 IF 

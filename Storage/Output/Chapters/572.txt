@@ -1,4 +1,4 @@
-Table 378: Standard layout attributes common to all standard 
+#Table 378: Standard layout attributes common to all standard 
 structure types" may apply to structure elements of any of the standard at the block level (BLSEs) or the 
 inline level (ILSEs). 
 © ISO 2017 – All rights reserved 746 
@@ -163,8 +163,7 @@ four edges.
 HiddenNone
   No border. Forces the computed value of  to be 0. 
   Same as , except in terms of border conflict resolution for table 
-
-
+ 
 Dotted
 elements. 
 Dashed

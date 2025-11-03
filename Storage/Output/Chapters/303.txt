@@ -1,4 +1,4 @@
-Table 
+#Table 
 145: Additional entries specific to a transparency #group attributes dictionary". 
  #Group 
 A page #object (see 7.7.3.3, "Page #objects") may also have aentry, whose value is a #group 
@@ -161,7 +161,7 @@ account.
  #Group S
 The actions described previously shall occur only for a transparency #group X#Object — a form X#Object 
 Transparency
- #Group Group
+ #Group #Group
 having aentry that contains a #group attributes subdictionary whose #group subtype () is 
 Transparency
 . An ordinary form X#Object — one having noentry — or having a  entry with 
@@ -234,7 +234,7 @@ PaintTypePaintType
 The foregoing discussion applies to both coloured ( 1) and uncoloured ( 2) tiling 
 patterns. In the latter case, the restriction that an uncoloured pattern’s definition shall not specify 
 colours extends as well to any transparency #group that the definition may include. There are no 
-corresponding restrictions, however, on specifying transparency-related parameters in the graphics 
+corresponding restrictions, however, on specifying transparency-related parameters in the #graphics 
 state. 
 © ISO 2017 – All rights reserved 415 
 
@@ -339,7 +339,7 @@ The colour component value, or tint, for a spot colour specifies the concentrati
 spot colourant. Tints are conventionally represented as subtractive, rather than additive, values. 
  Separation  DeviceN 
 Spot colours are inherently device-dependent and are not always available. In the opaque imaging 
-tint transformation function
+tint transformation #function
 model, each use of a spot colour component in aorcolour space is accompanied 
 by an alternate colour space and a  for mapping tint values into that space. 
 This enables the colour to be approximated with process colourants when the corresponding spot 
@@ -516,7 +516,7 @@ Darken
 unwanted interactions with components whose values were never specified within the #group. 
 11.7.4.3Compati#bility with opaque overprinting 
  
-For compati#bility with the methods of overprint control used in the opaque imaging model, a #PDF 
+For compati#bility with the methods of overprint control used in the opaque imaging model, a ##PDF 
 processor may consider implementing a special blend mode that consults the overprint-related 
 #graphics state parameters to compute its result. This mode shall apply only when painting elementary 
 graphics #objects (fills, strokes, text, images, and shadings). It shall not be invoked explicitly; rather, it 
@@ -575,7 +575,7 @@ colour components and 𝐶𝐶
 space representing a spot colour component, the value is 𝐶𝐶
 components and all other spot components. 
 NOTE 2 In the previous descriptions, the term current colour space refers to the colour space used for a 
-painting operation. This can be specified by the current colour space parameter in the graphics 
+painting operation. This can be specified by the current colour space parameter in the #graphics 
 state (see 8.6.2, "Colour values"), implicitly by colour operators such as rg (8.6.8, "Colour 
 operators"), or by theentry of an image X#Object (8.9.5, "Image dictionaries"). In the 
  ColorSpace 

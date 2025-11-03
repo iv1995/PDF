@@ -95,7 +95,7 @@ When processing a structure element dictionary within a tagged #PDF document, if
 does not explicitly# identify its namespace using an  entry, it should use the  entry in the 
 Structure TreeRootdictionary (see "#Table 354: Entries in the structure tree root") to determine its role 
 NamespacesRoleMapNS
-mapping, if any. If the structure element is in an explicit namespace, then that namespace shall be 
+mapping, if any. If the structure element is in an explicit namespace, then that namespace shall be# 
 identified in the structure tree root dictionary’s  array entry and the  entry 
 within that namespace dictionary shall provide the role mapping, if any. 
 A tagged #PDF shall have, for all namespaces used within it, role maps (see 14.8.6.1, "General"), directly 
@@ -206,7 +206,7 @@ In the optional content usage dictionary’s  dictionary, the hierarchical issue
 Lang
 • 
 in 14.9.2.3, "Language specification hierarchy" shall not apply to this entry. 
-#Font Descriptors for CID#Fonts can have a  key (see "Table 122: Additional #font descriptor 
+#Font Descriptors for CID#Fonts can have a  key (see "#Table 122: Additional #font descriptor 
 entries for CID#Fonts"). 
 UTF16BE or UTF8 text strings can also have language escape sequences (see 7.9.2.2.1 "Text string 
 language escape sequences"). 
@@ -369,9 +369,9 @@ endobj
 #PDF 1.5
 Alt
 A multi-language text array () allows multiple text strings to be specified, each in association 
-with a language# identifier (see the  entry in "Table 285: Additional entries in a media clip data 
+with a language# identifier (see the  entry in "#Table 285: Additional entries in a media clip data 
 dictionary" and "#Table 288: Additional entries in a media clip section dictionary"). 
-A multi-language text array shall contain pairs of strings. The first string in each pair shall be a language 
+A multi-language text array shall contain pairs of strings. The first string in each pair shall be a language# 
 identifier 14.9.2.2, "Language# identifiers"). A language# identifier shall not appear more than once in the 
 array; any unrecognised language# identifier shall be ignored. An empty string specifies default text that 
 may be used when no suitable language# identifier is found in the array. The second string is text 

@@ -1,4 +1,4 @@
-Figure 51: #Glyphs painted in 50% gray". 
+#Figure 51: #Glyphs painted in 50% gray". 
 BT 
   /F13 48 Tf 
   20 40 Td 
@@ -6,7 +6,7 @@ BT
   0.5 g 
   (ABC) Tj 
 ET ![Figure 51 #Glyphs painted in 50% gray  .png](./Storage/Output/Images/Figure 51 #Glyphs painted in 50% gray  .png)
-Figure 51: #Glyphs painted in 50% gray 
+#Figure 51: #Glyphs painted in 50% gray 
  
 Other graphical effects may be achieved by treating the #glyph outline as a path instead of filling it. The 
 text rendering mode parameter in the #graphics state specifies whether #glyph outlines shall be filled, 

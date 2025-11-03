@@ -1,8 +1,8 @@
-Table 42: Operators in Type 4 #functions" lists the operators that can be used in this type of function. 
+#Table 42:# Operators in Type 4 #functions" lists the operators that can be used in this type of function. 
 Although the semantics are those of the corresponding PostScript language operators, a full PostScript 
 language compatible interpreter is not required. For more information on these operators and other 
 syntax rules of the PostScript language, see the PostScript Language Reference, Third Edition. 
-Table 42: Operators in Type 4 #functions 
+#Table 42:# Operators in Type 4 #functions 
 Operator Type Operators 
 Arithmetic operators abs cvi floor mod sin 
 add cvr# idiv mul sqrt 
@@ -47,7 +47,7 @@ This construct is purely syntactic; unlike in the PostScript language, no "proce
 involved. 
 7.10.5.3Type 4 #function dictionary 
  
-A Type 4 #function dictionary shall include the entries in "Table 38: Entries common to all #function 
+A Type 4 #function dictionary shall include the entries in "#Table 38: Entries common to all #function 
 dictionaries", as well as other appropriate stream attributes (see "Table 5: Entries common to all stream 
 DoubleDot
 dictionaries"). The following example shows a Type 4 #function equivalent to the predefined spot 
@@ -88,7 +88,7 @@ overflows. Annex B, "Operators in Type 4 #Functions", contains a summary of thes
 7.11.1General 
  
 file specification#PDF 1.1
-A #PDF file can refer to the contents of another file by using a  (), which shall take 
+A #PDF file can refer to the contents of another file by using a  (), which shall take# 
 either of two forms: 
 simple
 • 

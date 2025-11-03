@@ -68,33 +68,33 @@ integer The number of non-embedded #fonts found in the document
 (Optional) 
 DevDepGS_OP  OP 
 integer The number of references to the #graphics state parameter
-found in the document (see "Table 57: Entries in a #graphics state 
+found in the document (see "#Table 57: Entries in a #graphics state 
 parameter dictionary"). 
 (Optional) 
 DevDepGS_HT  HT 
 integer The number of references to the #graphics state parameter
-found in the document (see "Table 57: Entries in a #graphics state 
+found in the document (see "#Table 57: Entries in a #graphics state 
 parameter dictionary"). 
 (Optional) 
 DevDepGS_TR  TR 
 integer The number of references to the #graphics state parameter
-found in the document (see "Table 57: Entries in a #graphics state 
+found in the document (see "#Table 57: Entries in a #graphics state 
 parameter dictionary"). 
 (Optional) 
 DevDepGS_UCR  
 UCR 
 integer The number of references to the #graphics state parameter
-found in the document (see "Table 57: Entries in a #graphics state 
+found in the document (see "#Table 57: Entries in a #graphics state 
 parameter dictionary"). 
 (Optional) 
 DevDepGS_BG  BG 
 integer The number of references to the #graphics state parameter
-found in the document (see "Table 57: Entries in a #graphics state 
+found in the document (see "#Table 57: Entries in a #graphics state 
 parameter dictionary"). 
 (Optional) 
 DevDepGS_FL  FL 
 integer The number of references to the #graphics state parameter
-found in the document (see "Table 57: Entries in a #graphics state 
+found in the document (see "#Table 57: Entries in a #graphics state 
 parameter dictionary"). 
 (Optional) 
 Annotations 
@@ -144,12 +144,12 @@ ii+1ii+1
 �𝑥𝑥
 i=0
  
-Beginning with #PDF 1.6, such information may be stored in a measure dictionary (see "Table 266: 
+Beginning with #PDF 1.6, such information may be stored in a measure dictionary (see "#Table 266: 
 Entries in a measure dictionary"). Measure dictionaries provide information about measurement units 
 associated with a rectangular area of the document known as a viewport. 
 #PDF 1.6
  VP 
 A viewport () is a rectangular region of a page. The optionalentry in a page dictionary (see 
-"Table 31: Entries in a page #object") shall specify an array of viewport dictionaries, whose entries shall 
+"#Table 31: Entries in a page #object") shall specify an array of viewport dictionaries, whose entries shall 
 Measure
 be as shown in "

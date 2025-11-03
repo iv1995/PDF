@@ -1,4 +1,4 @@
-Table 376: 
+#Table 376: 
 Standard structure attribute owners".  
 #Table 376: Standard structure attribute owners 
 Owner value for Description 

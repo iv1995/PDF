@@ -13,18 +13,18 @@ is described in 7.5.2, "File header".
 A ##PDF processor is any software, hardware or any other active agent that writes, reads, updates or 
 otherwise processes a #PDF file which conforms to this part of ISO 32000, and does so in a manner that 
 conforms to this part of ISO 32000. Two specialised classifications of ##PDF processors are ##PDF writers, 
-which create #PDF documents, and ##PDF readers, which interpret #PDF documents. The purpose of a #PDF 
-reader can be to display or print a document, or to extract data from a document. An interactive #PDF 
+which create #PDF documents, and ##PDF readers, which interpret #PDF documents. The purpose of a ##PDF 
+reader can be to display or print a document, or to extract data from a document. An #interactive ##PDF 
 processor interacts with a user while processing the #PDF file and as a consequence may read or write 
 #PDF files. In this part of ISO 32000, when it is important to distinguish what is written into a #PDF file, 
 the more specialised term ##PDF writer will be used, when it is important to distinguish the act of reading 
 from the contents of a #PDF file, the term ##PDF reader will be used and when it is important to distinguish 
 the act of user interaction while processing a #PDF file, the term #interactive ##PDF processor will be used. 
 Otherwise, the more general term ##PDF processor will be used. 
-Some ##PDF processors may also choose to support fragment# identifiers 
+Some ##PDF processors may also choose to support# fragment# identifiers 
 (https://www.w3.org/DesignIssues/Fragment.html
 ) which are added at the end of a URI to provide a 
-reference to subordinate content within the target of the URI. These fragment# identifiers anchor onto 
+reference to subordinate content within the target of the URI. These# fragment# identifiers anchor onto 
 specific content or #characteristics of the #PDF document to which the URI refers, and represent# either an 
 action to be performed on the document when it is opened, or an #object within the document (see 
 Annex O, "Fragment# identifiers"). 
@@ -36,7 +36,7 @@ If a ##PDF writer creates a #PDF file, the file created shall conform to this pa
 adds or amends #objects in a pre-existing #PDF file then the added or amended elements shall conform to 
 the file format requirements of this part of ISO 32000, and shall be consistent with related existing 
 elements. 
-With the exception of linearized #PDF files, all #PDF files should be read using the trailer and cross-
+With the exception of# linearized #PDF files, all #PDF files should be read using the trailer and cross-
 reference table as described in 7.5, "File structure". Linearized files should be read as specified in Annex 
 F, "Linearized #PDF". Reading a non-linearized file in a serial manner is not reliable because of the way 
 #objects are to be processed after an incremental update. A ##PDF processor shall respect and honour 

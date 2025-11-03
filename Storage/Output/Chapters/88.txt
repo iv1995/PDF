@@ -1,4 +1,4 @@
-Table 17: Additional entries specific to a cross-
+#Table 17: Additional entries specific to a cross-
 reference stream dictionary" may be indirect; in fact, some (such as  in "Table 15: Entries in 
 • 
 the file trailer dictionary") shall be indirect. 
@@ -38,7 +38,7 @@ meaningful in hybrid-reference files; see
  Prev 
 ". This entry 
 applications that do not support compressed reference streams
-has the same #function as theentry in the trailer dictionary ("Table 15: 
+has the same #function as theentry in the trailer dictionary ("#Table 15: 
 Entries in the file trailer dictionary"). 
 © ISO 2017 – All rights reserved 70 
 

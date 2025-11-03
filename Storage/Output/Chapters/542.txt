@@ -1,4 +1,4 @@
-Table 347: Additional entries in a metadata 
+#Table 347: Additional entries in a metadata 
 stream dictionary". 
 #Table 347: Additional entries in a metadata stream dictionary 
 Key Type Value 

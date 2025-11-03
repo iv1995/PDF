@@ -1,4 +1,4 @@
-Table 183: 
+#Table 183: 
 Additional entries specific to a caret annotation" lists the entries specific to caret annotations. 
 #Table 183: Additional entries specific to a caret annotation 
 Key Type Value 
@@ -10,7 +10,7 @@ name The type of annotation that this dictionary describes; shall be
 (Optional; #PDF 1.5) 
 RD 
 Rect
-#rectangle A set of four numbers that shall describe the numerical 
+rectangle A set of four numbers that shall describe the numerical 
 differences between two #rectangles: the  entry of the annotation and the 
 Sy
 actual boundaries of the underlying caret. Such a difference can occur. When 

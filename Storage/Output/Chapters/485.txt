@@ -1,4 +1,4 @@
-Table 310: Entries in a 3D activation 
+#Table 310: Entries in a 3D activation 
 dictionary") that defines the times at which the annotation shall be activated 
 and deactivated and the state of the 3D artwork instance at those times. 
 Default value: an activation dictionary containing default values for all its 
@@ -9,7 +9,7 @@ false
 boolean () A flag indicating the primary use of the 3D annotation. If , it is 
  
 intended to be interactive; if , it is intended to be manipulated 
-programmatically, as with an ECMAScriptanimation. Interactive #PDF 
+programmatically, as with an ECMAScriptanimation. #Interactive ##PDF 
 processors may present different user interface controls for interactive 3D 
 annotations (for example, to rotate, pan, or zoom the artwork) than for those 
 true
@@ -33,7 +33,7 @@ height, respectively, of .
 Optional; #PDF 2.0
 3DU 
 dictionary () A 3D units dictionary that specifies the units definitions 
-for the 3D data associated with this annotation. See "Table 325: Entries in a 
+for the 3D data associated with this annotation. See "#Table 325: Entries in a 
 3D units dictionary". 
 (Optional; #PDF 2.0)
 GEO Geospatial3D

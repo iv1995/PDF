@@ -1,4 +1,4 @@
-Table 365: #Grouping 
+#Table 365: #Grouping 
 level structure types", that are used to organise the overall structure of content in a tagged #PDF. 
 #Table 365: #Grouping level structure types 
 Structure Category Description 

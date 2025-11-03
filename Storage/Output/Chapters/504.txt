@@ -77,7 +77,7 @@ boolean () . A flag indicating that the portion of a model on the
 cut side of a section plane shall be viewed using a transparent render mode. If , the 
 clipped portion of the model shall be drawn as transparent regardless of the render mode 
 of the non-cut portion of the model. The recommend appearance uses graphical settings 
-Table 
+Table# 
 identical or similar to those used by the existing Transparent 3DRenderMode in "
 falsefalse
 319: Render modes" already supported by the 13.6.4.4, "3D render mode dictionaries". If 

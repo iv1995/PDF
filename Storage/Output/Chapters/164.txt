@@ -1,4 +1,4 @@
-Table 
+#Table 
 68: Ranges for typical ICC colour spaces". 
 #Table 68: Ranges for typical ICC colour spaces 
 ICC Colour Space Component Ranges 
@@ -42,13 +42,13 @@ The representations ofcolour spaces are less compact than , , and , but
 can represent a wider range of colour spaces. 
 NOTE 2 One particular colour space is the "standard " or , defined in the International 
 Electrotechnical Commission (IEC) document 
-RGBsRGB
+RGBsRG#B
 In #PDF, the  colour space can only be expressed as an
  
 Color Measurement and Management in 
 space, although it can be approximated by aspace. 
 ICCBased  CalRGB 
-Multimedia Systems and Equipment. sRGB
+Multimedia Systems and Equipment. sRG#B
  ICCBased 
 EXAMPLE The following shows ancolour space for a typical three-component RGB space. The profile’s data 
  FlateDecode 
@@ -179,11 +179,11 @@ NOTE 1 In workflows in which #PDF documents are intended for rendering on a spec
 device (such as a printing press with particular inks and media), it is often useful to specify the 
 source colours for some or all of a document’s #objects in a CIE-based colour space that matches 
 the calibration of the intended device. The resulting document, although tailored to the specific 
-#characteristics of the target device, remains device-independent and will produce reasonable 
+characteristics of the target device, remains device-independent and will produce reasonable 
 results if retargeted to a different output device. However, the expectation is that if the document 
 is printed on the intended target device, source colours that have been specified in a colour space 
 matching the calibration of the device will pass through unchanged, without conversion to and 
-from the intermediate CIE 1931  space as depicted in "Figure 24: Component transformations 
+from the intermediate CIE 1931  space as depicted in "#Figure 24: Component transformations 
 in a CIE-based ABC colour space". 
 XYZ
 NOTE 2 In particular, when colours intended for a CMYK output device are specified in an
@@ -242,5 +242,5 @@ riRI
 Rendering intents shall be specified with the  operator (see 8.4.4, "#Graphics state operators"), the  
 Intent
 entry in a #graphics state parameter dictionary (see 8.4.5, "#Graphics state parameter dictionaries"), or 
-with the  entry in image dictionaries (see 8.9.5, "Image dictionaries"). The value shall be a name 
+with the  entry in image dictionaries (see 8.9.5, "Image dictionaries"). The value shall be a name# 
 identifying the rendering intent. "

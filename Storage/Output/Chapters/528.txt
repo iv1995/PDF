@@ -16,7 +16,7 @@ artwork within theannotation.
 Active
 • 
 : The annotation displays a rendering of the artwork. This rendering is specified by the 
-annotation’s RichMediaSettings entry. (See "Table 334: Entries in a RichMediaSettings 
+annotation’s RichMediaSettings entry. (See "#Table 334: Entries in a RichMediaSettings 
 dictionary".) 
 The subsequent clauses describe the structural components of a rich media annotation, beginning with 
 the RichMediaSettings dictionary and its subcomponents, followed by the RichMediaContent dictionary, 
@@ -26,7 +26,7 @@ annotation.
  
 RichMediaSettings dictionary
   
-The  has a purpose similar to that of the 3D activation dictionary ("Table 
+The  has a purpose similar to that of the 3D activation dictionary ("#Table 
 310: Entries in a 3D activation dictionary") with the 3DAnnotationdescribed in 13.6.2, "3D 
 Annotations". The RichMediaSettings dictionary stores the conditions and responses that occur in 
 response to certain events, such as activation and deactivation of the annotation, and contains two 

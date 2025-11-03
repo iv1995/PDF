@@ -92,14 +92,14 @@ Implicit values:
  
 8.8.1General 
  
-external #objectXObject
+external #objectX#Object
 An  (commonly called an ) is a graphics #object whose contents are defined by a 
 self-contained stream, separate from the #content stream in which it is used. There are two types of 
 external #objects: 
-image XObject
+image X#Object
 • 
 An  (8.9.5, "Image dictionaries") represents a sampled visual image such as a 
-form XObject
+form X#Object
 • 
 photograph. 
 A  (8.10, "Form X#Objects") is a self-contained description of an ar#bitrary sequence of 

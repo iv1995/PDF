@@ -1,4 +1,4 @@
- 
+# 
  
 Parent-child relationships between standard structure elements 
 (Normative) 
@@ -62,7 +62,7 @@ DocumentFragment
 0..n Figure 
 0..n Formula 
 0..n Artifact 
-0..n Document 0..n Document 
+0..n Document 0..n #Document 
 Part 
 0..n DocumentFragment 0..n DocumentFragment 
 0..n Part 0..n Part 

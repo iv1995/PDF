@@ -220,7 +220,7 @@ operator may be placed in a page’s #content stream to force a reference to an 
 The property list associated with the marked content shall specify# either an optional content #group or 
 optional content membership dictionary to which the content belongs. Because a #group shall be an 
 Properties
-in#direct #object and a membership dictionary contains references to in#direct #objects, the property list 
+#in#direct #object and a membership dictionary contains references to #in#direct #objects, the property list 
 shall be a named resource listed in the  subdictionary of the current #resource dictionary (see 
 14.6.2, "Property lists"), as shown in Example 1 and Example 2 in this subclause. 
 OC

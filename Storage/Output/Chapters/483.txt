@@ -15,7 +15,7 @@ describes; shall be  for a slideshow dictionary.
 Required; #PDF 1.4
 Resources 
 #name tree () A #name tree that maps name strings to objects referenced 
-by the alternate presentation. Even though #PDF treats the strings in the name 
+by the alternate presentation. Even though #PDF treats the strings in the #name 
 tree as strings without a specified encoding, the slideshow shall interpret them 
 as UTF-8 encoded Unicode. 
 Required; #PDF 1.4

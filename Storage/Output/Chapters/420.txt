@@ -1,4 +1,4 @@
-Table 250: Entries 
+#Table 250: Entries 
 in an icon fit dictionary") specifying how to display a button field’s icon within the 
 annotation #rectangle of its widget annotation. 
 (Required; choice fields only) 

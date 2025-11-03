@@ -145,7 +145,7 @@ foregoing conditions.
 Together, these conditions ensure that only the #object itself shall contribute to the colour at the given 
 point, completely obscuring the backdrop. For portions of the page whose topmost #object is not fully 
 opaque or that are never painted at all, the default halftone and transfer #function for the page shall be 
-used (see "Table 52: Device-dependent #graphics state parameters"). 
+used (see "#Table 52: Device-dependent #graphics state parameters"). 
 If a graphics #object is painted with overprinting enabled—that is, if the applicable (stroking or 
 nonstroking) overprint parameter in the #graphics state is true—the halftone and transfer #function to 
 use at a given point shall be determined independently for each colour component. An #object is opaque 
@@ -187,7 +187,7 @@ or shadow section of an image can otherwise be lost. Black point compensation ad
 conversion problem by adjusting for differences between the darkest level of black achievable in one 
 UseBlackPtComp
 colour space and the darkest level of black achievable on another. The #graphics state parameter 
- ("Table 57: Entries in a #graphics state parameter dictionary) enables or disables the 
+ ("#Table 57: Entries in a #graphics state parameter dictionary) enables or disables the 
 use of black point compensation when doing colour conversions. 
  DeviceRGB  DeviceCMYK 
 A similar approach works for the black-generation and undercolour-removal #functions, which shall be 

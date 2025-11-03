@@ -37,7 +37,7 @@ digital display or printed output is a complex topic. The International Color Co
 (http://www.color.org
 understanding and using #ICC profiles" provides a good introductory overview. 
 A #PDF document may specify very little about the properties of the physical medium on which the 
-output will be produced; that information may be obtained from the following sources by a #PDF 
+output will be produced; that information may be obtained from the following sources by a ##PDF 
 processor: 
 • 
 • 
@@ -205,7 +205,7 @@ invocations of the black-generation and undercolour-removal #functions, respecti
 The black-generation and undercolour-removal #functions shall be defined as #PDF function dictionaries 
  BG  UCR  BG2 UCR2
 (see 7.10, "#Functions") that are parameters in the #graphics state. They shall be specified as the values of 
-theand(orand ) entries in a #graphics state parameter dictionary (see "Table 57: 
+theand(orand ) entries in a #graphics state parameter dictionary (see "#Table 57: 
 Entries in a #graphics state parameter dictionary"). Each #function shall be called with a single numeric 
 operand and shall return a single numeric result. 
 k
@@ -258,7 +258,7 @@ their complementary colours by subtracting them each from 1.0.
  
 Starting with #PDF 1.2, transfer #functions shall be defined as #PDF function #objects (see 7.10, 
 "#Functions"). There are two ways to specify transfer #functions: 
-current transfer function
+current transfer #function
 • 
 The  (#deprecated with #PDF 2.0) parameter in the #graphics state shall 
 consist of# either a single transfer #function or an array of four separate transfer #functions, one each 
@@ -315,7 +315,7 @@ converted to additive form by subtracting it from 1.0 before it is passed to the
 output of the #function shall always be in additive form and shall be passed on to the halftone #function in 
 that form. 
 Because transfer #functions produce device-dependent effects, a page description that is intended to be 
-TransferFunction
+Transfer#Function
 device-independent should not define a current transfer #function in the #graphics state, or define 
  in any halftone dictionaries. 
  DeviceGray 
@@ -397,7 +397,7 @@ ISO/DIS 32000-2
 in additive form; see 10.5, "Transfer #functions". 
 10.6.3Spot #functions 
  
-frequencyanglespot function
+frequencyanglespot #function
 A common way of defining a halftone screen is by specifying a , , and . The 
 frequency indicates the number of halftone cells per inch; the angle indicates the orientation of the grid 
 lines relative to the device coordinate system. As a cell’s desired gray level varies from black to white, 

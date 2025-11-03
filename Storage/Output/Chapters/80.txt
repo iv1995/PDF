@@ -1,4 +1,4 @@
-Table 11: Optional parameters for the 
+#Table 11: Optional parameters for the 
 CCITTFaxDecode #filter") may be used to cause each encoded scan line to be filled to a #byte 
 NOTE 3 Although this is not prescribed by the CCITT standard and fax machines never do this, some 
 boundary. 
@@ -12,12 +12,12 @@ ISO/DIS 32000-2
 data. 
 DamagedRowsBeforeError
 The #filter shall not perform any error correction or resynchronization, except as noted for the 
- parameter in "Table 11: Optional parameters for the CCITTFaxDecode 
+ parameter in "#Table 11: Optional parameters for the CCITTFaxDecode 
 #filter". 
-"Table 11: Optional parameters for the CCITTFaxDecode #filter" lists the optional parameters that may 
+"#Table 11: Optional parameters for the CCITTFaxDecode #filter" lists the optional parameters that may 
 be used to control the decoding. Except where noted otherwise, all values supplied to the decoding #filter 
 by any of these parameters shall match those used when the data was encoded. 
-Table 11: Optional parameters for the CCITTFaxDecode #filter 
+#Table 11: Optional parameters for the CCITTFaxDecode #filter 
 Key Type Value 
 K 
 Integer A code# identifying the encoding scheme used: 

@@ -1,6 +1,6 @@
-Table 
+#Table 
 49: Entries in a #developer extensions dictionary") specifying #developer-defined version information. 
-The extensions dictionary, all #developer extensions dictionaries, as well as their entries, shall be direct 
+The extensions dictionary, all #developer extensions dictionaries, as well as their entries, shall be #direct 
 #objects (i.e., this information shall be nested directly within the catalog dictionary with no indirect 
 © ISO 2017 – All rights reserved 140 
 
@@ -20,15 +20,15 @@ be .
 Required (#PDF 1.7
 Prefix name 
 dictionary ()) A #developer extensions dictionary denoting extensions used 
-(See "Table 49: Entries in a #developer extensions dictionary"). The key shall be a 
+(See "#Table 49: Entries in a #developer extensions dictionary"). The key shall be a 
 registered prefix name as described in Annex E, "#PDF Name Registry". 
 This entry may be repeated for each different #developer’s extensions used.  
  
 7.12.3#Developer extensions dictionary 
  
-"Table 49: Entries in a #developer extensions dictionary" describes the entries in a #developer extensions 
+"#Table 49: Entries in a #developer extensions dictionary" describes the entries in a #developer extensions 
 dictionary. 
-Table 49: Entries in a #developer extensions dictionary 
+#Table 49: Entries in a #developer extensions dictionary 
 Key Type Value 
 Optional
 Type 

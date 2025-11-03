@@ -48,7 +48,7 @@ MMH BE
 2 The full virtual desktop 
 3 The monitor specified by  in the media screen parameters  or
  
-dictionary (see "Table 294: Entries in a media screen parameters MH/BE 
+dictionary (see "#Table 294: Entries in a media screen parameters MH/BE 
 dictionary") Default value: 0.
 © ISO 2017 – All rights reserved 608 
 

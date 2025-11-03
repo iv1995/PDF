@@ -1,6 +1,6 @@
 #Table 82: Additional entries specific to a Type 5 shading dictionary" shows the shading dictionary 
 entries specific to this type of shading, in addition to those common to all shading dictionaries (see 
-"#Table 77: Entries common to all shading dictionaries") and stream dictionaries (see "Table 5: Entries 
+"#Table 77: Entries common to all shading dictionaries") and stream dictionaries (see "#Table 5: Entries 
 common to all stream dictionaries"). 
 The data stream for a Type 5 shading has the same format as for Type 4, except that Type 5 does not use 
 edge flags to define the geometry of the triangle mesh. The data for each vertex thus consists of the 
@@ -45,7 +45,7 @@ cc cc
 (see 
 minmaxminmaxmin,maxn,minn,max
 c
-Function
+#Function
 [x x y y , … ]  
 Only one pair of  values shall be specified if a  entry is present. 
 Optionalnn
@@ -68,7 +68,7 @@ component is out of range, it shall be adjusted to the nearest valid value.
 This entry shall not be used with ancolour space. 
  
 t
-Function
+#Function
 All vertex coordinates shall be expressed in the shading’s target coordinate space. If the shading 
 c
  c

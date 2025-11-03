@@ -1,4 +1,4 @@
-Table 303: Entries in a software# identifier dictionary 
+#Table 303: Entries in a software# identifier dictionary 
 Key Type Value 
 Optional
 Type 
@@ -11,7 +11,7 @@ U
 URIs"). 
 Optional
 L 
-array () The lower bound of the range of software versions that this software 
+array () The lower bound of the range of software versions that this software# 
 identifier dictionary specifies (see 13.2.7.4.3, "Version arrays"). Default value: 
 the array [0]. 
 Optionaltrue
@@ -24,7 +24,7 @@ that is, the software version shall be greater than or equal to  (see 13.2.7.4.3
 "Version arrays"). If , it shall not be inclusive. Default value: .
 Optional
 H 
-array () The upper bound of the range of software versions that this software 
+array () The upper bound of the range of software versions that this software# 
 identifier dictionary specifies (see 13.2.7.4.3, "Version arrays"). Default value: an 
 empty array []. 
 Optionaltrue

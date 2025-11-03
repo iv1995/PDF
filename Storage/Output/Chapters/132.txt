@@ -141,7 +141,7 @@ unpredictable behaviour.
  
 8.4.1General 
  
-graphics state
+#graphics state
 A ##PDF processor shall maintain an internal data structure called the  that holds current 
 graphics control parameters. These parameters define the global framework within which the graphics 
 operators execute. 

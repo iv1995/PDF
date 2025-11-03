@@ -1,4 +1,4 @@
-Figure 15: 
+#Figure 15: 
 Miter length"). When the limit is exceeded, the join is converted from a miter to a bevel. 
 j
 The ratio of miter length to line width is directly related to the angle  between the segments in user 

@@ -13,11 +13,11 @@ Assets
 detailed in 7.11.3, "File specification dictionaries". 
 Optional; #PDF 2.0
 Configurations 
-array () An array where each element is an in#direct ##object reference 
+array () An array where each element is an #in#direct ##object reference 
 to a RichMediaConfiguration dictionary. 
 Optional; #PDF 2.0
 Views 
-array () An array where each element is an in#direct ##object reference 
+array () An array where each element is an #in#direct ##object reference 
 to a 3D view dictionary. See "#Table 315: Entries in a 3D view dictionary" for the 
 details of the entries of this dictionary. 
 Default value: If no views are specified, default values shall used for the 
@@ -28,8 +28,8 @@ background colour, and camera data.
  
 embedded file specification dictionaries
 Assets
-The  entry takes a #name tree of . (For usage, see "Table 
-341: Entries in a RichMediaContent dictionary" and "Table 343: Entries in a RichMediaInstance 
+The  entry takes a #name tree of . (For usage, see "#Table 
+341: Entries in a RichMediaContent dictionary" and "#Table 343: Entries in a RichMediaInstance 
 dictionary".) 
 The text string that represents the file name in the #name tree shall match the values stored for both the 
 © ISO 2017 – All rights reserved 683 

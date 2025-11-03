@@ -1,4 +1,4 @@
- 
+# 
  
 Advice on Maximising Porta#bility 
 (Informative) 
@@ -11,7 +11,7 @@ particular device and in a particular operating environment will always have pra
 computation whose intermediate results exceeds a limit, an error occurs. To avoid this situation, and to 
 ensure porta#bility of #PDF documents across a wide range of devices, this annex provides guidance to 
 both ##PDF writers and ##PDF processors. 
-This annex highlights some aspects of this #PDF standard which can cause porta#bility issues across #PDF 
+This annex highlights some aspects of this #PDF standard which can cause porta#bility issues across ##PDF 
 processors and devices, however this annex is not intended as a detailed implementation guide. Issues 
 can be classified into three main classes: 
 Architectural limits Memory limits File limits 

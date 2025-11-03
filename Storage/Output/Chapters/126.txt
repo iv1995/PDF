@@ -1,12 +1,12 @@
-Table 
+#Table 
 50: Operator categories" summarises these categories for all #PDF operators. 
 #Table 50: Operator categories 
 Operators Location 
 Category 
 w, J, j, M, d, ri, i, gs 
-General #graphics state "Table 56: #Graphics state operators" 
+General #graphics state "#Table 56: #Graphics state operators" 
 q, Q, cm 
-Special #graphics state "Table 56: #Graphics state operators" 
+Special #graphics state "#Table 56: #Graphics state operators" 
 m, l, c, v, y, h, re 
 Path construction "#Table 58: Path construction operators" 
 S, s, f, F, f*, B, B*, b, b*, n 
@@ -14,7 +14,7 @@ Path painting "#Table 59: Path-painting operators"
 W, W* 
 Clipping paths "#Table 60: Clipping path operators" 
 BT, ET 
-Text #objects "Table 105: Text #object operators" 
+Text #objects "#Table 105: Text #object operators" 
 Tc, Tw, Tz, TL, Tf, Tr, Ts 
 Text state "#Table 103: Text state operators" 
 Td, TD, Tm, T* 
@@ -22,7 +22,7 @@ Text positioning "#Table 106: Text-positioning operators"
 Tj, TJ, ', " 
 Text showing "#Table 107: Text-showing operators" 
 d0, d1 
-Type 3 #fonts "Table 111: Type 3 #font operators" 
+Type 3 #fonts "#Table 111: Type 3 #font operators" 
 CS, cs, SC, SCN, sc, scn, G, 
 g, RG, rg, K, k 
 Color "#Table 73: Colour operators" 
@@ -31,7 +31,7 @@ Shading patterns "#Table 76: Shading operator"
 #BI,# ID,# EI 
 Inline images "Table 90: Inline image operators" 
 Do 
-X#Objects "Table 86: X#Object operator" 
+X#Objects "#Table 86: X#Object operator" 
 MP, DP, BMC, BDC, EMC 
 Marked content "Table 351: Marked-content operators" 
 BX, EX 

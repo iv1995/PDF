@@ -1,4 +1,4 @@
-The coordinate mapping for the shading is given by the surface , defined as 
+#The coordinate mapping for the shading is given by the surface , defined as 
 CDB
 S=S
 +S−S 

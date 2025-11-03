@@ -25,16 +25,16 @@ THTD.
 Default value: 1. 
 This entry shall only have an effect for structure elements of type of  or  
 (Optional; not inheritable)
-Headers 
+Headers# 
 IDTH
-array  An array of #byte strings, where each string shall be the element 
+array  An array of #byte strings, where each string shall be the element# 
 identifier (see the  entry in "Table 355: Entries in a structure element dictionary") for a  
 THTD
 structure element that shall be used as a header associated with this cell. 
 HeadersID
-This entry shall only have an effect for structure elements of type of  or . 
+This entry shall only have an effect for structure elements of type of  or .# 
 IDID
-The order in which the entries in the  array are listed shall be row s followed by 
+The order in which the entries in the  array are listed shall be row s followed by# 
 IDHeaders
 column s. The row and column s shall be ordered from most specific to most general. 
 If the scope for any cells with an  listed in the  attribute of a cell cannot be 
@@ -81,7 +81,7 @@ Scope
 • 
 otherwise, if it is in the first column, the  is assumed to be . 
 otherwise, the  is assumed to be . 
-These assumptions are used by the algorithm following "Table 371: Table standard structure 
+These assumptions are used by the algorithm following "#Table 371: Table standard structure 
 types" for determining which headers are associated with a cell. 
 (Optional; not inheritable; #PDF 2.0)
 Short TH

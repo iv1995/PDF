@@ -1,4 +1,4 @@
-Table 225: 
+#Table 225: 
 Signature flags", and 12.7.5.5, "Signature fields"). Default value: 0. 
 (Required if any fields in the document have additional-actions 
 CO 
@@ -71,7 +71,7 @@ the operation.
 field dictionary
 Each field in a document’s interactive form shall be defined by a , which shall be an 
 inheritable
-in#direct #object. The field dictionaries may be organised hierarchically into one or more tree structures. 
+#in#direct #object. The field dictionaries may be organised hierarchically into one or more tree structures. 
 Many field attributes are , meaning that if they are not explicitly specified for a given field, 
 their values are taken from those of its parent in the field hierarchy. Such inheritable attributes shall be 
 Required; inheritable

@@ -1,9 +1,9 @@
-Table 291: Entries in a media play 
+#Table 291: Entries in a media play 
 parameters MH/BE dictionary") shall be honoured for the media play 
 parameters to be considered viable. 
 Optional
 BE 
-dictionary () A dictionary whose entries (see "Table 291: Entries in a media play 
+dictionary () A dictionary whose entries (see "#Table 291: Entries in a media play 
 parameters MH/BE dictionary") shall only be honoured in a "best effort" sense. 
 #Table 291: Entries in a media play parameters MH/BE dictionary 
 Key Type Value 

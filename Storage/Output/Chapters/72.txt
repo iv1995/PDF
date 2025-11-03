@@ -1,4 +1,4 @@
-Table 3: Escape 
+#Table 3: Escape 
 sequences in literal strings". If the #character following the REVERSE SOLIDUS is not one of those shown 
 in "#Table 3: Escape sequences in literal strings", the REVERSE SOLIDUS shall be ignored. 
 #Table 3: Escape sequences in literal strings 
@@ -36,7 +36,7 @@ EXAMPLE 3
 ) 
 (So does this one.\n) 
  
-The \ddd escape sequence provides a way to represent #characters outside the printable #ASCII #character 
+The \ddd escape sequence provides a way to represent #characters outside the printable #ASCII ##character 
 set. 
 EXAMPLE 4 
 (This string contains \245two octal #characters\307.) 
@@ -75,7 +75,7 @@ and GREATER-THAN SIGN (3Eh)).
 EXAMPLE 1 
 <4E6F762073686D6F7A206B6120706F702E> 
  
-Each pair of hexadecimal digits defines one #byte of the string. White-space #characters (see Table 1) shall 
+Each pair of hexadecimal digits defines one #byte of the string. #White-space #characters (see Table 1) shall 
 be ignored. 
 If the final digit of a hexadecimal string is missing — that is, if there is an odd number of digits — the 
 final digit shall be assumed to be 0. 
@@ -91,7 +91,7 @@ is a 3-#byte string containing the #characters whose hexadecimal codes are 90, 1
  
  
 Beginning with #PDF 1.2 a #name #object is an atomic symbol uniquely defined by a sequence of any 
-#characters (8-#bit values) except null (#character code 0). Uniquely defined means that any two name 
+#characters (8-#bit values) except null (#character code 0). Uniquely defined means that any two #name 
 #objects that, after all escaping is expanded (see below) and the resulting sequences of #bytes are not an 
 exact #binary match denote different #objects. Atomic means that a name has no internal structure; 
 although it is defined by a sequence of #characters, those #characters are not considered elements of the 

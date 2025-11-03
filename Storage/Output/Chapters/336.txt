@@ -1,4 +1,4 @@
-Table 172: Additional entries in an annotation dictionary specific to markup 
+#Table 172: Additional entries in an annotation dictionary specific to markup 
 annotations"). These annotations have text that appears as part of the annotation and may be displayed 
 in other ways by an #interactive ##PDF processor, such as in a comments pane. Markup annotations may be 
 divided into the following groups: 
@@ -115,9 +115,9 @@ uses and behaviours of a single markup annotation type. If this entry is not
 present or its value is the same as the annotation type, the annotation shall 
 have no explicit intent and should behave in a generic manner in an 
 #interactive ##PDF processor. 
-Free text annotations ("Table 177: Additional entries specific to a free text 
-annotation"), line annotations ("Table 178: Additional entries specific to a 
-line annotation"), polygon annotations ("Table 181: Additional entries 
+Free text annotations ("#Table 177: Additional entries specific to a free text 
+annotation"), line annotations ("#Table 178: Additional entries specific to a 
+line annotation"), polygon annotations ("#Table 181: Additional entries 
 specific to a polygon or polyline annotation"), (#PDF 1.7) polyline annotations 
 ("#Table 181: Additional entries specific to a polygon or polyline annotation") 
 Table 184: Additional entries specific to a rubber 

@@ -1,4 +1,4 @@
-Table 257: Entries in the DocMDP 
+#Table 257: Entries in the DocMDP 
 transform parameters dictionary") shall indicate the author’s specification of which changes to the 
 DocMDP
 document will invalidate the signature. (These changes to the document shall also be prevented if the 

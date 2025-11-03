@@ -23,7 +23,7 @@ catalog dictionary (see 7.7.2, "Document catalog dictionary"). The first
 thread in the array has index 0. 
 The title of the thread as specified in its thread information dictionary 
 "). If two or more threads 
-(see "Table 162: Entries in a thread dictionary
+(see "#Table 162: Entries in a thread dictionary
 Threads
  
 have the same title, the one appearing first in the document catalog’s 

@@ -39,7 +39,7 @@ default () entries in thearray; see discussion following this Table.
 V
  VA 
 The  entry selects the view to apply to the annotation specified by TA. This view may be one of the 
-predefined views specified by theentry of the 3D stream (see "Table 311: Entries in a 3D stream 
+predefined views specified by theentry of the 3D stream (see "#Table 311: Entries in a 3D stream 
 dictionary") or a unique view specified here. 
 NP
 If the predefined view is specified by the names  (next) or  (previous), it should be interpreted in the 

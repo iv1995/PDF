@@ -1,8 +1,8 @@
-Table 23: Additional encryption dictionary entries for public-key 
+#Table 23: Additional encryption dictionary entries for public-key 
 security handlers" as described below. 
-Filter
+#Filter
 The  entry shall be the name of a public-key security handler. This #filter entry shall be the name of 
-the public key handler used to encrypt the document. See "Table 20: Entries common to all encryption 
+the public key handler used to encrypt the document. See "#Table 20: Entries common to all encryption 
 dictionaries". 
 NOTE Examples of existing security handlers that support public-key encryption are Entrust.PPKEF, 
 Adobe.PPKLite, and Adobe.PubSec.  
@@ -32,7 +32,7 @@ adbe.pkcs7.s5
  Sub#Filter 
 list. 
 Whenis , recipient lists shall be specified in the crypt 
-#filter dictionary; see "Table 27: Additional crypt #filter dictionary entries for 
+#filter dictionary; see "#Table 27: Additional crypt #filter dictionary entries for 
 public-key security handlers". 
 Required
 P 

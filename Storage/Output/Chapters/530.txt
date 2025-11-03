@@ -1,4 +1,4 @@
-Table 336: Entries 
+#Table 336: Entries 
 in a RichMediaDeactivation dictionary") that specifies the condition and type of 
 unloading (restart or pause) that occurs during deactivation. 
  
@@ -6,17 +6,17 @@ unloading (restart or pause) that occurs during deactivation.
  
 RichMediaActivation dictionary
 The  specifies the style of presentation, default script behavior, default 
-view information, and animation style when the annotation is activated. "Table 335: Entries in a 
+view information, and animation style when the annotation is activated. "#Table 335: Entries in a 
 RichMediaActivation dictionary" details the contents of the dictionary. 
 script array
 Assets
-The activation dictionary includes a . Each element contains an in#direct ##object reference to 
+The activation dictionary includes a . Each element contains an #in#direct ##object reference to 
 file specification #objects that are also referenced by the  #name tree of the RichMediaContent 
   
 dictionary. When the annotation is activated, each script in the array shall be executed in order in a 
 common environment per annotation by the rich media run timeECMAScriptinterpreter. 
 Views
-There may be an optional reference to a view in the scene’s  array (see "Table 341: Entries in a 
+There may be an optional reference to a view in the scene’s  array (see "#Table 341: Entries in a 
 RichMediaContent dictionary") that acts as the default view for the annotation. If not specified, the first 
 view in the views array shall be used. If there are no views specified, default values shall be used for all 
 camera and display parameters. 

@@ -1,9 +1,9 @@
-Table 358: Entries in an ##object reference 
+#Table 358: Entries in an ##object reference 
 dictionary"). 
 NOTE 1 This form of reference is used only for entire #objects. If the referenced content forms only part of 
 the #object’s #content stream, it is instead handled as a marked-content sequence, as described in 
 14.7.5.2, "Marked-content sequences as content items". 
-Table 358: Entries in an ##object reference dictionary 
+#Table 358: Entries in an ##object reference dictionary 
 Key Type Value 
 Required
 Type 
@@ -21,7 +21,7 @@ Required; shall be an indirect reference
 Obj 
 (any) () The referenced #object. 
  
-NOTE 2 If the referenced #object is rendered on multiple pages, each rendering requires a separate #object 
+NOTE 2 If the referenced #object is rendered on multiple pages, each rendering requires a separate ##object 
 reference. However, if it is rendered multiple times on the same page, just a single ##object reference 
 suffices to# identify all of them. (If it is important to distinguish between multiple renditions of the 
 same X#Object on the same page, they need to be accessed by means of marked-content sequences 

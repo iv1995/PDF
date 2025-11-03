@@ -45,7 +45,7 @@ EF
 streams"). All File Specification dictionaries referenced from this name 
 FUF
 tree shall contain an  key whose value is a dictionary which contains 
-(#PDF 2.0) 
+(#PDF 2.0)# 
 either an  or  key whose value is an embedded file stream. 
 For unencrypted wrapper documents for an encrypted payload 
 ") the name strings 
@@ -73,7 +73,7 @@ elements. A #content stream depends on information contained in an associated #r
 com#bination, these two objects form a self-contained entity. This subclause describes these #objects. 
 7.8.2#Content streams 
  
-A #content stream is a #PDF stream #object whose data consists of a sequence of instructions descri#bing 
+A #content stream is a #PDF #stream #object whose data consists of a sequence of instructions descri#bing 
 the graphical elements to be painted on a page. The instructions shall be represented in the form of #PDF 
 #objects, using the same #object syntax as in the rest of the #PDF document. However, whereas the 
 © ISO 2017 – All rights reserved 111 
@@ -91,11 +91,11 @@ syntax rules described in 7.2, "Lexical conventions". It consists of #PDF #objec
 operators. The operands needed by an operator shall precede it in the stream. See Example 4 in 7.4, 
 "#Filters" for an example of a #content stream. 
 An operand is a #direct #object belonging to any of the basic #PDF data types except a stream. Dictionaries 
-shall be permitted as operands only by certain specific operators. In#direct #objects and ##object references 
+shall be permitted as operands only by certain specific operators. #In#direct #objects and ##object references 
 shall not be permitted at all. 
 An operator is a #PDF keyword specifying some action that shall be performed, such as painting a 
 graphical shape on the page. An operator keyword shall be distinguished from a #name #object by the 
-absence of an initial SOLIDUS #character (2Fh) (/). Operators shall be meaningful only inside a content 
+absence of an initial SOLIDUS #character (2Fh) (/). Operators shall be meaningful only inside a #content 
 stream. Annex A, "Operator Summary" provides a summary of all #PDF operators. 
 NOTE 1 This postfix notation, in which an operator is preceded by its operands, is superficially the same as 
 in the PostScript language. However, #PDF has no concept of an operand stack as the PostScript 

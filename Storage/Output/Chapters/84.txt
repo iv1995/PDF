@@ -1,16 +1,16 @@
-Figure 2: Initial structure of a #PDF file"): 
+#Figure 2: Initial structure of a #PDF file"): 
 • 
 • 
 A one-line header# identifying the version of the #PDF specification to which the file conforms 
 • 
 A body containing the #objects that make up the document contained in the file 
 • 
-A cross-reference table containing information about the in#direct #objects in the file 
+A cross-reference table containing information about the #in#direct #objects in the file 
 A trailer giving the location of the cross-reference table and of certain special #objects within the 
 body of the file 
 This initial structure may be modified by later updates, which append additional elements to the end of 
 the file; see 7.5.6, "Incremental updates" for details. ![Figure 2 Initial structure of a #PDF file  .png](./Storage/Output/Images/Figure 2 Initial structure of a #PDF file  .png)
-Figure 2: Initial structure of a #PDF file 
+#Figure 2: Initial structure of a #PDF file 
  
 As a matter of convention, the tokens in a #PDF file are arranged into lines; see 7.2, "Lexical conventions". 
 Each line shall be terminated by an end-of-line (EOL) marker, which may be a CARRIAGE RETURN 
@@ -21,8 +21,8 @@ ISO/DIS 32000-2
  
 The rules described here are sufficient to produce a basic conforming #PDF file. However, additional 
 rules apply to organizing a #PDF file to enable efficient incremental access to a document’s components 
-in a network environment. This form of organization, called Linearized #PDF, is described in Annex F, 
-"Linearized #PDF". With the exception of linearized #PDF files, all #PDF files should be read using the trailer 
+in a network environment. This form of organization, called# Linearized #PDF, is described in Annex F, 
+"Linearized #PDF". With the exception of# linearized #PDF files, all #PDF files should be read using the trailer 
 and cross-reference table as described in the following clauses. Reading a non-linearized file in a serial 
 manner is not reliable because of the way #objects are to be processed after an incremental update. (See 
 6.3.2, "Conformance of ##PDF processors".) 
@@ -75,16 +75,16 @@ ISO/DIS 32000-2
  
 7.5.3File body 
  
-The body of a #PDF file shall consist of a sequence of in#direct #objects representing the contents of a 
+The body of a #PDF file shall consist of a sequence of #in#direct #objects representing the contents of a 
 document. The #objects, which are of the basic types described in 7.3, "#Objects" represent components of 
 the document such as #fonts, pages, and sampled images. Beginning with #PDF 1.5, the body can also 
-contain ##object streams, each of which contains a sequence of in#direct #objects; see 7.5.7, "#Object 
+contain ##object streams, each of which contains a sequence of #in#direct #objects; see 7.5.7, "##Object 
 streams". 
 7.5.4Cross-reference table 
  
-The cross-reference table contains information that permits random access to in#direct #objects within 
+The cross-reference table contains information that permits random access to #in#direct #objects within 
 the file so that the entire file need not be read to locate any particular #object. The table shall contain a 
-one-line entry for each in#direct #object, specifying the #byte offset of that #object within the body of the 
+one-line entry for each #in#direct #object, specifying the #byte offset of that #object within the body of the 
 file. Beginning with #PDF 1.5, some or all of the cross-reference information may alternatively be 
 contained in cross-reference streams; see 7.5.8, "Cross-reference streams". 
 NOTE 1 The cross-reference table is the only part of a #PDF file with a fixed format, which permits entries in 
@@ -157,7 +157,7 @@ last free entry (the tail of the linked list) links back to object number 0. Usi
 the table may contain other free entries that link back to object number 0 and have a generation 
 number of 65,535, even though these entries are not in the linked list itself. 
 Except for #object number 0, all #objects in the cross-reference table shall initially have generation 
-numbers of 0. When an in#direct #object is deleted, its cross-reference entry shall be marked free and it 
+numbers of 0. When an #in#direct #object is deleted, its cross-reference entry shall be marked free and it 
 shall be added to the linked list of free entries. The entry’s generation number shall be incremented by 1 
 to indicate the generation number to be used the next time an #object with that #object number is created. 
 Thus, each time the entry is reused, it is given a new generation number. The maximum generation 

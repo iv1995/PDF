@@ -1,4 +1,4 @@
-Table 192: Entries 
+#Table 192: Entries 
 in an appearance #characteristics dictionary") that shall be used in 
 constructing a dynamic appearance stream specifying the annotation’s visual 
  MK 
@@ -17,7 +17,7 @@ behaviour in response to various trigger events (see 12.6.3, "Trigger
 events"). 
 (Optional; #PDF 1.2) 
 BS 
-dictionary A border style dictionary (see "Table 168: Entries in a 
+dictionary A border style dictionary (see "#Table 168: Entries in a 
 border style dictionary") specifying the width and dash pattern that shall be 
 used in drawing the annotation’s border. 
 Required if this widget annotation is one of multiple children in a field; 
@@ -31,9 +31,9 @@ included in thearray of at most one field
  
  MK 
 Theentry may be used to provide an appearance #characteristics dictionary containing additional 
-information for constructing the annotation’s appearance stream. "Table 192: Entries in an appearance 
+information for constructing the annotation’s appearance stream. "#Table 192: Entries in an appearance 
 #characteristics dictionary" shows the contents of this dictionary. 
-Table 192: Entries in an appearance #characteristics dictionary 
+#Table 192: Entries in an appearance #characteristics dictionary 
 Key Type Value 
 (Optional) 
 R 
@@ -108,7 +108,7 @@ X#Object defining the widget annotation’s , which shall
 be displayed when the mouse button is pressed within its active area. 
 (Optional; push-button fields only) 
 IF 
-dictionary An icon fit dictionary (see "Table 250: 
+dictionary An icon fit dictionary (see "#Table 250: 
 Entries in an icon fit dictionary") specifying how the widget annotation’s icon 
 shall be displayed within its annotation #rectangle. If present, the icon fit 
 dictionary shall apply to all of the annotation’s icons (normal, rollover, and 

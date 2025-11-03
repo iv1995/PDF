@@ -1,4 +1,4 @@
-Table 137: Variables used in the result shape and 
+#Table 137: Variables used in the result shape and 
 opacity formulas". 
 #Table 137: Variables used in the result shape and opacity formulas 
 Variable Meaning 
@@ -38,8 +38,8 @@ This formula can be used whenever the independent shape and opacity are not need
  
 This sub-clause is a summary of all the computations presented in sub-clause 11.3.1 through sub-clause 
 11.3.7. They are given in an order such that no variable is used before it is computed; also, some of the 
-formulas have been rearranged to simplify them. See "Table 133: Variables used in the basic 
-compositing formula", "#Table 136: Variables used in the source shape and opacity formulas", and "Table 
+formulas have been rearranged to simplify them. See "#Table 133: Variables used in the basic 
+compositing formula", "#Table 136: Variables used in the source shape and opacity formulas", and "#Table 
 137: Variables used in the result shape and opacity formulas" for the meanings of the variables used in 
 these formulas. 
  
@@ -101,7 +101,7 @@ Union𝑏𝑏,𝑠𝑠 =1−�1−𝑏𝑏×1−𝑠𝑠�
  
 11.4.1General 
  
-transparency group
+transparency #group
 A  is a sequence of consecutive #objects in a transparency stack that shall be collected 
 together and composited to produce a single colour, shape, and opacity at each point. The result shall 
 then be treated as if it were a single #object for subsequent compositing operations. #Groups may be 

@@ -89,9 +89,9 @@ TR
 S
 name shall be used in deriving the mask values. The #function shall accept one input, the 
 computed #group alpha or luminosity (depending on the value of the subtype ), and shall 
-return one output, the resulting mask value. The input shall be in the range 0.0 to 1.0. The 
+return one output, the resulting mask value. The input shall be in the range 0.0 to 1.0. The# 
 Identity
-computed output shall be in the range 0.0 to 1.0; if it falls outside this range, it shall be 
+computed output shall be in the range 0.0 to 1.0; if it falls outside this range, it shall be# 
 Identity
 forced to the nearest valid value. The name  may be specified in place of a #function 
 #object to designate the# identity #function. Default value: . 
@@ -103,7 +103,7 @@ soft-mask image
 The second way to define a soft mask is by associating a  with an image X#Object. This is 
 a subsidiary image X#Object specified in theentry of the parent X#Object’s image dictionary (see 
 8.9.5, "Image dictionaries"). Entries in the subsidiary image dictionary for such a soft-mask image shall 
-have the same format and meaning as in that of an ordinary image X#Object (as described in "Table 87: 
+have the same format and meaning as in that of an ordinary image X#Object (as described in "#Table 87: 
 Additional entries specific to an image dictionary" in 8.9.5, "Image dictionaries"), subject to the 
 Matte
 restrictions listed in "

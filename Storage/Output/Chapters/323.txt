@@ -15,7 +15,7 @@ be  for a thread dictionary.
 Required; shall be an indirect reference
 F 
 dictionary () The first bead in the thread. 
-(Optional) 
+(Optional)# 
 I 
 dictionary A thread information dictionary containing information about the 
 thread, such as its title, author, and creation date. The contents of this dictionary 
@@ -59,7 +59,7 @@ dictionary The page #object representing the page on
 which this bead appears. 
 (Required) 
 R 
-#rectangle A #rectangle specifying the location of this bead on the page in default 
+rectangle A #rectangle specifying the location of this bead on the page in default 
 user space. 
 EXAMPLE 2 The following example shows a thread with three beads. 
 22 0 obj 

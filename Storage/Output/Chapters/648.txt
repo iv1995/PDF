@@ -1,4 +1,4 @@
- 
+# 
  
 XFA forms 
 (Normative, #deprecated) 
@@ -36,7 +36,7 @@ K.2Access to the XFA template and other resources
  
   
  
-TheXFAentry in the interactive forms dictionary (see "Table 224: Entries in the interactive form 
+TheXFAentry in the interactive forms dictionary (see "#Table 224: Entries in the interactive form 
  
 dictionary") specifies anXFA resource, which shall be an XML stream that contains the form 
 information. The format of an XFA resource is described in the XMLData Package (XDP) Specification. 

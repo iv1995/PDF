@@ -1,7 +1,7 @@
-##character set and some of which are treated as ar#bitrary #binary 
+##character set and some of which are treated as ar#bitrary ##binary 
 data depending upon the context. 
 •
-The contents (data) of a string or stream #object in some contexts are interpreted as #character 
+The contents (data) of a string or #stream #object in some contexts are interpreted as #character 
  
 codes in the #PDFDocEncoding, UTF-8 or UTF-16 ##character set. 
 •

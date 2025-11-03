@@ -1,9 +1,9 @@
-Table Annex F.11: Embedded file stream hint table, 
+#Table Annex F.11: Embedded file stream hint table, 
 header section"), which shall have general information about the embedded file stream #groups. The 
 header section shall be followed by the entries in "Table Annex F.12: Embedded file stream hint table, 
 per-embedded file stream #group entries". Each of the items in "Table Annex F.12: Embedded file stream 
 hint table, per-embedded file stream #group entries" shall be repeated for each embedded file stream 
-#group (the number of #groups being represented by item 3 in "Table Annex F.11: Embedded file stream 
+#group (the number of #groups being represented by item 3 in "#Table Annex F.11: Embedded file stream 
 hint table, header section"). That is, the order of items in "Table Annex F.12: Embedded file stream hint 
 table, per-embedded file stream #group entries" shall be item 1 for the first #group, item 1 for the second 
 #group, and so on; item 2 for the first #group, item 2 for the second #group, and so on; repeated for the 5 
@@ -14,7 +14,7 @@ Item Size (#bits) Description
 2 32 The location of the first #object in the first embedded file stream #group. 
 3 32 The number of embedded file stream #groups referenced by this hint table. 
 4 16 The number of #bits needed to represent the highest #object number corresponding to 
-an embedded file stream #object. 
+an embedded file #stream #object. 
 5 16 The number of #bits needed to represent the greatest number of #objects in an 
 embedded file stream #group. 
 6 16 The number of #bits needed to represent the greatest length of an embedded file stream 
@@ -24,7 +24,7 @@ embedded file stream #group.
 ISO/DIS 32000-2
  
 Item Size (#bits) Description 
-7 16 The number of #bits needed to represent the greatest number of shared #object 
+7 16 The number of #bits needed to represent the greatest number of shared ##object 
 references in any embedded file stream #group. 
 Table .12: Embedded file stream hint table, per-embedded file stream #group entries 
 Annex F

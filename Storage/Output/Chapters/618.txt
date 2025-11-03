@@ -31,7 +31,7 @@ structure hint table (see F.4.6, "Extended generic hint tables")
 L 
 () Page label hint table (see F.4.5, "Generic hint tables") 
 R 
-(Present only if a renditions #name tree exists; #PDF 1.5) Renditions name 
+(Present only if a renditions #name tree exists; #PDF 1.5) Renditions #name 
 tree hint table (see F.4.6, "Extended generic hint tables") 
 B 
 (Present only if embedded file streams exist; #PDF 1.5) Embedded file 
@@ -121,7 +121,7 @@ h)See Annex G, "Linearized #PDF Access Strategies" for additional discussion abo
 F.3.8Remaining pages (Part 7) 
  
 incremental drawing strategies.  
-Part 7 of the Linearized #PDF file shall contain the page #objects and nonshared #objects for all remaining 
+Part 7 of the# Linearized #PDF file shall contain the page #objects and nonshared #objects for all remaining 
 pages of the file, with the #objects for each page #grouped together. The pages shall be contiguous and 
 shall be ordered by page number. If the first page of the file is not page 0, this section shall start with 
 page 0 and shall skip over the first page when its position in the sequence is reached. 

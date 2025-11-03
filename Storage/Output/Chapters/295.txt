@@ -1,4 +1,4 @@
-Table 138: Revised variables for the basic 
+#Table 138: Revised variables for the basic 
 compositing formulas". 
 NOTE Compare these formulas with those shown in 11.3.8, "Summary of basic compositing 
 computations". 
@@ -106,7 +106,7 @@ element in the #group. (This definition is altered if the parent #group is a kno
 initial backdrop
 • 
 "Knockout #groups"). 
-The  is a backdrop that is selected for compositing the #group’s first element. This is 
+The  is a backdrop that is selected for compositing the #group’s first element. This is# 
 either the same as the #group backdrop (for a non-isolated #group) or a fully transparent backdrop 
 immediate backdrop
 • 

@@ -127,7 +127,7 @@ Q
 c)Paints the graphics #objects specified in the pattern’s #content stream 
 d)Restores the saved #graphics state (as if by invoking the  operator)  
 The pattern’s #content stream shall not set any of the device-dependent parameters in the #graphics state 
-(see "Table 52: Device-dependent #graphics state parameters") because it can result in incorrect output.  
+(see "#Table 52: Device-dependent #graphics state parameters") because it can result in incorrect output.  
 8.7.3.2Coloured tiling patterns 
  
 A coloured tiling pattern is a pattern whose colour is self-contained. In the course of painting the 
@@ -141,7 +141,7 @@ When the current colour space is a  space, a coloured tiling pattern shall be se
 Pattern
 current colour by supplying its name as the single operand to the  or  operator. This name shall 
 be the key of an entry in the  subdictionary of the current #resource dictionary (see 7.8.3, 
-"Resource dictionaries"), whose value shall be the stream #object representing the pattern. Since the 
+"Resource dictionaries"), whose value shall be the #stream #object representing the pattern. Since the 
 SCNscn
 pattern defines its own colour information, no additional operands representing colour components 
 shall be specified to  or . 

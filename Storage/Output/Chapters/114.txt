@@ -16,5 +16,5 @@ input value and n output values:
 𝑓𝑓𝑥𝑥=𝑦𝑦
 ,…,𝑦𝑦 
  
-In addition to the entries in "Table 38: Entries common to all #function dictionaries", a Type 2 #function 
+In addition to the entries in "#Table 38: Entries common to all #function dictionaries", a Type 2 #function 
 dictionary shall include those listed in "

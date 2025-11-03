@@ -18,7 +18,7 @@ q  Q
 to the #rectangle or parallelogram in which the image shall be painted. Typically, this is done within a 
 pair of and operators to isolate the effect of the transformation, which can include translation, 
 rotation, reflection, and skew (see 8.3, "Coordinate systems"). 
-XObject
+X#Object
 EXAMPLE If the  subdictionary of the current #resource dictionary defines the name Image1 to denote an image 
 X#Object, the code shown in this example paints the image in a #rectangle whose lower-left corner is at 
 coordinates (100, 200), that is rotated 45 degrees counter clockwise, and that is 150 units wide and 80 units 

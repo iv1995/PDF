@@ -1,4 +1,4 @@
-Table 144: Additional entry in a soft-mask 
+#Table 144: Additional entry in a soft-mask 
 image dictionary") is present, shall be the same as the  
 value of the parent image; otherwise independent of it. Both 
 images shall be mapped to the unit square in user space (as are 
@@ -27,7 +27,7 @@ Ignored.
 Name 
 Ignored. 
 StructParent 
-Ignored. 
+Ignored.# 
 ID 
 Ignored. 
 OPI 

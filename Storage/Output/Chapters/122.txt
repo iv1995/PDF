@@ -2,7 +2,7 @@
 dictionary 
 The type of each entry shall match the type of data# identified by the collection 
 field dictionary (see "#Table 155: Entries in a collection field dictionary") 
-referenced by the same key in the collection schema dictionary (see "Table 154: 
+referenced by the same key in the collection schema dictionary (see "#Table 154: 
 Entries in a collection schema dictionary"). 
 S
 Subtype

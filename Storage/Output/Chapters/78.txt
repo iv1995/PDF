@@ -14,5 +14,5 @@ A nonlinear #function of the sample above, the sample to
 the left, and the sample to the upper left 
  
 The predictor algorithm to be used, if any, shall be indicated by the Predictor #filter parameter (see 
-"Table 8: Optional parameters for LZWDecode and FlateDecode #filters"), whose value shall be one of 
+"#Table 8: Optional parameters for LZWDecode and FlateDecode #filters"), whose value shall be one of 
 those listed in "

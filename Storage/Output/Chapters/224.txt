@@ -1,4 +1,4 @@
-Table 95: Entries in a reference 
+#Table 95: Entries in a reference 
 dictionary" shows the contents of the reference dictionary. 
 © ISO 2017 – All rights reserved 269 
 
@@ -17,7 +17,7 @@ is a weak one and may be inadvertently invalidated if the referenced page is
 changed or replaced in the target document after the reference is created. 
 Optional
 ID 
-array () An array of two #byte strings constituting a file# identifier (14.4, "File 
+array () An array of two #byte strings constituting a file# identifier (14.4, "File# 
 identifiers") for the file containing the target document. The use of this entry 
 improves a ##PDF processor’s chances of finding the intended file and allows it to 
 warn the user if the file has changed since the reference was created. 

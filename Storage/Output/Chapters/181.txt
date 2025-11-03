@@ -1,6 +1,6 @@
-Table 79: Additional entries 
+#Table 79: Additional entries 
 specific to a Type 2 shading dictionary" shows the shading dictionary entries specific to this type of 
-shading, in addition to those common to all shading dictionaries (see "Table 77: Entries common to all 
+shading, in addition to those common to all shading dictionaries (see "#Table 77: Entries common to all 
 shading dictionaries"). 
  Indexed 
 This type of shading shall not be used with ancolour space. 
@@ -111,7 +111,7 @@ For ′> 1, if the second element of the  array is , then  =
 t
 and the point shall be left unpainted. 
 xy
-Function
+#Function
 The resulting value of  shall be passed as input to the #function(s) defined by the shading dictionary’s 
  entry, yielding the component values of the colour with which to paint the point (, ). 
 NOTE "Figure 33: Axial shading" shows three examples of the use of an axial shading to fill a #rectangle 

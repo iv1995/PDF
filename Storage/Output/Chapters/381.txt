@@ -1,4 +1,4 @@
-Table 213: 
+#Table 213: 
 Additional entries specific to a movie action". The contents of the activation dictionary associated with 
 the movie annotation provide the default values. Any information specified in the movie action 
 dictionary overrides these values. 
@@ -30,7 +30,7 @@ Play
 name The operation that shall be performed on the movie: 
 Mode
  Start playing the movie, using the play mode specified by the 
-dictionary’s  entry (see "Table 307: Entries in a movie 
+dictionary’s  entry (see "#Table 307: Entries in a movie 
 activation dictionary"). If the movie is currently paused, it shall 
 Start
 be repositioned to the beginning before playing (or to the 

@@ -1,7 +1,7 @@
-Table Annex A.1: #PDF #content stream operators" lists each operator, its corresponding PostScript 
+#Table Annex A.1: #PDF #content stream operators" lists each operator, its corresponding PostScript 
 language operators (when it is an exact or near-exact equivalent of the #PDF operator), a description of 
 the operator, and references to the table where each operator is introduced. 
-Table Annex A.1: #PDF #content stream operators 
+#Table Annex A.1: #PDF #content stream operators 
 Operator PostScript Description Table 
 Equivalent 
 b 
@@ -45,7 +45,7 @@ Append curved segment to path (three control "#Table 60: Clipping path operators
 points) 
 cm 
 concat 
-Concatenate matrix to current transformation "Table 56: #Graphics state operators" 
+Concatenate matrix to current transformation "#Table 56: #Graphics state operators" 
 matrix 
 CS 
 #PDF 1.1
@@ -64,25 +64,25 @@ setcolorspace
 () Set colourspace for nonstroking "#Table 73: Colour operators" 
 operations 
 d setdash 
-Set line dash pattern "Table 56: #Graphics state operators" 
+Set line dash pattern "#Table 56: #Graphics state operators" 
 d0 setcharwidth 
-Set #glyph width in Type 3 #font "Table 111: Type 3 #font operators" 
+Set #glyph width in Type 3 #font "#Table 111: Type 3 #font operators" 
 d1 setcachedevice 
-Set #glyph width and bounding box in Type 3 "Table 111: Type 3 #font operators" 
+Set #glyph width and bounding box in Type 3 "#Table 111: Type 3 #font operators" 
 #font 
 Do  
-Invoke named X#Object "Table 86: X#Object operator" 
+Invoke named X#Object "#Table 86: X#Object operator" 
 #PDF 1.2
 DP  
 () Define marked-content point with "#Table 352: Marked-content operators" 
-property list 
+property list# 
 EI  
 End inline image #object "Table 90: Inline image operators" 
 #PDF 1.2
 EMC  
 () End marked-content sequence "#Table 352: Marked-content operators" 
 ET  
-End text #object "Table 105: Text #object operators" 
+End text #object "#Table 105: Text #object operators" 
 #PDF 1.1
 EX  
 () End compati#bility section "#Table 33: Compati#bility operators" 
@@ -100,18 +100,18 @@ g setgray
 Set gray level for nonstroking operations "#Table 73: Colour operators" 
 #PDF 1.2
 gs  
-() Set parameters from #graphics state "Table 56: #Graphics state operators" 
+() Set parameters from #graphics state "#Table 56: #Graphics state operators" 
 parameter dictionary 
 h closepath 
 Close subpath "#Table 58: Path construction operators" 
 i setflat 
-Set flatness tolerance "Table 56: #Graphics state operators" 
+Set flatness tolerance "#Table 56: #Graphics state operators"# 
 ID  
 Begin inline image data "Table 90: Inline image operators" 
 j setlinejoin 
-Set line join style "Table 56: #Graphics state operators" 
+Set line join style "#Table 56: #Graphics state operators" 
 J setlinecap 
-Set line cap style "Table 56: #Graphics state operators" 
+Set line cap style "#Table 56: #Graphics state operators" 
 K setcmykcolor 
 Set CMYK colour for stroking operations "#Table 73: Colour operators" 
 k setcmykcolor 
@@ -121,7 +121,7 @@ Append straight line segment to path "#Table 58: Path construction operators"
 m moveto 
 Begin new subpath "#Table 58: Path construction operators" 
 M setmiterlimit 
-Set miter limit "Table 56: #Graphics state operators" 
+Set miter limit "#Table 56: #Graphics state operators" 
 © ISO 2017 – All rights reserved 812 
 
 ISO/DIS 32000-2
@@ -134,9 +134,9 @@ MP
 n  
 End path without filling or stroking "#Table 59: Path-painting operators" 
 q gsave 
-Save #graphics state "Table 56: #Graphics state operators" 
+Save #graphics state "#Table 56: #Graphics state operators" 
 Q grestore 
-Restore #graphics state "Table 56: #Graphics state operators" 
+Restore #graphics state "#Table 56: #Graphics state operators" 
 re  
 Append #rectangle to path "#Table 58: Path construction operators" 
 RG setrgbcolor 
@@ -144,7 +144,7 @@ Set RGB colour for stroking operations "#Table 73: Colour operators"
 rg setrgbcolor 
 Set RGB colour for nonstroking operations "#Table 73: Colour operators" 
 ri  
-Set colour rendering intent "Table 56: #Graphics state operators" 
+Set colour rendering intent "#Table 56: #Graphics state operators" 
 s closepath, stroke 
 Close and stroke path "#Table 59: Path-painting operators" 
 S stroke 
@@ -208,7 +208,7 @@ v curveto
 Append curved segment to path (initial point "#Table 58: Path construction operators" 
 replicated) 
 w setlinewidth 
-Set line width "Table 56: #Graphics state operators" 
+Set line width "#Table 56: #Graphics state operators" 
 W clip 
 Set clipping path using non-zero winding "#Table 60: Clipping path operators" 
 number rule 

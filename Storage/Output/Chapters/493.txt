@@ -1,4 +1,4 @@
-Table 
+#Table 
 315: Entries in a 3D view dictionary". 
 #Table 315: Entries in a 3D view dictionary 
 Key Type Value 
@@ -30,9 +30,9 @@ U3DPath
  Indicates that the view node selected by the  entry in the 
 NOTE 1 There is no corresponding  field value for the PRC file format, 
 MS
-3D stream #object shall specify the matrix. 
-that would correspond to a 3D stream #object of type PRC.  is the 
-only valid entry for 3D stream #objects of type PRC (or it can be 
+3D #stream #object shall specify the matrix. 
+that would correspond to a 3D #stream #object of type PRC.  is the 
+only valid entry for 3D #stream #objects of type PRC (or it can be 
 M
 omitted). 
 If omitted, the view specified in the 3D artwork shall be used. 
@@ -40,7 +40,7 @@ Optional; #PDF 2.0
 MA 
 array () An array of 3D measurement/markup dictionaries, 
 where each dictionary represents an instance of a 3D measurement to be 
-displayed in the context of this view. See "Table 326: Entries in a 3D 
+displayed in the context of this view. See "#Table 326: Entries in a 3D 
 measurement/markup dictionary common to all markup subtypes" for the 
 definition of a 3D measurement dictionary. 
 Required if the value of  is M, ignored otherwise
@@ -60,7 +60,7 @@ text string or () A sequence of one or
 node# IDroot view node
  
 array more text strings used to access a  within the 3D artwork. The first 
-node ID
+node# ID
  
 string in the array is a for the , and each subsequent 
 string is the for a child of the view node specified by the prior string. 
@@ -78,7 +78,7 @@ CO MS
 z
 number () A non-negative number indicating a 
 distance in the camera coordinate system along the  axis to the centre of 
-or#bit for this view; see discussion following "Table 315: Entries in a 3D view 
+or#bit for this view; see discussion following "#Table 315: Entries in a 3D view 
 dictionary". If this entry is not present, the #interactive ##PDF processor shall 
 determine the centre of or#bit. 
 Optional

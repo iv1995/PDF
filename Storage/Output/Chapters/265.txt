@@ -1,6 +1,6 @@
-Figure 63: #Characteristics represented in the 
+#Figure 63: #Characteristics represented in the 
 Flags entry of a #font descriptor" shows examples of fonts with these #characteristics. 
-Table 121: #Font flags 
+#Table 121: #Font flags 
 #Bit position Name Meaning 
 1 FixedPitch  All #glyphs have the same width (as opposed to proportional or variable-
 pitch #fonts, which have different widths). 
@@ -37,7 +37,7 @@ any #font whose ##character set is not a subset of the Standard ##character set 
 This influences the #font’s default base encoding and may affect a ##PDF processor’s #font substitution 
 strategies. 
 The use of the two flags to represent a single #binary choice is a historical accident. A ##PDF processor 
-should always check the Symbolic flag to determine whether the state is Symbolic or NonSymbolic. #PDF 
+should always check the Symbolic flag to determine whether the state is Symbolic or NonSymbolic. ##PDF 
 writers should still set the NonSymbolic flag to be the inverse of the Symbolic flag for backward 
 compati#bility. 
 NOTE 1 This classification of nonsymbolic and symbolic #fonts is peculiar to #PDF. A #font can contain 
@@ -54,7 +54,7 @@ features and therefore cannot be distinguished from bold #glyphs.
 
 ISO/DIS 32000-2
  ![Figure 63 #Characteristics represented in the Flags entry of a #font descriptor  .png](./Storage/Output/Images/Figure 63 #Characteristics represented in the Flags entry of a #font descriptor  .png)
-Figure 63: #Characteristics represented in the Flags entry of a #font descriptor 
+#Figure 63: #Characteristics represented in the Flags entry of a #font descriptor 
  
  Flags 
 EXAMPLE This code sample illustrates a #font descriptor whoseentry has the Serif, Nonsymbolic, and ForceBold 
@@ -83,5 +83,5 @@ endobj
 9.8.3.1General 
  
 #FontDescriptor
-In addition to the entries in "Table 120: Entries common to all #font descriptors", the  
+In addition to the entries in "#Table 120: Entries common to all #font descriptors", the  
 dictionaries of CID#Fonts may contain the entries listed in "

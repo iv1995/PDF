@@ -14,7 +14,7 @@ captures the value of
  at the beginning of a line of text. The text-positioning and text-showing 
 lm
 operators shall read and set 
- on specific occasions mentioned in "Table 106: Text-positioning 
+ on specific occasions mentioned in "#Table 106: Text-positioning 
 operators" and "#Table 107: Text-showing operators". 
 NOTE This can be used to compactly represent evenly spaced lines of text. 
 9.4.3Text-showing operators 

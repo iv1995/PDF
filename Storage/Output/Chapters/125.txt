@@ -6,7 +6,7 @@ The graphics operators used in #PDF #content streams describe the appearance of 
 reproduced on an output device. The facilities described in this clause are intended for both printer and 
 display applications. 
 The graphics operators form six main #groups: 
-#Graphics state operatorsgraphics state
+#Graphics state operators#graphics state
 • 
  manipulate the data structure called the , the global 
 current transformation matrix
@@ -39,13 +39,13 @@ structures and mechanisms for dealing with #glyph and #font descriptions are suf
 Marked-content operators
 • 
 that clause 9, "Text" focuses on them. 
- associate higher-level logical information with #objects in the content 
+ associate higher-level logical information with #objects in the #content 
 stream. This information does not affect the rendered appearance of the content (although it may 
 determine if the content should be presented at all; see 8.11, "Optional content"); it is useful to 
 applications that use #PDF for document interchange. Marked content is described in 14.6, "Marked 
 content". 
 Rendering 
-This clause presents general information about device-independent graphics in #PDF: how a #PDF content 
+This clause presents general information about device-independent graphics in #PDF: how a #PDF #content 
 stream describes the abstract appearance of a page. — the device-dependent part of graphics 
 — is covered in clause 10, "Rendering". The #Bibliography lists a number of books that give details of 
 these computer graphics concepts and their implementation. 
@@ -65,12 +65,12 @@ ISO/DIS 32000-2
  
 specific rules, described below, for writing the operands and operators that describe a graphics #object. 
 #PDF provides five types of graphics #objects: 
-path object
+path #object
 • 
 A  is an ar#bitrary shape made up of straight lines, #rectangles, and cu#bic Bézier curves. A 
 path may intersect itself and may have disconnected sections and holes. A path #object ends with 
 one or more painting operators that specify whether the path shall be stroked, filled, used as a 
-text object
+text #object
 • 
 clipping boundary, or some com#bination of these operations. 
 A  consists of one or more #character strings that# identify sequences of #glyphs to be 
@@ -80,7 +80,7 @@ painted. Like a path, text can be stroked, filled, or used as a clipping boundar
 An  is an #object defined outside the #content stream and referenced as a 
 image X#Objectform 
 named resource (see 7.8.3, "Resource dictionaries"). The interpretation of an X#Object depends on 
-XObject
+X#Object
 its type. An  defines a rectangular array of colour samples to be painted; a 
 reference X#Objects
  is an entire #content stream to be treated as a single graphics #object. Specialised types of 
@@ -94,7 +94,7 @@ inline image
 • 
 model (, discussed in detail in clause 11, "Transparency"). 
 An  #object uses a special syntax to express the data for a small image directly within 
-shading object
+shading #object
 • 
 the #content stream. 
 A  describes a geometric shape whose colour is an ar#bitrary #function of position 
@@ -121,7 +121,7 @@ reducing the behaviour of the transparent imaging model to that of the opaque mo
 material in this clause applies to both the opaque and transparent models except where explicitly stated 
 otherwise; the transparent model is described in its full generality in clause 11, "Transparency". 
 Although the painting behaviour described above is often attributed to individual operators making up 
-an #object, it is always the #object as a whole that is painted. "Figure 9: Graphics #Objects" shows the 
+an #object, it is always the #object as a whole that is painted. "#Figure 9: Graphics #Objects" shows the 
 page 
 ordering rules for the operations that define graphics #objects. Some operations shall be permitted only 
 description level
@@ -129,7 +129,7 @@ in certain types of graphics #objects or in the intervals between graphics #obje
  in the figure). Every #content stream begins at the page description level, where changes 
 may be made to the #graphics state, such as colours and text attributes, as discussed in the following 
 subclauses. 
-In "Figure 9: Graphics #Objects", arrows indicate the operators that mark the beginning or end of each 
+In "#Figure 9: Graphics #Objects", arrows indicate the operators that mark the beginning or end of each 
 © ISO 2017 – All rights reserved 144 
 
 ISO/DIS 32000-2

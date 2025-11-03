@@ -23,7 +23,7 @@ import-data action
 • 
 An  can add the named page to the document into whichis being imported, 
  action
-• 
+•# 
 either as a page or as a button appearance. 
 A script executed by an ECMAScript can add the named page to the current document as a 
 © ISO 2017 – All rights reserved 539 
@@ -40,7 +40,7 @@ the page is not intended to be displayed by the ##PDF processor, it shall be ref
 Page
 ParentB
 dictionary’s  tree instead. Such invisible pages shall have an #object type of  rather 
-than  and shall have no  or  entry (see "Table 31: Entries in a page #object"). 
+than  and shall have no  or  entry (see "#Table 31: Entries in a page #object"). 
 12.7.8Forms data format 
  
 12.7.8.1General 
@@ -69,7 +69,7 @@ The document structure is much simpler than #PDF, since the body of anFDFdocumen
 • 
 only one required #object. 
  
-The length of a stream shall not be specified by an in#direct #object. 
+The length of a stream shall not be specified by an #in#direct #object. 
 TM
   
 FDF uses the MIME content type application/vnd.fdf. On the Microsoft Windows

@@ -15,7 +15,7 @@ associated with that conversion engine. If the settings for a particular convers
 found in the dictionary, default settings shall be used. 
  
 C
-Each key in the  dictionary represents the internal name of a conversion engine, which shall be a name 
+Each key in the  dictionary represents the internal name of a conversion engine, which shall be a #name 
 #object of the following form (without any spaces): 
 /company:product:version:contentType 
  
@@ -24,7 +24,7 @@ company
 product
  denotes the name (or abbreviation) of the company that created the conversion engine. 
  denotes the name of the conversion engine. This field may be left blank, but the trailing 
-character
+#character
 COLON 
 version
  (3Ah) is still required. 
@@ -47,12 +47,12 @@ explicit knowledge of the settings it can contain.
 14.10.6#Object attributes related to web capture 
  
 A given page #object or image X#Object may belong to at most one Web Capture content set, called its 
-parent content set. However, the #object shall not have direct pointer to its parent content set. Such a 
-# ID 
+parent content set. However, the #object shall not have direct pointer to its parent content set. Such a# 
+ ID 
 pointer may present problems for an application that traces all pointers from an #object to determine 
-what resources the #object depends on. Instead, the #object’sentry (see "Table 31: Entries in a page 
+what resources the #object depends on. Instead, the #object’sentry (see "Table 31: Entries in a page# 
 IDS
-#object" and "#Table 87: Additional entries specific to an image dictionary") contains the digital# identifier 
+#object" and "#Table 87: Additional entries specific to an image dictionary") contains the digital# identifier# 
 IDS
 of the parent content set, which shall be used to locate the parent content set using the  #name tree in 
 O
@@ -150,7 +150,7 @@ MediaBoxCropBoxBleedBoxTrimBox
 white-space) as intended by the page’s creator. The default value is the page’s crop box. 
 ArtBox 
 The  specifies these boundaries in the , , , , 
-and entries, respectively (see "Table 31: Entries in a page #object"). All of them are rectangles 
+and entries, respectively (see "#Table 31: Entries in a page #object"). All of them are rectangles 
 expressed in default user space units. The crop, bleed, trim, and art boxes should not ordinarily extend 
 beyond the boundaries of the media box. If the bounds of the crop, trim, bleed or art box extends 
 outside of the bounds of the media box, a processor shall treat the box as its intersection with the media 

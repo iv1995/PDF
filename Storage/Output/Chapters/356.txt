@@ -1,4 +1,4 @@
-Table 188: Additional 
+#Table 188: Additional 
 entries specific to a sound annotation" shows the annotation dictionary entries specific to this type of 
 annotation. Sound #objects are discussed in 13.3, "Sounds". 
 #Table 188: Additional entries specific to a sound annotation 

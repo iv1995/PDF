@@ -21,7 +21,7 @@ respectively, by the first and last pairs of coordinates in thearray.
 [/None /None]. 
 (Optional) 
 BS 
-dictionary A border style dictionary (see "Table 168: Entries in a border style 
+dictionary A border style dictionary (see "#Table 168: Entries in a border style 
 dictionary") specifying the width and dash pattern that shall be used in 
 drawing the line. 
 © ISO 2017 – All rights reserved 477 
@@ -50,7 +50,7 @@ IC
 For  annotations, the value of the  key is used to fill only the line 
 F
 ending. However, for  annotations, the value of the  key is used to 
-fill the entire shape, much as the  operator would fill a shape in a content 
+fill the entire shape, much as the  operator would fill a shape in a #content 
 stream. 
 (Optional; meaningful only for polygon annotations) border effect dictionary 
 BE 
@@ -61,7 +61,7 @@ that shall describe an effect applied to the border described by the  entry
 (Optional; #PDF 1.6) 
 IT 
 name A name that shall describe the intent of the polygon or 
-polyline annotation (see also "Table 172: Additional entries in an annotation 
+polyline annotation (see also "#Table 172: Additional entries in an annotation 
 dictionary specific to markup annotations"). The following values shall be 
 PolygonCloud 
 valid: 
@@ -76,7 +76,7 @@ PolygonDimension #PDF 1.7
 #function as a dimension.
 Optional; #PDF 1.7
 Measure 
-dictionary () A measure dictionary (see "Table 266: Entries in a 
+dictionary () A measure dictionary (see "#Table 266: Entries in a 
 measure dictionary") that shall specify the scale and units that apply to the 
 annotation. 
 (Optional; #PDF 2.0) n 

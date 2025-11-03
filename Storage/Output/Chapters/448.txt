@@ -95,7 +95,7 @@ honoured, the containing #object is still considered viable.
 dictionary where these entries are allowed, both entries may be present, or only one, or neither. 
 VMH BE 
 EXAMPLE The media play parameters dictionary (see "#Table 293: Entries in a media screen parameters dictionary") 
-allows the playback volume to be set by means of the  entry in its  anddictionaries (see "Table 294: 
+allows the playback volume to be set by means of the  entry in its  anddictionaries (see "#Table 294: 
 Entries in a media screen parameters MH/BE dictionary"). 
 VMH
 V BE MH

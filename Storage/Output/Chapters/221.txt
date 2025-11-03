@@ -1,4 +1,4 @@
-Table 92: Additional abbreviations in an inline image #object" 
+#Table 92: Additional abbreviations in an inline image #object" 
 may be used in place of the full names. Entries other than those listed shall be ignored. 
 LengthL
 IDEI
@@ -11,20 +11,20 @@ LengthL
 older versions of #PDF.  
 NOTE 2 The  key permits ##PDF processors to efficiently skip inline images if they do not need to display 
 L
-them. To skip an image a processor can advance beyond the single white-space #character 
-following the  operator, then if the final or only #filter is  or  
+them. To skip an image a processor can advance beyond the single #white-space #character 
+following the  operator, then if the final or only #filter is  or#  
 ID#ASCIIHexDecode#ASCII85Decode
 skip any further white-space. The number of #characters expressed by the  key is then skipped, and 
 L
-the  operator is expected following optional white-space. 
+the  operator is expected following optional white-space.# 
 EI
-"Table 92: Additional abbreviations in an inline image #object" shows additional abbreviations that can 
+"#Table 92: Additional abbreviations in an inline image #object" shows additional abbreviations that can 
 be used for the names of colour spaces and #filters. 
 J#BIG2Decode Crypt  JPXDecode 
 These abbreviations are valid only in inline images; they shall not be used in image X#Objects. 
-,andare not listed in "Table 92: Additional abbreviations in an inline 
+,andare not listed in "#Table 92: Additional abbreviations in an inline 
 image #object", because those #filters shall not be used with inline images. 
-Table 91: Entries in an inline image #object 
+#Table 91: Entries in an inline image #object 
 Full Name Abbreviation 
 #BitsPerComponent BPC 
 ColorSpace CS 
@@ -46,7 +46,7 @@ Width W
 
 ISO/DIS 32000-2
  
-Table 92: Additional abbreviations in an inline image #object 
+#Table 92: Additional abbreviations in an inline image #object 
 Full Name Abbreviation 
 DeviceGray G 
 DeviceRGB RGB 
@@ -83,10 +83,10 @@ CMYK
 thesubdictionary. 
  ColorSpace 
 JPXDecode Crypt J#BIG2Decode# ID 
-The image data in an inline image may be encoded by using any of the standard #PDF filters except 
+The image data in an inline image may be encoded by using any of the standard #PDF filters except# 
 EI
 ,and . The #bytes between theoperator and a whitespace token, but 
-before the  operator shall be treated the same as a stream #object’s data (see 7.3.8, "Stream #objects"), 
+before the  operator shall be treated the same as a #stream #object’s data (see 7.3.8, "#Stream #objects"), 
 even though they do not follow the standard stream syntax. 
 NOTE 4 This is an exception to the usual rule that the data in a #content stream is interpreted according to 
 the standard #PDF syntax for #objects. Accordingly, this does not permit comments (see 7.2.4, 
@@ -112,24 +112,24 @@ ISO/DIS 32000-2
  /CS /RGB             %Colour space 
  /BPC 8             %#Bits per component 
  /L 763 
- /F [/A85 /LZW]           %#Filters 
+ /F [/A85 /LZW]           %#Filters# 
  
 ID                %Begin image data 
 J1/gKA>.]AN&J?]-<HW]aRVcg*bb.\eKAdVV%/PcZ 
 … Image data representing 289 samples … 
-R.s(4KE3&d&7hb*7[%Ct2HCqC~> 
+R.s(4KE3&d&7hb*7[%Ct2HCqC~># 
 EI                %End inline image #object 
 Q                %Restore #graphics state 
 8.10Form X#Objects 
  
 8.10.1General 
  
-form XObject
+form X#Object
 A  is a #PDF #content stream that is a self-contained description of any sequence of graphics 
 #objects (including path #objects, text #objects, and sampled images). A form X#Object may be painted 
 multiple times —# either on several pages or at several locations on the same page — and produces the 
 same results each time, subject only to the #graphics state at the time it is invoked. Not only is this 
-shared definition economical to represent in the #PDF file, but under suitable circumstances the #PDF 
+shared definition economical to represent in the #PDF file, but under suitable circumstances the ##PDF 
 processor can optimise execution by caching the results of rendering the form X#Object for repeated 
 reuse. 
 NOTE 1 The term form also refers to a completely different kind of #object, an  (sometimes 
@@ -141,7 +141,7 @@ AcroForm
 understood to refer to an interactive form; the type of form described here is always referred to 
 form
 explicitly as a . 
-form XObject
+form X#Object
 Form X#Objects have various uses: 
 • 
 As its name suggests, a form X#Object may serve as the template for an entire page. 
@@ -179,7 +179,7 @@ Paint the form X#Object.
 Do
  
 the form dictionary are described in 8.10.2, "Form dictionaries". 
-XObject
+X#Object
 b) The  operator (see 8.8, "External #objects") shall paint a form X#Object whose 
 name is supplied as an operand. The name shall be defined in the  subdictionary of the current 
 #resource dictionary. Before invoking this operator, the #content stream in which it appears should set 

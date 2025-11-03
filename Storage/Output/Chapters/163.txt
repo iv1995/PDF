@@ -1,4 +1,4 @@
-Table 67: #ICC profile types" for specifying 
+#Table 67: #ICC profile types" for specifying 
 both
 calibrated colour spaces for colouring graphics #objects. Each of the indicated fields shall have one 
 of the values listed for that field in the second column of the table. Profiles shall satisfy  the 
@@ -8,7 +8,7 @@ Profiles shall conform to the specification version indicated by the Profile ver
 NOTE 1  and 16-#bit L*a*b* profiles are not listed. 
 header. 
 XYZ
-Table 67: #ICC profile types 
+#Table 67: #ICC profile types 
 Header Field Required Value 
 deviceClass 
 icSigInputClass ('scnr') 

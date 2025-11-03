@@ -1,4 +1,4 @@
-Table 28: Entries in an 
+#Table 28: Entries in an 
 encrypted payload dictionary") with details of the cryptographic #filter needed to decrypt the encrypted 
 payload. 
 © ISO 2017 – All rights reserved 97 

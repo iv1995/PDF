@@ -1,4 +1,4 @@
-Table 280: Entries in a minimum #bit depth 
+#Table 280: Entries in a minimum #bit depth 
 dictionary") specifying the minimum #bit depth required in order for this #object 
 NOTE 4 Equivalent to SMIL’s systemScreenDepth attribute. 
 to be viable. 

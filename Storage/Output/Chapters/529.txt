@@ -1,4 +1,4 @@
-Table 335: Entries in 
+#Table 335: Entries in 
 a RichMediaActivation dictionary") that specifies the style of presentation, 
 default script behavior, default view information, and animation style when the 
 annotation is activated. 

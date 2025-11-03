@@ -38,7 +38,7 @@ of the line.
 Default value: 
 Optional; #PDF 1.7
 Measure 
-dictionary () A measure dictionary (see "Table 266: Entries in a 
+dictionary () A measure dictionary (see "#Table 266: Entries in a 
 measure dictionary") that shall specify the scale and units that apply to the 
 line annotation. 
 Optional; meaningful only ifis true; #PDF 1.7

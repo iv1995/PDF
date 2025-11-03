@@ -1,4 +1,4 @@
-Table Annex F.9: Generic hint 
+#Table Annex F.9: Generic hint 
 table". This representation shall be used for the following hint tables, if needed: 
 • 
 • 

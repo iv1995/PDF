@@ -1,4 +1,4 @@
- 
+# 
  
 Best practice for halftones 
 (Normative) 
@@ -30,7 +30,7 @@ actually occurs. This means that these rendering parameters would need to be ass
 of the page rather than with individual #objects. 
 The halftone and transfer #function to be used at any given point on the page would normally be those in 
 effect at the time of painting the last (topmost) elementary graphics #object enclosing that point if the 
-topmost object
+topmost #object
 #object is fully opaque. Only elementary #objects are taken into account; the rendering parameters 
 j
 f
@@ -65,7 +65,7 @@ foregoing conditions.
 Together, these conditions ensure that only the #object shall contribute to the colour at the given point, 
 completely obscuring the backdrop. For portions of the page whose topmost #object is not fully opaque 
 or that are never painted at all, the default halftone and transfer #function for the page is used instead 
-(see "Table 52: Device-dependent #graphics state parameters"). 
+(see "#Table 52: Device-dependent #graphics state parameters"). 
 If a graphics #object is painted with overprinting enabled — that is, if the applicable (stroking or 
 nonstroking) overprint parameter in the #graphics state is true — the halftone and transfer #function to 
 use at a given point is determined independently for each colour component. An #object is considered 
@@ -112,7 +112,7 @@ ISO/DIS 32000-2
 Together, these conditions ensure that any #object that is fully transparent does not contribute to the 
 colour at the given point and vice versa. For portions of the page that are only painted with fully 
 transparent #objects or that are never painted at all, the default halftone and transfer #function for the 
-page is used (see "Table 52: Device-dependent #graphics state parameters"). 
+page is used (see "#Table 52: Device-dependent #graphics state parameters"). 
 true 
 If a graphics #object is painted with overprinting enabled — that is, if the applicable (stroking or 
 nonstroking) overprint parameter in the #graphics state is — the halftone and transfer #function to 
@@ -136,7 +136,7 @@ EXAMPLE if a 100% Cyan #object is painted with 50% Normal transparency but no ov
 the halftone and transfer #function specified for the Cyan #object will be used for those parts of the Magenta 
 #object that intersect it. 
 TRTR2
-TransferFunction
+Transfer#Function
 This approach applies to transfer #functions from the value of the  or  keys in a #graphics state 
 parameter dictionary and to the value of the  key in a halftone dictionary. The 
 addition of a partially transparent #object, such as a watermark, over an #object which has a transfer 

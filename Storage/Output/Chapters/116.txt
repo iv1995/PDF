@@ -1,6 +1,6 @@
-Table 41: Additional entries specific to a Type 3 #function 
+#Table 41: Additional entries specific to a Type 3 #function 
 dictionary". 
-Table 41: Additional entries specific to a Type 3 #function dictionary 
+#Table 41: Additional entries specific to a Type 3 #function dictionary 
 Key Type Value 
 Requiredk
 #Functions 

@@ -1,4 +1,4 @@
-Figure Annex H.1: 
+#Figure Annex H.1: 
 Output of the following example" shows the resulting output. (Each shape has a red border, and the 
  ICCBased 
 #rectangle is filled with light blue.) The colours, but not the black fill, are specified as calibrated colours, 
@@ -8,7 +8,7 @@ as an embedded sRGB profile.
 
 ISO/DIS 32000-2
  
-Table Annex H.3: #Objects in simple graphics example 
+#Table Annex H.3: #Objects in simple graphics example 
 #Object number #Object type 
 Catalog
 1  (document catalog) 

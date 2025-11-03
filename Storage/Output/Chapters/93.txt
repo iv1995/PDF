@@ -1,10 +1,10 @@
 #Table 22: User access permissions". 
 3 () if the document is encrypted with a  value of 2 or 3, or has 
 any "Security handlers of revision 3 or greater" access permissions set to 
-Deprecated
+#Deprecated
 V
 0. 
-#PDF 2.0; deprecated
+#PDF 2.0; #deprecated
 4 () if the document is encrypted with a  value of 4. 
 5 () Shall not be used. This value was used by a 
 #PDF 2.0
@@ -48,7 +48,7 @@ see 7.6.4.4, "Password algorithms".
 Required
 P 
 integer () A set of flags specifying which operations shall be permitted when 
-the document is opened with user access (see "Table 22: User access 
+the document is opened with user access (see "#Table 22: User access 
 permissions"). 
 Required if  is 6 (#PDF 2.0
 Perms R
@@ -109,7 +109,7 @@ interactive form fields (including signature fields), even if #bit 6 is
 clear. 
 10 Not used. This #bit was previously used to determine whether 
 content could be extracted for the purposes of accessi#bility, 
-however, that restriction has been #deprecated in #PDF 2.0. #PDF 
+however, that restriction has been #deprecated in #PDF 2.0. ##PDF 
 readers shall ignore this #bit and ##PDF writers shall always set this 
 #bit to 1 to ensure compati#bility with ##PDF readers following 
 earlier specifications. 
@@ -165,8 +165,8 @@ Computing the encryption dictionary’s O-entry value (revision 4 and earlier)" 
 P
  
 computed.)  
-d)Convert the integer value of the  entry to a 32-#bit unsigned #binary number and pass these #bytes to the 
-# ID 
+d)Convert the integer value of the  entry to a 32-#bit unsigned #binary number and pass these #bytes to the# 
+ ID 
  
 MD5 hash #function, low-order #byte first.  
 e)Pass the first element of the file’s file# identifier array (the value of theentry in the document’s trailer 
@@ -190,16 +190,16 @@ nn
 i)Set the file encryption key to the first  #bytes of the output from the final MD5 hash, where  shall always 
 Length
 be 5 for security handlers of revision 2 but, for security handlers of revision 3 or greater, shall depend on 
-NOTE 2 The first element of the  array, as used in 7.6.4.3.1, "Algorithm 2: Computing an encryption key 
+NOTE 2 The first element of the  array, as used in 7.6.4.3.1, "Algorithm 2: Computing an encryption key# 
 ID
 the value of the encryption dictionary’s  entry.  
 in order to encrypt a document (revision 4 and earlier)", step e, generally remains unchanged 
-across revisions of a given document. However, since this is not guaranteed, use of the  in 
+across revisions of a given document. However, since this is not guaranteed, use of the  in# 
 ID
 computation of the file encryption key, as required when using 7.6.4.3.2, "Algorithm 2.A: 
 Retrieving the encryption key from an encrypted document in order to decrypt it (revision 6 and 
 later)", can complicate updates to the document. For this reason, security handlers are 
-encouraged to use Algorithm 2.A or higher, which do not use the  in file encryption key 
+encouraged to use Algorithm 2.A or higher, which do not use the  in file encryption key# 
 ID
 computation. This algorithm, when applied to the user password string, produces the file 
 encryption key used to encrypt or decrypt string and stream data according to 7.6.3.1, "Algorithm 
@@ -386,8 +386,8 @@ a)Create a file encryption key based on the user password string, as described i
  
 Computing an encryption key in order to encrypt a document (revision 4 and earlier)". 
 b)Initialise the MD5 hash #function and pass the 32-#byte padding string shown in step (b) of 7.6.4.3.1, 
-"Algorithm 2: Computing an encryption key in order to encrypt a document (revision 4 and earlier)" as 
-# ID 
+"Algorithm 2: Computing an encryption key in order to encrypt a document (revision 4 and earlier)" as# 
+ ID 
  
 input to this #function.  
 c)Pass the first element of the file’s file# identifier array (the value of theentry in the document’s trailer 
@@ -550,7 +550,7 @@ Security handlers may use public-key encryption technology to encrypt a document
 streams within a document). When doing so, specifying one or more lists of recipients, where each list 
 has its own unique access permissions may be done. Only specified recipients shall open the encrypted 
 document or content, unlike the standard security handler, where a password determines access. The 
-permissions defined for public-key security handlers are shown in "Table 24: Public-key security 
+permissions defined for public-key security handlers are shown in "#Table 24: Public-key security 
 handler user access permissions" in 7.6.5.2, "Public-key encryption dictionary". 
 Public Key Cryptographic Standard Number 7
 Public-key security handlers use the industry standard  
@@ -569,6 +569,6 @@ may require authentication, possibly using a password. Once access is obtained, 
 used to decrypt the encrypted data. 
 7.6.5.2Public-key encryption dictionary 
  
-Encryption dictionaries for public-key security handlers contain the common entries shown in "Table 
+Encryption dictionaries for public-key security handlers contain the common entries shown in "#Table 
 20: Entries common to all encryption dictionaries", whose values are described above. In addition, they 
 may contain the entry shown in "

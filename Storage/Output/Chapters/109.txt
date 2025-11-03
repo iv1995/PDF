@@ -86,7 +86,7 @@ NOTE  does not support all Unicode #characters whereas UTF-16BE or UTF-8 do.
  
 The #byte string type shall be used for ##binary data that shall be represented as a series of #bytes, where 
 each #byte may be any value representable in 8 #bits. #Byte string type is a subtype of string type. For 
-example, #byte strings are used to define a file# identifier (see 14.4, "File# identifiers") that is specified in 
+example, #byte strings are used to define a file# identifier (see 14.4, "File# identifiers") that is specified in# 
 ID entry of #PDF file trailer (see "#Table 15: Entries in the file trailer dictionary"). In such case #byte string 
 is written in hexadecimal form (see 7.3.4.3, "Hexadecimal strings") and looks like 
 <B6FB54F3F8554D478DC874F11DAD0F11> 
@@ -95,7 +95,7 @@ not represent #characters.
 7.9.3Text streams 
  
 text stream#PDF 1.5
-A  () shall be a #PDF stream #object (7.3.8, "Stream #objects") whose unencoded #bytes 
+A  () shall be a #PDF #stream #object (7.3.8, "#Stream #objects") whose unencoded #bytes 
 shall meet the same requirements as a text string (7.9.2.2, "Text string type") with respect to encoding, 
 #byte order, and lead #bytes. 
 7.9.4Dates 
@@ -176,9 +176,9 @@ means. A #name tree differs from a dictionary in the following important ways:
 Unlike the keys in a dictionary, which are #name #objects, those in a name tree are strings. 
 • 
 The keys are ordered. 
-The values associated with the keys may be #objects of any type. Stream #objects shall be specified 
-by in#direct ##object references (7.3.8, "Stream #objects"). The dictionary, array, and string #objects 
-should be specified by in#direct ##object references, and other #PDF #objects (nulls, numbers, booleans, 
+The values associated with the keys may be #objects of any type. #Stream #objects shall be specified 
+by #in#direct ##object references (7.3.8, "#Stream #objects"). The dictionary, array, and #string #objects 
+should be specified by #in#direct ##object references, and other #PDF #objects (nulls, numbers, booleans, 
 and names) should be specified as #direct #objects. 
 © ISO 2017 – All rights reserved 119 
 

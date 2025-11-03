@@ -12,7 +12,7 @@ Ruby
 element sequence consisting of , , and . 
  structure elements and their content elements shall not break across 
 multiple lines. 
-RB RB
+RB R#B
 Inline (Ruby base text) The full-size text to which the ruby annotation is applied.  may 
 RubyAlign
 contain text, other inline elements, or a mixture of both.  

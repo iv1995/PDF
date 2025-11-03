@@ -76,5 +76,5 @@ system, such as meters or inches.
 3D units dictionary
 The entries in the  establish these mappings for each set of units (creation time, user 
 3DU
-override, and display units). The 3D Units dictionary is referenced in "Table 309: Additional entries 
+override, and display units). The 3D Units dictionary is referenced in "#Table 309: Additional entries 
 specific to a 3D annotation" as the value of the  entry. 

@@ -26,5 +26,5 @@ Name
 text tree () A unique name for the configuration. 
 Optional; #PDF 2.0
 Instances   
-array () An array of in#direct ##object references toRichMediaInstancedictionaries. 
+array () An array of #in#direct ##object references toRichMediaInstancedictionaries. 
 (See "

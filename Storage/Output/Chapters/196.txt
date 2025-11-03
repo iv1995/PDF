@@ -2,7 +2,7 @@
 Coordinates are mapped from the unit square into a four-sided patch whose sides are not 
 necessarily linear (see the lower figure in "#Figure 42: Coons patch mesh". The mapping is 
 continuous: the corners of the unit square map to corners of the patch and the sides of the unit 
-square map to sides of the patch, as shown in "Figure 43: Coordinate mapping from a unit square 
+square map to sides of the patch, as shown in "#Figure 43: Coordinate mapping from a unit square 
 to a four-sided Coons Patch". 
  
 © ISO 2017 – All rights reserved 239 

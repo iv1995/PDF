@@ -1,8 +1,8 @@
-Table 14: Optional parameters for Crypt #filters") shall 
-Crypt Filter
+#Table 14: Optional parameters for Crypt #filters") shall 
+Crypt #Filter
 specify which of the named crypt #filters in the document (see 7.6.6, "Crypt #filters") shall be used. The
 #filter shall be the first #filter in the  array entry. 
-Table 14: Optional parameters for Crypt #filters 
+#Table 14: Optional parameters for Crypt #filters 
 Key Type Value 
 Optional
 Type Crypt#FilterDecodeParms Crypt 
@@ -23,14 +23,14 @@ Default value: .
  
 In addition, the decode parameters dictionary may include entries that are private to the security 
 handler. Security handlers may use information from both the crypt #filter decode parameters dictionary 
-and the crypt #filter dictionaries (see "Table 25: Entries common to all crypt #filter dictionaries") when 
+and the crypt #filter dictionaries (see "#Table 25: Entries common to all crypt #filter dictionaries") when 
 decrypting data or providing a key to decrypt data. 
 © ISO 2017 – All rights reserved 57 
 
 ISO/DIS 32000-2
  
 NOTE When adding private data to the decode parameters dictionary, security handlers will need to 
-name these entries in conformance with the #PDF name registry (see Annex E, "#PDF Name 
+name these entries in conformance with the# #PDF name registry (see Annex E, "#PDF Name 
 Registry"). 
 If a stream specifies a crypt #filter, then the security handler does not apply "Algorithm 1: Encryption of 
 data using the RC4 or AES algorithms" in 7.6.3, "General encryption algorithm" to the key prior to 

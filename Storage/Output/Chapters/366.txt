@@ -1,4 +1,4 @@
-Table 198: Entries in a page #object’s additional-actions dictionary
+#Table 198: Entries in a page #object’s additional-actions dictionary
  
 and theentry in the document  (see "Table 29: Entries in the 
 catalog dictionary"), if such actions are present.
@@ -16,7 +16,7 @@ a link annotation or outline item.
 C
 The action shall be executed before the  action in the page’s additional-actions 
  
-dictionary (see "Table 198: Entries in a page #object’s additional-actions 
+dictionary (see "#Table 198: Entries in a page #object’s additional-actions 
 dictionary"), if present.
 (Optional; #PDF 1.5) 
 PV 
@@ -26,7 +26,7 @@ annotation becomes visible.
 PI 
 dictionary An action that shall be performed when the page containing the 
 annotation is no longer visible in the #interactive ##PDF processor’s user interface. 
-Table 198: Entries in a page #object’s additional-actions dictionary 
+#Table 198: Entries in a page #object’s additional-actions dictionary 
 Key Type Value 
 (Optional; #PDF 1.2) 
 O 

@@ -15,11 +15,11 @@ the same colour depth. Ties may be broken in an implementation-dependent manner.
  
 The features described in this subclause are #deprecated with #PDF 2.0. They are superseded by the 
 general multimedia framework described in 13.2, "Multimedia". 
-sound object
+sound #object
 Sound
 A  (#PDF 1.2) shall be a stream containing sample values that define a sound to be played 
 through the computer’s speakers. The  entry in a sound annotation or sound action dictionary 
-(see "#Table 188: Additional entries specific to a sound annotation" and "Table 212: Additional entries 
+(see "#Table 188: Additional entries specific to a sound annotation" and "#Table 212: Additional entries 
 specific to a sound action") shall# identify a sound #object representing the sound to be played when the 
 annotation is activated. 
 F

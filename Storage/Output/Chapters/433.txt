@@ -1,4 +1,4 @@
-Figure 86: Illustration of a #PDF Document with repeated LTV 
+#Figure 86: Illustration of a #PDF Document with repeated LTV 
  
  DocMDP 
  DSS 

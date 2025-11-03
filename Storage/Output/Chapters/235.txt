@@ -1,4 +1,4 @@
-Figure 
+#Figure 
 53: Graphics clipped by a #glyph path". This state persists until an earlier clipping path is reinstated by the  
 operator. 
 BT 
@@ -8,7 +8,7 @@ BT
   (ABC) Tj 
 ET 
 … Graphics operators to draw a starburst … ![Figure 53 Graphics clipped by a #glyph path  .png](./Storage/Output/Images/Figure 53 Graphics clipped by a #glyph path  .png)
-Figure 53: Graphics clipped by a #glyph path 
+#Figure 53: Graphics clipped by a #glyph path 
  
 9.2.4#Glyph positioning and metrics 
  
@@ -51,7 +51,7 @@ the #PDF font dictionary. However, in a Type 3 #font, all metrics are specified 
 #fonts"). 
 The #glyph coordinate system is the space in which an individual #character’s #glyph is defined. All path 
 coordinates and metrics shall be interpreted in #glyph space. For all #font types except Type 3, the units of 
-#FontMatrix
+FontMatrix
 #glyph space are one-thousandth of a unit of text space; for a Type 3 #font, the transformation from #glyph 
 space to text space shall be defined by a #font matrix specified in an explicit  entry in the #font. 
 "

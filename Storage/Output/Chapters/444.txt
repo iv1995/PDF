@@ -1,4 +1,4 @@
-Table 273: Entries common to all 
+#Table 273: Entries common to all 
 requirement dictionaries". 
 © ISO 2017 – All rights reserved 586 
 

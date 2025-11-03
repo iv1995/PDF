@@ -42,11 +42,11 @@ encoding pass.
 Digital# identifiers
 , used to associate source content resources with content sets by the# IDS #name tree, 
 shall be generated using the MD5 message-digest algorithm (Internet RFC 1321). 
-NOTE 1 The exact data passed to the algorithm depends on the type of content set and the nature of the 
+NOTE 1 The exact data passed to the algorithm depends on the type of content set and the nature of the# 
 identifier being calculated. 
 For a page set, the source data shall be passed to the MD5 algorithm first, followed by strings 
 representing the digital# identifiers of any auxiliary data files (such as images) referenced in the source 
-data, in the order in which they are first referenced. If an auxiliary file is referenced more than once, its 
+data, in the order in which they are first referenced. If an auxiliary file is referenced more than once, its# 
 identifier shall be passed only the first time. The resulting string shall be used as the digital# identifier 
 for the source content resource. 
 NOTE 2 This sequence produces a composite# identifier representing the visual appearance of the pages in 

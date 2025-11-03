@@ -1,4 +1,4 @@
-Table Annex F.3: Page offset hint table, 
+#Table Annex F.3: Page offset hint table, 
 header section", followed by one or more per-page entries, described in "Table Annex F.4: Page offset 
 hint table, per-page entry". 
 NOTE The items making up each per-page entry are not contiguous; they are broken up with items from 
@@ -51,14 +51,14 @@ greatest and least #content stream length.
 #object# identifier used by the pages (discussed further in "Table Annex F.4: 
 Page offset hint table, per-page entry", item 4). 
 12 16 The number of #bits needed to represent the numerator of the fractional 
-position for each shared ##object reference. For each shared #object 
+position for each shared ##object reference. For each shared ##object 
 referenced from a page, there shall be an indication of where in the page’s 
 #content stream the #object is first referenced. That position shall be given 
 as the numerator of a fraction, whose denominator is specified once for 
 the entire document (in the next item in this table). The fraction is 
 explained in more detail in "Table Annex F.4: Page offset hint table, per-
 page entry", item 5. 
-13 16 The denominator of the fractional position for each shared #object 
+13 16 The denominator of the fractional position for each shared ##object 
 reference. 
 Table Annex F.4: Page offset hint table, per-page entry 
 Item Size (#bits) Description 
@@ -131,7 +131,7 @@ necessarily linear.
 6 See "Table Annex F.3: Page A number that, when added to the least offset to the start of the content 
 offset hint table, header stream ("#Table Annex F.3: Page offset hint table, header section", item 6), 
 section", item 7 shall give the offset in #bytes of the start of the page’s #content stream (the 
-stream #object, not the stream data), relative to the beginning of the page. 
+#stream #object, not the stream data), relative to the beginning of the page. 
 7 See "Table Annex F.3: Page A number that, when added to the least #content stream length ("Table 
 offset hint table, header Annex F.3: Page offset hint table, header section", item 8), shall give the 
 section", item 9 length of the page’s #content stream in #bytes. This length shall include 

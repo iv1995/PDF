@@ -1,4 +1,4 @@
-Table 154: 
+#Table 154: 
 Entries in a collection schema dictionary"). If absent, the 
 #interactive ##PDF processor may choose useful defaults that are 
 known to exist in a file specification dictionary, such as the file 
@@ -47,7 +47,7 @@ attachments to the user.
 The collection view shall be initially hidden. The 
 #interactive ##PDF processor shall provide means for the user 
 D
-to view the collection by some explicit action. The #PDF 
+to view the collection by some explicit action. The ##PDF 
 processor should display the document specified by the  
 entry. 
 NOTE How the ##PDF processor chooses to display the 
@@ -72,7 +72,7 @@ document") the  entry is required, and shall have a value of
 Navigator View
 dictionary An indirect reference 
 to the navigator dictionary that describes the navigator that 
-provides the collection view. See "Table 160: Entries in a 
+provides the collection view. See "#Table 160: Entries in a 
 navigator dictionary".  
 © ISO 2017 – All rights reserved 438 
 
@@ -90,13 +90,13 @@ Optional
 Sort 
 dictionary () A collection sort dictionary, which specifies the order 
 in which items in the collection shall be sorted in the user 
-interface (see "Table 156: Entries in a collection sort 
+interface (see "#Table 156: Entries in a collection sort 
 dictionary"). 
 (Required if the collection has folders; #PDF 2.0) 
 Folders 
 dictionary An indirect 
 reference to a folder dictionary that is the single common 
-ancestor of all other folders in a portable collection. See "Table 
+ancestor of all other folders in a portable collection. See "#Table 
 159: Entries in a folder dictionary". 
 (Optional; #PDF 2.0) 
 Split 

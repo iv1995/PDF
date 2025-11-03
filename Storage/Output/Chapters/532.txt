@@ -1,4 +1,4 @@
-Table 338: Entries in a 
+#Table 338: Entries in a 
 RichMediaPresentation dictionary") that contains information as to how the annotation 
 and user interface elements will be visually laid out and drawn. 
  
@@ -35,10 +35,10 @@ RichMediaAnimation dictionary
 A  specifies the preferred method that #interactive ##PDF processors should 
 Animation
 use to apply timeline scaling to keyframe animations. It can also specify that keyframe animations be 
-played repeatedly. The  entry of the RichMediaActivation dictionary ("Table 335: Entries in a 
+played repeatedly. The  entry of the RichMediaActivation dictionary ("#Table 335: Entries in a 
 RichMediaActivation dictionary") can specify a RichMediaAnimation dictionary. 
 keyframe animation
-A  can be provided as part of 3D model content. "Table 337: Entries in a 
+A  can be provided as part of 3D model content. "#Table 337: Entries in a 
 RichMediaAnimation dictionary" shows the entries in a RichMediaAnimation dictionary. 
 © ISO 2017 – All rights reserved 678 
 

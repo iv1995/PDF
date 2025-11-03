@@ -2,7 +2,7 @@
 resource containing the implementations of the operators in that procedure set. The  entry in a 
 #content stream’s #resource dictionary (see 7.8.3, "Resource dictionaries") shall hold an array consisting 
 of the names of the procedure sets used in that #content stream. These procedure sets shall be used only 
-when the #content stream is printed to a PostScript language compatible output device. The names 
+when the #content stream is printed to a PostScript language compatible output device. The names# 
 identify PostScript language procedure sets that shall be sent to the device to interpret the #PDF 
 © ISO 2017 – All rights reserved 688 
 

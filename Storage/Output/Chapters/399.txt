@@ -1,6 +1,6 @@
 #Table 231: Field flags specific to text fields" 
 shows the flags pertaining to this type of field. A text field shall have a field type of . A conforming #PDF 
-file, and an #interactive ##PDF processor shall obey the usage guidelines in "Table 231: Field flags specific 
+file, and an #interactive ##PDF processor shall obey the usage guidelines in "#Table 231: Field flags specific 
 to text fields". 
 #Table 231: Field flags specific to text fields 
 #Bit position Name Meaning 

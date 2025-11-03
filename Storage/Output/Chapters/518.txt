@@ -7,7 +7,7 @@ on both sides (referred to as the measure line) indicating that the distance sho
 distance between the two parallel lines. 
 PD3
 ISubtype
-In addition to the entries in "Table 326: Entries in a 3D measurement/markup dictionary common to all 
+In addition to the entries in "#Table 326: Entries in a 3D measurement/markup dictionary common to all 
 markup subtypes", the following entries are defined for a  with a  value of  for 3D 
 perpendicular measurement. 
 Table 328: Additional entries in a 3D measurement/markup dictionary for a 3D perpendicular 

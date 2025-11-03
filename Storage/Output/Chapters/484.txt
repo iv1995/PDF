@@ -44,7 +44,7 @@ VA
 A name that indicates the first (), last (), or default () entries in the
 3DD
 array. 
-Default value: the default view in the 3D stream #object specified by . 
+Default value: the default view in the 3D #stream #object specified by . 
 Optionalactivation dictionary
 3DA 
 dictionary () An  (see "

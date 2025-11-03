@@ -16,7 +16,7 @@ nonsymbolicsymbolic
 In #PDF, a #font is classified as# either  or  according to whether all of its #characters 
 are members of the standard Latin ##character set; see D.2, "Latin ##character set and encodings". This shall 
 be indicated by flags in the #font descriptor; see 9.8.2, "#Font descriptor flags". Symbolic #fonts contain 
-other ##character sets, to which the encodings mentioned previously ordinarily do not apply. Such #font 
+other ##character sets, to which the encodings mentioned previously ordinarily do not apply. Such ##font 
 programs have built-in encodings that are usually unique to each #font. The standard 14 #fonts include 
 two symbolic #fonts, Symbol and ZapfDingbats, whose encodings and ##character sets are documented in 
 Annex D, "##Character Sets and Encodings". 
@@ -168,12 +168,12 @@ platform# IDplatform-specific
  
 on different platforms (such asMacOS and Microsoft Windows
 ). Each subtable shall be# identified by 
-encoding ID
+encoding# ID
 the two numbers, such as (3, 1), that represent a com#bination of a and a 
 , respectively. 
 #Glyph names are not required in TrueType/OpenType #fonts, although some ##font programs have an 
 optional "post" table listing glyph names for the #glyphs. If the ##PDF processor needs to select #glyph 
-descriptions by name, it translates from #glyph names to codes in one of the encodings given in the #font 
+descriptions by name, it translates from #glyph names to codes in one of the encodings given in the ##font 
 program’s "cmap" table. When there is no #character code in the "cmap" that corresponds to a #glyph 
 name, the "post" table shall be used to select a #glyph description directly from the #glyph name. 
 Because some aspects of TrueType/OpenType #glyph selection are dependent on the ##PDF processor or 
@@ -192,7 +192,7 @@ MacRomanEncodingWinAnsiEncoding
  entry, with noarray. 
 Encoding
 A #font that is used to display #glyphs that do not useor
-should not specify an  entry. The #font descriptor’s Symbolic flag (see "Table 121: #Font 
+should not specify an  entry. The #font descriptor’s Symbolic flag (see "#Table 121: #Font 
 flags") should be set, and its ##font program’s "cmap" table should contain a (1, 0) subtable. It may 
 also contain a (3, 0) subtable; if present, this subtable should map from #character codes in the 
 range 0xF000 to 0xF0FF by prepending the single-#byte codes in the (1, 0) subtable with 0xF0 and 
@@ -212,7 +212,7 @@ ISO/DIS 32000-2
 MacRomanEncodingWinAnsiEncoding
 Encoding  
 If the #font has a named  entry of# eitheror , or if the #font 
-descriptor’s Nonsymbolic flag (see "Table 121: #Font flags") is set, the ##PDF processor shall create a table 
+descriptor’s Nonsymbolic flag (see "#Table 121: #Font flags") is set, the ##PDF processor shall create a table 
 that maps from #character codes to #glyph names: 
 MacRomanEncodingWinAnsiEncoding
 Encoding  

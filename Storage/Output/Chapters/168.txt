@@ -1,4 +1,4 @@
-Figure 
+#Figure 
 30: Quadtone image" a single-component grayscale image is used to generate a quadtone result 
 that uses four colourants: black and three PANTONE spot colours. See Example 4 in this subclause 
 for the code used to generate this image. 

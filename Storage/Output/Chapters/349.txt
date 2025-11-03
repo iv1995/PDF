@@ -1,4 +1,4 @@
-Table 182: Additional entries specific to text 
+#Table 182: Additional entries specific to text 
 markup annotations" shows the annotation dictionary entries specific to these types of annotations. 
 © ISO 2017 – All rights reserved 478 
 

@@ -26,7 +26,7 @@ Logical structure facilities
 • 
 and associating them with additional properties or externally specified #objects 
  (14.7, "Logical structure") for imposing a hierarchical organization on 
-Tagged PDF
+Tagged #PDF
 • 
 the content of a document 
  (14.8, "Tagged #PDF"), a set of conventions for using the marked content and logical 

@@ -1,5 +1,5 @@
-Table Annex H.2: #Objects in simple text string example" lists the #objects in this example. 
-Table Annex H.2: #Objects in simple text string example 
+#Table Annex H.2: #Objects in simple text string example" lists the #objects in this example. 
+#Table Annex H.2: #Objects in simple text string example 
 #Object number #Object type 
 Catalog
 1  (document catalog) 
@@ -8,9 +8,9 @@ Pages
 Page
 3  (page #object) 
 4 #Content stream 
-Font
+#Font
 5  (Type 1 #font) 
-Font
+#Font
 6  (Type 1 #font) 
 Metadata
 7  (metadata stream) 

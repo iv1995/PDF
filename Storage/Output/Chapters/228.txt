@@ -67,8 +67,8 @@ Default value: . (If  is present in the document’s default configuration
 dictionary, its value shall be .) 
 Optional
 AS 
-array () An array of usage application dictionaries (see "Table 101: Entries in a usage 
-application dictionary") specifying which usage dictionary categories (see "Table 100: 
+array () An array of usage application dictionaries (see "#Table 101: Entries in a usage 
+application dictionary") specifying which usage dictionary categories (see "#Table 100: 
 Entries in an optional content usage dictionary") shall be consulted by ##PDF processors, 
 when automatically setting the states of optional content #groups based on external 
 factors, such as the current system language or viewing magnification, and when they 
@@ -88,9 +88,9 @@ following #objects:
 Optional content #group dictionaries, whose  entry shall be displayed in the 
 • 
 user interface by the #interactive ##PDF processor. 
-Arrays of optional content #groups which may be displayed by an interactive #PDF 
+Arrays of optional content #groups which may be displayed by an #interactive ##PDF 
 processor in a tree or outline structure. Each nested array may optionally have as 
-its first element a text string to be used as a non-selectable label in an interactive 
+its first element a text string to be used as a non-selectable label in an #interactive 
 ##PDF processor’s user interface. 
 Text labels in nested arrays shall be used to present collections of related optional 
 content #groups, and not to communicate actual nesting of content inside multiple layers 

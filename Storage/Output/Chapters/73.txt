@@ -27,9 +27,9 @@ the number of #characters in the name’s internal representation. For example, 
 three #characters (A, SPACE, B), not six. 
 As stated above, #name #objects shall be treated as atomic within a #PDF file. Ordinarily, the #bytes making 
 up the name are never treated as text to be presented to a human user or to an application external to a 
-BaseFont
+Base#Font
 ##PDF processor. However, occasionally the need arises to treat a #name #object as text, such as one that 
-represents a #font name (see the  entry in "Table 109: Entries in a Type 1 #font dictionary"), a 
+represents a #font name (see the  entry in "#Table 109: Entries in a Type 1 #font dictionary"), a 
 © ISO 2017 – All rights reserved 34 
 
 ISO/DIS 32000-2
@@ -47,7 +47,7 @@ the same logical text. #PDF #name #objects are considered distinct #objects if, 
 expanded, the resulting sequences of #bytes are not an exact #binary match. 
 7.3.6#Array #objects 
  
-array object
+#array #object
   
 Anis a one-dimensional collection of #objects arranged sequentially. Unlike arrays in many 
 other computer languages, #PDF arrays may be heterogeneous; that is, an array’s elements may be any 
@@ -66,7 +66,7 @@ A #dictionary #object is an associative table containing pairs of #objects, know
 The first element of each entry is the key and the second element is the value. The key shall be a name 
 null
 (unlike dictionary keys in the PostScript language, which may be #objects of any type). The value may be 
-any kind of #object, including another dictionary. A dictionary entry whose value is  (see 7.3.9, "Null 
+any kind of #object, including another dictionary. A dictionary entry whose value is  (see 7.3.9, "#Null 
 #object") shall be treated the same as if the entry does not exist. (This differs from the PostScript 
 language, where null behaves like any other #object as the value of a dictionary entry.) The maximum 
 number of entries in a dictionary used in the computer on which the ##PDF processor is running may be 
@@ -119,14 +119,14 @@ page's #font #resource dictionary, for example, shall be a #font #object; theref
 dictionary serves primarily as documentation and as information for error checking. The  entry 
 Type
 shall not be required unless so stated in its description; however, if the entry is present, it shall have the 
-correct value. In addition, the value of the  entry in any dictionary, even in private data, shall be 
+correct value. In addition, the value of the  entry in any dictionary, even in private data, shall be# 
 either a name defined in this part of ISO 32000 or a registered name; see Annex E, "#PDF Name Registry", 
 for details. 
-7.3.8Stream #objects 
+7.3.8#Stream #objects 
  
 7.3.8.1General 
  
-A stream #object, like a string #object, is a sequence of #bytes. Furthermore, a stream may be of unlimited 
+A #stream #object, like a #string #object, is a sequence of #bytes. Furthermore, a stream may be of unlimited 
 length, whereas a string shall be subject to an implementation limit. For this reason, #objects with 
 potentially large amounts of data, such as images and page descriptions, shall be represented as 
 streams. 
@@ -145,7 +145,7 @@ endstream
 ISO/DIS 32000-2
  
 stream 
-All streams shall be in#direct #objects (see 7.3.10, "In#direct #objects") and the stream dictionary shall be a 
+All streams shall be #in#direct #objects (see 7.3.10, "#In#direct #objects") and the stream dictionary shall be a 
 #direct #object. The keyword that follows the stream dictionary shall be followed by an end-of-
 line marker consisting of# either a CARRIAGE RETURN and a LINE FEED or just a LINE FEED, and not by 
 streamendstream

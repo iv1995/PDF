@@ -1,4 +1,4 @@
-Figure 
+#Figure 
 23: Uncalibrated colour" illustrates the kind of variation in colour reproduction that can result from the 
 CalGrayCalRGBLa#bICCBased
 use of uncalibrated colour on different devices. #PDF 1.1 supports three CIE-based colour space families, 

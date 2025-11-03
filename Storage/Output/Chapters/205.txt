@@ -2,7 +2,7 @@
 various values of the edge flag. ![Figure 46 Edge connections in a Coons Patch Mesh  .png](./Storage/Output/Images/Figure 46 Edge connections in a Coons Patch Mesh  .png)
 #Figure 46: Edge connections in a Coons Patch Mesh 
  
-Function
+#Function
 c
  c
 If the shading dictionary contains a  entry, the colour data for each corner of a patch shall be 
@@ -10,7 +10,7 @@ t
 1n
 specified by a single parametric value t rather than by n separate colour components 
 …. All linear 
-Function
+#Function
 interpolation within the mesh shall be done using the values. After interpolation, the results shall be 
 passed to the #function(s) specified in the  entry to determine the colour at each point. 
 #Table 84: Data Values in a Coons Patch Mesh 

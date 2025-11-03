@@ -1,9 +1,9 @@
-Table 362: 
+#Table 362: 
 Entries in a user property dictionary"). 
  
 P
 The  entry shall be an array specifying the user properties. Each element in the array shall be a user 
-property dictionary representing an individual property (see "Table 362: Entries in a user property 
+property dictionary representing an individual property (see "#Table 362: Entries in a user property 
 dictionary"). 
 #Table 362: Entries in a user property dictionary 
 Key Type Value 
@@ -20,7 +20,7 @@ other values as errors.
 Optional
 F V
 text string () A formatted representation of the value of , that shall be used for special 
-formatting; for example "($123.45)" for the number -123.45. If this entry is absent, #PDF 
+formatting; for example "($123.45)" for the number -123.45. If this entry is absent, ##PDF 
 processors should use a default format. 
 Optionaltrue
 H 
@@ -68,7 +68,7 @@ through 304 have attached attributes (see 14.7.6, "Structure attributes" and 14.
 attributes").  
   
 The example in this subclause also illustrates the structure of a parent tree (#object 400) that maps 
-content items back to their parent structure elements and anIDtree (#object 403) that maps element 
+content items back to their parent structure elements and anIDtree (#object 403) that maps element# 
 identifiers to the structure elements they denote. 
 EXAMPLE 
 1 0 obj             %Document catalog 
@@ -326,7 +326,7 @@ for other purposes.
 A tagged #PDF document is one that conforms to all rules described in all of the subclauses in 14.8, 
 "Tagged #PDF". 
 Marked
-A tagged #PDF document shall contain a mark information dictionary (see "Table 353: Entries in the 
+A tagged #PDF document shall contain a mark information dictionary (see "#Table 353: Entries in the 
 mark information dictionary") with a value of true for the  entry. 
 NOTE Tagged #PDF is intended for use by tools that perform operations such as: 
 •

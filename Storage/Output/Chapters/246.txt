@@ -1,4 +1,4 @@
-Table 105: Text #object operators". 
+#Table 105: Text #object operators". 
 NOTE Although text #objects cannot be statically nested, text might be shown using a Type 3 #font whose 
 #glyph descriptions include any graphics #objects, including another text #object. Likewise, the 
 current colour might be a tiling pattern whose pattern cell includes a text #object. 
@@ -34,7 +34,7 @@ Text-positioning operators, described in 9.4.2, "Text-positioning operators".
 Text-showing operators, described in 9.4.3, "Text-showing operators". 
 The latter two subclauses also provide further details about these text #object parameters. The other 
 operators that may appear in a text #object are those related to the general #graphics state, colour, and 
-marked content, as shown in "Figure 9: Graphics #Objects". 
+marked content, as shown in "#Figure 9: Graphics #Objects". 
 9.4.2Text-positioning operators 
  
 T

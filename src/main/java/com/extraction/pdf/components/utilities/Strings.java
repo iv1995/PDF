@@ -70,7 +70,7 @@ public class Strings {
 					break;
 				}
 				
-				while(String.valueOf( box.charAt(i) ).isBlank()) {	
+				while(String.valueOf( box.charAt(i) ).isBlank() || box.charAt(i) == '#') {	
 					++i;
 					
 					if(i == box.length()) {
@@ -78,7 +78,7 @@ public class Strings {
 					}
 				}
 				
-				while(String.valueOf( obj.charAt(j) ).isBlank()) {
+				while(String.valueOf( obj.charAt(j) ).isBlank() || obj.charAt(j) == '#') {
 					++j;
 					
 					if(j == obj.length()) {

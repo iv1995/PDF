@@ -1,4 +1,4 @@
-Figure 37: Radial shading 
+#Figure 37: Radial shading 
 effect" (8.7.4.5.4, "Type 3 (radial) shadings"). Each leaf is filled with the same radial shading (#object number 
 5). The colour #function (#object 10) is a stitching #function (described in 7.10.4, "Type 3 (stitching) #functions") 
 whose two sub#functions (#objects 11 and 12) are both exponential interpolation #functions (see 7.10.3, "Type 2 

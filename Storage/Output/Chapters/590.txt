@@ -1,4 +1,4 @@
-Table 393: Entries in a Web Capture 
+#Table 393: Entries in a Web Capture 
 command dictionary" shows the contents of this type of dictionary. 
 #Table 393: Entries in a Web Capture command dictionary 
 Key Type Value 
@@ -10,7 +10,7 @@ L
 integer () The number of levels of pages retrieved from the initial URL. Default value: 1. 
 Optional
 F 
-integer () A set of flags specifying various #characteristics of the command (see "Table 
+integer () A set of flags specifying various #characteristics of the command (see "#Table 
 393: Entries in a Web Capture command dictionary"). Default value: 0. 
 Optional
 P 

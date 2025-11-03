@@ -1,8 +1,8 @@
-Figure 80: Leader 
+#Figure 80: Leader 
 lines". 
 (Optional) 
 BS 
-dictionary A border style dictionary (see "Table 168: Entries in a border style 
+dictionary A border style dictionary (see "#Table 168: Entries in a border style 
 dictionary") specifying the width and dash pattern that shall be used in 
 drawing the line. 
 (Optional; #PDF 1.4) 

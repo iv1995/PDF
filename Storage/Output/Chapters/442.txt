@@ -1,7 +1,7 @@
 #Table 271: Entries in a projected coordinate system dictionary" lists the entries in a projected 
  DCS 
 coordinate system dictionary. A projected coordinate system dictionary may be a value of theor 
-theentry of a geospatial measure dictionary, "Table 269: Additional entries in a geospatial measure 
+theentry of a geospatial measure dictionary, "#Table 269: Additional entries in a geospatial measure 
 dictionary". 
 #Table 271: Entries in a projected coordinate system dictionary 
 Key Type Description 
@@ -19,7 +19,7 @@ WKT
 #ASCII string () A string of Well Known Text descri#bing the projected 
 coordinate system. 
  
- EPSG  WKT 
+ EPSG  WKT# 
 Either ancode or astring shall be required in the projected coordinate system dictionary. 
  WKT 
 EXAMPLE 1 Adescri#bing a geographic coordinate system 

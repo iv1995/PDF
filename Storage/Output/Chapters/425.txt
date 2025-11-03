@@ -1,4 +1,4 @@
-Table 
+#Table 
 255: Entries in a signature dictionary". #Signature handlers may use or omit those entries that are 
 marked optional in the table but should use them in a standard way if they are used at all. In addition, 
 #signature handlers may add private entries of their own. To avoid name duplication, the keys for all 

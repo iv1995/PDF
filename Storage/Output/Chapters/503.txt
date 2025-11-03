@@ -91,10 +91,10 @@ Am#bient Colour: <0.1, 0.1, 0.1>
 ISO/DIS 32000-2
  
  
-If a lighting scheme style is encountered other than those described in "Table 321: 3D lighting scheme 
+If a lighting scheme style is encountered other than those described in "#Table 321: 3D lighting scheme 
 styles" the lighting scheme dictionary containing that entry shall be ignored. 
 NOTE This allows future documents using new lighting schemes to behave consistently with future 
-documents using new 3D view constructs. That is, the expected behaviour is for the interactive 
+documents using new 3D view constructs. That is, the expected behaviour is for the #interactive 
 ##PDF processor to ignore unrecognised lighting styles and 3D view constructs. 
 13.6.4.63D cross section dictionaries 
  

@@ -1,4 +1,4 @@
-Table 133: Variables used in the basic compositing 
+#Table 133: Variables used in the basic compositing 
 formula". 
 NOTE This formula represents a simplified form of the compositing formula in which the shape and 
 opacity values are com#bined and represented as a single alpha value; the more general form is 
@@ -66,7 +66,7 @@ CalRGB
 • 
 ICCBased
 • 
-Lab
+La#b
  ICCBased 
  #bi-directional  ‘GRAY’, ‘RGB ’, and ‘CMYK’ colour spaces 
 L*a*b*, L*u*v*,HSV

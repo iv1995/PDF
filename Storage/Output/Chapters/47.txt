@@ -1,5 +1,5 @@
-#object 
-either an #integer #object or a real #object 
+#object# 
+either an #integer #object or a #real #object 
 4.44 
  
 #object 

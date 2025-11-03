@@ -1,5 +1,5 @@
-Table 407: Entries in a 
-version 2.0 OPI dictionary"). The key for this entry shall be the name 1.3 or 2.0, 
+#Table 407: Entries in a 
+version 2.0 OPI dictionary"). The key for this entry shall be the name 1.3 or 2.0,# 
 identifying the version of OPI to which the proxy corresponds. 
  
 NOTE 2 As in any other #PDF dictionary, the key in an OPI version dictionary is a #name #object. The OPI 
@@ -13,7 +13,7 @@ ISO/DIS 32000-2
 <</2.0 d 0 R>>        %OPI 2.0 dictionary 
  
 where d is the #object number of the corresponding OPI dictionary. 
-"#Table 406: Entries in a version 1.3 OPI dictionary" and "Table 407: Entries in a version 2.0 OPI 
+"#Table 406: Entries in a version 1.3 OPI dictionary" and "#Table 407: Entries in a version 2.0 OPI 
 dictionary") describe the contents of the OPI dictionaries for OPI 1.3 and OPI 2.0, respectively, along 
 with the corresponding PostScript language OPI comments. The dictionary entries shall be listed in the 
 OPI: Open Prepress 
@@ -53,7 +53,7 @@ array %ALDImageDimensions () An array of two integers of the form
 specifying the dimensions of the image in pixels. 
 Required
 CropRect 
-#rectangle %ALDImageCropRect () An array of four integers of the form  
+rectangle %ALDImageCropRect () An array of four integers of the form  
 [left top right bottom] 
 specifying the portion of the image that shall be used. 
 Optional
@@ -212,7 +212,7 @@ ISO/DIS 32000-2
 Key Type OPI Comment Value 
 Optional
 CropRect 
-#rectangle %%ImageCropRect () An array of four numbers of the form 
+rectangle %%ImageCropRect () An array of four numbers of the form 
 [left top right bottom] 
 Size CropRect 
 specifying the portion of the image that shall be used. 
@@ -284,7 +284,7 @@ separate data file such as a JDF #job ticket or be viewed using a ##PDF processo
 The use of a separate #job ticket file for specifying page ordering and processing requirements allows for 
 an exchanged #PDF 2.0 document to be more easily late stage targeted or re-targeted to a production 
 workflow, digital printing device, or other messaging channel. Re-targeting or reprinting is then 
-possible without the need to recreate or modify the #PDF 2.0 document. Such workflows may need to 
+possible without the need to recreate or modify the #PDF 2.0 document. Such workflows may need to# 
 identify specific page ranges in a #PDF file in order to associate them with specific parts of the #job ticket. 
 #Document parts provide the metadata required to make that# identification. 
 NOTE The #document part tree structure specified in this part of this international Standard is based on 
@@ -307,18 +307,18 @@ shall not overlap and therefore shall not share the same #PDF page #objects. Eac
 the #PDF file shall be included in the page range defined by one and only one DPart dictionary. 
 The various DPart dictionary nodes of the hierarchy are fully connected by explicit references to the 
 immediate descendant DPart nodes and to the parent node. 
-NOTE 1 Although ISO 32000 also defines structured access to page #objects via the pages tree, a #PDF 
-processor can also access page #object entries indirectly from the DPart leaf nodes of the document 
+NOTE 1 Although ISO 32000 also defines structured access to page #objects via the pages tree, a ##PDF 
+processor can also access page #object entries indirectly from the DPart leaf nodes of the ##document 
 part hierarchy for structured presentation of pages. 
 DPartRoot
-The value of the optional  key in the catalog dictionary shall be an in#direct ##object reference 
+The value of the optional  key in the catalog dictionary shall be an #in#direct ##object reference 
 to a DPartRootNode dictionary. 
 A child DPart dictionary shall not be referenced by more than one parent DPart dictionary. 
 NOTE 2 A DPart dictionary is not permitted to have more than one parent and can have any number of 
 children because DPart dictionaries are part of a tree structure. 
 14.12.3Connecting the DPart tree structure to pages 
  
-page object
+page #object
 StartEnd
 A  shall only be referenced in the range of pages specified by the  and  keys of a 
 single DPart dictionary entry. 
@@ -340,12 +340,12 @@ StartEnd
 If more than one page #object is included in the range of pages referenced by the  and  keys of a 
 DPart dictionary entry, the page number of each page ##object referenced within that range shall be 
 Start
-monotonically increasing, as defined by the document’s page tree, beginning with the page #object 
+monotonically increasing, as defined by the document’s page tree, beginning with the page ##object 
 referenced by the  key. The order of page #objects as defined by the page tree shall be in the same 
 order in which page #objects are referenced from leaf node DPart dictionaries in a depth-first traversal of 
 the ##document part hierarchy. 
 NOTE 2 By ordering the #PDF pages as referenced from the DPart tree structure to be respective of the 
-order they are referenced from the normal page tree, the pages will be enumerated the same using 
+order they are referenced from the normal page tree, the pages will be enumerated the same using# 
 either mechanism. 
 14.12.4Data structures 
  

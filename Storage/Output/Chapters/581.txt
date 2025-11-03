@@ -1,4 +1,4 @@
-#Figure 114: Simple Web Capture file structureFigure 100: Rendering of the 3D artwork using View1 
+#Figure 114: Simple Web Capture file structure#Figure 100: Rendering of the 3D artwork using View1 
 (all shapes visible and opaque)" shows a simple web capture file structure. 
 © ISO 2017 – All rights reserved 772 
 
@@ -7,7 +7,7 @@ ISO/DIS 32000-2
 Document catalog
 Dictionary
 Namedictionary
-Name tree
+#Name tree
 URLSIDS
 http://www.iso.org/904B…1EA2
 Page set

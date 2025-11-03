@@ -1,4 +1,4 @@
-Figure 34: Radial 
+#Figure 34: Radial 
 shadings depicting a cone" depict the results of extending the shading at the smaller and larger 
 ends, respectively. 
 © ISO 2017 – All rights reserved 231 
@@ -11,7 +11,7 @@ s
 Conceptually, all of the blend circles shall be painted in order of increasing values of , from smallest to 
 tt
 s
-Function
+#Function
 largest. Blend circles extending beyond the starting circle shall be painted in the same colour defined by 
 tt
 s

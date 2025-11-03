@@ -1,9 +1,9 @@
-Table 148: Names 
+#Table 148: Names 
 defined for an Enforce array" specifies names that shall be valid to use in 
 this array. 
  
  Enforce 
-Thearray shall only include names that occur in "Table 148: Names defined for an Enforce 
+Thearray shall only include names that occur in "#Table 148: Names defined for an Enforce 
 array". Future additions to this table shall be limited to keys in the viewer preferences dictionary with 
 the following qualities: 
 • 

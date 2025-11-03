@@ -13,9 +13,9 @@ JPXDecode
 65536 distinct values for each component. Other component sizes can be accommodated when a
 #filter is used; see 7.4.9, "JPXDecode #filter". 
 #PDF provides two means for specifying images: 
-image XObject
+image X#Object
 • 
-An  (described in 8.9.5, "Image dictionaries") is a stream #object whose dictionary 
+An  (described in 8.9.5, "Image dictionaries") is a #stream #object whose dictionary 
 Do
 specifies attributes of the image and whose data contains the image samples. Like all external 
   
@@ -53,7 +53,7 @@ The mapping from colour component values in the image data to component values i
 colour space 
 All of these items shall be specified explicitly or implicitly by an image X#Object or an inline image. 
 NOTE For convenience, the following subclauses refer consistently to the #object defining an image as an 
-. Although this term properly refers only to the dictionary portion of the stream 
+. Although this term properly refers only to the dictionary portion of the #stream 
 #object representing an image X#Object, it can be understood to apply equally to the stream’s data 
 image dictionary
 portion or to the parameters and data of an inline image. 

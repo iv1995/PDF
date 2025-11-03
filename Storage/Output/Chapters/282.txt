@@ -1,5 +1,5 @@
 #Table 132: Entries in a Type 5 halftone dictionary") is a composite 
-dictionary containing independent halftone definitions for multiple colourants. Its keys shall be name 
+dictionary containing independent halftone definitions for multiple colourants. Its keys shall be #name 
 #objects representing the names of individual colourants or colour components. The values associated 
 with these keys shall be other halftone dictionaries, each defining the halftone screen and transfer 
 #function for a single colourant or colour component. The component halftone dictionaries shall not be 
@@ -48,7 +48,7 @@ spaces. Some of these may also be used as process colourants if the native colou
 nonstandard. 
 When a halftone dictionary of some other Type appears as the value of an entry in a Type 5 halftone 
 dictionary, it shall apply only to the single colourant or colour component named by that entry’s key. 
-This is in contrast to such a dictionary’s being used as the current halftone parameter in the graphics 
+This is in contrast to such a dictionary’s being used as the current halftone parameter in the #graphics 
 state, which shall apply to all colour components. If nonprimary colourants are requested when the 
 current halftone is defined by any means other than a Type 5 halftone dictionary, the gray halftone 
 screen and transfer #function shall be used for all such colourants. 

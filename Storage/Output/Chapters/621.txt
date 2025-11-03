@@ -1,4 +1,4 @@
-Table Annex F.7: Thumbnail hint table, 
+#Table Annex F.7: Thumbnail hint table, 
 header section") followed by the thumbnails section, which shall include one or more per-page entries 
 ("Table Annex F.8: Thumbnail hint table, per-page entry"), each of which describes the thumbnail image 
  OpenAction 

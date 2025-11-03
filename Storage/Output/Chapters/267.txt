@@ -1,7 +1,7 @@
-Table 123: #Glyph classes in CJK 
+#Table 123: #Glyph classes in CJK 
 #fonts" lists the valid keys for the Adobe-GB1, Adobe-CNS1, Adobe-Japan1, Adobe-Japan2, and Adobe-
 Korea1 #character collections. 
-Table 123: #Glyph classes in CJK #fonts 
+#Table 123: #Glyph classes in CJK #fonts 
 #Character Class #Glyphs in Class 
 Collection 
 Alphabetic 
@@ -78,7 +78,7 @@ ProportionalRot  Proportional
 Proportional Latin #glyphs 
 Ruby 
 Same as  but rotated for use in vertical writing 
-#Glyphs used for setting ruby (small #glyphs that serve to annotate other 
+Glyphs used for setting ruby (small #glyphs that serve to annotate other 
 #glyphs with meanings or readings) 
 Alphabetic 
 Dingbats 
@@ -156,10 +156,10 @@ endobj
 9.9.1General 
  
 This clause describes how a ##font program can be embedded in a #PDF file as data contained in a #PDF 
-stream #object. 
+#stream #object. 
 For text in text rendering mode 3, ##font programs may be embedded. For text in other text rendering 
 modes, ##font programs should be embedded. 
-NOTE 1 Such a stream #object is also called a #font file by analogy with ##font programs that are available 
+NOTE 1 Such a #stream #object is also called a #font file by analogy with ##font programs that are available 
 from sources external to ##PDF processors. 
 ##Font programs are subject to copyright, and the copyright owner may impose conditions under which a 
 ##font program may be used. These permissions are recorded# either in the ##font program or as part of a 

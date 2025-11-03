@@ -1,4 +1,4 @@
-Table 314: Entries 
+#Table 314: Entries 
 in a 3D reference dictionary"):  
 3DD
 • 
@@ -7,7 +7,7 @@ If the  entry specifies a 3D stream, the annotation shall have its own run-time 
 3DD
 • 
 annotations that refer to the same stream shall have separate run-time instances. 
-If the  entry specifies a 3D reference dictionary (whose entries are shown in "Table 314: 
+If the  entry specifies a 3D reference dictionary (whose entries are shown in "#Table 314: 
 Entries in a 3D reference dictionary"), the annotation shall have a run-time instance of the 3D 
 artwork with all other annotations that specify the same reference dictionary. Any changes to the 
 artwork shall be reflected in all such annotations. 

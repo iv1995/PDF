@@ -1,6 +1,6 @@
 #Figure 61: Operation of the TJ operator in horizontal writing 
  
-A string operand of a text-showing operator shall be interpreted as a sequence of #character codes 
+A string operand of a text-showing operator shall be interpreted as a sequence of #character codes# 
 identifying the #glyphs to be painted. 
 With a simple #font, each #byte of the string shall be treated as a separate #character code. The #character 
 code shall then be looked up in the #font’s encoding to select the #glyph, as described in 9.6.5, "#Character 
@@ -11,11 +11,11 @@ CMap
 or more consecutive #bytes of the string shall be treated as a single #character code. The code lengths and 
 the mappings from codes to #glyphs are defined in a data structure called a , described in 9.7, 
 "Composite #fonts". 
-The strings shall conform to the syntax for string #objects. When a string is written by enclosing the data 
+The strings shall conform to the syntax for #string #objects. When a string is written by enclosing the data 
 in parentheses, #bytes whose values are equal to those of the #ASCII #characters LEFT PARENTHESIS 
 (28h), RIGHT PARENTHESIS (29h), and REVERSE SOLIDUS (5Ch) (backslash) shall be preceded by a 
-REVERSE SOLIDUS) #character. All other #byte values between 0 and 255 may be used in a string #object. 
-These rules apply to each individual #byte in a string #object, whether the string is interpreted by the text-
+REVERSE SOLIDUS) #character. All other #byte values between 0 and 255 may be used in a #string #object. 
+These rules apply to each individual #byte in a #string #object, whether the string is interpreted by the text-
 showing operators as single-#byte or multiple-#byte #character codes. 
 Strings presented to the text-showing operators may be of any length — even an empty string or a 
 single #character code per string — and may be placed on the page in any order. The #grouping of #glyphs 
@@ -123,7 +123,7 @@ ISO/DIS 32000-2
 A #font shall be represented in #PDF as a dictionary specifying the type of font, its PostScript language 
 name, its encoding, and information that can be used to provide a substitute when the ##font program is 
 not available. Optionally, the ##font program (more commonly known as #font files) may be embedded as a 
-stream #object in the #PDF file. 
+#stream #object in the #PDF file. 
 NOTE 1 See 9.2, "Organization and use of fonts" for more introductory information. 
 SubtypeSubtype
 "

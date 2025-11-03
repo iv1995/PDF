@@ -1,4 +1,4 @@
-Figure 3: Structure of an updated #PDF file". A 
+#Figure 3: Structure of an updated #PDF file". A 
 complete example of an updated file is shown in H.7, "Updating example". 
 A cross-reference section for an incremental update shall contain entries only for #objects that have been 
 changed, replaced, or deleted. Deleted #objects shall be left unchanged in the file, but shall be marked as 
@@ -9,7 +9,7 @@ theentry (if present) from the previous trailer, whether modified or not. In add
 trailer dictionary shall contain aentry giving the location of the previous cross-reference section 
 (see "#Table 15: Entries in the file trailer dictionary"). Each trailer shall be terminated by its own end-of-
 file (%%EOF) marker. 
-NOTE 3 As shown in "Figure 3: Structure of an updated #PDF file", a file that has been updated several 
+NOTE 3 As shown in "#Figure 3: Structure of an updated #PDF file", a file that has been updated several 
 times contains several trailers. Because updates are appended to #PDF files, a file may have several 
 copies of an #object with the same #object# identifier (#object number and generation number). 
 EXAMPLE Several copies of an #object can occur if a text annotation (see 12.5, "Annotations") is changed several times 
@@ -31,13 +31,13 @@ Version
 
 ISO/DIS 32000-2
  ![Figure 3 Structure of an updated #PDF file  .png](./Storage/Output/Images/Figure 3 Structure of an updated #PDF file  .png)
-Figure 3: Structure of an updated #PDF file 
+#Figure 3: Structure of an updated #PDF file 
  
 7.5.7##Object streams 
  
-An ##object stream is a stream #object in which a sequence of in#direct #objects may be stored, as an 
+An ##object stream is a #stream #object in which a sequence of #in#direct #objects may be stored, as an 
 alternative to their being stored at the outermost file level. 
-NOTE 1 ##Object streams are first introduced in #PDF 1.5. The purpose of ##object streams is to allow indirect 
+NOTE 1 ##Object streams are first introduced in #PDF 1.5. The purpose of ##object streams is to allow #in#direct 
 #objects other than streams to be stored more compactly by using the facilities provided by stream 
 compression #filters. 
 NOTE 2 The term "compressed #object" is used regardless of whether the stream is actually encoded with a 
@@ -45,7 +45,7 @@ compression #filter.
 The following #objects shall not be stored in an ##object stream: 
 • 
 • 
-Stream #objects 
+#Stream #objects 
 • 
 #Objects with a generation number other than zero 
 Length
@@ -63,5 +63,5 @@ NOTE 3 Indirect references to objects inside ##object streams use the normal syn
 Access to these #objects requires a different way of storing cross-reference information; see 7.5.8, 
 "Cross-reference streams" Use of compressed #objects requires a #PDF 1.5 ##PDF reader. However, 
 compressed #objects can be stored in a manner that a #PDF 1.4 ##PDF reader can ignore. 
-In addition to the regular keys for streams shown in "Table 5: Entries common to all stream 
+In addition to the regular keys for streams shown in "#Table 5: Entries common to all stream 
 dictionaries", the stream dictionary descri#bing an ##object stream contains the following entries: 

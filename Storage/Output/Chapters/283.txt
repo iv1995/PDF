@@ -1,6 +1,6 @@
-#Figure 69: Flatness tolerance". Flatness may be specified as the operand of the  operator (see "Table 
+#Figure 69: Flatness tolerance". Flatness may be specified as the operand of the  operator (see "#Table 
 56: #Graphics state operators") or as the value of theentry in a #graphics state parameter dictionary 
-(see "Table 57: Entries in a #graphics state parameter dictionary"). It shall be a positive number. 
+(see "#Table 57: Entries in a #graphics state parameter dictionary"). It shall be a positive number. 
 ##PDF processors may choose to ignore any flatness tolerance specified within a #PDF file. 
 NOTE 1 Smaller values yield greater precision at the cost of more computation. 
 NOTE 2 Although the figure exaggerates the difference between the curved and flattened paths for the 
@@ -26,7 +26,7 @@ maximum independent error shall be used. The allowable error (or tolerance) shal
 fraction of the range of the colour component, from 0.0 to 1.0. Thus, a smoothness tolerance of 0.1 
 SM
 represents a tolerance of 10 percent in each colour component. Smoothness may be specified as the 
-value of the  entry in a #graphics state parameter dictionary (see "Table 57: Entries in a #graphics state 
+value of the  entry in a #graphics state parameter dictionary (see "#Table 57: Entries in a #graphics state 
 parameter dictionary"). 
 Each output device may have internal limits on the maximum and minimum tolerances attainable. 
 Setting smoothness to 1.0 can result in an internal smoothness of 0.5 on a high-quality colour device, 

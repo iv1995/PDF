@@ -1,9 +1,9 @@
-Table 119: Entries in a Type 0 #font dictionary". 
-Table 119: Entries in a Type 0 #font dictionary 
+#Table 119: Entries in a Type 0 #font dictionary". 
+#Table 119: Entries in a Type 0 #font dictionary 
 Key Type Value 
 Required
 Type  
-Font
+#Font
  
 name () The type of #PDF #object that this dictionary describes; shall be
 for a #font dictionary. 
@@ -12,13 +12,13 @@ Subtype
 name () The type of font; shall be  for a Type 0 #font. 
 Required
 Base#Font 
-BaseFont
+Base#Font
 name () The name of the #font. If the descendant is a Type 0 CID#Font, 
 Encoding
 this name should be the concatenation of the CID#Font’s  name, 
 CMapName
 a hyphen, and the CMap name given in the  entry (or the 
-BaseFont
+Base#Font
  entry in the CMap). If the descendant is a Type 2 CID#Font, 
 NOTE In principle, this is an ar#bitrary name, since there is no #font 
 this name should be the same as the CID#Font’s  name. 
@@ -30,7 +30,7 @@ Encoding
 name or stream  () The name of a predefined CMap, or a stream containing a 
 CMap that maps #character codes to #font numbers and CIDs. If the 
 Encoding
-descendant is a Type 2 CID#Font whose associated TrueType #font 
+descendant is a Type 2 CID#Font whose associated TrueType ##font 
 program is not embedded in the #PDF file, the  entry shall be a 
 predefined CMap name (see 9.7.4.2, "#Glyph selection in CID#Fonts"). 
 Required

@@ -1,10 +1,10 @@
-Table 115: Entries in a 
+#Table 115: Entries in a 
 CID#Font dictionary" lists the entries in a CID#Font dictionary. 
-Table 115: Entries in a CID#Font dictionary 
+#Table 115: Entries in a CID#Font dictionary 
 Key Type Value 
 Required
 Type  
-Font
+#Font
  
 name () The type of #PDF #object that this dictionary describes; shall be
 for a CID#Font dictionary. 
@@ -22,7 +22,7 @@ have a subset prefix if appropriate; see 9.9.2, "#Font subsets".
 Required
 CIDSystemInfo 
 dictionary  () A dictionary containing entries that define the #character 
-collection of the CID#Font. See "Table 114: Entries in a CIDSystemInfo 
+collection of the CID#Font. See "#Table 114: Entries in a CIDSystemInfo 
 dictionary". 
 Required; shall be an indirect reference
 #FontDescriptor 
@@ -66,7 +66,7 @@ c
 stream, the #bytes in the stream shall contain the mapping from CIDs to 
 #glyph indices: the #glyph index for a particular CID value  shall be a 2-
 CIDToGIDMap
-#byte value stored in #bytes 2 × 𝑐𝑐 and 2 × 𝑐𝑐+ 1, where the first #byte shall 
+#byte value stored in #bytes 2 × 𝑐𝑐 and 2 × 𝑐𝑐+ 1, where the first #byte shall# 
 Identity
 be the high-order #byte. If the value of  is a name, it shall be 
 , indicating that the mapping between CIDs and #glyph indices is 
@@ -85,7 +85,7 @@ from an external source.
  #FontFile3 
 When the CID#Font contains an embedded ##font program that is represented in the Compact#FontFormat 
 CID#FontType0COpenType
-(CFF), theentry in the #font descriptor (see "Table 124: Embedded #font organization for 
+(CFF), theentry in the #font descriptor (see "#Table 124: Embedded #font organization for 
 various #font types") shall be# either  or . There are two cases, depending on the 
 contents of the ##font program: 
 • 
@@ -175,7 +175,7 @@ DW2
 The default position vector and vertical displacement vector shall be specified by the  entry in the 
 w1
 CID#Font dictionary.  shall be an array of two values: the vertical component of the position vector  
-and the vertical component of the displacement vector  (see "Figure 55: Metrics for horizontal and 
+and the vertical component of the displacement vector  (see "#Figure 55: Metrics for horizontal and 
 vertical writing modes"). The horizontal component of the position vector shall be half the #glyph width, 
 and that of the displacement vector shall be 0. 
 DW2

@@ -1,4 +1,4 @@
-Table 13: Optional parameter for the DCTDecode #filter". 
+#Table 13: Optional parameter for the DCTDecode #filter". 
 The details of the encoding algorithm are not presented here but are in the ISO #JPEG standard. Briefly, 
 the #JPEG algorithm breaks an image up into blocks that are 8 samples wide by 8 samples high. Each 
 colour component in an image is treated separately. A two-dimensional DCT is performed on each 
@@ -9,7 +9,7 @@ quantised with a different step size. It is this quantization that results in th
 
 ISO/DIS 32000-2
  
-Table 13: Optional parameter for the DCTDecode #filter 
+#Table 13: Optional parameter for the DCTDecode #filter 
 Key Type Value 
 Optional
 ColorTransform 

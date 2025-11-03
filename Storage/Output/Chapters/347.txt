@@ -14,7 +14,7 @@ name The type of annotation that this dictionary describes; shall be
  orfor a square or circle annotation, respectively. 
 (Optional) 
 BS 
-dictionary A border style dictionary (see "Table 168: Entries in a border style 
+dictionary A border style dictionary (see "#Table 168: Entries in a border style 
 dictionary") specifying the line width and dash pattern that shall be used in 
 drawing the #rectangle or ellipse. 
 © ISO 2017 – All rights reserved 476 
@@ -41,12 +41,12 @@ DeviceCMYK
 BE 
 BS
 dictionary A descri#bing an effect applied to 
-the border described by the  entry (see "Table 169: Entries in a border 
+the border described by the  entry (see "#Table 169: Entries in a border 
 effect dictionary"). 
 (Optional; #PDF 1.5) 
 RD 
 Rect
-#rectangle A set of four numbers that shall describe the numerical 
+rectangle A set of four numbers that shall describe the numerical 
 differences between two #rectangles: the  entry of the annotation and the 
 BE
 actual boundaries of the underlying square or circle. Such a difference may 

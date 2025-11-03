@@ -1,6 +1,6 @@
-Table 139: Arguments and results of the #group 
+#Table 139: Arguments and results of the #group 
 compositing #function". 
-Table 139: Arguments and results of the #group compositing #function 
+#Table 139: Arguments and results of the #group compositing #function 
 Variable Meaning 
  
 𝐵𝐵The transparency #group: a compound #object consisting of all elements 
@@ -54,7 +54,7 @@ For each #group element 𝐸𝐸
 )
 Composite𝐶𝐶
 if 𝐸𝐸
-,𝛼𝛼,𝐸𝐸 is a group
+,𝛼𝛼,𝐸𝐸 is a #group
 𝑖𝑖𝑖𝑖𝑖𝑖
 𝑓𝑓𝑗𝑗𝑗𝑗
 �𝐶𝐶

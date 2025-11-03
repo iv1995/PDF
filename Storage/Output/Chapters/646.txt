@@ -1,5 +1,5 @@
 #Figure Annex K.2: Comparison of two dictionaries 
-J.3.7Stream #objects 
+J.3.7#Stream #objects 
  
 Given two streams, there are two things to compare - the stream data and the associated dictionary. 
 Comparison of the dictionary was addressed in the previous subclause. 

@@ -1,4 +1,4 @@
-Table 2: Delimiter #characters 
+#Table 2: Delimiter #characters 
 #Glyph Decimal Hexadecimal Octal Name 
 ( 
 40 28 050 LEFT PARENTHESIS 
@@ -26,7 +26,7 @@ ISO/DIS 32000-2
 % 
 37 25 045 PERCENT SIGN 
  
-All #characters except the white-space #characters and delimiters are referred to as regular #characters. 
+All #characters except the #white-space #characters and delimiters are referred to as regular #characters. 
 These #characters include #bytes that are outside the #ASCII ##character set. A sequence of consecutive 
 regular #characters comprises a single token. #PDF is case-sensitive; corresponding uppercase and 
 lowercase letters are distinct. 
@@ -35,7 +35,7 @@ lowercase letters are distinct.
 Any occurrence of the PERCENT SIGN (25h) outside a string or inside a #content stream (see 7.8.2, 
 "#Content streams") introduces a comment. The comment consists of all #characters after the PERCENT 
 SIGN and up to but not including the end-of-the-line marker. A ##PDF processor shall ignore comments, 
-and treat them as single white-space #characters. That is, a comment separates the token preceding it 
+and treat them as single #white-space #characters. That is, a comment separates the token preceding it 
 from the one following it. 
 EXAMPLE The #PDF fragment in this example is syntactically equivalent to just the tokens abc and 123. 
 abc%comment (/%) blah blah blah 
@@ -50,9 +50,9 @@ no semantics. They are not necessarily preserved by a ##PDF processor.
 #PDF includes# eight basic types of #objects: Boolean values, Integer and Real numbers, Strings, Names, 
 Arrays, Dictionaries, Streams, and the #null #object. 
 #Objects may be labelled so that they can be referred to by other #objects. A labelled #object is called an 
-in#direct #object (see 7.3.10, "In#direct #objects"). 
-Each #object type, their method of creation and their proper referencing as in#direct #objects is described 
-in 7.3.2, "#Boolean #objects" through 7.3.10, "In#direct #objects". 
+#in#direct #object (see 7.3.10, "#In#direct #objects"). 
+Each #object type, their method of creation and their proper referencing as #in#direct #objects is described 
+in 7.3.2, "#Boolean #objects" through 7.3.10, "#In#direct #objects". 
 © ISO 2017 – All rights reserved 29 
 
 ISO/DIS 32000-2
@@ -66,7 +66,7 @@ keywords throughout this International Standard.
 7.3.3#Numeric #objects 
  
 #PDF provides two types of #numeric #objects: integer and real. #Integer #objects represent mathematical 
-integers. Real #objects represent mathematical real numbers. The range and precision of numbers may 
+integers. #Real #objects represent mathematical real numbers. The range and precision of numbers may 
 be limited by the internal representations used in the computer on which the ##PDF processor is running; 
 Annex C, "Advice on Maximising Porta#bility", gives these limits for typical implementations. 
 An integer shall be written as one or more decimal digits optionally preceded by a sign. The value shall 
@@ -76,10 +76,10 @@ EXAMPLE 1 #Integer #objects
  
 A real value shall be written as one or more decimal digits with an optional sign and a leading, trailing, 
 or embedded PERIOD (2Eh) (decimal point). The value shall be interpreted as a real number and shall 
-be converted to a real #object. A real number shall not be present when an integer is expected. Wherever 
+be converted to a #real #object. A real number shall not be present when an integer is expected. Wherever 
 a real number is expected, an integer may be used instead. For example, it is not necessary to write the 
 number 1.0 in real format; the integer 1 is sufficient. 
-EXAMPLE 2 Real #objects 
+EXAMPLE 2 #Real #objects 
 34.5 -3.62 +123.6 4. -.002 0.0 
  
 A ##PDF writer shall not use the PostScript language syntax for numbers with non-decimal radices (such 
@@ -87,14 +87,14 @@ as 16#FFFE) or in exponential format (such as 6.02E23).
 number
 Throughout this part of ISO 32000, the term  refers to an #object whose type can be# either integer 
 or real. 
-7.3.4String #objects 
+7.3.4#String #objects 
  
 7.3.4.1General 
  
-A string #object shall consist of a series of zero or more #bytes. The maximum length of a string used in 
+A #string #object shall consist of a series of zero or more #bytes. The maximum length of a string used in 
 the computer on which the ##PDF processor is running may be subject to implementation limits; see 
 Annex C, "Advice on Maximising Porta#bility". 
-String #objects shall be written in one of the following two ways: 
+#String #objects shall be written in one of the following two ways: 
 • 
 As a sequence of literal #characters enclosed in parentheses () (using LEFT PARENTHESIS (28h) 
 • 
@@ -109,7 +109,7 @@ NOTE In many contexts, conventions exist for the interpretation of the contents 
 subclause defines only the basic syntax for writing a string as a sequence of #bytes; conventions or 
 rules governing the contents of strings in particular contexts are described with the definition of 
 those particular contexts. 
-Subclause 7.9.2, "String #object types" describes the encoding schemes used for the contents of string 
+Subclause 7.9.2, "#String #object types" describes the encoding schemes used for the contents of #string 
 #objects. 
 7.3.4.2Literal strings 
  

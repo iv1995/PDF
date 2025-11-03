@@ -55,7 +55,7 @@ NewWindow
 false
 boolean If , the destination document should be opened in a new 
 window; if , the destination document should replace the current 
-document in the same window. If this entry is absent, the interactive #PDF 
+document in the same window. If this entry is absent, the #interactive ##PDF 
 processor should act according to its preference. 
 (Optional if F is present; otherwise required) target dictionary 
 T 

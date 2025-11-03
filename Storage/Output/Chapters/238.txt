@@ -3,7 +3,7 @@
 Parameter Description 
 T
 c
- #Character spacing 
+ Character spacing 
 T
 w
  Word spacing 

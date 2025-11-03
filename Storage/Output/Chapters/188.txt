@@ -1,7 +1,7 @@
-Figure 36: Radial shadings with 
+#Figure 36: Radial shadings with 
 extension". In "#Figure 35: Radial shadings depicting a sphere", the inner circle has zero radius; it is 
 the starting circle in the figure on the left and the ending circle in the figure on the right. Neither 
-shading is extended at# either the smaller or larger end. In "Figure 36: Radial shadings with 
+shading is extended at# either the smaller or larger end. In "#Figure 36: Radial shadings with 
 extension", the inner circle in both figures has a non-zero radius and the shading is extended at 
 the larger end. In each plate, a background colour is specified for the figure on the right but not 
 for the figure on the left. ![Figure 35 Radial shadings depicting a sphere  .png](./Storage/Output/Images/Figure 35 Radial shadings depicting a sphere  .png)

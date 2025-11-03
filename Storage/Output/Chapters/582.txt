@@ -1,4 +1,4 @@
-#Figure 115: Complex Web Capture file structureFigure 100: Rendering of the 3D artwork using View1 
+#Figure 115: Complex Web Capture file structure#Figure 100: Rendering of the 3D artwork using View1 
 (all shapes visible and opaque)" shows a complex web capture file structure. 
  
 © ISO 2017 – All rights reserved 773 

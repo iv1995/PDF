@@ -1,8 +1,8 @@
 #Table 73: Colour operators" lists the #PDF operators that control colour spaces and colour values. Also 
-colour-related is the #graphics state operator , listed in "Table 56: #Graphics state operators" and 
+colour-related is the #graphics state operator , listed in "#Table 56: #Graphics state operators" and 
 discussed under 8.6.5.8, "Rendering intents
 ". Colour operators may appear at the page description level 
-or inside text #objects (see "Figure 9: Graphics #Objects"). 
+or inside text #objects (see "#Figure 9: Graphics #Objects"). 
 © ISO 2017 – All rights reserved 211 
 
 ISO/DIS 32000-2

@@ -67,5 +67,5 @@ X#Object; otherwise it shall be a form X#Object. In OPI 2.0, the proxy always en
 #graphics state and hence shall be represented as a form X#Object. 
 OPI
 An X#Object representing an OPI proxy shall contain an  entry in its image or form dictionary (see 
-"#Table 87: Additional entries specific to an image dictionary" and "Table 93: Additional entries specific 
+"#Table 87: Additional entries specific to an image dictionary" and "#Table 93: Additional entries specific 
 to a Type 1 form dictionary"). The value of this entry is an OPI version dictionary ("

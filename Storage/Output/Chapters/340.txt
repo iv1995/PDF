@@ -1,4 +1,4 @@
-Table 176: Additional entries 
+#Table 176: Additional entries 
 specific to a link annotation" shows the annotation dictionary entries specific to this type of annotation. 
 #Table 176: Additional entries specific to a link annotation 
 Key Type Value 
@@ -75,7 +75,7 @@ shall be ignored if any coordinate in the array lies outside the
 region specified by .
 Optional; #PDF 1.6
 BS 
-dictionary () A border style dictionary (see "Table 168: Entries in a 
+dictionary () A border style dictionary (see "#Table 168: Entries in a 
 border style dictionary") specifying the line width and dash pattern that 
 shall be used in drawing the annotation’s border. 
 EXAMPLE The following example shows a link annotation that jumps to a destination elsewhere in the document. 

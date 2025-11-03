@@ -1,5 +1,5 @@
-Figure 54: #Glyph metrics" shows a typical #glyph outline and its metrics. ![Figure 54 #Glyph metrics  .png](./Storage/Output/Images/Figure 54 #Glyph metrics  .png)
-Figure 54: #Glyph metrics 
+#Figure 54: #Glyph metrics" shows a typical #glyph outline and its metrics. ![Figure 54 #Glyph metrics  .png](./Storage/Output/Images/Figure 54 #Glyph metrics  .png)
+#Figure 54: #Glyph metrics 
  
 Tj
 The #glyph origin is the point (0, 0) in the #glyph coordinate system.  and other text-showing operators 

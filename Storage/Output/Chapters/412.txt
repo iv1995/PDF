@@ -1,4 +1,4 @@
-Figure 85: #FDF file structure"): 
+#Figure 85: #FDF file structure"): 
 header
 • 
 A one-line#  identifying the version number of the #PDF specification to which the file 
@@ -10,14 +10,14 @@ cross-reference table
 A  containing the #objects that make up the content of the file 
 trailer
 • 
-An optional  containing information about the in#direct #objects in the file 
+An optional  containing information about the #in#direct #objects in the file 
 An optional  giving the location of the cross-reference table and of certain special #objects 
 within the body of the file 
 © ISO 2017 – All rights reserved 540 
 
 ISO/DIS 32000-2
  ![Figure 85 #FDF file structure  .png](./Storage/Output/Images/Figure 85 #FDF file structure  .png)
-Figure 85: #FDF file structure 
+#Figure 85: #FDF file structure 
  
 12.7.8.2.2FDF header 
  
@@ -31,7 +31,7 @@ catalog").
 12.7.8.2.3FDF body 
  
   
-The body of an#FDFfile shall consist of a sequence of in#direct #objects representing the file’s catalog 
+The body of an#FDFfile shall consist of a sequence of #in#direct #objects representing the file’s catalog 
 dictionary (see 12.7.8.3, "FDF catalog") and any additional #objects that the catalog dictionary 
 references. The #objects are of the same basic types described in 7.5, "File structure" (other than the 
   

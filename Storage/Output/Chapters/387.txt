@@ -1,4 +1,4 @@
-Table 219: Additional entries specific 
+#Table 219: Additional entries specific 
 to a transition action"). Once this transition completes, drawing shall be suspended again. 
 #Table 219: Additional entries specific to a transition action 
 Key Type Value 
@@ -8,7 +8,7 @@ name The type of action that this dictionary describes; shall befor a
 transition action. 
 (Required) 
 Trans 
-dictionary The transition to use for the update of the display (see "Table 164: 
+dictionary The transition to use for the update of the display (see "#Table 164: 
 Entries in a transition dictionary"). 
  
 12.6.4.16Go-To-3D-View actions 

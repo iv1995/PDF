@@ -1,4 +1,4 @@
-Figure 16: Cu#bic Bézier curve generated 
+#Figure 16: Cu#bic Bézier curve generated 
 by the c operator". (The starting point, 
 , is defined implicitly by the current point.) 
 © ISO 2017 – All rights reserved 168 

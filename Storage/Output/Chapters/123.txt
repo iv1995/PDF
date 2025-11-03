@@ -1,4 +1,4 @@
-#Table 48: Entries in an extensions dictionary") containing one or more entries 
+#Table 48: Entries in an extensions dictionary") containing one or more entries# 
 identifying #developer-defined extensions to this ISO standard. The keys allowed in an extensions 
 Extensions
 Type

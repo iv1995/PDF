@@ -1,4 +1,4 @@
-Table 126: Predefined spot #functions" shows the predefined spot #functions. The table gives the 
+#Table 126: Predefined spot #functions" shows the predefined spot #functions. The table gives the 
 mathematical definition of each #function along with the corresponding PostScript language code as it 
 would be defined in a PostScript calculator #function (see 7.10.5, "Type 4 (PostScript calculator) 
 #functions"). The image accompanying each #function shows how the relative values of the #function are 
@@ -9,7 +9,7 @@ points.
 
 ISO/DIS 32000-2
  
-Table 126: Predefined spot #functions 
+#Table 126: Predefined spot #functions 
 Name Appearance Definition 
 SimpleDot 
 22

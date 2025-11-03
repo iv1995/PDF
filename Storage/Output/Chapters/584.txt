@@ -1,7 +1,7 @@
-Table 387: #Characters with special meaning in destinations and fields and their #byte values" have 
+#Table 387: #Characters with special meaning in destinations and fields and their #byte values" have 
 special meaning and shall be encoded using the corresponding #byte values from the second column of 
-"Table 387: #Characters with special meaning in destinations and fields and their #byte values". 
-Table 387: #Characters with special meaning in destinations and fields and their #byte values 
+"#Table 387: #Characters with special meaning in destinations and fields and their #byte values". 
+#Table 387: #Characters with special meaning in destinations and fields and their #byte values 
 #Character #Byte value Escape sequence 
  (nul) 
 0x00 \0 (0x5c 0x30) 

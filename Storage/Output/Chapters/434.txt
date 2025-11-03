@@ -1,4 +1,4 @@
-Table 263: Entries in 
+#Table 263: Entries in 
 a permissions dictionary" for the currently defined entries) shall specify the name of a permission 
 handler that controls access permissions for the document. These permissions are similar to those 
 defined by security handlers (see "#Table 22: User access permissions") but do not require that the 
@@ -10,10 +10,10 @@ Key Type Value
 (Optional) 
 DocMDP 
 Reference
-dictionary An indirect reference to a signature dictionary (see "Table 255: 
+dictionary An indirect reference to a signature dictionary (see "#Table 255: 
 Entries in a signature dictionary"). This dictionary shall contain a  
 DocMDP
-entry that shall be a signature reference dictionary (see "Table 255: Entries in a 
+entry that shall be a signature reference dictionary (see "#Table 255: Entries in a 
 signature dictionary") that has a  transform method (see 12.8.2.2, 
 "DocMDP") and corresponding transform parameters. 
 P DocMDP 

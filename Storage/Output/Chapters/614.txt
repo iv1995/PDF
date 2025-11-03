@@ -1,4 +1,4 @@
-Table Annex D.1: 
+#Table Annex D.1: 
 Latin-text encodings"). Unencoded #characters are indicated by a dash (—). 
 All #characters listed in D.2, "Latin ##character set and encodings" shall be supported for the Times, 
 Helvetica, and Courier #font families, as listed in 9.6.2.2, "Standard Type 1 #fonts (standard 14 #fonts) (#PDF 
@@ -118,7 +118,7 @@ I 111 111 111 111  Y 131 131 131 131
 Iacute — 352 315 315  Yacute — — 335 335 
 Î Ÿ 
 Icircumflex — 353 316 316  Ydieresis — 331 237 230 
-Ï Z 
+Ï Z# 
 Idieresis — 354 317 317  Z 132 132 132 132 
 Ì Ž 
 2
@@ -239,7 +239,7 @@ ISO/DIS 32000-2
 CHAR  NAME CHAR CODE (OCTAL)  CHAR NAME CHAR CODE (OCTAL) 
 STD MAC WIN #PDF 
 STD MAC WIN #PDF 
-8 # 
+8# # 
 eight 070 070 070 070  numbersign 043 043 043 043 
 … o 
 ellipsis 274 311 205 203  o 157 157 157 157 
@@ -1155,7 +1155,7 @@ Gsmall 147  Ucircumflexsmall 236
 Iacutesmall 222  ᴜ Usmall 165 
 Î 
 Icircumflexsmall 224  ᴠ Vsmall 166 
-Ï 
+Ï# 
 Idieresissmall 225  ᴡ Wsmall 167 
 X 
 Ì 
@@ -1176,7 +1176,7 @@ ampersandsmall 046  hypheninferior 137
 a 
 - 
 asuperior 201  hyphensuperior 321 
-b 
+#b 
 i 
 bsuperior 365  isuperior 351 
 © ISO 2017 – All rights reserved 836 

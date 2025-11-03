@@ -10,12 +10,12 @@ if present, shall be  for a folder dictionary.
 ISO/DIS 32000-2
  
 Key Type Value 
-(Required; #PDF 2.0) 
+(Required; #PDF 2.0)# 
 ID 
-integer A non-negative integer value representing the unique 
-# ID 
-folder# identification number. Two folders, in the same #PDF document, 
-# ID 
+integer A non-negative integer value representing the unique# 
+ ID 
+folder# identification number. Two folders, in the same #PDF document,# 
+ ID 
 shall not share the samevalue. 
 The foldervalue appears as part of the #name tree key of any file 
  
@@ -69,7 +69,7 @@ date  The date of the most recent change to immediate
 child files or folders of this folder. 
 (Optional; #PDF 2.0) 
 Thumb 
-stream A stream #object defining the thumbnail image for the 
+stream A #stream #object defining the thumbnail image for the 
 folder See 12.3.4, "Thumbnail images". 
 (Optional; only used by root folder; #PDF 2.0) 
 Free#  ID 
@@ -78,9 +78,9 @@ that are not currently in use by the folder structure. The array shall
 contains zero or more pairs of numbers, a low value followed by a high 
 value. Each pair represents an endpoint-inclusive range of values that are 
 available for use when a new folder is added. Each low value shall be less 
-than or equal to its corresponding high value. 
+than or equal to its corresponding high value.# 
  
-# ID Free
+ ID Free
 # ID Free
 New values for thekey shall be obtained by an #interactive ##PDF processor by accessing the  entry 
 in the root folder. If anvalue is used from the  entry array, the array shall be updated. 
@@ -116,10 +116,10 @@ Theentry, a collection item dictionary, allows user-defined metadata to be assoc
 just as it does for embedded files in a collection. 
 Parent
 ChildNext
-Folders are in#direct #objects, and relationships between folders in the tree are specified using , 
+Folders are #in#direct #objects, and relationships between folders in the tree are specified using , 
 , and  keys. 
  EmbeddedFiles 
-When folders are used, all files in the#name tree (see "Table 32: Entries in the name 
+When folders are used, all files in the#name tree (see "#Table 32: Entries in the name 
 dictionary") shall be treated as members of the folder structure by an #interactive ##PDF processor. The 
 association between files and folders is accomplished using a special naming convention on the key 
 strings of the #name tree. See 7.9.6, "#Name trees", for a discussion of the key strings. If no folder 
@@ -136,10 +136,10 @@ The first #character, excluding any #byte order marker, is LESS-THAN SIGN (U+003
 The following #characters shall be one or more digits (0 to 9) followed by the closing GREATER-
 • 
 THAN SIGN (U+003E) (>) 
-The remainder of the string is a file name. 
-# ID 
-The section of the string enclosed by LESS-THAN SIGN GREATER-THAN SIGN(<>) is interpreted as a 
-# ID 
+The remainder of the string is a file name.# 
+ ID 
+The section of the string enclosed by LESS-THAN SIGN GREATER-THAN SIGN(<>) is interpreted as a# 
+ ID 
 numeric value that specifies thevalue of the folder with which the file is associated. The value shall 
 correspond to a folder# ID. The section of the string following the foldertag shall represent the file 
 name of the embedded file. 

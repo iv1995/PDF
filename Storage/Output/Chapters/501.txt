@@ -1,4 +1,4 @@
-Table 319: 
+#Table 319: 
 Render modes" for specific values. If an unrecognised value is encountered, then this 
 render mode dictionary shall be ignored. 
 © ISO 2017 – All rights reserved 640 

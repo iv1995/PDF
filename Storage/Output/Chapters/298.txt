@@ -57,7 +57,7 @@ immediate backdrop shall be only partially knocked out and shall be replaced by 
 result of compositing the #object with the initial backdrop. 
 b
 The restated #group compositing formulas deal with knockout #groups by introducing a new variable, , 
-ibi
+i#bi
 which is a subscript that specifies which previous result to use as the backdrop in the compositing 
 computations: 0 in a knockout #group or  - 1 in a non-knockout #group. When  =  - 1, the formulas 
 simplify to the ones given in 11.4.4, "#Group compositing computations". 
@@ -142,7 +142,7 @@ when  = 0.
 b
 P
 All of the elements painted directly onto a page — both top-level #groups and top-level #objects that are 
-page group
+page #group
 not part of any #group — shall be treated as if they were contained in a transparency #group , which in 
 turn is composited with a context-dependent backdrop. This #group is called the . 
 The page #group shall be treated in one of two distinctly different ways: 

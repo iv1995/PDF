@@ -83,7 +83,7 @@ specification strings") representing a UNIX file name.
 Optional
 ID 
 array () An array of two #byte strings constituting a file# identifier (see 14.4, "File 
-NOTE The use of this entry improves a ##PDF processor’s chances of finding the 
+NOTE The use of this entry improves a ##PDF processor’s chances of finding the# 
 identifiers") that should be included in the referenced file. 
 intended file, and allows a ##PDF processor to warn the user if the file has 
 changed since the link was made.
@@ -141,7 +141,7 @@ shall be used to create the user interface for portable collections (see 7.11.6,
 "Collection items"). 
 Optional; #PDF 2.0
 Thumb 
-stream () A stream #object defining the thumbnail image for the file 
+stream () A #stream #object defining the thumbnail image for the file 
 specification. (See 12.3.4, "Thumbnail images") 
 © ISO 2017 – All rights reserved 135 
 
@@ -248,19 +248,19 @@ EF
 dictionary"). The associated #name tree shall map name strings to file specifications that refer to 
  Desc 
 embedded file streams through their  entries. 
-Beginning with #PDF 1.6, theentry of the file specification dictionary (see "Table 43: Entries in a 
+Beginning with #PDF 1.6, theentry of the file specification dictionary (see "#Table 43: Entries in a 
 file specification dictionary") should be used to provide a textual description of the embedded file, 
 which can be displayed in the user interface of an #interactive ##PDF processor. Previously, it was 
   
 necessary to# identify document-level embedded files by the name string provided in the name 
   
-dictionary associated with an embedded file stream in much the same way that theECMAScriptname 
+dictionary associated with an embedded file stream in much the same way that theECMAScript#name 
   
 tree associates name strings with document-levelECMAScriptactions (see 12.6.4.17, "ECMAScript 
 actions").JavaScriptis formally known as ISO/IEC 16262:2011 – ECMAScript – ECMA-262, and is 
 referred to as ECMAScript in this International Standard. For backwards compati#bility reasons the term 
 JavaScript is retained in keywords. 
-LengthFilter
+Length#Filter
 The stream dictionary descri#bing an embedded file shall contain the standard entries for any stream, 
 such as  and  (see "#Table 5: Entries common to all stream dictionaries"), as well as the 
 additional entries shown in "

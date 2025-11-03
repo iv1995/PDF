@@ -1,4 +1,4 @@
-Table 147: Entries in a viewer 
+#Table 147: Entries in a viewer 
 preferences dictionary" shows the contents of the viewer preferences dictionary. 
 © ISO 2017 – All rights reserved 427 
 
@@ -79,7 +79,7 @@ document on the screen. The value is the key designating the relevant page
 boundary in the page #object (see 
 boundaries"). If the specified page boundary is not defined in the page 
 CropBox
-#object, its default value shall be used, as specified in "Table 31: Entries in a 
+#object, its default value shall be used, as specified in "#Table 31: Entries in a 
 page #object". Default value: . 
 This entry is intended primarily for use by prepress applications that 
 interpret or manipulate the page boundaries as described in 14.11.2, "Page 
@@ -101,7 +101,7 @@ document on the screen. The value is the key designating the relevant page
 boundary in the page #object (see 
 boundaries"). If the specified page boundary is not defined in the page 
 CropBox
-#object, its default value shall be used, as specified in "Table 31: Entries in a 
+#object, its default value shall be used, as specified in "#Table 31: Entries in a 
 page #object". Default value: . 
 This entry is intended primarily for use by prepress applications that 
 interpret or manipulate the page boundaries as described in 14.11.2, "Page 
@@ -118,7 +118,7 @@ document. The value is the key designating the relevant page boundary in
 the page #object (see 
 the specified page boundary is not defined in the page #object, its default 
 CropBox
-value shall be used, as specified in "Table 31: Entries in a page #object". 
+value shall be used, as specified in "#Table 31: Entries in a page #object". 
 Default value: . 
 This entry is intended primarily for use by prepress applications that 
 interpret or manipulate the page boundaries as described in 14.11.2, "Page 
@@ -135,7 +135,7 @@ document. The value is the key designating the relevant page boundary in
 the page #object (see 
 the specified page boundary is not defined in the page #object, its default 
 CropBox
-value shall be used, as specified in "Table 31: Entries in a page #object". 
+value shall be used, as specified in "#Table 31: Entries in a page #object". 
 Default value: . 
 This entry is intended primarily for use by prepress applications that 
 interpret or manipulate the page boundaries as described in 14.11.2, "Page 
@@ -177,7 +177,7 @@ PickTrayBy#PDFSize
 boolean () A flag specifying whether the #PDF page size shall be 
 used to select the input paper tray. This setting influences only the preset 
  PickTrayBy#PDFSize true
-values used to populate the print dialogue presented by an interactive #PDF 
+values used to populate the print dialogue presented by an #interactive ##PDF 
 processor. Ifis , the check box in the print 
 dialogue associated with input paper tray shall be checked. 
 This setting has no effect on operating systems that do not provide the 

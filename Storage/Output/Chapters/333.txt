@@ -62,5 +62,5 @@ cursor on the screen and has at least one button that can be pressed, held down,
 12.6.3, "Trigger events" for further discussion. 
  AP 
 The normal, rollover, and down appearances shall be defined in an appearance dictionary, which in turn 
-is the value of theentry in the annotation dictionary (see "Table 166: Entries common to all 
+is the value of theentry in the annotation dictionary (see "#Table 166: Entries common to all 
 annotation dictionaries"). "

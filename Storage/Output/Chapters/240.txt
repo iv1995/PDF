@@ -1,4 +1,4 @@
-Figure 56: #Character spacing in horizontal writing 
+#Figure 56: #Character spacing in horizontal writing 
  
  
 9.3.3Word spacing 

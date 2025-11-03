@@ -1,4 +1,4 @@
-Table 360: Entries common to all attribute #object dictionaries")# identifying the 
+#Table 360: Entries common to all attribute #object dictionaries")# identifying the 
 conforming product that owns the attribute information. Other entries, except the  entry, shall 
 represent the attributes: the keys shall be attribute names, and values shall be the corresponding 
 attribute values. To facilitate the interchange of content among conforming products, #PDF defines a set 
@@ -11,7 +11,7 @@ NOTE Earlier versions of #PDF also provided for the use of streams as attributes
 
 ISO/DIS 32000-2
  
-Table 360: Entries common to all attribute #object dictionaries 
+#Table 360: Entries common to all attribute #object dictionaries 
 Key Type Value 
 Required
 O 

@@ -1,4 +1,4 @@
-Table 361: Additional entries in an attribute #object dictionary for user 
+#Table 361: Additional entries in an attribute #object dictionary for user 
 properties"), one of the values from 14.8.5, "Standard structure attributes", or conform to the 
 NSO
 ONS
@@ -16,9 +16,9 @@ attribute #object dictionary do not have a namespace.
 from existing namespaces with a matching name will not be able to be used. 
  
 A
-Any ##PDF processor may attach attributes to any structure element, even one created by another #PDF 
+Any ##PDF processor may attach attributes to any structure element, even one created by another ##PDF 
 processor. Multiple ##PDF processors may attach attributes to the same structure element. The  entry in 
-the structure element dictionary (see "Table 355: Entries in a structure element dictionary") shall hold 
+the structure element dictionary (see "Table 355: Entries in a structure element dictionary") shall hold# 
 either a single attribute #object or an array of at least one #object. 
 ONS
 When an array of attribute #objects is provided, the value of the  and  keys may be repeated across 
@@ -30,7 +30,7 @@ If many structure elements share the same set of attribute values, they may be d
 class sharing the# identical attribute #object. Structure elements shall refer to the class by name. The 
 ClassMap
 association between class names and attribute #objects shall be defined by a dictionary called the class 
-map, that shall be kept in the  entry of the structure tree root (see "Table 354: Entries in the 
+map, that shall be kept in the  entry of the structure tree root (see "#Table 354: Entries in the 
 structure tree root"). Each key in the class map shall be a #name #object denoting the name of a class. The 
 corresponding value shall be an attribute #object or an array of such #objects. 
 NOTE #PDF attribute classes are unrelated to the concept of a class in #object-oriented programming 
@@ -64,8 +64,8 @@ A structure element shall have a revision number, that shall be stored in the  e
 element dictionary (see "Table 355: Entries in a structure element dictionary") or default to 0 if no  
 entry is present. Initially, the revision number shall be 0. When a ##PDF processor modifies the structure 
 element or any of its content items, it may signal the change by incrementing the revision number. 
-NOTE 1 The revision number is unrelated to the generation number associated with an in#direct #object (see 
-7.3.10, "In#direct #objects"). 
+NOTE 1 The revision number is unrelated to the generation number associated with an #in#direct #object (see 
+7.3.10, "#In#direct #objects"). 
 NOTE 2 If there is no  entry and the revision number is to be incremented from the default value of 0 to 1, 
 R
 an  entry will have to be created in the structure element dictionary in order to record the 1. 
@@ -105,7 +105,7 @@ Occasionally, a ##PDF processor may make extensive changes to a structure elemen
 invalidate all previous attribute information associated with it. In this case, instead of incrementing the 
 AC
 structure element’s revision number, the ##PDF processor may choose to delete all unknown attribute 
-#objects from its  and  arrays. These two actions shall be mutually exclusive: the ##PDF processor should 
+#objects from its  and  arrays. These two actions shall be mutually exclusive: the ##PDF processor should# 
 either increment the structure element’s revision number or remove its attribute #objects, but it shall 
 not do both. 
 © ISO 2017 – All rights reserved 713 
@@ -128,9 +128,9 @@ User properties#PDF 1.6
  () may be used to contain such information. Any graphical #object that 
 UserPropertiesO
 corresponds to a structure element may have associated user properties, specified by means of an 
-attribute #object dictionary that shall have a value of  for the  entry (see "Table 361: 
+attribute #object dictionary that shall have a value of  for the  entry (see "#Table 361: 
 Additional entries in an attribute #object dictionary for user properties"). 
-Table 361: Additional entries in an attribute #object dictionary for user properties 
+#Table 361: Additional entries in an attribute #object dictionary for user properties 
 Key Type Value 
 RequiredUserProperties
 O 

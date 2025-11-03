@@ -50,10 +50,10 @@ this halftone to perform painting operations if required for the current output 
 different halftones that may be better suited for that device (see Annex N, "Best practice for halftones").  
  HT 
 The current halftone may be specified as the value of theentry in a #graphics state parameter 
-dictionary; see "Table 57: Entries in a #graphics state parameter dictionary". It may be defined by# either 
+dictionary; see "#Table 57: Entries in a #graphics state parameter dictionary". It may be defined by# either 
 a dictionary or a stream, depending on the type of halftone; the term halftone dictionary is used 
 generically throughout this clause to refer to# either a #dictionary #object or the dictionary portion of a 
-stream #object. (The halftones that are defined by streams are specifically# identified as such in the 
+#stream #object. (The halftones that are defined by streams are specifically# identified as such in the 
 descriptions of particular halftone types; unless otherwise stated, they are understood to be defined by 
 simple dictionaries instead.) 
 HalftoneType

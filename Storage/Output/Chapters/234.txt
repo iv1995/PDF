@@ -1,4 +1,4 @@
-Figure 52: #Glyph outlines treated as a 
+#Figure 52: #Glyph outlines treated as a 
 stroked path"). 
 BT 
   /F13 48 Tf 
@@ -11,7 +11,7 @@ ISO/DIS 32000-2
   2 w 
   (ABC) Tj 
 ET ![Figure 52 #Glyph outlines treated as a stroked path  .png](./Storage/Output/Images/Figure 52 #Glyph outlines treated as a stroked path  .png)
-Figure 52: #Glyph outlines treated as a stroked path 
+#Figure 52: #Glyph outlines treated as a stroked path 
  
 Tr
 Tj

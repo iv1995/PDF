@@ -14,7 +14,7 @@ NOTE Some of the entries are not defined for images used in other ways, such as 
 Key Type Value 
 Optional
 Type 
-XObject
+X#Object
 name () The type of #PDF #object that this dictionary describes; if present, shall 
 be  for an image X#Object. 
 RequiredImage
@@ -53,7 +53,7 @@ is .
 ISO/DIS 32000-2
  
 Key Type Value 
-Required except for image masks and images that use thefilter
+Required except for image masks and images that use the#filter
 #BitsPerComponent  JPXDecode 
 integer () The 
 number of #bits used to represent each colour component. Only a single value 

@@ -1,4 +1,4 @@
-Table 274: Entries for specific 
+#Table 274: Entries for specific 
 types of requirements". 
 #Table 274: Entries for specific types of requirements 
 Key Type Description 
@@ -12,14 +12,14 @@ the document.
 DigSig S,  
  ; #PDF 2.0) 
 dictionary DigSigDigSigValidation
-orDigSigMDPA signature dictionary ("Table 255: Entries in a 
+orDigSigMDPA signature dictionary ("#Table 255: Entries in a 
 signature dictionary") that defines all of the relevant aspects that are needed in 
 order to process the digital signature requirements. 
  
 12.11.2Requirement types 
  
 S
-The  entry in a requirement dictionary# identifies ("Table 273: Entries common to all requirement 
+The  entry in a requirement dictionary# identifies ("#Table 273: Entries common to all requirement 
 dictionaries") a feature of the #PDF language or a capa#bility that may be present in a ##PDF processor. Such 
 entries enable the document to# identify feature(s) of #PDF beyond those commonly expected, such as 2D 
 graphics rendering, and are required for correct handling in accordance with this standard. In addition, 

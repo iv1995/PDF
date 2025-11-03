@@ -5,7 +5,7 @@ yz
 3DView
 "#Figure 99: Rendering of the 3D artwork using View4" shows the cross section specified for the  
 that references CrossSection4. This cross section specifies a plane that differs from the one specified in 
-CrossSection1 ("Figure 96: Rendering of the 3D artwork using View1 (cross section perpendicular to 
+CrossSection1 ("#Figure 96: Rendering of the 3D artwork using View1 (cross section perpendicular to 
 the x axis)") in the following way: 
 • 
 Z
@@ -17,7 +17,7 @@ the  axis: /O [null -30 30]
 A 3D view may specify a  (), which specifies particular areas of 3D artwork 
  NA 
 and the opacity and visi#bility with which individual nodes shall be displayed. The 3D artwork shall be 
-contained in the parent 3D stream #object. Theentry of the 3D views dictionary may specify multiple 
+contained in the parent 3D #stream #object. Theentry of the 3D views dictionary may specify multiple 
 © ISO 2017 – All rights reserved 650 
 
 ISO/DIS 32000-2

@@ -1,6 +1,6 @@
-Table 40: Additional entries specific to a Type 2 #function 
+#Table 40: Additional entries specific to a Type 2 #function 
 dictionary". 
-Table 40: Additional entries specific to a Type 2 #function dictionary 
+#Table 40: Additional entries specific to a Type 2 #function dictionary 
 Key Type Value 
 Optionaln
 C0 
@@ -43,5 +43,5 @@ a single new 1-input #function. Since the resulting stitching #function is a 1-i
 01
 given by a two-element array, [
  ]. 
-In addition to the entries in "Table 38: Entries common to all #function dictionaries", a Type 3 #function 
+In addition to the entries in "#Table 38: Entries common to all #function dictionaries", a Type 3 #function 
 dictionary shall include those listed in "

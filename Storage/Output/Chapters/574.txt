@@ -1,4 +1,4 @@
-Table 380: Standard layout attributes specific to inline-level structure 
+#Table 380: Standard layout attributes specific to inline-level structure 
 elements" apply to inline-level structure elements (ILSEs). They may also be specified for a block-level 
 element (BLSE) and may apply to any content items that are its immediate children. 
 #Table 380: Standard layout attributes specific to inline-level structure elements 
@@ -102,16 +102,13 @@ associated content, transformed into default user space units.
 (Optional; inheritable only for directly nested ILSEs)
 TextDecorationType 
 name  The text decoration, if 
-
-
+ 
 None
 any, to be applied to the element’s text. 
-
-
+ 
 Underline
   No text decoration 
-
-
+ 
 Overline
  A line below the text 
 LineThrough
@@ -158,7 +155,7 @@ appears at the end of the text line.
 RBRT
 Default value: . 
 This attribute may be specified on the  and  elements. When a ruby 
-RTRB
+RTR#B
 is formatted, the attribute shall be applied to the shorter line of these two 
 RTRubyAlign
 elements. For example, if the  element has a shorter width than the  
@@ -204,9 +201,9 @@ top of the #glyphs relative to the top of the reference area. Shall be
 Auto
 a multiple of 90 degrees between -180 and +360. 
  Specifies a default orientation for text, depending on whether it 
-is fullwidth (as wide as it is high). Fullwidth Latin and fullwidth 
+is fullwidth (as wide as it is high). Fullwidth Latin and fullwidth# 
 ideographic text (excluding# ideographic punctuation) shall be set 
-with an angle of 0.# Ideographic punctuation and other 
+with an angle of 0.# Ideographic punctuation and other# 
 ideographic characters having alternate horizontal and vertical 
 forms shall use the vertical form of the #glyph. Non-fullwidth text 
 Auto.

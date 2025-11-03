@@ -40,7 +40,7 @@ mapping of its choosing.
  
 9.7.1General 
  
-composite font
+composite #font
 Subtype
 A , also called a Type 0 #font, is one whose #glyphs are obtained from a #font-like #object 
 Type0root #fontdescendant
@@ -103,9 +103,9 @@ file’s mapping yields a  (which in #PDF shall be 0) and a  (which in #PDF
 shall be a CID). Furthermore, a CMap file may incorporate another CMap file by reference, without 
 having to duplicate it. These features enable #character collections to be com#bined or supplemented and 
 make all the constituent #characters accessible to text-showing operations through a single encoding. 
-CIDFont
+CID#Font
 A  contains the #glyph descriptions for a #character collection. The #glyph descriptions themselves 
-are typically in a format similar to those used in simple #fonts, such as Type 1. However, they are 
+are typically in a format similar to those used in simple #fonts, such as Type 1. However, they are# 
 identified by CIDs rather than by names, and they are organised differently. 
 In #PDF, the data from a CMap file and CID#Font shall be represented by #PDF #objects as described in 9.7.4, 
 "CID#Fonts" and 9.7.5, "CMaps". The CMap file and CID##Font programs themselves may be# either 
@@ -129,7 +129,7 @@ assumed by the CID#Font associated with the CMap — that is, the interpretation
 SupplementCIDSystemInfo
 used by the CID#Font. A #character collection shall be uniquely# identified by the , , and 
 Registry
- entries in the  dictionary, as described in "Table 114: Entries in a 
+ entries in the  dictionary, as described in "Table 114: Entries in a# 
 Identity-HIdentity-V
 Ordering
 CIDSystemInfo dictionary". In order for a CID#Font and a CMap to be compatible, their  and 

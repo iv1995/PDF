@@ -12,7 +12,7 @@ Token #characters used to delimit #objects and describe the structure of #PDF fi
 "Lexical conventions", are# identified by their ANSI X3.4-1986 (#ASCII 7-#bit USA codes) #character name 
 written in upper case in #font followed by a parenthetic two digit hexadecimal #character value with the 
 suffix "h". 
-#Characters in text streams, as defined by 7.9.2, "String #object types", are# identified by their Unicode 
+#Characters in text streams, as defined by 7.9.2, "#String #object types", are# identified by their Unicode 
 #character name written in uppercase in #font followed by a parenthetic four digit hexadecimal #character 
 code value with the prefix "U+" as shown in the Example in this clause. 
 EXAMPLE EN SPACE (U+2002) 

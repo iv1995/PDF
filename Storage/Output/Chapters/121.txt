@@ -1,4 +1,4 @@
-Table 46: Entries in a 
+#Table 46: Entries in a 
 collection item dictionary" describes the entries in a collection item dictionary.
 #Table 46: Entries in a collection item dictionary 
 Key Type Value 

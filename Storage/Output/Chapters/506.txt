@@ -24,7 +24,7 @@ by -30 degrees)
 3DView
 "Figure 97: Rendering of the 3D artwork using View2 (cross section rotated around the y axis  
 by -30 degrees)" shows the cross section specified for the  that references CrossSection2. This 
-cross section specifies a plane that differs from the one specified in CrossSection1 ("Figure 96: 
+cross section specifies a plane that differs from the one specified in CrossSection1 ("#Figure 96: 
 Rendering of the 3D artwork using View1 (cross section perpendicular to the x axis)") in the following 
 way: 
 • 
@@ -40,7 +40,7 @@ by 30 degrees)
 3DView
 "Figure 98: Rendering of the 3D artwork using View3 (cross section rotated around the z axis  
 by 30 degrees)" shows the cross section specified for the  that references CrossSection3. This 
-cross section specifies a plane that differs from the one specified in CrossSection1 ("Figure 96: 
+cross section specifies a plane that differs from the one specified in CrossSection1 ("#Figure 96: 
 Rendering of the 3D artwork using View1 (cross section perpendicular to the x axis)") in the following 
 way: 
 • 

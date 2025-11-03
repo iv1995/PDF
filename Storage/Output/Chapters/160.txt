@@ -1,4 +1,4 @@
-Figure 27: 
+#Figure 27: 
 Colour gamuts" compares the gamuts (ranges of representable colours) for, and  
 spaces. ![Figure 26 Lab colour space   .png](./Storage/Output/Images/Figure 26 Lab colour space   .png)
 #Figure 26: Lab colour space  
@@ -14,7 +14,7 @@ XYZABCABC
 A  colour space shall not specify explicit decoding #functions or matrix coefficients for# either stage of 
 LMNLMN
 the transformation from L*a*b* space to  space (denoted by "Decode ," "Matrix ," "Decode 
-," and "Matrix " in "Figure 24: Component transformations in a CIE-based ABC colour space
+," and "Matrix " in "#Figure 24: Component transformations in a CIE-based ABC colour space
 "). 
 Instead, these parameters shall have constant implicit values. The first transformation stage shall be 
 defined by the equations 
@@ -81,7 +81,7 @@ CalGrayCalRGBLab
  ICCBased 
 International Color Consortium (ICC). Unlike the , , and  colour spaces, which are 
 #characterised by entries in the colour space dictionary, ancolour space shall be #characterised 
-by a sequence of #bytes in a standard format. Details of the profile format can be found in the ICC 
+by a sequence of #bytes in a standard format. Details of the profile format can be found in the #ICC 
 specification. 
 stream
  ICCBased 
@@ -90,6 +90,6 @@ Ancolour space shall be an array: [/ICCBased ]
 
 ISO/DIS 32000-2
  
-The stream shall contain the #ICC profile. Besides the usual entries common to all streams (see "Table 5: 
+The stream shall contain the #ICC profile. Besides the usual entries common to all streams (see "#Table 5: 
 Entries common to all stream dictionaries"), the profile stream shall have the additional entries listed in 
 "

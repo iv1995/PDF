@@ -1,4 +1,4 @@
-Table 55: 
+#Table 55: 
 Examples of line dash patterns" shows examples of line dash patterns. If the dash array is empty, the 
 dash phase shall be zero and the path shall be stroked with a solid, unbroken line. 
 #Table 55: Examples of line dash patterns 

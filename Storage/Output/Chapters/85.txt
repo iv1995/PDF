@@ -37,13 +37,13 @@ NOTE 1 The  key within the  dictionary is required if Page-Piece
 ModDateInfo
 elsewhere in this part of ISO 32000. 
 dictionaries (see 14.5, "Page-piece dictionaries") are used. 
-Required in #PDF 2.0 or if an  entry is present; optional otherwise; #PDF 
+Required in #PDF 2.0 or if an  entry is present; optional otherwise; #PDF# 
 ID Encrypt
 1.1
 array (
 ID
 ) An array of two #byte-strings constituting a file# identifier (See 14.4, "File 
- Encrypt 
+ Encrypt# 
 identifiers") for the file. The  array shall (#PDF 2.0) have a minimum length of 
 16 #bytes. If there is anentry, this array and the two #byte-strings shall 
 NOTE 2 Because theentries are not encrypted it is possible to check the
@@ -55,15 +55,15 @@ encrypted assure that this is possible.
 NOTE 3 Although this entry is optional prior to #PDF 2.0, its absence might 
 prevent the file from #functioning in some workflows that depend on files 
 being uniquely# identified. 
-NOTE 4 The values of thestrings are used as input to the encryption 
-# ID 
-algorithm. If these strings were indirect, or if thearray were indirect, 
-# ID 
+NOTE 4 The values of thestrings are used as input to the encryption# 
+ ID 
+algorithm. If these strings were indirect, or if thearray were indirect,# 
+ ID 
 these strings would be encrypted when written. This would result in a 
-circular condition for a ##PDF reader: thestrings need be decrypted in 
-# ID 
-order to use them to decrypt strings, including thestrings themselves. 
-# ID 
+circular condition for a ##PDF reader: thestrings need be decrypted in# 
+ ID 
+order to use them to decrypt strings, including thestrings themselves.# 
+ ID 
 The preceding restriction prevents this circular condition. 
  
 NOTE "#Table 19: Additional entries in a hybrid-reference file’s trailer dictionary" defines an additional 

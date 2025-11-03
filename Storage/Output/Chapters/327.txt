@@ -1,4 +1,4 @@
-Figure 77: 
+#Figure 77: 
 Open annotation") or by playing a sound or a movie. 
 © ISO 2017 – All rights reserved 454 
 
@@ -9,7 +9,7 @@ ISO/DIS 32000-2
 #Interactive ##PDF processors may permit the user to navigate through the annotations on a page by using 
 Tabs
 the keyboard (in particular, the tab key). Beginning with #PDF 1.5, #PDF producers may make the 
-navigation order explicit with the optional  entry in a page #object (see "Table 31: Entries in a page 
+navigation order explicit with the optional  entry in a page #object (see "#Table 31: Entries in a page 
 #object"). The following are the possible values for this entry: 
 R
 • 
@@ -39,7 +39,7 @@ tree is determined in a manner of the #interactive ##PDF processor's choosing.
 W
  Widget 
 • 
-pagearray. (See "Table 31: Entries in a page #object".) 
+pagearray. (See "#Table 31: Entries in a page #object".) 
  Annots 
  (widgets order):annotations shall be visited in the order in which they appear in the 
 pagearray, followed by other annotation types in row order. (See "Table 31: Entries in a 

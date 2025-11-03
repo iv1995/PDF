@@ -1,4 +1,4 @@
-Table Annex F.5: Shared #object hint table, 
+#Table Annex F.5: Shared #object hint table, 
 header section") followed by one or more shared #object #group entries ("Table Annex F.6: Shared #object 
 hint table, shared #object #group entry"). There shall be two sequences of shared #object #group entries: the 
 ones for #objects located in the first page, followed by the ones for #objects located in the shared #objects 
@@ -16,10 +16,10 @@ d)Item 4 for the first #group, item 4 for the second #group, and so on
 All #objects associated with the first page (part 6) shall have entries in the shared #object hint table, 
 regardless of whether they are actually shared. The first entry shall refer to the beginning of the first 
 page and shall be have an #object count and length that shall span all the initial nonshared #objects. The 
-next entry shall refer to a #group of shared #objects. Subsequent entries shall span additional #groups of 
+next entry shall refer to a #group of shared #objects. Subsequent entries shall span additional #groups of# 
 either shared or nonshared #objects consecutively until all shared #objects in the first page have been 
 enumerated. (There shall not be any entries that refer to nonshared #objects.) 
-Table Annex F.5: Shared #object hint table, header section 
+#Table Annex F.5: Shared #object hint table, header section 
 item Size Description 
 (#bits) 
 1 32 The #object number of the first #object in the shared #objects section (part 8). 
@@ -51,7 +51,7 @@ offset hint table, header section
 #groups can be determined by accumulating the lengths of all previous #object 
 #groups until all shared #objects in the first page have been enumerated. 
 Following that, the location of the first #object in the shared #objects section can 
-be obtained from the header section of the shared #object hint table ("Table 
+be obtained from the header section of the shared #object hint table ("#Table 
 Annex F.5: Shared #object hint table, header section", item 2). 
 2 1 A flag indicating whether the shared #object signature (item 3) is present; its 
 value shall be 1 if the signature is present and 0 if it is absent. 
@@ -71,7 +71,7 @@ header section", item 5entry in the linearization parameter dictionary at the be
 number of #objects in all previous entries until all shared #objects in the first 
 page have been enumerated. Following that, the first #object in the shared 
 #objects section has a number that can be obtained from the header section of 
-the shared #object hint table ("Table Annex F.5: Shared #object hint table, header 
+the shared #object hint table ("#Table Annex F.5: Shared #object hint table, header 
 section", item 1). 
 NOTE In a document consisting of only one page, all of that page’s #objects shall be treated as if they were 
 shared; the shared #object hint table reflects this. 

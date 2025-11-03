@@ -11,5 +11,5 @@ Some categories of #objects in a #PDF file can be referred to by name rather tha
 Names
 correspondence between names and #objects is established by the document’s name dictionary (
 ), located by means of the  entry in the document’s catalog dictionary (see 7.7.2, "Document 
-catalog dictionary"). Each entry in this dictionary designates the root of a #name tree (see 7.9.6, "Name 
+catalog dictionary"). Each entry in this dictionary designates the root of a #name tree (see 7.9.6, "#Name 
 trees") defining names for a particular category of #objects. "

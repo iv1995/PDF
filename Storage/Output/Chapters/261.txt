@@ -15,7 +15,7 @@ CIDSystemInfo
 dictionary  () A dictionary (see 9.7.3, "CIDSystemInfo dictionaries") containing 
 entries that define the #character collection for the CID#Font or CID#Fonts 
 CIDSystemInfo
-associated with the CMap. The value of this entry shall be the same as the 
+associated with the CMap. The value of this entry shall be the same as the# 
 Identity-HIdentity-V
 CIDSystemInfo
 value of  in the CMap file. (However, it does not need to match 
@@ -40,7 +40,7 @@ to these additional constraints:
  
 UseCMap
 a)If the embedded CMap file contains a usecmap reference, the CMap indicated there shall also be# identified 
-usefont
+use#font
  
 by the  entry in the CMap stream dictionary. 
 beginbfcharendbfcharEncoding

@@ -1,4 +1,4 @@
-Table 7: Typical LZW encoding 
+#Table 7: Typical LZW encoding 
 sequence". 
 © ISO 2017 – All rights reserved 44 
 

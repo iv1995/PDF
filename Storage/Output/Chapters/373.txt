@@ -1,4 +1,4 @@
-Table 
+#Table 
 205: Entries specific to a target dictionary") specifying path information to 
 the target document. Each target dictionary specifies one element in the 
 full path to the target and may have nested target dictionaries specifying 
@@ -43,10 +43,10 @@ string If the value is an
 P
 integer, it specifies the index (zero-based) of the annotation in the
  NM 
-Table 31: Entries in a page #object") of the page specified by . 
+#Table 31: Entries in a page #object") of the page specified by . 
 array (see "
 If the value is a text string, it specifies the value ofin the annotation 
-dictionary (see "Table 166: Entries common to all annotation 
+dictionary (see "#Table 166: Entries common to all annotation 
 dictionaries"). 
 T 
 (Optional) 
@@ -144,5 +144,5 @@ endobj
  
 GoToDPart action 
 Start
-A changes the view to the  page of a specified DPart (see "Table 409: Entries in a 
+A changes the view to the  page of a specified DPart (see "#Table 409: Entries in a 
 DPart dictionary"). "

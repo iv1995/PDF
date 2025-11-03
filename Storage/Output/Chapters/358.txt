@@ -1,4 +1,4 @@
-Table 190: Additional entries specific 
+#Table 190: Additional entries specific 
 to a screen annotation" shows the annotation dictionary entries specific to this type of annotation. 
 #Table 190: Additional entries specific to a screen annotation 
 Key Type Value 
@@ -16,9 +16,9 @@ ISO/DIS 32000-2
  
 Key Type Value 
 (Optional) 
-MK 
+MK# 
 I
-dictionary An appearance #characteristics dictionary (see "Table 192: Entries 
+dictionary An appearance #characteristics dictionary (see "#Table 192: Entries 
 in an appearance #characteristics dictionary"). The  entry of this dictionary 
  AP 
 provides the icon used in generating the appearance referred to by the 
@@ -34,7 +34,7 @@ annotation’s behaviour in response to various trigger events (see 12.6.3,
 "Trigger events"). 
  
 In addition to the entries in "#Table 190: Additional entries specific to a screen annotation", screen 
-annotations may use the common entries in the annotation dictionary (see "Table 166: Entries common 
+annotations may use the common entries in the annotation dictionary (see "#Table 166: Entries common 
 to all annotation dictionaries") in the following ways: 
 P
 • 

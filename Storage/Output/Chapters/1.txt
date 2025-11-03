@@ -24,7 +24,7 @@ required computer hardware and/or operating system.
 
 ISO/DIS 32000-2
  
-#2Normative references 
+2Normative references 
  
 The following referenced documents are indispensable for the application of this document. In order to 
 avoid confusion as to what may or may not be included within a #PDF file conforming to this part of ISO 

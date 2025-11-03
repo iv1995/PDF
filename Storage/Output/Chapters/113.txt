@@ -1,4 +1,4 @@
-Table 39: Additional entries specific to a Type 0 #function 
+#Table 39: Additional entries specific to a Type 0 #function 
 dictionary". 
 DomainEncodeSize
 SizeEncode
@@ -15,7 +15,7 @@ The interpolate #function (7.10.1, "General") explains the relationship between 
 
 ISO/DIS 32000-2
  
-Table 39: Additional entries specific to a Type 0 #function dictionary 
+#Table 39: Additional entries specific to a Type 0 #function dictionary 
 Key Type Value 
 Required
 Size 
@@ -50,7 +50,7 @@ Optional
 other stream 
 attributes 
 (various) () Other attributes of the stream that shall provide the sample 
-values, as appropriate (see "Table 5: Entries common to all stream 
+values, as appropriate (see "#Table 5: Entries common to all stream 
 dictionaries"). 
  
 i

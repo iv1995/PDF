@@ -1,4 +1,4 @@
-Table 228: Additional entries common to all fields containing 
+#Table 228: Additional entries common to all fields containing 
 variable text" provide general information about the field’s appearance that can be com#bined with the 
 specific text it contains to construct an appearance stream. 
 #Table 228: Additional entries common to all fields containing variable text 

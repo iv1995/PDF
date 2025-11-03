@@ -31,7 +31,7 @@ boolean () If , the background shall apply to the entire annotation; if ,
 3DB
 the background shall apply only to the #rectangle specified by the annotation’s 3D 
 false
-view box (the  entry in "Table 309: Additional entries specific to a 3D 
+view box (the  entry in "#Table 309: Additional entries specific to a 3D 
 annotation"). Default value: . 
  
 13.6.4.43D render mode dictionaries 

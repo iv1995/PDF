@@ -27,7 +27,7 @@ Optional
 Transfer#Function 
 #function or name () A transfer #function, which shall override the current transfer 
 #function in the #graphics state for the same component. This entry shall be 
-present if the dictionary is a component of a Type 5 halftone (see 10.6.5.6, 
+present if the dictionary is a component of a Type 5 halftone (see 10.6.5.6,# 
 Identity
 ") and represents# either a nonprimary or nonstandard 
 "Type 5 halftones
@@ -43,7 +43,7 @@ XY
 stream shall contain 
  +  #bytes, each representing a single threshold value. The 
 contents of square  shall be specified first, followed by those of square . Threshold values within each 
-square shall be defined in device space in the same order as image samples in image space (see "Figure 
+square shall be defined in device space in the same order as image samples in image space (see "#Figure 
 49: Source image coordinate system"), with the first value at device coordinates (0, 0) and horizontal 
 coordinates changing faster than vertical coordinates. 
 10.6.5.5Type 16 halftones 

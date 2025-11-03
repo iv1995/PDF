@@ -1,4 +1,4 @@
-Table 403: Additional entries 
+#Table 403: Additional entries 
 specific to a trap network annotation" shows the additional annotation dictionary entries specific to this 
 type of annotation. 
 VersionAnnotStates
@@ -7,7 +7,7 @@ The  and  entries, if present, shall be used to detect changes in the content of
 page that might require regenerating its trap networks. The  array# identifies elements of the 
 Version
 page’s content that might be changed by an editing application and thus invalidate its trap networks. 
-Because there is at most one  array per trap network annotation (and thus per page), any #PDF 
+Because there is at most one  array per trap network annotation (and thus per page), any ##PDF 
 writer that generates a new trap network shall also verify the validity of existing trap networks by 
 enumerating the #objects# identified in the array and verifying that the results exactly match the array’s 
 current contents. Any trap networks found to be invalid shall be regenerated. 
@@ -82,7 +82,7 @@ substitute #fonts) during the generation of trap networks for the page.
 N
 Each entry in the  (normal) subdictionary of a trap network annotation’s appearance dictionary holds 
 an appearance stream defining a trap network associated with the given page. Like all appearances, a 
-trap network is a stream #object defining a form X#Object (see 8.10, "Form X#Objects"). The body of the 
+trap network is a #stream #object defining a form X#Object (see 8.10, "Form X#Objects"). The body of the 
 stream contains the graphics #objects needed to paint the traps making up the trap network. Its 
 dictionary entries include, besides the standard entries for a form dictionary, the additional entries 
 shown in "

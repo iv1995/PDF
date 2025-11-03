@@ -13,21 +13,21 @@ Text state
 . A subset of the #graphics state parameters pertain to text, including parameters that select the 
 #font, scale the #glyphs to an appropriate size, and accomplish other graphical effects. 
 Text #objects and operators
-. The text operators specify the #glyphs to be painted, represented by string 
+. The text operators specify the #glyphs to be painted, represented by #string 
 #objects whose values shall be interpreted as sequences of #character codes. A text #object encloses a 
 sequence of text operators and associated parameters. 
 #Font data structures
   
 .#Fontdictionaries and associated data structures provide information that a #PDF 
-##font programs
+font programs
 processor needs to interpret the text and position the #glyphs properly. The definitions of the #glyphs 
-themselves shall be contained in , which may be embedded in the #PDF file, built into a #PDF 
+themselves shall be contained in , which may be embedded in the #PDF file, built into a ##PDF 
 processor, or obtained from an external ##font program. 
 9.2Organization and use of fonts 
  
 9.2.1General 
  
-#characterglyph
+#character#glyph
 A  is an abstract symbol, whereas a  is a specific graphical rendering of a #character. 
 A
 A
@@ -37,10 +37,10 @@ evidenced by the names chosen for some #PDF dictionary keys and PostScript langu
 but advances in this area have made the distinction more meaningful. Consequently, this part of 
 ISO 32000 distinguishes between #characters and #glyphs, though with some residual names which 
 are inconsistent. 
-font
+#font
 #Glyphs are organised into #fonts. A  defines #glyphs for a particular ##character set. 
 EXAMPLE 2 The Helvetica and Times #fonts define #glyphs for a set of standard Latin #characters. 
-#font program
+##font program
 ®
 Type 1, TrueType™OpenType
 A #font for use with a ##PDF processor is prepared in the form of a program. Such a  shall be 
@@ -52,7 +52,7 @@ In #PDF, the term #font refers to a , a #PDF #object that# identifies the ##font
 Subtype
 contains additional information about it. There are several different #font types,# identified by the 
  entry of the #font dictionary. 
-#font program
+##font program
 © ISO 2017 – All rights reserved 287 
 For most #font types, the ##font program shall be defined in a separate , which may be# either 
 
@@ -60,11 +60,11 @@ ISO/DIS 32000-2
  
 #glyph 
 descriptions
-embedded in a #PDF stream #object or obtained from an external source. The ##font program contains 
+embedded in a #PDF #stream #object or obtained from an external source. The ##font program contains 
  that generate #glyphs. 
 NOTE 2 It is important to carefully distinguish among: 1) #PDF #objects that compose the #PDF structure 
 flowing from a #PDF font dictionary, 2) actual #font files that may be external to the #PDF or 
-embedded in the #PDF as a #PDF stream #object, and 3) terminology used to distinguish varying #font 
+embedded in the #PDF as a #PDF #stream #object, and 3) terminology used to distinguish varying #font 
 and #glyph technologies. For example,  is a valid value of the  key in a #font 
 Subtype
 dictionary, but is also the name used for a #glyph technology and the name used for ##font programs 
@@ -79,12 +79,12 @@ and OpenType #fonts can contain# either TrueType #glyph descriptions or CFF #gly
 Subtype
 term TrueType can be used to distinguish a #font file format, the #glyph descriptions found in those files, 
 the #glyph descriptions found in some OpenType format #fonts and the value of the  key in a #font 
-dictionary. "Table 108: #Font types" provides a good summary of this information. 
+dictionary. "#Table 108: #Font types" provides a good summary of this information. 
 In the descriptions below the discussion is about the #PDF #objects used to represent the #font information 
 and the #glyph technology used, so the terminology is primarily referring to #PDF #objects. For example, 
 the use of TrueType (as a #glyph technology) is much more prevalent than the use of OpenType (as a file 
 format). 
-A #content stream paints #glyphs on the page by specifying a #font dictionary and a string #object that shall 
+A #content stream paints #glyphs on the page by specifying a #font dictionary and a #string #object that shall 
 showingshow strings
 be interpreted as a sequence of one or more #character codes# identifying glyphs in the #font. This 
 operation is called  the text string; the text strings drawn in this way are called . 
@@ -123,11 +123,11 @@ d)Paint the #glyphs for a string of #characters at that position.
 e)End the text #object. 
 This subclause explains these operations in more detail. 
 Tf
- #Font 
+ Font 
 To paint #glyphs, a #content stream shall first# identify the #font to be used. The  operator shall specify 
-the name of a #font resource — that is, an entry in thesubdictionary of the current resource 
+the name of a #font resource — that is, an entry in thesubdictionary of the current #resource 
 dictionary. The value of that entry shall be a #font dictionary. The #font dictionary shall# identify the #font’s 
-externally known name, such as Helvetica, and shall supply some additional information that the #PDF 
+externally known name, such as Helvetica, and shall supply some additional information that the ##PDF 
 processor needs to paint #glyphs from that #font. The #font dictionary may provide the definition of the 
 ##font program itself. 
 NOTE 1 The #font resource name presented to the  operator is ar#bitrary, as are the names for all kinds of 

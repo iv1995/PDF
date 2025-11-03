@@ -1,4 +1,4 @@
-ijijij
+#ijijij
 Since each point 
  is actually a pair of coordinates (, ), the surface can also be expressed as 
 33
@@ -14,7 +14,7 @@ ijij
 ()()
 ()
 u×Bv
-𝑦𝑦u,v=��𝑦𝑦×B 
+𝑦𝑦u,v=��𝑦𝑦×#B 
 i=0j=0
  
 The geometry of the tensor-product patch can be visualized in terms of a cu#bic Bézier curve moving 

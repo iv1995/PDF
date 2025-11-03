@@ -1,5 +1,5 @@
-#Table 394: Web Capture command flags". Only those flags defined in "Table 394: Web Capture 
-command flags" may be set to 1; all other flags shall be 0. Flags not defined in "Table 394: Web Capture 
+#Table 394: Web Capture command flags". Only those flags defined in "#Table 394: Web Capture 
+command flags" may be set to 1; all other flags shall be 0. Flags not defined in "#Table 394: Web Capture 
 command flags" are reserved for future use, and shall not be used by a ##PDF processor. 
 NOTE 1 The low-order #bit of the flags value is referred to as being at #bit-position 1. 
 #Table 394: Web Capture command flags 

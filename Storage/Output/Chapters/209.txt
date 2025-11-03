@@ -1,15 +1,15 @@
-Table 
+#Table 
 86: X#Object operator"). This operator applies to any type of X#Object — image or form. The syntax is the 
 same in all cases, although details of the operator’s behaviour differ depending on the type. 
 © ISO 2017 – All rights reserved 248 
 
 ISO/DIS 32000-2
  
-Table 86: X#Object operator 
+#Table 86: X#Object operator 
 Operands Operator Description 
 name name
-Do XObject
-XObject
+Do X#Object
+X#Object
 Paint the specified . The operand  shall appear as a key in 
 the  subdictionary of the current #resource dictionary (see 7.8.3, 
 TypeX#ObjectDo

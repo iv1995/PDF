@@ -1,4 +1,4 @@
-Table 307: Entries in a movie 
+#Table 307: Entries in a movie 
 activation dictionary") that shall specify how it shall be presented. 
 #Table 306: Entries in a movie dictionary 
 Key Type Value 

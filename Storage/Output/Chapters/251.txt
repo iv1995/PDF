@@ -1,14 +1,14 @@
-Table 109: Entries in a Type 1 #font 
+#Table 109: Entries in a Type 1 #font 
 dictionary". 
 © ISO 2017 – All rights reserved 306 
 
 ISO/DIS 32000-2
  
-Table 109: Entries in a Type 1 #font dictionary 
+#Table 109: Entries in a Type 1 #font dictionary 
 Key Type Value 
 Required
 Type  
-Font
+#Font
  
 name  () The type of #PDF #object that this dictionary describes; shall be
 for a #font dictionary. 
@@ -143,8 +143,8 @@ Times-Roman, Helvetica, Courier, Symbol, Times-Bold, Helvetica-Bold, Courier-Bol
 Times-Italic, Helvetica-Oblique, Courier-Oblique, Times-BoldItalic, Helvetica-BoldOblique, Courier-
 BoldOblique. 
 FirstCharLastCharWidths#FontDescriptor
-In #PDF 1.0 to #PDF 1.7, the , ,  and  (see Table 109: Entries in 
-a Type 1 #font dictionary") were optional in Type 1 #font dictionaries for the standard 14 #fonts. #PDF 
+In #PDF 1.0 to #PDF 1.7, the , ,  and  (see #Table 109: Entries in 
+a Type 1 #font dictionary") were optional in Type 1 #font dictionaries for the standard 14 #fonts. ##PDF 
 processors supporting #PDF 1.0 to #PDF 1.7 files shall have these #fonts, or their #font metrics and suitable 
 substitution #fonts, available. 
 These #fonts, or their #font metrics and suitable substitution #fonts, shall be available to the ##PDF processor. 
@@ -165,13 +165,13 @@ NOTE 1 , describes multiple master #fonts
 in detail. 
 Adobe Technical Note #5015, Type 1 #Font Format Supplement
 The #font dictionary for a multiple master #font instance contains the same entries as a Type 1 #font 
-dictionary (see "Table 109: Entries in a Type 1 #font dictionary"), with these differences: 
+dictionary (see "#Table 109: Entries in a Type 1 #font dictionary"), with these differences: 
 MMType1
 Subtype
 • 
 • 
 The value of  shall be . 
-BaseFont
+Base#Font
 If the PostScript language name of the instance contains SPACEs (20h), the SPACEs shall be 
 replaced by LOW LINEs (underscores) (5Fh) in the value of . For instance, as illustrated 
 in this example, the name "MinionMM 366 465 11 " (which ends with a SPACE #character) becomes 
@@ -196,7 +196,7 @@ endobj
   ] 
 endobj 
  
-BaseFont
+Base#Font
 This example illustrates a convention for including the numeric values of the design coordinates as part 
 of the instance’s  name.  
 NOTE 2 This convention is commonly used for accessing multiple master #font instances from an external 
@@ -221,7 +221,7 @@ well as the OpenType #font format (see ).
 
 ISO/DIS 32000-2
  
-A TrueType #font dictionary may contain the same entries as a Type 1 #font dictionary (see "Table 109: 
+A TrueType #font dictionary may contain the same entries as a Type 1 #font dictionary (see "#Table 109: 
 Entries in a Type 1 #font dictionary"), with these differences: 
 TrueType
 Subtype
@@ -230,10 +230,10 @@ Encoding
 • 
 The value of  shall be . 
 The value of  is subject to limitations that are described in 9.6.5.4, "Encodings for 
-BaseFont
+Base#Font
 • 
 TrueType #fonts". 
-BaseFont
+Base#Font
 The value of  is derived differently. 
 The PostScript language name for the value of  should be determined in one of two ways: 
 • 

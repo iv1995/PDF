@@ -1,7 +1,7 @@
 #Table 116: Predefined CJK CMap names". 
 9.7.5.2Predefined CMaps 
  
-As a stream #object whose contents shall be a CMap file. 
+As a #stream #object whose contents shall be a CMap file. 
 Several of the CMaps define mappings from Unicode encodings to #character collections. Unicode values 
 UCS2UTF16
 appearing in a text string shall be represented in #big-endian order (high-order #byte first). CMap names 
@@ -95,19 +95,19 @@ UniKS-UCS2-H Unicode (UCS-2) encoding for the Adobe-Korea1 #character collection
 UniKS-UCS2-V Vertical version of UniKS-UCS2-H 
 UniKS-UTF16-H Unicode (UTF-16BE) encoding for the Adobe-Korea1 #character collection 
 UniKS-UTF16-V Vertical version of UniKS-UTF16-H 
-Generic 
+Generic# 
 Identity-H The horizontal# identity mapping for 2-#byte CIDs; may be used with CID#Fonts using any 
 Registry, Ordering, and Supplement values. It maps 2-#byte #character codes ranging from 0 
-to 65,535 to the same 2-#byte CID value, interpreted high-order #byte first. 
+to 65,535 to the same 2-#byte CID value, interpreted high-order #byte first.# 
 Identity-HIdentity-H
 Identity-V Vertical version of . The mapping is the same as for . 
  
 NOTE 2 The  and  CMaps can be used to refer to #glyphs directly by their CIDs when 
-showing a text string. 
+showing a text string.# 
 Identity-HIdentity-V
 Identity-HIdentity-V
 Encoding
-When the current #font is a Type 0 #font whose  entry is  or , the string to be 
+When the current #font is a Type 0 #font whose  entry is  or , the string to be# 
 Identity
 CIDToGIDMap
 shown shall contain pairs of #bytes representing CIDs, high-order #byte first. When the descendant #font of 

@@ -108,7 +108,7 @@ A signature field () is a form field that contains a digital signature (see 12.8
 The field dictionary representing a signature field may contain the additional entries listed in "Table 
 Sig
 FTV
-235: Additional entries specific to a signature field", as well as the standard entries described in "Table 
+235: Additional entries specific to a signature field", as well as the standard entries described in "#Table 
 226: Entries common to all field dictionaries". The field type () shall be , and the field value (), if 
 present, shall be a signature dictionary containing the signature and specifying various attributes of the 
 signature field (see "#Table 255: Entries in a signature dictionary"). 
@@ -130,8 +130,8 @@ are not intended to be visible shall have an annotation #rectangle that has zero
 true
   FF
 processors shall treat such signatures as not visible. ##PDF processors shall also treat signatures as not 
-visible if# either the Hidden #bit or theNoView#bit of the  entry is . The  entry is described in "Table 
-166: Entries common to all annotation dictionaries", and annotation flags are described in "Table 167: 
+visible if# either the Hidden #bit or theNoView#bit of the  entry is . The  entry is described in "#Table 
+166: Entries common to all annotation dictionaries", and annotation flags are described in "#Table 167: 
 Annotation flags". 
 The location of a signature within a document can have a bearing on its legal meaning. For this reason, 
 signature fields shall never refer to more than one annotation.  

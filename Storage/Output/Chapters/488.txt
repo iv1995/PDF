@@ -1,4 +1,4 @@
-Table 313: 
+#Table 313: 
 Animation styles" for valid values. If an animation style is encountered other 
 None
 than those described in "#Table 313: Animation styles", an animation style of 
@@ -64,7 +64,7 @@ ISO/DIS 32000-2
 #Table 313: Animation styles 
 Style Description 
 None 
-Keyframe animations shall not be driven directly by the interactive #PDF 
+Keyframe animations shall not be driven directly by the #interactive ##PDF 
 processor. This value shall be used by documents that are intended to drive 
  
 animations through an alternative means, such as ECMAScript. 

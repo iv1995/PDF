@@ -1,5 +1,5 @@
-Table 65: Additional entries specific to an #ICC profile stream dictionary". 
-Table 65: Additional entries specific to an #ICC profile stream dictionary 
+#Table 65: Additional entries specific to an #ICC profile stream dictionary". 
+#Table 65: Additional entries specific to an #ICC profile stream dictionary 
 Key Type Value 
 Required
 N 

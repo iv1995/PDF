@@ -1,4 +1,4 @@
- 
+# 
  
 Linearized #PDF 
 (Normative) 
@@ -6,10 +6,10 @@ F.1General
  
 Linearization of #PDF is an optional feature available beginning in #PDF 1.2 that enables efficient 
 incremental access of the file in a network environment. A ##PDF processor that does not support this 
-optional feature can still successfully process linearized files although not as efficiently. Enhanced #PDF 
+optional feature can still successfully process linearized files although not as efficiently. Enhanced ##PDF 
 processors can recognise that a #PDF file has been linearized and may take advantage of that 
 organization (as well as added hint information) to enhance performance. 
-The primary goal for a linearized #PDF file is to achieve the following behaviour for documents of 
+The primary goal for a# linearized #PDF file is to achieve the following behaviour for documents of 
 ar#bitrary size and so that the total number of pages in the document should have little or no effect on 
 the user-perceived performance of viewing any particular page: 
 • 
@@ -24,12 +24,12 @@ When data for a page is delivered over a slow channel, display the page incremen
 • 
 To the extent possible, display the most useful data first. 
 Permit user interaction, such as following a link, to be performed even before the entire page has 
-NOTE A linearized #PDF is optimised for viewing of read-only #PDF documents. A linearized #PDF is 
+NOTE A# linearized #PDF is optimised for viewing of read-only #PDF documents. A# linearized #PDF is 
 been received and displayed. 
 intended to be generated once and read many times. 
 Incremental update shall still be permitted, but the resulting #PDF is no longer linearized and 
 subsequently shall be treated as ordinary #PDF. Linearizing it again may require reprocessing the entire 
-file; see G.7, "Accessing an updated file" for details. 
+file; see G.7, "Accessing an updated file" for details.# 
 Linearized #PDF requires two additions to the #PDF specification: 
 • 
 When a #PDF file is initially accessed (such as by following a URL hyper link from some other 
@@ -53,22 +53,22 @@ ISO/DIS 32000-2
 • 
 F.2, "Background and assumptions" provides background information about the properties of the 
 • 
-Web that are relevant to the design of Linearized #PDF. 
+Web that are relevant to the design of# Linearized #PDF. 
 F.3, "Linearized #PDF document structure" specifies the file format and #object-ordering 
 • 
-requirements of Linearized #PDF. 
+requirements of# Linearized #PDF. 
 • 
 F.4, "Hint tables" specifies the detailed representation of the hint tables. 
-Annex G, "Linearized #PDF Access Strategies", outlines strategies for accessing Linearized #PDF over 
+Annex G, "Linearized #PDF Access Strategies", outlines strategies for accessing# Linearized #PDF over 
 a network, which in turn determine the optimal way to organise the #PDF file. 
 The reader is assumed to be familiar with the basic architecture of the Web, including terms such as 
 URL, HTTP, and MIME. 
 F.2Background and assumptions 
  
-NOTE 1 The principal problem addressed by the Linearized #PDF design is the access of #PDF documents 
+NOTE 1 The principal problem addressed by the# Linearized #PDF design is the access of #PDF documents 
 through the Web. This environment has the following important properties: 
 • 
-The access protocol (HTTP) is a transaction consisting of a request and a response. The #PDF 
+The access protocol (HTTP) is a transaction consisting of a request and a response. The ##PDF 
 processor presents a request in the form of a URL, and the server sends a response consisting of 
 • 
 one or more MIME-tagged data blocks. 
@@ -114,7 +114,7 @@ from an HTML document. This strategy is not always reliable and might backfire i
 interfere with each other by competing for scarce resources in the server or the communication 
 NOTE 2 Extensive experimentation has determined that having multiple concurrent transactions does not 
 channel. 
-work very well for #PDF in some important environments. Therefore, Linearized #PDF is designed to 
+work very well for #PDF in some important environments. Therefore,# Linearized #PDF is designed to 
 enable good performance to be achieved using only one transaction at a time. In particular, this 
 means that the ##PDF processor needs to have sufficient information to determine the #byte ranges 
 for all the #objects required to display a given page of the #PDF file so that it can specify all those 
@@ -135,8 +135,8 @@ F.3Linearized #PDF document structure
  
 F.3.1General 
  
-Except as noted below, all elements of a Linearized #PDF file shall be as specified in 7.5, "File structure", 
-and all in#direct #objects in the file shall be shall be divided into two #groups. 
+Except as noted below, all elements of a# Linearized #PDF file shall be as specified in 7.5, "File structure", 
+and all #in#direct #objects in the file shall be shall be divided into two #groups. 
 • 
 The first #group shall consist of the document catalog dictionary, other document-level #objects, and 
 all #objects belonging to the first page of the document. These #objects shall be numbered 
@@ -149,7 +149,7 @@ the first, all shared #objects (#objects referenced from more than one page, not
 referenced from the first page), and so forth. These #objects shall be numbered sequentially starting 
 at 1. 
 These #groups of #objects shall be indexed by exactly two cross-reference table sections. For pedagogical 
-reasons the linearized #PDF is considered to be composed from 11 parts, in order, and the composition 
+reasons the# linearized #PDF is considered to be composed from 11 parts, in order, and the composition 
 of these #groups is discussed in more detail below. All #objects shall have a generation number of 0. 
 Beginning with #PDF 1.5, #PDF files may contain ##object streams (7.5.7, "##Object streams"). In linearized 
 files containing ##object streams, the following conditions shall apply: 
@@ -164,7 +164,7 @@ ISO/DIS 32000-2
  
 • 
 main and first-page cross-reference sections. 
-For files containing ##object streams, hint data may specify the location and size of the #object 
+For files containing ##object streams, hint data may specify the location and size of the ##object 
 streams only (or uncompressed #objects), not the individual compressed #objects. Similarly, shared 
 ##object references shall be made to the ##object stream containing a compressed #object, not to the 
 • 
@@ -272,7 +272,7 @@ startxref
  
 F.3.2Header (Part 1) 
  
-The Linearized #PDF file shall begin with the standard header line (see 7.5.2, "File header"). 
+The# Linearized #PDF file shall begin with the standard header line (see 7.5.2, "File header"). 
 © ISO 2017 – All rights reserved 850 
 
 ISO/DIS 32000-2
@@ -283,5 +283,5 @@ The #binary #characters following the PERCENT SIGN (25h) on the second line are 
 128 or greater, as recommended in 7.5.2, "File header". 
 F.3.3Linearization parameter dictionary (Part 2) 
  
-Following the header, the first #object in the body of the file (part 2) shall be an indirect dictionary 
+Following the header, the first #object in the body of the file (part 2) shall be an indirect #dictionary 
 #object, the linearization parameter dictionary, which shall contain the parameters listed in "

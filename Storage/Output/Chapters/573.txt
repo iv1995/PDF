@@ -147,7 +147,7 @@ number
 or name  
 The width of the element’s content #rectangle (see 14.8.5.4.5, "Content and Allocation 
 Figure
-#Rectangles"), measured in default user space units in the inline-progression 
+Rectangles"), measured in default user space units in the inline-progression 
 FormulaTableTHTD
 direction. This attribute shall apply only to elements of structure type , 
 Auto
@@ -165,7 +165,7 @@ number
 or name  The height of 
 the element’s content #rectangle (see 14.8.5.4.5, "Content and Allocation 
 Figure
-#Rectangles"), measured in default user space units in the block-progression 
+Rectangles"), measured in default user space units in the block-progression 
 FormulaTableTHTD
 direction. This attribute shall apply only to elements of structure type , 
 Auto
@@ -193,7 +193,7 @@ edge of the first child’s allocation #rectangle and that of the table cell’s
 content #rectangle shall be the same as the distance between the after edge 
 of the last child’s allocation #rectangle and that of the table cell’s content 
 After
-#rectangle. 
+rectangle. 
   After edge of the last child’s allocation #rectangle aligned with that of the 
 Justify
 table cell’s content #rectangle. 

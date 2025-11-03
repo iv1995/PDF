@@ -1,9 +1,9 @@
-Table 287: Entries in a media clip 
+#Table 287: Entries in a media clip 
 data MH/BE dictionary") shall be honoured for the media clip data to be 
 considered viable. 
 Optional
 BE 
-dictionary () A dictionary whose entries (see "Table 289: Entries in a media clip 
+dictionary () A dictionary whose entries (see "#Table 289: Entries in a media clip 
 section MH/BE dictionary") should only be honoured in a "best effort" sense. 
  
 DType
@@ -25,7 +25,7 @@ D
 If  references a form X#Object, the associated player is implicitly the #interactive ##PDF processor, and the 
 form X#Object shall be rendered as if it were any other data type. 
 FD
-The  and  entries in the media play parameters dictionary (see "Table 290: Entries in a media play 
+The  and  entries in the media play parameters dictionary (see "#Table 290: Entries in a media play 
 parameters dictionary") apply to a form X#Object just as they do to a QuickTime movie. 
 For media other than form X#Objects, the media clip #object shall provide enough information to allow an 
 #interactive ##PDF processor to locate an appropriate player. This may be done by providing one or both of 
@@ -40,7 +40,7 @@ PL
 A  entry that specifies one or more players that may be used to play the referenced media. if  
 P
 is present, there should also be a  present. 
-The  entry specifies a media permissions dictionary (see "Table 286: Entries in a media permissions 
+The  entry specifies a media permissions dictionary (see "#Table 286: Entries in a media permissions 
 dictionary") specifying the manner in which the data referenced by the media may be used by an 
 #interactive ##PDF processor. These permissions allow authors control over how their data is exposed to 
 operations that could allow it to be copied. If the dictionary contains unrecognised entries or entries 

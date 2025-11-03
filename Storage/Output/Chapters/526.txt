@@ -1,4 +1,4 @@
-Table 332: Entries in the external 
+#Table 332: Entries in the external 
 data dictionary of a projection annotation" describes the entries in the external data dictionary of 
 S
 • 
@@ -32,7 +32,7 @@ annotations".
  
 rich media annotations
 #PDF 2.0 introduces  providing a common framework for video, audio, animations 
-and other multimedia presentations. For the allowed instances of rich media see "Table 342: Entries in 
+and other multimedia presentations. For the allowed instances of rich media see "#Table 342: Entries in 
 a RichMediaConfiguration dictionary". The framework includes general controls most of which are 
 commonly needed to stage, present and control an animation, video or other interactive presentation. 
 Such features as: when to activate and deactivate the presentation, supplying scripts that control the 

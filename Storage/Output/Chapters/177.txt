@@ -14,7 +14,7 @@ shall be 2 for a shading pattern.
 Required
 Shading 
 dictionary () A shading #object (see below) defining the shading pattern’s gradient fill. 
-or stream The contents of the dictionary shall consist of the entries in "Table 77: Entries 
+or stream The contents of the dictionary shall consist of the entries in "#Table 77: Entries 
 common to all shading dictionaries" and those in one of Table 78 to Table 83. 
 Optional
 Matrix 
@@ -29,7 +29,7 @@ specified shall be inherited from the #graphics state that was in effect at the
 beginning of the pattern’s parent #content stream, and as modified by clause 11.6.7, 
 "Patterns and transparency". 
  
-shading object
+shading #object
 Shading
 gradient fill
 The most significant entry is , whose value shall be a  defining the properties of 
@@ -41,7 +41,7 @@ ISO/DIS 32000-2
 shading dictionary
 the shading pattern produces when painted across an area. A shading #object shall be a dictionary or a 
 stream, depending on the type of shading; the term  is used generically throughout 
-this subclause to refer to# either a #dictionary #object or the dictionary portion of a stream #object. (Those 
+this subclause to refer to# either a #dictionary #object or the dictionary portion of a #stream #object. (Those 
 shading #objects that are streams are specifically# identified as such in the descriptions of particular 
 shading types; unless otherwise stated, they are understood to be simple dictionaries instead.) 
 fSTjDo

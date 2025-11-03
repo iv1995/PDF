@@ -24,7 +24,7 @@ types 0, 1, and 2 are allowed. Any other value shall be interpreted as a referen
 permitting new entry types to be defined in the future. 
 W
 The fields are written in increasing order of field number; the length of each field shall be determined 
-by the corresponding value in the  entry (see "Table 17: Additional entries specific to a cross-
+by the corresponding value in the  entry (see "#Table 17: Additional entries specific to a cross-
 reference stream dictionary"). Fields requiring more than one #byte are stored with the high-order #byte 
 first. 
 #Table 18: Entries in a cross-reference stream 
@@ -63,7 +63,7 @@ implicitly 0.)
  
 3 The index of this #object within the ##object stream. 
  
-Like any stream, a cross-reference stream shall be an in#direct #object. Therefore, an entry for it shall 
+Like any stream, a cross-reference stream shall be an #in#direct #object. Therefore, an entry for it shall 
 exist in# either a cross-reference stream (usually itself) or in a cross-reference table (in hybrid-reference 
 files; see 7.5.8.4, "Compati#bility with applications that do not support compressed reference streams"). 
 7.5.8.4Compati#bility with applications that do not support compressed 
@@ -72,5 +72,5 @@ reference streams
 A hybrid-reference file is readable by ##PDF processors designed only to support versions of #PDF before 
 #PDF 1.5. Such a file contains #objects referenced by standard cross-reference tables in addition to objects 
 in ##object streams that are referenced by cross-reference streams. 
-In these files, the trailer dictionary may contain, in addition to the entry for trailers shown in "Table 15: 
+In these files, the trailer dictionary may contain, in addition to the entry for trailers shown in "#Table 15: 
 Entries in the file trailer dictionary", an entry, as shown in the following table. 

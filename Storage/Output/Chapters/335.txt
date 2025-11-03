@@ -107,9 +107,9 @@ Contents
 As mentioned in 12.5.2, "Annotation dictionaries", the meaning of an annotation’s  entry varies 
 by annotation type. Typically, it is the text that shall be displayed for the annotation or, if the annotation 
 Contents
-does not display text, an alternative description of the annotation’s contents in human-readable form. In 
+does not display text, an alternative description of the annotation’s contents in human-readable form. In# 
 either case, the  entry is useful when extracting the document’s contents in support of 
 accessi#bility to users with disa#bilities or for other purposes (see 14.9.3, "Alternate descriptions"). 
 markup annotations
 Many annotation types are defined as  because they are used primarily to mark up 
-#PDF documents (see "
+PDF documents (see "

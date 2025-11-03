@@ -1,4 +1,4 @@
-Table 54: 
+#Table 54: 
 Line join styles" shows the possible values. Join styles shall be significant only at points where 
 consecutive segments of a path connect at an angle; segments that meet or intersect fortuitously shall 
 receive no special treatment. 

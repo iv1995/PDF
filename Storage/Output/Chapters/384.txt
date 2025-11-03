@@ -8,7 +8,7 @@ name The type of action that this dictionary describes; shall befor a
 named action. 
 (Required) 
 N 
-name The name of the action that shall be performed (see "Table 215: Named 
+name The name of the action that shall be performed (see "#Table 215: Named 
 actions"). 
  
 12.6.4.13Set-OCG-state actions 

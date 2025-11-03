@@ -6,7 +6,7 @@ Required
 name () The name of the preferred security handler for this document. It shall be 
 the name of the security handler that was used to encrypt the document. If
 is not present, only this security handler shall be used when opening the document. 
-SubFilter
+Sub#Filter
 If it is present, a ##PDF processor can use any security handler that implements the 
 Standard
 format specified by . 
@@ -25,19 +25,19 @@ Required
 V 
 number () A code specifying the algorithm to be used in encrypting and decrypting 
 the document: 
-Deprecated
+#Deprecated
 0 An algorithm that is undocumented. This value shall not be used. 
 1 () Indicates the use of 7.6.3.1, "Algorithm 1: Encryption of data 
 using the RC4 or AES algorithms" (#deprecated) with a file encryption key 
-#PDF 1.4; deprecated
+#PDF 1.4; #deprecated
 length of 40 #bits; see below. 
 2 () Indicates the use of 7.6.3.1, "Algorithm 1: Encryption of 
 data using the RC4 or AES algorithms" (#deprecated) but permitting file 
-#PDF 1.4; deprecated
+#PDF 1.4; #deprecated
 encryption key lengths greater than 40 #bits. 
 3 () An unpublished algorithm that permits file encryption 
 key lengths ranging from 40 to 128 #bits. This value shall not appear in a 
-#PDF 1.5; deprecated
+#PDF 1.5; #deprecated
 conforming #PDF file. 
 CFStmFStrF
 4 () The security handler defines the use of encryption and 
@@ -55,7 +55,7 @@ with a file encryption key length of 256 #bits.
 ISO/DIS 32000-2
  
 Key Type Value 
-Optional; #PDF 1.4; only if V is 2 or 3; deprecated
+Optional; #PDF 1.4; only if V is 2 or 3; #deprecated
 Length 
 integer () The length of the file encryption 
 key, in #bits. The value shall be a multiple of 8, in the range 40 to 128. Default value: 
@@ -64,7 +64,7 @@ Optional; meaningful only when the value of  is 4 (#PDF 1.5or 5 #PDF 2.0
 CF V
 dictionary () ()) A 
 dictionary whose keys shall be crypt #filter names and whose values shall be the 
-corresponding crypt #filter dictionaries (see "Table 25: Entries common to all crypt 
+corresponding crypt #filter dictionaries (see "#Table 25: Entries common to all crypt 
 #filter dictionaries"). Every crypt #filter used in the document shall have an entry in 
 this dictionary, except for the standard crypt #filter names (see "Table 26: Standard 
 CF
@@ -79,13 +79,13 @@ StmF V
 name () or 5 ()) The name 
 CF
 of the crypt #filter that shall be used by default when decrypting streams. The name 
-shall be a key in the  dictionary or a standard crypt #filter name specified in "Table 
+shall be a key in the  dictionary or a standard crypt #filter name specified in "#Table 
  
 26: Standard crypt #filter names". All streams in the document, except for cross-
-Crypt Filter
+Crypt #Filter
 reference streams (see 7.5.8, "Cross-reference streams") or streams that have a
 "), shall be decrypted 
-entry in their  array (see "Table 6: Standard #filters
+entry in their  array (see "#Table 6: Standard #filters
 Identity
  
 by the security handler, using this crypt #filter. 
@@ -95,10 +95,10 @@ StrF
 name () The name 
 CF
 of the crypt #filter that shall be used when decrypting all strings in the document. The 
-name shall be a key in the  dictionary or a standard crypt #filter name specified in 
+name shall be a key in the  dictionary or a standard crypt #filter name specified in# 
 Identity
  
-"Table 26: Standard crypt #filter names". 
+"#Table 26: Standard crypt #filter names". 
 Default value: .
 Optional; meaningful only when the value of  is 4#PDF 1.6#PDF 2.0
 EFF V
@@ -116,7 +116,7 @@ StmF
 stream does not contain a crypt #filter specifier, the stream shall be encrypted using 
 the default stream crypt #filter specified by . 
  
-Unlike strings within the body of the document, those in the encryption dictionary shall be direct 
+Unlike strings within the body of the document, those in the encryption dictionary shall be #direct 
 #objects. The values of the keys defined in "#Table 20: Entries common to all encryption dictionaries" 
 shall not be encrypted. However, a security handler may choose to encrypt any #objects that are private 
 to itself. 
@@ -183,7 +183,7 @@ maintains compati#bility with previous documentation.
 This algorithm is #deprecated in #PDF 2.0. 
  
 a)Obtain the #object number and generation number from the #object# identifier of the string or stream to be 
-encrypted (see 7.3.10, "In#direct #objects"). If the string is a #direct #object, use the# identifier of the indirect 
+encrypted (see 7.3.10, "#In#direct #objects"). If the string is a #direct #object, use the# identifier of the #in#direct 
  
 #object containing it. 
 nn
@@ -227,7 +227,7 @@ Length
 applying any stream decoding #filters. The number of #bytes to be encrypted or decrypted shall be given 
 by the  entry in the stream dictionary. Decryption of strings (other than those in the encryption 
 dictionary) shall be done after escape-sequence processing and hexadecimal decoding as appropriate to 
-the string representation described in 7.3.4, "String #objects". 
+the string representation described in 7.3.4, "#String #objects". 
 7.6.4Standard security handler 
  
 7.6.4.1General 
@@ -300,7 +300,7 @@ Printing to a representation from which a faithful digital copy of the #PDF cont
 generated. Disallowing such printing may result in degradation of output quality. 
 In addition, security handlers of revisions 3 and greater shall enable the extraction of text, images and 
 graphics (in support of accessi#bility to users with disa#bilities or for other purposes) to be controlled 
-separately. 
+separately.# 
 Identity
 If a security handler of revision 4 or 5 is specified, the standard security handler shall support crypt 
 StdCFAuthEvent
@@ -311,7 +311,7 @@ Standard crypt #filter names") and crypt #filters named  whose dictionaries cont
 AESV3
 CFM
 value of . For revision 4, the #filter  value shall be  (RC4) or  (AES-128). For 
-DefaultCryptFilter
+DefaultCrypt#Filter
 revision 6, the #filter  value shall be  (AES-256). Public-Key security handlers in this case shall 
 DefEmbeddedFileStdCF
 use crypt #filters named  when all document content is encrypted, and shall use crypt 

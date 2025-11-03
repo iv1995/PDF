@@ -1,6 +1,6 @@
-Table 25: Entries common to all crypt #filter dictionaries 
+#Table 25: Entries common to all crypt #filter dictionaries 
 Key Type Value 
-OptionalCryptFilter
+OptionalCrypt#Filter
 Type 
 name () If present, shall be  for a crypt #filter dictionary. 
 Optional
@@ -9,12 +9,12 @@ name () The method used, if any, by the ##PDF reader to decrypt data. The
 None
 following values shall be supported: 
  The application shall not decrypt data but shall direct the input 
-V2Deprecated
+V2#Deprecated
 stream to the security handler for decryption. 
  () The application shall ask the security handler for 
 the file encryption key and shall implicitly decrypt data with 
 7.6.3.1, "Algorithm 1: Encryption of data using the RC4 or AES 
-AESV2#PDF 1.6; deprecated
+AESV2#PDF 1.6; #deprecated
 algorithms", using the RC4 algorithm. 
  () The application shall ask the security 
 handler for the file encryption key and shall implicitly decrypt 
@@ -92,4 +92,4 @@ When  is , the  key shall be ignored and a value of 128
 value of 256 #bits used. 
  
 Security handlers may add their own private data to crypt #filter dictionaries. Names for private data 
-entries shall conform to the #PDF name registry (see Annex E, "#PDF Name Registry"). 
+entries shall conform to the# #PDF name registry (see Annex E, "#PDF Name Registry"). 

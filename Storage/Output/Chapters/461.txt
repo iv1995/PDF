@@ -1,9 +1,9 @@
-Table 289: Entries in a media clip 
+#Table 289: Entries in a media clip 
 section MH/BE dictionary") shall be honoured for the media clip section to be 
 considered viable. 
 Optional
 BE 
-dictionary () A dictionary whose entries (see "Table 289: Entries in a media clip 
+dictionary () A dictionary whose entries (see "#Table 289: Entries in a media clip 
 section MH/BE dictionary") shall only be honoured in a "best effort" sense. 
  
 © ISO 2017 – All rights reserved 602 
@@ -36,7 +36,7 @@ underlying media clip data #object. If this offset is not within the range defin
 media clip (if any), or if the marker is not present in the underlying media clip, the existence of the 
 B
 • 
-entry shall be ignored, and there is no effect on via#bility. 
+entry shall be ignored, and there is no effect on via#bility.# 
 E
 If the absolute offset derived from the values of all  entries in a media clip section chain is greater 
 than or equal to the absolute offset derived from the values of all  entries, an empty range shall be 

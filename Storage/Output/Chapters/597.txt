@@ -1,4 +1,4 @@
-Table 399: 
+#Table 399: 
 Additional entries specific to a printer’s mark form dictionary" in addition to the standard ones 
 common to all form dictionaries (see 8.10.2, "Form dictionaries"). 
 #Table 399: Additional entries specific to a printer’s mark form dictionary 

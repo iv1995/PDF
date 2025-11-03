@@ -12,7 +12,7 @@ ISO/DIS 32000-2
  
 annotation shall appear as an icon; when open, it shall display a popup window containing the text of 
 the note in a #font and size chosen by the #interactive ##PDF processor. Text annotations shall not scale and 
-rotate with the page; they shall behave as if the NoZoom and NoRotate annotation flags (see "Table 167: 
+rotate with the page; they shall behave as if the NoZoom and NoRotate annotation flags (see "#Table 167: 
 Annotation flags") were always set. "#Table 175: Additional entries specific to a text annotation" shows 
 the annotation dictionary entries specific to this type of annotation. 
 #Table 175: Additional entries specific to a text annotation 

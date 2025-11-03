@@ -1,9 +1,9 @@
-Table 27: Additional crypt #filter dictionary entries for public-key security handlers" lists the additional 
+#Table 27: Additional crypt #filter dictionary entries for public-key security handlers" lists the additional 
 V2AESV2
 CFM
 crypt #filter dictionary entries used by public-key security handlers (see 7.6.5, "Public-key security 
 handlers"). When these entries are present, the value of  shall be  or . 
-Table 27: Additional crypt #filter dictionary entries for public-key security handlers 
+#Table 27: Additional crypt #filter dictionary entries for public-key security handlers 
 Key Type Value 
 Required
 Recipients StmFStrF
@@ -21,7 +21,7 @@ access permissions. If a recipient appears in more than one list, the
 permissions used shall be those in the first matching list. 
 If the crypt #filter is referenced from a#filter decode parameter 
 "), this 
-dictionary (see "Table 14: Optional parameters for Crypt #filters
+dictionary (see "#Table 14: Optional parameters for Crypt #filters
 entry shall be a string that shall be a #binary-encoded CMS #object that shall 
 contain a list of all recipients who are permitted to access the 
 corresponding encrypted stream. The enveloped data contained in the 
@@ -43,7 +43,7 @@ security handler rather than the ##PDF processor. Default value: .
 © ISO 2017 – All rights reserved 95 
 
 ISO/DIS 32000-2
- 
+# 
  
 Identity
 EXAMPLE The following shows the use of crypt #filters in an encrypted document containing a plaintext document-level 

@@ -23,7 +23,7 @@ or form. If the page-piece dictionary contains several data dictionaries, their 
 compared with those in the corresponding entry of the page #object or form dictionary (see "Table 31: 
 ModDate 
 Entries in a page #object" and "#Table 93: Additional entries specific to a Type 1 form dictionary"), or the
-entry of the document information dictionary (see "Table 349: Entries in the document 
+entry of the document information dictionary (see "#Table 349: Entries in the document 
 information dictionary"), to ascertain whether the data dictionary corresponds to the current content of 
 the document, page or form. Because some platforms may use only an approximate value for the date 
 and time or may not deal correctly with differing time zones, modification dates shall be compared only 

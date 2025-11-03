@@ -44,7 +44,7 @@ between the keywords  and . Multiple #filters
 shall be specified in the order in which they are to be applied. 
 Optional
 DecodeParms 
-Filter
+#Filter
 dictionary or array () A parameter dictionary or an array of such dictionaries, 
  DecodeParms 
 used by the #filters specified by , respectively. If there is only 
@@ -57,7 +57,7 @@ parameters have their default values, in which case the
 entry may be omitted. If there are multiple #filters 
 DecodeParms 
 and any of the #filters has parameters set to nondefault values,
-Filter
+#Filter
 shall be an array with one entry for each #filter in 
 the same order as the  array:# either the parameter 
 dictionary for that #filter, or the #null #object if that #filter has no 
@@ -82,7 +82,7 @@ FDecodeParms
 Optional; #PDF 1.2
 FFilter 
 name or array () The name of a #filter to be applied in processing 
-Filter
+#Filter
 the data found in the stream’s external file, or an array of zero, one 
 or several such names. The same rules apply as for . 
 Optional; #PDF 1.2
@@ -105,13 +105,13 @@ possible to determine this value precisely.
  
 null
 The #null #object has a type and value that are unequal to those of any other #object. There shall be only 
-one #object of type null, denoted by the keyword . An in#direct ##object reference (see 7.3.10, "Indirect 
+one #object of type null, denoted by the keyword . An #in#direct ##object reference (see 7.3.10, "#In#direct 
 #objects") to a nonexistent #object shall be treated the same as a #null #object. Specifying the #null #object as 
 the value of a dictionary entry (7.3.7, "#Dictionary #objects") shall be equivalent to omitting the entry 
 entirely. 
-7.3.10In#direct #objects 
+7.3.10#In#direct #objects 
  
-Any #object in a #PDF file may be labelled as an in#direct #object. This gives the #object a unique #object 
+Any #object in a #PDF file may be labelled as an #in#direct #object. This gives the #object a unique #object# 
 identifier by which other #objects can refer to it (for example, as an element of an array or as the value of 
 a dictionary entry). The #object# identifier shall consist of two parts: 
 © ISO 2017 – All rights reserved 38 
@@ -119,24 +119,24 @@ a dictionary entry). The #object# identifier shall consist of two parts:
 ISO/DIS 32000-2
  
 • 
-A positive #integer #object number. In#direct #objects may be numbered sequentially within a #PDF file, 
+A positive #integer #object number. #In#direct #objects may be numbered sequentially within a #PDF file, 
 • 
 but this is not required; #object numbers may be assigned in any ar#bitrary order. 
-A non-negative integer generation number. In a newly created file, all in#direct #objects shall have 
+A non-negative integer generation number. In a newly created file, all #in#direct #objects shall have 
 generation numbers of 0. Non-zero generation numbers may be introduced when the file is later 
 updated; see 7.5.4, "Cross-reference table" and 7.5.6, "Incremental updates" 
 Together, the com#bination of an #object number and a generation number shall uniquely# identify an 
-in#direct #object. 
-The definition of an in#direct #object in a #PDF file shall consist of its #object number and generation 
+#in#direct #object. 
+The definition of an #in#direct #object in a #PDF file shall consist of its #object number and generation 
 objendobj
 number (separated by white-space), followed by the value of the #object bracketed between the 
 keywords  and . 
-EXAMPLE 1 In#direct #object definition 
+EXAMPLE 1 #In#direct #object definition 
 12 0 obj 
 (Brillig) 
 endobj 
  
-Defines an indirect string #object with an #object number of 12, a generation number of 0, and the string 
+Defines an indirect #string #object with an #object number of 12, a generation number of 0, and the string 
 value Brillig. 
 R
 The #object may be referred to from elsewhere in the file by an indirect reference. Such indirect 
@@ -145,7 +145,7 @@ space separating each part):
 12 0 R 
  
 obj
-Beginning with #PDF 1.5, in#direct #objects may reside in ##object streams (see 7.5.7, "##Object streams"). They 
+Beginning with #PDF 1.5, #in#direct #objects may reside in ##object streams (see 7.5.7, "##Object streams"). They 
 endobj
 are referred to in the same way; however, their definition shall not include the keywords  and 
 , and their generation number shall be zero. 
@@ -156,7 +156,7 @@ indirect reference is considered to refer to the #null #object.
 Except where documented to the contrary any #object value may be a direct or an indirect reference; the 
 semantics are equivalent. 
 Length
-EXAMPLE 3 The following shows the use of an in#direct #object to specify the length of a stream. The value of the stream’s 
+EXAMPLE 3 The following shows the use of an #in#direct #object to specify the length of a stream. The value of the stream’s 
  entry is an #integer #object that follows the stream in the file. This allows applications that generate #PDF 
 in a single pass to defer specifying the stream’s length until after its contents have been generated. 
 7 0 obj 
@@ -183,7 +183,7 @@ endobj
  
 7.4.1General 
  
-Stream #filters are introduced in 7.3.8, "Stream #objects", An option when reading stream data is to 
+Stream #filters are introduced in 7.3.8, "#Stream #objects", An option when reading stream data is to 
 decode it using a #filter to produce the original non-encoded data. Whether to do so and which decoding 
 #filter or #filters to use may be specified in the stream dictionary. 
  #ASCIIHexDecode 
@@ -193,7 +193,7 @@ original ##binary data.
 A ##PDF writer may encode data in a stream (for example, data for sampled images) to compress it or to 
 convert it to a portable #ASCII representation (or both). A ##PDF reader shall invoke the corresponding 
 decoding #filter or #filters to convert the information back to its original form. 
-Filter
+#Filter
 FFilter
 The #filter or #filters for a stream shall be specified by the  entry in the stream’s dictionary (or the 
  entry if the stream is external). #Filters may be cascaded to form a pipeline that passes the 

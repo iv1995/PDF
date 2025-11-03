@@ -1,4 +1,4 @@
-Table 269: 
+#Table 269: 
 Additional entries in a geospatial measure dictionary" lists and describes these additional entries in a 
 geospatial measure dictionary. 
 Number format arrays specify all the units that shall be used when expressing a specific measurement. 
@@ -45,7 +45,7 @@ The directions of the and axes are in the measuring coordinate system and
  BBox 
 are independent of the page rotation. These directions shall be determined by 
  
-theentry of the containing viewport (see "Table 265: Entries in a viewport 
+theentry of the containing viewport (see "#Table 265: Entries in a viewport 
 dictionary").
 (Required when the x and y scales have different units or conversion factors) 
 Y 
@@ -152,7 +152,7 @@ number The conversion factor used to multiply a value in partial units of the
 previous number format array element to obtain a value in the units of this 
 dictionary. When this entry is in the first number format dictionary in the array, 
 its meaning (that is, what it shall be multiplied by) depends on which entry in 
-the rectilinear measure dictionary (see "Table 267: Additional entries in a 
+the rectilinear measure dictionary (see "#Table 267: Additional entries in a 
 rectilinear measure dictionary") references the number format array. 
 (Optional; meaningful only for the last dictionary in a number format array) 
 F 
@@ -248,7 +248,7 @@ Default value: .
  
 To use a number format array to create a text string containing the appropriately formatted units for 
 display in a user interface, apply the following algorithm: 
-#Algorithm: Use of a number format array to create a formatted text string 
+Algorithm: Use of a number format array to create a formatted text string 
  
 a)The entry in the rectilinear measure dictionary (see "Table 267: Additional entries in a rectilinear 
 XT
@@ -332,7 +332,7 @@ allows a document to be authored to display values in a coordinate system other 
 with the source data. For example, a map may be created in a state planar coordinate system based on a 
 1927 datum, but it is possible to display its latitude and longitude values in the WGS84 datum 
 corresponding to values reported by a GPS device. 
-The entries of a geospatial measure dictionary are shown in "Table 269: Additional entries in a 
+The entries of a geospatial measure dictionary are shown in "#Table 269: Additional entries in a 
 geospatial measure dictionary". 
 #Table 269: Additional entries in a geospatial measure dictionary 
 Key Type Description 
@@ -363,7 +363,7 @@ Key Type Description
 DCS 
 dictionary A projected or geographic coordinate system that shall be used for 
 the display of position values, such as latitude and longitude. Formatting the 
-displayed representation of these values is controlled by the interactive #PDF 
+displayed representation of these values is controlled by the #interactive ##PDF 
 processor. 
 (Optional; #PDF 2.0)Preferred Display Units
 PDU  

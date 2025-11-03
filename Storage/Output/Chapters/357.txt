@@ -1,4 +1,4 @@
-Table 
+#Table 
 189: Additional entries specific to a movie annotation" shows the annotation dictionary entries specific 
 to this type of annotation. Movies are discussed in 13.4, "Movies". 
 #Table 189: Additional entries specific to a movie annotation 
@@ -16,7 +16,7 @@ actions") may use this title to reference the movie annotation.
 (Required) 
 Movie 
 dictionary A movie dictionary that shall describe the movie’s static 
-#characteristics (see 13.4, "Movies"). 
+characteristics (see 13.4, "Movies"). 
 (Optional) 
 A 
 boolean or A flag or dictionary specifying whether and how to play the movie 

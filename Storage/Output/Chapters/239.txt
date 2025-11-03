@@ -1,4 +1,4 @@
-Table 103: Text state 
+#Table 103: Text state 
 operators". All text state parameters shall apply to Type 3 #fonts unless otherwise stated. 
 NOTE Negative text #font size is permitted. 
 T
@@ -50,7 +50,7 @@ Set the text #font, , to  and the text #font size, , to . #font shall be the nam
 of a #font resource in thesubdictionary of the current #resource dictionary; 
 #fontsize
 Tf
-size shall be a number representing a scale factor. There is no initial value for 
+size shall be a number representing a scale factor. There is no initial value for# 
 either  or ; they shall be specified explicitly by using  before any text is 
 shown. Zero sized text shall not mark or clip any pixels (depending on text render 
 mode). 

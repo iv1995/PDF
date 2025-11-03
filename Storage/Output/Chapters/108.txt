@@ -1,12 +1,12 @@
-Table 35: #PDF data types" summarises the basic and higher-level data types that are used 
+#Table 35: #PDF data types" summarises the basic and higher-level data types that are used 
 throughout this part of ISO 32000 to describe the values of dictionary entries and other #PDF data 
 values. 
-Table 35: #PDF data types 
+#Table 35: #PDF data types 
 Type Description Subclause 
 #ASCII string 
 #Bytes containing #ASCII #characters 7.9.2 
 array 
-#Array #object 7.3.6 
+Array #object 7.3.6 
 boolean 
 Boolean value 7.3.2 
 #byte string 
@@ -18,7 +18,7 @@ shall be determined by the context.
 date 
 Date (#ASCII string) 7.9.4 
 dictionary 
-#Dictionary #object 7.3.7 
+Dictionary #object 7.3.7 
 file specification 
 File specification (string or dictionary) 7.11 
 #function 
@@ -26,11 +26,11 @@ File specification (string or dictionary) 7.11
 integer 
 Integer number 7.3.3 
 name 
-#Name #object 7.3.5 
+Name #object 7.3.5 
 #name tree 
 #Name tree (dictionary) 7.9.6 
 null 
-#Null #object 7.3.9 
+Null #object 7.3.9 
 number 
 Number (integer or real) 7.3.3 
 #number tree 
@@ -66,12 +66,12 @@ be encoded using# either
 text stream 
 Text stream 7.9.3 
  
-7.9.2String #object types 
+7.9.2#String #object types 
  
 7.9.2.1General 
  
-#PDF supports one fundamental string #object (see 7.3.4, "String #objects"). The string #object shall be 
+#PDF supports one fundamental #string #object (see 7.3.4, "#String #objects"). The #string #object shall be 
 further qualified as a text string, a #PDFDocEncoded string, #ASCII string, or #byte string. The further 
 qualification reflects the encoding used to represent the #characters or #glyphs described by the string. 
-The string types described in "Table 35: #PDF data types" specify increasingly specific encoding schemes, 
+The string types described in "#Table 35: #PDF data types" specify increasingly specific encoding schemes, 
 as shown in "

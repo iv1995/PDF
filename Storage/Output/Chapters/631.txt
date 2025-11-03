@@ -1,4 +1,4 @@
-Figure Annex H.2: 
+#Figure Annex H.2: 
 Page tree for the following example" shows the structure of this page tree. Numbers in the figure are 
 #object numbers corresponding to the #objects in the example. 
 337

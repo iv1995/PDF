@@ -1,6 +1,6 @@
-Table Annex H.1: #Objects in 
+#Table Annex H.1: #Objects in 
 minimal example" lists the #objects in this example. 
-Table Annex H.1: #Objects in minimal example 
+#Table Annex H.1: #Objects in minimal example 
 #Object number #Object type 
 Catalog
 1  (document catalog) 

@@ -58,7 +58,7 @@ number for an artifact of subtype .
 
 ISO/DIS 32000-2
  
-NOTE Bates numbering is used in the legal, medical, and business fields in some countries to place 
+NOTE Bates numbering is used in the legal, medical, and business fields in some countries to place# 
 identifying numbers and/or date/time-marks on images and documents. For example, it is added 
 during the discovery stage of preparations for trial or when# identifying business receipts. This 
 process provides# identification, protection, and automatic consecutive numbering. 
@@ -88,7 +88,7 @@ engine could choose to speak invisible text.
 14.8.2.5.1General 
  
 Page content order
- shall be defined by the sequencing of graphics #objects within a page’s content 
+ shall be defined by the sequencing of graphics #objects within a page’s #content 
 stream. 
 Logical content order
  – the ordering for semantic purposes – shall be defined by a depth-first traversal 
@@ -101,7 +101,7 @@ NOTE 2 The #running text of a page, as encoded in the page’s #content stream, 
 not possible to make the order in which the text progresses match the logical content order. 
 Content within a single marked content sequence (see 14.6, "Marked content") shall be in logical 
 content order for that item of content. 
-NOTE 3  Both in terms of how page content is encoded in a tagged #PDF as well as in terms of how a #PDF 
+NOTE 3  Both in terms of how page content is encoded in a tagged #PDF as well as in terms of how a ##PDF 
 processor can process that content, efficiency can be impacted if the page content order and 
 © ISO 2017 – All rights reserved 722 
 
@@ -150,16 +150,16 @@ NOTE 1  In writing systems that are read from right to left (such as Ara#bic or 
 that the #glyphs in a #font would have their origins at the lower right and their widths (rightward 
 horizontal displacements) specified as negative. For various technical and historical reasons, 
 however, many such #fonts follow the same conventions as those designed for Western writing 
-systems, with #glyph origins at the lower left and positive widths, as shown in "Figure 54: #Glyph 
+systems, with #glyph origins at the lower left and positive widths, as shown in "#Figure 54: #Glyph 
 metrics". Consequently, showing text in such right-to-left writing systems requires# either 
 positioning each #glyph individually (which is tedious and costly) or representing text with show 
 strings (see 9.2, "Organization and use of fonts") whose #character codes are given in reverse order. 
  
 ReversedChars
-The show strings in a  block may have a SPACE (U+0020) #character or other white-
+The show strings in a  block may have a SPACE (U+0020) #character or other #white-
 space #characters at the beginning or end to indicate a word break (see 14.8.2.6.2, "Identifying word 
-breaks") but shall not contain interior SPACE #characters or other white-space #characters. 
-NOTE 2  This limitation is not serious, since a SPACE or other white-space #character typically provides an 
+breaks") but shall not contain interior SPACE #characters or other #white-space #characters. 
+NOTE 2  This limitation is not serious, since a SPACE or other #white-space #character typically provides an 
 opportunity to realign the typography without visible effect, and it serves the valuable purpose of 
 limiting the scope of reversals for word-processing #interactive ##PDF processors. 
 © ISO 2017 – All rights reserved 723 
@@ -197,7 +197,7 @@ defined meaning is associated with the Unicode values in the Private Use Area.
 NOTE 3 An , , or  entry specified in a structure element dictionary or a marked-content 
 AltActualTextE
 property list (see 14.9.3, "Alternate descriptions" 14.9.4, "Replacement text" and 14.9.5, 
-"Expansion of abbreviations and acronyms") can affect the #character stream used by #PDF 
+"Expansion of abbreviations and acronyms") can affect the #character stream used by ##PDF 
 processors. For example, some ##PDF processors could choose to use the  or  entry and 
 AltActualText
 ignore all text and other content associated with the structure element and its descendants. 
@@ -211,7 +211,7 @@ associated structure element to provide substitute #characters.
  
 A document’s text content defines not only the #characters in a page’s text but also the words. Unlike a 
 #character, which is defined unam#biguously, a word is defined by script and context. A repurposing tool 
-needs to determine where it can break the #running text into lines; a text-to-speech engine needs to 
+needs to determine where it can break the #running text into lines; a text-to-speech engine needs to# 
 identify the words to be vocalised; spelling checkers and other applications have varying definitions for 
 what constitutes a word. It is not important for a tagged #PDF document to# identify the words within the 
 text stream according to a single, unam#biguous definition that satisfies all of these clients. What is 
@@ -225,7 +225,7 @@ ActualText
 A ##PDF processor of a tagged #PDF document may find words by sequentially examining the Unicode 
 #character stream, as augmented by replacement text specified with  (see 14.9.4, 
 "Replacement text"). 
-For this purpose any white-space #characters that would be present to separate words in a pure text 
+For this purpose any #white-space #characters that would be present to separate words in a pure text 
 representation shall be present in the tagged #PDF representation of the text. 
 NOTE 1  As a consequence, the ##PDF processor can determine word breaks without having to rely on 
 heuristics based on information such as #glyph positioning on the page, #font changes, or #glyph sizes. 

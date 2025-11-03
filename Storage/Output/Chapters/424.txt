@@ -1,11 +1,11 @@
-Table 254: Additional entry for 
+#Table 254: Additional entry for 
 annotation dictionaries in an #FDF file") that shall indicate the page of the source document to which the 
 annotation is attached. 
 © ISO 2017 – All rights reserved 548 
 
 ISO/DIS 32000-2
  
-Table 254: Additional entry for annotation dictionaries in an #FDF file 
+#Table 254: Additional entry for annotation dictionaries in an #FDF file 
 Key Type Value 
 (Required for annotations in#FDFfiles) 
 Page   
@@ -25,9 +25,9 @@ Attributes") for repurposing and accessi#bility purposes.
 A digital signature () may be used to verify the integrity of the document’s contents using 
 verification information related to a signer. The signature may be purely mathematical, such as a 
 public/private-key encrypted document digest, or it may be a #biometric form of# identification, such as a 
-signature handler
+#signature handler
 handwritten signature, fingerprint, or retinal scan. The specific form of authentication used shall be 
-implemented by a special software module called a . #Signature handlers shall be 
+implemented by a special software module called a . #Signature handlers shall be# 
 identified in accordance with the rules defined in Annex E, "#PDF Name Registry". 
 Digital signatures in #PDF support four activities:  
 • 

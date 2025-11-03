@@ -9,7 +9,7 @@ Normal
 lower two figures, the three #objects are com#bined as a transparency #group. At the lower left, the individual 
 #objects have an opacity of 1.0 within the #group, but the #group as a whole is painted in the  blend mode 
 with an opacity of 0.5. The #objects thus completely overwrite each other within the #group, but the resulting 
-#group then composites transparently with the gray and white backdrop. At the lower right, the #objects have 
+group then composites transparently with the gray and white backdrop. At the lower right, the #objects have 
 HardLight
 an opacity of 0.5 within the #group and thus composite with each other. The #group as a whole is painted against 
 the backdrop with an opacity of 1.0 but in a different blend mode (), producing a different visual 

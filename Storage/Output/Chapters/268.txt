@@ -1,14 +1,14 @@
-Table 124: Embedded #font organization for various #font types" summarises the ways in which #font 
+#Table 124: Embedded #font organization for various #font types" summarises the ways in which ##font 
 programs shall be embedded in a #PDF file, depending on the representation of the ##font program. The 
 Subtype
 key shall be the name used in the #font descriptor to refer to the #font file stream; the subtype shall be the 
-value of the  key, if present, in the #font file stream dictionary. Further details of specific #font 
+value of the  key, if present, in the #font file stream dictionary. Further details of specific ##font 
 program representations are given below. 
 © ISO 2017 – All rights reserved 344 
 
 ISO/DIS 32000-2
  
-Table 124: Embedded #font organization for various #font types 
+#Table 124: Embedded #font organization for various #font types 
 Key Subtype Description 
 Adobe Type 
 #FontFile 
@@ -42,7 +42,7 @@ instructions.
 #PDF 1.2
 #FontFile3   
 Adobe Technical Note #5176The Compact #Font 
-Type1C () Type 1–equivalent ##font program represented in the CompactFont
+Type1C () Type 1–equivalent ##font program represented in the Compact#Font
 Format Specification
 Type1
 Format (CFF), as described in , 
@@ -111,7 +111,7 @@ layout) can prevent editing of text containing the #font.
 ISO/DIS 32000-2
  
 Length
-Filter
+#Filter
 The stream dictionary for a #font file shall contain the normal entries for a stream, such as  and 
  (listed in "#Table 5: Entries common to all stream dictionaries"), plus the additional entries listed 
 in "

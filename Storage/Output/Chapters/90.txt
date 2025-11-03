@@ -188,8 +188,8 @@ that uses both the hybrid-reference format and the linearized format has orderin
 A #PDF document can be encrypted () to protect its contents from unauthorised access. 
 7.6.2Application of encryption 
  
-Encryption applies to all strings and streams in the document's #PDF file, with the following exceptions: 
-# ID 
+Encryption applies to all strings and streams in the document's #PDF file, with the following exceptions:# 
+ ID 
 • 
  Encrypt 
 • 
@@ -205,20 +205,20 @@ Encryption is not applied to other #object types such as integers and boolean va
 primarily to convey information about the document's structure rather than its contents. Leaving these 
 values unencrypted allows random access to the #objects within a document, whereas encrypting the 
 strings and streams protects the document's contents. 
-When a #PDF stream #object (see 7.3.8, "Stream #objects") refers to an external file, the stream’s contents 
+When a #PDF #stream #object (see 7.3.8, "#Stream #objects") refers to an external file, the stream’s contents 
 shall not be encrypted, since they are not part of the #PDF file itself. However, if the contents of the 
 stream are embedded within the #PDF file (see 7.11.4, "Embedded file streams"), they shall be encrypted 
 like any other stream in the file. Beginning with #PDF 1.5, embedded files can be encrypted in an 
 otherwise unencrypted document (see 7.6.6, "Crypt #filters"). 
  Encrypt 
 Encryption-related information shall be stored in a document’s encryption dictionary, which shall be 
-the value of theentry in the document’s trailer dictionary (see "Table 15: Entries in the file 
+the value of theentry in the document’s trailer dictionary (see "#Table 15: Entries in the file 
 trailer dictionary"). The absence of this entry from the trailer dictionary means that a ##PDF processor 
 shall consider the document to be not encrypted. The entries shown in "Table 20: Entries common to all 
 Encrypt
 encryption dictionaries" are common to all encryption dictionaries. For document with multiple 
 versions the  entry should be# identical in all copies of the trailer. 
-Filter
+#Filter
 The encryption dictionary’s  entry# identifies the file’s security handler, a software module that 
 implements various aspects of the encryption process and controls access to the contents of the 
 encrypted document. #PDF specifies a standard password-based security handler that all ##PDF processors 
@@ -229,7 +229,7 @@ Theentry specifies the syntax of the encryption dictionary contents. It allows i
 
 ISO/DIS 32000-2
  
-#FilterSubFilter
+#FilterSub#Filter
 between handlers; that is, a document can be decrypted by a handler other than the preferred one (the 
  entry) if they both support the format specified by . 
 V

@@ -23,7 +23,7 @@ dictionary are listed in "Table 309: Additional entries specific to a
  
 3D annotation" 
 for a 3D measurement. Additional entries in this 
-dictionary are listed in "Table 331: Additional entries in a 3D 
+dictionary are listed in "#Table 331: Additional entries in a 3D 
 measurement/markup dictionary for a 3D comment noteTable 332: 
 -MarkupGeo (#PDF 2.0) 
 Subtype
@@ -41,23 +41,23 @@ one or more subordinate annotations, which shall have anentry that refers to the
 
 ISO/DIS 32000-2
  
-Group
+#Group
  RT 
 annotation and anentry whose value is . 
 Some entries in the primary annotation are treated as "#group attributes" that shall apply to the #group as 
 Contents RC DSMCTPopupCreationDateSubjOpen
 a whole; the corresponding entries in the subordinate annotations shall be ignored. These entries are 
  (orand ), , , , , , , and . Operations that manipulate 
-any annotation in a #group, such as movement, cut, and copy, shall be treated by interactive #PDF 
+any annotation in a #group, such as movement, cut, and copy, shall be treated by #interactive ##PDF 
 processors as acting on the entire #group. 
 NOTE 3 A primary annotation may have replies that are not subordinate annotations; that is, that do not 
 have anvalue of . 
  RT 
 12.5.6.3Annotation states 
  
-Group
+#Group
 Beginning with #PDF 1.5, annotations may have an author-specific state associated with them. The state 
  IRT 
 is not specified in the annotation itself but in a separate text annotation that refers to the original 
-annotation by means of its("in reply to") entry (see "Table 176: Additional entries specific to a link 
+annotation by means of its("in reply to") entry (see "#Table 176: Additional entries specific to a link 
 annotation"). States shall be #grouped into a number of state models, as shown in "

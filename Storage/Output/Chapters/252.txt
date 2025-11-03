@@ -1,7 +1,7 @@
- 
+# 
  Table 110: Entries in a Type 3 #font dictionary 
 Key Type Value 
-RequiredFont
+Required#Font
 Type   
 name  () The type of #PDF #object that this dictionary describes; shall befor a #font 
 dictionary. 
@@ -15,7 +15,7 @@ ISO/DIS 32000-2
 Key Type Value 
 Required in #PDF 1.0; optional otherwise
 Name 
-name () See "Table 109: Entries in a Type 1 #font 
+name () See "#Table 109: Entries in a Type 1 #font 
 dictionary". 
 Required
 #FontBBox 
@@ -98,7 +98,7 @@ ISO/DIS 32000-2
 CharProcs
  
 CharProcs
-b)Look up the #glyph name in the #font’s  dictionary to obtain a stream #object containing a #glyph 
+b)Look up the #glyph name in the #font’s  dictionary to obtain a #stream #object containing a #glyph 
  
 description. If the name is not present as a key in , no #glyph shall be painted.  
 c)Invoke the #glyph description. The #graphics state shall be saved before this invocation and shall be 

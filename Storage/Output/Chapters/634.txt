@@ -1,6 +1,6 @@
-Table Annex H.4: #Object usage 
+#Table Annex H.4: #Object usage 
 after adding four text annotations" lists the #objects involved in this update. 
-Table Annex H.4: #Object usage after adding four text annotations 
+#Table Annex H.4: #Object usage after adding four text annotations 
 #Object# identifier #Object type 
 Page
 4 0  (page #object) 

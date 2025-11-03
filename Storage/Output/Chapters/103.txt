@@ -1,8 +1,8 @@
-Table 31: Entries in a page #object" shows the contents of this dictionary. 
+#Table 31: Entries in a page #object" shows the contents of this dictionary. 
 The table also# identifies which attributes a page may inherit from its ancestor nodes in the page tree, as 
 described under 7.7.3.4, "Inheritance of page attributes". Attributes that are not explicitly# identified in 
 the table as inheritable shall not be inherited. 
-Table 31: Entries in a page #object 
+#Table 31: Entries in a page #object 
 Key Type Value 
 Required
 Type 
@@ -33,7 +33,7 @@ dictionary () A dictionary containing any resources required
 by the page contents (see 7.8.3, "Resource dictionaries"). If the page 
 requires no resources, the value of this entry shall be an empty 
 dictionary. Omitting the entry entirely indicates that the resources 
-shall be inherited from an ancestor node in the page tree, but #PDF 
+shall be inherited from an ancestor node in the page tree, but ##PDF 
 writers should not use this method of sharing resources as described 
 in 7.8.3, "Resource dictionaries". 
 Required; inheritable
@@ -93,8 +93,8 @@ describe the contents of this page. If this entry is absent, the page shall
 be empty. 
 The value shall be# either a single stream or an array of streams. If the 
 value is an array, the effect shall be as if all of the streams in the array 
-were concatenated with at least one white-space #character added 
-between the streams’ data, in order, to form a single stream. #PDF 
+were concatenated with at least one #white-space #character added 
+between the streams’ data, in order, to form a single stream. ##PDF 
 writers can create image #objects and other resources as they occur, 
 even though they interrupt the #content stream. The division between 
 streams may occur only at the boundaries between lexical tokens (see 
@@ -118,7 +118,7 @@ model (see 11.4.7, "Page #group" and 11.6.6, "Transparency #group
 X#Objects"). 
 Optional
 Thumb 
-stream () A stream #object that shall define the page’s thumbnail image 
+stream () A #stream #object that shall define the page’s thumbnail image 
 (see 12.3.4, "Thumbnail images"). 
 Optional; #PDF 1.1; recommended if the page contains article beads
 B 
@@ -126,7 +126,7 @@ array () An
 array that shall contain indirect references to all article beads 
 Template
 appearing on the page (see 12.4.3, "Articles"). The beads shall be listed 
-B
+#B
 in the array in natural reading order. #Objects of Type  shall 
 NOTE 2 The information in this entry can be created or recreated from 
 have no  key. 
@@ -207,7 +207,7 @@ order). Beginning with #PDF 2.0, the possible values also include
  
 order refers to the order of the annotation enumerated in the
  
-Table 31: Entries in a page #object").
+#Table 31: Entries in a page #object").
 entry of the Page dictionary (see "
 Widgetorder means using the same array ordering but making two 
 passes, the first only picking the widget annotations and the second 
@@ -284,7 +284,7 @@ endobj
 NOTE: This requirement prevents multiple copies of the same page being present in the tree. 
 7.7.3.4Inheritance of page attributes 
  
-Some of the page attributes shown in "Table 31: Entries in a page #object" are designated as inheritable. 
+Some of the page attributes shown in "#Table 31: Entries in a page #object" are designated as inheritable. 
 If such an attribute is omitted from a page #object, its value shall be inherited from an ancestor node in 
 the page tree. If the attribute is a required one, a value shall be supplied in an ancestor node. If the 
 attribute is optional and no inherited value is specified, the default value shall be used. 
@@ -308,7 +308,7 @@ searching the Page #object and then each Pages #object encountered by following 
  Resources 
 pages tree from the Page towards the Catalog #object. When the firstdictionary is found the 
 search shall be stopped and thatdictionary shall be used in its entirety. 
-In a document conforming to the Linearized #PDF organization (see Annex F, "Linearized #PDF"), all page 
+In a document conforming to the# Linearized #PDF organization (see Annex F, "Linearized #PDF"), all page 
 attributes shall be specified explicitly as entries in the page dictionaries to which they apply; they shall 
 not be inherited from an ancestor node. 
 "

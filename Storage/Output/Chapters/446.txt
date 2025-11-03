@@ -14,7 +14,7 @@ Additional information about OCGs can be found in 8.11.2, "Optional content #gro
 OCAutoStates Usage
  AS 
 Requires an #interactive ##PDF processor to implement the various  values that can be present as the 
-value of thekey in an OCD as described in "Table 99: Entries in an optional content configuration 
+value of thekey in an OCD as described in "#Table 99: Entries in an optional content configuration 
 dictionary" and 8.11.4.4, "Determining the state of optional content #groups". 
 AcroFormInteract 
 Requires support for user interaction with forms (see 12.7, "Forms") defined as interactive form 
@@ -161,8 +161,8 @@ Requires support for transitions/presentations (12.4.4, "Presentations") as well
 Encryption 
  Encrypt 
 Requires support for the specific set of encryption parameters that are specified by the encryption 
-dictionary provided as the value of thekey in the requirement dictionary (see "Table 273: 
-Entries common to all requirement dictionaries" and "Table 274: Entries for specific types of 
+dictionary provided as the value of thekey in the requirement dictionary (see "#Table 273: 
+Entries common to all requirement dictionaries" and "#Table 274: Entries for specific types of 
 requirements"). 
 Encryption
 (#PDF 2.0) For unencrypted wrapper documents for an encrypted payload document (see 7.6.7, 

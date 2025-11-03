@@ -23,5 +23,5 @@ FDF trailer dictionary", the only required entry in the catalog dictionary is ; 
 Version
  ("#Table 246: Entries in the FDF dictionary"), which in turn shall contain references to other 
   
-#objects descri#bing the file’s contents. The catalog dictionary may also contain an optional  entry 
+#objects descri#bing the file’s contents. The catalog dictionary may also contain an optional  entry# 
 identifying the version of the #PDF specification to which this#FDFfile conforms. 

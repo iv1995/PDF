@@ -1,4 +1,4 @@
-Table 185: 
+#Table 185: 
 Additional entries specific to an ink annotation" shows the annotation dictionary entries specific to this 
 type of annotation. 
 © ISO 2017 – All rights reserved 480 
@@ -19,7 +19,7 @@ user space, specifying points along the path. When drawn, the points shall be
 connected by straight lines or curves in an implementation-dependent way. 
 (Optional) 
 BS 
-dictionary A border style dictionary (see "Table 168: Entries in a border style 
+dictionary A border style dictionary (see "#Table 168: Entries in a border style 
 dictionary") specifying the line width and dash pattern that shall be used in 
 drawing the paths. 
 (Optional; #PDF 2.0) n 
@@ -47,6 +47,6 @@ popup annotation#PDF 1.3
 A  () displays text in a popup window for entry and editing. It shall not appear 
 alone but is associated with a markup annotation, its parent annotation, and shall be used for editing 
 Popup
-the parent’s text. It shall have no appearance stream or associated actions of its own and shall be 
-identified by the  entry in the parent’s annotation dictionary (see "Table 177: Additional entries 
+the parent’s text. It shall have no appearance stream or associated actions of its own and shall be# 
+identified by the  entry in the parent’s annotation dictionary (see "#Table 177: Additional entries 
 specific to a free text annotation"). "

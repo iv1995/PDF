@@ -40,7 +40,7 @@ integer (
 ) A code specifying how soft-mask information (see 11.6.5.2, "Soft-mask 
 images") encoded with image samples shall be used: 
 0 If present, encoded soft-mask image information shall be ignored. 
-1 The image’s data stream includes encoded soft-mask values. A #PDF 
+1 The image’s data stream includes encoded soft-mask values. A ##PDF 
 processor shall create a soft-mask image from the information to be used 
 as a source of mask shape or mask opacity in the transparency imaging 
 model. 
@@ -92,7 +92,7 @@ Optional; #PDF 1.5
 OC 
 dictionary () An optional content #group or optional content membership 
 dictionary (see 8.11, "Optional content"), specifying the optional content 
-properties for this image X#Object. Before the image is processed by a #PDF 
+properties for this image X#Object. Before the image is processed by a ##PDF 
 processor, its visi#bility shall be determined based on this entry. If it is 
 Do
 determined to be invisible, the entire image shall be skipped, as if there were 
@@ -330,7 +330,7 @@ Image interpolation is an attempt to produce a smooth transition between adjacen
 true
 Interpolate
 rendering an image whose resolution is significantly lower than that of the output device. Setting the 
-value of the  entry in an image dictionary to , is a way for a #PDF to declare to a #PDF 
+value of the  entry in an image dictionary to , is a way for a #PDF to declare to a ##PDF 
 processor that a specific image might render better if interpolation is used for this particular image. 
 However, this is only a hint, and a ##PDF processor may ignore it. 
 © ISO 2017 – All rights reserved 258 

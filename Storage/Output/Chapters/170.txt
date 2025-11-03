@@ -1,4 +1,4 @@
-Table 71: Entries 
+#Table 71: Entries 
 in a DeviceN process dictionary") that describes the process colour space whose 
 components are included in this colour space. 
 Optional; #PDF 1.6

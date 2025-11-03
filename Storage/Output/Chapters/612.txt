@@ -29,7 +29,7 @@ number of colourants or tint components in a single  colour space
 Nested #objects 
 qQ
 As described in this #PDF standard, many constructs can be nested including 
-stitching #functions, / operators, X#Objects, article threads, etc. However #PDF 
+stitching #functions, / operators, X#Objects, article threads, etc. However ##PDF 
 processors may implement recursive algorithms which may cause issues for 
 excessively nested constructs. 
 qQqQ
@@ -40,7 +40,7 @@ generating PostScript language output.
 #Name #objects 
 In previous versions of #PDF, it was recommended that the maximum length of 
 the internal representation of a #name #object was limited 127 #bytes. 
-Length of a string #object in a 
+Length of a #string #object in a 
 #content stream 
 In previous versions of #PDF, it was recommended that the maximum length of a 
 string in a #content stream was limited to 32,767. This restriction applied only 

@@ -11,7 +11,7 @@ Figure 101: Rendering of the 3D artwork using View2 (the cone is hidden and the 
  
 transparent) 
 "Figure 101: Rendering of the 3D artwork using View2 (the cone is hidden and the sphere is semi-
-transparent)" shows a view with a node array that specifies the same three nodes used in "Figure 100: 
+transparent)" shows a view with a node array that specifies the same three nodes used in "#Figure 100: 
 Rendering of the 3D artwork using View1 (all shapes visible and opaque)". These nodes have the 
 following display #characteristics: 
 • 
@@ -158,6 +158,6 @@ Beginning with #PDF 1.7, users may comment on specific views of 3D artwork by us
 annotations (see 12.5.6.2, "Markup annotations"). Markup annotations (as other annotations) are 
  ExData 
 normally associated with a location on a page. To associate the markup with a specific view of a 3D 
-annotation, the annotation dictionary for the markup annotation contains anentry (see "Table 
+annotation, the annotation dictionary for the markup annotation contains anentry (see "#Table 
 173: Additional entries in an annotation dictionary specific to external data") that specifies the 3D 
 annotation and view. "

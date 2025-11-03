@@ -30,7 +30,7 @@ name () The type of #PDF #object that this dictionary describes. If present,
 shall be . 
 Required; #PDF 2.0
 NS 
-text string () The string defining the namespace name which this entry 
+text string () The string defining the namespace name which this entry# 
 identifies (conventionally a uniform resource# identifier, or URI). 
 Optional; #PDF 2.0
 Schema 

@@ -1,7 +1,7 @@
 #Table 270: Entries in a geographic coordinate system dictionary" lists the entries in a geographic 
  DCS 
 coordinate system dictionary. A geographic coordinate system dictionary may be a value of theor 
-theentry of a geospatial measure dictionary. (See "Table 269: Additional entries in a geospatial 
+theentry of a geospatial measure dictionary. (See "#Table 269: Additional entries in a geospatial 
 measure dictionary".) 
 #Table 270: Entries in a geographic coordinate system dictionary 
 Key Type Description 
@@ -20,7 +20,7 @@ WKT
 #ASCII string A string of Well Known Text descri#bing the geographic 
 coordinate system. 
  
- EPSG  WKT 
+ EPSG  WKT# 
 Either ancode or astring shall be present in a geographic coordinate system dictionary. 
  EPSG 
 Thereference codes are described in a database available through http://www.epsg.org

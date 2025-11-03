@@ -1,4 +1,4 @@
-Table 64: Entries in a Lab colour space 
+#Table 64: Entries in a Lab colour space 
 dictionary"). Component values falling outside the specified range shall be adjusted to the nearest valid 
 value without error indication. 
 #Table 64: Entries in a Lab colour space dictionary 

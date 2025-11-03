@@ -97,7 +97,7 @@ the location of the view on the page and the content displayed. Structure elemen
 destination
 "Structure hierarchy") allow specific sequences of content on a page to be# identified. A 
  provides the same view mechanism as a destination, but references a structure element 
-instead of a page. A structure destination shall use the same syntax as a destination (see "Table 149: 
+instead of a page. A structure destination shall use the same syntax as a destination (see "#Table 149: 
 Destination syntax"), except that the first entry in the array shall be an indirect reference to a structure 
 element dictionary instead of to a page dictionary. 
 page /FitH 500
@@ -120,16 +120,16 @@ processing should proceed to next entry, repeating the process. This shall conti
 been processed or until the first page is# identified. In the case where no page content is# identified, then 
 the page reference shall be assumed to be the first page in the document. 
 No structure element dictionary can be specified for a structure destination associated with a remote 
-go-to action (see 12.6.4.3, "Remote Go-To actions") because the destination structure element is in a 
-# ID 
+go-to action (see 12.6.4.3, "Remote Go-To actions") because the destination structure element is in a# 
+ ID 
 different #PDF document. In this case, the indirect reference to the structure element dictionary shall be 
 replaced by a #byte string representing a structure element(see "Table 354: Entries in a structure 
 element dictionary"). 
-NOTE There is no requirement that a given structure element will have anassociated with it, nor that 
-# ID 
+NOTE There is no requirement that a given structure element will have anassociated with it, nor that# 
+ ID 
 it will remain consistent across edits to a #PDF document. For remote go-to actions which rely on a 
-target #PDF having an , it is important that such anexist and that it remain consistent across 
-ID# ID 
+target #PDF having an , it is important that such anexist and that it remain consistent across# 
+ID ID 
 versions of the target document. 
 12.3.2.4Named destinations 
  

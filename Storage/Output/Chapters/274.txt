@@ -28,12 +28,12 @@ Spot#Function
 #function, name or () A #function #object defining the order in which device pixels within a 
 array screen cell shall be adjusted for different gray levels, or the name of a spot 
 #function, or an array of names of spot #functions. A name should be one of the 
-SpotFunction
-Table 126: Predefined spot #functions"). If the 
+Spot#Function
+#Table 126: Predefined spot #functions"). If the 
 predefined spot #functions (see "
 value of  is an array the ##PDF processor shall use the first name 
 within the array that it recognizes. If a name is provided that is not defined in 
-"Table 126: Predefined spot #functions" and the ##PDF processor does not 
+"#Table 126: Predefined spot #functions" and the ##PDF processor does not 
 Table 
 understand that name, or if none of the names in an array are defined in "
 126: Predefined spot #functions" or are understood by the ##PDF processor, the 
@@ -48,15 +48,15 @@ Optional
 Transfer#Function 
 #function or name () A transfer #function, which overrides the current transfer #function in the 
 #graphics state for the same component. This entry shall be present if the 
-dictionary is a component of a Type 5 halftone (see 10.6.5.6, "Type 5 halftones") 
+dictionary is a component of a Type 5 halftone (see 10.6.5.6, "Type 5 halftones")# 
 Identity
 and represents# either a nonprimary or nonstandard primary colour component 
-TransferFunction
+Transfer#Function
 "). The name  may be used to specify the 
 (see 10.5, "Transfer #functions
 identity #function. The  key should only be used to convey tone 
 reproduction compensation (sometimes called gamma curve correction); it should 
-not be used to specify artistic intent. If the key is required by some other clause in 
+not be used to specify artistic intent. If the key is required by some other clause in# 
 Identity
 this International Standard but no compensation is necessary then the value 
 should be the name . 
@@ -102,6 +102,6 @@ Additional entries specific to a Type 6 halftone dictionary" in addition to the 
 all streams (see "#Table 5: Entries common to all stream dictionaries"). The  and  entries 
 shall specify the dimensions of the threshold array in device pixels; the stream shall contain 
 𝑙𝑙𝐷𝐷𝐵𝐵𝑡𝑡ℎ × 𝐻𝐻𝑚𝑚𝐷𝐷𝑔𝑔ℎ𝑡𝑡 #bytes, each representing a single threshold value. Threshold values are defined in 
-device space in the same order as image samples in image space (see "Figure 49: Source image 
+device space in the same order as image samples in image space (see "#Figure 49: Source image 
 coordinate system"), with the first value at device coordinates (0, 0) and horizontal coordinates 
 changing faster than vertical coordinates. 

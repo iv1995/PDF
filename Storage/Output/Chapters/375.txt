@@ -1,4 +1,4 @@
-Table 207: Additional entries 
+#Table 207: Additional entries 
 specific to a launch action" shows the action dictionary entries specific to this type of action. 
 WinMacUnix
 Previously, , , and  entries allowed the action dictionary to include platform-specific 

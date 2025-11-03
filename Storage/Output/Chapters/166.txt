@@ -250,7 +250,7 @@ spaces with# either of these colourant names ##PDF readers shall ignore the  and
  Separation 
 At the moment the colour space is set to aspace, the ##PDF reader shall determine whether 
 alternateSpacetintTransform
-the device has an available colourant corresponding to the name of the requested space. If so, the #PDF 
+the device has an available colourant corresponding to the name of the requested space. If so, the ##PDF 
 reader shall ignore the  and  parameters; subsequent painting operations 
 within the space shall apply the designated colourant directly, according to the tint values supplied. 
  Separation 

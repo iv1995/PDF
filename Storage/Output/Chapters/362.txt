@@ -1,4 +1,4 @@
-Table 194: Entries in a 
+#Table 194: Entries in a 
 fixed print dictionary"). 
 Watermark annotations shall have no popup window nor other interactive elements. When displaying a 
 watermark annotation on-screen, #interactive ##PDF processors shall use the dimensions of the media box 
@@ -20,7 +20,7 @@ ISO/DIS 32000-2
 Key Type Value 
 (Optional) fixed print dictionary 
 FixedPrint 
-dictionary A (see "Table 194: Entries in a fixed print 
+dictionary A (see "#Table 194: Entries in a fixed print 
 dictionary") that specifies how this annotation shall be drawn relative to the 
 dimensions of the target media. If this entry is not present, the annotation 
 shall be drawn without any special consideration for the dimensions of the 
@@ -29,7 +29,7 @@ target media.
 If the dimensions of the target media are not known at the time of drawing, 
 MediaBox 
 drawing shall be done relative to the dimensions specified by the page’s
-entry (see "Table 31: Entries in a page #object"). 
+entry (see "#Table 31: Entries in a page #object"). 
  
 #Table 194: Entries in a fixed print dictionary 
 Key Type Value 
@@ -67,20 +67,20 @@ Default value: 0.
 FixedPrint
   
 When rendering a watermark annotation with aentry, the following behaviour shall occur: 
-rectangle
+#rectangle
  Rect 
 • 
 Matrix FixedPrint 
 The annotation’s  (as specified by itsentry) shall be translated to the origin and 
 transformed by the  entry of itsdictionary to produce a quadrilateral with 
-transformed annotation rectangle
+transformed annotation #rectangle
 • 
 ar#bitrary orientation. 
 The  shall be defined as the smallest upright #rectangle that 
 encompasses this quadrilateral; it shall be used in place of the annotation #rectangle referred to in 
 B
 steps 2 and 3 of "#Algorithm: appearance streams" (see 12.5.5, "Appearance streams"). 
-B
+#B
 In addition, given a matrix  that maps a scaled and rotated page into the default user space, a new 
 matrix shall be computed that cancels out  and translates the origin of the media (e.g., printed page) to 
 the origin of the default user space. This transformation shall be applied to ensure the correct scaling 
@@ -165,12 +165,12 @@ b). The user instructs the viewer application to apply the redact annotations, a
 the content in the area specified by the redact annotations is removed. In the removed content’s place, 
 some marking appears to indicate the area has been redacted. Also, the redact annotations are removed 
 from the #PDF document.  
-Redaction annotations provide a mechanism for the first step in the redaction process (content 
+Redaction annotations provide a mechanism for the first step in the redaction process (content# 
 identification). This allows content to be marked for redaction in a non-destructive way, thus enabling a 
 review process for evaluating potential redactions prior to removing the specified content. 
 Redaction annotations shall provide enough information to be used in the second phase of the redaction 
 process (content removal). This phase is application-specific and requires the ##PDF processor to remove 
-all content# identified by the redaction annotation, as well as the annotation itself. Interactive #PDF 
+all content# identified by the redaction annotation, as well as the annotation itself. #Interactive ##PDF 
 processors that support redaction annotations shall provide a mechanism for applying content removal, 
 and they shall remove all traces of the specified content. If a portion of an image is contained in a 
 redaction region, that portion of the image data shall be destroyed; clipping or image masks shall not be 

@@ -51,8 +51,8 @@ orientation of this node, relative to its parent, in world coordinates (see 13.6
 Required if data is present; #PDF 2.0
 Instance  
 RichMediaInstance 
-dictionary () An in#direct ##object reference to a
-dictionary (see "Table 343: Entries in a RichMediaInstance 
+dictionary () An #in#direct ##object reference to a
+dictionary (see "#Table 343: Entries in a RichMediaInstance 
 dictionary") that is also referenced by an entry in the Instances array. 
 Optional; #PDF 2.0
 Data 
@@ -60,7 +60,7 @@ text string () A text string or stream that contains state data to be passed to 
 Data
 or stream instance when the view is triggered. 
  
-See the extended description of the  key in "Table 345: Entries in a View Params 
+See the extended description of the  key in "#Table 345: Entries in a View Params 
 dictionary".
 © ISO 2017 – All rights reserved 651 
 

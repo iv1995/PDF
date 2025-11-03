@@ -16,7 +16,7 @@ closed before being filled.
 — 
 F f
 f
-Equivalent to ; #deprecated in #PDF 2.0 and included only for compati#bility. Although #PDF 
+Equivalent to ; #deprecated in #PDF 2.0 and included only for compati#bility. Although ##PDF 
 readers shall be able to accept this operator, ##PDF writers should use  instead. 
 — 
 f* 
@@ -63,7 +63,7 @@ The  operator shall paint a line along the current path. The stroked line shall 
 curved segment in the path, centred on the segment with sides parallel to it. Each of the path’s subpaths 
 shall be treated separately. 
 S
-The results of the  operator shall depend on the current settings of various parameters in the graphics 
+The results of the  operator shall depend on the current settings of various parameters in the #graphics 
 state (see 8.4, "#Graphics state", for further information on these parameters): 
 • 
 • 

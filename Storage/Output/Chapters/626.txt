@@ -1,4 +1,4 @@
- 
+# 
  
 Example #PDF Files 
 (Informative) 
@@ -19,7 +19,7 @@ A fragment of a #PDF file that illustrates the structure of the page tree for a 
 • 
 hierarchy (see H.6, "Outline hierarchy example") 
 An example showing the structure of a #PDF file as it is updated several times, illustrating multiple 
-NOTE The Length values of stream #objects in the examples and the #byte addresses in cross-reference 
+NOTE The Length values of #stream #objects in the examples and the #byte addresses in cross-reference 
 body sections, cross-reference sections, and trailers (see H.7, "Updating example") 
 tables are not necessarily accurate. 
 • 

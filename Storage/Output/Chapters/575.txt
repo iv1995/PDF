@@ -1,4 +1,4 @@
-Table 381: Standard layout attributes specific to inline-level structure 
+#Table 381: Standard layout attributes specific to inline-level structure 
 elements" shall be present for the #grouping elements (see 14.8.4.4, "#Grouping level structure types") if 
 the content in the #grouping element is divided into columns.  
 #Table 381: Standard layout attributes specific to inline-level structure elements 

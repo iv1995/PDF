@@ -1,4 +1,4 @@
-Figure 5: Structure of a #PDF document" 
+#Figure 5: Structure of a #PDF document" 
 illustrates the structure of the #object hierarchy.  
 EXAMPLE Each page of the document is represented by a page #object–a dictionary that includes references to the page’s 
 contents and other attributes, such as its thumbnail image (12.3.4, "Thumbnail images") and any annotations 
@@ -23,7 +23,7 @@ attributes. In addition, it contains information about how the document shall be
 screen, such as whether its outline and thumbnail page images shall be displayed automatically and 
 whether some location other than the first page shall be shown when the document is opened. "Table 
 29: Entries in the catalog dictionary" shows the entries in the catalog dictionary. ![Figure 5 Structure of a #PDF document  .png](./Storage/Output/Images/Figure 5 Structure of a #PDF document  .png)
-Figure 5: Structure of a #PDF document 
+#Figure 5: Structure of a #PDF document 
  
 © ISO 2017 – All rights reserved 100 
 
@@ -252,7 +252,7 @@ represent requirements for the document. Subclause 12.11,
 be used. 
 Optional; #PDF 1.7
 Collection 
-dictionary () A collection dictionary that an interactive #PDF 
+dictionary () A collection dictionary that an #interactive ##PDF 
 processor shall use to enhance the presentation of file attachments 
 stored in the #PDF document. (see 12.3.5, "Collections"). 
 (#PDF 2.0) For unencrypted wrapper documents for an encrypted 

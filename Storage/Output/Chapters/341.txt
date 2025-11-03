@@ -1,4 +1,4 @@
-Table 177: Additional entries specific to 
+#Table 177: Additional entries specific to 
 a free text annotation" shows the annotation dictionary entries specific to this type of annotation. 
 Subclause 12.7.4.3, "Variable text", describes the process of using these entries to generate the 
 © ISO 2017 – All rights reserved 470 
@@ -63,7 +63,7 @@ Optional; #PDF 1.6
 IT 
  IT 
 name () A name descri#bing the intent of the free text annotation 
-(see also theentry in "Table 172: Additional entries in an annotation 
+(see also theentry in "#Table 172: Additional entries in an annotation 
 dictionary specific to markup annotations"). The following values shall be 
 FreeText 
 valid: 
@@ -96,7 +96,7 @@ Key Type Value
 (Optional; #PDF 1.6) 
 RD 
  Rect 
-#rectangle A set of four numbers descri#bing the numerical 
+rectangle A set of four numbers descri#bing the numerical 
 differences between two #rectangles: theentry of the annotation and a 
 #rectangle contained within that #rectangle. The inner rectangle is where the 
  BS  BE 
@@ -115,7 +115,7 @@ Rect
 of .
 Optional; #PDF 1.6
 BS 
-dictionary () A border style dictionary (see "Table 168: Entries in a 
+dictionary () A border style dictionary (see "#Table 168: Entries in a 
 border style dictionary") specifying the line width and dash pattern that shall 
 be used in drawing the annotation’s border. 
 Optional; meaningful only ifis present; #PDF 1.6

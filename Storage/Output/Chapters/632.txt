@@ -1,10 +1,10 @@
-Figure Annex 
+#Figure Annex 
 H.3: Document outline as displayed in Example 1". 
 © ISO 2017 – All rights reserved 882 
 
 ISO/DIS 32000-2
  
-Object
+#Object
 Count
 On-screen appearance
 number

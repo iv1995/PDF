@@ -1,4 +1,4 @@
-Table 246: 
+#Table 246: 
 Entries in the FDF dictionary"). 
 © ISO 2017 – All rights reserved 542 
 
@@ -9,13 +9,13 @@ ISO/DIS 32000-2
 Key Type Value 
 (Optional) source file target file
 F   
-file specification The or : the #PDF document file that thisFDF
+file specification The or : the #PDF document file that this#FDF
 file was exported from or is intended to be imported into. 
-(Optional) 
+(Optional)# 
 ID 
 F
-array An array of two #byte strings constituting a file# identifier (see 
-# ID 
+array An array of two #byte strings constituting a file# identifier (see# 
+ ID 
 14.4, "File# identifiers") for the source or target file designated by , taken 
 from theentry in the file’s trailer dictionary (see 7.5.5, "File trailer"). 
 (Optional) 
@@ -43,7 +43,7 @@ The  and  entries shall not be present together with this entry.
 Encoding  FDF 
 V Opt 
 name The encoding that shall be used for anyfield value 
-or option ( orin the field dictionary; see "Table 249: Entries in an 
+or option ( orin the field dictionary; see "#Table 249: Entries in an 
 FDF field dictionary") or field name that is a string and does not begin with 
 #PDFDocEncoding
 the Unicode prefix ZERO WIDTH NO-BREAK SPACE (U+FEFF). 
@@ -105,7 +105,7 @@ specifications") representing otherfiles embedded within this one
 (Optional; #PDF 1.4) ECMAScript dictionary 
 JavaScript  
   
-dictionary An(see "Table 248: Entries in 
+dictionary An(see "#Table 248: Entries in 
 the ECMAScript dictionary") defining document-levelECMAScriptscripts. 
  
   EmbeddedFDFs 

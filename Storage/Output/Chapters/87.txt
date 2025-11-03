@@ -1,4 +1,4 @@
-Table 16: Additional entries specific to an ##object stream dictionary 
+#Table 16: Additional entries specific to an ##object stream dictionary 
 Key Type Value 
 RequiredObjStm
 Type 
@@ -6,13 +6,13 @@ name () The type of #PDF #object that this dictionary describes; shall be
 for an ##object stream. 
 Required
 N 
-integer () The number of in#direct #objects stored in the stream. 
+integer () The number of #in#direct #objects stored in the stream. 
 Required
 First 
 integer () The #byte offset in the decoded stream of the first compressed #object. 
 Optional
 Extends 
-stream () A reference to another ##object stream, of which the current #object 
+stream () A reference to another ##object stream, of which the current ##object 
 stream is an extension. Both streams are considered part of a collection of #object 
 Extends
 streams (see below). A given collection consists of a set of streams whose 
@@ -64,17 +64,17 @@ An #object in an ##object stream shall not consist solely of an ##object referen
 EXAMPLE 2  
 3 0 R 
  
-In an encrypted file (i.e., entire ##object stream is encrypted), strings occurring anywhere in an #object 
+In an encrypted file (i.e., entire ##object stream is encrypted), strings occurring anywhere in an ##object 
 stream shall not be separately encrypted. 
 First
 A ##PDF writer shall store the first #object immediately after the last #byte offset separated by white-space. 
 A ##PDF processor shall rely on the  entry in the stream dictionary to locate the first #object. 
-An ##object stream itself, like any stream, shall be an in#direct #object, and therefore, there shall be an entry 
+An ##object stream itself, like any stream, shall be an #in#direct #object, and therefore, there shall be an entry 
 for it in a cross-reference table or cross-reference stream (see 7.5.8, "Cross-reference streams"), 
 although there might not be any references to it (of the form 243 0 R). 
 The generation number of an ##object stream and of any compressed #object shall be zero. If# either an 
 ##object stream or a compressed #object is deleted and the #object number is freed, that #object number shall 
-be reused only for an ordinary (uncompressed) #object other than an ##object stream. When new #object 
+be reused only for an ordinary (uncompressed) #object other than an ##object stream. When new ##object 
 streams and compressed #objects are created, they shall always be assigned new #object numbers, not old 
 ones taken from the free list. 
 EXAMPLE 3 The following shows three #objects (two #fonts and a #font descriptor) as they would be represented in a #PDF 1.4 
@@ -200,9 +200,9 @@ of in a cross-reference table. Cross-reference streams provide the following adv
 • 
 • 
 A more compact representation of cross-reference information 
-The a#bility to access compressed #objects that are stored in ##object streams (see 7.5.7, "#Object 
+The a#bility to access compressed #objects that are stored in ##object streams (see 7.5.7, "##Object 
 streams") and to allow new cross-reference entry types to be added in the future. 
-Cross-reference streams are stream #objects (see 7.3.8, "Stream #objects"), and contain a dictionary and a 
+Cross-reference streams are #stream #objects (see 7.3.8, "#Stream #objects"), and contain a dictionary and a 
 data stream. Each cross-reference stream contains the information equivalent to the cross-reference 
 table (see 7.5.4, "Cross-reference table" and trailer (7.5.5, "File trailer") for one cross-reference section. 
 EXAMPLE In this example, the trailer dictionary entries are stored in the stream dictionary, and the cross-reference table 
@@ -245,9 +245,9 @@ Cross-reference streams may contain the entries shown in "Table 17: Additional e
 
 ISO/DIS 32000-2
  
-cross-reference stream dictionary" in addition to the entries common to all streams ("Table 5: Entries 
-common to all stream dictionaries") and trailer dictionaries ("Table 15: Entries in the file trailer 
-dictionary"). Since some of the information in the cross-reference stream is needed by the #PDF 
+cross-reference stream dictionary" in addition to the entries common to all streams ("#Table 5: Entries 
+common to all stream dictionaries") and trailer dictionaries ("#Table 15: Entries in the file trailer 
+dictionary"). Since some of the information in the cross-reference stream is needed by the ##PDF 
 processor to construct the index that allows indirect references to be resolved, the entries in cross-
 reference streams shall be subject to the following restrictions: 
 • 

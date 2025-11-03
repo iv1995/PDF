@@ -36,9 +36,9 @@ Currently, there are no defined entries for this dictionary
  
 software# identifier dictionary
 A  shall allow software to be# identified by name, range of versions, and 
-operating systems; its entries are listed in "Table 303: Entries in a software# identifier dictionary". An 
+operating systems; its entries are listed in "#Table 303: Entries in a software# identifier dictionary". An 
 #interactive ##PDF processor uses this information to determine whether a given media player may be 
-used in a given situation. If the dictionary contains keys that are unrecognised by the interactive #PDF 
+used in a given situation. If the dictionary contains keys that are unrecognised by the #interactive ##PDF 
 processor, it shall be considered to be partially recognised. The #interactive ##PDF processor may or may 
 not decide to treat the software# identifier as viable, depending on the context in which it is used. 
 The following procedure shall be used to determine whether a piece of software is considered to match 

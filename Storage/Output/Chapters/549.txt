@@ -32,7 +32,7 @@ of the  or  entry in that #object (see
 structure elements from content items
 depend on the nature of the #object: For an #object that is a content item in its own 
 right, the value shall be an indirect reference to the #object’s parent element (the 
-structure element that contains it as a content item). For a page #object or content 
+structure element that contains it as a content item). For a page #object or #content 
 stream containing marked-content sequences that are content items, the value 
 shall be an array of references to the parent elements of those marked-content 
 sequences. See 14.7.5.4, "Finding structure elements from content items" for 
@@ -117,10 +117,10 @@ ISO/DIS 32000-2
 Key Type Value 
 (Optional
 ID 
-#byte string ) The element# identifier, a #byte string designating this structure element. The 
+#byte string ) The element# identifier, a #byte string designating this structure element. The# 
 IDTree
 string shall be unique among all elements in the document’s structure hierarchy. The 
- entry in the structure tree root (see "Table 354: Entries in the structure tree 
+ entry in the structure tree root (see "#Table 354: Entries in the structure tree 
 root") defines the correspondence between element# identifiers and the structure 
 elements they denote. 
 Optional; #PDF 2.0
@@ -287,7 +287,7 @@ between types, allowing ##PDF processors to share nonstandard structure elements
 way. 
 NOTE 2 The same structure type can occur as both a key and a value in the role map, and circular chains 
 of association are explicitly permitted. Therefore, a single role map can define a #bidirectional 
-mapping. A ##PDF processor using the role map needs to follow the chain of associations until it 
+mapping. A ##PDF processor using the role map needs to follow the chain of associations until it# 
 either finds a structure type it recognises or returns to one it has already encountered. 
 NOTE 3 In #PDF versions earlier than 1.5, standard element types were never remapped.  
 14.7.4Namespaces 

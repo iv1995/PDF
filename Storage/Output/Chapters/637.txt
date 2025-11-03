@@ -1,6 +1,6 @@
-Table Annex H.7: #Object usage after adding three 
+#Table Annex H.7: #Object usage after adding three 
 text annotations" lists the #objects involved in this update. 
-Table Annex H.7: #Object usage after adding three text annotations 
+#Table Annex H.7: #Object usage after adding three text annotations 
 #Object# identifier #Object type 
 Metadata
 6 0  (metadata stream) 

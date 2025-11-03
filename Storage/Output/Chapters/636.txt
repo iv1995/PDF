@@ -1,6 +1,6 @@
-Table Annex H.6: #Object usage after deleting two 
+#Table Annex H.6: #Object usage after deleting two 
 text annotations" lists the #objects updated. 
-Table Annex H.6: #Object usage after deleting two text annotations 
+#Table Annex H.6: #Object usage after deleting two text annotations 
 #Object# identifier #Object type 
 7 0 Annotation array 
 8 0 Free 

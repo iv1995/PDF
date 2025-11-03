@@ -1,4 +1,4 @@
-Table 196: Entries common 
+#Table 196: Entries common 
 to all action dictionaries" shows the required and optional entries that are common to all action 
 dictionaries. The dictionary may contain additional entries specific to a particular action type; see the 
 descriptions of individual action types in 12.6.4, "Action types" for details. 
@@ -11,18 +11,18 @@ name The type of #PDF #object that this dictionary describes; if
 present, shall be  for an action dictionary. 
 (Required) 
 S 
-name The type of action that this dictionary describes; see "Table 
+name The type of action that this dictionary describes; see "#Table 
 201: Action types" for specific values. 
 (Optional; #PDF 1.2) 
 Next 
 dictionary or array The next action or sequence of actions that shall be 
-performed after the action represented by this dictionary. The value is 
+performed after the action represented by this dictionary. The value is# 
 either a single action dictionary or an array of action dictionaries that 
 shall be performed in order; see Note 1 for further discussion. 
 NOTE 1 The action dictionary’s  entry () allows sequences of actions to be chained together. 
 Next
 For example, the effect of clicking a link annotation with the mouse might be to play a sound, jump 
-#PDF 1.2
+PDF 1.2
 to a new page, and start up a movie. Note that the  entry is not restricted to a single action 
 Next
 but may contain an array of actions, each of which in turn may have a  entry of its own. The 

@@ -45,6 +45,6 @@ Squarecircle annotations#PDF 1.3
  and  () shall display, respectively, a #rectangle or an ellipse on the page. 
 When opened, they shall display a popup window containing the text of the associated note. The 
  Rect 
-#rectangle or ellipse shall be inscribed within the annotation #rectangle defined by the annotation 
+rectangle or ellipse shall be inscribed within the annotation #rectangle defined by the annotation 
 dictionary’sentry (see "#Table 170: Entries in an appearance dictionary"). 
 "

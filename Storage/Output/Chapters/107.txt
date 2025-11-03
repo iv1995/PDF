@@ -1,10 +1,10 @@
-Table 34: Entries in a #resource dictionary". 
+#Table 34: Entries in a #resource dictionary". 
 The corresponding values shall be as follows: 
 • 
 For all resource types, the value shall be a subdictionary. Each key in the subdictionary shall be the 
 name of a specific resource, and the corresponding value shall be a #PDF #object associated with the 
 name. 
-Table 34: Entries in a #resource dictionary 
+#Table 34: Entries in a #resource dictionary 
 Key Type Value 
 Optional
 ExtGState 
@@ -67,7 +67,7 @@ built from the basic #object types described in 7.3, "#Objects" and used through
 subclause describes data structures for text strings, dates, #rectangles, #name trees, and #number trees. 
 More complex data structures are described in 7.10, "#Functions" and 7.11, "File specifications". 
 All of these data structures are meaningful only as part of the document hierarchy; they may not appear 
-within #content streams. In particular, the special conventions for interpreting the values of string 
+within #content streams. In particular, the special conventions for interpreting the values of #string 
 #objects apply only to strings outside #content streams. An entirely different convention is used within 
 #content streams for using strings to select sequences of #glyphs to be painted on the page (see clause 9, 
 "Text"). "

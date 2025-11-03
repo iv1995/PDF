@@ -39,8 +39,8 @@ For Forms Data Format (FDF) submission, the value of the  entry in thefield dict
 • 
 selected file. 
 XML format is not supported for file-select controls; therefore, no value shall be submitted in this 
-case. Besides the usual entries common to all fields (see "Table 226: Entries common to all field 
-dictionaries") and to fields containing variable text (see "Table 228: Additional entries common to 
+case. Besides the usual entries common to all fields (see "#Table 226: Entries common to all field 
+dictionaries") and to fields containing variable text (see "#Table 228: Additional entries common to 
 all fields containing variable text"), the field dictionary for a text field may contain the additional 
 entry shown in "#Table 232: Additional entry specific to a text field". 
 #Table 232: Additional entry specific to a text field 

@@ -1,4 +1,4 @@
-Table 136: Variables used in the source shape and 
+#Table 136: Variables used in the source shape and 
 opacity formulas". 
 #Table 136: Variables used in the source shape and opacity formulas 
 Variable Meaning 

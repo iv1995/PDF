@@ -1,4 +1,4 @@
-Table 391: Entries in a source 
+#Table 391: Entries in a source 
 information dictionary") each containing information about the locations from which the source data 
 for the content set was retrieved. 
 © ISO 2017 – All rights reserved 778 
@@ -47,7 +47,7 @@ distinct URLs. If a processor detects such a situation, it may generate a single
 source data, containing a single copy of the relevant #PDF pages or image X#Objects. In this case, the  
 entry shall be an array containing one source information dictionary for each distinctURLfrom which 
 the original source content was found. 
-The determination that distinct URLs produce the same source data shall be made by comparing digital 
+The determination that distinct URLs produce the same source data shall be made by comparing digital# 
 identifiers for the source data. 
 AU
 v
@@ -63,7 +63,7 @@ referenced.
  TS 
 The(timestamp) entry allows each source location associated with a content set to have its own 
 timestamp. 
-NOTE 2 This is necessary because the timestamp in the content set dictionary (see "Table 388: Entries 
+NOTE 2 This is necessary because the timestamp in the content set dictionary (see "#Table 388: Entries 
 common to all Web Capture content sets") merely refers to the creation date of the content set. A 
 hypothetical "Update Content Set" command might reset the timestamp in the source information 
 dictionary to the current time if it found that the source data had not changed since the 

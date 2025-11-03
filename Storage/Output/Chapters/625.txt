@@ -1,15 +1,15 @@
- 
+## 
  
 Linearized #PDF Access Strategies 
 (Informative) 
 G.1General 
  
-This Annex outlines how the ##PDF processor can take advantage of the structure of a Linearized #PDF file 
+This Annex outlines how the ##PDF processor can take advantage of the structure of a# Linearized #PDF file 
 to retrieve and display it efficiently. This material may help explain the rationale for the organization. 
 G.2Opening at the first page 
  
 As described earlier, when a document is initially accessed, a request is issued to retrieve the entire file, 
-starting at the beginning. Consequently, Linearized #PDF is organised so that all the data required to 
+starting at the beginning. Consequently,# Linearized #PDF is organised so that all the data required to 
 display the first page is at the beginning of the file. This includes all resources that are referenced from 
 the first page, regardless of whether they are also referenced from other pages. 
  OpenAction 
@@ -19,7 +19,7 @@ the beginning of the document. Thus, opening a document at the default place (ra
 destination) requires simply waiting for the first-page data to arrive; no additional transactions are 
 required. 
 In an ordinary ##PDF processor, opening a document requires first positioning to the end to obtain the 
-startxref line. Since a Linearized #PDF file has the first page’s cross-reference table at the beginning, 
+startxref line. Since a# Linearized #PDF file has the first page’s cross-reference table at the beginning, 
 reading the startxref line is not necessary. All that is required is to verify that the file length given in the 
 linearization parameter dictionary at the beginning of the file matches the actual length of the file, 
 indicating that no updates have been appended to the #PDF file. 
@@ -65,7 +65,7 @@ an ar#bitrary page is delayed by the time required to receive the first page. Th
 favour opening at the first page or opening at an ar#bitrary page is to be made at the time a #PDF file is 
 linearized. 
 If an overflow hint stream exists, obtaining it requires issuing an additional transaction. For this reason, 
-inclusion of an overflow hint stream in Linearized #PDF, although permitted, is not recommended. The 
+inclusion of an overflow hint stream in# Linearized #PDF, although permitted, is not recommended. The 
 feature exists to allow the linearizer to write the #PDF file with space reserved for a primary hint stream 
 of an estimated size and then go back and fill in the hint tables. If the estimate is too small, the linearizer 
 can append an overflow stream containing the remaining hint table data. Thus, the #PDF file can be 
@@ -82,7 +82,7 @@ thread requires chaining through all the beads until the desired one is reached;
 accelerate this. 
 G.4Going to another page of an open document 
  
-Given a page number and the information in the hint tables, it is now straightforward for the #PDF 
+Given a page number and the information in the hint tables, it is now straightforward for the ##PDF 
 processor to construct a single request to retrieve any ar#bitrary page of the document. The request 
 should include the following items: 
 • 
@@ -111,7 +111,7 @@ G.5Drawing a page incrementally
  
 The ordering of #objects in pages and the organization of the hint tables are intended to allow 
 progressive update of the display and early opportunities for user interaction when the data is arriving 
-slowly. The ##PDF processor should recognise instances in which the targets of in#direct ##object references 
+slowly. The ##PDF processor should recognise instances in which the targets of #in#direct ##object references 
 have not yet arrived and, where possible, rearrange the order in which it acts on the #objects in the page. 
 The following sequence of actions is recommended: 
  
@@ -132,7 +132,7 @@ The last two steps should be done using an off-screen buffer, if possible, to av
 during the redraw process. 
 On encountering a reference X#Object (see 8.10.4, "Reference X#Objects"), the ##PDF processor may choose 
 to initially display the #object as a proxy and defer the retrieval and rendering of the imported content. 
-Note that, since all X#Objects in a Linearized #PDF file follow the #content stream of the page on which they 
+Note that, since all X#Objects in a# Linearized #PDF file follow the #content stream of the page on which they 
 appear, their retrieval is already deferred; the use of a reference X#Object results in an additional level of 
 deferral. 
 G.6Following an article thread 
@@ -150,7 +150,7 @@ belongs. Given this #object number, the #interactive ##PDF processor can go to t
 G.4, "Going to another page of an open document" 
 G.7Accessing an updated file 
  
-As stated earlier, if a Linearized #PDF file subsequently has an incremental update appended to it, the 
+As stated earlier, if a# Linearized #PDF file subsequently has an incremental update appended to it, the 
 linearization and hints might be invalid. The ##PDF processor will have to do some additional work to 
 validate the information. 
 When the ##PDF processor sees that the file is longer than the length given in the linearization parameter 

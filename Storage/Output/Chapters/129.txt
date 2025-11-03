@@ -3,7 +3,7 @@ to appear the same regardless of the device on which it is rendered.
 The default user space provides a consistent, dependable starting place for #PDF page descriptions 
 coordinate transformation operatorcm
 regardless of the output device used. If necessary, a #PDF #content stream may modify user space to be 
-more suitable to its needs by applying the ,  (see 8.4.4, "Graphics 
+more suitable to its needs by applying the ,  (see 8.4.4, "#Graphics 
 state operators"). Thus, what might appear to be absolute coordinates in a #content stream are not 
 absolute with respect to the current page because they are expressed in a coordinate system that can 
 slide around and shrink or expand. Coordinate system transformation not only enhances device-

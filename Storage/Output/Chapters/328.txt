@@ -1,4 +1,4 @@
-Table 166: Entries 
+#Table 166: Entries 
 common to all annotation dictionaries" shows the required and optional entries that are common to all 
 annotation dictionaries. The dictionary may contain additional entries specific to a particular 
  Annots 
@@ -14,11 +14,11 @@ name The type of #PDF #object that this dictionary describes; if present, shall 
 for an annotation dictionary. 
 (Required) 
 Subtype 
-name The type of annotation that this dictionary describes; see "Table 171: 
+name The type of annotation that this dictionary describes; see "#Table 171: 
 Annotation types" for specific values. 
-(Required) annotation rectangle
+(Required) annotation #rectangle
 Rect 
-#rectangle The , defining the location of the annotation on the page 
+rectangle The , defining the location of the annotation on the page 
 in default user space units. 
 (Optional) 
 Contents 
@@ -45,7 +45,7 @@ the annotations on its page.
 (Optional; #PDF 1.1) 
 M 
 date or text The date and time when the annotation was most recently modified. 
-string The format should be a date string as described in 7.9.4, "Dates" but interactive #PDF 
+string The format should be a date string as described in 7.9.4, "Dates" but #interactive ##PDF 
 processors shall accept and display a string in any format. 
 (Optional; #PDF 1.1) 
 F 
@@ -192,7 +192,7 @@ Normal
 the page (see 11.3.5, "Blend Mode" and 11.6.3, "Specifying Blending Colour Space and 
 Blend Mode"). If this key is not present, blending shall take place using the  blend 
 mode. The value shall be a #name #object, designating one of the standard blend modes 
-listed in "#Table 134: Standard separable blend modes" and "Table 135: Standard non-
+listed in "#Table 134: Standard separable blend modes" and "#Table 135: Standard non-
 separable blend modes" in 11.3.5, "Blend mode". 
 Optional; #PDF 2.0
 Lang 

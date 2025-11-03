@@ -9,7 +9,7 @@ for a redaction annotation.
 Optionalx
 QuadPoints 
 array () An array of 8  n numbers specifying the coordinates of n 
-quadrilaterals in default user space, as described in "Table 182: 
+quadrilaterals in default user space, as described in "#Table 182: 
 Additional entries specific to text markup annotations" for text markup 
  Rect 
 annotations. If present, these quadrilaterals denote the content region 
@@ -80,8 +80,8 @@ projection annotation (#PDF 2.0)
 A  is a markup annotation subtype (see 12.5.6.2, "Markup annotations") 
 that has much of the #functionality of other markup annotations. However, a projection annotation is 
 only valid within the context of an associated run-time environment, such as an activated 3D model. 
-The entries of a annotation dictionary for a projection annotation are those listed in "Table 166: Entries 
-common to all annotation dictionaries" and "Table 172: Additional entries in an annotation dictionary 
+The entries of a annotation dictionary for a projection annotation are those listed in "#Table 166: Entries 
+common to all annotation dictionaries" and "#Table 172: Additional entries in an annotation dictionary 
 specific to markup annotations". 
 Projection annotations provide a way to save 3D and other specialised measurements and comments as 
 markup annotations. These measurements and comments then persist in the document. 
@@ -107,14 +107,14 @@ action#PDF 1.1
 In addition to jumping to a destination in the document, an annotation or outline item may specify an 
 A
  () to perform, such as launching an application, playing a sound, changing an annotation’s 
-appearance state. The optional  entry in the outline item dictionary (see "Table 151: Entries in an 
-outline item dictionary") and the dictionaries of some annotation types (see "Table 176: Additional 
+appearance state. The optional  entry in the outline item dictionary (see "#Table 151: Entries in an 
+outline item dictionary") and the dictionaries of some annotation types (see "#Table 176: Additional 
 entries specific to a link annotation", "#Table 190: Additional entries specific to a screen annotation", 
 © ISO 2017 – All rights reserved 491 
 
 ISO/DIS 32000-2
  
-"#Table 191: Additional entries specific to a widget annotation" and "Table 249: Entries in an FDF field 
+"#Table 191: Additional entries specific to a widget annotation" and "#Table 249: Entries in an FDF field 
 dictionary") specifies an action performed when the annotation or outline item is activated; in #PDF 1.2, 
  OpenAction 
 a variety of other circumstances may trigger an action as well (see 12.6.3, "Trigger events"). In addition, 

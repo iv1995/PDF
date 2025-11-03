@@ -1,4 +1,4 @@
-Table 353: Entries in the mark 
+#Table 353: Entries in the mark 
 information dictionary". It provides additional information relevant to specialised uses of structured 
 #PDF documents. 
 © ISO 2017 – All rights reserved 697 

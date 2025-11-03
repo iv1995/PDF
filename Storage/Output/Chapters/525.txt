@@ -1,4 +1,4 @@
-Table 331: Additional entries in a 3D measurement/markup dictionary for a 3D 
+#Table 331: Additional entries in a 3D measurement/markup dictionary for a 3D 
 comment note" lists entries defined for a 3D measurement dictionary with a  value of  for 
 3D comment notes. 
 #Table 331: Additional entries in a 3D measurement/markup dictionary for a 3D comment note 
@@ -25,7 +25,7 @@ array () A two-element integer array defining the  and  size of the text box to 
 y
 user text string (). The  value is defined as a number of #characters shown in the  direction (the top 
 row); the  value is the number of rows of text. The #interactive ##PDF processor is free to flow the text in 
-the text box as appropriate. If the entire string does not fit, it may be truncated. The interactive #PDF 
+the text box as appropriate. If the entire string does not fit, it may be truncated. The #interactive ##PDF 
 processor may also choose any #font in which to render the content, though a monospaced #font is 
 recommended. 
 Optional; #PDF 2.0

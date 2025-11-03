@@ -1,7 +1,7 @@
-Table 52: Device-dependent #graphics state parameters" control 
+#Table 52: Device-dependent #graphics state parameters" control 
 details of the rendering (scan conversion) process and are device-dependent; a page description that is 
 intended to be device-independent should not be written to modify these parameters. 
-Table 51: Device-independent #graphics state parameters 
+#Table 51: Device-independent #graphics state parameters 
 Parameter Type Value 
 current transformation matrix
 CTM 
@@ -129,7 +129,7 @@ Default
 CIE-based colours (see 8.6.5.9, "Use of black point compensation"). Initial value: 
 . 
  
-Table 52: Device-dependent #graphics state parameters 
+#Table 52: Device-dependent #graphics state parameters 
 Parameter Type Value 
 #PDF 1.2
 overprint 
@@ -204,7 +204,7 @@ NOTE 1 Some #graphics state parameters are set with specific #PDF operators, som
 particular entry in a #graphics state parameter dictionary, and some can be specified# either way. 
 w
 LW
-EXAMPLE 2 The current line width can be set# either with the  operator or (in #PDF 1.3) with the  entry in a graphics 
+EXAMPLE 2 The current line width can be set# either with the  operator or (in #PDF 1.3) with the  entry in a #graphics 
 state parameter dictionary, whereas the current colour is set only with specific operators, and the current 
 halftone is set only with a #graphics state parameter dictionary. 
 In general, a ##PDF reader, when interpreting the operators that set #graphics state parameters, shall 
@@ -223,7 +223,7 @@ the raster output device, such as resolution or number of distinguishable colour
 operators perform such adjustments, but the adjusted values shall not be stored back into the 
 • 
 #graphics state. 
-NOTE 2 As indicated in "Table 51: Device-independent #graphics state parameters" and "Table 52: Device-
+NOTE 2 As indicated in "#Table 51: Device-independent #graphics state parameters" and "Table 52: Device-
 Paths shall be internal #objects that shall not be directly represented in #PDF. 
 dependent #graphics state parameters", some of the parameters — colourspace, colour, and 
 overprint — have two values, one used for stroking (of paths and text #objects) and one for all 
@@ -260,7 +260,7 @@ sequence of streams specified in a page dictionary’s  array).
 8.4.3.1General 
  
 This subclause gives details of several of the device-independent #graphics state parameters listed in 
-"Table 51: Device-independent #graphics state parameters". 
+"#Table 51: Device-independent #graphics state parameters". 
 8.4.3.2Line width 
  
 The line width parameter specifies the thickness of the line used to stroke a path. It shall be a non-

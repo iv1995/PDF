@@ -10,7 +10,7 @@ As shown, a  consists of two filled circles, called , one at each of the
 two positions being measured, and a line with an arrowhead on each end connecting the two anchor 
 points (referred to as the measure line). This line is then labelled with a value representing the distance 
 between the two anchor points. 
-In addition to the entries in "Table 326: Entries in a 3D measurement/markup dictionary common to all 
+In addition to the entries in "#Table 326: Entries in a 3D measurement/markup dictionary common to all 
 markup subtypes" "Table 327: Additional entries in a 3D measurement/markup dictionary for a 3D 
 LD3
 Subtype  

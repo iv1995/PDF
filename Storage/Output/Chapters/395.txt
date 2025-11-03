@@ -1,11 +1,11 @@
-Table 227: Field 
+#Table 227: Field 
 flags common to all field types". The designation () means that an attribute shall be 
 defined for every field, whether explicitly in its own field dictionary or by inheritance from an ancestor 
 in the hierarchy. The inheritable behavior of field dictionaries are similar to that of Pages (see 7.7.3.4, 
 "Inheritance of page attributes"). An #interactive ##PDF processor shall not limit the range of inheritance 
 for field dictionaries. "#Table 226: Entries common to all field dictionaries" shows those entries that are 
 common to all field dictionaries, regardless of type. Entries that pertain only to a particular type of field 
-are described in the relevant subclauses referred to in "Table 226: Entries common to all field 
+are described in the relevant subclauses referred to in "#Table 226: Entries common to all field 
 dictionaries". 
 #Table 226: Entries common to all field dictionaries 
 Key Type Value 

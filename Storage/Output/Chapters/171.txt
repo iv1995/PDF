@@ -1,4 +1,4 @@
-Table 72: Entries in a DeviceN mixing hints 
+#Table 72: Entries in a DeviceN mixing hints 
 dictionary") that specifies optional attributes of the inks that shall be used in blending 
 calculations when used as an alternative to the tint transformation #function. 
  
@@ -69,7 +69,7 @@ ISO/DIS 32000-2
  
 MixingHints
 described above in the discussion of the names parameter.) 
-The  entry in the attributes dictionary specifies a mixing hints dictionary (see "Table 72: 
+The  entry in the attributes dictionary specifies a mixing hints dictionary (see "#Table 72: 
 Entries in a DeviceN mixing hints dictionary") that provides information about the #characteristics of 
 colourants that may be used in blending calculations when the actual colourants are not available on 
 the target device. ##PDF processors need not use this information. 
@@ -260,7 +260,7 @@ alternateSpace
    <<            %Attributes dictionary 
     /Subtype /NChannel 
     /Process 
-RGB_ICC profile
+RGB_#ICC profile
       <</ColorSpace [/ICCBased ] 
       /Components [/ProcessRed /ProcessGreen /ProcessBlue] 
      >> 
@@ -280,7 +280,7 @@ alternateSpace
    << 
     /Subtype /NChannel 
     /Process 
-CMYK_ICC profile
+CMYK_#ICC profile
       <</ColorSpace [/ICCBased ] 
       /Components [/Cyan /Magenta /Yellow /Black] 
      >> 
@@ -365,7 +365,7 @@ endobj
  CalRGB 
 EXAMPLE 2 This example shows the definition of another duotone colour space, this time using black and gold colourants 
 (where gold is a spot colourant) and using aspace as the alternate colour space. This could be defined 
- CalRGB 
+ CalRG#B 
 in the same way as in the preceding example, with a tint transformation #function that converts from the two 
 tint components to colours in the alternatecolour space. 
 30 0 obj           %Colour space 
@@ -540,7 +540,7 @@ representing the quadtone image, followed by the colour space used to interpret 
 8.6.7Overprint control 
  
  OP op
-The #graphics state contains an overprint parameter, controlled by theand  entries in a graphics 
+The #graphics state contains an overprint parameter, controlled by theand  entries in a #graphics 
 state parameter dictionary. Overprint control is useful mainly on devices that produce true physical 
 separations, but it is available on some composite devices as well. Although the operation of this 
 parameter is device-dependent, it is described here rather than in the subclause on colour rendering, 

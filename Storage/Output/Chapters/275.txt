@@ -19,11 +19,11 @@ Required
 Height 
 integer () The height of the threshold array, in device pixels. 
 Optional
-Transfer#Function 
+Transfer#Function# 
 Identity
 #function or () A transfer #function, which overrides the current transfer #function in the 
 name #graphics state for the same component. The name  may be used to specify the 
-NOTE #PDF versions to 1.7 required that this entry be present if the dictionary is a 
+NOTE #PDF versions to 1.7 required that this entry be present if the dictionary is a# 
 identity #function (see 10.5, "Transfer #functions").  
 component of a Type 5 halftone (see 10.6.5.6, "Type 5 halftones") and 
 represents# either a non-primary or non-standard primary colour component. 

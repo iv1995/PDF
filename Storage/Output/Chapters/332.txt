@@ -1,4 +1,4 @@
-Table 169: Entries in a border 
+#Table 169: Entries in a border 
 effect dictionary" that describes the entries in a border effect dictionary. 
 #Table 169: Entries in a border effect dictionary 
 Key Type Value 

@@ -1,10 +1,10 @@
-Figure 62: Output from the example in 9.6.5, "Type 3 #fonts" shows 
+#Figure 62: Output from the example in 9.6.5, "Type 3 #fonts" shows 
 © ISO 2017 – All rights reserved 313 
 
 ISO/DIS 32000-2
  
 the result of showing the string ( ababab ) using this #font. ![Figure 62 Output from the example in 965, Type 3 #fonts  .png](./Storage/Output/Images/Figure 62 Output from the example in 965, Type 3 #fonts  .png)
-Figure 62: Output from the example in 9.6.5, "Type 3 #fonts" 
+#Figure 62: Output from the example in 9.6.5, "Type 3 #fonts" 
  
  
 %Snippet of page #content stream that places several Type 3 #font strings onto the page 
