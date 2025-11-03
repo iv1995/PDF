@@ -1,56 +1,56 @@
-Table 27: Additional crypt filter dictionary entries for public-key security handlers" lists the additional 
+Table 27: Additional crypt #filter dictionary entries for public-key security handlers" lists the additional 
 V2AESV2
 CFM
-crypt filter dictionary entries used by public-key security handlers (see 7.6.5, "Public-key security 
+crypt #filter dictionary entries used by public-key security handlers (see 7.6.5, "Public-key security 
 handlers"). When these entries are present, the value of  shall be  or . 
-Table 27: Additional crypt filter dictionary entries for public-key security handlers 
+Table 27: Additional crypt #filter dictionary entries for public-key security handlers 
 Key Type Value 
 Required
 Recipients StmFStrF
-array or () If the crypt filter is referenced from  or  in the 
-string encryption dictionary, this entry shall be an array of byte strings, where 
-each string shall be a binary-encoded CMS object that shall list recipients 
+array or () If the crypt #filter is referenced from  or  in the 
+string encryption dictionary, this entry shall be an array of #byte strings, where 
+each string shall be a #binary-encoded CMS #object that shall list recipients 
 that have been granted equal access rights to the document. The 
-enveloped data contained in the CMS object shall include both a 20-byte 
+enveloped data contained in the CMS #object shall include both a 20-#byte 
 seed value that shall be used to compute the file encryption key (see 
-7.6.5.3, "Public-key encryption algorithms") followed by 4 bytes of 
-permissions settings (see "Table 22: User access permissions") that shall 
-apply to the recipient list. There shall be only one object per unique set of 
+7.6.5.3, "Public-key encryption algorithms") followed by 4 #bytes of 
+permissions settings (see "#Table 22: User access permissions") that shall 
+apply to the recipient list. There shall be only one #object per unique set of 
 access permissions. If a recipient appears in more than one list, the 
  Crypt 
 permissions used shall be those in the first matching list. 
-If the crypt filter is referenced from afilter decode parameter 
+If the crypt #filter is referenced from a#filter decode parameter 
 "), this 
-dictionary (see "Table 14: Optional parameters for Crypt filters
-entry shall be a string that shall be a binary-encoded CMS object that shall 
+dictionary (see "Table 14: Optional parameters for Crypt #filters
+entry shall be a string that shall be a #binary-encoded CMS #object that shall 
 contain a list of all recipients who are permitted to access the 
 corresponding encrypted stream. The enveloped data contained in the 
-CMS object shall be a 20-byte seed value that shall be used to create the 
+CMS #object shall be a 20-#byte seed value that shall be used to create the 
  
 file encryption key that shall be used by the algorithm in "Algorithm 1: 
 Encryption of data using the RC4 or AES algorithms".
-Optional; used only by crypt filters that are referenced from  in an 
+Optional; used only by crypt #filters that are referenced from  in an 
 EncryptMetadata StmF
 encryption dictionary
 boolean (
 ) Indicates whether the document-level metadata 
-stream (see 14.3.2, "Metadata streams") shall be encrypted. PDF 
+stream (see 14.3.2, "Metadata streams") shall be encrypted. #PDF 
 EncryptMetadata
 processors shall respect this value when determining whether metadata 
 true
 shall be encrypted. The value of the  entry is set by the 
-security handler rather than the PDF processor. Default value: . 
+security handler rather than the ##PDF processor. Default value: . 
 © ISO 2017 – All rights reserved 95 
 
 ISO/DIS 32000-2
  
  
 Identity
-EXAMPLE The following shows the use of crypt filters in an encrypted document containing a plaintext document-level 
-metadata stream. The metadata stream is left as is by applying the  crypt filter. The remaining streams 
-and strings are decrypted using the default filters. 
-%PDF–2.0 
-             %… at least four binary characters > 127 
+EXAMPLE The following shows the use of crypt #filters in an encrypted document containing a plaintext document-level 
+metadata stream. The metadata stream is left as is by applying the  crypt #filter. The remaining streams 
+and strings are decrypted using the default #filters. 
+%#PDF–2.0 
+             %… at least four #binary #characters > 127 
 1 0 obj           %Document catalog 
   <</Type /Catalog 
    /Pages 2 0 R 
@@ -88,9 +88,9 @@ endobj
   <</Type /Metadata 
    /Subtype /XML 
    /Length 15 
-   /Filter [/Crypt]      %Uses a crypt filter 
+   /#Filter [/Crypt]      %Uses a crypt #filter 
    /DecodeParms       %with these parameters 
-    <</Type /CryptFilterDecodeParms 
+    <</Type /Crypt#FilterDecodeParms 
     /Name /Identity     %Indicates no encryption 
    >> 
   >> 
@@ -100,16 +100,16 @@ endstream
 endobj 
  
 8 0 obj            %Encryption dictionary 
-  <</Filter /MySecurityHandlerName 
-   /V 4          %Version 4: allow crypt filters 
-   /CF          %List of crypt filters 
-    <</MyFilter0 
-     <</Type /CryptFilter 
+  <</#Filter /MySecurityHandlerName 
+   /V 4          %Version 4: allow crypt #filters 
+   /CF          %List of crypt #filters 
+    <</My#Filter0 
+     <</Type /Crypt#Filter 
      /CFM V2>>      %Uses the standard algorithm 
     >> 
-    / /MyFilter0     %Strings are decrypted using /MyFilter0 
+    / /My#Filter0     %Strings are decrypted using /My#Filter0 
 StrF
-    / /MyFilter0     %Streams are decrypted using /MyFilter0 
+    / /My#Filter0     %Streams are decrypted using /My#Filter0 
 StmF
 © ISO 2017 – All rights reserved 96 
 
@@ -138,33 +138,33 @@ startxref
  
 7.6.6Unencrypted wrapper document 
  
-This International Standard allows PDF writers to use custom security handlers that encrypt the strings 
-and streams within a PDF document using algorithms that are not specified in this standard. This allows 
-PDF producers the flexibility to adapt to changes in encryption technology and respond to customer 
-needs. However, when PDF documents are encrypted using such non-standard security handlers, users 
-attempting to open such documents may not have enough information to identify a security handler for 
-the user’s PDF processor that would enable the document to be decrypted. 
-To enable PDF producers using non-standard security handlers to provide users with information to 
+This International Standard allows ##PDF writers to use custom security handlers that encrypt the strings 
+and streams within a #PDF document using algorithms that are not specified in this standard. This allows 
+#PDF producers the flexi#bility to adapt to changes in encryption technology and respond to customer 
+needs. However, when #PDF documents are encrypted using such non-standard security handlers, users 
+attempting to open such documents may not have enough information to# identify a security handler for 
+the user’s ##PDF processor that would enable the document to be decrypted. 
+To enable #PDF producers using non-standard security handlers to provide users with information to 
 unencrypted wrapper
-help them identify and install necessary security handler(s) the producer may embed the encrypted 
-PDF document within an unencrypted PDF document (an ). An unencrypted 
+help them# identify and install necessary security handler(s) the producer may embed the encrypted 
+#PDF document within an unencrypted #PDF document (an ). An unencrypted 
 encrypted payload
 wrapper should provide guidance informing users of the security handler that is needed to decrypt the 
-embedded encrypted PDF document (). This subclause specifies use of the collection 
-dictionary and associated files to identify the encrypted payload in a way that allows PDF processors 
+embedded encrypted #PDF document (). This subclause specifies use of the collection 
+dictionary and associated files to# identify the encrypted payload in a way that allows ##PDF processors 
 that already have the necessary security handler to immediately present the encrypted payload, 
-although PDF processors without the custom security handler will present the unencrypted wrapper 
+although ##PDF processors without the custom security handler will present the unencrypted wrapper 
 document with helpful instructions to the user. 
 Collection
-To enable automatic display of an encrypted payload within an unencrypted wrapper the PDF producer 
+To enable automatic display of an encrypted payload within an unencrypted wrapper the #PDF producer 
 H
 View
-shall include a  dictionary (as described in 12.3.5, "Collections") identifying the encrypted 
+shall include a  dictionary (as described in 12.3.5, "Collections")# identifying the encrypted 
 payload as the initial document in the collection and setting the collection  to  (hidden). In 
 EmbeddedFilesAF
-addition, the PDF producer shall include the file specification dictionary for the encrypted payload in 
+addition, the #PDF producer shall include the file specification dictionary for the encrypted payload in 
 AFRelationship
-the  name tree, and as an entry in the  array in the document catalog. The file 
+the  #name tree, and as an entry in the  array in the document catalog. The file 
 EncryptedPayload
 specification dictionary for the encrypted payload shall include the  key with a value of 
 , and shall include an encrypted payload dictionary (see "

@@ -1,10 +1,10 @@
-Table 153: Entries in a collection dictionary 
+#Table 153: Entries in a collection dictionary 
 Key Type Value 
 Optional
 Type 
 Collection
   
-name () The type of PDF object that this dictionary describes; 
+name () The type of #PDF #object that this dictionary describes; 
 if present, shall befor a collection dictionary. 
 Optional
 Schema 

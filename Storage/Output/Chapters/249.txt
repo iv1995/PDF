@@ -1,34 +1,34 @@
-Figure 61: Operation of the TJ operator in horizontal writing 
+#Figure 61: Operation of the TJ operator in horizontal writing 
  
-A string operand of a text-showing operator shall be interpreted as a sequence of character codes 
-identifying the glyphs to be painted. 
-With a simple font, each byte of the string shall be treated as a separate character code. The character 
-code shall then be looked up in the font’s encoding to select the glyph, as described in 9.6.5, "Character 
+A string operand of a text-showing operator shall be interpreted as a sequence of #character codes 
+identifying the #glyphs to be painted. 
+With a simple #font, each #byte of the string shall be treated as a separate #character code. The #character 
+code shall then be looked up in the #font’s encoding to select the #glyph, as described in 9.6.5, "#Character 
 encoding". 
-PDF 1.2
-With a composite font (), multiple-byte codes may be used to select glyphs. In this instance, one 
+#PDF 1.2
+With a composite #font (), multiple-#byte codes may be used to select #glyphs. In this instance, one 
 CMap
-or more consecutive bytes of the string shall be treated as a single character code. The code lengths and 
-the mappings from codes to glyphs are defined in a data structure called a , described in 9.7, 
-"Composite fonts". 
-The strings shall conform to the syntax for string objects. When a string is written by enclosing the data 
-in parentheses, bytes whose values are equal to those of the ASCII characters LEFT PARENTHESIS 
+or more consecutive #bytes of the string shall be treated as a single #character code. The code lengths and 
+the mappings from codes to #glyphs are defined in a data structure called a , described in 9.7, 
+"Composite #fonts". 
+The strings shall conform to the syntax for string #objects. When a string is written by enclosing the data 
+in parentheses, #bytes whose values are equal to those of the #ASCII #characters LEFT PARENTHESIS 
 (28h), RIGHT PARENTHESIS (29h), and REVERSE SOLIDUS (5Ch) (backslash) shall be preceded by a 
-REVERSE SOLIDUS) character. All other byte values between 0 and 255 may be used in a string object. 
-These rules apply to each individual byte in a string object, whether the string is interpreted by the text-
-showing operators as single-byte or multiple-byte character codes. 
+REVERSE SOLIDUS) #character. All other #byte values between 0 and 255 may be used in a string #object. 
+These rules apply to each individual #byte in a string #object, whether the string is interpreted by the text-
+showing operators as single-#byte or multiple-#byte #character codes. 
 Strings presented to the text-showing operators may be of any length — even an empty string or a 
-single character code per string — and may be placed on the page in any order. The grouping of glyphs 
+single #character code per string — and may be placed on the page in any order. The #grouping of #glyphs 
 Tj
-into strings has no significance for the display of text. Showing multiple glyphs with one invocation of a 
+into strings has no significance for the display of text. Showing multiple #glyphs with one invocation of a 
 text-showing operator such as  shall produce the same results as showing them with a separate 
-invocation for each glyph. 
+invocation for each #glyph. 
 NOTE 1 Use of longer text strings is generally more efficient. 
 © ISO 2017 – All rights reserved 303 
 
 ISO/DIS 32000-2
  
-NOTE 2 In some cases, the text that is extracted can vary depending on the grouping of glyphs into strings. 
+NOTE 2 In some cases, the text that is extracted can vary depending on the #grouping of #glyphs into strings. 
 See, for example, 14.8.2.5.3, "Reverse-order show strings". 
 NOTE 3 Empty strings are valid. 
 9.4.4Text space details 
@@ -38,13 +38,13 @@ TTT
 As stated in 9.4.2, "Text-positioning operators", text shall be shown in text space, defined by the 
 fs
 mhrise
-combination of the text matrix, 
+com#bination of the text matrix, 
 , and the text state parameters , , and  . This determines how 
-text coordinates are transformed into user space. Both the glyph’s shape and its displacement 
+text coordinates are transformed into user space. Both the #glyph’s shape and its displacement 
 (horizontal or vertical) shall be interpreted in text space. 
-NOTE 1 Glyphs are actually defined in glyph space, whose definition varies according to the font type as 
-discussed in 9.2.4, "Glyph positioning and metrics". Glyph coordinates are first transformed from 
-glyph space to text space before being subjected to the transformations described in Note 2. 
+NOTE 1 #Glyphs are actually defined in #glyph space, whose definition varies according to the #font type as 
+discussed in 9.2.4, "#Glyph positioning and metrics". #Glyph coordinates are first transformed from 
+#glyph space to text space before being subjected to the transformations described in Note 2. 
 NOTE 2 Conceptually, the entire transformation from text space to device space can be represented by a 
 rm
  : 
@@ -62,13 +62,13 @@ T
 0𝑇𝑇
 1
 rm
- is a temporary matrix; conceptually, it is recomputed before each glyph is painted during a text-
+ is a temporary matrix; conceptually, it is recomputed before each #glyph is painted during a text-
 showing operation. 
 x
 t
-After the glyph is painted, the text matrix shall be updated according to the glyph displacement and any 
+After the #glyph is painted, the text matrix shall be updated according to the #glyph displacement and any 
 t
-spacing parameters that apply. First, a combined displacement shall be computed, denoted by 
+spacing parameters that apply. First, a com#bined displacement shall be computed, denoted by 
  in 
 y
 horizontal writing mode or 
@@ -91,17 +91,17 @@ w0w1
 T
  
 TJ
- and  denote the glyph’s horizontal and vertical displacements 
+ and  denote the #glyph’s horizontal and vertical displacements 
 j
 denotes a number in a  array, if any, which specifies a position adjustment 
 T
 fs
 h
- and T denote the current text font size and horizontal scaling parameters in the graphics state 
+ and T denote the current text #font size and horizontal scaling parameters in the #graphics state 
 T
 T
 cw
- and  denote the current character-and word-spacing parameters in the graphics state, if 
+ and  denote the current #character-and word-spacing parameters in the #graphics state, if 
 applicable 
 The text matrix then shall be updated as follows: 
 100
@@ -118,12 +118,12 @@ The text matrix then shall be updated as follows:
 
 ISO/DIS 32000-2
  
-9.5Introduction to font data structures 
+9.5Introduction to #font data structures 
  
-A font shall be represented in PDF as a dictionary specifying the type of font, its PostScript language 
-name, its encoding, and information that can be used to provide a substitute when the font program is 
-not available. Optionally, the font program (more commonly known as font files) may be embedded as a 
-stream object in the PDF file. 
+A #font shall be represented in #PDF as a dictionary specifying the type of font, its PostScript language 
+name, its encoding, and information that can be used to provide a substitute when the ##font program is 
+not available. Optionally, the ##font program (more commonly known as #font files) may be embedded as a 
+stream #object in the #PDF file. 
 NOTE 1 See 9.2, "Organization and use of fonts" for more introductory information. 
 SubtypeSubtype
 "

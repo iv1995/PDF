@@ -1,6 +1,6 @@
-Table 220: Additional entries specific to a go-to-3D-view action" shows 
+#Table 220: Additional entries specific to a go-to-3D-view action" shows 
 the entries in a go-to-3D-view action dictionary. 
-Table 220: Additional entries specific to a go-to-3D-view action 
+#Table 220: Additional entries specific to a go-to-3D-view action 
 Key Type Value 
 (Required) 
 S  
@@ -26,12 +26,12 @@ A 3D view dictionary (see 13.6.4, "3D views").
 An integer specifying an index into thearray in the 3D stream (see 
  IN  VA 
 • 
-"Table 311: Entries in a 3D stream dictionary"). 
+"#Table 311: Entries in a 3D stream dictionary"). 
 A text string matching theentry in one of the views in thearray (see 
 (
 FLNP
 • 
-"Table 315: Entries in a 3D view dictionary"). 
+"#Table 315: Entries in a 3D view dictionary"). 
 D VA 
 A name that indicates the first (), last ), next (), previous (), or 
 default () entries in thearray; see discussion following this Table. 
@@ -57,7 +57,7 @@ When the last view was not specified by means of , using  or  should result in r
 default view. 
   
  
-Upon invocation of anECMAScriptaction, a PDF processor shall execute a script that is written in the 
+Upon invocation of anECMAScriptaction, a ##PDF processor shall execute a script that is written in the 
 ECMAScriptprogramming language. That script may include the extensions described in ISO 
 Adobe JavaScript 
 22537:2006. Depending on the nature of the script, various interactive form fields in the document may 

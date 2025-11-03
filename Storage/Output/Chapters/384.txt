@@ -1,6 +1,6 @@
-Table 216: Additional entries specific to named actions" shows the action dictionary entries specific to 
+#Table 216: Additional entries specific to named actions" shows the action dictionary entries specific to 
 named actions. 
-Table 216: Additional entries specific to named actions 
+#Table 216: Additional entries specific to named actions 
 Key Type Value 
 (Required) Named
 S   
@@ -13,9 +13,9 @@ actions").
  
 12.6.4.13Set-OCG-state actions 
  
-set-OCG-state actionPDF 1.5
+set-OCG-state action#PDF 1.5
 © ISO 2017 – All rights reserved 507 
-A  () sets the state of one or more optional content groups (see 8.11, 
+A  () sets the state of one or more optional content #groups (see 8.11, 
 
 ISO/DIS 32000-2
  

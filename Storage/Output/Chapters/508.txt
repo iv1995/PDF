@@ -1,10 +1,10 @@
-Table 323: Entries in a 3D node dictionary" shows the entries in a 3D node dictionary. 
-Table 323: Entries in a 3D node dictionary 
+#Table 323: Entries in a 3D node dictionary" shows the entries in a 3D node dictionary. 
+#Table 323: Entries in a 3D node dictionary 
 Key Type Value 
 Optional
 Type 
 3DNode
-name () The type of PDF object that this dictionary describes; if present, shall be 
+name () The type of #PDF #object that this dictionary describes; if present, shall be 
  for a 3D node dictionary. 
 Required
 N 
@@ -16,17 +16,17 @@ Subtype
 311: Entries in a 3D stream dictionary" as described below:  
  If the  of the corresponding 3D Stream is , this entry 
 shall correspond to the field Node block name, specified in the 
-PRCPDF 2.0PRC
+PRC#PDF 2.0PRC
 Subtype
 Universal 3D file format. 
  () If the  of the corresponding 3D Stream is , this 
 entry shall be constructed from fields stored in the PRC stream. 
 When comparing this entry to node names for a particular 
-convention (such as Universal 3D), interactive PDF processors shall 
-translate between the PDF text encoding used by PDF and the 
+convention (such as Universal 3D), #interactive ##PDF processors shall 
+translate between the #PDF text encoding used by #PDF and the 
 NOTE For information on deriving names from PRC fields, see the documentation 
-character encoding specified in the 3D stream. 
-module "Naming PRC entities for outside PDF referencing" in the PRC Format.
+#character encoding specified in the 3D stream. 
+module "Naming PRC entities for outside #PDF referencing" in the PRC Format.
  
 Optional
 O 
@@ -38,23 +38,23 @@ for the 3D artwork (in ascending order).
 Optionaltrue
 V 
 false
-boolean () A flag indicating the visibility of this node. If , then the node is visible. If 
+boolean () A flag indicating the visi#bility of this node. If , then the node is visible. If 
 , then the node shall not be visible. 
  
-If this entry is absent, the viewer shall use the visibility specified for the parent node or 
+If this entry is absent, the viewer shall use the visi#bility specified for the parent node or 
 for the 3D artwork (in ascending order).
 Optional
 M 
 array () A 12-element 3D transformation matrix that specifies the position and 
 orientation of this node, relative to its parent, in world coordinates (see 13.6.5, 
 "Coordinate systems for 3D"). 
-Required if data is present; PDF 2.0
+Required if data is present; #PDF 2.0
 Instance  
 RichMediaInstance 
-dictionary () An indirect object reference to a
+dictionary () An in#direct ##object reference to a
 dictionary (see "Table 343: Entries in a RichMediaInstance 
 dictionary") that is also referenced by an entry in the Instances array. 
-Optional; PDF 2.0
+Optional; #PDF 2.0
 Data 
 text string () A text string or stream that contains state data to be passed to the 
 Data
@@ -67,21 +67,21 @@ dictionary".
 ISO/DIS 32000-2
  
 Key Type Value 
-Optional; PDF 2.0
+Optional; #PDF 2.0
 RM 
 dictionary () A render mode dictionary that shall specify the render mode and 
 related properties for this node. If omitted, the render mode specified in the 3D view is 
 used, and if that is not present, the render mode of the 3D artwork is used. 
-The render mode dictionary shall be identical to that used by the 3D view dictionary. 
-See "Table 318: Entries in a render mode dictionary". 
+The render mode dictionary shall be# identical to that used by the 3D view dictionary. 
+See "#Table 318: Entries in a render mode dictionary". 
  
 N
 The  entry specifies which node in the 3D stream corresponds to this node dictionary. 
 OV
 The  entry describes the opacity that shall be used when rendering this node, and the  entry shall 
 determine whether or not the node is rendered at all. While a node with an opacity of 0 shall be 
-rendered in the same way as a non-visible node, having a separate value for the visibility of a node 
-allows interactive PDF processors to show/hide partially transparent nodes, without overwriting the 
+rendered in the same way as a non-visible node, having a separate value for the visi#bility of a node 
+allows #interactive ##PDF processors to show/hide partially transparent nodes, without overwriting the 
 intended opacity of those nodes. 
 M
 The  entry specifies the node’s matrix relative to its parent, in world coordinates. If an hierarchy of 
@@ -92,9 +92,9 @@ InstanceDataInstances
 Data
 The  and  entries provide a reference to an instance array dictionary within the  
 array. The content of  shall be passed to and from the appropriate media run time engine by the 
-interactive PDF processor in a rich media context. 
+#interactive ##PDF processor in a rich media context. 
 RM
-The  provides the facility of specifying a change in render mode for each node. In PDF 1.7, render 
+The  provides the facility of specifying a change in render mode for each node. In #PDF 1.7, render 
 mode could be specified globally or per view. See 13.6.4, "3D views". 
 RM
 The  entry to the 3D node dictionary is applicable both for the 3D node structure within a rich media 

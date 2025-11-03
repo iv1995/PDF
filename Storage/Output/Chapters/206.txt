@@ -17,7 +17,7 @@ pppp
 ISO/DIS 32000-2
  
  ![Figure 47 Control points in a tensor-product patch  .png](./Storage/Output/Images/Figure 47 Control points in a tensor-product patch  .png)
-Figure 47: Control points in a tensor-product patch 
+#Figure 47: Control points in a tensor-product patch 
  
 uv
 As in a Coons patch mesh, the geometry of the tensor-product patch is described by a surface defined 

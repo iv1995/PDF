@@ -1,5 +1,5 @@
-FDF file 
+#FDF file 
 File conforming to the Forms Data Format containing form data or annotations that may be imported 
-into a PDF file (see 12.7.8, "Forms data format") 
+into a #PDF file (see 12.7.8, "Forms data format") 
 4.25 
  

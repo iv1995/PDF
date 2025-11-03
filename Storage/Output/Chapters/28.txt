@@ -1,5 +1,5 @@
-filter 
-optional part of the specification of a stream object, indicating how the data in the stream should be 
+#filter 
+optional part of the specification of a stream #object, indicating how the data in the stream should be 
 decoded before it is used 
 4.26 
  

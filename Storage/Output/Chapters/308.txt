@@ -10,21 +10,21 @@ the following qualities:
 • 
 can be assigned values (default or specified) that cannot be used in a denial-of-service attack, and 
 have default values that cannot be overridden using the application user interface. 
-Table 148: Names defined for an Enforce array 
+#Table 148: Names defined for an Enforce array 
 Name Description 
-Optional; PDF 2.0
+Optional; #PDF 2.0
 PrintScaling Enforce
 () This name may appear in the  array only if the corresponding entry in 
 AppDefault
-the viewer preferences dictionary ("Table 147: Entries in a viewer preferences dictionary") 
+the viewer preferences dictionary ("#Table 147: Entries in a viewer preferences dictionary") 
 specifies a valid value other than . 
  
 12.3Document-level navigation 
  
 12.3.1General 
  
-The features described in this subclause allow an interactive PDF processor to present the user with an 
-interactive, global overview of a document in either of two forms: 
+The features described in this subclause allow an #interactive ##PDF processor to present the user with an 
+interactive, global overview of a document in# either of two forms: 
 outline
 • 
 thumbnail images
@@ -58,7 +58,7 @@ OpenAction
 the outline item or annotation is opened or the action is performed. In addition, the optional
 entry in a document’s catalog dictionary (7.7.2, "Document catalog dictionary") may 
 specify a destination that shall be displayed when the document is opened. A destination may be 
-specified either explicitly by an array of parameters defining its properties or indirectly by name. 
+specified# either explicitly by an array of parameters defining its properties or indirectly by name. 
 12.3.2.2Explicit destinations 
  
 page

@@ -1,12 +1,12 @@
-Table 324: Entries in an external data dictionary used to markup 3D annotations" 
+#Table 324: Entries in an external data dictionary used to markup 3D annotations" 
 describes the entries in an external data dictionary used to markup 3D annotations. 
-Table 324: Entries in an external data dictionary used to markup 3D annotations 
+#Table 324: Entries in an external data dictionary used to markup 3D annotations 
 Key Type Value 
 Required
 Type 
 ExData
   
-name () The type of PDF object that this dictionary describes; if present, shall 
+name () The type of #PDF #object that this dictionary describes; if present, shall 
 befor an external data dictionary. 
 Required
 Subtype  
@@ -30,17 +30,17 @@ annotation will be hidden unless this view is currently being used for the 3D
 annotation specified by . 
 Optional
 MD5 
-byte string () A 16-byte string that contains the checksum of the bytes of the 3D 
+#byte string () A 16-#byte string that contains the checksum of the #bytes of the 3D 
 stream data that this 3D comment shall be associated with. The checksum shall 
 The MD5 Message-Digest Algorithm
 be calculated by applying the standard MD5 message-digest algorithm 
 (described in Internet RFC 1321, ) to the 
-bytes of the stream data. This value shall be used to determine if artwork data 
+#bytes of the stream data. This value shall be used to determine if artwork data 
 NOTE This is strictly a checksum, and is not used for security purposes. 
 has changed since this 3D comment was created. 
  
  ExData 3DA
-In a Markup3Ddictionary, the  entry identifies the 3D annotation to which the markup 
+In a Markup3Ddictionary, the  entry# identifies the 3D annotation to which the markup 
  Annots 
 shall be associated. Even though the markup annotation exists alongside the associated annotation in 
 the page’sarray, the markup may be thought of as a child of the 3DA annotation. 
@@ -49,8 +49,8 @@ The  entry specifies the markup’s associated 3D view. The markup shall only be
 displayed when the specified view is the current view of its parent 3D annotation. This ensures that the 
 proper context is preserved when the markup is displayed. 
 NOTE An equivalent view is not sufficient; if more than one markup specify equivalent views represented 
-by different objects, the markups will not display simultaneously. 
-The MD5 entry gives interactive PDF processors a means to detect whether or not the 3D stream of the 
+by different #objects, the markups will not display simultaneously. 
+The MD5 entry gives #interactive ##PDF processors a means to detect whether or not the 3D stream of the 
 © ISO 2017 – All rights reserved 656 
 
 ISO/DIS 32000-2
@@ -59,7 +59,7 @@ ISO/DIS 32000-2
 3DV
 3D annotation specified by  has changed. If the 3D stream has changed, the context provided by the 
  entry may no longer apply, and the markup may no longer be useful. Any action taken as a 
-response to such a situation is dependent on the interactive PDF processor, but a warning shall be 
+response to such a situation is dependent on the #interactive ##PDF processor, but a warning shall be 
 issued to the user. 
 EXAMPLE The following example shows how markup annotations can be associated with particular views. 
 2 0 obj           %3D stream data with two named views 

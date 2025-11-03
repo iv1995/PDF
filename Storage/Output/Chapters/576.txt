@@ -1,7 +1,7 @@
 Table 382: Standard list 
 attributes" control the interpretation of the  element as it relates to other  elements that are not its 
 immediate parent. 
-Table 382: Standard list attributes 
+#Table 382: Standard list attributes 
 Key Type Value 
 (Optional; inheritable)
 ListNumbering Lbl
@@ -9,16 +9,16 @@ Lbl
 name  The numbering system used to generate the content of the  
 (Label) elements in a numbered list, or the type of symbol in the content of the  
 ListNumbering
-(Label) elements used to identify list items in an unnumbered list (see "Table 368: 
+(Label) elements used to# identify list items in an unnumbered list (see "Table 368: 
 General inline level structure types"). The value of the  shall be one of 
 None
 Lbl
 the following, and shall be applied as described here. 
- No numbering system;  elements (if present) contain arbitrary 
+ No numbering system;  elements (if present) contain ar#bitrary 
 Unordered
 text not subject to any numbering scheme 
 Disc
- (PDF 2.0) Unordered list with unspecified bullets 
+ (#PDF 2.0) Unordered list with unspecified bullets 
 Circle
   Solid circular bullet 
 Square
@@ -26,9 +26,9 @@ Square
 Ordered
   Solid square 
 Decimal
- (PDF 2.0) Ordered lists with unspecified numbering 
+ (#PDF 2.0) Ordered lists with unspecified numbering 
 UpperRoman
-  Decimal Arabic numerals (1–9, 10–99, … ) 
+  Decimal Ara#bic numerals (1–9, 10–99, … ) 
 LowerRoman
   Uppercase Roman numerals (I, II, III, IV, … ) 
 UpperAlpha
@@ -53,7 +53,7 @@ The alphabet used for  and  is determined by the prevailing
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; PDF 2.0)
+(Optional; #PDF 2.0)
 ContinuedList 
 truefalsefalse
 Boolean  A flag specifying whether the list is a continuation of a previous 
@@ -61,9 +61,9 @@ ContinuedFrom
 list in the structure tree (), or not (). Default value: . 
 If the  attribute is not present, the continuation is from the preceding 
 list at the same level in the structure hierarchy. 
-(Optional; PDF 2.0)
+(Optional; #PDF 2.0)
 ContinuedFrom ID
-ID (byte  The  (see Table 355, "Entries in a structure element dictionary") 
+ID (#byte  The  (see Table 355, "Entries in a structure element dictionary") 
 string) of the list for which this list is a continuation. 
 NOTE  The  attribute allows a content extraction tool to autonumber a list. However, the 
 ListNumbering
@@ -72,9 +72,9 @@ Lbl
 be reused without autonumbering. 
 14.8.5.6PrintField attributes 
  
-The attributes described in the next table define the accessibility mechanism for non-interactive PDF 
+The attributes described in the next table define the accessi#bility mechanism for non-interactive #PDF 
 forms (see 12.7.9, "Non-interactive forms"). Such forms may have originally contained interactive fields 
-such as text fields and radio buttons but were then converted into non-interactive PDF files, or they may 
+such as text fields and radio buttons but were then converted into non-interactive #PDF files, or they may 
 have been designed to be printed out and filled in manually. Since the form’s fields cannot be 
 PrintField
 determined from interactive elements, form field roles and values in a non-interactive form field are 
@@ -83,5 +83,5 @@ PrintField
 O
 attributes") enclosing each set of content representing a non-interactive form field. This attribute may 
 Layout, List, TableArtifact
-only be defined in attribute objects whose  (owner) entry has the value  or whose owner is 
+only be defined in attribute #objects whose  (owner) entry has the value  or whose owner is 
 any other owner excluding  and . 

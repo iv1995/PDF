@@ -1,21 +1,21 @@
 Figure 36: Radial shadings with 
-extension". In "Figure 35: Radial shadings depicting a sphere", the inner circle has zero radius; it is 
+extension". In "#Figure 35: Radial shadings depicting a sphere", the inner circle has zero radius; it is 
 the starting circle in the figure on the left and the ending circle in the figure on the right. Neither 
-shading is extended at either the smaller or larger end. In "Figure 36: Radial shadings with 
+shading is extended at# either the smaller or larger end. In "Figure 36: Radial shadings with 
 extension", the inner circle in both figures has a non-zero radius and the shading is extended at 
 the larger end. In each plate, a background colour is specified for the figure on the right but not 
 for the figure on the left. ![Figure 35 Radial shadings depicting a sphere  .png](./Storage/Output/Images/Figure 35 Radial shadings depicting a sphere  .png)
-Figure 35: Radial shadings depicting a sphere 
+#Figure 35: Radial shadings depicting a sphere 
  
 © ISO 2017 – All rights reserved 232 
 
 ISO/DIS 32000-2
  ![Figure 36 Radial shadings with extension  .png](./Storage/Output/Images/Figure 36 Radial shadings with extension  .png)
-Figure 36: Radial shadings with extension 
+#Figure 36: Radial shadings with extension 
  
 NOTE 3 If neither circle contains the other, the shading depicts a cone. If the starting circle is larger, the 
 cone appears to point out of the page. If the ending circle is larger, the cone appears to point into 
-the page (see "Figure 34: Radial shadings depicting a cone" ("8.7.4.5.4"Type 3 (radial) 
+the page (see "#Figure 34: Radial shadings depicting a cone" ("8.7.4.5.4"Type 3 (radial) 
 , 
 shadings")). 
-EXAMPLE 1 This example shows the shading used for the objects in the leaf-covered branch in "
+EXAMPLE 1 This example shows the shading used for the #objects in the leaf-covered branch in "

@@ -1,4 +1,4 @@
-Figure 40: Varying the value of the edge flag to create different shapes" shows two simple examples. Mesh1 
+#Figure 40: Varying the value of the edge flag to create different shapes" shows two simple examples. Mesh1 
 begins with triangle 1 and uses the following edge flags to draw each succeeding triangle: 
 𝑚𝑚𝑏𝑏𝑐𝑐𝑚𝑚
 1 (𝑓𝑓=𝑓𝑓=𝑓𝑓=0) 7 (𝑓𝑓=2) 
@@ -36,23 +36,23 @@ otherwise, an error occurs.
 
 ISO/DIS 32000-2
  ![Figure 40 Varying the value of the edge flag to create different shapes  .png](./Storage/Output/Images/Figure 40 Varying the value of the edge flag to create different shapes  .png)
-Figure 40: Varying the value of the edge flag to create different shapes 
+#Figure 40: Varying the value of the edge flag to create different shapes 
  
 The data for each vertex consists of the following items, reading in sequence from higher-order to 
-lower-order bit positions: 
-BitsPerFlag
+lower-order #bit positions: 
+#BitsPerFlag
 • 
-BitsPerCoordinate
+#BitsPerCoordinate
 • 
-An edge flag, expressed in  bits 
+An edge flag, expressed in  #bits 
 • 
-A pair of horizontal and vertical coordinates, expressed in  bits each 
- BitsPerComponent sc
+A pair of horizontal and vertical coordinates, expressed in  #bits each 
+ #BitsPerComponent sc
 A set of n colour components (where n is the number of components in the shading’s colour 
-space), expressed inbits each, in the order expected by the  operator 
-Each set of vertex data shall occupy a whole number of bytes. If the total number of bits required is not 
+space), expressed in#bits each, in the order expected by the  operator 
+Each set of vertex data shall occupy a whole number of #bytes. If the total number of #bits required is not 
 Decode
-divisible by 8, the last data byte for each vertex is padded at the end with extra bits, which shall be 
+divisible by 8, the last data #byte for each vertex is padded at the end with extra #bits, which shall be 
 ignored. The coordinates and colour values shall be decoded according to the  array in the same 
 way as in an image dictionary (see 8.9.5.2, "Decode arrays"). 
 Function
@@ -62,7 +62,7 @@ t
 a single parametric value  rather than by  separate colour components. All linear interpolation within 
 Function
 the triangle mesh shall be done using the  values. After interpolation, the results shall be passed to the 
-function(s) specified in the  entry to determine the colour at each point. 
+#function(s) specified in the  entry to determine the colour at each point. 
 8.7.4.5.6Type 5 (lattice-form Gouraud-shaded triangle mesh) shadings 
  
 pseudorectangular lattice

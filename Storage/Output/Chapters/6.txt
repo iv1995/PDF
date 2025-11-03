@@ -1,4 +1,4 @@
-array object 
-one-dimensional collection of objects arranged sequentially and implicitly numbered starting at 0 
+#array #object 
+one-dimensional collection of #objects arranged sequentially and implicitly numbered starting at 0 
 4.4  
  

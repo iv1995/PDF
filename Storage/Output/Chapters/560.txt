@@ -1,7 +1,7 @@
 Table 366: Block 
-level structure types", that consist of running text and other content laid out in the form of conventional 
+level structure types", that consist of #running text and other content laid out in the form of conventional 
 paragraphs (as opposed to more specialised types of content such as lists and tables). 
-Table 366: Block level structure types 
+#Table 366: Block level structure types 
 Structure Category Description 
 Type 
 (Paragraph) 
@@ -21,7 +21,7 @@ equal to 1)
 Block 
 NOTE 1 Low-level content would typically be perceived as a sub-section of a 
  Encloses a low-level division of content usually referred to as a heading.  
-document, whether a section heading, chapter or any other identifiable 
+document, whether a section heading, chapter or any other# identifiable 
 subdivision of content within a logical document. See the  element 
 Title
 regarding high-level division of content. 
@@ -39,7 +39,7 @@ The heading level indicated by a heading should reflect the heading level of the
 NOTE 3 The  structure element can be used to enclose section enumeration 
 Lbl
 tagged content.  
-content or its functional equivalent present inside the heading. 
+content or its #functional equivalent present inside the heading. 
  
 EXAMPLE A section heading in a text book or newspaper article is one 
 example where a heading level would be indicated.
@@ -81,24 +81,24 @@ EXAMPLE 2 Scientific publications and technical specifications often follow
 H
 very strict structuring rules and thus are suitable candidates for 
 use of the  heading structure element.
-(PDF 2.0) 
+(#PDF 2.0) 
 Title 
-Grouping or Encloses content that is usually referred to as the title of a document or 
+#Grouping or Encloses content that is usually referred to as the title of a document or 
 NOTE 3 High-level content would typically be perceived as the title of an article, 
 Block high-level division of content.  
-section, chapter or any other identifiable top-level subdivision of content 
+section, chapter or any other# identifiable top-level subdivision of content 
 within a logical document. See the  and  elements regarding low-level 
 HnH
 division of content. 
-It should occur only once inside the parent grouping structure element, and it 
-should occur at or near the beginning of the content inside that grouping structure 
+It should occur only once inside the parent #grouping structure element, and it 
+should occur at or near the beginning of the content inside that #grouping structure 
 element. 
 Title
 EXAMPLE 3 The title of a book, brochure or leaflet are some types of content 
 that can be marked with the  structure element. 
-(PDF 2.0) 
+(#PDF 2.0) 
 FENote 
-Grouping, Used to markup footnotes and endnotes. Footnotes and endnotes are 
+#Grouping, Used to markup footnotes and endnotes. Footnotes and endnotes are 
 Block or content that is not normally read as part of the enclosing content from which it is 
 Inline referenced, but rather consulted at the reading person’s discretion. In order for text 
 to be considered a footnote or endnote, there should be a reference from the 
@@ -106,7 +106,7 @@ Link
 enclosing content to the footnote or endnote. Such reference may be achieved by 
 Ref
 means of a  structure element through a structure destination in its link 
-Table 368: General inline level structure types"), or use of  in 
+#Table 368: General inline level structure types"), or use of  in 
 annotation (see "
 NOTE 4 Text that is labelled as a note – like this paragraph –but is intended to be 
 structure elements (see "Table 355: Entries in a structure element dictionary"). 

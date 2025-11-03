@@ -1,27 +1,27 @@
-Table 12: Optional parameter for the JBIG2Decode filter" shall refer to that stream. The 
-stream may be shared by multiple image XObjects whose JBIG2 encoded streams use the same 
+Table 12: Optional parameter for the J#BIG2Decode #filter" shall refer to that stream. The 
+stream may be shared by multiple image X#Objects whose J#BIG2 encoded streams use the same 
 global segments. 
-Table 12: Optional parameter for the JBIG2Decode filter 
+Table 12: Optional parameter for the J#BIG2Decode #filter 
 Key Type Value 
-JBIG2Globals 
-stream A stream containing the JBIG2 global (page 0) segments. Global segments 
-shall be placed in this stream even if only a single JBIG2 image XObject 
+J#BIG2Globals 
+stream A stream containing the J#BIG2 global (page 0) segments. Global segments 
+shall be placed in this stream even if only a single J#BIG2 image X#Object 
 refers to it. 
  
-The following shows an image that was compressed according to the JBIG2 standard and then encoded 
-JBIG2Globals
-in ASCII hexadecimal representation. Since the JBIG2 bit stream contains global segments, these 
-segments are placed in a separate PDF stream, as indicated by the  filter parameter. 
+The following shows an image that was compressed according to the J#BIG2 standard and then encoded 
+J#BIG2Globals
+in #ASCII hexadecimal representation. Since the J#BIG2 #bit stream contains global segments, these 
+segments are placed in a separate #PDF stream, as indicated by the  #filter parameter. 
 5 0 obj 
-   <</Type /XObject 
+   <</Type /X#Object 
    /Subtype /Image 
    /Width 52 
    /Height 66 
    /ColorSpace /DeviceGray 
-   /BitsPerComponent 1 
+   /#BitsPerComponent 1 
    /Length 224 
-   /Filter [/ASCIIHexDecode /JBIG2Decode] 
-   /DecodeParms [null <</JBIG2Globals 6 0 R>>] 
+   /#Filter [/#ASCIIHexDecode /J#BIG2Decode] 
+   /DecodeParms [null <</J#BIG2Globals 6 0 R>>] 
   >> 
 stream 
 000000013000010000001300000034000000420000000000 
@@ -36,7 +36,7 @@ ISO/DIS 32000-2
  
 6 0 obj 
    <</Length 126 
-   /Filter /ASCIIHexDecode 
+   /#Filter /#ASCIIHexDecode 
   >> 
 stream 
 0000000000010000000032000003fffdff02fefefe000000 
@@ -45,7 +45,7 @@ stream
 endstream 
 endobj 
  
-The original JBIG2 bit stream from which the image XObject for this example was constructed is as 
+The original J#BIG2 #bit stream from which the image X#Object for this example was constructed is as 
 follows: 
 97 4A 42 32 0D 0A 1A 0A 01 00 00 00 01 00 00 00 00 00 01 00 00 00 00 32 
 00 00 03 FF FD FF 02 FE FE FE 00 00 00 01 00 00 00 01 2A E2 25 AE A9 A5 
@@ -55,20 +55,20 @@ FF AC 00 00 00 01 30 00 01 00 00 00 13 00 00 00 34 00 00 00 42 00 00 00
 00 00 00 42 00 00 00 00 00 00 00 00 02 00 10 00 00 00 02 31 DB 51 CE 51 
 FF AC 00 00 00 03 31 00 01 00 00 00 00 00 00 00 04 33 01 00 00 00 00 
  
-This bit stream is made up of the following parts (in the order listed): 
+This #bit stream is made up of the following parts (in the order listed): 
  
-a)The JBIG2 file header 
+a)The J#BIG2 file header 
 97 4A 42 32 0D 0A 1A 0A 01 00 00 00 01 
  
-Since the JBIG2 file header is not allowed in a JBIG2 encoded image XObject in PDF, this header is not 
-placed in the JBIG2 stream object and is discarded. 
+Since the J#BIG2 file header is not allowed in a J#BIG2 encoded image X#Object in #PDF, this header is not 
+placed in the J#BIG2 stream #object and is discarded. 
  
-b)The first JBIG2 segment (segment 0) is a symbol dictionary segment 
+b)The first J#BIG2 segment (segment 0) is a symbol dictionary segment 
 00 00 00 00 00 01 00 00 00 00 32 00 00 03 FF FD FF 02 FE FE FE 00 00 00 
 01 00 00 00 01 2A E2 25 AE A9 A5 A5 38 B4 D9 99 9C 5C 8E 56 EF 0F 87 
 27 F2 B5 3D 4E 37 EF 79 5C C5 50 6D FF AC 
  
-JBIG2Globals
+J#BIG2Globals
 This is a global segment (segment page association = 0) and thus is placed in the  stream. 
  
 00 00 00 01 30 00 01 00 00 00 13 00 00 00 34 00 00 00 42 00 00 00 00 
@@ -79,7 +79,7 @@ c)The next segments are the page information segment
 and the immediate text region segment 
 00 00 00 00 00 02 00 10 00 00 00 02 31 DB 51 CE 51 FF AC 
  
-These two segments constitute the contents of the JBIG2 page and are placed in the image XObject 
+These two segments constitute the contents of the J#BIG2 page and are placed in the image X#Object 
 representing this image. 
  
 00 00 00 03 31 00 01 00 00 00 00 
@@ -88,33 +88,33 @@ d)The last segments are the end-of-page segment
 00 00 00 04 33 01 00 00 00 00 
 and the end-of-file segment 
  
-Since these segments are not allowed in a JBIG2 encoded image XObject in PDF, they are discarded. 
+Since these segments are not allowed in a J#BIG2 encoded image X#Object in #PDF, they are discarded. 
 © ISO 2017 – All rights reserved 52 
 
 ISO/DIS 32000-2
  
-JBIG2Globals
-The resulting PDF image XObject, then, contains the page information segment and the immediate text 
+J#BIG2Globals
+The resulting #PDF image X#Object, then, contains the page information segment and the immediate text 
 region segment and refers to a  stream that contains the symbol dictionary segment. 
-7.4.8DCTDecode filter 
+7.4.8DCTDecode #filter 
  
  DCTDecode 
-Thefilter decodes grayscale or colour image data that has been encoded in the JPEG 
-baseline format. See Adobe Technical Note #5116 for additional information about the use of JPEG 
+The#filter decodes grayscale or colour image data that has been encoded in the #JPEG 
+baseline format. See Adobe Technical Note #5116 for additional information about the use of #JPEG 
 "markers". 
-NOTE 1 JPEG stands for the Joint Photographic Experts Group, a group within the International 
+NOTE 1 #JPEG stands for the Joint Photographic Experts #Group, a #group within the International 
 Organization for Standardization that developed the format; DCT stands for discrete cosine 
 transform, the primary technique used in the encoding. 
-JPEG encoding is a lossy compression method, designed specifically for compression of sampled 
+#JPEG encoding is a lossy compression method, designed specifically for compression of sampled 
 continuous-tone images and not for general data compression. 
-Data to be encoded using JPEG shall consist of a stream of image samples, each consisting of one, three, 
+Data to be encoded using #JPEG shall consist of a stream of image samples, each consisting of one, three, 
 or four colour components. The colour component values for a particular sample shall appear 
-consecutively. Each component value shall occupy a byte. 
+consecutively. Each component value shall occupy a #byte. 
 During encoding, several parameters shall control the algorithm and the information loss. The values of 
  
 these parameters, which include the dimensions of the image and the number of components per 
 DCTDecode 
 sample, are entirely under the control of the encoder and shall be stored in the encoded data.
 may obtain the parameter values it requires directly from the encoded data. However, in 
-one instance, the parameter need not be present in the encoded data but shall be specified in the filter 
+one instance, the parameter need not be present in the encoded data but shall be specified in the #filter 
 parameter dictionary; see "

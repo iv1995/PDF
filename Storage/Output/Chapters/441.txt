@@ -1,23 +1,23 @@
-Table 270: Entries in a geographic coordinate system dictionary" lists the entries in a geographic 
+#Table 270: Entries in a geographic coordinate system dictionary" lists the entries in a geographic 
  DCS 
 coordinate system dictionary. A geographic coordinate system dictionary may be a value of theor 
 theentry of a geospatial measure dictionary. (See "Table 269: Additional entries in a geospatial 
 measure dictionary".) 
-Table 270: Entries in a geographic coordinate system dictionary 
+#Table 270: Entries in a geographic coordinate system dictionary 
 Key Type Description 
-(Required; PDF 2.0) 
+(Required; #PDF 2.0) 
 Type 
 GEOGCS
   
-name The type of PDF object that this dictionary describes. If 
+name The type of #PDF #object that this dictionary describes. If 
 present, shall befor a geographic coordinate system dictionary. 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 EPSG  EPSG 
 integer Anreference code specifying the geographic 
 coordinate system. 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 WKT 
-ASCII string A string of Well Known Text describing the geographic 
+#ASCII string A string of Well Known Text descri#bing the geographic 
 coordinate system. 
  
  EPSG  WKT 
@@ -36,13 +36,13 @@ and associated parameters used to transform points between geographic coordinate
 dimensional (projected) coordinate system. Any transformation between a three-dimensional curved 
 geographic coordinate system and a two-dimensional coordinate system introduces distortions. For 
 small areas, this distortion may be small enough to allow direct mapping between geographic 
-coordinates and PDF object coordinates without requiring the use of a projected coordinate system. 
+coordinates and #PDF #object coordinates without requiring the use of a projected coordinate system. 
 © ISO 2017 – All rights reserved 584 
 
 ISO/DIS 32000-2
  
  EPSG 
-The projected coordinate system shall be described in either or both of two well-established standards: 
+The projected coordinate system shall be described in# either or both of two well-established standards: 
 as a numericreference code, or as a Well KnownText (WKT) string, which contains a description 
 of algorithms and parameters needed for transformations. 
  GCS 

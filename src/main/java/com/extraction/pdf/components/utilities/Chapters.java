@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 public class Chapters {
 	
-	public static ArrayList<String> chapters(String book, ArrayList<String> titles){
+	public static ArrayList<String> chapters(String book, ArrayList<String> bridge){
+		ArrayList<String> titles = new ArrayList<String>();
+		titles.addAll(bridge);		
+		
 		ArrayList<String> chapter = new ArrayList<>();
 		
 		do {

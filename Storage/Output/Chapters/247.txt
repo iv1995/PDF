@@ -1,4 +1,4 @@
-Table 106: Text-positioning operators 
+#Table 106: Text-positioning operators 
 Operands Operator Description 
 tx ty 
 Td 
@@ -48,7 +48,7 @@ m
 The operands shall all be numbers, and the initial value for  and 
 T
 lm
- shall be the identity matrix, [1 0 0 1 0 0]. Although the operands 
+ shall be the# identity matrix, [1 0 0 1 0 0]. Although the operands 
 m
  as six separate 
 specify a matrix, they shall be passed to 
@@ -82,14 +82,14 @@ decreasing the  coordinate.
  
 T
 m
-At the beginning of a text object, 
- shall be the identity matrix; therefore, the origin of text space shall 
+At the beginning of a text #object, 
+ shall be the# identity matrix; therefore, the origin of text space shall 
 T
 be initially the same as that of user space. The text-positioning operators, described in "Table 106: Text-
 text-showing operators
 m
 positioning operators" alter 
- and thereby control the placement of glyphs that are subsequently 
+ and thereby control the placement of #glyphs that are subsequently 
 ef
 m
 painted. Also, the , described in "

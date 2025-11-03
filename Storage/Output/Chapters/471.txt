@@ -1,8 +1,8 @@
-Table 299: Additional entries in a media offset marker dictionary 
+#Table 299: Additional entries in a media offset marker dictionary 
 Key Type Value 
 Required
 M 
-text string () A text string that identifies a named offset within a media object. 
+text string () A text string that# identifies a named offset within a media #object. 
  
 13.2.6.3Timespan dictionary 
  

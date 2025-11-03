@@ -1,12 +1,12 @@
 Table 307: Entries in a movie 
 activation dictionary") that shall specify how it shall be presented. 
-Table 306: Entries in a movie dictionary 
+#Table 306: Entries in a movie dictionary 
 Key Type Value 
 Required
 F 
-file specification () A file specification identifying a self-describing movie file. 
-The format of a self-describing movie file shall be left unspecified, and 
-there is no guarantee of portability. 
+file specification () A file specification# identifying a self-descri#bing movie file. 
+The format of a self-descri#bing movie file shall be left unspecified, and 
+there is no guarantee of porta#bility. 
 Optional
 Aspect 
 array () The width and height of the movie’s bounding box, in pixels, 
@@ -22,26 +22,26 @@ Poster
 boolean or stream () A flag or stream specifying whether and how a poster image 
 representing the movie shall be displayed. If this value is a stream, it shall 
 true
-contain an image XObject (see 8.9, "Images") to be displayed as the poster. 
+contain an image X#Object (see 8.9, "Images") to be displayed as the poster. 
 falsefalse
 If it is the boolean value , the poster image shall be retrieved from the 
 movie file; if it is , no poster shall be displayed. Default value: . 
-Table 307: Entries in a movie activation dictionary 
+#Table 307: Entries in a movie activation dictionary 
 Key Type Value 
 Optional
 Start 
-(various) () The starting time shall be nominally a non-negative 64-bit 
+(various) () The starting time shall be nominally a non-negative 64-#bit 
 • 
 integer, specified as follows: 
 • 
-If it is representable as a 32 bit integer, it shall be specified as such. 
-If it is not representable as a 32 bit integer, it shall be specified as an 
-8-byte string representing a 64-bit twos-complement integer, most 
+If it is representable as a 32 #bit integer, it shall be specified as such. 
+If it is not representable as a 32 #bit integer, it shall be specified as an 
+8-#byte string representing a 64-#bit twos-complement integer, most 
 • 
-significant byte first. 
+significant #byte first. 
 If it is expressed in a time scale different from that of the movie 
 itself, it shall be represented as an array of two values: an integer or 
-byte string denoting the starting time, followed by an integer 
+#byte string denoting the starting time, followed by an integer 
 specifying the time scale in units per second. 
 If this entry is omitted, the movie shall be played from the beginning. 
 © ISO 2017 – All rights reserved 617 
@@ -93,14 +93,14 @@ false
 asynchronously. If this value is , the movie player shall retain control 
 until the movie is completed or dismissed by the user. If the value is , 
 false
-the player shall return control to the interactive PDF processor 
+the player shall return control to the #interactive ##PDF processor 
 immediately after starting the movie. Default value: . 
 Optional
 FWScale 
 array () The magnification (zoom) factor at which the movie shall be 
 played. The presence of this entry implies that the movie shall be played 
 in a floating window. If the entry is absent, the movie shall be played in 
-the annotation rectangle. 
+the annotation #rectangle. 
 [numerator denominator]
 The value of the entry shall be an array of two positive integers, 
 (numerator ÷ 
@@ -110,7 +110,7 @@ denominator)
 movie. The final window size, in pixels, shall be 
  
  ×where the value ofshall be taken from the 
-movie dictionary (see "Table 306: Entries in a movie dictionary").
+movie dictionary (see "#Table 306: Entries in a movie dictionary").
 Optional
 FWPosition 
 [horiz vert]
@@ -123,23 +123,23 @@ Default value: [0.5 0.5].
  
 13.5Alternate presentations 
  
-The features described in this clause are deprecated with PDF 2.0. 
+The features described in this clause are #deprecated with #PDF 2.0. 
 alternate presentations
 AlternatePresentations
-Beginning with PDF 1.4, a PDF document may contain , which specify alternative 
-ways in which the document may be viewed. The optional  entry (PDF 1.4) in a 
-document’s name dictionary (see "Table 32: Entries in the name dictionary") contains a name tree that 
+Beginning with #PDF 1.4, a #PDF document may contain , which specify alternative 
+ways in which the document may be viewed. The optional  entry (#PDF 1.4) in a 
+document’s name dictionary (see "#Table 32: Entries in the name dictionary") contains a #name tree that 
 © ISO 2017 – All rights reserved 618 
 
 ISO/DIS 32000-2
  
 maps name strings to the alternate presentations available for the document. 
-NOTE 1 Since PDF processors are not required to support alternate presentations, authors of documents 
+NOTE 1 Since ##PDF processors are not required to support alternate presentations, authors of documents 
 containing alternate presentations should define the files such that something useful and 
 meaningful can be displayed and printed. For example, if the document contains an alternate 
 presentation slideshow of a sequence of photographs, the photographs should be viewable in a 
 static form by viewers that are not capable of playing the slideshow. 
-As of PDF 1.5, the only type of alternate presentation is a slideshow. Slideshows may be invoked by 
+As of #PDF 1.5, the only type of alternate presentation is a slideshow. Slideshows may be invoked by 
 means of JavaScript actions (see 12.6.4.17, "ECMAScript actions") initiated by user action on an 
 interactive form element (see 12.7, "Forms"). 
 "

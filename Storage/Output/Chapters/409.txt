@@ -1,11 +1,11 @@
-Table 241: Additional entries specific to a reset-form action" shows the action 
+#Table 241: Additional entries specific to a reset-form action" shows the action 
 dictionary entries specific to this type of action. 
  Flags 
 The value of the action dictionary’sentry is a non-negative containing flags specifying various 
-characteristics of the action. Bit positions within the flag word shall be numbered starting from 1 (low-
-order). Only one flag is defined for this type of action. All undefined flag bits shall be reserved and shall 
+#characteristics of the action. #Bit positions within the flag word shall be numbered starting from 1 (low-
+order). Only one flag is defined for this type of action. All undefined flag #bits shall be reserved and shall 
 be set to 0. 
-Table 241: Additional entries specific to a reset-form action 
+#Table 241: Additional entries specific to a reset-form action 
 Key Type Value 
 (Required) 
 S  
@@ -20,12 +20,12 @@ ISO/DIS 32000-2
 Key Type Value 
 (Optional) 
 Fields 
-array An array identifying which fields to reset or which to 
+array An array# identifying which fields to reset or which to 
  Flags 
 exclude from resetting, depending on the setting of the Include/ 
 Exclude flag in theentry (see "Table 242: Flag for reset-form 
-(PDF 1.3) 
-actions"). Each element of the array shall be either an indirect 
+(#PDF 1.3) 
+actions"). Each element of the array shall be# either an indirect 
 reference to a field dictionary or a text string representing 
 the fully qualified name of a field. Elements of both kinds may be 
 mixed in the same array. 
@@ -34,5 +34,5 @@ If this entry is omitted, the Include/Exclude flag shall be ignored; all
 fields in the document’s interactive form are reset.
 (Optional; inheritable) 
 Flags 
-integer A set of flags specifying various characteristics 
+integer A set of flags specifying various #characteristics 
 of the action (see "

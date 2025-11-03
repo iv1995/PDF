@@ -1,55 +1,55 @@
-Table 78: Additional entries specific to a Type 1 shading dictionary" shows the shading 
+#Table 78: Additional entries specific to a Type 1 shading dictionary" shows the shading 
 © ISO 2017 – All rights reserved 227 
 
 ISO/DIS 32000-2
  
 dictionary entries specific to this type of shading, in addition to those common to all shading 
-dictionaries (see "Table 77: Entries common to all shading dictionaries"). 
+dictionaries (see "#Table 77: Entries common to all shading dictionaries"). 
  Indexed 
 This type of shading shall not be used with ancolour space. 
-Table 78: Additional entries specific to a Type 1 shading dictionary 
+#Table 78: Additional entries specific to a Type 1 shading dictionary 
 Key Type Value 
 Optionalxxyy
 Domain 
 minmaxminmax
 array () An array of four numbers [   ] specifying the rectangular 
-domain of coordinates over which the colour function(s) are defined. Default 
+domain of coordinates over which the colour #function(s) are defined. Default 
 value: [0 1 0 1]. 
 Optional
 Matrix 
 Domain
 array () An array of six numbers specifying a transformation matrix mapping 
 the coordinate space specified by the  entry into the shading’s target 
-NOTE To map the domain rectangle [0 1 0 1] to a 1-inch square with lower-left 
+NOTE To map the domain #rectangle [0 1 0 1] to a 1-inch square with lower-left 
 coordinate space. 
 corner at coordinates (100, 100) in default user space, the  value 
 Matrix
 would be [72 0 0 72 100 100]. 
-Default value: the identity matrix [1 0 0 1 0 0]. 
+Default value: the# identity matrix [1 0 0 1 0 0]. 
 Requirednn
-Function 
-Function or () A 2-in, -out function or an array of  2-in, 1-out functions (where n is 
+#Function 
+#Function or () A 2-in, -out #function or an array of  2-in, 1-out #functions (where n is 
 array the number of colour components in the shading dictionary’s colour space). Each 
-function’s domain shall be a superset of that of the shading dictionary. If the value 
-returned by the function for a given colour component is out of range, it shall be 
+#function’s domain shall be a superset of that of the shading dictionary. If the value 
+returned by the #function for a given colour component is out of range, it shall be 
 adjusted to the nearest valid value. 
  
 Domain
-The domain rectangle () establishes an internal coordinate space for the shading that is 
+The domain #rectangle () establishes an internal coordinate space for the shading that is 
 Function
-independent of the target coordinate space in which it shall be painted. The colour function(s) 
+independent of the target coordinate space in which it shall be painted. The colour #function(s) 
 Matrix
-() specify the colour of the shading at each point within this domain rectangle. The 
+() specify the colour of the shading at each point within this domain #rectangle. The 
 BBox
-transformation matrix () then maps the domain rectangle into a corresponding rectangle or 
+transformation matrix () then maps the domain #rectangle into a corresponding #rectangle or 
 parallelogram in the target coordinate space. Points within the shading’s bounding box () that fall 
 BackgroundBackground
-outside this transformed domain rectangle shall be painted with the shading’s background colour 
+outside this transformed domain #rectangle shall be painted with the shading’s background colour 
 (); if the shading dictionary has no  entry, such points shall be left unpainted. 
-If the function is undefined at any point within the declared domain rectangle, an error may occur, even 
+If the #function is undefined at any point within the declared domain #rectangle, an error may occur, even 
 if the corresponding transformed point falls outside the shading’s bounding box. 
 8.7.4.5.3Type 2 (axial) shadings 
  
 Type 2 (axial) shadings define a colour blend that varies along a linear axis between two endpoints and 
-extends indefinitely perpendicular to that axis. The shading may optionally be extended beyond either 
+extends indefinitely perpendicular to that axis. The shading may optionally be extended beyond# either 
 or both endpoints by continuing the boundary colours indefinitely. "

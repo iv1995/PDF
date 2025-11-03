@@ -1,5 +1,5 @@
-font 
-identified collection of graphics that may be glyphs or other graphical elements 
+#font 
+identified collection of graphics that may be #glyphs or other graphical elements 
 © ISO 2017 – All rights reserved 18 
 
 ISO/DIS 32000-2

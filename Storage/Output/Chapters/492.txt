@@ -1,9 +1,9 @@
-Figure 89: Shared artwork (annotations 2 & 3) modified 
+#Figure 89: Shared artwork (annotations 2 & 3) modified 
  
  
-"Figure 87: Default view of artwork" shows the same initial view of the artwork in all three annotations. 
-"Figure 88: Annotation 2 rotated" shows the results of rotating the view of the artwork within
-Annotation 2. "Figure 89: Shared artwork (annotations 2 & 3) modified" shows the results of 
+"#Figure 87: Default view of artwork" shows the same initial view of the artwork in all three annotations. 
+"#Figure 88: Annotation 2 rotated" shows the results of rotating the view of the artwork within
+Annotation 2. "#Figure 89: Shared artwork (annotations 2 & 3) modified" shows the results of 
 manipulating the artwork shared by Annotation 2 and Annotation 3: they both reflect the change in the 
 artwork because they share the same run-time instance. Annotation 1 remains unchanged because it 
 has its own run-time instance. 
@@ -20,14 +20,14 @@ ISO/DIS 32000-2
 A 3D view (or simply view) specifies parameters that shall be applied to the virtual camera associated 
 with a 3D annotation. These parameters may include orientation and position of the camera, details 
 regarding the projection of camera coordinates into the annotation’s target coordinate system, and a 
-description of the background on which the artwork shall be drawn. Starting with PDF 1.7, views may 
+description of the background on which the artwork shall be drawn. Starting with #PDF 1.7, views may 
 specify how 3D artwork is rendered, coloured, lit, and cross-sectioned, without the use of embedded 
 ECMAScript. Views may also specify which nodes (three-dimensional areas) of 3D artwork shall be 
 included in a view and whether those nodes are opaque or invisible. 
 NOTE 1 Users can manipulate views by performing interactive operations such as free rotation and 
 translation. In addition, 3D artwork can contain a set of predefined views that the author deems 
 to be of particular interest. For example, a mechanical drawing of a part can have specific views 
-showing the top, bottom, left, right, front, and back of an object. 
+showing the top, bottom, left, right, front, and back of an #object. 
  VA 
 A 3D stream may contain a list of named preset views of the 3D artwork, as specified by theentry, 
 which shall be an array of 3D view dictionaries. The entries in a 3D view dictionary are shown in "

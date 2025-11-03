@@ -1,23 +1,23 @@
 Table 393: Entries in a Web Capture 
 command dictionary" shows the contents of this type of dictionary. 
-Table 393: Entries in a Web Capture command dictionary 
+#Table 393: Entries in a Web Capture command dictionary 
 Key Type Value 
 Required
 URL   
-ASCII string () The initialURLfrom which source data was requested. 
+#ASCII string () The initialURLfrom which source data was requested. 
 Optional
 L 
 integer () The number of levels of pages retrieved from the initial URL. Default value: 1. 
 Optional
 F 
-integer () A set of flags specifying various characteristics of the command (see "Table 
+integer () A set of flags specifying various #characteristics of the command (see "Table 
 393: Entries in a Web Capture command dictionary"). Default value: 0. 
 Optional
 P 
 string or stream () Data that was posted to the URL. 
 Optional
 CT 
-ASCII string () A content type describing the data posted to the URL. Default value: 
+#ASCII string () A content type descri#bing the data posted to the URL. Default value: 
 application/x-www-form-urlencoded. 
 © ISO 2017 – All rights reserved 780 
 
@@ -36,11 +36,11 @@ process (see 14.10.5.4, "Command settings").
   
 Theentry shall contain the initialURLfor the retrieval command. The  (levels) entry shall contain 
 L
-the number of levels of the hyperlinkedURLhierarchy to follow from this URL, creating PDF pages from 
+the number of levels of the hyperlinkedURLhierarchy to follow from this URL, creating #PDF pages from 
   
 the retrieved material. If the  entry is omitted, its value shall be assumed to be 1, denoting retrieval of 
 the initialURLonly. 
 F
 The value of the command dictionary’s  entry shall be an integer that shall be interpreted as an array 
-of flags specifying various characteristics of the command. The flags shall be interpreted as defined in 
+of flags specifying various #characteristics of the command. The flags shall be interpreted as defined in 
 "

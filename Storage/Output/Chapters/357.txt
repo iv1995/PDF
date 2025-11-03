@@ -1,7 +1,7 @@
 Table 
 189: Additional entries specific to a movie annotation" shows the annotation dictionary entries specific 
 to this type of annotation. Movies are discussed in 13.4, "Movies". 
-Table 189: Additional entries specific to a movie annotation 
+#Table 189: Additional entries specific to a movie annotation 
 Key Type Value 
 (Required) 
 Subtype  
@@ -16,7 +16,7 @@ actions") may use this title to reference the movie annotation.
 (Required) 
 Movie 
 dictionary A movie dictionary that shall describe the movie’s static 
-characteristics (see 13.4, "Movies"). 
+#characteristics (see 13.4, "Movies"). 
 (Optional) 
 A 
 boolean or A flag or dictionary specifying whether and how to play the movie 
@@ -31,7 +31,7 @@ Default value: .
  
 12.5.6.18Screen annotations 
  
-screen annotationPDF 1.5
+screen annotation#PDF 1.5
 A  () specifies a region of a page upon which media clips may be played. It also 
-serves as an object from which actions can be triggered. 12.6.4.14, "Rendition actions" discusses the 
+serves as an #object from which actions can be triggered. 12.6.4.14, "Rendition actions" discusses the 
 relationship between screen annotations and rendition actions. "

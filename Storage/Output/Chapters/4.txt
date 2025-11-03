@@ -1,5 +1,5 @@
-… (ellipsis) 
-ellipses (…) are used within PDF examples to indicate omitted detail. Pairs of ellipses are also used to 
+#… (ellipsis) 
+ellipses (…) are used within #PDF examples to indicate omitted detail. Pairs of ellipses are also used to 
 bracket comments about such omitted detail. 
 4.2  
  

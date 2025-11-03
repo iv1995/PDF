@@ -1,16 +1,16 @@
 Table 389: Additional 
 entries specific to a Web Capture page set" defines the content set dictionary entries specific to Page 
 Sets. 
-The TID (text identifier) entry may be used to store an identifier generated from the text of the pages 
-belonging to the page set (see 14.10.3.3, "Digital identifiers"). A text identifier may not be appropriate 
+The TID (text# identifier) entry may be used to store an# identifier generated from the text of the pages 
+belonging to the page set (see 14.10.3.3, "Digital# identifiers"). A text# identifier may not be appropriate 
 for some page sets (such as those with no text) and may be omitted in these cases. 
-EXAMPLE This identifier can be used to determine whether the text of a document has changed. 
-Table 388: Entries common to all Web Capture content sets 
+EXAMPLE This# identifier can be used to determine whether the text of a document has changed. 
+#Table 388: Entries common to all Web Capture content sets 
 Key Type Value 
 Optional
 Type 
 SpiderContentSet
-name () The type of PDF object that this dictionary describes; if present, shall be 
+name () The type of #PDF #object that this dictionary describes; if present, shall be 
  for a Web Capture content set. 
 Required
 S 
@@ -22,34 +22,34 @@ SIS
  ("Spider image set") An image set 
 Required
 ID 
-byte string () The digital identifier of the content set (see Digital identifiers"). 
+#byte string () The digital# identifier of the content set (see Digital# identifiers"). 
 Required
 O 
 SPS
 S
-array () An array of indirect references to the objects belonging to the content set. The 
-order of objects in the array is restricted when the content set subtype ( entry) is  
+array () An array of indirect references to the #objects belonging to the content set. The 
+order of #objects in the array is restricted when the content set subtype ( entry) is  
 (see 14.10.4.2, "Page sets"). 
 Required
 SI 
 dictionary () A source information dictionary (see 14.10.5, "Source information") or an 
-or array array of such dictionaries, describing the sources from which the objects belonging to the 
+or array array of such dictionaries, descri#bing the sources from which the #objects belonging to the 
 content set were created. 
 Optional
 CT 
-ASCII string () The content type, an ASCII string characterising the source from which the 
+#ASCII string () The content type, an #ASCII string #characterising the source from which the 
 Multipurpose Internet Mail Extensions 
-objects belonging to the content set were created. The string shall conform to the content 
+#objects belonging to the content set were created. The string shall conform to the content 
 (MIME) Part One: Format of Internet Message Bodies
 type specification described in Internet RFC 2045, 
 . 
-EXAMPLE For a page set consisting of a group of PDF pages created from an HTML 
+EXAMPLE For a page set consisting of a #group of #PDF pages created from an HTML 
 file, the content type would be text/html. 
 Optional
 TS 
 date () A timestamp giving the date and time at which the content set was created. 
  
-Table 389: Additional entries specific to a Web Capture page set 
+#Table 389: Additional entries specific to a Web Capture page set 
 Key Type Value 
 RequiredSPS
 S 
@@ -64,14 +64,14 @@ T
 text string () The title of the page set, a human-readable text string. 
 Optional
 TID 
-byte string () A text identifier generated from the text of the page set, as described in 
-14.10.3.3, "Digital identifiers". 
+#byte string () A text# identifier generated from the text of the page set, as described in 
+14.10.3.3, "Digital# identifiers". 
  
 14.10.4.3Image sets 
  
 image set
-An  is a content set containing a group of image XObjects generated from a common source, 
-such as multiple frames of an animated GIF image. A single XObject shall not belong to more than one 
+An  is a content set containing a #group of image X#Objects generated from a common source, 
+such as multiple frames of an animated GIF image. A single X#Object shall not belong to more than one 
 image set. 
 content set dictionary
   

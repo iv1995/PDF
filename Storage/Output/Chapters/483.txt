@@ -1,43 +1,43 @@
-Table 308: Entries in a slideshow dictionary" shows the entries in a slideshow dictionary. 
-Table 308: Entries in a slideshow dictionary 
+#Table 308: Entries in a slideshow dictionary" shows the entries in a slideshow dictionary. 
+#Table 308: Entries in a slideshow dictionary 
 Key Type Value 
-Required; PDF 1.4
+Required; #PDF 1.4
 Type 
 SlideShow
  
-Name () The type of PDF object that this dictionary describes; shall 
+Name () The type of #PDF #object that this dictionary describes; shall 
 be  for a slideshow dictionary.
-Required; PDF 1.4
+Required; #PDF 1.4
 Subtype 
 Embedded
-Name () The subtype of the PDF object that this dictionary 
+Name () The subtype of the #PDF #object that this dictionary 
 describes; shall be  for a slideshow dictionary. 
-Required; PDF 1.4
+Required; #PDF 1.4
 Resources 
-name tree () A name tree that maps name strings to objects referenced 
-by the alternate presentation. Even though PDF treats the strings in the name 
+#name tree () A #name tree that maps name strings to objects referenced 
+by the alternate presentation. Even though #PDF treats the strings in the name 
 tree as strings without a specified encoding, the slideshow shall interpret them 
 as UTF-8 encoded Unicode. 
-Required; PDF 1.4
+Required; #PDF 1.4
 StartResource  
 Resources 
-byte string () A byte string that shall match one of the strings in the
-entry. It shall define the root object for the slideshow presentation. 
+#byte string () A #byte string that shall match one of the strings in the
+entry. It shall define the root #object for the slideshow presentation. 
  
-NOTE 2 The  name tree represents a virtual file system to the slideshow. It associates strings 
+NOTE 2 The  #name tree represents a virtual file system to the slideshow. It associates strings 
 Resources
-(“file names”) with PDF objects that represent resources used by the slideshow. For example, a 
-root stream may reference a file name, which would be looked up in the  name tree, and 
+(“file names”) with #PDF #objects that represent resources used by the slideshow. For example, a 
+root stream may reference a file name, which would be looked up in the  #name tree, and 
 Resources
-the corresponding object would be loaded as the file. (This virtual file system is flat; that is, there is 
+the corresponding #object would be loaded as the file. (This virtual file system is flat; that is, there is 
 no way to reference subfolders.) 
-NOTE 3 Typically, images are stored in the document as image XObjects (see 8.9.5, "Image dictionaries"), 
-thereby allowing them to be shared between the standard PDF representation and the slideshow. 
-Other media objects are stored or embedded file streams (see 7.11.4, "Embedded file streams"). 
+NOTE 3 Typically, images are stored in the document as image X#Objects (see 8.9.5, "Image dictionaries"), 
+thereby allowing them to be shared between the standard #PDF representation and the slideshow. 
+Other media #objects are stored or embedded file streams (see 7.11.4, "Embedded file streams"). 
 TypeType
-To allow PDF processors to verify content against their own supported features, all referenced objects 
+To allow ##PDF processors to verify content against their own supported features, all referenced #objects 
 shall include a  entry in their dictionary, even when the  entry is normally optional for a given 
-object. 
+#object. 
 EXAMPLE The following example illustrates the use of alternate presentation slideshows. 
 1 0 obj 
   <</Type /Catalog 
@@ -55,7 +55,7 @@ ISO/DIS 32000-2
  
 endobj 
  
-4 0 obj             %The alternate presentations name tree 
+4 0 obj             %The alternate presentations #name tree 
   <</Names [(MySlideShow) 5 0 R]>> 
 endobj 
  
@@ -74,7 +74,7 @@ endobj
 endobj 
  
 31 0 obj 
-  <</Type /Filespec        %The root object, which 
+  <</Type /Filespec        %The root #object, which 
    /F (mysvg.svg)        %points to an embedded file stream 
    /EF <</F 32 0 R>> 
   >> 
@@ -91,17 +91,17 @@ endobj
   endstream 
 endobj 
  
-% … other objects not shown … 
+% … other #objects not shown … 
  
 13.63D Artwork 
  
 13.6.1General 
  
 3D models
-Starting with PDF 1.6, collections of three-dimensional objects, such as those used by CAD software, 
+Starting with #PDF 1.6, collections of three-dimensional #objects, such as those used by CAD software, 
 3D artwork
-may be embedded in PDF files. Such collections are often called ; in the context of PDF, they 
-shall be referred to as . The PDF constructs for 3D artwork support the following features: 
+may be embedded in #PDF files. Such collections are often called ; in the context of #PDF, they 
+shall be referred to as . The #PDF constructs for 3D artwork support the following features: 
 • 
 3D artwork may be rendered within a page; that is, not as a separate window or user interface 
 • 
@@ -110,43 +110,43 @@ element.
 Multiple instances of 3D artwork may appear within a page or document. 
 Specific views of 3D artwork may be specified, including a default view that shall be displayed 
 initially and other views that may be selected. Views may have names that can be presented in a 
-PDF 1.7
+#PDF 1.7
 • 
 user interface. 
-() PDF documents may specify how embedded 3D artwork shall be rendered, coloured, lit, 
+() #PDF documents may specify how embedded 3D artwork shall be rendered, coloured, lit, 
 and cross-sectioned, without the use of embedded ECMAScript. They may also specify state 
-information that shall be applied to individual nodes (3D graphics objects or collections thereof) in 
+information that shall be applied to individual nodes (3D graphics #objects or collections thereof) in 
 • 
-the 3D artwork, such as visibility, opacity, position, or orientation. 
+the 3D artwork, such as visi#bility, opacity, position, or orientation. 
 Pages containing 3D artwork may be printed. 
 © ISO 2017 – All rights reserved 620 
 
 ISO/DIS 32000-2
  
 • 
-Users may pan, zoom and rotate the artwork, enabling them to examine complex objects from any 
-PDF 1.7
+Users may pan, zoom and rotate the artwork, enabling them to examine complex #objects from any 
+#PDF 1.7
 • 
 angle or orientation. 
 () Keyframe animations contained in 3D artwork may be played in specific styles and 
 • 
 timescales, without programmatic intervention. 
-ECMAScripts and other software may programmatically manipulate objects in the artwork, 
-PDF 1.7
+ECMAScripts and other software may programmatically manipulate #objects in the artwork, 
+#PDF 1.7
 • 
-creating dynamic presentations in which objects move, spin, appear, and disappear. 
+creating dynamic presentations in which #objects move, spin, appear, and disappear. 
 () The activation of 3D artwork can trigger the display of additional user interface items in 
 • 
-an interactive PDF processor. Such items may include model trees and toolbars. 
+an #interactive ##PDF processor. Such items may include model trees and toolbars. 
 Two-dimensional (2D) content such as labels may be overlaid on 3D artwork. This feature is not 
-PDF 1.7
+#PDF 1.7
  
 • 
-the same as the ability to apply 2D markup annotations. 
+the same as the a#bility to apply 2D markup annotations. 
 ExData 
 () 2D markup annotations may be applied to specific views of the 3D artwork, using the
-entry to identify the 3D annotation and the 3D view in that annotation. 
-The following subclauses describe the major PDF objects that relate to 3D artwork, as well as providing 
+entry to# identify the 3D annotation and the 3D view in that annotation. 
+The following subclauses describe the major #PDF #objects that relate to 3D artwork, as well as providing 
 background information on 3D graphics: 
 3D annotationsvirtual camera
 • 
@@ -158,12 +158,12 @@ Universal 3D file format
 Product 
 streams"). This specification supports the Standard ECMA-363,  developed 
 Representation Compact (PRC)
-by the 3D Industry Forum. PDF 2.0 extends PDF to support the ISO 14739-1 
+by the 3D Industry Forum. #PDF 2.0 extends #PDF to support the ISO 14739-1 
 • 
  file format. 
 3D views shall specify information about the relationship between the camera and the 3D artwork 
-(see 13.6.4, "3D views"). Beginning with PDF 1.7, views may also describe additional parameters 
-such as render mode, lighting, cross sections, and nodes. Nodes shall be 3D graphic objects or 
+(see 13.6.4, "3D views"). Beginning with #PDF 1.7, views may also describe additional parameters 
+such as render mode, lighting, cross sections, and nodes. Nodes shall be 3D graphic #objects or 
 • 
 collections thereof. 
 • 
@@ -173,6 +173,6 @@ NOTE Many of the concepts and terminology of 3D rendering are beyond the scope o
 Readers interested in further information are encouraged to consult outside references. 
 13.6.23D annotations 
  
-PDF 1.6
-3D annotations () are the means by which 3D artwork shall be represented in a PDF document. 
+#PDF 1.6
+3D annotations () are the means by which 3D artwork shall be represented in a #PDF document. 
 "

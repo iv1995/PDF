@@ -17,7 +17,7 @@ u×Bv
 𝑦𝑦u,v=��𝑦𝑦×B 
 i=0j=0
  
-The geometry of the tensor-product patch can be visualized in terms of a cubic Bézier curve moving 
+The geometry of the tensor-product patch can be visualized in terms of a cu#bic Bézier curve moving 
 ppp
 p
 from the bottom boundary of the patch to the top. At the bottom and top, the control points of this curve 
@@ -25,7 +25,7 @@ from the bottom boundary of the patch to the top. At the bottom and top, the con
 …) and top (…) boundary curves, respectively. As 
 coincide with those of the patch’s bottom (
 the curve moves from the bottom edge of the patch to the top, each of its four control points follows a 
-trajectory that is in turn a cubic Bézier curve defined by the four control points in the corresponding 
+trajectory that is in turn a cu#bic Bézier curve defined by the four control points in the corresponding 
 column of the array. That is, the starting point of the moving curve follows the trajectory defined by 
 © ISO 2017 – All rights reserved 246 
 
@@ -41,7 +41,7 @@ control points
 10132023
 … and …. Equivalently, the patch can be considered to be traced 
 intermediate control points by 
-by a cubic Bézier curve moving from the left edge to the right, with its control points following the 
+by a cu#bic Bézier curve moving from the left edge to the right, with its control points following the 
 trajectories defined by the rows of the coordinate array instead of the columns. 
 p p
 p

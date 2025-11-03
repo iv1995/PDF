@@ -1,4 +1,4 @@
-Figure 43: Coordinate mapping from a unit square to a four-sided Coons Patch 
+#Figure 43: Coordinate mapping from a unit square to a four-sided Coons Patch 
  
 u
 S

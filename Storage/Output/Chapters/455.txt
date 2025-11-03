@@ -7,21 +7,21 @@ search. A selector rendition itself may be non-viable; in this case, none of its
 renditions shall be evaluated (in effect, this branch of the tree is skipped). 
 NOTE This mechanism can be used, for example, to specify that a large video clip need be used on high-
 bandwidth machines and a smaller clip need be used on low-bandwidth machines. 
-Table 283: Additional entries specific to a selector rendition dictionary 
+#Table 283: Additional entries specific to a selector rendition dictionary 
 Key Type Value 
 Required
 R 
-array () An array of rendition objects. The first viable media rendition object 
+array () An array of rendition #objects. The first viable media rendition #object 
 found in the array, or nested within a selector rendition in the array, should be 
 used. An empty array is legal. 
  
-13.2.4Media clip objects 
+13.2.4Media clip #objects 
  
 13.2.4.1General 
  
 MCD
 S
 media clip dataMCSmedia clip section
-There are two types of media clip objects, determined by the subtype , which can be either  for 
+There are two types of media clip #objects, determined by the subtype , which can be# either  for 
  (see 13.2.4.2, "Media clip data") or  for  (see 13.2.4.3, "Media clip 
 section"). The entries for media clip dictionaries are listed in "

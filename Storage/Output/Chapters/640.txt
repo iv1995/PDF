@@ -1,4 +1,4 @@
-Figure Annex H.7: Hierarchy of structure elements and relationship with marked content" shows how 
+#Figure Annex H.7: Hierarchy of structure elements and relationship with marked content" shows how 
 the relationships of the structure elements and their use of the  and  structure types represent 
 the structure of a table of contents.  
 © ISO 2017 – All rights reserved 893 
@@ -74,7 +74,7 @@ Chapter One
 11
 41
 TABLE OF CONTENTS
-Figure Annex H.7: Hierarchy of structure elements and relationship with marked content 
+#Figure Annex H.7: Hierarchy of structure elements and relationship with marked content 
  
 EXAMPLE 
 4 0 obj 
@@ -189,7 +189,7 @@ endobj
    /K 14 
   >> 
 endobj 
-… objects 121-124, 131-134, 141-144, 151-154 and 161-164 referencing MCIDs 21-24, 31-34, 41-44, …  
+… #objects 121-124, 131-134, 141-144, 151-154 and 161-164 referencing MCIDs 21-24, 31-34, 41-44, …  
 … 51-54, and 61-64 are omitted in the interest of space. …  
  
 201 0 obj 
@@ -282,7 +282,7 @@ LIL
 The structure element’s structure type entry () may have values that establish hierarchical 
 LI
 relationships between entries in an list. The  value specifies an individual list entry. The  value 
-specifies a list made up of individual list entries and/or lists of list entries. The trailing character in  is 
+specifies a list made up of individual list entries and/or lists of list entries. The trailing #character in  is 
 an upper case "i". 
 "Figure Annex H.8: Index" shows the list described by the example in H.8.3, "Nested Lists". 
 INDEX

@@ -5,12 +5,12 @@ for the content set was retrieved.
 
 ISO/DIS 32000-2
  
-Table 391: Entries in a source information dictionary 
+#Table 391: Entries in a source information dictionary 
 Key Type Value 
 Required
 AU   
-ASCII string () An ASCII string orURLalias dictionary (see 14.10.5.2, "URL alias 
-or dictionary dictionaries") which shall identify the URLs from which the source data was retrieved. 
+#ASCII string () An #ASCII string orURLalias dictionary (see 14.10.5.2, "URL alias 
+or dictionary dictionaries") which shall# identify the URLs from which the source data was retrieved. 
 Optional
 TS 
 date () A timestamp which, if present, shall contain the most recent date and time at 
@@ -34,31 +34,31 @@ sets. Default value: 0.
 Optional; if present, shall be an indirect reference
 C 
 dictionary () A command dictionary (see 
-14.10.5.3, "Command dictionaries") describing the command that caused the source 
+14.10.5.3, "Command dictionaries") descri#bing the command that caused the source 
 data to be retrieved. This entry may be present only in source information dictionaries 
 associated with page sets. 
  
 SI
-A content set's  entry may contain a single source information dictionary. However, a PDF processor 
+A content set's  entry may contain a single source information dictionary. However, a ##PDF processor 
 may attempt to detect situations in which the same source data has been located via two or more 
 SI
 distinct URLs. If a processor detects such a situation, it may generate a single content set from the 
   
-source data, containing a single copy of the relevant PDF pages or image XObjects. In this case, the  
+source data, containing a single copy of the relevant #PDF pages or image X#Objects. In this case, the  
 entry shall be an array containing one source information dictionary for each distinctURLfrom which 
 the original source content was found. 
 The determination that distinct URLs produce the same source data shall be made by comparing digital 
 identifiers for the source data. 
 AU
 v
-A source information dictionary’s  (aliased URLs) entry shall identify the URLs from which the 
+A source information dictionary’s  (aliased URLs) entry shall# identify the URLs from which the 
 AU  
 source data was retrieved. If there is only one such URL, the  value of this entry may be a string. If 
 multiple URLs map to the same location through redirection, the  value shall be aURLalias 
 dictionary (see 14.10.5.2, "URL alias dictionaries"). 
 NOTE 1 For file size efficiency, the entireURL alias dictionary (excluding the URL strings) can be 
  
-represented as a direct object because its internal structure is never shared or externally 
+represented as a #direct #object because its internal structure is never shared or externally 
 referenced. 
  TS 
 The(timestamp) entry allows each source location associated with a content set to have its own 

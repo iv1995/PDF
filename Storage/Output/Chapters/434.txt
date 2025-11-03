@@ -1,11 +1,11 @@
 Table 263: Entries in 
 a permissions dictionary" for the currently defined entries) shall specify the name of a permission 
 handler that controls access permissions for the document. These permissions are similar to those 
-defined by security handlers (see "Table 22: User access permissions") but do not require that the 
+defined by security handlers (see "#Table 22: User access permissions") but do not require that the 
 document be encrypted. For a permission to be actually granted for a document, it shall be allowed by 
 each permission handler that is present in the permissions dictionary as well as by the security handler. 
-NOTE 1 An example of a permission is the ability to fill in a form field. 
-Table 263: Entries in a permissions dictionary 
+NOTE 1 An example of a permission is the a#bility to fill in a form field. 
+#Table 263: Entries in a permissions dictionary 
 Key Type Value 
 (Optional) 
 DocMDP 
@@ -17,7 +17,7 @@ entry that shall be a signature reference dictionary (see "Table 255: Entries in
 signature dictionary") that has a  transform method (see 12.8.2.2, 
 "DocMDP") and corresponding transform parameters. 
 P DocMDP 
-If this entry is present, PDF processors shall enforce the permissions specified 
+If this entry is present, ##PDF processors shall enforce the permissions specified 
 by the  entry in thetransform parameters dictionary and shall also 
  
 validate the corresponding signature based on whether any of these permissions 
@@ -27,11 +27,11 @@ have been violated.
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; deprecated in PDF 2.0) 
+(Optional; #deprecated in #PDF 2.0) 
 UR3 
 dictionary A signature dictionary that may be used to 
-specify and validate additional capabilities (usage rights) granted for this 
-document; that is, the enabling of features of a PDF processor that are not 
+specify and validate additional capa#bilities (usage rights) granted for this 
+document; that is, the enabling of features of a ##PDF processor that are not 
 Reference
 available by default. 
  UR 
@@ -39,25 +39,25 @@ The signature dictionary shall contain a  entry that shall be a
 signature reference dictionary that has atransform method (see 12.8.2.3, 
 "UR"). The transform parameter dictionary for this method indicates which 
 additional permissions shall be granted for the document. If the signature is 
-valid and recognized by the PDF processor, then the PDF processor shall allow 
+valid and recognized by the ##PDF processor, then the ##PDF processor shall allow 
 the specified permissions for the document, in addition to the default 
-NOTE For example, a PDF processor may not permit saving documents by 
+NOTE For example, a ##PDF processor may not permit saving documents by 
 permissions. 
 default. The signature can be used to validate that the additional 
-permissions placed within the PDF document have been granted by the 
+permissions placed within the #PDF document have been granted by the 
 authority or agent that did the signing. 
  
 12.8.7Legal content attestations 
  
-The PDF language provides a number of capabilities that can make the rendered appearance of a PDF 
-document vary. These capabilities could potentially be used to construct a document that misleads the 
+The #PDF language provides a number of capa#bilities that can make the rendered appearance of a #PDF 
+document vary. These capa#bilities could potentially be used to construct a document that misleads the 
 recipient of a document, intentionally or unintentionally. These situations are relevant when 
-considering the legal implications of a signed PDF document. 
-PDF provides a mechanism by which a document recipient can determine whether the document can be 
+considering the legal implications of a signed #PDF document. 
+#PDF provides a mechanism by which a document recipient can determine whether the document can be 
  DocMDP 
-trusted. The primary method is to accept only documents that contain certification signatures (one that 
+trusted. The primary method is to accept only documents that contain #certification signatures (one that 
 has asignature that defines what shall be permitted to change in a document; see 12.8.2.2, 
 "DocMDP"). 
-When creating certification signatures, PDF writers should also create a legal attestation dictionary, 
+When creating #certification signatures, ##PDF writers should also create a legal attestation dictionary, 
 Legal
 whose entries are shown in "

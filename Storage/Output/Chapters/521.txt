@@ -4,7 +4,7 @@ parameters for an angular dimension".
 
 ISO/DIS 32000-2
  ![Figure 110 Geometric parameters for an angular dimension  .png](./Storage/Output/Images/Figure 110 Geometric parameters for an angular dimension  .png)
-Figure 110: Geometric parameters for an angular dimension 
+#Figure 110: Geometric parameters for an angular dimension 
  
 V
 D1D2
@@ -29,7 +29,7 @@ that the vectoris expected to be orthogonal with the annotation plane normal. Th
 direction is defined as the cross product of the annotation plane normal and the text X-axis, in the 
 direction defined by theparameter. 
 DR
-The measurement value is interpreted as either being in degrees or radians as defined by the () 
+The measurement value is interpreted as# either being in degrees or radians as defined by the () 
 value, and the appropriate label string is created. 
 V
 UUT
@@ -37,7 +37,7 @@ There are three parts to the text string displayed with the measurement: a numer
 P
 or radians string (), and an optional user string (). The display of the numeric value field number is 
 also controlled by the precision value (), which indicates how many digits to display to the right of the 
-decimal point. The viewer should convert the numeric value to a string and combine it with the degrees 
+decimal point. The viewer should convert the numeric value to a string and com#bine it with the degrees 
 or radians string and user text as appropriate. This process is viewer dependent. 
 There are some special cases: 
 D1D2

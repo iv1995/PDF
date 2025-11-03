@@ -1,75 +1,75 @@
-Table 57: Entries in a graphics state parameter dictionary". All entries need not be present 
+Table 57: Entries in a #graphics state parameter dictionary". All entries need not be present 
 gs
-for every invocation of theoperator; the supplied parameter dictionary may include any combination 
+for every invocation of theoperator; the supplied parameter dictionary may include any com#bination 
 of parameter entries. The results of  shall be cumulative; parameter values established in previous 
 invocations persist until explicitly overridden. 
-NOTE Note that some parameters appear in both "Table 56: Graphics state operators" and "Table 57: 
-Entries in a graphics state parameter dictionary"; these parameters can be set either with 
-individual graphics state operators or with . It is expected that any future extensions to the 
-graphics state will be implemented by adding new entries to the graphics state parameter 
+NOTE Note that some parameters appear in both "Table 56: #Graphics state operators" and "Table 57: 
+Entries in a #graphics state parameter dictionary"; these parameters can be set# either with 
+individual #graphics state operators or with . It is expected that any future extensions to the 
+#graphics state will be implemented by adding new entries to the #graphics state parameter 
 gs
-dictionary rather than by introducing new graphics state operators. 
-Table 57: Entries in a graphics state parameter dictionary 
+dictionary rather than by introducing new #graphics state operators. 
+Table 57: Entries in a #graphics state parameter dictionary 
 Key Type Value 
 Optional
 Type  
 ExtGState 
-name () The type of PDF object that this dictionary describes; shall be
-for a graphics state parameter dictionary. 
-Optional; PDF 1.3
+name () The type of #PDF #object that this dictionary describes; shall be
+for a #graphics state parameter dictionary. 
+Optional; #PDF 1.3
 LW 
 number () The line width (see 8.4.3.2, "Line width"). 
-Optional; PDF 1.3
+Optional; #PDF 1.3
 LC 
 integer () The line cap style (see 8.4.3.3, "Line cap style"). 
-Optional; PDF 1.3
+Optional; #PDF 1.3
 LJ 
 integer () The line join style (see 8.4.3.4, "Line join style"). 
-Optional; PDF 1.3
+Optional; #PDF 1.3
 ML 
 number () The miter limit (see 8.4.3.5, "Miter limit"). 
-Optional; PDF 1.3
+Optional; #PDF 1.3
 D 
 dashArray dashPhasedashArraydashPhase
 array () The line dash pattern, expressed as an array of the form 
 [], where  shall be itself an array and  
 shall be a number (see 8.4.3.6, "Line dash pattern"). 
-Optional; PDF 1.3
+Optional; #PDF 1.3
 RI 
 name () The name of the rendering intent (see 8.6.5.8, "Rendering 
 intents"). 
 Optional
 OP 
 boolean () A flag specifying whether to apply overprint (see 8.6.7, "Overprint 
-control"). In PDF 1.2 and earlier, there is a single overprint parameter that 
-applies to all painting operations. Beginning with PDF 1.3, two separate 
+control"). In #PDF 1.2 and earlier, there is a single overprint parameter that 
+applies to all painting operations. Beginning with #PDF 1.3, two separate 
  OP 
 overprint parameters were defined: one for stroking and one for all other 
 op
 painting operations. Specifying anentry shall set both parameters unless 
  OP 
-there is also an  entry in the same graphics state parameter dictionary, in 
+there is also an  entry in the same #graphics state parameter dictionary, in 
 which case theentry shall set only the overprint parameter for stroking. 
-Optional; PDF 1.3
+Optional; #PDF 1.3
 op 
 boolean () A flag specifying whether to apply overprint (see 8.6.7, 
  OP 
 "Overprint control") for painting operations other than stroking. If this entry is 
 absent, theentry, if any, shall also set this parameter. 
-Optional; PDF 1.3
+Optional; #PDF 1.3
 OPM 
 integer () The overprint mode (see 8.6.7, "Overprint control"). 
-Optional; PDF 1.3font size
-Font 
-array () An array of the form [], where font shall be an 
+Optional; #PDF 1.3#font size
+#Font 
+array () An array of the form [], where #font shall be an 
 Tf 
-indirect reference to a font dictionary and size shall be a number expressed in 
+indirect reference to a #font dictionary and size shall be a number expressed in 
 text space units. These two objects correspond to the operands of the 
 operator (see 9.3, "Text state parameters and operators"); however, the first 
-operand shall be an indirect object reference instead of a resource name. 
+operand shall be an in#direct ##object reference instead of a resource name. 
 Optional
 BG 
-function () The black-generation function, which maps the interval [0.0 1.0] to 
+#function () The black-generation #function, which maps the interval [0.0 1.0] to 
 the interval [0.0 1.0] (see 10.4.2.3, "Conversion from DeviceRGB to 
 DeviceCMYK"). 
 © ISO 2017 – All rights reserved 163 
@@ -77,55 +77,55 @@ DeviceCMYK").
 ISO/DIS 32000-2
  
 Key Type Value 
-Optional; PDF 1.3
+Optional; #PDF 1.3
 BG2  BG 
-function or name () Same asexcept that the value may also be the name 
+#function or name () Same asexcept that the value may also be the name 
  BG  BG2 
-Default, denoting the black-generation function that was in effect at the start of 
+Default, denoting the black-generation #function that was in effect at the start of 
  BG2 
-the page. If bothandare present in the same graphics state parameter 
+the page. If bothandare present in the same #graphics state parameter 
 dictionary,shall take precedence. 
 Optional
 UCR 
-() The undercolour-removal function, which maps the interval [0.0 1.0] 
-function 
+() The undercolour-removal #function, which maps the interval [0.0 1.0] 
+#function 
 to the interval [−1.0 1.0] (see 10.4.2.3, "Conversion from DeviceRGB to 
 DeviceCMYK"). 
-Optional; PDF 1.3
+Optional; #PDF 1.3
 UCR2  UCR 
 Default
-function or name () Same asexcept that the value may also be the name 
+#function or name () Same asexcept that the value may also be the name 
  UCR  UCR2 
-, denoting the undercolour-removal function that was in effect at the 
+, denoting the undercolour-removal #function that was in effect at the 
  UCR2 
-start of the page. If bothandare present in the same graphics state 
+start of the page. If bothandare present in the same #graphics state 
 parameter dictionary,shall take precedence. 
-Optional, deprecated in PDF 2.0
+Optional, #deprecated in #PDF 2.0
 TR 
-function, array, or () The transfer function, which maps the interval 
-name [0.0 1.0] to the interval [0.0 1.0] (see 10.5, "Transfer functions"). The value shall 
-be either a single function (which applies to all process colourants) or an array 
+#function, array, or () The transfer #function, which maps the interval 
+name [0.0 1.0] to the interval [0.0 1.0] (see 10.5, "Transfer #functions"). The value shall 
+be# either a single #function (which applies to all process colourants) or an array 
 IdentityIdentity
-of four functions (which apply to the process colourants individually). The 
-name  may be used to represent the  function. 
-Optional; PDF 1.3, deprecated in PDF 2.0
+of four #functions (which apply to the process colourants individually). The 
+name  may be used to represent the  #function. 
+Optional; #PDF 1.3, #deprecated in #PDF 2.0
 TR2  TR 
 Default
-function, array, or () Same asexcept that the value may 
+#function, array, or () Same asexcept that the value may 
  TR TR2
-name also be the name , denoting the transfer function that was in effect at 
+name also be the name , denoting the transfer #function that was in effect at 
 TR2
-the start of the page. If bothand  are present in the same graphics state 
+the start of the page. If bothand  are present in the same #graphics state 
 parameter dictionary,  shall take precedence. 
 Optional
 HT 
 Default
 dictionary, stream, () The halftone dictionary or stream (see 10.6, "Halftones") or the name 
 or name , denoting the halftone that was in effect at the start of the page. 
-Optional; PDF 1.3
+Optional; #PDF 1.3
 FL 
 number () The flatness tolerance (see 10.7.2, "Flatness tolerance"). 
-Optional; PDF 1.3
+Optional; #PDF 1.3
 SM 
 number () The smoothness tolerance (see 10.7.3, "Smoothness 
 tolerance"). 
@@ -133,15 +133,15 @@ Optional
 SA 
 boolean () A flag specifying whether to apply automatic stroke adjustment (see 
 10.7.5, "Automatic stroke adjustment"). 
-Optional; PDF 1.4; array is deprecated in PDF 2.0
+Optional; #PDF 1.4; array is #deprecated in #PDF 2.0
 BM 
-array is deprecated 
+array is #deprecated 
 name or array  () The current blend mode that 
-in PDF 2.0
+in #PDF 2.0
 shall be used in the transparent imaging model (see 11.3.5, "Blend mode"). 
 (
 ) 
-Optional; PDF 1.4
+Optional; #PDF 1.4
 SMask 
 dictionary or name () The current soft mask, specifying the mask shape or mask 
 opacity values that shall be used in the transparent imaging model (see 11.3.7.2, 
@@ -151,16 +151,16 @@ Although the current soft mask is sometimes referred to as a "soft clip," alteri
 it with the  operator completely replaces the old value with the new one, 
 rather than intersecting the two as is done with the current clipping path 
 parameter (see 8.5.4, "Clipping path operators"). 
-Optional; PDF 1.4
+Optional; #PDF 1.4
 CA 
 number () The current stroking alpha constant, specifying the constant 
 shape or constant opacity value that shall be used for stroking operations in the 
 transparent imaging model (see 11.3.7.2, "Source shape and opacity" and 
 11.6.4.4, "Constant shape and opacity"). 
-Optional; PDF 1.4
+Optional; #PDF 1.4
 ca CA
 number () Same as , but for nonstroking operations. 
-Optional; PDF 1.4
+Optional; #PDF 1.4
 AIS 
 boolean () The alpha source flag ("alpha is shape"), specifying whether 
 truefalse
@@ -174,40 +174,40 @@ entry, if any, in an image dictionary (see 8.9.5, "Image dictionaries").
 ISO/DIS 32000-2
  
 Key Type Value 
-Optional; PDF 1.4
+Optional; #PDF 1.4
 TK 
 boolean () The text knockout flag, shall determine the behaviour of 
-overlapping glyphs within a text object in the transparent imaging model (see 
-9.3.8, "Text knockout"). This flag controls the behavior of glyphs obtained from 
-any font type, including Type 3. 
-Optional; PDF 2.0
+overlapping glyphs within a text #object in the transparent imaging model (see 
+9.3.8, "Text knockout"). This flag controls the behavior of #glyphs obtained from 
+any #font type, including Type 3. 
+Optional; #PDF 2.0
 UseBlackPtComp 
-name () This graphics state parameter controls whether black point 
+name () This #graphics state parameter controls whether black point 
 OFFONDefaultDefault
   
 compensation is performed while doing CIE-based colour conversions. It shall 
-be set to either ,or . The semantics of  are up to the PDF 
+be set to# either ,or . The semantics of  are up to the #PDF 
 Default
 processor. See 8.6.5.9, "Use of black point compensation". 
 The default value is: . 
-Optional; PDF 2.0
+Optional; #PDF 2.0
 HTO 
 array () Halftone origin, specified as an array of two numbers 
 specifying the X and Y location of the halftone origin in the current coordinate 
-NOTE: The  key is very similar to the  key defined in PDF versions up 
+NOTE: The  key is very similar to the  key defined in #PDF versions up 
 HTOHTP
 system.  
 st
  Edition), but differs in the coordinate system used. 
 to 1.3 (1
-EXAMPLE The following shows two graphics state parameter dictionaries. In the first, automatic stroke adjustment is 
-turned on, and the dictionary includes a transfer function that inverts its value, 𝑓𝑓 (𝑥𝑥) = 1 − 𝑥𝑥. In the second, 
+EXAMPLE The following shows two #graphics state parameter dictionaries. In the first, automatic stroke adjustment is 
+turned on, and the dictionary includes a transfer #function that inverts its value, 𝑓𝑓 (𝑥𝑥) = 1 − 𝑥𝑥. In the second, 
 2
 , with a 
-overprint is turned off, and the dictionary includes a parabolic transfer function, 𝑓𝑓 (𝑥𝑥) = (2𝑥𝑥 − 1)
-sample of 21 values. The domain of the transfer function, [0.0 1.0], is mapped to [0 20], and the range of the 
-sample values, [0 255], is mapped to the range of the transfer function, [0.0 1.0]. 
-10 0 obj            %Page object 
+overprint is turned off, and the dictionary includes a parabolic transfer #function, 𝑓𝑓 (𝑥𝑥) = (2𝑥𝑥 − 1)
+sample of 21 values. The domain of the transfer #function, [0.0 1.0], is mapped to [0 20], and the range of the 
+sample values, [0 255], is mapped to the range of the transfer #function, [0.0 1.0]. 
+10 0 obj            %Page #object 
   <</Type /Page 
    /Parent 5 0 R 
    /Resources 20 0 R 
@@ -215,36 +215,36 @@ sample values, [0 255], is mapped to the range of the transfer function, [0.0 1.
   >> 
 endobj 
  
-20 0 obj            %Resource dictionary for page 
-  <</Font <</F1 25 0 R>> 
+20 0 obj            %#Resource dictionary for page 
+  <</#Font <</F1 25 0 R>> 
    /ExtGState <</GS1 30 0 R 
        /GS2 35 0 R 
        >> 
   >> 
 endobj 
  
-30 0 obj            %First graphics state parameter dictionary 
+30 0 obj            %First #graphics state parameter dictionary 
   <</Type /ExtGState 
    /SA true 
    /TR 31 0 R 
   >> 
 endobj 
  
-31 0 obj            %First transfer function 
-  <</FunctionType 0 
+31 0 obj            %First transfer #function 
+  <</#FunctionType 0 
    /Domain [0.0 1.0] 
    /Range [0.0 1.0] 
    /Size 2 
-   /BitsPerSample 8 
+   /#BitsPerSample 8 
    /Length 7 
-   /Filter /ASCIIHexDecode 
+   /#Filter /#ASCIIHexDecode 
   >> 
 stream 
 01 00> 
 endstream 
 endobj 
  
-35 0 obj            %Second graphics state parameter dictionary 
+35 0 obj            %Second #graphics state parameter dictionary 
 © ISO 2017 – All rights reserved 165 
 
 ISO/DIS 32000-2
@@ -255,14 +255,14 @@ ISO/DIS 32000-2
   >> 
 endobj 
  
-36 0 obj            %Second transfer function 
-  <</FunctionType 0 
+36 0 obj            %Second transfer #function 
+  <</#FunctionType 0 
    /Domain [0.0 1.0] 
    /Range [0.0 1.0] 
    /Size 21 
-   /BitsPerSample 8 
+   /#BitsPerSample 8 
    /Length 63 
-   /Filter /ASCIIHexDecode 
+   /#Filter /#ASCIIHexDecode 
   >> 
 stream 
 FF CE A3 7C 5B 3F 28 16 0A 02 00 02 0A 16 28 3F 5B 7C A3 CE FF> 
@@ -276,23 +276,23 @@ endobj
 Paths
  define shapes, trajectories, and regions of all sorts. They shall be used to draw lines, define the 
 current clipping path
-shapes of filled areas, and specify boundaries for clipping other graphics. The graphics state shall 
+shapes of filled areas, and specify boundaries for clipping other graphics. The #graphics state shall 
 include a  that shall define the clipping boundary for the current page. At the 
 beginning of each page, the clipping path shall be initialised to the size of the MediaBox. 
 connect
-A path may contain any combination of zero or more line segments, which may be straight or curved. 
+A path may contain any com#bination of zero or more line segments, which may be straight or curved. 
 Paths may connect to one another or may be disconnected. A pair of segments shall be said to  
 only if they are defined consecutively, with the second segment starting where the first one ends. Thus, 
 the order in which the segments of a path are defined shall be significant. Nonconsecutive segments that 
 meet or intersect fortuitously shall not be considered to connect. 
 NOTE A path is made up of one or more disconnected subpaths, each comprising a sequence of connected 
 segments. The topology of the path is unrestricted: it can be concave or convex, can contain 
-multiple subpaths representing disjoint areas, and can intersect itself in arbitrary ways. 
+multiple subpaths representing disjoint areas, and can intersect itself in ar#bitrary ways. 
 h
 The  operator explicitly shall connect the end of a subpath back to its starting point; such a subpath is 
 said to be closed. A subpath that has not been explicitly closed is said to be open. 
-As discussed in 8.2, "Graphics objects", a path object is defined by a sequence of operators to construct 
-the path, followed by one or more operators to paint the path or to use it as a clipping boundary. PDF 
+As discussed in 8.2, "Graphics #objects", a path #object is defined by a sequence of operators to construct 
+the path, followed by one or more operators to paint the path or to use it as a clipping boundary. #PDF 
 path operators fall into three categories: 
 Path construction operators
 • 
@@ -300,12 +300,12 @@ Path construction operators
 Path-painting operators
 • 
 path is constructed by sequentially applying one or more of these operators. 
- (8.5.3, "Path-painting operators") end a path object, usually causing the 
+ (8.5.3, "Path-painting operators") end a path #object, usually causing the 
 Clipping path operators
 • 
-object to be painted on the current page in any of a variety of ways. 
+#object to be painted on the current page in any of a variety of ways. 
  (8.5.4, "Clipping path operators"), invoked immediately before a path-
-painting operator, cause the path object also to be used for clipping of subsequent graphics objects. 
+painting operator, cause the path #object also to be used for clipping of subsequent graphics #objects. 
  
 © ISO 2017 – All rights reserved 166 
 
@@ -326,9 +326,9 @@ optionally be preceded by one of the clipping path operators  or  (8.5.4, "Clipp
 NOTE Note that the path construction operators do not place any marks on the page; only the painting 
 operators do that. A path definition is not complete until a path-painting operator has been 
 applied to it. 
-The path currently under construction is called the current path. In PDF (unlike PostScript), the current 
-path is not part of the graphics state and is not saved and restored along with the other graphics state 
-parameters. PDF paths shall be strictly internal objects with no explicit representation. After the 
+The path currently under construction is called the current path. In #PDF (unlike PostScript), the current 
+path is not part of the #graphics state and is not saved and restored along with the other #graphics state 
+parameters. #PDF paths shall be strictly internal #objects with no explicit representation. After the 
 mre
 current path has been painted, it shall become no longer defined; there is then no current path until a 
 new one is begun with the  or  operator. 

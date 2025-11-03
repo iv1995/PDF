@@ -1,17 +1,17 @@
 Table 70: Entries in a DeviceN colour 
 space attributes dictionary"). A value offor the  entry, or no value, shall mean that 
  DeviceN 
-only the previous features shall be supported. PDF processors that do not support PDF 1.6 shall treat 
+only the previous features shall be supported. ##PDF processors that do not support #PDF 1.6 shall treat 
 NChannel
-these colour spaces as normalcolour spaces and shall use the tint transformation function as 
-appropriate. PDF writers using the  features should follow certain guidelines, as noted 
+these colour spaces as normalcolour spaces and shall use the tint transformation #function as 
+appropriate. ##PDF writers using the  features should follow certain guidelines, as noted 
 © ISO 2017 – All rights reserved 200 
 
 ISO/DIS 32000-2
  
-throughout this subclause, to achieve good backward compatibility. 
-NOTE 3 PDF processors can use their own blending algorithms for on-screen viewing and composite 
-printing, rather than being required to use a specified tint transformation function. See also clause 
+throughout this subclause, to achieve good backward compati#bility. 
+NOTE 3 ##PDF processors can use their own blending algorithms for on-screen viewing and composite 
+printing, rather than being required to use a specified tint transformation #function. See also clause 
 10.8, "Rendering for separations". 
 DeviceN Separation  
 Separation  DeviceN  
@@ -28,9 +28,9 @@ DeviceN
 It is a four- or five-element array whose first element shall be the colour space family name . 
 The remaining elements shall be parameters that acolour space requires. 
 names
-The  parameter shall be an array of name objects specifying the individual colour components. 
-The maximum number of entries in the names array in the computer on which the PDF processor is 
-running may be subject to implementation limits; see Annex C, "Advice on Maximising Portability". 
+The  parameter shall be an array of #name #objects specifying the individual colour components. 
+The maximum number of entries in the names array in the computer on which the ##PDF processor is 
+running may be subject to implementation limits; see Annex C, "Advice on Maximising Porta#bility". 
 None
 All Separation 
 The component names shall all be different from one another, except for the name , which may be 
@@ -66,13 +66,13 @@ component values in the order in which the colours are given in the names array,
 sampled image that uses acolour space. 
 alternateSpace
 PatternIndexedSeparationDeviceN
-The  parameter shall be an array or name object that can be any device or CIE-based 
+The  parameter shall be an array or #name #object that can be any device or CIE-based 
 DeviceN
 colour space but shall not be another special colour space (, , , or ). 
 When the colour space is set to a  space, if any of the component names in the colour space do 
-not correspond to a colourant available on the device, the PDF processor should perform subsequent 
+not correspond to a colourant available on the device, the ##PDF processor should perform subsequent 
 painting operations in the alternate colour space specified by this parameter. 
-NOTE 5 In some cases PDF processors have more information about colourants and their interaction than 
+NOTE 5 In some cases ##PDF processors have more information about colourants and their interaction than 
 is provided through the  parameter, and are free to use such information instead of 
 the  parameter. In addition, where a  space contains an attributes 
 DeviceN
@@ -82,21 +82,21 @@ alternateSpace
 
 ISO/DIS 32000-2
  
-dictionary, PDF processors are free to use the information provided in the attributes dictionary 
+dictionary, ##PDF processors are free to use the information provided in the attributes dictionary 
 instead of the  parameter.  
 NChannel
 alternateSpace
 For  colour spaces, the components shall be evaluated individually; that is, only the ones not 
 present on the output device shall use the alternate colour space of that component. 
 tintTransform
-The  parameter shall specify a function (see 7.10, "Functions") that is used to transform 
+The  parameter shall specify a #function (see 7.10, "#Functions") that is used to transform 
  DeviceN 
 the tint values into the alternate colour space. It shall be called with n tint values and returns m colour 
 component values, where n is the number of components needed to specify a colour in the
 colour space and m is the number required by the alternate colour space. 
 NOTE 6 Painting in the alternate colour space can produce a good approximation of the intended colour 
-when only opaque objects are painted. However, it does not correctly represent the interactions 
-between an object and its backdrop when the object is painted with transparency or when 
+when only opaque #objects are painted. However, it does not correctly represent the interactions 
+between an #object and its backdrop when the #object is painted with transparency or when 
 overprinting (see 8.6.7, "Overprint control") is enabled. 
 None DeviceN 
 NChannel
@@ -108,7 +108,7 @@ on the page, as in acolour space for the  colourant. When acolour space is
  DeviceN 
 painting the named device colourants directly, colour components corresponding to  colourants 
 shall be discarded. However, when thecolour space reverts to its alternate colour space, those 
-components shall be passed to the tint transformation function, which may use them as desired. 
+components shall be passed to the tint transformation #function, which may use them as desired. 
  DeviceN None
  Separation None
 Acolour space whose component colourant names are all  shall always discard its 
@@ -120,27 +120,27 @@ attributes
 The optional  parameter shall be a dictionary (see "Table 70: Entries in a DeviceN colour space 
 alternateSpacetintTransform
 attributes dictionary") containing additional information about the components of this colour space 
-that PDF processors may use. PDF processors need not use the  and  
+that ##PDF processors may use. ##PDF processors need not use the  and  
 Subtype
 parameters, and may instead use custom blending algorithms, along with other information provided in 
 alternateSpacetintTransform
 NChannel
 the attributes dictionary if present. (If the value of the  entry in the attributes dictionary is 
 , such information shall be present.) However,  and  shall always 
-be provided for PDF processors that want to use them or do not support PDF 1.6. 
-Table 70: Entries in a DeviceN colour space attributes dictionary 
+be provided for ##PDF processors that want to use them or do not support #PDF 1.6. 
+#Table 70: Entries in a DeviceN colour space attributes dictionary 
 Key Type Value 
-Optional; PDF 1.6
+Optional; #PDF 1.6
 Subtype 
  DeviceN NChannelDeviceN
 name () A name specifying the preferred treatment for the colour space. 
 Values shall beor . Default value: . 
 Required if  is  and the colour space includes spot colourants; 
 Colorants SubtypeNChannel
-otherwise optional; PDF 1.6
+otherwise optional; #PDF 1.6
 dictionary (
  DeviceN 
-) A dictionary describing the individual colourants that 
+) A dictionary descri#bing the individual colourants that 
  Separation 
 shall be used in thecolour space. For each entry in this dictionary, the key 
 shall be a colourant name and the value shall be an array defining acolour 
@@ -149,11 +149,11 @@ space for that colourant (see
 the colourant name given in that colour space. 
 This dictionary provides information about the individual colourants that may be 
 Separation
-useful to some PDF processors. In particular, the alternate colour space and tint 
+useful to some ##PDF processors. In particular, the alternate colour space and tint 
  DeviceN 
-transformation function of a  colour space describe the appearance of that 
+transformation #function of a  colour space describe the appearance of that 
 colourant alone, whereas those of acolour space describe only the 
-appearance of its colourants in combination. 
+appearance of its colourants in com#bination. 
 © ISO 2017 – All rights reserved 202 
 
 ISO/DIS 32000-2
@@ -161,6 +161,6 @@ ISO/DIS 32000-2
 Key Type Value 
 Required if  is  and the colour space includes components of a 
 Process SubtypeNChannel
-process colour space, otherwise optional; PDF 1.6
+process colour space, otherwise optional; #PDF 1.6
 dictionary (
 ) A dictionary (see "

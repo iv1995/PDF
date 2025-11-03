@@ -1,15 +1,15 @@
-Table 400: Entries in a separation dictionary" shows the contents of this type of dictionary. 
-Table 400: Entries in a separation dictionary 
+#Table 400: Entries in a separation dictionary" shows the contents of this type of dictionary. 
+#Table 400: Entries in a separation dictionary 
 Key Type Value 
 Required
 Pages 
-array () An array of indirect references to page objects representing 
-separations of the same document page. One of the page objects in the array 
+array () An array of indirect references to page #objects representing 
+separations of the same document page. One of the page #objects in the array 
 SeparationInfo
 shall be the one with which this separation dictionary is associated, and all of 
 Pages
 them shall have separation dictionaries ( entries) containing 
- arrays identical to this one. 
+ arrays# identical to this one. 
 Required
 DeviceColorant 
 Cyan
@@ -22,8 +22,8 @@ array () An array defining aorcolour space (see
 DeviceColorant 
 provides additional information about the colour specified by 
 — in particular, the alternate colour space and tint 
-transformation function that shall be used to represent the colourant as a 
-process colour. This information enables an interactive PDF processor to 
+transformation #function that shall be used to represent the colourant as a 
+process colour. This information enables an #interactive ##PDF processor to 
 DeviceColorant 
 preview the separation in a colour that approximates the device colourant. 
   DeviceN 
@@ -33,28 +33,28 @@ space).
  
 14.11.5Output intents 
  
-PDF 1.4
-Output intents () provide a means for matching the colour characteristics of page content in a 
+#PDF 1.4
+Output intents () provide a means for matching the colour #characteristics of page content in a 
 OutputIntents
-PDF document with those of a target output device or production environment in which the document 
+#PDF document with those of a target output device or production environment in which the document 
 will be printed. The optional  entry in the document catalog dictionary (see 7.7.2, 
-"Document catalog dictionary") or a Page dictionary (see 7.7.3.3, "Page objects") holds an array of 
-output intent dictionaries, each describing the colour reproduction characteristics of a possible output 
+"Document catalog dictionary") or a Page dictionary (see 7.7.3.3, "Page #objects") holds an array of 
+output intent dictionaries, each descri#bing the colour reproduction #characteristics of a possible output 
 S
 device or production condition. The contents of these dictionaries may vary for different devices and 
 conditions. The dictionary’s  entry specifies an output intent subtype that determines the format and 
 meaning of the remaining entries. 
 NOTE 1 This use of multiple output intents allows the production process to be customised to the expected 
 workflow and the specific tools available. For example, one production facility might process files 
-conforming to a recognised standard such as PDF/X-1a which is based upon CMYK processing, 
-while another uses the PDF/A standard to produce RGB output for document distribution on the 
+conforming to a recognised standard such as #PDF/X-1a which is based upon CMYK processing, 
+while another uses the #PDF/A standard to produce RGB output for document distribution on the 
 Web. Each of these workflows would require different sets of output intent information. Multiple 
-output intents also allow the same PDF file to be distributed unmodified to multiple production 
+output intents also allow the same #PDF file to be distributed unmodified to multiple production 
 facilities. The choice of which output intent to use in a given production environment is a matter 
-for agreement between the purchaser and provider of production services. PDF intentionally does 
-not include a selector for choosing a particular output intent from within the PDF file. It 
+for agreement between the purchaser and provider of production services. #PDF intentionally does 
+not include a selector for choosing a particular output intent from within the #PDF file. It 
 nevertheless does offer a provision for specifying a default output intent to be use if no other 
 provisions or agreements are in effect. 
-GTS_PDFXGTS_PDFA1ISO_PDFE1
+GTS_#PDFXGTS_#PDFA1ISO_#PDFE1
 At the time of publication, three output intent subtypes in the document catalog dictionary have been 
 defined: , , and . "

@@ -2,8 +2,8 @@ Table 407: Entries in a
 version 2.0 OPI dictionary"). The key for this entry shall be the name 1.3 or 2.0, 
 identifying the version of OPI to which the proxy corresponds. 
  
-NOTE 2 As in any other PDF dictionary, the key in an OPI version dictionary is a name object. The OPI 
-version dictionary would thus be written in the PDF file in either the form 
+NOTE 2 As in any other #PDF dictionary, the key in an OPI version dictionary is a #name #object. The OPI 
+version dictionary would thus be written in the #PDF file in# either the form 
 <</1.3 d 0 R>>        %OPI 1.3 dictionary 
 or 
 © ISO 2017 – All rights reserved 797 
@@ -12,8 +12,8 @@ ISO/DIS 32000-2
  
 <</2.0 d 0 R>>        %OPI 2.0 dictionary 
  
-where d is the object number of the corresponding OPI dictionary. 
-"Table 406: Entries in a version 1.3 OPI dictionary" and "Table 407: Entries in a version 2.0 OPI 
+where d is the #object number of the corresponding OPI dictionary. 
+"#Table 406: Entries in a version 1.3 OPI dictionary" and "Table 407: Entries in a version 2.0 OPI 
 dictionary") describe the contents of the OPI dictionaries for OPI 1.3 and OPI 2.0, respectively, along 
 with the corresponding PostScript language OPI comments. The dictionary entries shall be listed in the 
 OPI: Open Prepress 
@@ -23,12 +23,12 @@ the meanings of these entries and their effects on OPI servers can be found in
 Version 2.0.
  and Adobe Technical Note #5660, 
  
-Table 406: Entries in a version 1.3 OPI dictionary 
+#Table 406: Entries in a version 1.3 OPI dictionary 
 Key Type OPI Comment Value 
 Optional
 Type 
 OPI
-name  () The type of PDF object that this dictionary describes; if 
+name  () The type of #PDF #object that this dictionary describes; if 
 present, shall be  for an OPI dictionary. 
 RequiredOPI
 Version 
@@ -40,10 +40,10 @@ file %ALDImageFilename () The external file containing the image corresponding t
 specification proxy. 
 Optional
 ID 
-byte string %ALDImageID () An identifying string denoting the image. 
+#byte string %ALDImageID () An# identifying string denoting the image. 
 Optional
 Comments 
-text string %ALDObjectComments () A human-readable comment, typically containing instructions 
+text string %ALD#ObjectComments () A human-readable comment, typically containing instructions 
 or suggestions to the operator of the OPI server on how to handle the 
 image. 
 Required
@@ -53,7 +53,7 @@ array %ALDImageDimensions () An array of two integers of the form
 specifying the dimensions of the image in pixels. 
 Required
 CropRect 
-rectangle %ALDImageCropRect () An array of four integers of the form  
+#rectangle %ALDImageCropRect () An array of four integers of the form  
 [left top right bottom] 
 specifying the portion of the image that shall be used. 
 Optional
@@ -69,7 +69,7 @@ ISO/DIS 32000-2
 Key Type OPI Comment Value 
 Required
 Position 
-array %ALDImagePosition () An array of eight numbers of the form  
+array %ALDImagePosition () An array of# eight numbers of the form  
 xyxyxyxy
 llllululururlr lr]
 [       
@@ -101,7 +101,7 @@ and
 Position CropRect 
 𝑦𝑦𝑦𝑦𝑦𝑦𝑦𝑦
 𝐵𝐵𝑙𝑙−𝑙𝑙𝑙𝑙=𝐵𝐵𝑚𝑚−𝑙𝑙𝑚𝑚 
-The combination of  anddetermines the image’s 
+The com#bination of  anddetermines the image’s 
 scaling, rotation, reflection, and skew. 
 Optional
 Resolution 
@@ -115,7 +115,7 @@ name %ALDImageColorType () The type of colour specified by the  entry. Valid val
 are , , and . Default value: . 
 Optional
 Color 
-array %ALDImageColor () An array of four numbers and a byte string of the form  
+array %ALDImageColor () An array of four numbers and a #byte string of the form  
 [C M Y K colorName]  
 C, M, YK
 specifying the value and name of the colour in which the image is to be 
@@ -137,13 +137,13 @@ knock out () underlying marks on other separations. Default value:
 Optional
 ImageType 
 array %ALDImageType () An array of two integers of the form 
-[samples bits] 
-specifying the number of samples per pixel and bits per sample in the 
+[samples #bits] 
+specifying the number of samples per pixel and #bits per sample in the 
 image. 
 Optional
 GrayMap 
 array %ALDImageGrayMap () An array of 2n integers in the range 0 to 65,535 (where n is the 
-number of bits per sample) recording changes made to the brightness or 
+number of #bits per sample) recording changes made to the brightness or 
 contrast of the image. 
 Optional
 Transpare
@@ -158,21 +158,21 @@ ISO/DIS 32000-2
 Key Type OPI Comment Value 
 Optional
 Tags 
-array %ALDImageAsciiTag<N() An array of pairs of the form 
+array %ALDImage#AsciiTag<N() An array of pairs of the form 
 NN> 
 [tagNum1 tagText1…tagNumn tagTextn] 
 tagNum
 tagText
 where each  is an integer representing a TIFF tag number and 
-each  is an ASCII string representing the corresponding ASCII tag 
+each  is an #ASCII string representing the corresponding #ASCII tag 
 value. 
  
-Table 407: Entries in a version 2.0 OPI dictionary 
+#Table 407: Entries in a version 2.0 OPI dictionary 
 Key Type OPI Comment Value 
 Optional
 Type 
 OPI
-name  () The type of PDF object that this dictionary 
+name  () The type of #PDF #object that this dictionary 
 describes; if present, shall be  for an OPI 
 dictionary. 
 RequiredOPI
@@ -186,20 +186,20 @@ file %%ImageFilename () The external file containing the low-
 specification resolution proxy image. 
 Optional
 MainImage 
-byte string %%MainImage () The pathname of the file containing the 
+#byte string %%MainImage () The pathname of the file containing the 
 full-resolution image corresponding to this proxy, or 
-any other identifying string that uniquely identifies 
+any other# identifying string that uniquely# identifies 
 the full-resolution image. 
 Optional
 Tags 
-array %%TIFFASCIITag () An array of pairs of the form 
+array %%TIFF#ASCIITag () An array of pairs of the form 
 [tagNum1 tagText1…tagNumn tagTextn] 
 tagNum
 tagText
 where each  is an integer representing a TIFF 
-tag number and each  is an ASCII string or an 
-array of ASCII strings representing the corresponding 
-ASCII tag value. 
+tag number and each  is an #ASCII string or an 
+array of #ASCII strings representing the corresponding 
+#ASCII tag value. 
 Optional
 Size 
 array %%ImageDimensions () An array of two numbers of the form 
@@ -212,11 +212,11 @@ ISO/DIS 32000-2
 Key Type OPI Comment Value 
 Optional
 CropRect 
-rectangle %%ImageCropRect () An array of four numbers of the form 
+#rectangle %%ImageCropRect () An array of four numbers of the form 
 [left top right bottom] 
 Size CropRect 
 specifying the portion of the image that shall be used. 
-The  andentries shall either both be 
+The  andentries shall# either both be 
 present or both be absent. If present, they shall satisfy 
 the conditions 
 0 ≤ left <right ≤ width 
@@ -237,7 +237,7 @@ overprint () or knock out () underlying
 marks on other separations. Default value: . 
 Optional
 Inks 
-name or %%ImageInks () A name object or array specifying the 
+name or %%ImageInks () A #name #object or array specifying the 
 array colourants to be applied to the image. The value may 
 be the name full_color or registration or an array of 
 the form 
@@ -259,59 +259,59 @@ IncludedImageQuality
 number %%IncludedImageQuality () A number indicating the quality of the 
 included image. Valid values are 1, 2, and 3. 
  
-14.12Document parts 
+14.12#Document parts 
  
 14.12.1General 
  
-Many PDF documents are often comprised of multiple sub-documents, or document parts, where each 
-document part may have a varying number of pages. Examples include subdocuments for different 
-recipients in transactional or variable data printing, document parts which have different requirements 
+Many #PDF documents are often comprised of multiple sub-documents, or #document parts, where each 
+#document part may have a varying number of pages. Examples include subdocuments for different 
+recipients in transactional or variable data printing, #document parts which have different requirements 
 when processed (such as the cover sheet and pages of a booklet), or simply a collation of multiple 
-documents. When a PDF file is produced, a PDF application will need to define a specific ordering of all 
-pages from all document parts, but any such ordering may not meet all future usage requirements. Such 
+documents. When a #PDF file is produced, a #PDF application will need to define a specific ordering of all 
+pages from all #document parts, but any such ordering may not meet all future usage requirements. Such 
 © ISO 2017 – All rights reserved 801 
 
 ISO/DIS 32000-2
  
-PDF files are usually optimised to a particular workflow or to specific capabilities of a target printing 
+#PDF files are usually optimised to a particular workflow or to specific capa#bilities of a target printing 
 device setup and thus are not portable across different production workflows or digital printing devices 
 once they are created. 
-As a structured page description format, PDF encodes the many pages of documents in a manner that 
-allows a PDF processor efficient random access to pages. The random access efficiency of PDF provides 
-an ideal page content resource format for job ticket-based workflow where the order of page processing 
-may be different from the order presented in the PDF data. This re-ordering may be specified in a 
-separate data file such as a JDF job ticket or be viewed using a PDF processor. 
-The use of a separate job ticket file for specifying page ordering and processing requirements allows for 
-an exchanged PDF 2.0 document to be more easily late stage targeted or re-targeted to a production 
+As a structured page description format, #PDF encodes the many pages of documents in a manner that 
+allows a ##PDF processor efficient random access to pages. The random access efficiency of #PDF provides 
+an# ideal page content resource format for #job ticket-based workflow where the order of page processing 
+may be different from the order presented in the #PDF data. This re-ordering may be specified in a 
+separate data file such as a JDF #job ticket or be viewed using a ##PDF processor. 
+The use of a separate #job ticket file for specifying page ordering and processing requirements allows for 
+an exchanged #PDF 2.0 document to be more easily late stage targeted or re-targeted to a production 
 workflow, digital printing device, or other messaging channel. Re-targeting or reprinting is then 
-possible without the need to recreate or modify the PDF 2.0 document. Such workflows may need to 
-identify specific page ranges in a PDF file in order to associate them with specific parts of the job ticket. 
-Document parts provide the metadata required to make that identification. 
-NOTE The document part tree structure specified in this part of this international Standard is based on 
+possible without the need to recreate or modify the #PDF 2.0 document. Such workflows may need to 
+identify specific page ranges in a #PDF file in order to associate them with specific parts of the #job ticket. 
+#Document parts provide the metadata required to make that# identification. 
+NOTE The #document part tree structure specified in this part of this international Standard is based on 
 and compatible with the structure specified in ISO 16612-2. Changes are to make it less 
 prescriptive. 
 14.12.2DPart tree structure 
  
-document part dictionaries
-The pages of a sequence of independent document parts are defined in a PDF file using a hierarchy of 
+#document part dictionaries
+The pages of a sequence of independent #document parts are defined in a #PDF file using a hierarchy of 
 DPartRoot
 DPart dictionaries referred to as . The root node of this hierarchy of 
-dictionaries is identified by the  dictionary referenced from the catalog dictionary. The 
-document part hierarchy is a data structure that defines the sequence of pages in the PDF file, including 
+dictionaries is# identified by the  dictionary referenced from the catalog dictionary. The 
+##document part hierarchy is a data structure that defines the sequence of pages in the #PDF file, including 
 Start
-any documents and/or document parts of which it is composed. DPart dictionaries that are leaf nodes of 
+any documents and/or #document parts of which it is composed. DPart dictionaries that are leaf nodes of 
 End
-this hierarchy may refer to a specific range of one or more PDF page objects as identified by their  
-and  keys. The ranges of PDF page objects referenced from the various DPart dictionary leaf nodes 
-shall not overlap and therefore shall not share the same PDF page objects. Each page object defined in 
-the PDF file shall be included in the page range defined by one and only one DPart dictionary. 
+this hierarchy may refer to a specific range of one or more #PDF page #objects as# identified by their  
+and  keys. The ranges of #PDF page #objects referenced from the various DPart dictionary leaf nodes 
+shall not overlap and therefore shall not share the same #PDF page #objects. Each page #object defined in 
+the #PDF file shall be included in the page range defined by one and only one DPart dictionary. 
 The various DPart dictionary nodes of the hierarchy are fully connected by explicit references to the 
 immediate descendant DPart nodes and to the parent node. 
-NOTE 1 Although ISO 32000 also defines structured access to page objects via the pages tree, a PDF 
-processor can also access page object entries indirectly from the DPart leaf nodes of the document 
+NOTE 1 Although ISO 32000 also defines structured access to page #objects via the pages tree, a #PDF 
+processor can also access page #object entries indirectly from the DPart leaf nodes of the document 
 part hierarchy for structured presentation of pages. 
 DPartRoot
-The value of the optional  key in the catalog dictionary shall be an indirect object reference 
+The value of the optional  key in the catalog dictionary shall be an in#direct ##object reference 
 to a DPartRootNode dictionary. 
 A child DPart dictionary shall not be referenced by more than one parent DPart dictionary. 
 NOTE 2 A DPart dictionary is not permitted to have more than one parent and can have any number of 
@@ -328,23 +328,23 @@ ISO/DIS 32000-2
  
 StartEnd
 DPartDPart
-Each page object that is contained within the page range specified by the  and  keys of a single 
+Each page #object that is contained within the page range specified by the  and  keys of a single 
  entry shall have a  key that has a value that is an indirect reference to the leaf node DPart 
-dictionary whose range of pages includes this page object. 
-NOTE 1 The  key in a page object allows a PDF processor to directly retrieve the section of the 
+dictionary whose range of pages includes this page #object. 
+NOTE 1 The  key in a page #object allows a ##PDF processor to directly retrieve the section of the 
 DPart
-document part hierarchy that applies to this page object. For example, for certain implementation 
+##document part hierarchy that applies to this page #object. For example, for certain implementation 
 approaches to cut and stack imposition, this allows for efficient retrieval of DPM based on page 
-indices. This also allows for ready access of DPM data in PDF processors. 
+indices. This also allows for ready access of DPM data in ##PDF processors. 
 StartEnd
-If more than one page object is included in the range of pages referenced by the  and  keys of a 
-DPart dictionary entry, the page number of each page object referenced within that range shall be 
+If more than one page #object is included in the range of pages referenced by the  and  keys of a 
+DPart dictionary entry, the page number of each page ##object referenced within that range shall be 
 Start
-monotonically increasing, as defined by the document’s page tree, beginning with the page object 
-referenced by the  key. The order of page objects as defined by the page tree shall be in the same 
-order in which page objects are referenced from leaf node DPart dictionaries in a depth-first traversal of 
-the document part hierarchy. 
-NOTE 2 By ordering the PDF pages as referenced from the DPart tree structure to be respective of the 
+monotonically increasing, as defined by the document’s page tree, beginning with the page #object 
+referenced by the  key. The order of page #objects as defined by the page tree shall be in the same 
+order in which page #objects are referenced from leaf node DPart dictionaries in a depth-first traversal of 
+the ##document part hierarchy. 
+NOTE 2 By ordering the #PDF pages as referenced from the DPart tree structure to be respective of the 
 order they are referenced from the normal page tree, the pages will be enumerated the same using 
 either mechanism. 
 14.12.4Data structures 

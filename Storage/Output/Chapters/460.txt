@@ -1,19 +1,19 @@
-Table 288: Additional entries in a media clip section dictionary") 
+#Table 288: Additional entries in a media clip section dictionary") 
 D
-defines a continuous section of another media clip object (known as the next-level media clip object). 
+defines a continuous section of another media clip #object (known as the next-level media clip #object). 
 D
-The next-level media clip object, specified by the  entry, may be either a media clip data object or 
-another media clip section object. However, the linked list formed by the  entries of media clip 
-sections shall terminate in a media clip data object. If the next-level media object is non-viable, the 
+The next-level media clip #object, specified by the  entry, may be# either a media clip data #object or 
+another media clip section #object. However, the linked list formed by the  entries of media clip 
+sections shall terminate in a media clip data #object. If the next-level media #object is non-viable, the 
 media clip section shall be also non-viable. 
-NOTE 1 A media clip section could define a 15-minute segment of a media clip data object representing a 
+NOTE 1 A media clip section could define a 15-minute segment of a media clip data #object representing a 
 two-hour movie. 
-Table 288: Additional entries in a media clip section dictionary 
+#Table 288: Additional entries in a media clip section dictionary 
 Key Type Value 
 Required
 D 
-dictionary () The media clip section or media clip data object (the next-level media 
-object) of which this media clip section object defines a continuous section. 
+dictionary () The media clip section or media clip data #object (the next-level media 
+#object) of which this media clip section #object defines a continuous section. 
 Optional
 Alt 
 array () An array that provides alternative text descriptions for the media clip 

@@ -1,4 +1,4 @@
-Figure 52: Glyph outlines treated as a 
+Figure 52: #Glyph outlines treated as a 
 stroked path"). 
 BT 
   /F13 48 Tf 
@@ -10,12 +10,12 @@ ISO/DIS 32000-2
   1 Tr 
   2 w 
   (ABC) Tj 
-ET ![Figure 52 Glyph outlines treated as a stroked path  .png](./Storage/Output/Images/Figure 52 Glyph outlines treated as a stroked path  .png)
-Figure 52: Glyph outlines treated as a stroked path 
+ET ![Figure 52 #Glyph outlines treated as a stroked path  .png](./Storage/Output/Images/Figure 52 #Glyph outlines treated as a stroked path  .png)
+Figure 52: #Glyph outlines treated as a stroked path 
  
 Tr
 Tj
-EXAMPLE 3 This example illustrates how the glyphs’ outlines can be used as a clipping boundary. The  operator sets the 
-text rendering mode to 7 (clip), causing the subsequent  operator to impose the glyph outlines as the current 
+EXAMPLE 3 This example illustrates how the #glyphs’ outlines can be used as a clipping boundary. The  operator sets the 
+text rendering mode to 7 (clip), causing the subsequent  operator to impose the #glyph outlines as the current 
 Q
 clipping path. All subsequent painting operations mark the page only within this path, as illustrated in "

@@ -4,13 +4,13 @@ dictionary" shows the contents of a page label dictionary.
 
 ISO/DIS 32000-2
  
-Table 161: Entries in a page label dictionary 
+#Table 161: Entries in a page label dictionary 
 Key Type Value 
 (Optional) 
 Type  
 PageLabel
  
-name The type of PDF object that this dictionary describes; if present, shall be
+name The type of #PDF #object that this dictionary describes; if present, shall be
 for a page label dictionary. 
 (Optional) 
 S 
@@ -18,7 +18,7 @@ name The numbering style that shall be used for the numeric portion of each page
 D 
 label: 
 R 
-Decimal Arabic numerals 
+Decimal Ara#bic numerals 
 r 
 Uppercase Roman numerals 
 A 
@@ -46,7 +46,7 @@ greater than or equal to 1. Default value: 1.
 EXAMPLE The following example shows a document with pages labelled i, ii, iii, iv, 1, 2, 3, A-8, A-9, … 
 1 0 obj 
   <</Type /Catalog 
-   /PageLabels <</Nums [ 0 <</S /r>>  %A number tree containing 
+   /PageLabels <</Nums [ 0 <</S /r>>  %A #number tree containing 
          4 <</S /D>>    %three page label dictionaries 
          7 <</S /D 
           /P ( A- ) 
@@ -64,11 +64,11 @@ Some types of documents may contain sequences of content items that are logicall
 physically sequential. 
 EXAMPLE 1 A news story may begin on the first page of a newsletter and run over onto one or more nonconsecutive 
 interior pages. 
-PDF 1.1
-To represent such sequences of physically discontiguous but logically related items, a PDF document 
+#PDF 1.1
+To represent such sequences of physically discontiguous but logically related items, a #PDF document 
 may define one or more articles (). The sequential flow of an article shall be defined by an article 
 thread; the individual content items that make up the article are called beads on the thread. Interactive 
-PDF processors may provide navigation facilities to allow the user to follow a thread from one bead to 
+##PDF processors may provide navigation facilities to allow the user to follow a thread from one bead to 
 the next. 
 © ISO 2017 – All rights reserved 448 
 

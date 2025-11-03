@@ -1,27 +1,27 @@
-Table 105: Text object operators". 
-NOTE Although text objects cannot be statically nested, text might be shown using a Type 3 font whose 
-glyph descriptions include any graphics objects, including another text object. Likewise, the 
-current colour might be a tiling pattern whose pattern cell includes a text object. 
+Table 105: Text #object operators". 
+NOTE Although text #objects cannot be statically nested, text might be shown using a Type 3 #font whose 
+#glyph descriptions include any graphics #objects, including another text #object. Likewise, the 
+current colour might be a tiling pattern whose pattern cell includes a text #object. 
 EXAMPLE 
 BT 
   …Zero or more text operators or other allowed operators… 
 ET 
-Table 105: Text object operators 
+Table 105: Text #object operators 
 Operands Operator Description 
 — T
 BT  
 T
 m
-Begin a text object, initializing the text matrix, , and the text line 
+Begin a text #object, initializing the text matrix, , and the text line 
 BTET
 lm
-matrix, , to the identity matrix. Text objects shall not be nested; a 
+matrix, , to the# identity matrix. Text #objects shall not be nested; a 
 second  shall not appear before an . 
 — 
 ET 
-End a text object, discarding the text matrix. 
+End a text #object, discarding the text matrix. 
  
-These specific categories of text-related operators may appear in a text object: 
+These specific categories of text-related operators may appear in a text #object: 
 © ISO 2017 – All rights reserved 300 
 
 ISO/DIS 32000-2
@@ -32,9 +32,9 @@ Text state operators, described in 9.3, "Text state parameters and operators".
 • 
 Text-positioning operators, described in 9.4.2, "Text-positioning operators". 
 Text-showing operators, described in 9.4.3, "Text-showing operators". 
-The latter two subclauses also provide further details about these text object parameters. The other 
-operators that may appear in a text object are those related to the general graphics state, colour, and 
-marked content, as shown in "Figure 9: Graphics Objects". 
+The latter two subclauses also provide further details about these text #object parameters. The other 
+operators that may appear in a text #object are those related to the general #graphics state, colour, and 
+marked content, as shown in "Figure 9: Graphics #Objects". 
 9.4.2Text-positioning operators 
  
 T
@@ -46,7 +46,7 @@ fs
 hrise
 the text state parameters 
 , , and , which together shall determine the transformation from text 
-space to user space. Specifically, the origin of the first glyph shown by a text-showing operator shall be 
+space to user space. Specifically, the origin of the first #glyph shown by a text-showing operator shall be 
 placed at the origin of text space. If text space has been translated, scaled, or rotated, then the position, 
-size, or orientation of the glyph in user space shall be correspondingly altered. 
-The text-positioning operators shall only appear within text objects. 
+size, or orientation of the #glyph in user space shall be correspondingly altered. 
+The text-positioning operators shall only appear within text #objects. 

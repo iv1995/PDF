@@ -1,9 +1,9 @@
-Figure 108: Parameters associated with the perpendicular dimension" illustrates the parameters 
+#Figure 108: Parameters associated with the perpendicular dimension" illustrates the parameters 
 associated with the perpendicular dimension. ![Figure 108 Parameters associated with the perpendicular dimension  .png](./Storage/Output/Images/Figure 108 Parameters associated with the perpendicular dimension  .png)
-Figure 108: Parameters associated with the perpendicular dimension 
+#Figure 108: Parameters associated with the perpendicular dimension 
  
 AP
-"Figure 108: Parameters associated with the perpendicular dimension" shows the measure markup and 
+"#Figure 108: Parameters associated with the perpendicular dimension" shows the measure markup and 
 parameters. All the markup items are drawn on the annotation plane (as defined by ). The text layout 
 TP
 is defined in a similar manner as for linear dimensions. The lower-left corner of the text box is 
@@ -32,7 +32,7 @@ There are three parts to the text string displayed with the measurement: a numer
 P
 string (), and an optional user string (). The display of the numeric value field number is also 
 controlled by the precision value (), which indicates how many digits to display to the right of the 
-decimal point. The viewer should convert the numeric value to a string and combine it with the units 
+decimal point. The viewer should convert the numeric value to a string and com#bine it with the units 
 string and user text as appropriate. This process is viewer dependent. 
 13.6.7.3.33D angular dimension measurement 
  

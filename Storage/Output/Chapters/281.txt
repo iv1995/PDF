@@ -7,62 +7,62 @@ ISO/DIS 32000-2
 WidthHeight
 common to all stream dictionaries"). The dictionary’s  and  entries define the dimensions 
  Width2 Height2
-of the first (or only) rectangle. The dimensions of the second, optional rectangle are defined by the 
+of the first (or only) #rectangle. The dimensions of the second, optional #rectangle are defined by the 
 WidthHeight
-optional entriesand . Each threshold value shall be represented as 2 bytes, with the 
+optional entriesand . Each threshold value shall be represented as 2 #bytes, with the 
 2 × ( ×  +× ) 
 WidthHeight Width2 Height2
-high-order byte first. The stream shall contain 2 ×  ×  bytes if there is only one rectangle or 
-bytes if there are two rectangles. The contents of the first 
-rectangle are specified first, followed by those of the second rectangle. Threshold values within each 
-rectangle shall be defined in device space in the same order as image samples in image space (see 
-"Figure 49: Source image coordinate system"), with the first value at device coordinates (0, 0) and 
+high-order #byte first. The stream shall contain 2 ×  ×  #bytes if there is only one #rectangle or 
+#bytes if there are two #rectangles. The contents of the first 
+#rectangle are specified first, followed by those of the second #rectangle. Threshold values within each 
+#rectangle shall be defined in device space in the same order as image samples in image space (see 
+"#Figure 49: Source image coordinate system"), with the first value at device coordinates (0, 0) and 
 horizontal coordinates changing faster than vertical coordinates. 
-Table 131: Additional entries specific to a Type 16 halftone dictionary 
+#Table 131: Additional entries specific to a Type 16 halftone dictionary 
 Key Type Value 
 OptionalHalftone
 Type 
-name () The type of PDF object that this dictionary describes; if present, shall be  
+name () The type of #PDF #object that this dictionary describes; if present, shall be  
 for a halftone dictionary. 
 Required
 HalftoneType 
-integer () A code identifying the halftone type that this dictionary describes; shall be 16 for 
+integer () A code# identifying the halftone type that this dictionary describes; shall be 16 for 
 this type of halftone. 
 Optional
 HalftoneName 
-byte () The name of the halftone dictionary. 
+#byte () The name of the halftone dictionary. 
 string 
 Required
 Width 
-integer () The width of the first (or only) rectangle in the threshold array, in device pixels. 
+integer () The width of the first (or only) #rectangle in the threshold array, in device pixels. 
 Required
 Height 
-integer () The height of the first (or only) rectangle in the threshold array, in device pixels. 
+integer () The height of the first (or only) #rectangle in the threshold array, in device pixels. 
 Optional
 Width2 
 Height2
-integer () The width of the optional second rectangle in the threshold array, in device 
+integer () The width of the optional second #rectangle in the threshold array, in device 
 Height2
 pixels. If this entry is present, the  entry shall be present as well. If this entry is 
 absent, the  entry shall also be absent, and the threshold array has only one 
-rectangle. 
+#rectangle. 
 Optional
 Height2 
-integer () The height of the optional second rectangle in the threshold array, in device 
+integer () The height of the optional second #rectangle in the threshold array, in device 
 pixels. 
 Optional
-TransferFunction 
-function () A transfer function, which shall override the current transfer function in the 
-or name graphics state for the same component. This entry shall be present if the dictionary is a 
-component of a Type 5 halftone (see 10.6.5.6, "Type 5 halftones") and represents either a 
+Transfer#Function 
+#function () A transfer #function, which shall override the current transfer #function in the 
+or name #graphics state for the same component. This entry shall be present if the dictionary is a 
+component of a Type 5 halftone (see 10.6.5.6, "Type 5 halftones") and represents# either a 
 Identity
-nonprimary or nonstandard primary colour component (see 10.5, "Transfer functions"). The 
-name  may be used to specify the identity function. 
+nonprimary or nonstandard primary colour component (see 10.5, "Transfer #functions"). The 
+name  may be used to specify the# identity #function. 
  
 10.6.5.6Type 5 halftones 
  
 Some devices, particularly colour printers, require separate halftones for each individual colourant. 
 Also, devices that can produce named separations may require individual halftones for each separation. 
-Halftone dictionaries of Type 5 allow individual halftones to be specified for an arbitrary number of 
+Halftone dictionaries of Type 5 allow individual halftones to be specified for an ar#bitrary number of 
 colourants or colour components. 
 A Type 5 halftone dictionary ("

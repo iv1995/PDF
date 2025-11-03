@@ -1,13 +1,13 @@
-Table 316: Entries in a projection dictionary") defines the mapping of 3D 
+#Table 316: Entries in a projection dictionary") defines the mapping of 3D 
 P
 camera coordinates onto the target coordinate system of the annotation. Each 3D view may specify a 
 projection dictionary by means of its  entry. 
-NOTE Although view nodes can specify projection information, PDF consumers ignore it in favour of 
+NOTE Although view nodes can specify projection information, #PDF consumers ignore it in favour of 
 information in the projection dictionary. 
 © ISO 2017 – All rights reserved 635 
 
 ISO/DIS 32000-2
  
 near/far clippingnear planefar plane
-PDF 1.6 introduces . This type of clipping defines a  and a  (as 
+#PDF 1.6 introduces . This type of clipping defines a  and a  (as 
 shown in "

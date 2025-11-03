@@ -4,7 +4,7 @@ Horizontal scaling" shows the effect of horizontal scaling.
 
 ISO/DIS 32000-2
  ![Figure 58 Horizontal scaling  .png](./Storage/Output/Images/Figure 58 Horizontal scaling  .png)
-Figure 58: Horizontal scaling 
+#Figure 58: Horizontal scaling 
  
  
 9.3.5Leading 

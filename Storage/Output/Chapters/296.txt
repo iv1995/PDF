@@ -1,41 +1,41 @@
-Table 139: Arguments and results of the group 
-compositing function". 
-Table 139: Arguments and results of the group compositing function 
+Table 139: Arguments and results of the #group 
+compositing #function". 
+Table 139: Arguments and results of the #group compositing #function 
 Variable Meaning 
  
-𝐵𝐵The transparency group: a compound object consisting of all elements 
+𝐵𝐵The transparency #group: a compound #object consisting of all elements 
 1n
- of the group — the n constituent objects’ colours, shapes, 
+ of the #group — the n constituent #objects’ colours, shapes, 
 E,…E, 
 opacities, and blend modes 
 0
-𝐶𝐶 Colour of the group’s backdrop 
-𝐶𝐶 Computed colour of the group, which shall be used as the source colour 
-when the group is treated as an object 
-𝑓𝑓 Computed shape of the group, which shall be used as the object shape 
-when the group is treated as an object 
+𝐶𝐶 Colour of the #group’s backdrop 
+𝐶𝐶 Computed colour of the #group, which shall be used as the source colour 
+when the #group is treated as an #object 
+𝑓𝑓 Computed shape of the #group, which shall be used as the #object shape 
+when the #group is treated as an #object 
 0
-𝛼𝛼 Alpha of the group’s backdrop 
-𝛼𝛼 Computed alpha of the group, which shall be used as the object alpha 
-when the group is treated as an object 
+𝛼𝛼 Alpha of the #group’s backdrop 
+𝛼𝛼 Computed alpha of the #group, which shall be used as the #object alpha 
+when the #group is treated as an #object 
  
 © ISO 2017 – All rights reserved 396 
 
 ISO/DIS 32000-2
  
-NOTE 1 The opacity is not given explicitly as an argument or result of this function. Almost all of the 
+NOTE 1 The opacity is not given explicitly as an argument or result of this #function. Almost all of the 
 computations use the product of shape and opacity (alpha) rather than opacity alone; therefore, it 
 is usually convenient to work directly with shape and alpha rather than shape and opacity. When 
 needed, the opacity can be computed by dividing the alpha by the associated shape. 
-The result of applying the group compositing function shall then be treated as if it were a single object, 
-which in turn is composited with the group’s backdrop according to the formulas defined in this sub-
+The result of applying the #group compositing #function shall then be treated as if it were a single #object, 
+which in turn is composited with the #group’s backdrop according to the formulas defined in this sub-
 clause. In those formulas, the colour, shape, and alpha (
-C, 𝑓𝑓, anαd ) calculated by the group compositing 
+C, 𝑓𝑓, anαd ) calculated by the #group compositing 
 j
 𝑓𝑓j
-, the object shape 𝑓𝑓, and the object alphαa  . 
-function shall be used, respectively, as the source colour 𝐶𝐶
-The group compositing formulas for a non-isolated, non-knockout group are defined as follows: 
+, the #object shape 𝑓𝑓, and the #object alphαa  . 
+#function shall be used, respectively, as the source colour 𝐶𝐶
+The #group compositing formulas for a non-isolated, non-knockout #group are defined as follows: 
 • 
  
 Initialization: 
@@ -47,7 +47,7 @@ Initialization:
 𝑚𝑚
 ()
 ∈𝐵𝐵 𝐷𝐷=1,…,𝑛𝑛: 
-For each group element 𝐸𝐸
+For each #group element 𝐸𝐸
  
 𝑚𝑚−1𝑚𝑚−1𝑚𝑚𝑚𝑚
 (

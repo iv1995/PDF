@@ -1,6 +1,6 @@
-Table 53: Line cap styles" shows the possible 
+#Table 53: Line cap styles" shows the possible 
 values. 
-Table 53: Line cap styles 
+#Table 53: Line cap styles 
 Style Appearance Description 
 Butt cap
 0 ![0.png](./Storage/Output/Images/0.png)

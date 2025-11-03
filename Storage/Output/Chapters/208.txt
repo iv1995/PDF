@@ -1,8 +1,8 @@
-Table 85: Data values in a tensor-product patch mesh" 
+#Table 85: Data values in a tensor-product patch mesh" 
 summarises the data values for various values of the edge flag , expressed in terms of the row and 
-column indices used in "Figure 47: Control points in a tensor-product patch". See 8.7.4.5.5, "Type 4 
+column indices used in "#Figure 47: Control points in a tensor-product patch". See 8.7.4.5.5, "Type 4 
 (free-form Gouraud-shaded triangle mesh) shadings" for further details on the format of the data. 
-Table 85: Data values in a tensor-product patch mesh 
+#Table 85: Data values in a tensor-product patch mesh 
 Edge Flag Next Set of Data Values 
 00000101020203031313232333333232
 𝑓𝑓=0 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦𝑥𝑥𝑦𝑦 𝑥𝑥 𝑦𝑦 𝑥𝑥 𝑦𝑦 
@@ -88,25 +88,25 @@ Implicit values:
 ()
 (𝑥𝑥,𝑦𝑦)=𝑥𝑥,𝑦𝑦 previous 
  
-8.8External objects 
+8.8External #objects 
  
 8.8.1General 
  
-external objectXObject
-An  (commonly called an ) is a graphics object whose contents are defined by a 
-self-contained stream, separate from the content stream in which it is used. There are two types of 
-external objects: 
+external #objectXObject
+An  (commonly called an ) is a graphics #object whose contents are defined by a 
+self-contained stream, separate from the #content stream in which it is used. There are two types of 
+external #objects: 
 image XObject
 • 
 An  (8.9.5, "Image dictionaries") represents a sampled visual image such as a 
 form XObject
 • 
 photograph. 
-A  (8.10, "Form XObjects") is a self-contained description of an arbitrary sequence of 
-group XObjectsreference XObjects
-graphics objects. 
-Two further categories of external objects,  and  (both PDF 1.4), are 
-actually specialised types of form XObjects with additional properties. See 8.10.3, "Group XObjects" and 
-8.10.4, "Reference XObjects" for additional information. 
+A  (8.10, "Form X#Objects") is a self-contained description of an ar#bitrary sequence of 
+#group X#Objectsreference X#Objects
+graphics #objects. 
+Two further categories of external #objects,  and  (both #PDF 1.4), are 
+actually specialised types of form X#Objects with additional properties. See 8.10.3, "#Group X#Objects" and 
+8.10.4, "Reference X#Objects" for additional information. 
 Do
-Any XObject can be painted as part of another content stream by means of the  operator (see "
+Any X#Object can be painted as part of another #content stream by means of the  operator (see "

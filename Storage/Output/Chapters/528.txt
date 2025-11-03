@@ -1,4 +1,4 @@
-Table 334: Entries in a RichMediaSettings dictionary". 
+#Table 334: Entries in a RichMediaSettings dictionary". 
 those states. See "
 Default value: If no RichMediaSettings dictionary is present, the first 
 configuration is loaded. 
@@ -9,7 +9,7 @@ states,
 Inactive
 • 
 : (the default initial state) The annotation displays the normal appearance of the 
-NOTE 2 Typically, the normal appearance is a 2D bitmap portraying a rendering of the default view of the 
+NOTE 2 Typically, the normal appearance is a 2D #bitmap portraying a rendering of the default view of the 
 annotation. 
 artwork within theannotation. 
  RichMedia 
@@ -30,19 +30,19 @@ The  has a purpose similar to that of the 3D activation dictionary ("Table
 310: Entries in a 3D activation dictionary") with the 3DAnnotationdescribed in 13.6.2, "3D 
 Annotations". The RichMediaSettings dictionary stores the conditions and responses that occur in 
 response to certain events, such as activation and deactivation of the annotation, and contains two 
-dictionaries. "Table 334: Entries in a RichMediaSettings dictionary" gives the details of the content of 
+dictionaries. "#Table 334: Entries in a RichMediaSettings dictionary" gives the details of the content of 
 this dictionary. 
 © ISO 2017 – All rights reserved 676 
 
 ISO/DIS 32000-2
  
-Table 334: Entries in a RichMediaSettings dictionary 
+#Table 334: Entries in a RichMediaSettings dictionary 
 Key Type Value 
-Optional; PDF 2.0
+Optional; #PDF 2.0
 Type 
 RichMediaSettings
-name () The type of PDF object that this dictionary describes. If 
+name () The type of #PDF #object that this dictionary describes. If 
 present, shall be . 
-Optional; PDF 2.0
+Optional; #PDF 2.0
 Activation 
 dictionary () A RichMediaActivation dictionary (see "

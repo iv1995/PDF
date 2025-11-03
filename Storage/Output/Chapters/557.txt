@@ -1,9 +1,9 @@
-Table 363: Property list entries for artifacts" shows the 
+#Table 363: Property list entries for artifacts" shows the 
 properties that may be included in such a property list. 
 Artifact
 Any content that is not included in the structure tree is an artifact even when not enclosed in a marked 
 content sequence using the tag . 
-Table 363: Property list entries for artifacts 
+#Table 363: Property list entries for artifacts 
 Key Type Value 
 (Optional)
 Type 
@@ -28,18 +28,18 @@ occurring from document templates that are often repeated
 unchanged across many pages such as a watermark. 
 (Optional)
 BBox 
-rectangle  An array of four numbers in default user space units giving the coordinates of the 
-left, bottom, right, and top edges, respectively, of the artifact’s bounding box (the rectangle 
+#rectangle  An array of four numbers in default user space units giving the coordinates of the 
+left, bottom, right, and top edges, respectively, of the artifact’s bounding box (the #rectangle 
 that completely encloses its visible extent). 
-(Optional; PDF 1.7) 
+(Optional; #PDF 1.7) 
 Subtype Type
 PaginationHeaderFooterWatermarkPageNum
 name The subtype of the artifact. This entry should appear only when the  
 LineNumRedactionBates
-entry has a value of . Valid values are , , ,  (PDF 
-2.0),  (PDF 2.0),  (PDF 2.0) and  (PDF 2.0). Additional values may be 
+entry has a value of . Valid values are , , ,  (#PDF 
+2.0),  (#PDF 2.0),  (#PDF 2.0) and  (#PDF 2.0). Additional values may be 
 specified for this entry, provided they comply with the naming conventions described in 
-Annex E, "PDF Name Registry". 
+Annex E, "#PDF Name Registry". 
  
 AltActualTextE
 Some attributes defined elsewhere may also be used as entries in the property list of an artifact, 
@@ -60,26 +60,26 @@ ISO/DIS 32000-2
  
 NOTE Bates numbering is used in the legal, medical, and business fields in some countries to place 
 identifying numbers and/or date/time-marks on images and documents. For example, it is added 
-during the discovery stage of preparations for trial or when identifying business receipts. This 
-process provides identification, protection, and automatic consecutive numbering. 
+during the discovery stage of preparations for trial or when# identifying business receipts. This 
+process provides# identification, protection, and automatic consecutive numbering. 
 14.8.2.3Soft hyphens 
  
 soft hyphen
-In tagged PDF, the visible hyphen that is introduced through the incidental division of a word at the end 
+In tagged #PDF, the visible hyphen that is introduced through the incidental division of a word at the end 
 of a line but which would not be present otherwise, may be represented as a , mapped to the 
-Unicode value U+00AD, in one of the ways described in 14.8.2.6, "Unicode mapping in tagged PDF". 
-NOTE 1  The soft hyphen character represented by the Unicode value U+00AD is distinct from an ordinary 
+Unicode value U+00AD, in one of the ways described in 14.8.2.6, "Unicode mapping in tagged #PDF". 
+NOTE 1  The soft hyphen #character represented by the Unicode value U+00AD is distinct from an ordinary 
 hard hyphen, whose Unicode value is U+002D. 
-The writer of a tagged PDF document shall distinguish explicitly between soft and hard hyphens so that 
-a PDF processor can unambiguously determine which type a given character represents. 
-NOTE 2  In some languages, the situation is more complicated: there can be multiple characters affected by 
+The writer of a tagged #PDF document shall distinguish explicitly between soft and hard hyphens so that 
+a ##PDF processor can unam#biguously determine which type a given #character represents. 
+NOTE 2  In some languages, the situation is more complicated: there can be multiple #characters affected by 
 hyphenation, and hyphenation can change the spelling of words. See the Example in 14.9.4, 
 "Replacement text". 
 14.8.2.4Hidden or invisible page content 
  
 For a variety of reasons, elements of a document’s real content can be invisible on the page: they can be 
-clipped; their colour can match the background; or they can be obscured by other, overlapping objects. 
-For the purposes of tagged PDF, page content shall be considered to include all graphics objects in their 
+clipped; their colour can match the background; or they can be obscured by other, overlapping #objects. 
+For the purposes of tagged #PDF, page content shall be considered to include all graphics #objects in their 
 entirety, regardless of whether they are visible when the document is displayed or printed. 
 NOTE For example, invisible elements can become visible when content is repurposed, or a text-to-speech 
 engine could choose to speak invisible text. 
@@ -88,20 +88,20 @@ engine could choose to speak invisible text.
 14.8.2.5.1General 
  
 Page content order
- shall be defined by the sequencing of graphics objects within a page’s content 
+ shall be defined by the sequencing of graphics #objects within a page’s content 
 stream. 
 Logical content order
  – the ordering for semantic purposes – shall be defined by a depth-first traversal 
 of the document’s logical structure hierarchy.  
-The page content order in a tagged PDF should coincide with the logical content order. 
-NOTE 1  Page content order is constrained by the need to render objects in an order that produces the 
+The page content order in a tagged #PDF should coincide with the logical content order. 
+NOTE 1  Page content order is constrained by the need to render #objects in an order that produces the 
 desired visual appearance. Logical content order is constrained by the need to reflect the order of 
 the content as intended by its author. 
-NOTE 2 The running text of a page, as encoded in the page’s content stream, can contain places where it is 
+NOTE 2 The #running text of a page, as encoded in the page’s #content stream, can contain places where it is 
 not possible to make the order in which the text progresses match the logical content order. 
 Content within a single marked content sequence (see 14.6, "Marked content") shall be in logical 
 content order for that item of content. 
-NOTE 3  Both in terms of how page content is encoded in a tagged PDF as well as in terms of how a PDF 
+NOTE 3  Both in terms of how page content is encoded in a tagged #PDF as well as in terms of how a #PDF 
 processor can process that content, efficiency can be impacted if the page content order and 
 © ISO 2017 – All rights reserved 722 
 
@@ -110,11 +110,11 @@ ISO/DIS 32000-2
 logical content order sequences do not coincide. In some cases it is not feasible to make the 
 sequences coincide: 
 •
-Regarding the sequence of page objects within a given page, page objects can visually overlap 
+Regarding the sequence of page #objects within a given page, page #objects can visually overlap 
  
 in a way that requires reverse ordering. 
 •
-A logical object can extend over more than one PDF page, such as in the case of a headline 
+A logical #object can extend over more than one #PDF page, such as in the case of a headline 
  
 spanning two pages in a facing pages layout.  
 •
@@ -129,39 +129,39 @@ content order because only structure elements are part of the logical content or
 14.8.2.5.2Sequencing of annotations 
  
 Annots
-Annotations associated with a page are not interleaved within the page’s content stream but are listed 
-in the  array in its page object (see 7.7.3.3, "Page objects"). The position of an annotation in the 
+Annotations associated with a page are not interleaved within the page’s #content stream but are listed 
+in the  array in its page #object (see 7.7.3.3, "Page #objects"). The position of an annotation in the 
 logical content order is determined from the document’s logical structure. 
 Both page content (marked-content sequences) and annotations may be treated as content items that 
 AnnotLinkForm
 are referenced from structure elements (see 14.7.5, "Structure content"). Structure elements of type 
 , , or  (see 14.8.4.7, "Inline level structure types") explicitly specify the association 
-between a marked-content sequence and a corresponding annotation through an object reference 
-dictionary as described in 14.7.5.3, "PDF objects as content items". 
+between a marked-content sequence and a corresponding annotation through an ##object reference 
+dictionary as described in 14.7.5.3, "#PDF #objects as content items". 
 14.8.2.5.3Reverse-order show strings 
  
 ReversedChars
-The marked-content tag  informs the PDF processor that show strings within a marked-
-content sequence contain characters in reverse order. In order for such text to be extracted or read out 
-aloud, the sequence of the characters as found in the show string operator shall be reversed before 
-using them. If the sequence encompasses multiple show strings, only the individual characters within 
+The marked-content tag  informs the ##PDF processor that show strings within a marked-
+content sequence contain #characters in reverse order. In order for such text to be extracted or read out 
+aloud, the sequence of the #characters as found in the show string operator shall be reversed before 
+using them. If the sequence encompasses multiple show strings, only the individual #characters within 
 each string shall be reversed. 
-NOTE 1  In writing systems that are read from right to left (such as Arabic or Hebrew), one might expect 
-that the glyphs in a font would have their origins at the lower right and their widths (rightward 
+NOTE 1  In writing systems that are read from right to left (such as Ara#bic or Hebrew), one might expect 
+that the #glyphs in a #font would have their origins at the lower right and their widths (rightward 
 horizontal displacements) specified as negative. For various technical and historical reasons, 
-however, many such fonts follow the same conventions as those designed for Western writing 
-systems, with glyph origins at the lower left and positive widths, as shown in "Figure 54: Glyph 
-metrics". Consequently, showing text in such right-to-left writing systems requires either 
-positioning each glyph individually (which is tedious and costly) or representing text with show 
-strings (see 9.2, "Organization and use of fonts") whose character codes are given in reverse order. 
+however, many such #fonts follow the same conventions as those designed for Western writing 
+systems, with #glyph origins at the lower left and positive widths, as shown in "Figure 54: #Glyph 
+metrics". Consequently, showing text in such right-to-left writing systems requires# either 
+positioning each #glyph individually (which is tedious and costly) or representing text with show 
+strings (see 9.2, "Organization and use of fonts") whose #character codes are given in reverse order. 
  
 ReversedChars
-The show strings in a  block may have a SPACE (U+0020) character or other white-
-space characters at the beginning or end to indicate a word break (see 14.8.2.6.2, "Identifying word 
-breaks") but shall not contain interior SPACE characters or other white-space characters. 
-NOTE 2  This limitation is not serious, since a SPACE or other white-space character typically provides an 
+The show strings in a  block may have a SPACE (U+0020) #character or other white-
+space #characters at the beginning or end to indicate a word break (see 14.8.2.6.2, "Identifying word 
+breaks") but shall not contain interior SPACE #characters or other white-space #characters. 
+NOTE 2  This limitation is not serious, since a SPACE or other white-space #character typically provides an 
 opportunity to realign the typography without visible effect, and it serves the valuable purpose of 
-limiting the scope of reversals for word-processing interactive PDF processors. 
+limiting the scope of reversals for word-processing #interactive ##PDF processors. 
 © ISO 2017 – All rights reserved 723 
 
 ISO/DIS 32000-2
@@ -176,45 +176,45 @@ EXAMPLE The sequence
  represents the text 
 Hello world. 
  
-14.8.2.6Unicode mapping in tagged PDF 
+14.8.2.6Unicode mapping in tagged #PDF 
  
 14.8.2.6.1General 
  
-PDF documents conforming with 14.8, "Tagged PDF" should map every character code in any of the 
-content streams or appearance streams of a document to a corresponding Unicode value. Every 
+#PDF documents conforming with 14.8, "Tagged #PDF" should map every #character code in any of the 
+#content streams or appearance streams of a document to a corresponding Unicode value. Every 
 AltActualText
-character code that belongs to a structure element in the structure tree shall map to Unicode, except 
-where an associated  or  entry applies to the content to which the character code belongs. 
+#character code that belongs to a structure element in the structure tree shall map to Unicode, except 
+where an associated  or  entry applies to the content to which the #character code belongs. 
 NOTE 1  These Unicode values can then be used for such operations as copy-and-paste, searching, text-to-
 speech conversion, and exporting to other applications or file formats. 
-NOTE 2  Unicode defines scalar values for most of the characters used in the world’s languages and writing 
+NOTE 2  Unicode defines scalar values for most of the #characters used in the world’s languages and writing 
 systems, as well as providing a private use area for application-specific characters. Information 
 about Unicode can be found in the Unicode Standard. 
-The methods for mapping a character code to a Unicode value are described in 9.10.2, "Mapping 
-character codes to Unicode values". 
+The methods for mapping a #character code to a Unicode value are described in 9.10.2, "Mapping 
+#character codes to Unicode values". 
 Private Use Area Unicode values should only be used if no other Unicode value is available, as no pre-
 defined meaning is associated with the Unicode values in the Private Use Area. 
 NOTE 3 An , , or  entry specified in a structure element dictionary or a marked-content 
 AltActualTextE
 property list (see 14.9.3, "Alternate descriptions" 14.9.4, "Replacement text" and 14.9.5, 
-"Expansion of abbreviations and acronyms") can affect the character stream used by PDF 
-processors. For example, some PDF processors could choose to use the  or  entry and 
+"Expansion of abbreviations and acronyms") can affect the #character stream used by #PDF 
+processors. For example, some ##PDF processors could choose to use the  or  entry and 
 AltActualText
 ignore all text and other content associated with the structure element and its descendants. 
 CMap
-In some cases a required character may not be available in a given font, for example the soft hyphen 
+In some cases a required #character may not be available in a given #font, for example the soft hyphen 
 ToUnicodeActualText
-character. Such a character may be represented either by adding it to the font’s encoding or  and 
+#character. Such a character may be represented# either by adding it to the #font’s encoding or  and 
 using  to map it to the appropriate Unicode value, or by using an  entry in the 
-associated structure element to provide substitute characters. 
+associated structure element to provide substitute #characters. 
 14.8.2.6.2Identifying word breaks 
  
-A document’s text content defines not only the characters in a page’s text but also the words. Unlike a 
-character, which is defined unambiguously, a word is defined by script and context. A repurposing tool 
-needs to determine where it can break the running text into lines; a text-to-speech engine needs to 
+A document’s text content defines not only the #characters in a page’s text but also the words. Unlike a 
+#character, which is defined unam#biguously, a word is defined by script and context. A repurposing tool 
+needs to determine where it can break the #running text into lines; a text-to-speech engine needs to 
 identify the words to be vocalised; spelling checkers and other applications have varying definitions for 
-what constitutes a word. It is not important for a tagged PDF document to identify the words within the 
-text stream according to a single, unambiguous definition that satisfies all of these clients. What is 
+what constitutes a word. It is not important for a tagged #PDF document to# identify the words within the 
+text stream according to a single, unam#biguous definition that satisfies all of these clients. What is 
 © ISO 2017 – All rights reserved 724 
 
 ISO/DIS 32000-2
@@ -222,20 +222,20 @@ ISO/DIS 32000-2
 important is that there be enough information available for each client to make that determination for 
 itself. 
 ActualText
-A PDF processor of a tagged PDF document may find words by sequentially examining the Unicode 
-character stream, as augmented by replacement text specified with  (see 14.9.4, 
+A ##PDF processor of a tagged #PDF document may find words by sequentially examining the Unicode 
+#character stream, as augmented by replacement text specified with  (see 14.9.4, 
 "Replacement text"). 
-For this purpose any white-space characters that would be present to separate words in a pure text 
-representation shall be present in the tagged PDF representation of the text. 
-NOTE 1  As a consequence, the PDF processor can determine word breaks without having to rely on 
-heuristics based on information such as glyph positioning on the page, font changes, or glyph sizes. 
-The identification of what constitutes a word shall be unrelated to how the text happens to be grouped 
+For this purpose any white-space #characters that would be present to separate words in a pure text 
+representation shall be present in the tagged #PDF representation of the text. 
+NOTE 1  As a consequence, the ##PDF processor can determine word breaks without having to rely on 
+heuristics based on information such as #glyph positioning on the page, #font changes, or #glyph sizes. 
+The# identification of what constitutes a word shall be unrelated to how the text happens to be #grouped 
 into show strings. The division into show strings shall have no semantic significance. In particular, a 
-SPACE (U+0020) or other word-breaking character shall be present in a character stream even if a 
+SPACE (U+0020) or other word-breaking #character shall be present in a #character stream even if a 
 word break happens to fall at the end of a show string. 
-NOTE 2  Some PDF processors might identify words by simply separating them at every SPACE character. 
+NOTE 2  Some ##PDF processors might# identify words by simply separating them at every SPACE #character. 
 Others might be slightly more sophisticated and treat punctuation marks such as hyphens or em 
-dashes as word separators as well. Still others might identify possible line-break opportunities by 
+dashes as word separators as well. Still others might# identify possible line-break opportunities by 
 using an algorithm similar to the one in Unicode Standard Annex #29, Unicode Text 
 Segmentation. 
 14.8.3Basic layout model 
@@ -248,14 +248,14 @@ from the boundaries of the reference area. Reference areas are not specified exp
 from context. Those of interest are generally the column area or areas in a general text layout, the outer 
 bounding box of a table and those of its component cells, and the bounding box of an illustration or 
 other floating element. 
-NOTE 1  Tagged PDF’s standard structure types and attributes can be interpreted in the context of a basic 
+NOTE 1  Tagged #PDF’s standard structure types and attributes can be interpreted in the context of a basic 
 layout model that describes the arrangement of structure elements on the page. This model is 
 designed to capture the general intent of the document’s underlying structure and does not 
 necessarily correspond to the one actually used for page layout by the application creating the 
-document. (The PDF content stream specifies the exact appearance.) The goal is to provide 
-sufficient information for PDF processors to make their own layout decisions while preserving the 
+document. (The #PDF #content stream specifies the exact appearance.) The goal is to provide 
+sufficient information for ##PDF processors to make their own layout decisions while preserving the 
 authoring application’s intent as closely as their own layout models allow. 
-NOTE 2  The tagged PDF layout model resembles the ones used in markup languages such as HTML, XML, 
+NOTE 2  The tagged #PDF layout model resembles the ones used in markup languages such as HTML, XML, 
 and RTF, but does not correspond exactly to any of them. The model is deliberately defined loosely 
 to allow reasonable latitude in the interpretation of structure elements and attributes when 
 converting to other document formats. Some degree of variation in the resulting layout from one 
@@ -263,7 +263,7 @@ format to another is to be expected.
 The standard structure types can be divided into four main categories according to the roles they play 
 in page layout: 
 • 
-Grouping elements (see 14.8.4.4, "Grouping level structure types") group other elements into 
+#Grouping elements (see 14.8.4.4, "#Grouping level structure types") #group other elements into 
 • 
 sequences or hierarchies but hold no content directly and have no direct effect on layout.  
 Block-level structure elements (BLSEs) (see 14.8.4.5, "Block level structure types") describe the 
@@ -277,8 +277,8 @@ Inline-level structure elements (ILSEs) (see 14.8.4.7, "Inline level structure t
 • 
 layout of content within a BLSE, proceeding in the inline-progression direction.  
 Figure
-Some elements can be grouping elements, BLSEs or ILSEs, depending on context or usage. For 
-example, a  structure element can be treated as either a grouping element, a BLSE or an 
+Some elements can be #grouping elements, BLSEs or ILSEs, depending on context or usage. For 
+example, a  structure element can be treated as# either a #grouping element, a BLSE or an 
 block-progression directioninline-progression direction 
 ILSE. 
 WritingMode
@@ -287,7 +287,7 @@ writing system in use, as specified by the standard attribute  (see 14.8.5.4.2, 
 Layout Attributes"). In Western writing systems, the block direction is from top to bottom and the inline 
 direction is from left to right. Other writing systems use different directions for laying out content. 
 Because the progression directions can vary depending on the writing system, edges of areas and 
-directions on the page are identified by terms that are neutral with respect to the progression order 
+directions on the page are# identified #by terms that are neutral with respect to the progression order 
 rather than by familiar terms such as up, down, left, and right. Block layout proceeds from before to 
 after, inline from start to end. Thus, for example, in Western writing systems, the before and after edges 
 of a reference area are at the top and bottom, respectively, and the start and end edges are at the left 
@@ -301,7 +301,7 @@ overflowing BLSE allows itself to be split — such as a paragraph that can be s
 — a portion of it may be included in the current reference area and the remainder carried over to a 
 subsequent reference area (either elsewhere on the same page or on another page of the document). 
 Once the amount of content that fits in a reference area is determined, the placements of the individual 
-BLSEs may be adjusted to bias the placement toward the before edge, the middle, or the after edge of 
+BLSEs may be adjusted to #bias the placement toward the before edge, the middle, or the after edge of 
 the reference area, or the spacing within or between BLSEs may be adjusted to fill the full extent of the 
 reference area. 
 BlockAlignInlineAlign
@@ -327,30 +327,30 @@ ISO/DIS 32000-2
  
 packing process and allow it instead to float to a specified edge of the enclosing reference area or parent 
 BLSE; see "General Layout Attributes" in 14.8.5.4, "Layout Attributes" for further discussion. 
-Two enclosing rectangles shall be associated with each BLSE and ILSE (including direct content items 
+Two enclosing #rectangles shall be associated with each BLSE and ILSE (including direct content items 
 that are treated implicitly as ILSEs): 
 • 
-The content rectangle shall be derived from the shape of the enclosed content and defines the 
+The content #rectangle shall be derived from the shape of the enclosed content and defines the 
 • 
 bounds used for the layout of any included child elements.  
-The allocation rectangle includes any additional borders or spacing surrounding the element, 
+The allocation #rectangle includes any additional borders or spacing surrounding the element, 
 affecting how it shall be positioned with respect to adjacent elements and the enclosing content 
-rectangle or reference area.  
-The definitions of these rectangles shall be determined by layout attributes associated with the 
-structure element; see 14.8.5.4.5, "Content and Allocation Rectangles" for further discussion.  
+#rectangle or reference area.  
+The definitions of these #rectangles shall be determined by layout attributes associated with the 
+structure element; see 14.8.5.4.5, "Content and Allocation #Rectangles" for further discussion.  
 14.8.4Standard structure types 
  
 14.8.4.1General 
  
 Standard structure types are divided into categories: 
 • 
-"Document level structure types" identify a whole document or a fragment of a document. In most 
-cases a tagged PDF will contain exactly one document, but in some other cases a tagged PDF 
-contains several documents that have been merged together into one file, or the tagged PDF is a 
+"Document level structure types"# identify a whole document or a fragment of a document. In most 
+cases a tagged #PDF will contain exactly one document, but in some other cases a tagged #PDF 
+contains several documents that have been merged together into one file, or the tagged #PDF is a 
 • 
 document containing document fragments which have been inserted into the document. 
-"Grouping level structure types" make it possible to organise the overall structure of content in a 
-tagged PDF. For example, a book typically consists of chapters, or a newspaper page consists of 
+"#Grouping level structure types" make it possible to organise the overall structure of content in a 
+tagged #PDF. For example, a book typically consists of chapters, or a newspaper page consists of 
 several parts called articles, and a scientific publication typically contains sections and several 
 • 
 levels of sub-sections. 
@@ -362,16 +362,16 @@ TablesFigures
 inside block level elements and inside specialised structure elements used as block level elements. 
 Some structure types — for example  or  — may be used as block level types or as inline 
 types, whereas others (e.g., H1) may only be used as block level types. Whenever a provision in clause 
-14.8, "Tagged PDF", refers to block level types, all structure elements used as block level elements shall 
-be included. Whenever a provision in clause 14.8, "Tagged PDF", refers to inline level types, all structure 
+14.8, "Tagged #PDF", refers to block level types, all structure elements used as block level elements shall 
+be included. Whenever a provision in clause 14.8, "Tagged #PDF", refers to inline level types, all structure 
 elements used as inline level elements shall be included. 
-To determine the category that is applicable to a structure element that may either be a block level 
+To determine the category that is applicable to a structure element that may# either be a block level 
 structure element or an inline level structure element, the following applies: 
 • 
 • 
 If the structure element is used inside a block level element, it is an inline level structure element 
 In all other cases it is a block level structure element. 
-All structure elements occurring within a tagged PDF document shall have a type matching one of those 
+All structure elements occurring within a tagged #PDF document shall have a type matching one of those 
 defined as a Standard Structure Type, or a role map providing a mapping from the non-standard type to 
 a Standard Structure Type. 
 © ISO 2017 – All rights reserved 727 
@@ -384,7 +384,7 @@ Annex L, "Parent-child relationships between standard structure elements" define
 standard structure elements. In addition, supplemental rules apply for some standard structure 
 elements. These supplemental rules are defined in the subclauses specific to each of the standard 
 structure types. 
-Structure elements other than the standard structure elements identified in clause 14.8.4 "Standard 
+Structure elements other than the standard structure elements# identified in clause 14.8.4 "Standard 
 structure types" or in the standard structure namespaces (see 14.8.6.2, "Role maps and namespaces") 
 shall nest in relation to standard structure elements according to the requirements of the structure 
 elements to which they are role-mapped. 
@@ -397,18 +397,18 @@ Structure elements can be empty.
 If a structure element contains neither structure elements nor real content it is empty. 
  
 •
-Unless specifically constrained in 14.8, "Tagged PDF", any number of structure elements can 
+Unless specifically constrained in 14.8, "Tagged #PDF", any number of structure elements can 
  
 exist in any order inside a parent structure element. 
 •
 Real content is contained inside block level or inline level structure elements. 
  
 •
-Document level structure elements that are not empty contain other document level, grouping 
+Document level structure elements that are not empty contain other document level, #grouping 
  
 or block level elements, and cannot contain inline level structure elements or content. 
 •
-Grouping structure elements that are not empty contain other document level, grouping or 
+#Grouping structure elements that are not empty contain other document level, #grouping or 
  
 block level elements, and cannot contain inline level structure elements or content. 
 •
@@ -422,11 +422,11 @@ other type of structure element.
 14.8.4.3Document level structure types 
  
 logical document
-In a tagged PDF file a  is a portion of content typically perceived as a semantically self 
+In a tagged #PDF file a  is a portion of content typically perceived as a semantically self 
 contained document of any granularity. Examples range from short memos to articles, presentations or 
 fillable forms to comprehensive publications like magazines or books.  
 logical document fragment
 A  is a portion of content that constitutes – or is intended or perceived as – 
 just a part of a logical document, regardless of whether it was extracted from a logical document or 
-originated as a document fragment. A tagged PDF file may consist of one or more logical documents or 
+originated as a document fragment. A tagged #PDF file may consist of one or more logical documents or 
 logical document fragments (described in "

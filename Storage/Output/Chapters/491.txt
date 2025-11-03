@@ -1,2 +1,2 @@
-Figure 88: Annotation 2 rotated 
+#Figure 88: Annotation 2 rotated 
  ![Figure 89 Shared artwork (annotations 2 & 3) modified  .png](./Storage/Output/Images/Figure 89 Shared artwork (annotations 2 & 3) modified  .png)

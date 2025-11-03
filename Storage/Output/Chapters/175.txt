@@ -1,7 +1,7 @@
-Figure 31: Coloured tiling pattern" shows the pattern 
+#Figure 31: Coloured tiling pattern" shows the pattern 
 cell on the left side and the patterned shapes on the right side. 
 EXAMPLE 2 
-5 0 obj               %Page object 
+5 0 obj               %Page #object 
   <</Type /Page 
    /Parent 2 0 R 
    /Resources 10 0 R 
@@ -10,7 +10,7 @@ EXAMPLE 2
   >> 
 endobj 
  
-10 0 obj               %Resource dictionary for page 
+10 0 obj               %#Resource dictionary for page 
   <</Pattern  <</P1 15 0 R>> 
   >> 
 endobj 
@@ -28,40 +28,40 @@ endobj
    /Length 183 
   >> 
 stream 
-  BT               %Begin text object 
-   /F1 1 Tf            %Set text font and size 
+  BT               %Begin text #object 
+   /F1 1 Tf            %Set text #font and size 
    64 0 0 64 7.1771 2.4414 Tm      %Set text matrix 
-   0 Tc             %Set character spacing 
+   0 Tc             %Set #character spacing 
    0 Tw             %Set word spacing 
    1.0 0.0 0.0 rg          %Set nonstroking colour to red 
-   (\001) Tj           %Show spade glyph 
+   (\001) Tj           %Show spade #glyph 
  
    0.7478 -0.007 TD         %Move text position 
    0.0 1.0 0.0 rg        %Set nonstroking colour to green 
-   (\002) Tj           %Show heart glyph 
+   (\002) Tj           %Show heart #glyph 
  
    -0.7323 0.7813 TD         %Move text position 
    0.0 0.0 1.0 rg          %Set nonstroking colour to blue 
-   (\003) Tj           %Show diamond glyph 
+   (\003) Tj           %Show diamond #glyph 
    0.6913 0.007 TD         %Move text position 
    0.0 0.0 0.0 rg         %Set nonstroking colour to black 
-   (\004) Tj           %Show club glyph 
+   (\004) Tj           %Show club #glyph 
  
-   ET              %End text object 
+   ET              %End text #object 
 endstream 
 endobj 
  
-16 0 obj               %Resource dictionary for pattern 
-  <</Font <</F1 20 0 R>> 
+16 0 obj               %#Resource dictionary for pattern 
+  <</#Font <</F1 20 0 R>> 
   >> 
 endobj 
  
-20 0 obj               %Fontfor pattern 
+20 0 obj               %#Fontfor pattern 
  
-  <</Type /Font 
+  <</Type /#Font 
  /Subtype /Type1 
    /Encoding 21 0 R 
-   /BaseFont /ZapfDingbats 
+   /Base#Font /ZapfDingbats 
   >> 
 © ISO 2017 – All rights reserved 218 
 
@@ -69,7 +69,7 @@ ISO/DIS 32000-2
  
 endobj 
  
-21 0 obj               %Fontencoding 
+21 0 obj               %#Fontencoding 
  
   <</Type /Encoding 
    /Differences [1 /a109 /a110 /a111 /a112] 
@@ -118,25 +118,25 @@ NOTE 3 Several features of Example 2 in this subclause are noteworthy:
  The three circles and the triangle are painted with the same pattern. The pattern cells align, even 
 though the circles and triangle are not aligned with respect to the pattern cell. For example, the 
 position of the blue diamonds varies relative to the three circles. 
- The pattern cell does not completely cover the tile: it leaves the spaces between the glyphs 
+ The pattern cell does not completely cover the tile: it leaves the spaces between the #glyphs 
 unpainted. When the tiling pattern is used as a colour, the existing background (the yellow 
-rectangle) shows through these unpainted areas. 
+#rectangle) shows through these unpainted areas. 
 © ISO 2017 – All rights reserved 219 
 
 ISO/DIS 32000-2
  ![Figure 31 Coloured tiling pattern  .png](./Storage/Output/Images/Figure 31 Coloured tiling pattern  .png)
-Figure 31: Coloured tiling pattern 
+#Figure 31: Coloured tiling pattern 
  
 8.7.3.3Uncoloured tiling patterns 
  
 An uncoloured tiling pattern is a pattern that has no inherent colour: the colour shall be specified 
 separately whenever the pattern is used. It provides a way to tile different regions of the page with 
-pattern cells having the same shape but different colours. This type of pattern shall be identified by a 
-pattern type of 1 and a paint type of 2 in the pattern dictionary. The pattern’s content stream shall not 
+pattern cells having the same shape but different colours. This type of pattern shall be# identified by a 
+pattern type of 1 and a paint type of 2 in the pattern dictionary. The pattern’s #content stream shall not 
 explicitly specify any colours (see 8.6.8, "Colour operators"); it may paint an image mask (see 8.9.6.2, 
 "Stencil masking") but no other kind of image. 
 Pattern
-A  colour space representing an uncoloured tiling pattern shall have a parameter: an object 
+A  colour space representing an uncoloured tiling pattern shall have a parameter: an #object 
 Pattern
 identifying the underlying colour space in which the actual colour of the pattern shall be specified. The 
 underlying colour space shall be given as the second element of the array that defines the  
@@ -150,10 +150,10 @@ Pattern
 SCNscn
 Operands supplied to the  or  operator in such a colour space shall include a colour value in the 
 underlying colour space, specified by one or more numeric colour components, as well as the name of a 
-pattern object representing an uncoloured tiling pattern. 
+pattern #object representing an uncoloured tiling pattern. 
  ColorSpace 
 PatternPattern
-EXAMPLE 2 If the current resource dictionary (see 7.8.3, "Resource dictionaries") defines Cs3 as the name of a
+EXAMPLE 2 If the current #resource dictionary (see 7.8.3, "Resource dictionaries") defines Cs3 as the name of a
 resource whose value is the  colour space shown above and P2 as a  resource denoting an 
 uncoloured tiling pattern, the code 
 /Cs3 cs 
@@ -162,7 +162,7 @@ uncoloured tiling pattern, the code
  establishes Cs3 as the current nonstroking colour space and P2 as the current nonstroking colour, to be 
 fTjDo
 painted in the colour represented by the specified components in thecolour space. Subsequent 
-executions of nonstroking painting operators, such as  (fill),  (show text), and  (paint external object) 
+executions of nonstroking painting operators, such as  (fill),  (show text), and  (paint external #object) 
 © ISO 2017 – All rights reserved 220 
 
 ISO/DIS 32000-2
@@ -176,7 +176,7 @@ tiling pattern to paint the three circles and the triangle, each in a different 
 tiling pattern". To do so, it supplies four operands each time it invokes the  operator: three numbers 
 denoting the colour components in the underlyingcolour space, along with the name of the 
 pattern. 
-5 0 obj               %Page object 
+5 0 obj               %Page #object 
   <</Type /Page 
    /Parent 2 0 R 
    /Resources 10 0 R 
@@ -185,7 +185,7 @@ pattern.
   >> 
 endobj 
  
-10 0 obj               %Resource dictionary for page 
+10 0 obj               %#Resource dictionary for page 
   <</ColorSpace <</Cs12 12 0 R>> 
    /Pattern <</P1 15 0 R>> 
   >> 
@@ -208,28 +208,28 @@ endobj
    /Length 127 
   >> 
 stream 
-  BT               %Begin text object 
-   /F1 1 Tf            %Set text font and size 
+  BT               %Begin text #object 
+   /F1 1 Tf            %Set text #font and size 
    64 0 0 64 7.1771 2.4414 Tm      %Set text matrix 
-   0 Tc             %Set character spacing 
+   0 Tc             %Set #character spacing 
    0 Tw             %Set word spacing 
  
-   (001) Tj            %Show spade glyph 
+   (001) Tj            %Show spade #glyph 
    0.7478 -0.007 TD         %Move text position 
-   (\002) Tj           %Show heart glyph 
+   (\002) Tj           %Show heart #glyph 
  
    -0.7323 0.7813 TD         %Move text position 
-   (\003) Tj           %Show diamond glyph 
+   (\003) Tj           %Show diamond #glyph 
  
    0.6913 0.007 TD         %Move text position 
-   (\004) Tj           %Show club glyph 
+   (\004) Tj           %Show club #glyph 
  
-  ET               %End text object 
+  ET               %End text #object 
 endstream 
 endobj 
  
-16 0 obj               %Resource dictionary for pattern 
-  <</Font <</F1 20 0 R>> 
+16 0 obj               %#Resource dictionary for pattern 
+  <</#Font <</F1 20 0 R>> 
   >> 
 endobj 
  
@@ -237,16 +237,16 @@ endobj
 
 ISO/DIS 32000-2
  
-20 0 obj               %Fontfor pattern 
+20 0 obj               %#Fontfor pattern 
  
-  <</Type /Font 
+  <</Type /#Font 
    /Subtype /Type1 
    /Encoding 21 0 R 
-   /BaseFont /ZapfDingbats 
+   /Base#Font /ZapfDingbats 
   >> 
 endobj 
  
-21 0 obj               %Fontencoding 
+21 0 obj               %#Fontencoding 
  
    <</Type /Encoding 
    /Differences [1 /a109 /a110 /a111 /a112] 

@@ -1,5 +1,5 @@
-name object 
-atomic symbol uniquely defined by a sequence of characters introduced by a SOLIDUS (/), (2Fh) but the 
+#name #object 
+atomic symbol uniquely defined by a sequence of #characters introduced by a SOLIDUS (/), (2Fh) but the 
 SOLIDUS is not considered to be part of the name 
 4.40 
  

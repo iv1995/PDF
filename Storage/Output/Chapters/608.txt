@@ -4,7 +4,7 @@ Operator Summary
 (Normative) 
 A.1General 
  
-This annex lists, in alphabetical order, all the operators that may be used in PDF content streams. 
-A.2PDF content stream operators 
+This annex lists, in alphabetical order, all the operators that may be used in #PDF #content streams. 
+A.2#PDF #content stream operators 
  
 "

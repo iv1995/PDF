@@ -1,17 +1,17 @@
-Figure 21: Colour rendering 
+#Figure 21: Colour rendering 
  
   
-A colour space shall be defined by anarray objectwhose first element is a name object identifying the 
-colour space family. The remaining array elements, if any, are parameters that further characterise the 
+A colour space shall be defined by an#array #objectwhose first element is a #name #object# identifying the 
+colour space family. The remaining array elements, if any, are parameters that further #characterise the 
 colour space; their number and types vary according to the particular family. For families that do not 
 require parameters, the colour space may be specified simply by the family name itself instead of an 
 array. 
 A colour space shall be specified in one of two ways: 
 CScs
 • 
-Within a content stream, the  or  operator establishes the current colour space parameter in 
+Within a #content stream, the  or  operator establishes the current colour space parameter in 
 DeviceGrayDeviceRGBDeviceCMYK
-the graphics state. The operand shall always be name object, which either identifies one of the 
+the #graphics state. The operand shall always be #name #object, which# either# identifies one of the 
 Pattern ColorSpace 
 colour spaces that need no additional parameters (, , , or 
 some cases of ) or shall be used as a key in thesubdictionary of the current 
@@ -19,19 +19,19 @@ some cases of ) or shall be used as a key in thesubdictionary of the current
 
 ISO/DIS 32000-2
  
-resource dictionary (see 7.8.3, "Resource dictionaries"). In the latter case, the value of the 
+#resource dictionary (see 7.8.3, "Resource dictionaries"). In the latter case, the value of the 
 dictionary entry in turn shall be a colour space array or name. A colour space array shall never be 
 • 
-inline within a content stream. 
+inline within a #content stream. 
 ColorSpace
-Outside a content stream, certain objects, such as image XObjects, shall specify a colour space as an 
+Outside a #content stream, certain #objects, such as image X#Objects, shall specify a colour space as an 
  ColorSpace 
 explicit parameter, often associated with the key . In this case, the colour space array 
-or name shall always be defined directly as a PDF object, not by an entry in the
+or name shall always be defined directly as a #PDF #object, not by an entry in the
 resource subdictionary. This convention also applies when colour spaces are defined in terms of 
 other colour spaces. 
 The following operators shall set the current colour space and current colour parameters in the 
-graphics state: 
+#graphics state: 
 CScs
 • 
 SCSCNscscn
@@ -54,9 +54,9 @@ the operands; , and  do the same for the nonstroking colour space and colour.
 The device colour spaces enable a page description to specify colour values that are directly related to 
 their representation on an output device. Colour values in these spaces map directly (or by simple 
 conversions) to the application of device colourants, such as quantities of ink or intensities of display 
-phosphors. This enables a PDF writer to control colours precisely for a particular device, but the results 
+phosphors. This enables a ##PDF writer to control colours precisely for a particular device, but the results 
 might not be consistent from one device to another. 
-Output devices form colours either by adding light sources together or by subtracting light from an 
+Output devices form colours# either by adding light sources together or by subtracting light from an 
 illuminating source. Computer displays and film recorders typically add colours; printing inks typically 
 additivesubtractive
 subtract them. These two ways of forming colours give rise to two complementary methods of colour 

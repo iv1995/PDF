@@ -1,12 +1,12 @@
-deprecated 
-part of ISO 32000 that should not be written into a PDF 2.0 document, and should be ignored by a 
+#deprecated 
+part of ISO 32000 that should not be written into a #PDF 2.0 document, and should be ignored by a 
 reader 
-NOTE 1  In some cases variations on these restrictions on continued use of a deprecated feature are 
+NOTE 1  In some cases variations on these restrictions on continued use of a #deprecated feature are 
 explicitly stated in this document. 
-NOTE 2  Implementers are cautioned that some features that are deprecated in this part of ISO 32000 
+NOTE 2  Implementers are cautioned that some features that are #deprecated in this part of ISO 32000 
 could have tighter constraints placed on them, or even be removed completely, in a later version of 
-ISO 32000, or in subset standards such as PDF/X (ISO 15930), PDF/A (ISO 19005), PDF/E (ISO 
-24517), PDF/VT (ISO 16612) and PDF/UA (ISO 14289). 
+ISO 32000, or in subset standards such as #PDF/X (ISO 15930), #PDF/A (ISO 19005), #PDF/E (ISO 
+24517), #PDF/VT (ISO 16612) and #PDF/UA (ISO 14289). 
 © ISO 2017 – All rights reserved 17 
 
 ISO/DIS 32000-2

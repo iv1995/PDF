@@ -1,12 +1,12 @@
-Table 197: Entries in an annotation’s additional-actions dictionary" to "Table 200: Entries in the 
+#Table 197: Entries in an annotation’s additional-actions dictionary" to "Table 200: Entries in the 
 document catalog’s additional-actions dictionary" show the contents of this type of dictionary. 
-PDF 1.5 introduces four trigger events in annotation’s additional-actions dictionary to support 
+#PDF 1.5 introduces four trigger events in annotation’s additional-actions dictionary to support 
 multimedia presentations: 
 POPCOC
 • 
-The  and  entries have a similar function to the  and  entries in the page object’s 
+The  and  entries have a similar #function to the  and  entries in the page #object’s 
 additional-actions dictionary (see "Table 197: Entries in an annotation’s additional-actions 
-dictionary"). However, associating these triggers with annotations allows annotation objects to be 
+dictionary"). However, associating these triggers with annotations allows annotation #objects to be 
 self-contained. 
 EXAMPLE Annotations containing such actions can be copied or moved between pages without requiring page 
 open/close actions to be changed. 
@@ -17,38 +17,38 @@ NOTE 1 For these trigger events, the values of the flags specified by the annota
 F
 At any one time, while more than one page may be visible, depending on the page layout. 
 "Annotation flags") have no bearing on whether a given trigger event occurs. 
-Table 197: Entries in an annotation’s additional-actions dictionary 
+#Table 197: Entries in an annotation’s additional-actions dictionary 
 Key Type Value 
-(Optional; PDF 1.2) 
+(Optional; #PDF 1.2) 
 E 
 dictionary An action that shall be performed when the cursor enters the 
 annotation’s active area. 
-(Optional; PDF 1.2) 
+(Optional; #PDF 1.2) 
 X 
 dictionary An action that shall be performed when the cursor exits the 
 annotation’s active area. 
-(Optional; PDF 1.2) 
+(Optional; #PDF 1.2) 
 D 
 dictionary An action that shall be performed when the mouse button is 
 pressed inside the annotation’s active area. 
-(Optional; PDF 1.2) 
+(Optional; #PDF 1.2) 
 U 
 dictionary An action that shall be performed when the mouse button is 
 A
 released inside the annotation’s active area. 
-For backward compatibility, the  entry in an annotation dictionary, if present, 
+For backward compati#bility, the  entry in an annotation dictionary, if present, 
  
 takes precedence over this entry (see "Table 170: Entries in an appearance 
 dictionary").
-(Optional; PDF 1.2; widget annotations only) 
+(Optional; #PDF 1.2; widget annotations only) 
 Fo 
 dictionary An action that shall be performed when 
 the annotation receives the input focus. 
-(Optional; PDF 1.2; widget annotations only) 
+(Optional; #PDF 1.2; widget annotations only) 
 Bl 
 dictionary (Uppercase B, lowercase L) An action 
 that shall be performed when the annotation loses the input focus. 
-(Optional; PDF 1.5) 
+(Optional; #PDF 1.5) 
 PO 
 dictionary An action that shall be performed when the page containing the 
 annotation is opened. 

@@ -6,25 +6,25 @@ for the code used to generate this image.
 
 ISO/DIS 32000-2
  ![Figure 29 Duotone image  .jpg](./Storage/Output/Images/Figure 29 Duotone image  .jpg)
-Figure 29: Duotone image 
+#Figure 29: Duotone image 
  ![Figure 30 Quadtone image  .jpg](./Storage/Output/Images/Figure 30 Quadtone image  .jpg)
-Figure 30: Quadtone image 
+#Figure 30: Quadtone image 
  
 DeviceN
  Separation 
  shall be used to represent colour spaces containing multiple components that correspond to 
-colourants of some target device. As withcolour spaces, PDF processors shall be able to 
+colourants of some target device. As withcolour spaces, ##PDF processors shall be able to 
 approximate the colourants if they are not available on the current output device, such as a display. To 
-accomplish this, the colour space definition provides a tint transformation function that shall be used to 
+accomplish this, the colour space definition provides a tint transformation #function that shall be used to 
 convert all the components to an alternate colour space. 
  
  DeviceN NChannel
 colour spaces
-PDF 1.6 extended the meaning ofto include colour spaces that are referred to as 
-. Such colour spaces may contain an arbitrary number of spot and process components, 
+#PDF 1.6 extended the meaning ofto include colour spaces that are referred to as 
+. Such colour spaces may contain an ar#bitrary number of spot and process components, 
 which may or may not correspond to specific device colourants (the process components shall be from 
-a single process colour space). They provide information about each component that allows PDF 
+a single process colour space). They provide information about each component that allows #PDF 
 NChannelSubtype
-processors more flexibility in converting colours. These colour spaces shall be identified by a value of 
+processors more flexi#bility in converting colours. These colour spaces shall be# identified by a value of 
  DeviceN Subtype
  for the  entry of the attributes dictionary (see "

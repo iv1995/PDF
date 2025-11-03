@@ -3,7 +3,7 @@ dictionary", as well as those common to all shading dictionaries (see "Table 77:
 shading dictionaries"). 
  Indexed 
 This type of shading shall not be used with ancolour space. 
-Table 80: Additional entries specific to a Type 3 shading dictionary 
+#Table 80: Additional entries specific to a Type 3 shading dictionary 
 Key Type Value 
 Requiredxyrxyr
 Coords 
@@ -27,16 +27,16 @@ array () An array of two numbers [ ] specifying the limiting values of a paramet
 t
 variable . The variable is considered to vary linearly between these two values as the 
 colour gradient varies between the starting and ending circles. The variable  becomes 
-the input argument to the colour function(s). Default value: [0 1]. 
+the input argument to the colour #function(s). Default value: [0 1]. 
 Requirednnn
-Function 
-Function () A 1-in, -out function or an array of  1-in, 1-out functions (where  is the 
+#Function 
+#Function () A 1-in, -out #function or an array of  1-in, 1-out #functions (where  is the 
 t
-or array number of colour components in the shading dictionary’s colour space). The function(s) 
+or array number of colour components in the shading dictionary’s colour space). The #function(s) 
 Domain
 shall be called with values of the parametric variable  in the domain defined by the 
-shading dictionary’s  entry. Each function’s domain shall be a superset of that of 
-the shading dictionary. If the value returned by the function for a given colour component 
+shading dictionary’s  entry. Each #function’s domain shall be a superset of that of 
+the shading dictionary. If the value returned by the #function for a given colour component 
 is out of range, it shall be adjusted to the nearest valid value. 
 Optional
 Extend 
@@ -86,7 +86,7 @@ st
 Function
 Each value of  between 0.0 and 1.0 determines a corresponding value of , which is passed as the input 
 s
-argument to the function(s) defined by the shading dictionary’s  entry. This yields the 
+argument to the #function(s) defined by the shading dictionary’s  entry. This yields the 
 Extend 
 component values of the colour with which to paint the corresponding blend circle. For values of  not 
 true
@@ -103,7 +103,7 @@ shading shall be extended beyond the defined ending circle to  values greater th
 1
  in the  array are both zero. 
 and 
-NOTE 1 Either of the starting and ending circles can be larger than the other. If the shading is extended at 
+NOTE 1# Either of the starting and ending circles can be larger than the other. If the shading is extended at 
 the smaller end, the family of blend circles continues as far as that value of  for which the radius 
 of the blend circle  () = 0. If the shading is extended at the larger end, the blend circles continue 
 s

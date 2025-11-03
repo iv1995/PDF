@@ -1,28 +1,28 @@
-Table 351: Entries in a data dictionary"). 
+#Table 351: Entries in a data dictionary"). 
 name 
  
 © ISO 2017 – All rights reserved 694 
 
 ISO/DIS 32000-2
  
-Table 351: Entries in a data dictionary 
+#Table 351: Entries in a data dictionary 
 Key Type Value 
 Required
 LastModified 
 date () The date and time when the contents of the document, page, 
-or form were most recently modified by this PDF processor. 
+or form were most recently modified by this ##PDF processor. 
 Optional
 Private 
-(any) () Any private data appropriate to the PDF processor, typically in 
+(any) () Any private data appropriate to the ##PDF processor, typically in 
 the form of a dictionary. 
  
 LastModified
-The  entry indicates when a PDF processor last altered the content of the document, page 
+The  entry indicates when a ##PDF processor last altered the content of the document, page 
 or form. If the page-piece dictionary contains several data dictionaries, their modification dates can be 
  
-compared with those in the corresponding entry of the page object or form dictionary (see "Table 31: 
+compared with those in the corresponding entry of the page #object or form dictionary (see "Table 31: 
 ModDate 
-Entries in a page object" and "Table 93: Additional entries specific to a Type 1 form dictionary"), or the
+Entries in a page #object" and "#Table 93: Additional entries specific to a Type 1 form dictionary"), or the
 entry of the document information dictionary (see "Table 349: Entries in the document 
 information dictionary"), to ascertain whether the data dictionary corresponds to the current content of 
 the document, page or form. Because some platforms may use only an approximate value for the date 
@@ -32,9 +32,9 @@ for equality and not for sequential ordering.
  
 14.6.1General 
  
-Marked-content operatorsPDF 1.2
- () may identify a portion of a PDF content stream as a marked-content 
-element of interest to a particular PDF processor. Marked-content elements and the operators that 
+Marked-content operators#PDF 1.2
+ () may# identify a portion of a #PDF #content stream as a marked-content 
+element of interest to a particular ##PDF processor. Marked-content elements and the operators that 
 mark them shall fall into two categories: 
 marked-content point
 MP DP 
@@ -42,14 +42,14 @@ MP DP
 marked-content sequence
 BMCBDCEMC
 • 
-The  andoperators shall designate a single  in the content stream. 
-The , , and  operators shall bracket a  of objects within the 
-NOTE 1 This is a sequence not simply of bytes in the content stream but of complete graphics objects. Each 
-content stream. 
-object is fully qualified by the parameters of the graphics state in which it is rendered. 
-NOTE 2 A graphics application, for example, might use marked content to identify a set of related objects 
-as a group to be processed as a single unit. A text-processing application might use it to maintain 
+The  andoperators shall designate a single  in the #content stream. 
+The , , and  operators shall bracket a  of #objects within the 
+NOTE 1 This is a sequence not simply of #bytes in the #content stream but of complete graphics #objects. Each 
+#content stream. 
+#object is fully qualified by the parameters of the #graphics state in which it is rendered. 
+NOTE 2 A graphics application, for example, might use marked content to# identify a set of related #objects 
+as a #group to be processed as a single unit. A text-processing application might use it to maintain 
 a connection between a footnote marker in the body of a document and the corresponding 
-footnote text at the bottom of the page. The PDF logical structure facilities use marked-content 
+footnote text at the bottom of the page. The #PDF logical structure facilities use marked-content 
 sequences to associate graphical content with structure elements (see 14.7.5, "Structure content"). 
 "

@@ -1,6 +1,6 @@
 Figure 113: 
 Defining a radial dimension for an arc". ![Figure 113 Defining a radial dimension for an arc  .png](./Storage/Output/Images/Figure 113 Defining a radial dimension for an arc  .png)
-Figure 113: Defining a radial dimension for an arc 
+#Figure 113: Defining a radial dimension for an arc 
  
 V
 UUT
@@ -8,14 +8,14 @@ There are three parts to the text string displayed with the measurement: a numer
 P
 string (), and an optional user string (). The display of the numeric value field number is also 
 controlled by the precision value (), which indicates how many digits to display to the right of the 
-decimal point. The viewer should convert the numeric value to a string and combine it with the units 
+decimal point. The viewer should convert the numeric value to a string and com#bine it with the units 
 string and user text as appropriate. This process is viewer dependent. 
 13.6.7.3.53D comment note 
  
 3D comment notes let users connect a comment to a specific piece of geometry in the 3D model. The 
 markup consists of a leader line that connects the model to a text box placed in the 3D scene. The text 
 box is rendered so that the text is always facing the user. 
-Commenting functionality is specified by creating a projection annotation that represents the 3D 
+Commenting #functionality is specified by creating a projection annotation that represents the 3D 
 © ISO 2017 – All rights reserved 673 
 
 ISO/DIS 32000-2

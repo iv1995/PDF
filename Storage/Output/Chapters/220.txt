@@ -1,5 +1,5 @@
 Table 91: Entries in an 
-inline image object") are analogous to their respective key-value pairs in an image XObject dictionary 
-(see "Table 87: Additional entries specific to an image dictionary") or a stream dictionary (see "Table 5: 
+inline image #object") are analogous to their respective key-value pairs in an image X#Object dictionary 
+(see "#Table 87: Additional entries specific to an image dictionary") or a stream dictionary (see "Table 5: 
 Entries common to all stream dictionaries"). For convenience, the abbreviations shown in "Table 91: 
-Entries in an inline image object" and "
+Entries in an inline image #object" and "

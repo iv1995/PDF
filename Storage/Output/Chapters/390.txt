@@ -1,25 +1,25 @@
 Table 222: Additional entries specific to a 
 rich-media-execute action" shows the entries in a rich-media-execute action dictionary. 
-Table 222: Additional entries specific to a rich-media-execute action 
+#Table 222: Additional entries specific to a rich-media-execute action 
 Key Type Value 
-(Required; PDF 2.0) 
+(Required; #PDF 2.0) 
 S  
 RichMediaExecute
  
 name The type of action that this dictionary describes; shall be
 for a rich-media-execute action. 
-(Required; PDF 2.0) 
+(Required; #PDF 2.0) 
 TA 
 RichMedia
-dictionary An indirect object reference to an annotation dictionary 
+dictionary An in#direct ##object reference to an annotation dictionary 
 (of Subtype ) upon which to execute the command. 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 TI  
 RichMediaInstance dictionary
-dictionary A dictionary that shall be an indirect object reference to a
+dictionary A dictionary that shall be an in#direct ##object reference to a
  that is also present in the Instances array of the 
 annotation. 
-(Required; PDF 2.0) RichMediaCommand dictionary
+(Required; #PDF 2.0) RichMediaCommand dictionary
 CMD  
 dictionary A containing the 
 command name and arguments to be executed when the rich-media-execute 

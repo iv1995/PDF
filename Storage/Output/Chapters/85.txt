@@ -1,29 +1,29 @@
-Table 15: Entries in the file trailer dictionary" lists the contents of the trailer dictionary. The file trailer 
-dictionary may also contain any second class name as described in Annex E, "PDF Name Registry". 
+#Table 15: Entries in the file trailer dictionary" lists the contents of the trailer dictionary. The file trailer 
+dictionary may also contain any second class name as described in Annex E, "#PDF Name Registry". 
 © ISO 2017 – All rights reserved 62 
 
 ISO/DIS 32000-2
  
-Table 15: Entries in the file trailer dictionary 
+#Table 15: Entries in the file trailer dictionary 
 Key Type Value 
 Required; shall not be an indirect reference
 Size 
 integer () The total number of entries in the 
-file’s cross-reference table, as defined by the combination of the original section 
+file’s cross-reference table, as defined by the com#bination of the original section 
 and all update sections. Equivalently, this value shall be 1 greater than the 
-highest object number defined in the file. 
+highest #object number defined in the file. 
  
-Any object in a cross-reference section whose number is greater than this value 
-shall be ignored and defined to be missing by a PDF reader.
+Any #object in a cross-reference section whose number is greater than this value 
+shall be ignored and defined to be missing by a ##PDF reader.
 Prev 
 integer (Present only if the file has more than one cross-reference section; shall be a 
-direct object) The byte offset in the decoded stream from the beginning of the 
+#direct #object) The #byte offset in the decoded stream from the beginning of the 
 file to the beginning of the previous cross-reference section. 
 Required; shall be an indirect reference
 Root 
-dictionary () The catalog dictionary for the PDF 
+dictionary () The catalog dictionary for the #PDF 
 document contained in the file (see 7.7.2, "Document catalog dictionary"). 
-Required if document is encrypted; PDF 1.1
+Required if document is encrypted; #PDF 1.1
 Encrypt 
 dictionary () The document’s encryption 
 dictionary (see 7.6, "Encryption"). 
@@ -31,45 +31,45 @@ Optional; shall be an indirect reference
 Info 
 dictionary () The document’s information dictionary. 
 As described in 14.3.3, "Document information dictionary", this method for 
-specifying document metadata has been deprecated in PDF 2.0 and should 
+specifying document metadata has been #deprecated in #PDF 2.0 and should 
 therefore only be used to encode information that is stated as required 
 NOTE 1 The  key within the  dictionary is required if Page-Piece 
 ModDateInfo
 elsewhere in this part of ISO 32000. 
 dictionaries (see 14.5, "Page-piece dictionaries") are used. 
-Required in PDF 2.0 or if an  entry is present; optional otherwise; PDF 
+Required in #PDF 2.0 or if an  entry is present; optional otherwise; #PDF 
 ID Encrypt
 1.1
 array (
 ID
-) An array of two byte-strings constituting a file identifier (See 14.4, "File 
+) An array of two #byte-strings constituting a file# identifier (See 14.4, "File 
  Encrypt 
-identifiers") for the file. The  array shall (PDF 2.0) have a minimum length of 
-16 bytes. If there is anentry, this array and the two byte-strings shall 
+identifiers") for the file. The  array shall (#PDF 2.0) have a minimum length of 
+16 #bytes. If there is anentry, this array and the two #byte-strings shall 
 NOTE 2 Because theentries are not encrypted it is possible to check the
- ID  ID 
-be direct objects and shall be unencrypted. 
+# ID  ID 
+be #direct #objects and shall be unencrypted. 
 key to assure that the correct file is being accessed without decrypting 
-the file. The restrictions that the string be a direct object and not be 
+the file. The restrictions that the string be a #direct #object and not be 
 encrypted assure that this is possible. 
-NOTE 3 Although this entry is optional prior to PDF 2.0, its absence might 
-prevent the file from functioning in some workflows that depend on files 
-being uniquely identified. 
+NOTE 3 Although this entry is optional prior to #PDF 2.0, its absence might 
+prevent the file from #functioning in some workflows that depend on files 
+being uniquely# identified. 
 NOTE 4 The values of thestrings are used as input to the encryption 
- ID 
+# ID 
 algorithm. If these strings were indirect, or if thearray were indirect, 
- ID 
+# ID 
 these strings would be encrypted when written. This would result in a 
-circular condition for a PDF reader: thestrings need be decrypted in 
- ID 
+circular condition for a ##PDF reader: thestrings need be decrypted in 
+# ID 
 order to use them to decrypt strings, including thestrings themselves. 
- ID 
+# ID 
 The preceding restriction prevents this circular condition. 
  
-NOTE "Table 19: Additional entries in a hybrid-reference file’s trailer dictionary" defines an additional 
+NOTE "#Table 19: Additional entries in a hybrid-reference file’s trailer dictionary" defines an additional 
 entry, , that appears only in the trailer of hybrid-reference files, described in 7.5.8.4, 
 XRefStm
-"Compatibility with applications that do not support compressed reference streams" 
+"Compati#bility with applications that do not support compressed reference streams" 
  Prev 
 EXAMPLE This example shows a trailer for a file that has never been updated (as indicated by the absence of aentry 
 in the trailer dictionary). 
@@ -91,13 +91,13 @@ startxref
  
 7.5.6Incremental updates 
  
-The contents of a PDF file can be updated incrementally without rewriting the entire file. When 
-updating a PDF file incrementally, changes shall be appended to the end of the file, leaving its original 
+The contents of a #PDF file can be updated incrementally without rewriting the entire file. When 
+updating a #PDF file incrementally, changes shall be appended to the end of the file, leaving its original 
 contents intact. 
 NOTE 1 The main advantage to updating a file in this way is that small changes to a large document can 
 be saved quickly. There are additional advantages such as when editing a document across an 
 TM
- specific technology), a PDF 
+ specific technology), a #PDF 
 HTTP connection or using OLE embedding (a Microsoft Windows
 processor cannot overwrite the contents of the original file. Incremental updates may be used to 
 save changes to documents in these contexts. 

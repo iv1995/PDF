@@ -1,48 +1,48 @@
-Table 109: Entries in a Type 1 font 
+Table 109: Entries in a Type 1 #font 
 dictionary". 
 © ISO 2017 – All rights reserved 306 
 
 ISO/DIS 32000-2
  
-Table 109: Entries in a Type 1 font dictionary 
+Table 109: Entries in a Type 1 #font dictionary 
 Key Type Value 
 Required
 Type  
 Font
  
-name  () The type of PDF object that this dictionary describes; shall be
-for a font dictionary. 
+name  () The type of #PDF #object that this dictionary describes; shall be
+for a #font dictionary. 
 RequiredType1
 Subtype 
-name () The type of font; shall be  for a Type 1 font. 
-Required in PDF 1.0; optional in PDF 1.1 through 1.7, deprecated in PDF 
+name () The type of font; shall be  for a Type 1 #font. 
+Required in #PDF 1.0; optional in #PDF 1.1 through 1.7, #deprecated in #PDF 
 Name 
 2.0
- Font 
+ #Font 
 name  (
-) The name by which this font is referenced in thesubdictionary 
-of the current resource dictionary. 
+) The name by which this #font is referenced in thesubdictionary 
+of the current #resource dictionary. 
 Required
-BaseFont 
-FontName
-name  () The PostScript language name of the font. For Type 1 fonts, 
-this is always the value of the  entry in the font program; for 
+Base#Font 
+#FontName
+name  () The PostScript language name of the #font. For Type 1 #fonts, 
+this is always the value of the  entry in the ##font program; for 
 more information, see Section 5.2 of the PostScript Language Reference, 
-Third Edition. The PostScript language name of the font may be used to 
-find the font program in the PDF processor or its environment. It is also 
+Third Edition. The PostScript language name of the #font may be used to 
+find the ##font program in the ##PDF processor or its environment. It is also 
 the name that is used when printing to a PostScript language compatible 
 output device. 
-Required; optional in PDF 1.0-1.7 for the standard 14 fonts
+Required; optional in #PDF 1.0-1.7 for the standard 14 #fonts
 FirstChar 
 Widths
 integer  () The first 
-character code defined in the font’s  array. 
-Required; optional in PDF 1.0-1.7 for the standard 14 fonts
+#character code defined in the #font’s  array. 
+Required; optional in #PDF 1.0-1.7 for the standard 14 #fonts
 LastChar 
 Widths
 integer  () The last 
-character code defined in the font’s  array. 
-Required; optional in PDF 1.0-1.7 for the standard 14 fonts; indirect 
+#character code defined in the #font’s  array. 
+Required; optional in #PDF 1.0-1.7 for the standard 14 #fonts; indirect 
 Widths 
 reference preferred
 LastChar FirstChar 
@@ -50,68 +50,68 @@ array  (
  
 ) An array of ( ++ 1) numbers, 
 FirstChar  
-each element being the glyph width for the character code that equals
+each element being the #glyph width for the #character code that equals
 FirstChar LastCharMissingWidth
-plus the array index. For character codes outside the range
-FontDescriptor
+plus the array index. For #character codes outside the range
+#FontDescriptor
 to , the value of  from the 
- entry for this font shall be used. The glyph widths shall 
+ entry for this #font shall be used. The #glyph widths shall 
 be measured in units in which 1000 units correspond to 1 unit in text 
 space. These widths shall be consistent with the actual widths given in 
-the font program. For more information on glyph widths and other glyph 
-metrics, see 9.2.4, "Glyph positioning and metrics". 
-Required; optional in PDF 1.0-1.7 for the standard 14 fonts; shall be an 
-FontDescriptor 
+the ##font program. For more information on #glyph widths and other #glyph 
+metrics, see 9.2.4, "#Glyph positioning and metrics". 
+Required; optional in #PDF 1.0-1.7 for the standard 14 #fonts; shall be an 
+#FontDescriptor 
 indirect reference
 dictionary  (
-) A font descriptor describing the font’s metrics other 
+) A #font descriptor descri#bing the #font’s metrics other 
 FirstChar, LastChar, Widths
-than its glyph widths (see 9.8, "Font descriptors"). 
-FontDescriptor
-For the standard 14 fonts, the entries , and 
- shall either all be present or all be absent. Ordinarily, 
+than its #glyph widths (see 9.8, "#Font descriptors"). 
+#FontDescriptor
+For the standard 14 #fonts, the entries , and 
+ shall# either all be present or all be absent. Ordinarily, 
 these dictionary keys may be absent; specifying them enables a standard 
-font to be overridden; see 9.6.2.2, "Standard Type 1 fonts (standard 14 
-fonts) (PDF 1.0-1.7)". 
+#font to be overridden; see 9.6.2.2, "Standard Type 1 #fonts (standard 14 
+#fonts) (#PDF 1.0-1.7)". 
 Optional
 Encoding 
-name or () A specification of the font’s character encoding if different 
+name or () A specification of the #font’s #character encoding if different 
 MacRomanEncoding, MacExpertEncoding
-dictionary from its built-in encoding. The value of Encoding shall be either the name 
+dictionary from its built-in encoding. The value of Encoding shall be# either the name 
 WinAnsiEncoding
 of a predefined encoding (, 
-Annex D, "Character Sets and 
+Annex D, "##Character Sets and 
 or , as described in 
 ") or an encoding dictionary that shall specify differences from 
 Encodings
-the font’s built-in encoding or from a specified predefined encoding (see 
-9.6.5, "Character encoding"). 
-Optional; PDF 1.2
+the #font’s built-in encoding or from a specified predefined encoding (see 
+9.6.5, "#Character encoding"). 
+Optional; #PDF 1.2
 ToUnicode 
-stream () A stream containing a CMap file that maps character 
+stream () A stream containing a CMap file that maps #character 
 codes to Unicode values (see 9.10.3, "ToUnicode CMaps"). 
  
 FirstCharLastCharWidths
-FontDescriptor
-PDF versions 1.0 to 1.7 did not require Type 1 font dictionaries to include , ,  
-and  entries as described in 9.6.2.2, "Standard Type 1 fonts (standard 14 fonts) (PDF 
+#FontDescriptor
+#PDF versions 1.0 to 1.7 did not require Type 1 #font dictionaries to include , ,  
+and  entries as described in 9.6.2.2, "Standard Type 1 #fonts (standard 14 #fonts) (#PDF 
 © ISO 2017 – All rights reserved 307 
 
 ISO/DIS 32000-2
  
-1.0-1.7)". For compatibility reasons PDF processors shall provide glyph widths and font descriptor data 
-for those standard fonts for use in processing files when the entries are absent. 
-EXAMPLE This example shows the font dictionary for the Adobe Garamond® Semibold font. The font has an encoding 
-dictionary (object 25), although neither the encoding dictionary nor the font descriptor (object 7) is shown in 
+1.0-1.7)". For compati#bility reasons ##PDF processors shall provide #glyph widths and #font descriptor data 
+for those standard #fonts for use in processing files when the entries are absent. 
+EXAMPLE This example shows the #font dictionary for the Adobe Garamond® Semibold #font. The #font has an encoding 
+dictionary (#object 25), although neither the encoding dictionary nor the #font descriptor (#object 7) is shown in 
 the example. 
 14 0 obj 
-  <</Type /Font 
+  <</Type /#Font 
    /Subtype /Type1 
-   /BaseFont /AGaramond-Semibold 
+   /Base#Font /AGaramond-Semibold 
    /FirstChar 0 
    /LastChar 255 
    /Widths 21 0 R 
-   /FontDescriptor 7 0 R 
+   /#FontDescriptor 7 0 R 
    /Encoding 25 0 R 
   >> 
 endobj 
@@ -136,36 +136,36 @@ endobj
   ] 
 endobj 
  
-9.6.2.2Standard Type 1 fonts (standard 14 fonts) (PDF 1.0-1.7) 
+9.6.2.2Standard Type 1 #fonts (standard 14 #fonts) (#PDF 1.0-1.7) 
  
-The PostScript language names of 14 Type 1 fonts, known as the standard 14 fonts, are as follows: 
+The PostScript language names of 14 Type 1 #fonts, known as the standard 14 #fonts, are as follows: 
 Times-Roman, Helvetica, Courier, Symbol, Times-Bold, Helvetica-Bold, Courier-Bold, ZapfDingbats, 
 Times-Italic, Helvetica-Oblique, Courier-Oblique, Times-BoldItalic, Helvetica-BoldOblique, Courier-
 BoldOblique. 
-FirstCharLastCharWidthsFontDescriptor
-In PDF 1.0 to PDF 1.7, the , ,  and  (see Table 109: Entries in 
-a Type 1 font dictionary") were optional in Type 1 font dictionaries for the standard 14 fonts. PDF 
-processors supporting PDF 1.0 to PDF 1.7 files shall have these fonts, or their font metrics and suitable 
-substitution fonts, available. 
-These fonts, or their font metrics and suitable substitution fonts, shall be available to the PDF processor. 
-9.6.2.3Multiple master fonts 
+FirstCharLastCharWidths#FontDescriptor
+In #PDF 1.0 to #PDF 1.7, the , ,  and  (see Table 109: Entries in 
+a Type 1 #font dictionary") were optional in Type 1 #font dictionaries for the standard 14 #fonts. #PDF 
+processors supporting #PDF 1.0 to #PDF 1.7 files shall have these #fonts, or their #font metrics and suitable 
+substitution #fonts, available. 
+These #fonts, or their #font metrics and suitable substitution #fonts, shall be available to the ##PDF processor. 
+9.6.2.3Multiple master #fonts 
  
-The multiple master font format is an extension of the Type 1 font format that allows the generation of a 
-wide variety of typeface styles from a single font program. This is accomplished through the presence of 
-various design dimensions in the font. 
+The multiple master #font format is an extension of the Type 1 #font format that allows the generation of a 
+wide variety of typeface styles from a single ##font program. This is accomplished through the presence of 
+various design dimensions in the #font. 
 © ISO 2017 – All rights reserved 308 
 
 ISO/DIS 32000-2
  
 EXAMPLE 1 Examples of design dimensions are weight (light to extra-bold) and width (condensed to expanded). 
 Coordinates along these design dimensions (such as the degree of boldness) are specified by numbers. 
-A particular choice of numbers selects an instance of the multiple master font. PDFs can contain 
+A particular choice of numbers selects an instance of the multiple master #font. #PDFs can contain 
 multiple master instances. 
-NOTE 1 , describes multiple master fonts 
+NOTE 1 , describes multiple master #fonts 
 in detail. 
-Adobe Technical Note #5015, Type 1 Font Format Supplement
-The font dictionary for a multiple master font instance contains the same entries as a Type 1 font 
-dictionary (see "Table 109: Entries in a Type 1 font dictionary"), with these differences: 
+Adobe Technical Note #5015, Type 1 #Font Format Supplement
+The #font dictionary for a multiple master #font instance contains the same entries as a Type 1 #font 
+dictionary (see "Table 109: Entries in a Type 1 #font dictionary"), with these differences: 
 MMType1
 Subtype
 • 
@@ -174,17 +174,17 @@ The value of  shall be .
 BaseFont
 If the PostScript language name of the instance contains SPACEs (20h), the SPACEs shall be 
 replaced by LOW LINEs (underscores) (5Fh) in the value of . For instance, as illustrated 
-in this example, the name "MinionMM 366 465 11 " (which ends with a SPACE character) becomes 
+in this example, the name "MinionMM 366 465 11 " (which ends with a SPACE #character) becomes 
 /MinionMM_366_465_11_. 
 EXAMPLE 2 
 7 0 obj 
-  <</Type /Font 
+  <</Type /#Font 
    /Subtype /MMType1 
-   /BaseFont /MinionMM_366_465_11_ 
+   /Base#Font /MinionMM_366_465_11_ 
    /FirstChar 32 
    /LastChar 255 
    /Widths 19 0 R 
-   /FontDescriptor 6 0 R 
+   /#FontDescriptor 6 0 R 
    /Encoding 5 0 R 
   >> 
 endobj 
@@ -199,30 +199,30 @@ endobj
 BaseFont
 This example illustrates a convention for including the numeric values of the design coordinates as part 
 of the instance’s  name.  
-NOTE 2 This convention is commonly used for accessing multiple master font instances from an external 
-source in the PDF processor’s environment; it is documented in 
+NOTE 2 This convention is commonly used for accessing multiple master #font instances from an external 
+source in the ##PDF processor’s environment; it is documented in 
 . However, this convention is not prescribed as part of this specification. 
 Adobe Technical Note #5088, 
-Font Naming Issues
-If the font program for a multiple master font instance is embedded in the PDF file, it shall be an 
-ordinary Type 1 font program, not a multiple master font program. This font program is called a 
-snapshot of the multiple master font instance that incorporates the chosen values of the design 
+#Font Naming Issues
+If the ##font program for a multiple master #font instance is embedded in the #PDF file, it shall be an 
+ordinary Type 1 ##font program, not a multiple master ##font program. This ##font program is called a 
+snapshot of the multiple master #font instance that incorporates the chosen values of the design 
 coordinates. 
-9.6.3TrueType fonts 
+9.6.3TrueType #fonts 
  
 TrueType
 Subtype
 Apple Computer, Inc.,TrueType Reference Manual
-PDF TrueType fonts are those with a  value of  in the font dictionary. PDF fonts of this 
+#PDF TrueType #fonts are those with a  value of  in the #font dictionary. #PDF fonts of this 
 ISO/IEC 14496-22
-type support both the TrueType font format (see ) as 
-well as the OpenType font format (see ). 
+type support both the TrueType #font format (see ) as 
+well as the OpenType #font format (see ). 
 © ISO 2017 – All rights reserved 309 
 
 ISO/DIS 32000-2
  
-A TrueType font dictionary may contain the same entries as a Type 1 font dictionary (see "Table 109: 
-Entries in a Type 1 font dictionary"), with these differences: 
+A TrueType #font dictionary may contain the same entries as a Type 1 #font dictionary (see "Table 109: 
+Entries in a Type 1 #font dictionary"), with these differences: 
 TrueType
 Subtype
 • 
@@ -232,42 +232,42 @@ The value of  shall be .
 The value of  is subject to limitations that are described in 9.6.5.4, "Encodings for 
 BaseFont
 • 
-TrueType fonts". 
+TrueType #fonts". 
 BaseFont
 The value of  is derived differently. 
 The PostScript language name for the value of  should be determined in one of two ways: 
 • 
-If the TrueType or OpenType font program's "name" table contains a PostScript language name, it 
+If the TrueType or OpenType ##font program's "name" table contains a PostScript language name, it 
 • 
 should be used. 
 In the absence of a PostScript language name in the "name" table, a PostScript language name 
-NOTE 1 The  font format (also known as OpenFontFormat, or ISO/IEC 14496-22) was 
+NOTE 1 The  #font format (also known as Open#FontFormat, or ISO/IEC 14496-22) was 
   
-should be derived from the name by which the font is known in the host operating system. 
-developed jointly by Microsoft and Adobe. It extends the TrueType font format, developed by 
+should be derived from the name by which the #font is known in the host operating system. 
+developed jointly by Microsoft and Adobe. It extends the TrueType #font format, developed by 
 OpenType
-Apple, to include more metadata about the glyphs and text layout as well as supporting both the 
-TrueType glyph technology and the CFF glyph technology (see 
+Apple, to include more metadata about the #glyphs and text layout as well as supporting both the 
+TrueType #glyph technology and the CFF #glyph technology (see 
 ). OpenType is available on most modern operating systems. 
 Adobe Technical Note #5176, The 
-NOTE 2 A TrueType or an OpenType font program can be embedded directly in a PDF file as a stream 
-Compact Font Format Specification
-object. 
-NOTE 3 The Type 42 font format that is defined for the PostScript language does not apply to PDF. 
-NOTE 4 For CJK (Chinese, Japanese, and Korean) fonts, the host font system’s font name is often encoded in 
-the host operating system’s script. For instance, a Japanese font can have a name that is written in 
-Japanese using some (unidentified) Japanese encoding. Thus, TrueType font names can contain 
-multiple-byte character codes, each of which requires multiple characters to represent in a PDF 
-name object (using the # notation to quote special characters as needed). 
-9.6.4Type 3 fonts 
+NOTE 2 A TrueType or an OpenType ##font program can be embedded directly in a #PDF file as a stream 
+Compact #Font Format Specification
+#object. 
+NOTE 3 The Type 42 #font format that is defined for the PostScript language does not apply to #PDF. 
+NOTE 4 For CJK (Chinese, Japanese, and Korean) #fonts, the host #font system’s #font name is often encoded in 
+the host operating system’s script. For instance, a Japanese #font can have a name that is written in 
+Japanese using some (unidentified) Japanese encoding. Thus, TrueType #font names can contain 
+multiple-#byte #character codes, each of which requires multiple #characters to represent in a #PDF 
+#name #object (using the # notation to quote special #characters as needed). 
+9.6.4Type 3 #fonts 
  
-Type 3 fonts differ from the other fonts supported by PDF. Font dictionaries for other fonts simply 
-contain information about the font and refer to a separate font program for the actual glyph 
-descriptions; a Type 3 font dictionary contains the glyph descriptions. In Type 3 fonts, glyphs shall be 
-defined by streams of PDF graphics operators. These streams shall be associated with glyph names. A 
-separate encoding entry shall map character codes to the appropriate glyph names for the glyphs. 
-NOTE 1 Type 3 fonts are more flexible than Type 1 fonts because the glyph descriptions can contain 
-arbitrary PDF graphics operators. However, Type 3 fonts have no hinting mechanism for 
+Type 3 #fonts differ from the other #fonts supported by #PDF. #Font dictionaries for other #fonts simply 
+contain information about the #font and refer to a separate ##font program for the actual #glyph 
+descriptions; a Type 3 #font dictionary contains the #glyph descriptions. In Type 3 #fonts, #glyphs shall be 
+defined by streams of #PDF graphics operators. These streams shall be associated with #glyph names. A 
+separate encoding entry shall map #character codes to the appropriate #glyph names for the #glyphs. 
+NOTE 1 Type 3 #fonts are more flexible than Type 1 #fonts because the #glyph descriptions can contain 
+ar#bitrary #PDF graphics operators. However, Type 3 #fonts have no hinting mechanism for 
 improving output at small sizes or low resolutions. 
-A Type 3 font dictionary may contain the entries listed in "Table 110: Entries in a Type 3 font 
+A Type 3 #font dictionary may contain the entries listed in "Table 110: Entries in a Type 3 #font 
 dictionary".

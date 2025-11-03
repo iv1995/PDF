@@ -1,4 +1,4 @@
-Table 151: Entries in an outline item dictionary 
+#Table 151: Entries in an outline item dictionary 
 Key Type Value 
 Required
 Title 
@@ -54,14 +54,14 @@ number of descendants that would be visible if the outline item were
 opened. 
 Optional; shall not be present if an  entry is present
 Dest A
-name, byte string, () The destination that 
+name, #byte string, () The destination that 
 or array shall be displayed when this item is activated (see 12.3.2, "Destinations").  
-Optional; PDF 1.1; shall not be present if a  entry is present
+Optional; #PDF 1.1; shall not be present if a  entry is present
 A Dest
 dictionary () The 
 action that shall be performed when this item is activated (see 12.6, 
 "Actions").  
-Optional; PDF 1.3; shall be an indirect reference
+Optional; #PDF 1.3; shall be an indirect reference
 SE 
 dictionary () The structure element to 
 NOTE  This value is not intended for navigation. Structure Destinations 
@@ -69,14 +69,14 @@ which the item refers (see 14.7.2, "Structure hierarchy").
 ( entry) are the method to provide structure-based 
 Dest
 navigation.  
-Optional; PDF 1.4
+Optional; #PDF 1.4
 C 
 DeviceRGB
 array () An array of three numbers in the range 0.0 to 1.0, 
 representing the components in the  colour space of the 
 colour that shall be used for the outline entry’s text. Default value: [0.0 0.0 
 0.0].  
-Optional; PDF 1.4
+Optional; #PDF 1.4
 F 
-integer () A set of flags specifying style characteristics for 
+integer () A set of flags specifying style #characteristics for 
 displaying the outline item’s text (see "

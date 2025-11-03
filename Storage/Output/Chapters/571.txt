@@ -1,8 +1,8 @@
-Table 377: Standard layout attributes" summarizes the standard layout attributes and the structure 
+#Table 377: Standard layout attributes" summarizes the standard layout attributes and the structure 
 elements to which they apply. 
 As described in 14.8.5.3, "Attribute Values and Inheritance" an inheritable attribute may be specified for 
 any element to propagate it to descendants, regardless of whether it is meaningful for that element. 
-Table 377: Standard layout attributes 
+#Table 377: Standard layout attributes 
 Structure Elements Attributes Inheritable 
 Any structure element 
 Placement No 
@@ -46,13 +46,13 @@ BaselineShift No
 TextDecorationType Yes, only for directly nested ILSEs 
 TextDecorationColor Yes 
 TextDecorationThickness Yes 
-Grouping elements 
+#Grouping elements 
 ColumnCount  No 
 ColumnWidths No 
 ColumnGap No 
 Vertical text 
-GlyphOrientationVertical Yes 
-Ruby text 
+#GlyphOrientationVertical Yes 
+Ru#by text 
 RubyAlign  Yes 
 RubyPosition Yes 
  

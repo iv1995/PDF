@@ -1,8 +1,8 @@
-7Syntax 
+#7Syntax 
  
 7.1General 
  
-This clause covers everything about the syntax of PDF at the object, file, and document level. It sets the 
-stage for subsequent clauses, which describe how the contents of a PDF file are interpreted as page 
+This clause covers everything about the syntax of #PDF at the #object, file, and document level. It sets the 
+stage for subsequent clauses, which describe how the contents of a #PDF file are interpreted as page 
 descriptions, interactive navigational aids, and application-level logical structure. 
-PDF syntax is best understood by considering it as four parts, as shown in "
+#PDF syntax is best understood by considering it as four parts, as shown in "

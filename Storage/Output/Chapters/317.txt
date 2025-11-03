@@ -1,17 +1,17 @@
-Table 157: Entries in a collection colors dictionary 
+#Table 157: Entries in a collection colors dictionary 
 Key Type Value 
 Optional
 Type 
 CollectionColors
-name () The type of PDF object that this dictionary describes; if 
+name () The type of #PDF #object that this dictionary describes; if 
 present, shall be  for a collection colors dictionary. 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 Background 
  DeviceRGB 
  
 array An array of three numbers in the range 0.0 to 1.0, 
 representing acolour used for the background of the view.
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 CardBackground 
  DeviceRGB 
  
@@ -22,30 +22,30 @@ representing acolour used for the background of the card.
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 CardBorder 
  DeviceRGB 
  
 array An array of three numbers in the range 0.0 to 1.0, 
 representing acolour used for the border of the card.
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 PrimaryText 
  DeviceRGB 
 array An array of three numbers in the range 0.0 to 1.0, 
  
 representing acolour used for the primary text in a 
 navigator.
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 SecondaryText 
  DeviceRGB 
  
 array An array of three numbers in the range 0.0 to 1.0, 
 representing acolour used for other text in a navigator.
  
-When displaying a collection, an interactive PDF processor presents an initial view in which the 
+When displaying a collection, an #interactive ##PDF processor presents an initial view in which the 
 View
 available display area may be divided by a splitter bar into two areas; one area containing a display of 
 the navigation controls of the collection as defined by the  and related entries of the collection 
 dictionary, and one area containing a preview of the initial or currently selected document of the 
-collection. The visibility, orientation or position of the splitter bar may be interactively adjusted by user 
+collection. The visi#bility, orientation or position of the splitter bar may be interactively adjusted by user 
 action subsequent to its initial view as defined by the collection split dictionary, if provided. 

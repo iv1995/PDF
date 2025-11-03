@@ -1,14 +1,14 @@
-Table 74: Additional entries specific to a Type 1 pattern dictionary". 
-Table 74: Additional entries specific to a Type 1 pattern dictionary 
+#Table 74: Additional entries specific to a Type 1 pattern dictionary". 
+#Table 74: Additional entries specific to a Type 1 pattern dictionary 
 Key Type Value 
 Optional
 Type 
 Pattern
-name () The type of PDF object that this dictionary describes; if present, shall be 
+name () The type of #PDF #object that this dictionary describes; if present, shall be 
  for a pattern dictionary. 
 Required
 PatternType 
-integer () A code identifying the type of pattern that this dictionary describes; 
+integer () A code# identifying the type of pattern that this dictionary describes; 
 shall be 1 for a tiling pattern. 
 © ISO 2017 – All rights reserved 215 
 
@@ -22,27 +22,27 @@ Coloured tiling pattern.
 1
  
 specified: 
- The pattern’s content stream shall specify the 
+ The pattern’s #content stream shall specify the 
 colours used to paint the pattern cell. The current colours in use when 
-the PDF processor begins processing the content stream are the ones 
-initially in effect in the pattern’s parent content stream. This is similar to 
+the ##PDF processor begins processing the #content stream are the ones 
+initially in effect in the pattern’s parent #content stream. This is similar to 
  
 the definition of the pattern matrix; see 8.7.2, "General properties of 
 Uncoloured tiling pattern
 2
  
 patterns".
-. The pattern’s content stream shall not specify 
+. The pattern’s #content stream shall not specify 
 any colour information. Instead, the entire pattern cell is painted with a 
 separately specified colour each time the pattern is used. Essentially, the 
-content stream describes a stencil through which the current 
-nonstroking colour shall be poured. The content stream shall not invoke 
+#content stream describes a stencil through which the current 
+nonstroking colour shall be poured. The #content stream shall not invoke 
 operators that specify colours or other colour-related parameters in the 
-graphics state; otherwise, the operator is ignored and processing of the 
+#graphics state; otherwise, the operator is ignored and processing of the 
 "). The 
 stream continues without error (see 8.6.8, "Colour operators
  
-content stream may paint an image mask however, since it does not 
+#content stream may paint an image mask however, since it does not 
 specify any colour information (see 8.9.6.2, "Stencil masking").
 Required
 TilingType 
@@ -51,7 +51,7 @@ integer () A code that controls adjustments to the spacing of tiles relative to 
 device pixel grid: 
 . Pattern cells shall be spaced consistently — that is, by a 
 XStepYStep
-multiple of a device pixel. To achieve this, the PDF processor may need to 
+multiple of a device pixel. To achieve this, the ##PDF processor may need to 
 distort the pattern cell slightly by making small adjustments to , , 
 and the transformation matrix. The amount of distortion shall not exceed 1 
 2No distortion
@@ -69,7 +69,7 @@ in tiling Type 1 but with additional distortion permitted to enable a more
 efficient implementation.
 Required
 BBox 
-rectangle () An array of four numbers in the pattern coordinate system giving the 
+#rectangle () An array of four numbers in the pattern coordinate system giving the 
 coordinates of the left, bottom, right, and top edges, respectively, of the pattern 
 NOTE 1 A BBox of zero height or width will still paint one pixel (see 10.7.4, "Scan 
 cell’s bounding box. These boundaries shall be used to clip the pattern cell. 
@@ -87,15 +87,15 @@ pattern coordinate system.
 by theentry. This allows tiling with irregularly shaped figures. 
  BBox 
 XStep YStep 
- andmay be either positive or negative but shall not be zero. 
+ andmay be# either positive or negative but shall not be zero. 
 Required
 Resources 
-dictionary () A resource dictionary that shall contain all of the named resources 
-required by the pattern’s content stream (see 7.8.3, "Resource dictionaries"). 
+dictionary () A #resource dictionary that shall contain all of the named resources 
+required by the pattern’s #content stream (see 7.8.3, "Resource dictionaries"). 
 Optional
 Matrix 
 array () An array of six numbers specifying the pattern matrix (see 8.7.2, 
-"General properties of patterns"). Default value: the identity matrix [1 0 0 1 0 0]. 
+"General properties of patterns"). Default value: the# identity matrix [1 0 0 1 0 0]. 
  
 © ISO 2017 – All rights reserved 216 
 
@@ -103,62 +103,62 @@ ISO/DIS 32000-2
  
 BBoxXStep YStep 
 The pattern dictionary’s , , andvalues shall be interpreted in the pattern coordinate 
-system, and the graphics objects in the pattern’s content stream shall be defined with respect to that 
+system, and the graphics #objects in the pattern’s #content stream shall be defined with respect to that 
  XStep  YStep 
 coordinate system. The placement of pattern cells in the tiling is based on the location of one key 
 pattern cell, which is then displaced by multiples ofandto replicate the pattern. The origin 
 Matrix
 of the key pattern cell coincides with the origin of the pattern coordinate system. The phase of the tiling 
 can be controlled by the translation components of the  entry in the pattern dictionary. 
-Prior to painting with a tiling pattern, the PDF writer shall establish the pattern as the current colour in 
-the graphics state. Subsequent painting operations tile the painted areas with the pattern cell described 
-by the pattern’s content stream. To obtain the pattern cell, the interactive PDF processor shall perform 
+Prior to painting with a tiling pattern, the ##PDF writer shall establish the pattern as the current colour in 
+the #graphics state. Subsequent painting operations tile the painted areas with the pattern cell described 
+by the pattern’s #content stream. To obtain the pattern cell, the #interactive ##PDF processor shall perform 
 these steps: 
 q
  
  
-a)Saves the current graphics state (as if by invoking the  operator) 
-b)Installs the graphics state that was in effect at the beginning of the pattern’s parent content stream, with 
+a)Saves the current #graphics state (as if by invoking the  operator) 
+b)Installs the #graphics state that was in effect at the beginning of the pattern’s parent #content stream, with 
 the current transformation matrix altered by the pattern matrix as described in 8.7.2, "General properties 
  
 of patterns" 
 Q
  
-c)Paints the graphics objects specified in the pattern’s content stream 
-d)Restores the saved graphics state (as if by invoking the  operator)  
-The pattern’s content stream shall not set any of the device-dependent parameters in the graphics state 
-(see "Table 52: Device-dependent graphics state parameters") because it can result in incorrect output.  
+c)Paints the graphics #objects specified in the pattern’s #content stream 
+d)Restores the saved #graphics state (as if by invoking the  operator)  
+The pattern’s #content stream shall not set any of the device-dependent parameters in the #graphics state 
+(see "Table 52: Device-dependent #graphics state parameters") because it can result in incorrect output.  
 8.7.3.2Coloured tiling patterns 
  
 A coloured tiling pattern is a pattern whose colour is self-contained. In the course of painting the 
-pattern cell, the pattern’s content stream explicitly sets the colour of each graphical element it paints. A 
+pattern cell, the pattern’s #content stream explicitly sets the colour of each graphical element it paints. A 
 single pattern cell may contain elements that are painted different colours; it may also contain sampled 
-grayscale or colour images. This type of pattern is identified by a pattern type of 1 and a paint type of 1 
+grayscale or colour images. This type of pattern is# identified by a pattern type of 1 and a paint type of 1 
 in the pattern dictionary. 
 Pattern
 SCNscn
 When the current colour space is a  space, a coloured tiling pattern shall be selected as the 
 Pattern
 current colour by supplying its name as the single operand to the  or  operator. This name shall 
-be the key of an entry in the  subdictionary of the current resource dictionary (see 7.8.3, 
-"Resource dictionaries"), whose value shall be the stream object representing the pattern. Since the 
+be the key of an entry in the  subdictionary of the current #resource dictionary (see 7.8.3, 
+"Resource dictionaries"), whose value shall be the stream #object representing the pattern. Since the 
 SCNscn
 pattern defines its own colour information, no additional operands representing colour components 
 shall be specified to  or . 
-EXAMPLE 1 If P1 is the name of a pattern resource in the current resource dictionary, the following code establishes it as 
+EXAMPLE 1 If P1 is the name of a pattern resource in the current #resource dictionary, the following code establishes it as 
 the current nonstroking colour: 
 /Pattern cs 
 /P1 scn 
 NOTE 1 Subsequent executions of nonstroking painting operators, such as  (fill),  (show text), or  
 fTjDo
-(paint external object) with an image mask, use the designated pattern to tile the areas to be 
+(paint external #object) with an image mask, use the designated pattern to tile the areas to be 
 painted. 
-NOTE 2 The following defines a page (object 5) that paints three circles and a triangle using a coloured 
-tiling pattern (object 15) over a yellow background. The pattern consists of the symbols for the 
-four suits of playing cards (spades, hearts, diamonds, and clubs), which are character glyphs taken 
-from the ZapfDingbats font (see D.5, "ZapfDingbats set and encoding"); the pattern’s content 
+NOTE 2 The following defines a page (#object 5) that paints three circles and a triangle using a coloured 
+tiling pattern (#object 15) over a yellow background. The pattern consists of the symbols for the 
+four suits of playing cards (spades, hearts, diamonds, and clubs), which are #character #glyphs taken 
+from the ZapfDingbats #font (see D.5, "ZapfDingbats set and encoding"); the pattern’s content 
 © ISO 2017 – All rights reserved 217 
 
 ISO/DIS 32000-2
  
-stream specifies the colour of each glyph. "
+stream specifies the colour of each #glyph. "

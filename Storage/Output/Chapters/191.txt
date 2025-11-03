@@ -1,4 +1,4 @@
-Figure 38: Starting a new triangle in a free-form Gouraud-shaded triangle mesh 
+#Figure 38: Starting a new triangle in a free-form Gouraud-shaded triangle mesh 
  
 © ISO 2017 – All rights reserved 235 
 
@@ -6,7 +6,7 @@ ISO/DIS 32000-2
  
 v
 vvvvv
-Subsequent triangles shall be defined by a single new vertex combined with two vertices of the 
+Subsequent triangles shall be defined by a single new vertex com#bined with two vertices of the 
 abcabb
 vvv
 v

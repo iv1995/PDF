@@ -1,57 +1,57 @@
  
- Table 110: Entries in a Type 3 font dictionary 
+ Table 110: Entries in a Type 3 #font dictionary 
 Key Type Value 
 RequiredFont
 Type   
-name  () The type of PDF object that this dictionary describes; shall befor a font 
+name  () The type of #PDF #object that this dictionary describes; shall befor a #font 
 dictionary. 
 RequiredType3
 Subtype 
-name () The type of font; shall be  for a Type 3 font. 
+name () The type of font; shall be  for a Type 3 #font. 
 © ISO 2017 – All rights reserved 310 
 
 ISO/DIS 32000-2
  
 Key Type Value 
-Required in PDF 1.0; optional otherwise
+Required in #PDF 1.0; optional otherwise
 Name 
-name () See "Table 109: Entries in a Type 1 font 
+name () See "Table 109: Entries in a Type 1 #font 
 dictionary". 
 Required
-FontBBox 
-font bounding box
-rectangle  () A rectangle (see 7.9.5, "Rectangles") expressed in the glyph coordinate system, 
-specifying the . This is the smallest rectangle enclosing all marks that 
-would result if all of the glyphs of the font were placed with their origins coincident and 
+#FontBBox 
+#font bounding box
+#rectangle  () A #rectangle (see 7.9.5, "#Rectangles") expressed in the #glyph coordinate system, 
+specifying the . This is the smallest #rectangle enclosing all marks that 
+would result if all of the #glyphs of the #font were placed with their origins coincident and 
 their descriptions executed. 
-If all four elements of the rectangle are zero, a PDF processor shall make no assumptions 
-about glyph sizes based on the font bounding box. If any element is non-zero, the font 
-bounding box shall be accurate. If any glyph’s marks fall outside this bounding box, 
+If all four elements of the #rectangle are zero, a ##PDF processor shall make no assumptions 
+about #glyph sizes based on the #font bounding box. If any element is non-zero, the #font 
+bounding box shall be accurate. If any #glyph’s marks fall outside this bounding box, 
 behaviour is implementation dependent and may not match the creator’s expectations. 
-Requiredfont matrix
-FontMatrix 
+Required#font matrix
+#FontMatrix 
 array  () An array of six numbers specifying the , mapping glyph space to text 
-NOTE A common practice is to define glyphs in terms of a 1000-unit glyph coordinate 
-space (see 9.2.4, "Glyph positioning and metrics"). 
-system, in which case the font matrix is [0.001 0 0 0.001 0 0]. 
+NOTE A common practice is to define #glyphs in terms of a 1000-unit #glyph coordinate 
+space (see 9.2.4, "#Glyph positioning and metrics"). 
+system, in which case the #font matrix is [0.001 0 0 0.001 0 0]. 
 Required
 CharProcs 
-dictionary  () A dictionary in which each key shall be a glyph name and the value associated 
+dictionary  () A dictionary in which each key shall be a #glyph name and the value associated 
 d0d1
-with that key shall be a content stream that constructs and paints the glyph for that 
-character. The stream shall include as its first operator either  or , followed by 
-operators describing one or more graphics objects. See below for more details about Type 
-3 glyph descriptions. 
+with that key shall be a #content stream that constructs and paints the #glyph for that 
+#character. The stream shall include as its first operator# either  or , followed by 
+operators descri#bing one or more graphics #objects. See below for more details about Type 
+3 #glyph descriptions. 
 Required
 Encoding  Differences 
 dictionary () An encoding dictionary whosearray shall specify the complete 
-character encoding for this font (see 9.6.5, "Character encoding"). 
+#character encoding for this #font (see 9.6.5, "#Character encoding"). 
 Required
 FirstChar  Widths
-integer  () The first character code defined in the font’s  array. 
+integer  () The first #character code defined in the #font’s  array. 
 Required
 LastChar  Widths
-integer  () The last character code defined in the font’s  array.  
+integer  () The last #character code defined in the #font’s  array.  
 Widths  
 Required; should be an indirect reference
 LastChar FirstChar 
@@ -60,37 +60,37 @@ array
 () An array of ( + 1) 
  FirstChar LastChar
 -
-numbers, each element being the glyph width for the character code that equals
-plus the array index. For character codes outside the rangeto , the 
-FontMatrix
-width shall be 0. These widths shall be interpreted in glyph space as specified by 
- (unlike the widths of a Type 1 font, which are in thousandths of a unit of text 
-FontMatrix
+numbers, each element being the #glyph width for the #character code that equals
+plus the array index. For #character codes outside the rangeto , the 
+#FontMatrix
+width shall be 0. These widths shall be interpreted in #glyph space as specified by 
+ (unlike the widths of a Type 1 #font, which are in thousandths of a unit of text 
+#FontMatrix
 space). 
 If  specifies a rotation, only the horizontal component of the transformed 
 width shall be used. That is, the resulting displacement shall be horizontal in text space, as 
-is the case for all simple fonts. 
+is the case for all simple #fonts. 
 hall be an indirect reference
-FontDescriptor 
-dictionary  (S) A font descriptor describing the font’s default metrics other 
-than its glyph widths (see 9.8, "Font descriptors"). 
-Optional but should be used; PDF 1.2
+#FontDescriptor 
+dictionary  (S) A #font descriptor descri#bing the #font’s default metrics other 
+than its #glyph widths (see 9.8, "#Font descriptors"). 
+Optional but should be used; #PDF 1.2
 Resources 
-dictionary  () A list of the named resources, such as fonts and 
-images, required by the glyph descriptions in this font (see 7.8.3, "Resource dictionaries"). 
-If any glyph descriptions refer to named resources but this dictionary is absent, the names 
-shall be looked up in the resource dictionary of the page on which the font is used. 
-Optional; PDF 1.2
+dictionary  () A list of the named resources, such as #fonts and 
+images, required by the #glyph descriptions in this #font (see 7.8.3, "Resource dictionaries"). 
+If any #glyph descriptions refer to named resources but this dictionary is absent, the names 
+shall be looked up in the #resource dictionary of the page on which the #font is used. 
+Optional; #PDF 1.2
 ToUnicode 
-stream  () A stream containing a CMap file that maps character codes to Unicode 
+stream  () A stream containing a CMap file that maps #character codes to Unicode 
 values (see 9.10.3, "ToUnicode CMaps"). 
  
-For each character code shown by a text-showing operator that uses a Type 3 font, the PDF processor 
+For each character code shown by a text-showing operator that uses a Type 3 #font, the ##PDF processor 
 shall: 
 Encoding
  
-a)Look up the character code in the font’s  entry, as described in 9.6.5, "Character encoding" to 
-obtain a glyph name. 
+a)Look up the #character code in the #font’s  entry, as described in 9.6.5, "#Character encoding" to 
+obtain a #glyph name. 
 © ISO 2017 – All rights reserved 311 
 
 ISO/DIS 32000-2
@@ -98,33 +98,33 @@ ISO/DIS 32000-2
 CharProcs
  
 CharProcs
-b)Look up the glyph name in the font’s  dictionary to obtain a stream object containing a glyph 
+b)Look up the #glyph name in the #font’s  dictionary to obtain a stream #object containing a #glyph 
  
-description. If the name is not present as a key in , no glyph shall be painted.  
-c)Invoke the glyph description. The graphics state shall be saved before this invocation and shall be 
-restored afterward; therefore, any changes the glyph description makes to the graphics state do not 
+description. If the name is not present as a key in , no #glyph shall be painted.  
+c)Invoke the #glyph description. The #graphics state shall be saved before this invocation and shall be 
+restored afterward; therefore, any changes the #glyph description makes to the #graphics state do not 
  Resources 
  
 persist after it finishes.  
-d)If any glyph descriptions refer to named resources they shall be looked up in theentry of the 
-Type 3 font dictionary. If any glyph descriptions refer to named resources but this dictionary is absent, 
-the names shall be looked up in the resource dictionary of the page on which the font is used.  
-FontMatrix
-When the glyph description begins execution, the current transformation matrix (CTM) shall be the 
-concatenation of the font matrix ( in the current font dictionary) and the text space that was 
+d)If any #glyph descriptions refer to named resources they shall be looked up in theentry of the 
+Type 3 #font dictionary. If any #glyph descriptions refer to named resources but this dictionary is absent, 
+the names shall be looked up in the #resource dictionary of the page on which the #font is used.  
+#FontMatrix
+When the #glyph description begins execution, the current transformation matrix (CTM) shall be the 
+concatenation of the #font matrix ( in the current #font dictionary) and the text space that was 
 in effect at the time the text-showing operator was invoked (see 9.4.4, "Text space details"). This means 
-that shapes described in the glyph coordinate system are transformed into the user coordinate system 
-and appear in the appropriate size and orientation on the page. The glyph description shall describe the 
-glyph in terms of absolute coordinates in the glyph coordinate system, placing the glyph origin at (0, 0) 
+that shapes described in the #glyph coordinate system are transformed into the user coordinate system 
+and appear in the appropriate size and orientation on the page. The #glyph description shall describe the 
+#glyph in terms of absolute coordinates in the #glyph coordinate system, placing the #glyph origin at (0, 0) 
 in this space. It shall make no assumptions about the initial text position. 
-Aside from the CTM, the graphics state shall be inherited from the environment of the text-showing 
-operator that caused the glyph description to be invoked. To ensure predictable results, the glyph 
-description shall initialise any graphics state parameters on which it depends. In particular, if it invokes 
+Aside from the CTM, the #graphics state shall be inherited from the environment of the text-showing 
+operator that caused the #glyph description to be invoked. To ensure predictable results, the #glyph 
+description shall initialise any #graphics state parameters on which it depends. In particular, if it invokes 
 TK
-any operator from "Table 59: Path-painting operators" which performs stroking, it shall explicitly set 
+any operator from "#Table 59: Path-painting operators" which performs stroking, it shall explicitly set 
 the line width, line join, line cap, and dash pattern to appropriate values. The  flag (see 9.3.8, "Text 
-knockout") of the graphics state controls the behaviour of glyphs obtained from any font type, including 
+knockout") of the #graphics state controls the behaviour of #glyphs obtained from any #font type, including 
 Type 3. 
 NOTE 2 Normally, it is unnecessary and undesirable to initialise the current colour parameters because 
-the text-showing operators are designed to paint glyphs with the current colours. 
-The glyph description shall execute one of the operators described in "
+the text-showing operators are designed to paint #glyphs with the current colours. 
+The #glyph description shall execute one of the operators described in "

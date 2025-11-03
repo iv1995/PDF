@@ -4,7 +4,7 @@ markup annotations" shows the annotation dictionary entries specific to these ty
 
 ISO/DIS 32000-2
  
-Table 182: Additional entries specific to text markup annotations 
+#Table 182: Additional entries specific to text markup annotations 
 Key Type Value 
 (Required) 
 Subtype 
@@ -16,7 +16,7 @@ squiggly-underline, or strikeout annotation, respectively.
 QuadPoints 
 array An array of 8 × nnumbers specifying the coordinates of 
 quadrilaterals in default user space. Each quadrilateral shall encompasses 
-a word or group of contiguous words in the text underlying the 
+a word or #group of contiguous words in the text underlying the 
 annotation. The coordinates for each quadrilateral shall be given in the 
 order 
 11223344

@@ -1,14 +1,14 @@
 Table 381: Standard layout attributes specific to inline-level structure 
-elements" shall be present for the grouping elements (see 14.8.4.4, "Grouping level structure types") if 
-the content in the grouping element is divided into columns.  
-Table 381: Standard layout attributes specific to inline-level structure elements 
+elements" shall be present for the #grouping elements (see 14.8.4.4, "#Grouping level structure types") if 
+the content in the #grouping element is divided into columns.  
+#Table 381: Standard layout attributes specific to inline-level structure elements 
 Key Type Value 
-(Optional; not inheritable; PDF 1.6)
+(Optional; not inheritable; #PDF 1.6)
 ColumnCount 
 integer  The number of columns in the content 
-of the grouping element.  
+of the #grouping element.  
 Default value: 1. 
-(Optional; not inheritable; PDF 1.6)
+(Optional; not inheritable; #PDF 1.6)
 ColumnGap 
 number or array  The desired space between adjacent 
 columns, measured in default user space units in the inline-progression 
@@ -26,7 +26,7 @@ shall specify all remaining spaces; if there are more than  -
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; not inheritable; PDF 1.6)
+(Optional; not inheritable; #PDF 1.6)
 ColumnWidths 
 number or array  The desired width of the columns, 
 measured in default user space units in the inline-progression direction. If 
@@ -48,7 +48,7 @@ List
 O
 Item) elements (see 14.8.4.8.2, "Standard structure types for Lists"). These attributes may only be 
 Layout, Table, PrintFieldArtifact
-defined in attribute objects whose  (owner) entry has the value  or whose owner is any other 
+defined in attribute #objects whose  (owner) entry has the value  or whose owner is any other 
 owner excluding  and . 
 ContinuedListContinuedFrom
 LL

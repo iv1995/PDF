@@ -1,32 +1,32 @@
-Table 75: Entries in a Type 2 pattern dictionary" shows the contents of this type of 
+#Table 75: Entries in a Type 2 pattern dictionary" shows the contents of this type of 
 dictionary. 
-Table 75: Entries in a Type 2 pattern dictionary 
+#Table 75: Entries in a Type 2 pattern dictionary 
 Key Type Value 
 Optional
 Type 
 Pattern
-name () The type of PDF object that this dictionary describes; if present, shall be 
+name () The type of #PDF #object that this dictionary describes; if present, shall be 
  for a pattern dictionary. 
 Required
 PatternType 
-integer () A code identifying the type of pattern that this dictionary describes; 
+integer () A code# identifying the type of pattern that this dictionary describes; 
 shall be 2 for a shading pattern. 
 Required
 Shading 
-dictionary () A shading object (see below) defining the shading pattern’s gradient fill. 
+dictionary () A shading #object (see below) defining the shading pattern’s gradient fill. 
 or stream The contents of the dictionary shall consist of the entries in "Table 77: Entries 
 common to all shading dictionaries" and those in one of Table 78 to Table 83. 
 Optional
 Matrix 
 array () An array of six numbers specifying the pattern matrix (see 8.7.2, 
-"General properties of patterns"). Default value: the identity matrix [1 0 0 1 0 0]. 
+"General properties of patterns"). Default value: the# identity matrix [1 0 0 1 0 0]. 
 Optional
 ExtGState 
-dictionary () A graphics state parameter dictionary (see 8.4.5, "Graphics state 
+dictionary () A #graphics state parameter dictionary (see 8.4.5, "#Graphics state 
 parameter dictionaries") containing graphics state parameters to be put into effect 
 temporarily while the shading pattern is painted. Any parameters that are not so 
-specified shall be inherited from the graphics state that was in effect at the 
-beginning of the pattern’s parent content stream, and as modified by clause 11.6.7, 
+specified shall be inherited from the #graphics state that was in effect at the 
+beginning of the pattern’s parent #content stream, and as modified by clause 11.6.7, 
 "Patterns and transparency". 
  
 shading object
@@ -39,16 +39,16 @@ the shading pattern’s . This is a complex "paint" that determines the type of 
 ISO/DIS 32000-2
  
 shading dictionary
-the shading pattern produces when painted across an area. A shading object shall be a dictionary or a 
+the shading pattern produces when painted across an area. A shading #object shall be a dictionary or a 
 stream, depending on the type of shading; the term  is used generically throughout 
-this subclause to refer to either a dictionary object or the dictionary portion of a stream object. (Those 
-shading objects that are streams are specifically identified as such in the descriptions of particular 
+this subclause to refer to# either a #dictionary #object or the dictionary portion of a stream #object. (Those 
+shading #objects that are streams are specifically# identified as such in the descriptions of particular 
 shading types; unless otherwise stated, they are understood to be simple dictionaries instead.) 
 fSTjDo
-By setting a shading pattern as the current colour in the graphics state, a PDF content stream may use it 
-with painting operators such as  (fill),  (stroke),  (show text), or  (paint external object) with an 
-image mask to paint a path, character glyph, or mask with a smooth colour transition. When a shading is 
-used in this way, the geometry of the gradient fill is independent of that of the object being painted. 
+By setting a shading pattern as the current colour in the #graphics state, a #PDF #content stream may use it 
+with painting operators such as  (fill),  (stroke),  (show text), or  (paint external #object) with an 
+image mask to paint a path, #character #glyph, or mask with a smooth colour transition. When a shading is 
+used in this way, the geometry of the gradient fill is independent of that of the #object being painted. 
 8.7.4.2Shading operator 
  
 sh sh
@@ -57,4 +57,4 @@ gradient fill itself, the  operator may be used instead of the usual painting op
 shading dictionary as an operand and applies the corresponding gradient fill directly to current user 
 sh
 space. This operator does not require the creation of a pattern dictionary or a path and works without 
-reference to the current colour in the graphics state. "
+reference to the current colour in the #graphics state. "

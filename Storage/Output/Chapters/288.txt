@@ -1,4 +1,4 @@
-Figure 72: RGB blend modes 
+#Figure 72: RGB blend modes 
  
 © ISO 2017 – All rights reserved 383 
 

@@ -1,11 +1,11 @@
-Table Annex F.2: Standard hint tables"; F.4, "Hint tables" documents 
+#Table Annex F.2: Standard hint tables"; F.4, "Hint tables" documents 
 the format of these hint tables. Additionally, there is a required page offset hint table, which shall be the 
 first table in the stream and shall start at offset 0. 
-Table Annex F.2: Standard hint tables 
+#Table Annex F.2: Standard hint tables 
 Key Hint table 
 Required
 S 
-() Shared object hint table (see F.4.3, "Shared object hint table") 
+() Shared #object hint table (see F.4.3, "Shared #object hint table") 
 T 
 (Present only if thumbnail images exist) Thumbnail hint table (see F.4.4, 
 "Thumbnail hint table") 
@@ -25,16 +25,16 @@ I
 (Present only if a document information dictionary exists) Information 
 dictionary hint table (see F.4.5, "Generic hint tables") 
 C 
-(Present only if a logical structure hierarchy exists; PDF 1.3) Logical 
+(Present only if a logical structure hierarchy exists; #PDF 1.3) Logical 
 structure hint table (see F.4.6, "Extended generic hint tables") 
-PDF 1.3
+#PDF 1.3
 L 
 () Page label hint table (see F.4.5, "Generic hint tables") 
 R 
-(Present only if a renditions name tree exists; PDF 1.5) Renditions name 
+(Present only if a renditions #name tree exists; #PDF 1.5) Renditions name 
 tree hint table (see F.4.6, "Extended generic hint tables") 
 B 
-(Present only if embedded file streams exist; PDF 1.5) Embedded file 
+(Present only if embedded file streams exist; #PDF 1.5) Embedded file 
 stream hint table (see F.4.7, "Embedded file stream hint tables") 
  
 © ISO 2017 – All rights reserved 854 
@@ -42,28 +42,28 @@ stream hint table (see F.4.7, "Embedded file stream hint tables")
 ISO/DIS 32000-2
  
 New keys may be registered for additional hint tables required application-specific data accessed by 
-PDF processor extensions. See Annex E, "PDF Name Registry" for further information. 
+##PDF processor extensions. See Annex E, "#PDF Name Registry" for further information. 
 F.3.7First-page section (Part 6) 
  
-This part of the file contains all the objects needed to display the first page of the document. Ordinarily, 
+This part of the file contains all the #objects needed to display the first page of the document. Ordinarily, 
  OpenAction 
 the first page is page 0—that is, the leftmost leaf page node in the page tree. However, if the document 
 catalog dictionary contains anentry that specifies opening at some page other than page 0, 
 P
 that page shall be considered the first page and shall be located here. The page number of the first page 
 is given in the  entry of the linearization parameter dictionary. 
-NOTE As mentioned earlier, the section containing objects belonging to the first page of the document 
-can either precede or follow the primary hint stream. The starting file offset and length of this 
+NOTE As mentioned earlier, the section containing #objects belonging to the first page of the document 
+can# either precede or follow the primary hint stream. The starting file offset and length of this 
 section can be determined from the hint tables. In addition, the  entry in the linearization 
 E
 parameter dictionary specifies the end of the first page (as an offset relative to the beginning of 
-the file), and the  entry gives the object number of the first page’s page object. 
+the file), and the  entry gives the #object number of the first page’s page #object. 
 O
-The following objects shall be contained in the first-page section: 
+The following #objects shall be contained in the first-page section: 
 • 
-The page object for the first page. This object shall be the first one in this part of the file. Its object 
+The page #object for the first page. This #object shall be the first one in this part of the file. Its #object 
  Resources 
-number is given in the linearization parameter dictionary. This page object shall explicitly specify 
+number is given in the linearization parameter dictionary. This page #object shall explicitly specify 
 all required attributes, such asand MediaBox; the attributes may not be inherited from 
  PageMode 
 • 
@@ -71,12 +71,12 @@ ancestor page tree nodes.
  PageMode 
 The entire outline hierarchy, if the value of theentry in the catalog dictionary is 
 UseOutlines. If theentry is omitted or has some other value and the document has an 
-outline hierarchy, the outline hierarchy shall appear in part 9; see F.3.10, "Other objects (Part 9)" 
+outline hierarchy, the outline hierarchy shall appear in part 9; see F.3.10, "Other #objects (Part 9)" 
 • 
 for details. 
-All objects that the page object refers to, to an arbitrary depth, except page tree nodes, other page 
-objects and DPart tree nodes. 
-The order of objects referenced from the page object should facilitate early user interaction and 
+All #objects that the page #object refers to, to an ar#bitrary depth, except page tree nodes, other page 
+#objects and DPart tree nodes. 
+The order of #objects referenced from the page #object should facilitate early user interaction and 
 incremental display of the page data as it arrives. The following order should be used: 
  Annots 
  
@@ -91,86 +91,86 @@ array shall be present in the page dictionary. Additionally, each bead in the th
  
 shall contain a  entry referring to the associated thread dictionary.  
  
-c)The resource dictionary, but not the resource objects contained in the dictionary.  
-d)Resource objects, other than the types listed below, in the order that they are first referenced (directly or 
-indirectly) from the content stream. If the contents are represented as an array of streams, each resource 
-object shall precede the stream in which it is first referenced. Note that Font, FontDescriptor, and 
-Encoding resources shall be included here, but not substitutable font files referenced from font 
+c)The #resource dictionary, but not the resource #objects contained in the dictionary.  
+d)Resource #objects, other than the types listed below, in the order that they are first referenced (directly or 
+indirectly) from the #content stream. If the contents are represented as an array of streams, each resource 
+#object shall precede the stream in which it is first referenced. Note that #Font, #FontDescriptor, and 
+Encoding resources shall be included here, but not substitutable #font files referenced from #font 
 Contents
  
 descriptors (see item (g) below).  
 e)The page contents (). If large, this should be represented as an array of indirect references to 
-content streams, which in turn shall be interleaved with the resources they require. If small, the entire 
+#content streams, which in turn shall be interleaved with the resources they require. If small, the entire 
  
-contents should be a single content stream preceding the resources.  
-f)Image XObjects, in the order that they are first referenced. Images can be assumed to be large and slow to 
-transfer; therefore, the PDF processor should defer rendering images until all the other contents have 
+contents should be a single #content stream preceding the resources.  
+f)Image X#Objects, in the order that they are first referenced. Images can be assumed to be large and slow to 
+transfer; therefore, the ##PDF processor should defer rendering images until all the other contents have 
 been displayed.  
 © ISO 2017 – All rights reserved 855 
 
 ISO/DIS 32000-2 
-FontFile
+#FontFile
  
-g) streams, which contain the actual definitions of embedded fonts. These can be assumed to be 
-large and slow to transfer; therefore, the PDF processor should use substitute fonts until the real ones 
-have arrived. Only those fonts for which substitution is possible may be deferred in this way. (Currently, 
-this includes any Type 1 or TrueType font that has a font descriptor with the Nonsymbolic flag set, 
+g) streams, which contain the actual definitions of embedded #fonts. These can be assumed to be 
+large and slow to transfer; therefore, the ##PDF processor should use substitute #fonts until the real ones 
+have arrived. Only those #fonts for which substitution is possible may be deferred in this way. (Currently, 
+this includes any Type 1 or TrueType #font that has a #font descriptor with the Nonsymbolic flag set, 
  
-indicating the Standard Latin character set).  
-h)See Annex G, "Linearized PDF Access Strategies" for additional discussion about object order and 
+indicating the Standard Latin ##character set).  
+h)See Annex G, "Linearized #PDF Access Strategies" for additional discussion about #object order and 
 F.3.8Remaining pages (Part 7) 
  
 incremental drawing strategies.  
-Part 7 of the Linearized PDF file shall contain the page objects and nonshared objects for all remaining 
-pages of the file, with the objects for each page grouped together. The pages shall be contiguous and 
+Part 7 of the Linearized #PDF file shall contain the page #objects and nonshared #objects for all remaining 
+pages of the file, with the #objects for each page #grouped together. The pages shall be contiguous and 
 shall be ordered by page number. If the first page of the file is not page 0, this section shall start with 
 page 0 and shall skip over the first page when its position in the sequence is reached. 
-For each page, the objects required to display that page shall be grouped together, except for resources 
-and other objects that are shared with other pages. Shared objects shall be located in the shared objects 
+For each page, the #objects required to display that page shall be #grouped together, except for resources 
+and other #objects that are shared with other pages. Shared #objects shall be located in the shared #objects 
 section (part 8). The starting file offset and length of any page can be determined from the hint tables. 
-The recommended order of objects within a page is essentially the same as in the first page. In 
-particular, the page object shall be the first object in each section. 
+The recommended order of #objects within a page is essentially the same as in the first page. In 
+particular, the page #object shall be the first #object in each section. 
 In most cases, unlike for the first page, little benefit is gained from interleaving contents with resources 
   
-because most resources other than images — fonts in particular — are shared among multiple pages 
-and therefore reside in the shared objects section.ImageXObjects usually are not shared, but they 
+because most resources other than images — #fonts in particular — are shared among multiple pages 
+and therefore reside in the shared #objects section.ImageX#Objects usually are not shared, but they 
 should appear at the end of the page’s section of the file, since rendering of images is deferred. 
-F.3.9Shared objects (Part 8) 
+F.3.9Shared #objects (Part 8) 
  
-Part 8 of the file contains objects, primarily named resources, that are referenced from more than one 
+Part 8 of the file contains #objects, primarily named resources, that are referenced from more than one 
 page but that are not referenced (directly or indirectly) from the first page. The hint tables contain an 
-index of these objects. For more information on named resources, see 7.8.3, "Resource dictionaries". 
-The order of these objects shall be arbitrary. However, wherever a resource consists of a multiple-level 
-structure, all components of the structure shall be grouped together. If only the top-level object is 
-referenced from outside the group, the entire group may be described by a single entry in the shared 
-object hint table. This helps to minimise the size of the shared object hint table and the number of 
+index of these #objects. For more information on named resources, see 7.8.3, "Resource dictionaries". 
+The order of these #objects shall be ar#bitrary. However, wherever a resource consists of a multiple-level 
+structure, all components of the structure shall be #grouped together. If only the top-level #object is 
+referenced from outside the #group, the entire #group may be described by a single entry in the shared 
+#object hint table. This helps to minimise the size of the shared #object hint table and the number of 
 individual references from entries in the page offset hint table. 
-F.3.10Other objects (Part 9) 
+F.3.10Other #objects (Part 9) 
  
-Following the shared objects are any other objects that are part of the document but are not required 
-for displaying pages. These objects shall be divided into functional categories. Objects within each of 
-these categories should be grouped together; the relative order of the categories is unimportant. 
+Following the shared #objects are any other #objects that are part of the document but are not required 
+for displaying pages. These #objects shall be divided into #functional categories. #Objects within each of 
+these categories should be #grouped together; the relative order of the categories is unimportant. 
 • 
  Resources 
-The page tree. This object can be located in this section because the interactive PDF processor 
+The page tree. This #object can be located in this section because the #interactive ##PDF processor 
 never needs to consult it. Note that allattributes and other inheritable attributes of the 
-page objects shall be pushed down and replicated in each of the leaf page objects (but they may 
+page #objects shall be pushed down and replicated in each of the leaf page #objects (but they may 
 • 
-contain indirect references to shared objects). 
-Thumbnail images. These objects shall simply be ordered by page number. (The thumbnail image 
+contain indirect references to shared #objects). 
+Thumbnail images. These #objects shall simply be ordered by page number. (The thumbnail image 
 for page 0 shall be first, even if the first page of the document is some page other than 0.) Each 
 © ISO 2017 – All rights reserved 856 
 
 ISO/DIS 32000-2
  
-thumbnail image consists of one or more objects, which may refer to objects in the thumbnail 
+thumbnail image consists of one or more #objects, which may refer to objects in the thumbnail 
 • 
-shared objects section (see the next item). 
-Thumbnail shared objects. These are objects that shall be shared among some or all thumbnail 
+shared #objects section (see the next item). 
+Thumbnail shared #objects. These are #objects that shall be shared among some or all thumbnail 
 • 
-images and shall not be referenced from any other objects. 
-The outline hierarchy, if not located in part 6. The order of objects shall be the same as the order in 
-which they shall be displayed by the PDF processor. This is a preorder traversal of the outline tree, 
+images and shall not be referenced from any other #objects. 
+The outline hierarchy, if not located in part 6. The order of #objects shall be the same as the order in 
+which they shall be displayed by the ##PDF processor. This is a preorder traversal of the outline tree, 
 skipping over any subtree that is closed (that is, whose parent’s Count value is negative). 
 Following that shall be the subtrees that were skipped over, in the order in which they would have 
 • 
@@ -180,47 +180,47 @@ thread dictionaries themselves shall be located with the document catalog dictio
  Dests Names
 • 
 dictionaries with the individual pages. 
-Named destinations. These objects include the value of theor  entry in the document 
-catalog dictionary and all the destination objects that it refers to; see G.3, "Opening at an arbitrary 
+Named destinations. These #objects include the value of theor  entry in the document 
+catalog dictionary and all the destination #objects that it refers to; see G.3, "Opening at an ar#bitrary 
 • 
 page". 
 • 
-The document information dictionary and the objects contained within it. 
-The interactive form field hierarchy. This group of objects shall not include the top-level 
+The document information dictionary and the #objects contained within it. 
+The interactive form field hierarchy. This #group of #objects shall not include the top-level 
 • 
 interactive form dictionary, which is located with the document catalog dictionary. 
-PDF 1.3
+#PDF 1.3
 • 
 Other entries in the document catalog dictionary that are not referenced from any page. 
-PDF 1.5
+#PDF 1.5
 • 
 () The logical structure hierarchy. 
-PDF 1.5
+#PDF 1.5
 • 
-() The renditions name tree hierarchy. 
-(PDF 2.0)
+() The renditions #name tree hierarchy. 
+(#PDF 2.0)
 • 
 () Embedded file streams. 
 F.3.11Main cross-reference and trailer (Part 11) 
  
  DPart tree and Document Part Metadata 
-Part 11 is the cross-reference table for all objects in the PDF file except those listed in the first-page 
+Part 11 is the cross-reference table for all #objects in the #PDF file except those listed in the first-page 
 cross-reference table (part 3). As indicated earlier, this cross-reference table shall play the role of the 
 original cross-reference table for the file (before any updates are appended) and shall conform to the 
 following rules: 
 • 
 • 
-It consists of a single cross-reference subsection, beginning at object number 0. 
+It consists of a single cross-reference subsection, beginning at #object number 0. 
 • 
-The first entry (for object number 0) shall be a free entry. 
+The first entry (for #object number 0) shall be a free entry. 
  Prev 
-The remaining entries are for in-use objects, which shall be numbered consecutively, starting at 1. 
+The remaining entries are for in-use #objects, which shall be numbered consecutively, starting at 1. 
  Prev 
 The startxref line shall give the offset of the first-page cross-reference table. Theentry of the first-
 Size
 page trailer shall give the offset of the main cross-reference table. The main trailer has noentry 
 and shall not contain any entries other than . 
-In PDF 1.5 and later, cross-reference streams (see 7.5.8, "Cross-reference streams") may be used in 
+In #PDF 1.5 and later, cross-reference streams (see 7.5.8, "Cross-reference streams") may be used in 
 linearized files in place of traditional cross-reference tables. The logic described in this subclause, along 
 with the appropriate syntactic changes for cross-reference streams, still applies. 
 © ISO 2017 – All rights reserved 857 
@@ -233,24 +233,24 @@ F.4.1General
 The core of the linearization information shall be stored in two or more hint tables, as indicated by the 
 attributes of the primary hint stream; see F.3.6, "Hint streams (Parts 5 and 10)". The format of the 
 standard hint tables is described in this section. 
-A PDF writer may add additional hint tables for PDF processor-specific data. A generic format for such 
+A ##PDF writer may add additional hint tables for ##PDF processor-specific data. A generic format for such 
 hint tables is defined; see F.4.5, "Generic hint tables" Alternatively, the format of a hint table can be 
-private to the PDF processor; see Annex E, "PDF Name Registry" for further information. 
+private to the ##PDF processor; see Annex E, "#PDF Name Registry" for further information. 
 Each hint table shall consist of a portion of the stream, beginning at the position in the stream indicated 
-by the corresponding stream attribute. Additionally, a PDF writer shall include a page offset hint table, 
+by the corresponding stream attribute. Additionally, a ##PDF writer shall include a page offset hint table, 
 which shall be the first table in the stream and shall start at offset 0. If there is an overflow hint stream, 
 its contents shall be appended seamlessly to the primary hint stream. 
-NOTE 1 Hint table positions are relative to the beginning of this combined stream. 
-In general, this byte stream shall be treated as a bit stream, high-order bit first, which shall then 
-subdivided into fields of arbitrary width without regard to byte boundaries. However, each hint table 
-shall begin at a byte boundary. 
+NOTE 1 Hint table positions are relative to the beginning of this com#bined stream. 
+In general, this #byte stream shall be treated as a #bit stream, high-order #bit first, which shall then 
+subdivided into fields of ar#bitrary width without regard to #byte boundaries. However, each hint table 
+shall begin at a #byte boundary. 
 NOTE 2 The hint tables are designed to encode the required information as compactly as possible. 
 Interpreting the hint tables requires reading them sequentially; they are not designed for random 
 access. 
-The PDF processor shall be expected to read and decode the tables once and retain the information for 
+The ##PDF processor shall be expected to read and decode the tables once and retain the information for 
 as long as the document remains open. 
-NOTE 3 A hint table encodes the positions of various objects in the file. The representation is either explicit 
-(an offset from the beginning of the file) or implicit (accumulated lengths of preceding objects). 
+NOTE 3 A hint table encodes the positions of various #objects in the file. The representation is# either explicit 
+(an offset from the beginning of the file) or implicit (accumulated lengths of preceding #objects). 
 Regardless of the representation, the resulting positions shall be interpreted as if the primary hint 
 stream itself were not present. That is, a position greater than the hint stream offset shall have the hint 
 stream length added to it to determine the actual offset relative to the beginning of the file. 
@@ -262,10 +262,10 @@ information contained in the hint tables shall not depend on knowing the primary
 in advance. 
 Note that this rule applies only to offsets given in the hint tables and not to offsets given in the cross-
 reference tables or linearization parameter dictionary. Also, the offset and length of the overflow hint 
-stream, if present, does not be taken into account, since this object follows all other objects in the file. 
-In linearized files that use object streams (7.5.7, "Object streams"), the position specified in a hint table 
-for a compressed object is to be interpreted as a byte range in which the object can be found, not as a 
-precise offset. PDF processors need to locate the object via a cross-reference stream, as it would if the 
+stream, if present, does not be taken into account, since this #object follows all other #objects in the file. 
+In linearized files that use ##object streams (7.5.7, "##Object streams"), the position specified in a hint table 
+for a compressed #object is to be interpreted as a #byte range in which the #object can be found, not as a 
+precise offset. ##PDF processors need to locate the #object via a cross-reference stream, as it would if the 
 hint table were not present. 
 © ISO 2017 – All rights reserved 858 
 
@@ -274,6 +274,6 @@ ISO/DIS 32000-2
 F.4.2Page offset hint table 
  
 The page offset hint table provides information required for locating each page. Additionally, for each 
-page except the first, it also enumerates all shared objects that the page references, directly or 
+page except the first, it also enumerates all shared #objects that the page references, directly or 
 indirectly. 
 This table shall begin with a header section, described in "

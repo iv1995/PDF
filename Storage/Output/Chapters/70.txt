@@ -1,7 +1,7 @@
 Table 1: White-
-space characters" separate syntactic constructs such as names and numbers from each other. In all 
-other contexts, PDF treats any sequence of consecutive white-space characters as one character. 
-Table 1: White-space characters 
+space #characters" separate syntactic constructs such as names and numbers from each other. In all 
+other contexts, #PDF treats any sequence of consecutive white-space #characters as one #character. 
+Table 1: White-space #characters 
 Decimal Hexadecimal Octal Name 
 0 00 000 Null (NUL) 
 9 09 011 HORIZONTAL TAB (HT) 
@@ -10,20 +10,20 @@ Decimal Hexadecimal Octal Name
 13 0D 015 CARRIAGE RETURN (CR) 
 32 20 040 SPACE (SP) 
  
-The CARRIAGE RETURN (0Dh) and LINE FEED (0Ah) characters, also called newline characters, shall be 
-treated as end-of-line (EOL) markers. The combination of a CARRIAGE RETURN followed immediately 
+The CARRIAGE RETURN (0Dh) and LINE FEED (0Ah) #characters, also called newline #characters, shall be 
+treated as end-of-line (EOL) markers. The com#bination of a CARRIAGE RETURN followed immediately 
 by a LINE FEED shall be treated as one EOL marker. EOL markers may be treated the same as any other 
-white-space characters. However, sometimes an EOL marker is required — that is, preceding a token 
+white-space #characters. However, sometimes an EOL marker is required — that is, preceding a token 
 that shall appear at the beginning of a line. 
 NOTE 2 The examples in this part of ISO 32000 use a convention that arranges tokens into lines. However, 
 the examples’ use of white-space for indentation is purely for clarity of exposition and need not be 
 included in practical use. 
-The delimiter characters (,), <,>, [,], {, }, /, and % are special (LEFT PARENTHESIS (28h), RIGHT 
+The delimiter #characters (,), <,>, [,], {, }, /, and % are special (LEFT PARENTHESIS (28h), RIGHT 
 PARENTHESIS (29h), LESS-THAN SIGN (3Ch), GREATER-THAN SIGN (3Eh), LEFT SQUARE BRACKET 
 (5Bh), RIGHT SQUARE BRACKET (5Dh), LEFT CURLY BRACE (7Bh), RIGHT CURLY BRACE (7Dh), 
 SOLIDUS (2Fh) and PERCENT SIGN (25h), respectively). They delimit syntactic entities such as arrays, 
-names, and comments. In addition, the double character constructs <<(3C3Ch) and>> (3E3Eh) are used 
-to delimit dictionary objects (see 7.3.7, "Dictionary objects"). Any of these delimiters terminates the 
-entity preceding it and is not included in the entity. Delimiter characters are allowed within the scope of 
+names, and comments. In addition, the double #character constructs <<(3C3Ch) and>> (3E3Eh) are used 
+to delimit #dictionary #objects (see 7.3.7, "#Dictionary #objects"). Any of these delimiters terminates the 
+entity preceding it and is not included in the entity. Delimiter #characters are allowed within the scope of 
 a string when following the rules for composing strings; see 7.3.4.2, "Literal strings". The leading ( of a 
 string does delimit a preceding entity and the closing ) of a string delimits the string’s end. 

@@ -1,16 +1,16 @@
-Table 371: Table standard structure types" defines standard structure types for tables. 
+#Table 371: Table standard structure types" defines standard structure types for tables. 
 © ISO 2017 – All rights reserved 738 
 
 ISO/DIS 32000-2
  
-Table 371: Table standard structure types  
+#Table 371: Table standard structure types  
 Structure Category Description 
 Type 
 Table 
 Block or  A two-dimensional logical structure of cells, possibly including a complex 
 CaptionTable
 Inline substructure.  
-If a  is present, it shall be either the first or last child of the  
+If a  is present, it shall be# either the first or last child of the  
 structure element. 
 TR THTD
 Table
@@ -19,7 +19,7 @@ Internal to a A row of table header cells () or table data cells () in a table.
 structure 
 TH 
 Table
-Internal to a A table header cell containing content describing one or more rows, columns or 
+Internal to a A table header cell containing content descri#bing one or more rows, columns or 
 TH
   rows and columns of the table. 
 structure 
@@ -53,7 +53,7 @@ Headers
 THead TR
 Table
 THead
-Internal to a  A group of  structure elements that constitute the header of a table.  
+Internal to a  A #group of  structure elements that constitute the header of a table.  
   
 The  structure element is optional insofar as when rows of header cells are 
 structure 
@@ -61,7 +61,7 @@ present they may, but are not required to be, so enclosed.
 (Optional)
 TBody TR
 Table
-Internal to a  A group of  structure elements that constitute the main body portion 
+Internal to a  A #group of  structure elements that constitute the main body portion 
 TBody
   of a table. 
 structure 
@@ -71,7 +71,7 @@ they may, but are not required to be, so enclosed.
 TFoot TR
 Table 
 TFoot
-Internal to a  A group of  structure elements that constitute the footer of a table. 
+Internal to a  A #group of  structure elements that constitute the footer of a table. 
 The  structure element is optional insofar as when rows of cells belonging to 
 structure 
 footer row(s) are present they may, but are not required to be, so enclosed. 
@@ -79,7 +79,7 @@ footer row(s) are present they may, but are not required to be, so enclosed.
 Headers
 If the  attribute (see 14.8.5, "Standard structure attributes") is not specified, any cell in a table 
 Headers 
-may have multiple headers associated with it. These headers are defined either explicitly by the 
+may have multiple headers associated with it. These headers are defined# either explicitly by the 
 attribute, or implicitly, by the following algorithm: 
 WritingMode
 To find headers for any data or header cell, begin from the current cell position and use the current 
@@ -100,7 +100,7 @@ Scope
 row/ column list that is being built 
 BothRow/Column
 When a header cell is found in the search and the (implicit or explicit)  attribute of the header cell 
-is either  or , the header cell is appended to the end of the list of row/column headers, 
+is# either  or , the header cell is appended to the end of the list of row/column headers, 
 resulting in a list of headers ordered from most specific to most general. 
 NOTE This algorithm works for languages with different intrinsic directionality of the script (such as 
 right-to-left) because the structure always reflects the logical content order of the table. 

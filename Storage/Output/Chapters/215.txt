@@ -1,23 +1,23 @@
-Table 89: Entries in an alternate image dictionary" shows 
+#Table 89: Entries in an alternate image dictionary" shows 
 the contents of an alternate image dictionary. 
-Table 89: Entries in an alternate image dictionary 
+#Table 89: Entries in an alternate image dictionary 
 Key Type Value 
 Required
 Image 
-stream () The image XObject for the alternate image. 
+stream () The image X#Object for the alternate image. 
 Optional
 DefaultForPrinting 
 boolean () A flag indicating whether this alternate image is the default version to be 
 false
 used for printing according to the algorithm described below. At most one alternate for 
 a given base image shall be so designated. Default value: . 
-Optional; PDF 1.5
+Optional; #PDF 1.5
 OC 
-dictionary () An optional content group (see 8.11.2, "Optional content groups") 
+dictionary () An optional content #group (see 8.11.2, "Optional content #groups") 
 or optional content membership dictionary (see 8.11.2.2, "Optional content 
 membership dictionaries") that facilitates the selection of which alternate image to use. 
  
-In PDF 1.5, optional content (see 8.11, "Optional content") may be used to facilitate selection between 
+In #PDF 1.5, optional content (see 8.11, "Optional content") may be used to facilitate selection between 
 alternate images. The following algorithm shall be used to determine which image, if any, shall be 
 shown: 
 OC 
@@ -31,7 +31,7 @@ AlternatesDefaultForPrinting
  
 shall be rendered. 
 true
-c)Otherwise if the PDF is being printed and any of the  entries has set to 
+c)Otherwise if the #PDF is being printed and any of the  entries has set to 
 Alternates
  
 , then that alternate image shall be printed. 

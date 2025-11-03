@@ -1,27 +1,27 @@
-Table 275: Requirement types" lists requirement types that have been defined through PDF 2.0. 
-Table 275: Requirement types 
+#Table 275: Requirement types" lists requirement types that have been defined through #PDF 2.0. 
+#Table 275: Requirement types 
 Type Description 
 OCInteract 
 Order
-Requires an interactive PDF processor to be able to display the list of optional content groups (OCGs) in 
+Requires an #interactive ##PDF processor to be able to display the list of optional content #groups (OCGs) in 
  SetOCGState 
-the  array as described in "Table 99: Entries in an optional content configuration dictionary". 
-In addition, requires that an interactive PDF processor support theaction (see 12.6.4.13, 
+the  array as described in "#Table 99: Entries in an optional content configuration dictionary". 
+In addition, requires that an #interactive ##PDF processor support theaction (see 12.6.4.13, 
 "Set-OCG-state actions"). 
  
-Additional information about OCGs can be found in 8.11.2, "Optional content groups" and 8.11.4.4, 
-"Determining the state of optional content groups".
+Additional information about OCGs can be found in 8.11.2, "Optional content #groups" and 8.11.4.4, 
+"Determining the state of optional content #groups".
 OCAutoStates Usage
  AS 
-Requires an interactive PDF processor to implement the various  values that can be present as the 
+Requires an #interactive ##PDF processor to implement the various  values that can be present as the 
 value of thekey in an OCD as described in "Table 99: Entries in an optional content configuration 
-dictionary" and 8.11.4.4, "Determining the state of optional content groups". 
+dictionary" and 8.11.4.4, "Determining the state of optional content #groups". 
 AcroFormInteract 
 Requires support for user interaction with forms (see 12.7, "Forms") defined as interactive form 
 dictionaries including updating field appearances when values change. In addition, support for Trigger 
 NOTE 1 This requirement does not cover presentation of a form’s static appearance. That presentation 
 Actions (12.6.3, "Trigger events") is required. 
-uses annotation appearances (12.5.5, "Appearance streams"), which all PDF processors are 
+uses annotation appearances (12.5.5, "Appearance streams"), which all ##PDF processors are 
 assumed to support. 
 Navigation 
 Requires support for the presentation and handling of basic navigational elements including link 
@@ -35,33 +35,33 @@ annotations") including text annotations. In addition, any time the visual appea
 changes, the appearance stream shall be updated. 
 3DMarkup 
 Requires support for the creation, modification and deletion of text notes and markup annotations on 3D 
-objects (13.6.7.3.5, "3D comment note"). In addition, any time where the visual appearance of the 
+#objects (13.6.7.3.5, "3D comment note"). In addition, any time where the visual appearance of the 
 annotation changes, the appearance stream shall be updated. 
 Multimedia Screen
 Requires support for multimedia () annotations (12.5.6.18, "Screen annotations"). See also 13.2, 
 "Multimedia". The support that is required is for the general multimedia framework, not for an external 
 MHBE
 player for any specific type of multimedia content. Negotiation of the choice of an external player is 
-handled by the must honour () and best efforts () mechanism (13.2.2, "Viability") that is defined 
+handled by the must honour () and best efforts () mechanism (13.2.2, "Via#bility") that is defined 
 as part of the multimedia framework (13.2, "Multimedia"). 
 U3D 
   
 Requires support for 3D data streams conforming to the U3D specification. This shall apply to the use of 
-U3D in either 3D (13.6.3, "3D streams") orRichMediaannotations (13.7.2.2, "RichMediaSettings 
+U3D in# either 3D (13.6.3, "3D streams") orRichMediaannotations (13.7.2.2, "RichMediaSettings 
 VRequirements
 dictionary"). This also includes support for associated ECMAScripts. 
  
 If a  key is present in its  dictionary, it shall represent the version of U3D and not the 
-PDF version.
+#PDF version.
 PRC 
   
 Requires support for 3D data streams conforming to the PRC specification. This shall apply to the use of 
-PRC in either 3D (13.6.3, "3D streams") orRichMediaannotations (13.7.2.2, "RichMediaSettings 
+PRC in# either 3D (13.6.3, "3D streams") orRichMediaannotations (13.7.2.2, "RichMediaSettings 
 V Requirements 
 dictionary"). This also includes support for associated ECMAScripts. 
  
 If a  key is present in itsdictionary, it shall represent the version of PRC and not the 
-PDF version.
+#PDF version.
 © ISO 2017 – All rights reserved 588 
 
 ISO/DIS 32000-2
@@ -78,7 +78,7 @@ EnableJavaScripts
 Requires support for execution of ECMAScripts appearing inECMAScriptactions and in theECMAScript
 NOTE 2 ECMAScripts contained in 3D &RichMediaannotations are handled by their respective 
   
-name tree for document-level ECMAScripts. 
+#name tree for document-level ECMAScripts. 
 requirements.
  
 Attachment 
@@ -102,15 +102,15 @@ Requires support for displaying the embedded files referenced from the document�
 dictionary (12.3.5, "Collections") along with any associated metadata. Also requires that the user can 
 extract or otherwise view the contents of each item in the collection. 
 Collection
-(PDF 2.0) For unencrypted wrapper documents for an encrypted payload document (see 7.6.7, 
+(#PDF 2.0) For unencrypted wrapper documents for an encrypted payload document (see 7.6.7, 
 "Unencrypted wrapper document") the  requirement should not be specified for the 
 NOTE 4 Although the unencrypted wrapper document is a collection, the intent of the wrapper is to 
 unencrypted wrapper document. 
-enable PDF processors that are unable to decrypt the embedded encrypted payload document to 
+enable ##PDF processors that are unable to decrypt the embedded encrypted payload document to 
 present the content of the unencrypted wrapper document to assist users in understanding the 
 cryptographic requirements of the encrypted payload document. Specifying the  
 Collection
-requirement on the wrapper could discourage PDF processors incapable of displaying collections 
+requirement on the wrapper could discourage ##PDF processors incapable of displaying collections 
 from presenting the unencrypted wrapper content. 
 CollectionEditing  Collection 
 In addition to the requirements of thevalue, support for adding to the collection (12.3.5, 
@@ -118,7 +118,7 @@ In addition to the requirements of thevalue, support for adding to the collectio
 are also required. 
 DigSigValidation 
 Requires support for the validation of digital signatures (both document and certifying) that have been 
-applied to the PDF including the handling of supplied revocation information. See 12.8, "Digital 
+applied to the #PDF including the handling of supplied revocation information. See 12.8, "Digital 
 signatures", and 12.8.3.4.5, "Requirements for validation of PAdES signatures". 
 DigSigMDP
  
@@ -148,7 +148,7 @@ Requires support for processing provided geospatial information in any 3D annota
 requirements to Geospatial information. 
 DPartInteract 
 Requires support for the display of the DParts hierarchy and its use for navigation of 
-the document parts. See 14.12, " 
+the #document parts. See 14.12, " 
 Document". 
 SeparationSimulation 
  parts
@@ -165,37 +165,37 @@ dictionary provided as the value of thekey in the requirement dictionary (see "T
 Entries common to all requirement dictionaries" and "Table 274: Entries for specific types of 
 requirements"). 
 Encryption
-(PDF 2.0) For unencrypted wrapper documents for an encrypted payload document (see 7.6.7, 
+(#PDF 2.0) For unencrypted wrapper documents for an encrypted payload document (see 7.6.7, 
 "Unencrypted wrapper document") the  requirement should not be specified for the 
-NOTE 6 The intent of the wrapper is to enable PDF processors that are unable to decrypt the embedded 
+NOTE 6 The intent of the wrapper is to enable ##PDF processors that are unable to decrypt the embedded 
 unencrypted wrapper document. 
 encrypted payload document to present the content of the unencrypted wrapper document to 
 assist users in understanding the cryptographic requirements of the encrypted payload 
-document. Specifying the  requirement on the wrapper could discourage PDF 
+document. Specifying the  requirement on the wrapper could discourage #PDF 
 Encryption
 processors incapable of decrypting the embedded encrypted payload from presenting the 
 unencrypted wrapper content. 
  
-Additional requirement types, including ones identifying vendor-specific features, may be registered 
-according to the rules described in Annex E, "PDF Name Registry". 
+Additional requirement types, including ones# identifying vendor-specific features, may be registered 
+according to the rules described in Annex E, "#PDF Name Registry". 
 12.11.3Requirement penalty values 
  
  Requirements S
 Eachdictionary shall contain an  key whose value should be chosen from a list of those 
 Penalty
-defined in "Table 275: Requirement types" but only for those features that are deemed critical for the 
+defined in "#Table 275: Requirement types" but only for those features that are deemed critical for the 
 successful rendering of the document. The values of the  key is the penalty number expressed as 
 an integer in the range [0, 100]. The presence of this requirements dictionary indicates that the 
 associated feature is used or needed by the document. 
 Penalty
 A value of zero for the  key would indicate that although the document uses this feature the 
 need is optional. A value of 100 indicates that this document will not produce the author’s intent unless 
-the PDF processor can fully support this feature. Values between 0 and 100 are available to weight the 
+the ##PDF processor can fully support this feature. Values between 0 and 100 are available to weight the 
 value of this feature among other features in the same document requirements array as well as when 
 contributing to the total penalty points to weigh against other documents in the choosing process if 
 alternatives are available. 
-In the situation where the penalty values are being used to evaluate the presentation of the base PDF 
-document, and there exist no other alternates, if the penalty value exceeds 100 then the PDF processor 
+In the situation where the penalty values are being used to evaluate the presentation of the base #PDF 
+document, and there exist no other alternates, if the penalty value exceeds 100 then the ##PDF processor 
 should not attempt to display or process the document. 
 © ISO 2017 – All rights reserved 590 
 
@@ -203,32 +203,32 @@ ISO/DIS 32000-2
  
 12.11.4Requirement versions 
  
-PDF 2.0
+#PDF 2.0
 V
   
 A requirement dictionary may include a  entry () that specifies a version number for a specific 
-technology related to the requirement in question. It might be a PDF version number, anXFAversion 
+technology related to the requirement in question. It might be a #PDF version number, anXFAversion 
 number (for those requirement related to XFA), a version of U3D or PRC, or a vendor-specific extension 
 level. 
   
-Some PDF andXFAfeatures have evolved over successive PDF versions. A PDF file may contain uses of a 
+Some #PDF andXFAfeatures have evolved over successive #PDF versions. A #PDF file may contain uses of a 
 V
-feature or an embedded data stream that can only be successfully interpreted by a PDF processor 
-supporting a specific version of PDF or higher. This constraint may be indicated by including a  entry 
-in the requirement dictionary identifying the PDF version. 
+feature or an embedded data stream that can only be successfully interpreted by a ##PDF processor 
+supporting a specific version of #PDF or higher. This constraint may be indicated by including a  entry 
+in the requirement dictionary# identifying the #PDF version. 
 V
 The value of  shall be one of the following: 
 • 
 A name that specifies a version number, represented as two or more decimal integers separated by 
   
 a period. The number of decimals places is determined by the technology in question for which the 
-NOTE This is specified as a name, not as a number, in order to avoid any ambiguities caused by inexact 
-version applies. For example, PDF andXFAversions are always two digits; others are always three. 
+NOTE This is specified as a name, not as a number, in order to avoid any am#biguities caused by inexact 
+version applies. For example, #PDF andXFAversions are always two digits; others are always three. 
 internal representation of decimal fractions. No non-numerals, except for the decimal point, may 
 be present. 
 • 
-An extensions dictionary that specifies a vendor-specific extension to a PDF version (see 7.12, 
-"Extensions dictionary"). It shall only be used when describing a version of PDF for which a simple 
+An extensions dictionary that specifies a vendor-specific extension to a #PDF version (see 7.12, 
+"Extensions dictionary"). It shall only be used when descri#bing a version of #PDF for which a simple 
 version (e.g., 1.7) is not sufficient and has no meaning for any other requirement. The extensions 
 dictionary shall contain exactly one entry, whose key shall correspond to the registered prefix for 
 V
@@ -243,11 +243,11 @@ associated with a document’s features are satisfied. Traditionally, requiremen
 accomplished with an ECMAScriptsegment in the document-level ECMAScripts stored in the 
 document’s name dictionary. 
   
-To create PDF documents that are compatible with processors that support PDF 1.7 and PDF 2.0, both 
+To create #PDF documents that are compatible with processors that support #PDF 1.7 and #PDF 2.0, both 
 the document requirements feature and theECMAScriptalternative requirements handler should be 
 present in the document. 
  
  RH 
-A document using the document requirements feature can specify that an ECMAScriptfunction is to be 
+A document using the document requirements feature can specify that an ECMAScript#function is to be 
 disabled by including anentry whose value is an alternative requirement handler dictionary (or an 
-array of such dictionaries), each of which identifies a handler that shall be disabled. "
+array of such dictionaries), each of which# identifies a handler that shall be disabled. "

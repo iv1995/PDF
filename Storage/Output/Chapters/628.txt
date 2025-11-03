@@ -1,28 +1,28 @@
-Table Annex H.2: Objects in simple text string example" lists the objects in this example. 
-Table Annex H.2: Objects in simple text string example 
-Object number Object type 
+Table Annex H.2: #Objects in simple text string example" lists the #objects in this example. 
+Table Annex H.2: #Objects in simple text string example 
+#Object number #Object type 
 Catalog
 1  (document catalog) 
 Pages
 2  (page tree node) 
 Page
-3  (page object) 
-4 Content stream 
+3  (page #object) 
+4 #Content stream 
 Font
-5  (Type 1 font) 
+5  (Type 1 #font) 
 Font
-6  (Type 1 font) 
+6  (Type 1 #font) 
 Metadata
 7  (metadata stream) 
  
 EXAMPLE  
-%PDF-2.0 
-…              %at least four binary characters > 127 
+%#PDF-2.0 
+…              %at least four #binary #characters > 127 
 © ISO 2017 – All rights reserved 874 
 
 ISO/DIS 32000-2
  
-1 0 obj            %Catalog (root) object to locate everything else 
+1 0 obj            %Catalog (root) #object to locate everything else 
  
   <</Type /Catalog 
    /Pages 2 0 R 
@@ -42,40 +42,40 @@ endobj
    /Parent 2 0 R 
    /MediaBox [0 0 612 792] 
    /Contents 4 0 R 
-   /Resources <</Font  <</F1 5 0 R %Internal name, not font name 
-          /F2 6 0 R    %Internal name, not font name 
+   /Resources <</#Font  <</F1 5 0 R %Internal name, not #font name 
+          /F2 6 0 R    %Internal name, not #font name 
        >> 
   >> 
  >> 
 endobj 
  
 4 0 obj            %Page contents for page 1 
-number of bytes in page marking operators  
+number of #bytes in page marking operators  
   <</Length … …
   >> 
 stream 
- %This content stream writes "Hello 32000-2 World" and shows a number of 
+ %This #content stream writes "Hello 32000-2 World" and shows a number of 
  %points of interest. 
- %- There is no font styling in PDF, italic (or bold) is a change of font 
- %- There is no automatic underlining in PDF, applications need to draw lines 
- %- Applications will usually need to do font position calculations 
+ %- There is no #font styling in #PDF, italic (or bold) is a change of font 
+ %- There is no automatic underlining in #PDF, applications need to draw lines 
+ %- Applications will usually need to do #font position calculations 
  %- If extracting text, spaces are not always found in text strings, they 
  %may come from changes to position. 
   
  BT 
-  /F1 24 Tf          %Choose font F1, 24 points 
+  /F1 24 Tf          %Choose #font F1, 24 points 
   72 696 Td          %Set initial x,y and set line start 
   (Hello ) Tj         %Show "Hello " including extra space 
-  /F2 24 Tf          %Choose font F2, 24 points 
+  /F2 24 Tf          %Choose #font F2, 24 points 
   (32000-2) Tj         %Show "32000-2" 
-  /F1 24 Tf          %Choose font F1, 24 points 
+  /F1 24 Tf          %Choose #font F1, 24 points 
   156.1 0 Td          %Position after implied space, relative to line start 
   (Wor) Tj          %Show "Wor" (implied space before is just visual) 
   (ld) Tj          %Finish word with "ld" (notice no space added) 
  ET 
  
  %Underline "32000-2". Position must be calculated by generator 
- %including scaled per-font underline vertical offset 
+ %including scaled per-#font underline vertical offset 
  133.3 694.2 m          %Move to start of line position 
  221.4 694.2 l          %Set path to end of line position 
  1.2 w            %Set line width suitable for size of text 
@@ -83,11 +83,11 @@ stream
 endstream 
 endobj 
  
-5 0 obj             %Fontdictionary (Helvetica) 
+5 0 obj             %#Fontdictionary (Helvetica) 
  
-  <</Type /Font 
+  <</Type /#Font 
    /Subtype /Type1 
-   /BaseFont /Helvetica 
+   /Base#Font /Helvetica 
    /Encoding /WinAnsiEncoding 
    /FirstChar … 
    /LastChar … 
@@ -95,32 +95,32 @@ endobj
 
 ISO/DIS 32000-2 
    /Widths […] 
-   /FontDescriptor … 
+   /#FontDescriptor … 
   >> 
 endobj 
  
-6 0 obj            %Fontdictionary (Helvetica-Oblique) 
+6 0 obj            %#Fontdictionary (Helvetica-Oblique) 
  
-  <</Type /Font 
+  <</Type /#Font 
    /Subtype /Type1 
-   /BaseFont /Helvetica-Oblique 
+   /Base#Font /Helvetica-Oblique 
    /Encoding /WinAnsiEncoding 
    /FirstChar … 
    /LastChar … 
    /Widths […] 
-   /FontDescriptor … 
+   /#FontDescriptor … 
   >> 
 endobj 
  
 7 0 obj            %Document metadata 
   <</Type /Metadata 
    /Subtype /XML 
-number of bytes in metadata  
+number of #bytes in metadata  
    /Length … …
   >> 
 stream 
 UTF-8 value of U+FEFF (efbbbf) 
-<?xpacket begin="… …" id="W5M0MpCehiHzreSzNTczkc9d"?> 
+<?xpacket begin="… …"# id="W5M0MpCehiHzreSzNTczkc9d"?> 
  document metadata 
 …… 
 <?xpacket end="w"?> 
@@ -129,19 +129,19 @@ endobj
  
 xref 
 0 8 
-Note that the 10 digit byte offsets here must be recalculated by the software producing the PDF  
+Note that the 10 digit #byte offsets here must be recalculated by the software producing the #PDF  
 … …
- and that the entries must each occupy 20 bytes including white-space  
+ and that the entries must each occupy 20 #bytes including white-space  
 ……
 0000000000 65536 f 
 0000000017 00000 n 
-byte offset for object 2, exactly 10 digits 
+#byte offset for #object 2, exactly 10 digits 
 … … 00000 n 
-byte offset for object 3, exactly 10 digits 
+#byte offset for #object 3, exactly 10 digits 
 … … 00000 n 
 0000000848 00000 n 
 0000002452 00000 n 
-byte offset for object 6, exactly 10 digits 
+#byte offset for #object 6, exactly 10 digits 
 … … 00000 n 
 0000003309 00000 n 
 trailer 
@@ -153,4 +153,4 @@ exact offset of the word xref from the start of the file
 H.4Simple graphics example 
  
 The example in H.4, "Simple graphics example" draws a thin black line segment, a thick black dashed 
-line segment, a filled and stroked rectangle, and a filled and stroked cubic Bézier curve. "
+line segment, a filled and stroked #rectangle, and a filled and stroked cu#bic Bézier curve. "

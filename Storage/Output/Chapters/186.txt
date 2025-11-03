@@ -5,7 +5,7 @@ ends, respectively.
 
 ISO/DIS 32000-2
  ![Figure 34 Radial shadings depicting a cone  .png](./Storage/Output/Images/Figure 34 Radial shadings depicting a cone  .png)
-Figure 34: Radial shadings depicting a cone 
+#Figure 34: Radial shadings depicting a cone 
  
 s
 Conceptually, all of the blend circles shall be painted in order of increasing values of , from smallest to 

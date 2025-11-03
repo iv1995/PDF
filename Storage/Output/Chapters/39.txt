@@ -1,4 +1,4 @@
-JPEG 
+#JPEG 
 image format [ISO/IEC 10918] 
 © ISO 2017 – All rights reserved 19 
 

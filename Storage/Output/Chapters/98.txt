@@ -1,4 +1,4 @@
-Table 26: Standard crypt filter names 
+Table 26: Standard crypt #filter names 
 Name Description 
 Identity 
 Input data shall be passed through without any processing. 

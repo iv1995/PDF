@@ -1,20 +1,20 @@
-Table 245: Entries in the FDF catalog dictionary 
+#Table 245: Entries in the FDF catalog dictionary 
 Key Type Value 
-(Optional; PDF 1.4) 
+(Optional; #PDF 1.4) 
 Version   
   
 name The version of theFDFspecification to which 
-thisFDFfile conforms (for example, 1.4) if later than the version 
+this#FDFfile conforms (for example, 1.4) if later than the version 
 specified in the file’s header (see 12.7.8.2.2, "FDF header"). If the 
 header specifies a later version, or if this entry is absent, the 
 document conforms to the version specified in the header. 
 /
-The value of this entry is a name object, not a number, and 
+The value of this entry is a #name #object, not a number, and 
 /1.4
   
  
-therefore shall be preceded by a slash character () when 
-written in theFDFfile (for example, ).
+therefore shall be preceded by a slash #character () when 
+written in the#FDFfile (for example, ).
 (Required) 
 FDF   
 dictionary TheFDFdictionary for this file (see "

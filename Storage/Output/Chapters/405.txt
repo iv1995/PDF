@@ -1,17 +1,17 @@
-Table 237: Entries in a signature field seed value dictionary") containing 
+#Table 237: Entries in a signature field seed value dictionary") containing 
 information that constrains the properties of a signature that is applied to this 
 field. 
  
 The signature field lock dictionary (described in "Table 236: Entries in a signature field lock 
 dictionary") contains the names of form fields whose values shall no longer be changed after this 
 signature has been signed. 
-Table 236: Entries in a signature field lock dictionary 
+#Table 236: Entries in a signature field lock dictionary 
 Key Type Value 
 (Optional) 
 Type  
 SigFieldLock
  
-name The type of PDF object that this dictionary describes; if present, shall be
+name The type of #PDF #object that this dictionary describes; if present, shall be
 for a signature field lock dictionary. 
 (Required) 
 Action Fields
@@ -30,7 +30,7 @@ All fields except those specified in
 Fields Action
 array  An array of text strings 
 containing field names. 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 P 
 number The access permissions granted for this document. Valid 
 values shall be: 
@@ -66,41 +66,41 @@ The value of theentry in the field dictionary is a seed value dictionary whose e
 used at the time the signature is applied. Theentry in this signature field seed value dictionary 
 specifies whether the other entries in the dictionary shall be honoured or whether they are merely 
 recommendations. 
-Table 237: Entries in a signature field seed value dictionary 
+#Table 237: Entries in a signature field seed value dictionary 
 Key Type Value 
 (Optional) 
 Type 
 SV
   
-name The type of PDF object that this dictionary describes; if present, shall 
+name The type of #PDF #object that this dictionary describes; if present, shall 
 befor a seed value dictionary. 
 (Optional) 
 Ff 
-integer A set of bit flags specifying the interpretation of specific entries in this 
+integer A set of #bit flags specifying the interpretation of specific entries in this 
 dictionary. A value of 1 for the flag indicates that the associated entry is a 
-FilterSubFilterVReasons
+#FilterSub#FilterVReasons
 required constraint. A value of 0 indicates that the associated entry is an optional 
 LegalAttestationAddRevInfoDigestMethod
-constraint. Bit positions are 1 (); 2 (); 3 (); 4 (); 5 
+constraint. #Bit positions are 1 (); 2 (); 3 (); 4 (); 5 
 LockdocumentAppearanceFilter
-(); 6 (); and 7 ():for PDF 2.0 the 
-following bit flags are added: 8 (); and 9 (). 
+(); 6 (); and 7 ():for #PDF 2.0 the 
+following #bit flags are added: 8 (); and 9 (). 
 Default value: 0. 
 (Optional) 
-Filter 
-Filter Ff 
-name The signature handler that shall be used to sign the signature field. 
-Beginning with PDF 1.7, if  is specified and theentry indicates this entry 
+#Filter 
+#Filter Ff 
+name The #signature handler that shall be used to sign the signature field. 
+Beginning with #PDF 1.7, if  is specified and theentry indicates this entry 
  Ff 
-is a required constraint, then the signature handler specified by this entry shall 
+is a required constraint, then the #signature handler specified by this entry shall 
 be used when signing; otherwise, signing shall not take place. Ifindicates that 
 this is an optional constraint, this handler may be used if it is available. If it is not 
 available, a different handler may be used instead. 
 (Optional) 
-SubFilter 
+Sub#Filter 
 array An array of names indicating encodings to use when signing. The first 
- SubFilter 
-name in the array that matches an encoding supported by the signature handler 
+ Sub#Filter 
+name in the array that matches an encoding supported by the #signature handler 
  Ff 
 shall be the encoding that is actually used for signing. Ifis specified 
 and theentry indicates that this entry is a required constraint, then the first 
@@ -109,7 +109,7 @@ matching encodings shall be used when signing; otherwise, signing shall not take
 place. Ifindicates that this is an optional constraint, then the first matching 
 encoding shall be used if it is available. If none is available, a different encoding 
 may be used. 
-Optional; PDF 1.7
+Optional; #PDF 1.7
 DigestMethod 
 SHA1SHA256SHA384SHA512
 , , ,  
@@ -125,14 +125,14 @@ public/private keys. If it contains DSA public/ private keys, the digest algorit
 is alwaysand this attribute shall be ignored.
 (Optional) 
 V 
-integer The minimum required capability of the signature field seed value 
+integer The minimum required capa#bility of the signature field seed value 
 dictionary parser. A value of 1 specifies that the parser shall be able to recognise 
-all seed value dictionary entries in a PDF 1.5 file. A value of 2 specifies that it 
+all seed value dictionary entries in a #PDF 1.5 file. A value of 2 specifies that it 
 shall be able to recognise all seed value dictionary entries specified. A value of 3 
 specifies that it shall be able to recognise all seed value dictionary entries 
  Ff 
  
-specified in PDF 2.0 and earlier. 
+specified in #PDF 2.0 and earlier. 
 Theentry indicates whether this shall be treated as a required constraint.
 (Optional) certificate seed value dictionary 
 Cert 

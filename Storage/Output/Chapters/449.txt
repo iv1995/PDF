@@ -1,14 +1,14 @@
-Table 277: Entries common to all rendition dictionaries" shows the entries common to all 
-(see 13.2.2, "Viability"). 
+#Table 277: Entries common to all rendition dictionaries" shows the entries common to all 
+(see 13.2.2, "Via#bility"). 
 rendition dictionaries. The  entry in a rendition dictionary specifies a name that can be used to 
 N
-access the rendition object by means of name tree lookup (see "Table 32: Entries in the name 
+access the rendition #object by means of #name tree lookup (see "Table 32: Entries in the name 
 dictionary").ECMAScriptactions (see 12.6.4.17, "ECMAScript actions"), for example, use this 
   
 mechanism. 
-Since the values referenced by name trees shall be indirect objects, all rendition objects should be 
-indirect objects. 
-NOTE 2 A rendition dictionary is not required to have a name tree entry. When it does, the interactive PDF 
+Since the values referenced by #name trees shall be in#direct #objects, all rendition #objects should be 
+in#direct #objects. 
+NOTE 2 A rendition dictionary is not required to have a #name tree entry. When it does, the interactive #PDF 
 processor needs to ensure that the name specified in the tree is kept the same as the value of the  
 N
 entry (for example, if the user interface allows the name to be changed). As a consequence it is 
@@ -16,7 +16,7 @@ recommended that a document not contain multiple renditions with the same name.
 MH BE 
 C
 The  andentries are dictionaries whose entries may be present in one or the other of them, as 
-described in 13.2.2, "Viability". For renditions, these dictionaries shall have a single entry  (see "Table 
+described in 13.2.2, "Via#bility". For renditions, these dictionaries shall have a single entry  (see "Table 
 © ISO 2017 – All rights reserved 595 
 
 ISO/DIS 32000-2
@@ -27,32 +27,32 @@ Entries in a media criteria dictionary").
 MHBE
 The media criteria dictionary behaves somewhat differently than other / entries, as they are 
 MH BE  BE 
-described in 13.2.2, "Viability". The criteria specified by all of its entries shall be met regardless of 
+described in 13.2.2, "Via#bility". The criteria specified by all of its entries shall be met regardless of 
 whether they are in an  or adictionary. The only exception is that if an entry in adictionary is 
 MHBE
-unrecognised by the interactive PDF processor, it shall not affect the viability of the object. If a media 
+unrecognised by the #interactive ##PDF processor, it shall not affect the via#bility of the #object. If a media 
 MH BE 
 criteria dictionary is present in both  and , the entries in both dictionaries shall be individually 
 evaluated, with  taking precedence (correspondingentries shall be ignored). 
-Table 277: Entries common to all rendition dictionaries 
+#Table 277: Entries common to all rendition dictionaries 
 Key Type Value 
 Optional
 Type 
 Rendition
-name () The type of PDF object that dictionary describes; if present, shall be 
- for a rendition object. 
+name () The type of #PDF #object that dictionary describes; if present, shall be 
+ for a rendition #object. 
 RequiredMR
 S   
 SR
   
 name () The type of rendition that this dictionary describes. May befor 
 media rendition orfor selector rendition. The rendition is non-viable if the 
-interactive PDF processor does not recognise the value of this entry. 
+#interactive ##PDF processor does not recognise the value of this entry. 
 Optional
 N 
   
 text string () A Unicode-encoded text string specifying the name of the rendition 
-for use in a user interface and for name tree lookup byECMAScriptactions. 
+for use in a user interface and for #name tree lookup byECMAScriptactions. 
 Optional
 MH 
 dictionary () A dictionary whose entries (see "

@@ -1,57 +1,57 @@
-Table 127: PDF halftone types". 
-Table 127: PDF halftone types 
+Table 127: #PDF halftone types". 
+Table 127: #PDF halftone types 
 Type Meaning 
-1 Defines a single halftone screen by a frequency, angle, and spot function. 
+1 Defines a single halftone screen by a frequency, angle, and spot #function. 
 © ISO 2017 – All rights reserved 364 
 
 ISO/DIS 32000-2
  
 Type Meaning 
-5 Defines an arbitrary number of halftone screens, one for each colourant or 
+5 Defines an ar#bitrary number of halftone screens, one for each colourant or 
 colour component (including both primary and spot colourants). The keys 
 in this dictionary are names of colourants; the values are halftone 
 dictionaries of other types, each defining the halftone screen for a single 
 colourant. 
-6 Defines a single halftone screen by a threshold array containing 8-bit 
+6 Defines a single halftone screen by a threshold array containing 8-#bit 
 sample values. 
-10 Defines a single halftone screen by a threshold array containing 8-bit 
+10 Defines a single halftone screen by a threshold array containing 8-#bit 
 sample values, representing a halftone cell that may have a non-zero screen 
 angle. 
-PDF 1.3
+#PDF 1.3
 16 () Defines a single halftone screen by a threshold array containing 
-16-bit sample values, representing a halftone cell that may have a non-zero 
+16-#bit sample values, representing a halftone cell that may have a non-zero 
 screen angle. 
  
 NOTE 1 The dictionaries representing these halftone types contain the same entries as the corresponding 
 PostScript language halftone dictionaries (as described in clause 7.4 of the PostScript Language 
 Reference, Third Edition), with the following exceptions: 
- The PDF dictionaries can contain a  entry with the value , identifying the type of PDF 
+ The #PDF dictionaries can contain a  entry with the value ,# identifying the type of #PDF 
 Type
-object that the dictionary describes. 
+#object that the dictionary describes. 
 Halftone
- Spot functions and transfer functions are represented by function objects instead of PostScript 
+ Spot #functions and transfer #functions are represented by #function #objects instead of PostScript 
 language procedures. Threshold arrays are specified as streams instead of files. 
-In Type 5 halftone dictionaries, the keys for colourants shall be name objects; they cannot be strings as 
+In Type 5 halftone dictionaries, the keys for colourants shall be #name #objects; they cannot be strings as 
 is allowed in PostScript. 
 HalftoneName
 HalftoneType
-Halftone dictionaries have an optional entry, , that identifies the halftone by name. If this 
+Halftone dictionaries have an optional entry, , that# identifies the halftone by name. If this 
 entry is present, all other entries, including , are optional. At rendering time, if the output 
 device has a halftone with the specified name, that halftone may be used, overriding any other halftone 
 parameters specified in the dictionary. 
-NOTE 2 This provides a way for PDF files to select the proprietary halftones supplied by some device 
+NOTE 2 This provides a way for #PDF files to select the proprietary halftones supplied by some device 
 manufacturers, which would not otherwise be accessible because they are not explicitly defined in 
-PDF. 
+#PDF. 
 HalftoneName
 If there is no  entry, or if the requested halftone name does not exist on the device, the 
 halftone’s parameters may be defined by the other entries in the dictionary, if any. If no other entries 
 are present, the default halftone may be used. 
 NOTE 3 See 11.7.5, "Rendering parameters and transparency" and, in particular, 11.7.5.2, "Halftone and 
-transfer function" for further discussion of the role of halftones in the transparent imaging model. 
+transfer #function" for further discussion of the role of halftones in the transparent imaging model. 
 10.6.5.2Type 1 halftones 
  
 "Table 128: Entries in a Type halftone dictionary" describes the contents of a halftone dictionary of 
-Type, which defines a halftone screen in terms of its frequency, angle, and spot function. 
+Type, which defines a halftone screen in terms of its frequency, angle, and spot #function. 
 © ISO 2017 – All rights reserved 365 
 
 ISO/DIS 32000-2

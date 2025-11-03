@@ -1,7 +1,7 @@
-Table Annex H.7: Object usage after adding three 
-text annotations" lists the objects involved in this update. 
-Table Annex H.7: Object usage after adding three text annotations 
-Object identifier Object type 
+Table Annex H.7: #Object usage after adding three 
+text annotations" lists the #objects involved in this update. 
+Table Annex H.7: #Object usage after adding three text annotations 
+#Object# identifier #Object type 
 Metadata
 6 0  (metadata stream) 
 7 0 Annotation array 
@@ -12,21 +12,21 @@ Annot
 © ISO 2017 – All rights reserved 889 
 
 ISO/DIS 32000-2 
-Object identifier Object type 
+#Object# identifier #Object type 
 Annot
 12 0  (annotation dictionary) 
  
-Object numbers 8 and 9, which were used for the two annotations deleted in the previous stage, have 
-been reused; however, the new objects have been given a generation number of 1. In addition, the third 
-text annotation added has been assigned the previously unused object identifier of 12 0. 
+#Object numbers 8 and 9, which were used for the two annotations deleted in the previous stage, have 
+been reused; however, the new #objects have been given a generation number of 1. In addition, the third 
+text annotation added has been assigned the previously unused #object# identifier of 12 0. 
 The example in, H.7.5, "Stage 4: Add Three Annotations and Update Metadata" shows the lines added to 
 Metadata Annots 
 the file by this update. The added cross-reference section contains six entries, corresponding to object 
 number 0, the  stream, thearray, and the three annotations added. The entry for 
  
-object number 0 is updated because the previously free entries for object numbers 8 and 9 have been 
+#object number 0 is updated because the previously free entries for #object numbers 8 and 9 have been 
 Annots 
-reused. The entry for object number 0 now shows that the cross-reference table has no free entries. The
+reused. The entry for #object number 0 now shows that the cross-reference table has no free entries. The
 array is updated to reflect the addition of the three text annotations. 
 EXAMPLE  
 7 0 obj 
@@ -69,7 +69,7 @@ endobj
 6 0 obj             %Metadata streams 
   <</Type /Metadata 
    /Subtype /XML 
-number of bytes in updated metadata  
+number of #bytes in updated metadata  
    /Length … …
   >> 
 stream 
@@ -81,18 +81,18 @@ ISO/DIS 32000-2
 %different software or a different author. Updating software needs to be able to parse the XMP 
 %in any valid format and preserve all content which is not to be updated, even that with 
 %unfamiliar tags. In this example some reordering of tags has taken place. Note further that 
-%after incremental update there can be multipleXMPpackets 
+%after incremental update there can be multiple#XMPpackets 
   
 UTF-8 value of U+FEFF (efbbbf) 
-<?xpacket begin="… …" id="W5M0MpCehiHzreSzNTczkc9d"?> 
+<?xpacket begin="… …"# id="W5M0MpCehiHzreSzNTczkc9d"?> 
 <x:xmpmeta xmlns:x="adobe:ns:meta/"> 
  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"> 
-  <rdf:Description rdf:about="" xmlns:pdf="http://ns.adobe.com/pdf/1.3/"> 
- name of software which generated the PDF (preserved)
-   <pdf:Producer>…  …</pdf:Producer> 
+  <rdf:Description rdf:about="" xmlns:#pdf="http://ns.adobe.com/#pdf/1.3/"> 
+ name of software which generated the #PDF (preserved)
+   <#pdf:Producer>…  …</#pdf:Producer> 
   </rdf:Description> 
   <rdf:Description rdf:about="" xmlns:dc="http://purl.org/dc/elements/1.1/"> 
-   <dc:format>application/pdf</dc:format> 
+   <dc:format>application/#pdf</dc:format> 
    <dc:title><rdf:Alt> 
 document title (preserved)
      <rdf:li xml:lang="x-default">…  …</rdf:li> 
@@ -120,7 +120,7 @@ timestamp, like 2012-12-25T12:34:56Z (preserved)
 </x:xmpmeta> 
 white-space padding to permit in-place updating of metadata  
 … …
-Note that applications which fully understand PDF updating do not usually update in-place  
+Note that applications which fully understand #PDF updating do not usually update in-place  
 … …
 <?xpacket end="w"?> 
 endstream 
@@ -131,7 +131,7 @@ xref
 0000000000 65535 f 
 6 4 
 0000002814 00000 n 
-address where new object 7 is written  
+address where new #object 7 is written  
 … …00000 n 
 0000002302 00001 n 
 0000002447 00001 n 
@@ -145,10 +145,10 @@ trailer
 startxref 
 3114 
 %%EOF 
-The annotation with object identifier 12 0 illustrates splitting a long text string across multiple lines, as 
-PDFDocEncoding
-well as the technique for including nonstandard characters in a string. In this case, the character is an 
-ellipsis (…), which is character code 203 (octal) in , the encoding used for text 
+The annotation with #object# identifier 12 0 illustrates splitting a long text string across multiple lines, as 
+#PDFDocEncoding
+well as the technique for including nonstandard #characters in a string. In this case, the #character is an 
+ellipsis (…), which is #character code 203 (octal) in , the encoding used for text 
 annotations. 
  Prev startxref
 As in previous updates, the trailer’sentry and  value have been updated. 
@@ -171,5 +171,5 @@ relationships between entries in a table of contents. The  value specifies an in
 table of contents. The  value specifies a list made up of other table of contents items that are 
 TOCI
 individual members of the table of contents and/or lists of table of contents items. (The trailing 
-character in  is an upper case "i".) 
+#character in  is an upper case "i".) 
 "

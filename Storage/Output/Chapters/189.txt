@@ -1,28 +1,28 @@
 Figure 37: Radial shading 
-effect" (8.7.4.5.4, "Type 3 (radial) shadings"). Each leaf is filled with the same radial shading (object number 
-5). The colour function (object 10) is a stitching function (described in 7.10.4, "Type 3 (stitching) functions") 
-whose two subfunctions (objects 11 and 12) are both exponential interpolation functions (see 7.10.3, "Type 2 
-(exponential interpolation) functions"). 
+effect" (8.7.4.5.4, "Type 3 (radial) shadings"). Each leaf is filled with the same radial shading (#object number 
+5). The colour #function (#object 10) is a stitching #function (described in 7.10.4, "Type 3 (stitching) #functions") 
+whose two sub#functions (#objects 11 and 12) are both exponential interpolation #functions (see 7.10.3, "Type 2 
+(exponential interpolation) #functions"). 
 5 0 obj              %Shading dictionary 
   <</ShadingType 3 
    /ColorSpace /DeviceCMYK 
    /Coords [0.0 0.0 0.096 0.0 0.0 1.0]  %Concentric circles 
-   /Function 10 0 R 
+   /#Function 10 0 R 
    /Extend [true true] 
   >> 
 endobj 
  
-10 0 obj              %Colour function 
-  <</FunctionType 3 
+10 0 obj              %Colour #function 
+  <</#FunctionType 3 
    /Domain [0.0 1.0] 
-   /Functions [11 0 R 12 0 R] 
+   /#Functions [11 0 R 12 0 R] 
    /Bounds [0.708] 
    /Encode [1.0 0.0 0.0 1.0] 
   >> 
 endobj 
  
-11 0 obj              %First subfunction 
-  <</FunctionType 2 
+11 0 obj              %First sub#function 
+  <</#FunctionType 2 
    /Domain [0.0 1.0] 
    /C0 [0.929 0.357 1.0 0.298] 
    /C1 [0.631 0.278 1.0 0.027] 
@@ -30,17 +30,17 @@ endobj
   >> 
 endobj 
  
-12 0 obj              %Second subfunction 
-   <</FunctionType 2 
+12 0 obj              %Second sub#function 
+   <</#FunctionType 2 
    /Domain [0.0 1.0] 
    /C0 [0.929 0.357 1.0 0.298] 
    /C1 [0.941 0.400 1.0 0.102] 
    /N 1.374 
   >> 
 endobj 
-EXAMPLE 2 This example shows how each leaf shown in "Figure 37: Radial shading effect" is drawn as a path and then 
-filled with the shading (where the name Sh1 is associated with object 5 by the Shading subdictionary of the 
-current resource dictionary; see 7.8.3, "Resource dictionaries"). 
+EXAMPLE 2 This example shows how each leaf shown in "#Figure 37: Radial shading effect" is drawn as a path and then 
+filled with the shading (where the name Sh1 is associated with #object 5 by the Shading subdictionary of the 
+current #resource dictionary; see 7.8.3, "Resource dictionaries"). 
 316.789 140.311 m            %Move to start of leaf 
 © ISO 2017 – All rights reserved 233 
 
@@ -52,12 +52,12 @@ ISO/DIS 32000-2
 336.448 119.386 l            %Straight line 
 331.072 128.643 323.346 137.376 316.789 140.311 c  %Curved segment 
 W n                %Set clipping path 
-q                 %Save graphics state 
+q                 %Save #graphics state 
 27.7843 0.00 0.00 -27.7843 310.2461 121.1521 cm  %Set matrix 
 /Sh1 sh               %Paint shading 
-Q                 %Restore graphics state 
+Q                 %Restore #graphics state 
  ![Figure 37 Radial shading effect  .jpg](./Storage/Output/Images/Figure 37 Radial shading effect  .jpg)
-Figure 37: Radial shading effect 
+#Figure 37: Radial shading effect 
  
  
 8.7.4.5.5Type 4 (free-form Gouraud-shaded triangle mesh) shadings 

@@ -1,33 +1,33 @@
 Table 154: 
 Entries in a collection schema dictionary"). If absent, the 
-interactive PDF processor may choose useful defaults that are 
+#interactive ##PDF processor may choose useful defaults that are 
 known to exist in a file specification dictionary, such as the file 
 name, file size, and modified date. 
 Optional
 D  
 EmbeddedFiles 
-byte string () A string that identifies an entry in the
+#byte string () A string that# identifies an entry in the
 D
-name tree, determining the document that shall 
+#name tree, determining the document that shall 
 be initially presented in the user interface. If the  entry is 
 D
-missing or is not a valid byte string, the initial document shall be 
+missing or is not a valid #byte string, the initial document shall be 
  
 the one that contains the collection dictionary. If the  entry is a 
 EmbeddedFiles 
-valid byte string that does not match any file in the
-name tree, the interactive PDF processor shall 
+valid #byte string that does not match any file in the
+#name tree, the #interactive ##PDF processor shall 
 select the first item from the list of files to display in its user 
-interface; if no files exist in the name tree, the interactive PDF 
-(PDF 2.0)
+interface; if no files exist in the #name tree, the interactive #PDF 
+(#PDF 2.0)
 processor shall display an empty preview window. 
  For unencrypted wrapper documents for an encrypted 
 D
 Unencrypted wrapper 
 payload document (see 7.6.7, "
 EmbeddedFiles
-document") the  entry is required, and shall identify the 
-encrypted payload entry in the  name tree. 
+document") the  entry is required, and shall# identify the 
+encrypted payload entry in the  #name tree. 
 Optional
 View 
 D 
@@ -45,13 +45,13 @@ mode provides top-level information about the file
 H 
 attachments to the user. 
 The collection view shall be initially hidden. The 
-interactive PDF processor shall provide means for the user 
+#interactive ##PDF processor shall provide means for the user 
 D
-to view the collection by some explicit action. The PDF 
+to view the collection by some explicit action. The #PDF 
 processor should display the document specified by the  
 entry. 
-NOTE How the PDF processor chooses to display the 
-C (PDF 2.0, valid only when  is present) 
+NOTE How the ##PDF processor chooses to display the 
+C (#PDF 2.0, valid only when  is present) 
 Navigator
 collection is implementation specific. 
 The 
@@ -59,7 +59,7 @@ Navigator
 collection view shall be presented by the navigator 
 D 
 specified by the  entry.  
-(PDF 2.0)
+(#PDF 2.0)
 Default value: 
  For unencrypted wrapper documents for an encrypted 
 View
@@ -68,7 +68,7 @@ payload document (see 7.6.7, "
 H
 document") the  entry is required, and shall have a value of 
 . 
-(Required if the value of  is C; PDF 2.0) 
+(Required if the value of  is C; #PDF 2.0) 
 Navigator View
 dictionary An indirect reference 
 to the navigator dictionary that describes the navigator that 
@@ -79,7 +79,7 @@ navigator dictionary".
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 Colors 
 dictionary A collection colors dictionary specifying a 
 suggested set of colours for use by a collection layout. See "Table 
@@ -92,17 +92,17 @@ dictionary () A collection sort dictionary, which specifies the order
 in which items in the collection shall be sorted in the user 
 interface (see "Table 156: Entries in a collection sort 
 dictionary"). 
-(Required if the collection has folders; PDF 2.0) 
+(Required if the collection has folders; #PDF 2.0) 
 Folders 
 dictionary An indirect 
 reference to a folder dictionary that is the single common 
 ancestor of all other folders in a portable collection. See "Table 
 159: Entries in a folder dictionary". 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 Split 
 dictionary A collection split dictionary that specifies the 
 orientation of the splitter bar in the user interface provided by 
-the interactive PDF processor. See "Table 158: Entries in a 
+the #interactive ##PDF processor. See "Table 158: Entries in a 
 Split
 collection split dictionary". 
 D 
@@ -117,25 +117,25 @@ a vertical orientation. No splitter shall be used if the  key
 has a value of or. 
  
 A collection schema dictionary consists of a variable number of individual collection field dictionaries. 
-Each collection field dictionary has a key chosen by the interactive PDF writer, which shall be used to 
-associate a field with data in a file specification. "Table 154: Entries in a collection schema dictionary" 
+Each collection field dictionary has a key chosen by the interactive ##PDF writer, which shall be used to 
+associate a field with data in a file specification. "#Table 154: Entries in a collection schema dictionary" 
 describes the entries in a collection schema dictionary. 
-Table 154: Entries in a collection schema dictionary 
+#Table 154: Entries in a collection schema dictionary 
 Key Type Value 
 Optional
 Type 
 CollectionSchema
-name () The type of PDF object that this dictionary describes; 
+name () The type of #PDF #object that this dictionary describes; 
 if present, shall be  for a collection schema 
 dictionary. 
 Optional
 Other keys 
 dictionary () A collection field dictionary. Each key name is chosen 
-at the discretion of the PDF writer. The key name shall be used 
+at the discretion of the ##PDF writer. The key name shall be used 
  CI  CI 
-to identify a corresponding collection item dictionary referenced 
+to# identify a corresponding collection item dictionary referenced 
 from the file specification dictionary'sentry (seekey in 
-"Table 43: Entries in a file specification dictionary"). 
+"#Table 43: Entries in a file specification dictionary"). 
  
 A collection field dictionary describes the attributes of a particular field in a portable collection, 
 including the type of data stored in the field and the lookup key used to locate the field data in the file 

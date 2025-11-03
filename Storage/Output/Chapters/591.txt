@@ -1,9 +1,9 @@
-Table 394: Web Capture command flags". Only those flags defined in "Table 394: Web Capture 
+#Table 394: Web Capture command flags". Only those flags defined in "Table 394: Web Capture 
 command flags" may be set to 1; all other flags shall be 0. Flags not defined in "Table 394: Web Capture 
-command flags" are reserved for future use, and shall not be used by a PDF processor. 
-NOTE 1 The low-order bit of the flags value is referred to as being at bit-position 1. 
-Table 394: Web Capture command flags 
-Bit position Name Meaning 
+command flags" are reserved for future use, and shall not be used by a ##PDF processor. 
+NOTE 1 The low-order #bit of the flags value is referred to as being at #bit-position 1. 
+#Table 394: Web Capture command flags 
+#Bit position Name Meaning 
 1 
 SameSite If set, pages were retrieved only from the host specified in the initial URL. 
 2 
@@ -17,7 +17,7 @@ same path as specified in the initial URL. Source content is in the same path if
   
 location components (as defined in Internet RFC 1808, ) match those 
 of the initialURLand its path component matches up to and including the last forward slash ( / ) 
-character in the initial URL. 
+#character in the initial URL. 
     
 EXAMPLE 1 theURLhttp://www.iso.org/fiddle/faddle/foo.html is considered to be in the same path as the initialURL
 http://www.iso.org/fiddle/initial.html. 
@@ -58,4 +58,4 @@ Holding settings specific to the conversion engines.
 S
 The  (settings) entry in a command dictionary, if present, shall contain a command settings dictionary, 
 which holds settings for conversion engines that shall be used in converting the results of the command 
-to PDF. "
+to #PDF. "

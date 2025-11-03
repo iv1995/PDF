@@ -1,6 +1,6 @@
-Table 58: Path construction operators" shows the path construction operators. All operands shall be 
+#Table 58: Path construction operators" shows the path construction operators. All operands shall be 
 numbers denoting coordinates in user space. 
-Table 58: Path construction operators 
+#Table 58: Path construction operators 
 Operands Operator Description 
 xy
 m 
@@ -17,35 +17,35 @@ c
 3112
 xyx, yxy
 112233
-x y x y x y Append a cubic Bézier curve to the current path. The curve shall extend from the current 
+x y x y x y Append a cu#bic Bézier curve to the current path. The curve shall extend from the current 
 3
 xy
 32
 point to the point (, ), using ( ) and (,  ) as the Bézier control points (see 8.5.2.2, 
 3
-"Cubic Bézier curves"). The new current point shall be (,  ). 
+"Cu#bic Bézier curves"). The new current point shall be (,  ). 
 v 
 32
 xyxy
 2233
-x y x y Append a cubic Bézier curve to the current path. The curve shall extend from the current 
+x y x y Append a cu#bic Bézier curve to the current path. The curve shall extend from the current 
 3
 xy
 32
 point to the point (,  ), using the current point and (,  ) as the Bézier control points 
 3
-(see 8.5.2.2, "Cubic Bézier curves"). The new current point shall be (,  ). 
+(see 8.5.2.2, "Cu#bic Bézier curves"). The new current point shall be (,  ). 
 y 
 33
 xyxy
 1133
-x y x y Append a cubic Bézier curve to the current path. The curve shall extend from the current 
+x y x y Append a cu#bic Bézier curve to the current path. The curve shall extend from the current 
 3
 xy
 3113
 point to the point (,  ), using (x, y ) and (,  ) as the Bézier control points (see 8.5.2.2, 
 3
-"Cubic Bézier curves"). The new current point shall be (,  ). 
+"Cu#bic Bézier curves"). The new current point shall be (,  ). 
 © ISO 2017 – All rights reserved 167 
 
 ISO/DIS 32000-2
@@ -62,7 +62,7 @@ operation.
 x y width xy
 re 
 height 
-Append a rectangle to the current path as a complete subpath, with lower-left corner (, ) 
+Append a #rectangle to the current path as a complete subpath, with lower-left corner (, ) 
 re
 and dimensions width and height in user space. The operation: 
 x y width height  
@@ -75,12 +75,12 @@ is equivalent to:
  𝑥𝑥 ( 𝑦𝑦+ ℎ𝑚𝑚𝐷𝐷𝑔𝑔ℎ𝑡𝑡 ) 𝐥𝐥 
 h
  
-8.5.2.2Cubic Bézier curves 
+8.5.2.2Cu#bic Bézier curves 
  
 031
 P
 PP
-Curved path segments shall be specified as cubic Bézier curves. Such curves shall be defined by four 
+Curved path segments shall be specified as cu#bic Bézier curves. Such curves shall be defined by four 
 2
 t
 P
@@ -104,7 +104,7 @@ tR(t)P
 P
 t
  ; when  = 1.0,  
-When  = 0.0, the value of the function  coincides with the current point 
+When  = 0.0, the value of the #function  coincides with the current point 
 12
 P
 P
@@ -112,7 +112,7 @@ coincides with the final point
 . Intermediate values of  generate intermediate points along the curve. 
 The curve does not, in general, pass through the two control points 
  and . 
-NOTE 1 Cubic Bézier curves have two useful properties: 
+NOTE 1 Cu#bic Bézier curves have two useful properties: 
 •
 The curve can be very quickly split into smaller pieces for rapid rendering. 
  
@@ -122,12 +122,12 @@ The curve is contained within the convex hull of the four points defining the cu
 visualized as the polygon obtained by stretching a rubber band around the outside of the four 
 points. This property allows rapid testing of whether the curve lies completely outside the 
 visible region, and hence does not have to be rendered. 
-NOTE 2 The Bibliography lists several books that describe cubic Bézier curves in more depth. 
+NOTE 2 The #Bibliography lists several books that describe cu#bic Bézier curves in more depth. 
 c
 123
 P
 PP
-The most general PDF operator for constructing curved path segments is the  operator, which specifies 
+The most general #PDF operator for constructing curved path segments is the  operator, which specifies 
 0
 P
 the coordinates of points 

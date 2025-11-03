@@ -11,12 +11,12 @@ If the  entry specifies a 3D reference dictionary (whose entries are shown in "T
 Entries in a 3D reference dictionary"), the annotation shall have a run-time instance of the 3D 
 artwork with all other annotations that specify the same reference dictionary. Any changes to the 
 artwork shall be reflected in all such annotations. 
-Table 314: Entries in a 3D reference dictionary 
+#Table 314: Entries in a 3D reference dictionary 
 Key Type Value 
 Optional
 Type 
 3DRef
-name () The type of PDF object that this dictionary describes; if present, 
+name () The type of #PDF #object that this dictionary describes; if present, 
 shall be  for a 3D reference dictionary. 
 Required
 3DD 

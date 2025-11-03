@@ -1,22 +1,22 @@
-Figure 70: Rasterization without stroke adjustment" illustrates this effect. 
+#Figure 70: Rasterization without stroke adjustment" illustrates this effect. 
 For best results, it is important to compensate for the rasterization effects to produce strokes of 
 automatic stroke adjustment
 uniform thickness. This is especially important in low-resolution display applications. To meet this 
-need, PDF 1.2 provides an optional  feature. When stroke adjustment is 
+need, #PDF 1.2 provides an optional  feature. When stroke adjustment is 
 enabled, the line width and the coordinates of a stroke shall automatically be adjusted as necessary to 
 produce lines of uniform thickness. The thickness shall be as near as possible to the requested line 
 width — no more than half a pixel different. ![Figure 70 Rasterization without stroke adjustment  .png](./Storage/Output/Images/Figure 70 Rasterization without stroke adjustment  .png)
-Figure 70: Rasterization without stroke adjustment 
+#Figure 70: Rasterization without stroke adjustment 
  
 If stroke adjustment is enabled and the requested line width, transformed into device space, is less than 
 half a pixel, the stroke shall be rendered as a single-pixel line. 
 NOTE This is the thinnest line that can be rendered at device resolution. It is equivalent to the effect 
 produced by setting the line width to 0 (see 10.7.4, "Scan conversion rules"). 
-Because automatic stroke adjustment can have a substantial effect on the appearance of lines, PDF 
+Because automatic stroke adjustment can have a substantial effect on the appearance of lines, #PDF 
 SA
 provides means to control whether the adjustment shall be performed. This may be specified with the 
-stroke adjustment parameter in the graphics state, set by means of the  entry in a graphics state 
-parameter dictionary (see 8.4.5, "Graphics state parameter dictionaries"). 
+stroke adjustment parameter in the #graphics state, set by means of the  entry in a #graphics state 
+parameter dictionary (see 8.4.5, "#Graphics state parameter dictionaries"). 
 © ISO 2017 – All rights reserved 376 
 
 ISO/DIS 32000-2
@@ -25,11 +25,11 @@ ISO/DIS 32000-2
  
 10.8.1General 
  
-A device onto which the PDF is being rendered has a set of colourants known by the renderer, the 
+A device onto which the #PDF is being rendered has a set of colourants known by the renderer, the 
 separations
 knowledge of which is needed to produce the desired output. If those are subtractive colourants (see 
 8.6.4, "Device colour spaces") then the output for the device may take a form called  where 
-one output for each device colourant is produced separately, usually as bitmaps. Whether separations 
+one output for each device colourant is produced separately, usually as #bitmaps. Whether separations 
 are produced is up to the processing software. 
 10.8.2Separations 
  
@@ -52,15 +52,15 @@ yellow inks, whereas displaying it on the screen, ignoring the overprint control
 yellow, the last colour painted. 
 10.8.3Separation simulation 
  
-If it is important for the colours of the display for a PDF, on a device that normally would not be used to 
+If it is important for the colours of the display for a #PDF, on a device that normally would not be used to 
 produce separations, to more closely match those produced when using separations, then a simulation 
 of the separation process can be performed for the output to the non-separation device. Such a 
 simulation is defined here. 
 The results of the simulation should match those produced by the following steps: 
  
-a)Process the PDF as if separations were to be created for a simulated device that supports subtractive 
+a)Process the #PDF as if separations were to be created for a simulated device that supports subtractive 
 DestOutputProfile
-process colourants and possibly spot colours. The PDF processor determines what process colours and 
+process colourants and possibly spot colours. The ##PDF processor determines what process colours and 
 ColorantTable
 possible spot colours the simulated device is to have. A default , if available for a 
 subtractive device, or  values, if available for a subtractive device, should be consulted to 

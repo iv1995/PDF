@@ -1,42 +1,42 @@
 Table 
-50: Operator categories" summarises these categories for all PDF operators. 
-Table 50: Operator categories 
+50: Operator categories" summarises these categories for all #PDF operators. 
+#Table 50: Operator categories 
 Operators Location 
 Category 
 w, J, j, M, d, ri, i, gs 
-General graphics state "Table 56: Graphics state operators" 
+General #graphics state "Table 56: #Graphics state operators" 
 q, Q, cm 
-Special graphics state "Table 56: Graphics state operators" 
+Special #graphics state "Table 56: #Graphics state operators" 
 m, l, c, v, y, h, re 
-Path construction "Table 58: Path construction operators" 
+Path construction "#Table 58: Path construction operators" 
 S, s, f, F, f*, B, B*, b, b*, n 
-Path painting "Table 59: Path-painting operators" 
+Path painting "#Table 59: Path-painting operators" 
 W, W* 
-Clipping paths "Table 60: Clipping path operators" 
+Clipping paths "#Table 60: Clipping path operators" 
 BT, ET 
-Text objects "Table 105: Text object operators" 
+Text #objects "Table 105: Text #object operators" 
 Tc, Tw, Tz, TL, Tf, Tr, Ts 
-Text state "Table 103: Text state operators" 
+Text state "#Table 103: Text state operators" 
 Td, TD, Tm, T* 
-Text positioning "Table 106: Text-positioning operators" 
+Text positioning "#Table 106: Text-positioning operators" 
 Tj, TJ, ', " 
-Text showing "Table 107: Text-showing operators" 
+Text showing "#Table 107: Text-showing operators" 
 d0, d1 
-Type 3 fonts "Table 111: Type 3 font operators" 
+Type 3 #fonts "Table 111: Type 3 #font operators" 
 CS, cs, SC, SCN, sc, scn, G, 
 g, RG, rg, K, k 
-Color "Table 73: Colour operators" 
+Color "#Table 73: Colour operators" 
 sh 
-Shading patterns "Table 76: Shading operator" 
-BI, ID, EI 
+Shading patterns "#Table 76: Shading operator" 
+#BI,# ID,# EI 
 Inline images "Table 90: Inline image operators" 
 Do 
-XObjects "Table 86: XObject operator" 
+X#Objects "Table 86: X#Object operator" 
 MP, DP, BMC, BDC, EMC 
 Marked content "Table 351: Marked-content operators" 
 BX, EX 
-Compatibility "Table 33: Compatibility operators" 
+Compati#bility "#Table 33: Compati#bility operators" 
 © ISO 2017 – All rights reserved 145 
 
 ISO/DIS 32000-2
- ![Figure 9 Graphics Objects  .png](./Storage/Output/Images/Figure 9 Graphics Objects  .png)
+ ![Figure 9 Graphics #Objects  .png](./Storage/Output/Images/Figure 9 Graphics #Objects  .png)

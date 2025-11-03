@@ -1,1 +1,1 @@
-Figure 26: Lab colour space" illustrates the coordinates of a typical  colour space; "
+#Figure 26: Lab colour space" illustrates the coordinates of a typical  colour space; "

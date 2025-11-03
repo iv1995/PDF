@@ -2,9 +2,9 @@ Figure
 55: Metrics for horizontal and vertical writing modes" illustrates the metrics for the two writing modes: 
 • 
 llurw0
-The left diagram illustrates the glyph metrics associated with writing mode 0, horizontal writing. 
-The coordinates  and  specify the bounding box of the glyph relative to origin 0.  is the 
-displacement vector that specifies how the text position shall be changed after the glyph is painted 
+The left diagram illustrates the #glyph metrics associated with writing mode 0, horizontal writing. 
+The coordinates  and  specify the bounding box of the #glyph relative to origin 0.  is the 
+displacement vector that specifies how the text position shall be changed after the #glyph is painted 
 w1
 • 
 in writing mode 0; its vertical component shall be 0. 
@@ -13,7 +13,7 @@ v
 • 
 vector for writing mode 1; its horizontal component shall be 0. 
 In the right diagram,  is a position vector defining the position of origin 1 relative to origin 0. ![Figure 55 Metrics for horizontal and vertical writing modes  .jpg](./Storage/Output/Images/Figure 55 Metrics for horizontal and vertical writing modes  .jpg)
-Figure 55: Metrics for horizontal and vertical writing modes 
+#Figure 55: Metrics for horizontal and vertical writing modes 
  
 © ISO 2017 – All rights reserved 293 
 
@@ -23,5 +23,5 @@ ISO/DIS 32000-2
  
 9.3.1General 
  
-The text state comprises those graphics state parameters that only affect text. There are nine 
+The text state comprises those #graphics state parameters that only affect text. There are nine 
 parameters in the text state (see "

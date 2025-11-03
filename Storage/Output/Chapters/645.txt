@@ -4,27 +4,27 @@ two arrays" shows non-equal arrays.
 
 ISO/DIS 32000-2 ![69.png](./Storage/Output/Images/69.png)
  
-Figure Annex K.1: Comparing two arrays 
-J.3.6Dictionary objects 
+#Figure Annex K.1: Comparing two arrays 
+J.3.6#Dictionary #objects 
  
-Comparison of dictionaries is a relatively complex operation because of the flexibility of dictionary 
-objects in PDF. 
+Comparison of dictionaries is a relatively complex operation because of the flexi#bility of dictionary 
+#objects in #PDF. 
 First, the order of keys in a dictionary is not defined - they may be alphabetically sorted, sorted by entry 
 into the dictionary, or any other ordering that a producer chooses. This, of course, leads to the 
-possibility that the same key/value pair exists in both dictionaries but in a different order - so a binary 
+possi#bility that the same key/value pair exists in both dictionaries but in a different order - so a #binary 
 compare or crypto-hash won’t be successful. 
 This lack of a standard ordering to keys in a dictionary requires that comparison be done by ensuring 
 that the number of keys is equal and then iterating over each key in the first dictionary and comparing 
 its value to the value of the key of the same name in dictionary 2. If a key from dictionary 1 cannot be 
 found in dictionary 2, then the dictionaries are not equal - but if each key exists in both and they have 
 the same associated values, then the dictionaries are equal. 
-Second, unlike PostScript, where a dictionary value of null is considered as a valid value, PDF instead 
+Second, unlike PostScript, where a dictionary value of null is considered as a valid value, #PDF instead 
 stipulates that "A dictionary entry whose value is null shall be treated the same as if the entry does not 
 © ISO 2017 – All rights reserved 906 
 
 ISO/DIS 32000-2
  
-exist" (see 7.3.7, "Dictionary objects"). To ease comparison, any such key/value pairs shall be removed 
+exist" (see 7.3.7, "#Dictionary #objects"). To ease comparison, any such key/value pairs shall be removed 
 from a dictionary prior to processing. 
 Finally, since any of the values may itself be a dictionary (or an array), there is the need to be able to do 
 a form of "tree comparison" (also known as breadth-first search), since processing can go from 

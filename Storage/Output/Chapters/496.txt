@@ -1,8 +1,8 @@
-Figure 91: Perspective projection of 3D artwork onto the near plane"). Objects, or parts of 
-objects, that are beyond the far plane or closer to the camera than the near plane are not drawn. 3D 
-objects shall be projected onto the near plane and then scaled and positioned within the annotation’s 
-target coordinate system, as described in "Table 316: Entries in a projection dictionary". 
-Table 316: Entries in a projection dictionary 
+#Figure 91: Perspective projection of 3D artwork onto the near plane"). #Objects, or parts of 
+#objects, that are beyond the far plane or closer to the camera than the near plane are not drawn. 3D 
+#objects shall be projected onto the near plane and then scaled and positioned within the annotation’s 
+target coordinate system, as described in "#Table 316: Entries in a projection dictionary". 
+#Table 316: Entries in a projection dictionary 
 Key Type Value 
 RequiredOP
 Subtype 
@@ -17,7 +17,7 @@ Optional; meaningful only if the value of  is XNF
 F CS
 z
 number () The far clipping distance, 
-expressed in the camera coordinate system. No parts of objects whose  coordinates 
+expressed in the camera coordinate system. No parts of #objects whose  coordinates 
 are greater than the value of this entry are drawn. If this entry is absent, no far 
 clipping occurs. 
 XNFP
@@ -25,7 +25,7 @@ N CSSubtype
 number (Meaningful only if the value of  is ; required if the value of  is ) The 
 zP
 Subtype
-near clipping distance, expressed in the camera coordinate system. No parts of objects 
+near clipping distance, expressed in the camera coordinate system. No parts of #objects 
 O
 Subtype
 whose  coordinates are less than the value of this entry are drawn. If  is , 
@@ -42,7 +42,7 @@ clipping plane. The circle, along with the value of , specify the scaling of the
 projected artwork when rendered in the 2D plane of the annotation. 
 Optional; meaningful only if  is P
 PS Subtype
-number or () An object that specifies the scaling used 
+number or () An #object that specifies the scaling used 
 name when projecting the 3D artwork onto the annotation’s target coordinate system. It 
 FOV
 defines the diameter of the circle formed by the intersection of the near plane and the 
@@ -69,11 +69,11 @@ annotation’s target coordinate system (the  coordinate is discarded). Default 
 ISO/DIS 32000-2
  
 Key Type Value 
-Optional; PDF 1.7; meaningful only if  is O
+Optional; #PDF 1.7; meaningful only if  is O
 OB Subtype
 xy
 name () A name that specifies a strategy for 
-binding (scaling to fit) the near plane’s  and  coordinates onto the annotation’s 
+#binding (scaling to fit) the near plane’s  and  coordinates onto the annotation’s 
 OS
 target coordinate system. The scaling specified in this entry shall be applied in 
 addition to the scaling factor specified by the  entry. The value may be one of the 
@@ -88,7 +88,7 @@ Max
 Absolute
  Scale to fit the greater of width or height of the annotation  
 Absolute
- No scaling should occur due to binding. 
+ No scaling should occur due to #binding. 
 Default value: . 
  
 XNF
@@ -97,19 +97,19 @@ zANF
 FCS
 The  entry defines how the near and far planes are determined. A value of  means that the  and 
  entries explicitly specify the  coordinate of the near and far planes, respectively. A value of  for  
-means that the near and far planes shall be determined automatically based on the objects in the 
+means that the near and far planes shall be determined automatically based on the #objects in the 
 artwork. 
 Subtype
 Oorthographic projectionPperspective 
-The  entry specifies the type of projection, which determines how objects are projected onto 
+The  entry specifies the type of projection, which determines how #objects are projected onto 
 projection
 the near plane and scaled. The possible values are  for  and  for 
 . 
 z
-For orthographic projection, objects shall be projected onto the near plane by simply discarding their  
+For orthographic projection, #objects shall be projected onto the near plane by simply discarding their  
 OSOB
 value. They shall be scaled from units of the near plane’s coordinate system to those of the annotation’s 
-target coordinate system by the combined factors specified by the  entry and the  entry. 
+target coordinate system by the com#bined factors specified by the  entry and the  entry. 
 xyz
 For perspective projection, a given coordinate (, , ) shall be projected onto the near plane, defining a 
 11
@@ -131,17 +131,17 @@ FOV
 z
 Scaling with perspective projection is more complicated than for orthographic projection. The  
 entry specifies an angle that defines a cone centred along the  axis in the camera coordinate system 
-(see "Figure 91: Perspective projection of 3D artwork onto the near plane"). The cone intersects with 
-the near plane, forming a circular area on the near plane. "Figure 92: Objects projected onto the near 
+(see "#Figure 91: Perspective projection of 3D artwork onto the near plane"). The cone intersects with 
+the near plane, forming a circular area on the near plane. "Figure 92: #Objects projected onto the near 
 clipping plane, as seen from the position of the camera" shows this circle and graphics from the position 
 of the camera. 
 © ISO 2017 – All rights reserved 637 
 
 ISO/DIS 32000-2
  ![Figure 91 Perspective projection of 3D artwork onto the near plane  .png](./Storage/Output/Images/Figure 91 Perspective projection of 3D artwork onto the near plane  .png)
-Figure 91: Perspective projection of 3D artwork onto the near plane 
+#Figure 91: Perspective projection of 3D artwork onto the near plane 
  ![54.png](./Storage/Output/Images/54.png)
-Figure 92: Objects projected onto the near clipping plane, as seen from the position of the 
+Figure 92: #Objects projected onto the near clipping plane, as seen from the position of the 
  
 camera 
  PS 

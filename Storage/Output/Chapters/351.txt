@@ -1,17 +1,17 @@
 Table 183: 
 Additional entries specific to a caret annotation" lists the entries specific to caret annotations. 
-Table 183: Additional entries specific to a caret annotation 
+#Table 183: Additional entries specific to a caret annotation 
 Key Type Value 
 (Required) 
 Subtype 
 Caret
 name The type of annotation that this dictionary describes; shall be 
  for a caret annotation. 
-(Optional; PDF 1.5) 
+(Optional; #PDF 1.5) 
 RD 
 Rect
-rectangle A set of four numbers that shall describe the numerical 
-differences between two rectangles: the  entry of the annotation and the 
+#rectangle A set of four numbers that shall describe the numerical 
+differences between two #rectangles: the  entry of the annotation and the 
 Sy
 actual boundaries of the underlying caret. Such a difference can occur. When 
 a paragraph symbol specified by  is displayed along with the caret. 
@@ -41,7 +41,7 @@ Default value: .
  
 12.5.6.12Rubber stamp annotations 
  
-rubber stamp annotationPDF 1.3
+rubber stamp annotation#PDF 1.3
 A  () displays text or graphics intended to look as if they were stamped 
 on the page with a rubber stamp. When opened, it shall display a popup window containing the text of 
 the associated note. "

@@ -1,18 +1,18 @@
-Table 122: Additional font descriptor entries 
-for CIDFonts". 
+Table 122: Additional #font descriptor entries 
+for CID#Fonts". 
 © ISO 2017 – All rights reserved 340 
 
 ISO/DIS 32000-2
  
-Table 122: Additional font descriptor entries for CIDFonts 
+Table 122: Additional #font descriptor entries for CID#Fonts 
 Key Type Value 
 Optional
 Style 
 dictionary  () A dictionary containing entries that describe the style of the 
-glyphs in the font (see 9.8.3.2, "Style"). 
-Optional; PDF 1.5
+#glyphs in the #font (see 9.8.3.2, "Style"). 
+Optional; #PDF 1.5
 Lang 
-name  () A name specifying the language of the font, which may 
+name  () A name specifying the language of the #font, which may 
 be used for encodings where the language is not implied by the encoding 
 itself. The value shall be one of the codes defined by BCP 47, Tags for the 
 Identification of Languages. If this entry is absent, such absence provides 
@@ -21,70 +21,70 @@ absence of this entry does not by itself mean the language of the
 document is unknown. 
 Optional
 FD 
-dictionary () A dictionary whose keys identify a class of glyphs in a CIDFont. 
+dictionary () A dictionary whose keys# identify a class of #glyphs in a CID#Font. 
 Each value shall be a dictionary containing entries that shall override the 
-corresponding values in the main font descriptor dictionary for that class 
-of glyphs (see 9.8.3.3, "FD"). 
-Optional; deprecated in PDF 2.0
+corresponding values in the main #font descriptor dictionary for that class 
+of #glyphs (see 9.8.3.3, "FD"). 
+Optional; #deprecated in #PDF 2.0
 CIDSet 
-stream  () A stream identifying which CIDs are 
-present in the CIDFont file. If this entry is present, the CIDFont shall 
+stream  () A stream# identifying which CIDs are 
+present in the CID#Font file. If this entry is present, the CID#Font shall 
 CIDSystemInfo
-contain only a subset of the glyphs in the character collection defined by 
-FontName
+contain only a subset of the #glyphs in the #character collection defined by 
+#FontName
 the  dictionary. If it is absent, the only indication of a 
 9.9.2, 
-CIDFont subset shall be the subset tag in the  entry (see 
-"Font subsets"). 
-The stream’s data shall be organised as a table of bits indexed by CID. The 
-bits shall be stored in bytes with the high-order bit first. Each bit shall 
-correspond to a CID. The most significant bit of the first byte shall 
-correspond to CID 0, the next bit to CID 1, and so on. 
+CID#Font subset shall be the subset tag in the  entry (see 
+"#Font subsets"). 
+The stream’s data shall be organised as a table of #bits indexed by CID. The 
+#bits shall be stored in #bytes with the high-order #bit first. Each #bit shall 
+correspond to a CID. The most significant #bit of the first #byte shall 
+correspond to CID 0, the next #bit to CID 1, and so on. 
  
 9.8.3.2Style 
  
 Panose
-The Style dictionary contains entries that define style attributes and values for the CIDFont. Only the 
-Panose entry is defined. The value of  shall be a 12-byte string consisting of these elements: 
+The Style dictionary contains entries that define style attributes and values for the CID#Font. Only the 
+Panose entry is defined. The value of  shall be a 12-#byte string consisting of these elements: 
   
 • 
-TrueType 1.0 Font Files Technical 
-The font family class and subclassIDbytes, given in the FamilyClass field of the "OS/2" table in a 
+TrueType 1.0 #Font Files Technical 
+The #font family class and subclassID#bytes, given in the FamilyClass field of the "OS/2" table in a 
 Specification
-TrueType font. This field is documented in Microsoft’s 
+TrueType #font. This field is documented in Microsoft’s 
 • 
 . 
 PANOSE Classification Metrics Guide
-Ten bytes for the PANOSE classification number for the font. The PANOSE classification system is 
+Ten #bytes for the PANOSE classification number for the #font. The PANOSE classification system is 
 documented in Hewlett-Packard Company’s . 
 See 2, "Normative references" for more information about these documents. 
 Style
-EXAMPLE This is an example of a  entry in the font descriptor: 
+EXAMPLE This is an example of a  entry in the #font descriptor: 
 /Style <</Panose <01 05 02 02 03 00 00 00 00 00 00 00>>> 
  
 9.8.3.3FD 
  
-A CIDFont may be made up of different classes of glyphs, each class requiring different sets of the font-
-wide attributes that appear in font descriptors. 
-EXAMPLE 1 Latin glyphs, for example, may require different attributes than kanji glyphs. 
+A CID#Font may be made up of different classes of #glyphs, each class requiring different sets of the #font-
+wide attributes that appear in #font descriptors. 
+EXAMPLE 1 Latin #glyphs, for example, may require different attributes than kanji #glyphs. 
  FD 
-The font descriptor shall define a set of default attributes that apply to all glyphs in the CIDFont. The
+The #font descriptor shall define a set of default attributes that apply to all #glyphs in the CID#Font. The
 © ISO 2017 – All rights reserved 341 
 
 ISO/DIS 32000-2
  
-entry in the font descriptor shall contain exceptions to these defaults. 
+entry in the #font descriptor shall contain exceptions to these defaults. 
  FD 
-The key for each entry in andictionary shall be the name of a class of glyphs — that is, a particular 
-subset of the CIDFont’s character collection. The entry’s value shall be a font descriptor whose contents 
-FontFileFontFile2FontFile3
-shall override the font-wide attributes for that class only. This font descriptor shall contain entries for 
+The key for each entry in andictionary shall be the name of a class of #glyphs — that is, a particular 
+subset of the CID#Font’s #character collection. The entry’s value shall be a #font descriptor whose contents 
+#FontFile#FontFile2#FontFile3
+shall override the #font-wide attributes for that class only. This #font descriptor shall contain entries for 
 metric information only; it shall not include , , , or any of the entries listed 
 in  
  FD 
-Thedictionary should contain at least the metrics for the proportional Latin glyphs. With the 
-information for these glyphs, a more accurate substitution font can be created. 
+Thedictionary should contain at least the metrics for the proportional Latin #glyphs. With the 
+information for these #glyphs, a more accurate substitution #font can be created. 
 Registry
 OrderingSupplementCIDSystemInfo
-The names of the glyph classes depend on the character collection, as identified by the , 
+The names of the #glyph classes depend on the #character collection, as# identified by the , 
 , and  entries in the  dictionary. "

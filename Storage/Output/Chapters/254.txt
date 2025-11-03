@@ -1,13 +1,13 @@
-Figure 62: Output from the example in 9.6.5, "Type 3 fonts" shows 
+Figure 62: Output from the example in 9.6.5, "Type 3 #fonts" shows 
 © ISO 2017 – All rights reserved 313 
 
 ISO/DIS 32000-2
  
-the result of showing the string ( ababab ) using this font. ![Figure 62 Output from the example in 965, Type 3 fonts  .png](./Storage/Output/Images/Figure 62 Output from the example in 965, Type 3 fonts  .png)
-Figure 62: Output from the example in 9.6.5, "Type 3 fonts" 
+the result of showing the string ( ababab ) using this #font. ![Figure 62 Output from the example in 965, Type 3 #fonts  .png](./Storage/Output/Images/Figure 62 Output from the example in 965, Type 3 #fonts  .png)
+Figure 62: Output from the example in 9.6.5, "Type 3 #fonts" 
  
  
-%Snippet of page content stream that places several Type 3 font strings onto the page 
+%Snippet of page #content stream that places several Type 3 #font strings onto the page 
  … 
  0.2 0.8 0.0 rg 
  0.1 0.4 0.0 RG 
@@ -25,13 +25,13 @@ Figure 62: Output from the example in 9.6.5, "Type 3 fonts"
  … 
  
  
-%Type 3 font definition encoding two glyphs, 'a' and 'b'. 
+%Type 3 #font definition encoding two #glyphs, 'a' and 'b'. 
 4 0 obj 
  << 
-  /Type /Font 
+  /Type /#Font 
   /Subtype /Type3 
-  /FontBBox [-36 -36 786 786] 
-  /FontMatrix [0.001 0 0 0.001 0 0] 
+  /#FontBBox [-36 -36 786 786] 
+  /#FontMatrix [0.001 0 0 0.001 0 0] 
   /CharProcs 10 0 R 
   /Encoding 9 0 R 
   /FirstChar 97 
@@ -54,7 +54,7 @@ endobj
  >> 
 endobj 
  
-%Type 3 "square" glyph description 
+%Type 3 "square" #glyph description 
 © ISO 2017 – All rights reserved 314 
 
 ISO/DIS 32000-2
@@ -62,18 +62,18 @@ ISO/DIS 32000-2
 11 0 obj 
   <</Length …>> 
 stream 
- 1000 0 -36 -36 786 786 d1     %uncoloured glyph - defines only shape 
+ 1000 0 -36 -36 786 786 d1     %uncoloured #glyph - defines only shape 
  72 w 
  0 0 750 750 re 
  B 
 endstream 
 endobj 
  
-%Type 3 "triangle" glyph description 
+%Type 3 "triangle" #glyph description 
 12 0 obj 
   <</Length …>> 
 stream 
- 1000 0 d0          %coloured glyph - defines colour and shape 
+ 1000 0 d0          %coloured #glyph - defines colour and shape 
  72 w 
  0.2 0.6 0.8 rg 
  0.1 0.3 0.4 RG 
@@ -84,18 +84,18 @@ stream
 endstream 
 endobj 
  
-9.6.5Character encoding 
+9.6.5#Character encoding 
  
 9.6.5.1General 
  
-A font’s encoding is the association between character codes (obtained from text strings that are 
-shown) and glyph descriptions. This subclause describes the character encoding scheme used with 
-simple PDF fonts. Composite fonts (Type 0) use a different character mapping algorithm, as discussed in 
-9.7, "Composite fonts". 
-Except for Type 3 fonts, every font program shall have a built-in encoding. Under certain circumstances, 
-a PDF font dictionary may change the encoding used with the font program to match the requirements 
-of the PDF writer generating the text being shown. 
-This flexibility in character encoding is valuable for two reasons: 
+A #font’s encoding is the association between #character codes (obtained from text strings that are 
+shown) and #glyph descriptions. This subclause describes the #character encoding scheme used with 
+simple #PDF fonts. Composite #fonts (Type 0) use a different #character mapping algorithm, as discussed in 
+9.7, "Composite #fonts". 
+Except for Type 3 #fonts, every ##font program shall have a built-in encoding. Under certain circumstances, 
+a #PDF font dictionary may change the encoding used with the ##font program to match the requirements 
+of the ##PDF writer generating the text being shown. 
+This flexi#bility in #character encoding is valuable for two reasons: 
 • 
   
 It permits showing text that is encoded according to any of the various existing conventions. For 
@@ -103,14 +103,14 @@ TM
 example, the Microsoft Windows
  and AppleMacOS operating systems use different standard 
 • 
-encodings for Latin text, and many PDF writers use their own special-purpose encodings. 
-It permits PDF writers to specify how characters selected from a large character set are to be 
+encodings for Latin text, and many ##PDF writers use their own special-purpose encodings. 
+It permits ##PDF writers to specify how #characters selected from a large ##character set are to be 
 encoded. 
-Some character sets consist of more than 256 characters, including ligatures, accented characters, and 
+Some ##character sets consist of more than 256 #characters, including ligatures, accented #characters, and 
 other symbols required for high-quality typography or non-Latin writing systems. Different encodings 
-may select different subsets of the same character set. 
+may select different subsets of the same ##character set. 
 StandardEncodingStandardEncoding
-One commonly used font encoding for Latin-text font programs is often referred to as 
-. The name  shall have no special meaning in PDF, but this encoding 
+One commonly used #font encoding for Latin-text ##font programs is often referred to as 
+. The name  shall have no special meaning in #PDF, but this encoding 
   
 does play a role as a default encoding (as shown in "

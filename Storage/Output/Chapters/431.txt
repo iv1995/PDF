@@ -1,4 +1,4 @@
-Table 261: Entries in the document security store (DSS) dictionary 
+#Table 261: Entries in the document security store (DSS) dictionary 
 Key Type Value 
 (Optional) DSS
 Type   
@@ -39,11 +39,11 @@ encoded Certificate Revocation List (CRL) (see RFC 5280). This array contains
 that may be used in the validation of the signatures in the document. 
 a 
 Contents
-For a document signature or document timestamp signatures, the bytes that are hashed are those of the 
+For a document signature or document timestamp signatures, the #bytes that are hashed are those of the 
 complete hexadecimal string, including zero padding, in the  entry of the associated signature 
 CRLsOCSP
-dictionary, containing the signature's DER-encoded binary data object (e.g. CMS or CAdES objects). 
-For the signatures of  and  responses, the bytes that are hashed are the respective signature object 
+dictionary, containing the signature's DER-encoded ##binary data #object (e.g. CMS or CAdES #objects). 
+For the signatures of  and  responses, the #bytes that are hashed are the respective signature #object 
 represented as a BER-encoded OCTET STRING encoded with primitive encoding. 
  
 12.8.4.4Validation-related information (VRI) 
@@ -51,7 +51,7 @@ represented as a BER-encoded OCTET STRING encoded with primitive encoding.
   
 A signatureVRIdictionary shall contain validation-related information (VRI) for one signature in the 
   
-document that a given signature handler or PDF processor has used to successfully validate the given 
+document that a given #signature handler or ##PDF processor has used to successfully validate the given 
 signature. A signatureVRIdictionary shall reference: 
  
 • 

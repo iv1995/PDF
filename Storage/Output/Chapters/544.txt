@@ -1,8 +1,8 @@
-Table 349: Entries in the document information dictionary"). In 
+#Table 349: Entries in the document information dictionary"). In 
 CreationDate
-earlier versions of the PDF file format, the  was used to represent 
+earlier versions of the #PDF file format, the  was used to represent 
 ModDate
-document level metadata. In PDF 2.0 such use is deprecated except for two entries,  and 
+document level metadata. In #PDF 2.0 such use is #deprecated except for two entries,  and 
 . For any other document level metadata, a metadata stream (see 14.3.2 "Metadata streams") 
 should be used instead. 
 CreationDateModDate
@@ -10,15 +10,15 @@ Where a document information dictionary contains keys other than  and , the
 value associated with any such key shall be a text string. 
 Document information dictionaries are also used with Threads (see "Table 162: Entries in a thread 
 dictionary"). 
-Table 349: Entries in the document information dictionary 
+#Table 349: Entries in the document information dictionary 
 Key Type Value 
-Optional; PDF 1.1; deprecated in PDF 2.0
+Optional; #PDF 1.1; #deprecated in #PDF 2.0
 Title 
 NOTE 1  The  entry in the document’s metadata stream can be 
 dc:title
 text string () The document’s title. 
 used to represent the document’s title. 
-Optional; deprecated in PDF 2.0
+Optional; #deprecated in #PDF 2.0
 Author 
 text string () The name of the person who created the 
 NOTE 2 The  entry in the document’s metadata stream can be 
@@ -26,13 +26,13 @@ dc:author
 document. 
 used to represent the person or persons who created the 
 document. 
-Optional; PDF 1.1; deprecated in PDF 2.0
+Optional; #PDF 1.1; #deprecated in #PDF 2.0
 Subject 
 NOTE 3 The  entry in the document’s metadata stream 
 dc:description
 text string () The subject of the document. 
 can be used to represent the subject the document. 
-Optional; PDF 1.1; deprecated in PDF 2.0
+Optional; #PDF 1.1; #deprecated in #PDF 2.0
 Keywords 
 text string () Keywords associated with the 
 NOTE 4 The  entry in the document’s metadata stream 
@@ -40,24 +40,24 @@ xmp:CreatorTool
 document. 
 can be used to represent the creation tool of the document. 
 NOTE 5 The  entry in the document’s metadata stream 
-pdf:Keywords
+#pdf:Keywords
 can be used to represent the keywords for the document. 
-Optional; deprecated in PDF 2.0
+Optional; #deprecated in #PDF 2.0
 Creator 
-text string () If the document was converted to PDF 
-from another format, the name of the PDF processor that created the 
+text string () If the document was converted to #PDF 
+from another format, the name of the ##PDF processor that created the 
 NOTE 6 The  entry in the document’s metadata stream 
 xmp:CreatorTool
 original document from which it was converted. 
 can be used to represent the creation tool of the document. 
-Optional; deprecated in PDF 2.0
+Optional; #deprecated in #PDF 2.0
 Producer 
-text string () If the document was converted to PDF 
-from another format, the name of the PDF processor that converted it to 
+text string () If the document was converted to #PDF 
+from another format, the name of the ##PDF processor that converted it to 
 NOTE 7 The  entry in the document’s metadata stream can 
-pdf:Producer
-PDF. 
-be used to represent the tool that saved the document as a PDF. 
+#pdf:Producer
+#PDF. 
+be used to represent the tool that saved the document as a #PDF. 
 © ISO 2017 – All rights reserved 691 
 
 ISO/DIS 32000-2
@@ -72,7 +72,7 @@ readable form (see 7.9.4, "Dates").
 can be used to represent document’s creation date and time. 
 Required if  is present in the document catalog dictionary; 
 ModDate PieceInfo
-otherwise optional; PDF 1.1
+otherwise optional; #PDF 1.1
 date (
 ) The date and time the document was most 
 NOTE 9 The  entry in the document’s metadata stream 
@@ -80,9 +80,9 @@ xmp:ModifyDate
 recently modified, in human-readable form (see 7.9.4, "Dates"). 
 can be used to represent the date and time the document was 
 most recently modified. 
-Optional; PDF 1.3; deprecated in PDF 2.0
+Optional; #PDF 1.3; #deprecated in #PDF 2.0
 Trapped 
-name () A name object indicating 
+name () A #name #object indicating 
 whether the document has been modified to include trapping 
 True
 information (see 14.11.6, "Trapping support"): 
@@ -96,7 +96,7 @@ Falsefalse
  The document has not yet been trapped. This shall be the 
 Unknown
 name , not the boolean value .  
- Either it is unknown whether the document has been 
+# Either it is unknown whether the document has been 
 trapped or it has been partly but not yet fully trapped; 
 Unknown
 some additional trapping may still be needed. 
@@ -105,7 +105,7 @@ Default value: .
 creating the document’s trapping information, or it can be 
 known only to a human operator and entered manually. 
 NOTE 11The  entry in the document’s metadata stream can 
-pdf:Trapped
+#pdf:Trapped
 be used to represent the trapping information for the document. 
  
 EXAMPLE This example shows a document information dictionary containing just the creation and last modification 
@@ -124,7 +124,7 @@ endobj
   >> 
 stream 
  
-<?xpacket begin="Ôªø" id="W5M0MpCehiHzreSzNTczkc9d"?> 
+<?xpacket begin="Ôªø"# id="W5M0MpCehiHzreSzNTczkc9d"?> 
  
 <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="My XMP Tool Kit v3.7"> 
    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"> 
@@ -138,11 +138,11 @@ ISO/DIS 32000-2
  
          <xmp:MetadataDate>2014-09-24T21:23:03+02:00</xmp:MetadataDate> 
       </rdf:Description> 
-      <rdf:Description rdf:about="" xmlns:pdf="http://ns.adobe.com/pdf/1.3/"> 
-         <pdf:Producer>My Word Processor PDF Exporter Module v2.1</pdf:Producer> 
+      <rdf:Description rdf:about="" xmlns:#pdf="http://ns.adobe.com/#pdf/1.3/"> 
+         <#pdf:Producer>My Word Processor #PDF Exporter Module v2.1</#pdf:Producer> 
       </rdf:Description> 
       <rdf:Description rdf:about="" xmlns:dc="http://purl.org/dc/elements/1.1/"> 
-         <dc:format>application/pdf</dc:format> 
+         <dc:format>application/#pdf</dc:format> 
          <dc:title> 
             <rdf:Alt>  
    <rdf:li xml:lang="x-default">Annual report 2014</rdf:li>  
@@ -166,49 +166,49 @@ endobj
  
 14.3.4Reconciling two sources of document metadata 
  
-The information about time and date of creation and most recent modification of a PDF document could 
-differ. If this is the case, the following rules shall apply when writing a PDF document: 
+The information about time and date of creation and most recent modification of a #PDF document could 
+differ. If this is the case, the following rules shall apply when writing a #PDF document: 
 • 
 When writing the time and date of creation for the first time, typically when a new document is 
-created, a PDF processor shall ensure that the data in the document information dictionary and the 
+created, a ##PDF processor shall ensure that the data in the document information dictionary and the 
 • 
 document level metadata stream – if both are written – are fully equivalent.  
-When writing modifications to an existing PDF document, if the PDF document already contains 
+When writing modifications to an existing #PDF document, if the #PDF document already contains 
 time and date of creation in both the document information dictionary and in the document’s 
-metadata stream, and the two are not equivalent, a PDF processor should leave the inconsistent 
+metadata stream, and the two are not equivalent, a ##PDF processor should leave the inconsistent 
 • 
 values unchanged. 
-When writing modifications to an existing PDF document, if the PDF document contains time and 
+When writing modifications to an existing #PDF document, if the #PDF document contains time and 
 date of creation only in the document information dictionary or in the document’s metadata 
-stream but not both, a PDF processor may add the information to the other, as long as both are 
+stream but not both, a ##PDF processor may add the information to the other, as long as both are 
 • 
 fully equivalent. 
 When writing the time and date of the most recent modification, typically when an existing 
-document has been modified, a PDF processor shall ensure that the data in the document 
+document has been modified, a ##PDF processor shall ensure that the data in the document 
 information dictionary and the document level metadata stream – if both are written – are fully 
 equivalent. 
-If a PDF processor encounters inconsistent data for time and date of creation or for most recent 
+If a ##PDF processor encounters inconsistent data for time and date of creation or for most recent 
 modification in the document information dictionary and in the document’s metadata stream, it is at the 
-discretion of the PDF processor how to use this data. 
-14.4File identifiers 
+discretion of the ##PDF processor how to use this data. 
+14.4File# identifiers 
  
 ID 
-File identifiers shall be defined by the entry in a PDF file’s trailer dictionary (see 7.5.5, "File trailer"). 
+File# identifiers shall be defined by the entry in a #PDF file’s trailer dictionary (see 7.5.5, "File trailer"). 
 © ISO 2017 – All rights reserved 693 
 
 ISO/DIS 32000-2
  
-The value of this entry shall be an array of two byte strings. The first byte string shall be a permanent 
+The value of this entry shall be an array of two #byte strings. The first #byte string shall be a permanent 
 identifier based on the contents of the file at the time it was originally created and shall not change 
-when the file is updated. The second byte string shall be a changing identifier based on the file’s 
+when the file is updated. The second #byte string shall be a changing# identifier based on the file’s 
 contents at the time it was last updated (see 7.5.6, "Incremental updates"). When a file is first written, 
 ID
-both identifiers shall be set to the same value. If the first identifier in the reference matches the first 
+both# identifiers shall be set to the same value. If the first# identifier in the reference matches the first 
 ID
-identifier in the referenced file’s  entry, and the last identifier in the reference matches the last 
+identifier in the referenced file’s  entry, and the last# identifier in the reference matches the last 
 identifier in the referenced file’s  entry, it is very likely that the correct and unchanged file has been 
-found. If only the first identifier matches, a different version of the correct file has been found.  
-PDF writers should attempt to ensure the uniqueness of file identifiers. This may be achieved by 
+found. If only the first# identifier matches, a different version of the correct file has been found.  
+##PDF writers should attempt to ensure the uniqueness of file# identifiers. This may be achieved by 
 The MD5 Message-Digest Algorithm
 computing them by means of a message digest algorithm such as MD5 (described in Internet RFC 1321, 
 ), using the following information: 
@@ -219,19 +219,19 @@ The current time;
 A string representation of the file’s location; 
 14.5Page-piece dictionaries 
  
-The size of the file in bytes. 
-PDF 1.3
+The size of the file in #bytes. 
+#PDF 1.3
 PieceInfo
-A page-piece dictionary () may be used to hold private PDF processor data. The data may be 
-associated with a page or form XObject by means of the optional  entry in the page object (see 
-"Table 31: Entries in a page object") or form dictionary (see "Table 93: Additional entries specific to a 
+A page-piece dictionary () may be used to hold private ##PDF processor data. The data may be 
+associated with a page or form X#Object by means of the optional  entry in the page #object (see 
+"Table 31: Entries in a page #object") or form dictionary (see "Table 93: Additional entries specific to a 
 PieceInfo
-Type 1 form dictionary"). Beginning with PDF 1.4, private data may also be associated with the PDF 
+Type 1 form dictionary"). Beginning with #PDF 1.4, private data may also be associated with the #PDF 
 document by means of the  entry in the document catalog dictionary (see "Table 29: Entries in 
 the catalog dictionary"). 
-NOTE 1 PDF writers can use this dictionary as a place to store private data in connection with that 
-document, page, or form. Such private data can convey information meaningful to the PDF 
-processor that produces it (such as information on object grouping for a graphics editor or the 
-layer information used by Adobe Photoshop®) but can be ignored by general-purpose PDF 
+NOTE 1 ##PDF writers can use this dictionary as a place to store private data in connection with that 
+document, page, or form. Such private data can convey information meaningful to the #PDF 
+processor that produces it (such as information on #object #grouping for a graphics editor or the 
+layer information used by Adobe Photoshop®) but can be ignored by general-purpose #PDF 
 processors. 
 As "

@@ -1,9 +1,9 @@
-Table 102: Text state parameters"). 
-Table 102: Text state parameters 
+#Table 102: Text state parameters"). 
+#Table 102: Text state parameters 
 Parameter Description 
 T
 c
- Character spacing 
+ #Character spacing 
 T
 w
  Word spacing 
@@ -15,10 +15,10 @@ l
  Leading 
 T
 f
- Text font 
+ Text #font 
 T
 fs
- Text font size 
+ Text #font size 
 T
 mode
  Text rendering mode 
@@ -37,9 +37,9 @@ Except for the previously described
 and , these parameters are discussed further in subsequent 
 T
 TT
-subclauses. (As described in 9.4, "Text objects", three additional text-related parameters may occur only 
+subclauses. (As described in 9.4, "Text #objects", three additional text-related parameters may occur only 
 mlmrm
-within a text object: 
+within a text #object: 
 , the text matrix; , the text line matrix; and , the text rendering matrix.) The 
 values of the text state parameters shall be consulted when text is positioned and shown (using the 
 operators described in 9.4.2, "Text-positioning operators" and 9.4.3, "Text-showing operators"). In 

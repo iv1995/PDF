@@ -13,7 +13,7 @@ ISO/DIS 32000-2
 EXAMPLE The intrinsic duration of a two-hour QuickTime movie is two hours. 
 The intrinsic duration may be modified when a media clip section (see 13.2.4.3, "Media clip section") is 
 used: the intrinsic duration shall be the difference between the absolute begin and end offsets. For a 
-media type having no notion of time (such as a JPEG image), the duration shall be considered to be 
+media type having no notion of time (such as a #JPEG image), the duration shall be considered to be 
 infinity. 
 If the simple duration is longer than the intrinsic duration, the player shall freeze the media in its final 
 state until the simple duration has elapsed. For visual media types, the last appearance (frame) shall be 
@@ -22,12 +22,12 @@ NOTE 2 In this case, theentry, which specifies a repeat count, applies to the si
  RC 
 the entire play-pause sequence is repeatedtimes. 
  RC 
-Table 292: Entries in a media duration dictionary 
+#Table 292: Entries in a media duration dictionary 
 Key Type Value 
 Optional
 Type 
 MediaDuration
-name () The type of PDF object that this dictionary describes; if present, shall 
+name () The type of #PDF #object that this dictionary describes; if present, shall 
 be  for a media duration dictionary. 
 Required
 S 
@@ -39,7 +39,7 @@ T
 T
  The duration is infinity 
  The duration shall be specified by the  entry 
-The media duration dictionary is non-viable if the interactive PDF processor 
+The media duration dictionary is non-viable if the #interactive ##PDF processor 
 does not recognise the value of this entry. 
 Required if the value of  is T otherwise ignored
 T S;

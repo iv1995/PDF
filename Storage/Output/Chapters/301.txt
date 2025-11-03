@@ -1,4 +1,4 @@
-Table 143: Restrictions on the entries in a soft-mask image dictionary". This type 
+#Table 143: Restrictions on the entries in a soft-mask image dictionary". This type 
 of image dictionary may contain an additional entry, . 
 matte colour
 When an image is accompanied by a soft-mask image, it is sometimes advantageous for the image data 
@@ -10,7 +10,7 @@ sample as the weighting factor. (This is a generalization of a technique commonl
 .) 
  Matte 
 If the image data is pre-blended, the matte colour shall be specified by aentry in the soft-mask 
-image dictionary (see "Table 143: Restrictions on the entries in a soft-mask image dictionary"). The pre-
+image dictionary (see "#Table 143: Restrictions on the entries in a soft-mask image dictionary"). The pre-
 blending computation, performed independently for each component, shall be 
 © ISO 2017 – All rights reserved 410 
 
@@ -26,14 +26,14 @@ c′ is the value to be provided in the image source data
 c is the original image component value 
 m is the matte colour component value 
 α is the corresponding mask sample 
-FilterDecode
+#FilterDecode
 This computation shall use actual colour component values, with the effects of the  and  
 transformations already performed. The computation shall be the same whether the colour space is 
 additive or subtractive. 
-Table 143: Restrictions on the entries in a soft-mask image dictionary 
+#Table 143: Restrictions on the entries in a soft-mask image dictionary 
 Key Restriction 
 Type 
-If present, shall be XObject. 
+If present, shall be X#Object. 
 Subtype 
 Required, shall be Image. 
 Width  Matte 

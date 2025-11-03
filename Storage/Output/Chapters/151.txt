@@ -1,4 +1,4 @@
-Figure 22: Additive and subtractive colour"). 
+#Figure 22: Additive and subtractive colour"). 
 The most widely used forms of these two types of colour specification are known as  and , 
 respectively, for the names of the primary colours on which they are based. They correspond to the 
 following device colour spaces: 
@@ -12,23 +12,23 @@ DeviceCMYK
 • 
 used in displays. 
  controls the concentrations of cyan, magenta, yellow, and black inks, the four 
-NOTE Although the notion of explicit colour spaces is a PDF 1.1 feature, the operators for specifying 
+NOTE Although the notion of explicit colour spaces is a #PDF 1.1 feature, the operators for specifying 
 subtractive process colours used in printing. 
-colours in the device colour spaces — , and — are available in all versions of PDF. 
+colours in the device colour spaces — , and — are available in all versions of #PDF. 
 G, g, RG, rg, Kk 
-Beginning with PDF 1.2, colours specified in device colour spaces can optionally be remapped 
+Beginning with #PDF 1.2, colours specified in device colour spaces can optionally be remapped 
 systematically into other colour spaces; see 8.6.5.6, "Default colour spaces". 
 © ISO 2017 – All rights reserved 178 
 
 ISO/DIS 32000-2
  ![Figure 22 Additive and subtractive colour  .png](./Storage/Output/Images/Figure 22 Additive and subtractive colour  .png)
-Figure 22: Additive and subtractive colour 
+#Figure 22: Additive and subtractive colour 
  
  
-PDF 1.4
+#PDF 1.4
 In the transparent imaging model (), the use of device colour spaces is subject to special 
-treatment within a transparency group whose group colour space is CIE-based (see 11.4, "Transparency 
-groups" and 11.6.6, "Transparency group XObjects"). In particular, the device colour space operators 
+treatment within a transparency #group whose #group colour space is CIE-based (see 11.4, "Transparency 
+#groups" and 11.6.6, "Transparency #group X#Objects"). In particular, the device colour space operators 
 should be used only if device colour spaces have been remapped to CIE-based spaces by means of the 
 default colour space mechanism. Otherwise, the colour results are implementation-dependent and 
 unpredictable. 
@@ -49,8 +49,8 @@ CSSC
 Gcsscg
 The  and  operators shall select the current stroking colour space and current stroking colour 
  DeviceGray 
-separately;  shall set them in combination. (The , , and  operators shall perform the same 
-functions for nonstroking operations.) Setting either current colour space toshall initialise 
+separately;  shall set them in com#bination. (The , , and  operators shall perform the same 
+#functions for nonstroking operations.) Setting# either current colour space toshall initialise 
 the corresponding current colour to 0.0. 
 8.6.4.3DeviceRGB colour space 
  
@@ -78,8 +78,8 @@ CSSC
 RGcsscrg
 The  and  operators shall select the current stroking colour space and current stroking colour 
  DeviceRGB 
-separately;  shall set them in combination. The , , and  operators shall perform the same 
-functions for nonstroking operations. Setting either current colour space toshall initialise 
+separately;  shall set them in com#bination. The , , and  operators shall perform the same 
+#functions for nonstroking operations. Setting# either current colour space toshall initialise 
 the red, green, and blue components of the corresponding current colour to 0.0. 
 8.6.4.4DeviceCMYK colour space 
  
@@ -106,8 +106,8 @@ CSSC
 Kcssck
 The  and  operators shall select the current stroking colour space and current stroking colour 
  DeviceCMYK 
-separately;  shall set them in combination. The , , and  operators shall perform the same 
-functions for nonstroking operations. Setting either current colour space toshall initialise 
+separately;  shall set them in com#bination. The , , and  operators shall perform the same 
+#functions for nonstroking operations. Setting# either current colour space toshall initialise 
 the cyan, magenta, and yellow components of the corresponding current colour to 0.0 and the black 
 component to 1.0. 
 8.6.5CIE-Based colour spaces 
@@ -115,7 +115,7 @@ component to 1.0.
 8.6.5.1General 
  
 CIE-based
-Calibrated colour in PDF shall be defined in terms of an international standard used in the graphic arts, 
+Calibrated colour in #PDF shall be defined in terms of an international standard used in the graphic arts, 
 television, and printing industries.  colour spaces enable a page description to specify colour 
 values in a way that is related to human visual perception. The goal is for the same colour specification 
 to produce consistent results on different output devices, within the limitations of each device; "

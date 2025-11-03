@@ -1,12 +1,12 @@
-Table 372: Standard structure type Caption", encloses 
-content that serves as a caption for tables, lists, images, formulas, media objects or other types of 
+#Table 372: Standard structure type Caption", encloses 
+content that serves as a caption for tables, lists, images, formulas, media #objects or other types of 
 content. 
-Table 372: Standard structure type Caption 
+#Table 372: Standard structure type Caption 
 Structure Category Description 
 Type 
 Caption CaptionL
 TableCaption
-Grouping or For lists and tables a  structure element may be used as defined for the  
+#Grouping or For lists and tables a  structure element may be used as defined for the  
 block level, (list) and  structure elements. In addition a  may be used for a 
 Caption
 depending on structure element or several structure elements. 
@@ -19,8 +19,8 @@ number of captions cannot exceed 1.
 While captions are often used with figures or formulas, they may be associated 
 NOTE In principle, captions can appear in a nested fashion. For example, 
 with any type of content.  
-several smaller images belonging to a group of images can each be 
-accompanied by a caption, and the group of these images as a whole is 
+several smaller images belonging to a #group of images can each be 
+accompanied by a caption, and the #group of these images as a whole is 
 accompanied by a caption as well. 
 Caption
 EXAMPLE The following are just a few of the possible types of content that 
@@ -29,13 +29,13 @@ could be marked as :
 Caption for an image, list, table, or formula 
  
 •
-Caption for a group of images or a sequence of 
+Caption for a #group of images or a sequence of 
  
 graphics 
 •
-Group of images with a caption, plus a caption for each 
+#Group of images with a caption, plus a caption for each 
  
-of the images inside the group of images 
+of the images inside the #group of images 
  
 14.8.4.8.5Figure structure type 
  

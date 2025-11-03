@@ -1,44 +1,44 @@
-Table 159: Entries in a folder dictionary 
+#Table 159: Entries in a folder dictionary 
 Key Type Value 
-Optional; PDF 2.0
+Optional; #PDF 2.0
 Type 
 Folder
-name () The type of PDF object that this dictionary describes; 
+name () The type of #PDF #object that this dictionary describes; 
 if present, shall be  for a folder dictionary. 
 © ISO 2017 – All rights reserved 442 
 
 ISO/DIS 32000-2
  
 Key Type Value 
-(Required; PDF 2.0) 
+(Required; #PDF 2.0) 
 ID 
 integer A non-negative integer value representing the unique 
- ID 
-folder identification number. Two folders, in the same PDF document, 
- ID 
+# ID 
+folder# identification number. Two folders, in the same #PDF document, 
+# ID 
 shall not share the samevalue. 
-The foldervalue appears as part of the name tree key of any file 
+The foldervalue appears as part of the #name tree key of any file 
  
 associated with this folder. A detailed description of the association 
 between folder and files can be found after this table.
-(Required; PDF 2.0) 
+(Required; #PDF 2.0) 
 Name 
 text string A file name representing the name of the folder. Two 
 sibling folders shall not share the same name following case 
 NOTE Descriptions of file name and case normalization follow this 
 normalization. 
 table. 
-(Required for child folders; PDF 2.0) 
+(Required for child folders; #PDF 2.0) 
 Parent 
 dictionary An indirect reference to the parent 
  
 folder of this folder. 
 This entry shall be absent for a root folder.
-(Required if the folder has any descendents; PDF 2.0) 
+(Required if the folder has any descendents; #PDF 2.0) 
 Child 
 dictionary An indirect reference 
 to the first child folder of this folder. 
-(Required for all but the last item at each level; PDF 2.0) 
+(Required for all but the last item at each level; #PDF 2.0) 
 Next 
 dictionary An indirect 
 Sort
@@ -48,31 +48,31 @@ Sort
  
 153: Entries in a collection dictionary") or by folder name if no collection 
  key is present.
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 CI 
 (uppercase ci)
  
-dictionary The collection item dictionary (Beginning with PDF 
+dictionary The collection item dictionary (Beginning with #PDF 
 1.7, a collection item dictionary shall contain the data described by the 
 collection schema dictionary for a particular file in a collection (see 
-12.3.5, "Collections"). "Table 46: Entries in a collection item dictionary" 
+12.3.5, "Collections"). "#Table 46: Entries in a collection item dictionary" 
 describes the entries in a collection item dictionary. 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 Desc 
 text string A text description associated with this folder. 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 CreationDate 
 date  The date the folder was first created. 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 ModDate 
 date  The date of the most recent change to immediate 
 child files or folders of this folder. 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 Thumb 
-stream A stream object defining the thumbnail image for the 
+stream A stream #object defining the thumbnail image for the 
 folder See 12.3.4, "Thumbnail images". 
-(Optional; only used by root folder; PDF 2.0) 
-Free  ID 
+(Optional; only used by root folder; #PDF 2.0) 
+Free#  ID 
 array An array containingvalues 
 that are not currently in use by the folder structure. The array shall 
 contains zero or more pairs of numbers, a low value followed by a high 
@@ -80,9 +80,9 @@ value. Each pair represents an endpoint-inclusive range of values that are
 available for use when a new folder is added. Each low value shall be less 
 than or equal to its corresponding high value. 
  
- ID Free
- ID Free
-New values for thekey shall be obtained by an interactive PDF processor by accessing the  entry 
+# ID Free
+# ID Free
+New values for thekey shall be obtained by an #interactive ##PDF processor by accessing the  entry 
 in the root folder. If anvalue is used from the  entry array, the array shall be updated. 
 Name
 As previously described, the  entry is a file name for a folder. A folder, as well as its associated 
@@ -94,18 +94,18 @@ ISO/DIS 32000-2
  
 • 
 • 
-The string shall be a PDF text string. 
+The string shall be a #PDF text string. 
 • 
-The string shall not contain any embedded NULL (U+0000) characters. 
+The string shall not contain any embedded NULL (U+0000) #characters. 
 • 
-The number of characters in the string shall be between 1 and 255 inclusive. 
-The string shall not contain any of the eight special characters: SOLIDUS (U+002F) (/), REVERSE 
+The number of #characters in the string shall be between 1 and 255 inclusive. 
+The string shall not contain any of the# eight special #characters: SOLIDUS (U+002F) (/), REVERSE 
 SOLIDUS (U+005C) (\), COLON (U+003A) (:), ASTERISK (U+002A) (*), QUOTATION MARK 
 (U+0022) ("), LESS-THAN SIGN (U+003C) (<), GREATER-THAN SIGN (U+003E) (>) and VERTICAL 
 • 
 LINE (U+007C) (|). 
-The last character shall not be a FULL STOP (U+002E) (.). 
-An interactive PDF processor may choose to support invalid names or not. If not, an appropriate error 
+The last #character shall not be a FULL STOP (U+002E) (.). 
+An #interactive ##PDF processor may choose to support invalid names or not. If not, an appropriate error 
 message shall be provided. 
 In addition to the restriction on naming folders, as just described, it is further required that two file 
 names in the same folder do not map to the same string following case normalization. Two file names 
@@ -116,35 +116,35 @@ Theentry, a collection item dictionary, allows user-defined metadata to be assoc
 just as it does for embedded files in a collection. 
 Parent
 ChildNext
-Folders are indirect objects, and relationships between folders in the tree are specified using , 
+Folders are in#direct #objects, and relationships between folders in the tree are specified using , 
 , and  keys. 
  EmbeddedFiles 
-When folders are used, all files in thename tree (see "Table 32: Entries in the name 
-dictionary") shall be treated as members of the folder structure by an interactive PDF processor. The 
+When folders are used, all files in the#name tree (see "Table 32: Entries in the name 
+dictionary") shall be treated as members of the folder structure by an #interactive ##PDF processor. The 
 association between files and folders is accomplished using a special naming convention on the key 
-strings of the name tree. See 7.9.6, "Name trees", for a discussion of the key strings. If no folder 
-structure is specified, interactive PDF processors should show all files in the collection in a flat list. 
+strings of the #name tree. See 7.9.6, "#Name trees", for a discussion of the key strings. If no folder 
+structure is specified, #interactive ##PDF processors should show all files in the collection in a flat list. 
  EmbeddedFiles 
-As previously mentioned, files in thename tree are associated with folders by a special 
-naming convention applied to the name tree key strings. Strings that conform to the following rules 
+As previously mentioned, files in the#name tree are associated with folders by a special 
+naming convention applied to the #name tree key strings. Strings that conform to the following rules 
 serve to associate the corresponding file with a folder: 
 • 
 • 
-The name tree keys are PDF text strings. 
+The #name tree keys are #PDF text strings. 
 • 
-The first character, excluding any byte order marker, is LESS-THAN SIGN (U+003C) (<). 
-The following characters shall be one or more digits (0 to 9) followed by the closing GREATER-
+The first #character, excluding any #byte order marker, is LESS-THAN SIGN (U+003C) (<). 
+The following #characters shall be one or more digits (0 to 9) followed by the closing GREATER-
 • 
 THAN SIGN (U+003E) (>) 
 The remainder of the string is a file name. 
- ID 
+# ID 
 The section of the string enclosed by LESS-THAN SIGN GREATER-THAN SIGN(<>) is interpreted as a 
- ID 
+# ID 
 numeric value that specifies thevalue of the folder with which the file is associated. The value shall 
-correspond to a folder ID. The section of the string following the foldertag shall represent the file 
+correspond to a folder# ID. The section of the string following the foldertag shall represent the file 
 name of the embedded file. 
  EmbeddedFiles 
-Files in thename tree that do not conform to these rules shall be treated as associated 
+Files in the#name tree that do not conform to these rules shall be treated as associated 
 with the root folder. 
 EXAMPLE 1 This example shows a collection dictionary representing an email in-box, where each item in the collection is 
 an email message. The actual email messages are contained in file specification dictionaries. The 
@@ -169,15 +169,15 @@ comes from the embedded file parameter dictionary.
    /View /D 
    /Sort <</S /date /A false>> 
        >> 
-EXAMPLE 2 This example shows a collection item dictionary and a collection subitem dictionary. These dictionaries 
+EXAMPLE 2 This example shows a collection item dictionary and a collection su#bitem dictionary. These dictionaries 
 contain entries that correspond to the schema entries specified in the Example in 12.4.2, "Page labels". 7.11.6, 
-"Collection items" specifies the collection item and collection subitem dictionaries. 
+"Collection items" specifies the collection item and collection su#bitem dictionaries. 
    /CI << 
     /Type /CollectionItem 
     /from (Tom Jones) 
     /to (Marry Jones) 
     /subject << 
-     /Type /CollectionSubitem 
+     /Type /CollectionSu#bitem 
      /P (Re:) 
      /D (Let's have lunch on Friday!) 
        >> 
@@ -188,15 +188,15 @@ contain entries that correspond to the schema entries specified in the Example i
  
 presentation
 navigator
-A portable collection can include an interactive layout, or , for the collection contents (PDF 
-2.0) called a . When a navigator is specified, a PDF processor should display that interactive 
+A portable collection can include an interactive layout, or , for the collection contents (#PDF 
+2.0) called a . When a navigator is specified, a ##PDF processor should display that interactive 
 layout and allow it to drive the presentation of the collection. 
-Navigators are specified by identifying a named layout, used to identify a presentation for the content 
+Navigators are specified by# identifying a named layout, used to# identify a presentation for the content 
 View
 within a collection. These interactive layouts provide more choice in presenting the collection contents 
 than the simple views specified by the  key in the collection dictionary (see "Table 153: Entries in a 
 Layout
-collection dictionary"). When a navigator dictionary is present, a PDF processor should use the value of 
+collection dictionary"). When a navigator dictionary is present, a ##PDF processor should use the value of 
 the  entry to present the collection to the user. 
 Named layouts
  provide a number of options for presenting the contents of the collection to a user. These 
@@ -205,6 +205,6 @@ options are provided to allow the choice of a navigator that is best suited to p
 contents, including the folder structures and file attachments. The  key may consist of a single 
 name value, to specify the named layout, or an array of names. When an array of names is provided, a 
 Layout
-PDF processor should select the first named layout it recognises. This mechanism is inherently 
+##PDF processor should select the first named layout it recognises. This mechanism is inherently 
 extensible and allows inclusion of custom named layouts, but at least one of the values of the  
 entry shall be one of the values listed in the entry (see "

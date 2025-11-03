@@ -1,30 +1,30 @@
 Table 397: Entries 
-in a box style dictionary". If a given entry is absent, the interactive PDF processor shall use its own 
+in a box style dictionary". If a given entry is absent, the #interactive ##PDF processor shall use its own 
 current default settings instead. 
-Table 396: Entries in a box colour information dictionary 
+#Table 396: Entries in a box colour information dictionary 
 Key Type Value 
 Optional
 CropBox 
-dictionary () A box style dictionary (see "Table 397: Entries in a box style dictionary") 
-specifying the visual characteristics for displaying guidelines for the page’s crop box. 
-This entry shall be ignored if no crop box is defined in the page object. 
+dictionary () A box style dictionary (see "#Table 397: Entries in a box style dictionary") 
+specifying the visual #characteristics for displaying guidelines for the page’s crop box. 
+This entry shall be ignored if no crop box is defined in the page #object. 
 Optional
 BleedBox 
-dictionary () A box style dictionary (see "Table 397: Entries in a box style dictionary") 
-specifying the visual characteristics for displaying guidelines for the page’s bleed box. 
-This entry shall be ignored if no bleed box is defined in the page object. 
+dictionary () A box style dictionary (see "#Table 397: Entries in a box style dictionary") 
+specifying the visual #characteristics for displaying guidelines for the page’s bleed box. 
+This entry shall be ignored if no bleed box is defined in the page #object. 
 Optional
 TrimBox 
-dictionary () A box style dictionary (see "Table 397: Entries in a box style dictionary") 
-specifying the visual characteristics for displaying guidelines for the page’s trim box. 
-This entry shall be ignored if no trim box is defined in the page object. 
+dictionary () A box style dictionary (see "#Table 397: Entries in a box style dictionary") 
+specifying the visual #characteristics for displaying guidelines for the page’s trim box. 
+This entry shall be ignored if no trim box is defined in the page #object. 
 Optional
 ArtBox 
-dictionary () A box style dictionary (see "Table 397: Entries in a box style dictionary") 
-specifying the visual characteristics for displaying guidelines for the page’s art box. 
-This entry shall be ignored if no art box is defined in the page object. 
+dictionary () A box style dictionary (see "#Table 397: Entries in a box style dictionary") 
+specifying the visual #characteristics for displaying guidelines for the page’s art box. 
+This entry shall be ignored if no art box is defined in the page #object. 
  
-Table 397: Entries in a box style dictionary 
+#Table 397: Entries in a box style dictionary 
 Key Type Value 
 Optional
 C 
@@ -47,9 +47,9 @@ S(Solid)
 name () The guideline style: 
 DDashed) 
  D
-A solid rectangle. 
+A solid #rectangle. 
 S
-(A dashed rectangle. The dash pattern shall be specified by the  entry. 
+(A dashed #rectangle. The dash pattern shall be specified by the  entry. 
 Other guideline styles may be defined in the future. Default value: . 
 Optional
 D 
@@ -58,7 +58,7 @@ array () A dash array defining a pattern of dashes and gaps that shall be used i
 drawing dashed guidelines (guideline style ). The dash array shall be specified in 
 default user space units, in the same format as in the line dash pattern parameter of the 
 8.4.3.6, "Line dash pattern"). The dash phase shall not be specified 
-graphics state (see 
+#graphics state (see 
 and shall be assumed to be 0. 
 D
 EXAMPLE A  entry of [3 2] specifies guidelines drawn with 3-unit dashes 
@@ -68,7 +68,7 @@ Default value: [3].
 14.11.3Printer’s marks 
  
 Printer’s marks
- are graphic symbols or text added to a page to assist production personnel in identifying 
+ are graphic symbols or text added to a page to assist production personnel in# identifying 
 components of a multiple-plate job and maintaining consistent output during production. Examples 
 commonly used in the printing industry include: 
 Registration targets
@@ -80,30 +80,30 @@ Cut marks
 • 
  and  for measuring colours and ink densities 
  showing where the output medium is to be trimmed 
-Although PDF writers traditionally include such marks in the content stream of a document, they are 
+Although ##PDF writers traditionally include such marks in the #content stream of a document, they are 
 logically separate from the content of the page itself and typically appear outside the boundaries (the 
 crop box, trim box, and art box) defining the extent of that content (see 14.11.2, "Page boundaries"). 
-Printer’s mark annotationsPDF 1.4
+Printer’s mark annotations#PDF 1.4
  () provide a mechanism for incorporating printer’s marks into the 
-PDF representation of a page, while keeping them separate from the actual page content. Each page in a 
-PDF document may contain any number of such annotations, each of which represents a single printer’s 
-mark. The annotation rectangle should not intersect the TrimBox. 
+#PDF representation of a page, while keeping them separate from the actual page content. Each page in a 
+#PDF document may contain any number of such annotations, each of which represents a single printer’s 
+mark. The annotation #rectangle should not intersect the TrimBox. 
 NOTE 1 Because printer’s marks typically fall outside the page’s content boundaries, each mark is 
 represented as a separate annotation. Otherwise — if, for example, the cut marks at the four 
-corners of the page were defined in a single annotation — the annotation rectangle would 
-encompass the entire contents of the page and could interfere with the user’s ability to select 
+corners of the page were defined in a single annotation — the annotation #rectangle would 
+encompass the entire contents of the page and could interfere with the user’s a#bility to select 
 content or interact with other annotations on the page. Defining printer’s marks in separate 
 annotations also facilitates the implementation of a drag-and-drop user interface for specifying 
 them. 
 N
-The visual presentation of a printer’s mark shall be defined by a form XObject specified as an 
+The visual presentation of a printer’s mark shall be defined by a form X#Object specified as an 
 appearance stream in the  (normal) entry of the printer’s mark annotation’s appearance dictionary 
 (see 12.5.5, "Appearance streams"). More than one appearance may be defined for the same printer’s 
 N
 mark to meet the requirements of different regions or production facilities. In this case, the appearance 
  AS 
-dictionary’s  entry holds a subdictionary containing the alternative appearances, each identified by an 
-arbitrary key. The(appearance state) entry in the annotation dictionary designates one of them to 
+dictionary’s  entry holds a subdictionary containing the alternative appearances, each# identified by an 
+ar#bitrary key. The(appearance state) entry in the annotation dictionary designates one of them to 
 be displayed or printed. 
 © ISO 2017 – All rights reserved 787 
 
@@ -111,7 +111,7 @@ ISO/DIS 32000-2
  
 NOTE 2 The printer’s mark annotation’s appearance dictionary can include  (rollover) or  (down) 
 RD
-entries, but appearances defined in either of these entries are never displayed or printed. 
+entries, but appearances defined in# either of these entries are never displayed or printed. 
 PrinterMark AP F
 Like all annotations, a printer’s mark annotation shall be defined by an annotation dictionary (see 
  AS 

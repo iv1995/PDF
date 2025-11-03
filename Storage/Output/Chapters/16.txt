@@ -1,4 +1,4 @@
-cross reference table 
-data structure that contains the byte offset start for each of the indirect objects within the file 
+#cross reference table 
+data structure that contains the #byte offset start for each of the in#direct #objects within the file 
 4.14 
  

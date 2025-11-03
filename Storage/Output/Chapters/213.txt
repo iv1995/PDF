@@ -1,5 +1,5 @@
-Table 87: Additional entries specific to an image dictionary" in addition to 
-the usual entries common to all streams (see "Table 5: Entries common to all stream dictionaries"). 
+#Table 87: Additional entries specific to an image dictionary" in addition to 
+the usual entries common to all streams (see "#Table 5: Entries common to all stream dictionaries"). 
 There are many relationships among these entries, and the current colour space may limit the choices 
 for some of them. Attempting to use an image dictionary whose entries are inconsistent with each other 
 or with the current colour space shall cause an error. 
@@ -10,24 +10,24 @@ operator.
 NOTE Some of the entries are not defined for images used in other ways, such as for alternate images 
 (see 8.9.5.4, "Alternate images"), image masks (see 8.9.6, "Masked images"), or thumbnail images 
 (see 12.3.4, "Thumbnail images").  
-Table 87: Additional entries specific to an image dictionary 
+#Table 87: Additional entries specific to an image dictionary 
 Key Type Value 
 Optional
 Type 
 XObject
-name () The type of PDF object that this dictionary describes; if present, shall 
-be  for an image XObject. 
+name () The type of #PDF #object that this dictionary describes; if present, shall 
+be  for an image X#Object. 
 RequiredImage
 Subtype   
-name () The type of XObject that this dictionary describes; shall befor 
-an image XObject. 
+name () The type of X#Object that this dictionary describes; shall befor 
+an image X#Object. 
 Required
 Width 
 integer () The width of the image, in samples. 
 Required
 Height 
 integer () The height of the image, in samples. 
-Required for images, except those that use thefilter; not permitted 
+Required for images, except those that use the#filter; not permitted 
 ColorSpace  JPXDecode 
 for image masks
 name or (
@@ -37,13 +37,13 @@ array ) The colour space in which image samples shall be specified; it
 can be any type of colour space except . 
  ColorSpace 
 • 
-If the image uses thefilter, this entry may be present: 
-Ifis present, any colour space specifications in the JPEG2000 
+If the image uses the#filter, this entry may be present: 
+Ifis present, any colour space specifications in the #JPEG2000 
  ColorSpace 
 • 
 data shall be ignored. 
 Decode 
-Ifis absent, the colour space specifications in the JPEG2000 
+Ifis absent, the colour space specifications in the #JPEG2000 
 true
 ImageMask 
 data shall be used. The  array shall also be ignored unless
@@ -54,50 +54,50 @@ ISO/DIS 32000-2
  
 Key Type Value 
 Required except for image masks and images that use thefilter
-BitsPerComponent  JPXDecode 
+#BitsPerComponent  JPXDecode 
 integer () The 
-number of bits used to represent each colour component. Only a single value 
+number of #bits used to represent each colour component. Only a single value 
  ImageMask 
-shall be specified; the number of bits shall be the same for all colour 
+shall be specified; the number of #bits shall be the same for all colour 
 true
-components. The value shall be 1, 2, 4, 8, or (in PDF 1.5) 16. Ifis 
- BitsPerComponent 
+components. The value shall be 1, 2, 4, 8, or (in #PDF 1.5) 16. Ifis 
+ #BitsPerComponent 
 , this entry is optional, but if specified, its value shall be 1. 
-If the image stream uses a filter, the value ofshall be 
- CCITTFaxDecode  JBIG2Decode 
-consistent with the size of the data samples that the filter delivers. In 
+If the image stream uses a #filter, the value ofshall be 
+ CCITTFaxDecode  J#BIG2Decode 
+consistent with the size of the data samples that the #filter delivers. In 
  RunLengthDecode  DCTDecode 
-particular, aorfilter shall always deliver 1-bit 
+particular, aor#filter shall always deliver 1-#bit 
  LZWDecode  FlateDecode 
-samples, aorfilter shall always deliver 8-bit 
-samples, and anorfilter shall deliver samples of a 
+samples, aor#filter shall always deliver 8-#bit 
+samples, and anor#filter shall deliver samples of a 
  JPXDecode 
-specified size if a predictor function is used. 
-If the image stream uses thefilter, this entry is optional and shall 
-be ignored if present. The bit depth is determined by the PDF processor in the 
-process of decoding the JPEG2000 image. 
-Optional; PDF 1.1
+specified size if a predictor #function is used. 
+If the image stream uses the#filter, this entry is optional and shall 
+be ignored if present. The #bit depth is determined by the ##PDF processor in the 
+process of decoding the #JPEG2000 image. 
+Optional; #PDF 1.1
 Intent 
 name () The name of a colour rendering intent that shall be used in 
 true
  ImageMask 
 rendering any image that is not an image mask (see 8.6.5.8, "Rendering 
 intents"). This value is ignored ifis . Default value: the current 
-rendering intent in the graphics state. 
+rendering intent in the #graphics state. 
 Optional
 ImageMask 
 true
  
 boolean () A flag indicating whether the image shall be treated as an image 
-BitsPerComponent ColorSpace 
+#BitsPerComponent ColorSpace 
 mask (see 8.9.6, "Masked images"). If this flag is , the value of
 , if present, shall be 1 and Mask andshall not 
 false
 be specified; unmasked areas shall be painted using the current nonstroking 
 colour. Default value: . 
-Optional; shall not be present for image masks; PDF 1.3
+Optional; shall not be present for image masks; #PDF 1.3
 Mask 
-stream or () An image XObject 
+stream or () An image X#Object 
 array defining an image mask to be applied to this image (see 8.9.6.3, "Explicit 
 true
  ImageMask 
@@ -106,15 +106,15 @@ colour key mask (see 8.9.6.4, "Colour key masking"). Ifis , this
 entry shall not be present. 
 Optional
 Decode 
-array () An array of numbers describing how to map image samples into the 
+array () An array of numbers descri#bing how to map image samples into the 
 true
  ImageMask 
 range of values appropriate for the image’s colour space (see 8.9.5.2, "Decode 
-arrays"). Ifis , the array shall be either [0 1] or [1 0]; 
+arrays"). Ifis , the array shall be# either [0 1] or [1 0]; 
 ColorSpace JPXDecode   ColorSpace 
 otherwise, its length shall be twice the number of colour components required 
 true
 Decode ImageMask 
-by . If the image uses thefilter andifis 
+by . If the image uses the#filter andifis 
 absent, the  array shall be ignored unlessis . 
 Default value: see "

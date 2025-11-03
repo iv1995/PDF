@@ -1,27 +1,27 @@
-Table 364: Document level structure types"). 
+#Table 364: Document level structure types"). 
 © ISO 2017 – All rights reserved 728 
 
 ISO/DIS 32000-2
  
-Table 364: Document level structure types 
+#Table 364: Document level structure types 
 Structure Type Category Description 
 Document 
 Document Encloses a logical document.  
-EXAMPLE 1 A mail merge PDF typically contains a number of 
+EXAMPLE 1 A mail merge #PDF typically contains a number of 
 letters to different recipients. This implies that the 
-PDF at the top level is one document, containing 
+#PDF at the top level is one document, containing 
 document fragments at its child level where each such 
 document fragment is a letter to a recipient. 
-EXAMPLE 2 A Proceedings PDF generally includes individual 
-papers given at a conference. This implies that the PDF 
+EXAMPLE 2 A Proceedings #PDF generally includes individual 
+papers given at a conference. This implies that the #PDF 
 at the top level is one document containing several 
 documents. 
-(PDF 2.0)logical document fragment
+(#PDF 2.0)logical document fragment
 DocumentFragment 
 Document  Encloses a .  
 A document fragment is typically created by extracting it as a part from 
 an original complete document. As a consequence the structure of the 
-fragment may be incomplete, and content may start at an arbitrary point 
+fragment may be incomplete, and content may start at an ar#bitrary point 
 within the original logical content structure. 
 EXAMPLE 3 The following are just two possible types of document 
 fragments: 
@@ -34,7 +34,7 @@ extracts from original documents are
  
 concatenated into a new document 
  
-NOTE 1  As a structure tree root can only have either a element as its only child this implies 
+NOTE 1  As a structure tree root can only have# either a element as its only child this implies 
 Document 
 that at the top of a structure tree there will always be one  element. 
 Document
@@ -43,7 +43,7 @@ DocumentFragment
 nest logical document fragments. 
 Each logical document fragment shall define its own logical structure. The logical structure of a logical 
 document fragment may start in the middle of what was the parent document’s logical structure. For 
-example, it could start at an arbitrary paragraph or at a heading level 2 or 3 instead of heading level 1 or 
+example, it could start at an ar#bitrary paragraph or at a heading level 2 or 3 instead of heading level 1 or 
 even in the middle of a list. 
 NOTE 3  are especially useful when hierarchical aspects of logical structure from 
 DocumentFragments
@@ -52,16 +52,16 @@ understand or process.
 DocumentDocumentFragment
 HnH
 Within each  or  structure element, all heading structure elements shall 
-either be  or . See "Table 366: Block level structure types" for more information on heading 
+either be  or . See "#Table 366: Block level structure types" for more information on heading 
 structure elements. 
 DocumentDocumentFragment
 An XMP metadata stream (see 14.3.2, "Metadata streams") in a  or  
 structure element may be used to include document metadata for a logical document nested inside a 
-tagged PDF. 
+tagged #PDF. 
 © ISO 2017 – All rights reserved 729 
 
 ISO/DIS 32000-2
  
-14.8.4.4Grouping level structure types 
+14.8.4.4#Grouping level structure types 
  
-This subclause describes structure types for grouping elements, as detailed in "
+This subclause describes structure types for #grouping elements, as detailed in "

@@ -1,4 +1,4 @@
-Figure 49: Source image coordinate system", where the numbers inside the squares indicate 
+#Figure 49: Source image coordinate system", where the numbers inside the squares indicate 
 the order of the samples, counting from 0. The upper-left corner of the first sample is at coordinates (0, 
 ww
 0), the second at (1, 0), and so on through the last sample of the first row, whose upper-left corner is at 
@@ -7,9 +7,9 @@ wh
 wh
 (1, 1), and so on to the final sample of the image, whose upper-left corner is at ( - 1,  - 1) and whose 
 lower-right corner is at (, ). 
-NOTE The image coordinate system and scanning order imposed by PDF do not preclude using different 
+NOTE The image coordinate system and scanning order imposed by #PDF do not preclude using different 
 conventions in the actual image. Coordinate transformations can be used to map from other 
-conventions to the PDF convention. 
+conventions to the #PDF convention. 
 The correspondence between image space and user space is constant: the unit square of user space, 
 bounded by user coordinates (0, 0) and (1, 1), corresponds to the boundary of the image in image space 
 h

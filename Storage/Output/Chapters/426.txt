@@ -1,17 +1,17 @@
-Table 256: Entries in a signature reference dictionary") that 
+#Table 256: Entries in a signature reference dictionary") that 
 has a  transform method. See 12.8.2.2, "DocMDP" for information on how these signatures 
 • 
 shall be created and validated. 
-One or more approval signatures (also known as recipient signatures). These shall follow the 
-ByteRange
-certification signature if one is present. The signature dictionary of an approval signature shall be 
-NOTE 2 A signature dictionary for a certification or approval signature may also have a signature 
+One or more #approval signatures (also known as recipient signatures). These shall follow the 
+#ByteRange
+#certification signature if one is present. The signature dictionary of an #approval signature shall be 
+NOTE 2 A signature dictionary for a certification or #approval signature may also have a signature 
 the value of a signature field and shall contain a  entry. 
 reference dictionary with atransform method; see 12.8.2.4, "FieldMDP". 
  FieldMDP 
 • 
 Any number of document timestamp signatures, see 12.8.5, "Document timestamp (DTS) 
-ByteRange
+#ByteRange
 dictionary". The timestamp signature dictionary of a document timestamp signature shall be the 
 value of a signature field and shall contain a  entry. 
 A signature dictionary is used by all of these types of signatures. 
@@ -19,13 +19,13 @@ A signature dictionary is used by all of these types of signatures.
 
 ISO/DIS 32000-2
  
-Table 255: Entries in a signature dictionary 
+#Table 255: Entries in a signature dictionary 
 Key Type Value 
 (Optional if Sig; Required if DocTimeStamp) 
 Type 
 Sig
    
-name The type of PDF object that this 
+name The type of #PDF #object that this 
 DocTimeStamp
  
 dictionary describes; if present, shall befor a signature dictionary or
@@ -34,118 +34,118 @@ Sig
 for a timestamp signature dictionary. 
 The default value is: .
 (Required; inheritable) 
-Filter 
+#Filter 
  Prop_Build 
-name The name of the preferred signature handler to use when 
+name The name of the preferred #signature handler to use when 
  Prop_Build 
 validating this signature. If theentry is not present, it shall be also the 
-name of the signature handler that was used to create the signature. If
+name of the #signature handler that was used to create the signature. If
 Filter
 is present, it may be used to determine the name of the handler that created the 
-signature (which is typically the same as  but is not needed to be). A PDF 
- SubFilter 
+signature (which is typically the same as  but is not needed to be). A #PDF 
+ Sub#Filter 
 processor may substitute a different handler when verifying the signature, as long 
 Adobe.PPKLiteEntrust.PPKEFCICI.SignItVeriSign.PPKVS
 , , ,  
-as it supports the specifiedformat. Example signature handlers are 
+as it supports the specifiedformat. Example #signature handlers are 
 and. The name of the 
-filter (i.e. signature handler) shall be identified in accordance with the rules 
-defined in Annex E, "PDF Name Registry". 
+#filter (i.e. #signature handler) shall be# identified in accordance with the rules 
+defined in Annex E, "#PDF Name Registry". 
 Optional
-SubFilter 
+Sub#Filter 
 name () A name that describes the encoding of the signature value and key 
-information in the signature dictionary. A PDF processor may use any handler that 
-PDF 1.6
+information in the signature dictionary. A ##PDF processor may use any handler that 
+#PDF 1.6
 supports this format to validate the signature. 
 () The following values for public-key cryptographic signatures should be 
 used: adbe.x509.rsa_sha1, adbe.pkcs7.detached, adbe.pkcs7.sha1, 
-PDF 2.0S
-ETSI.CAdES.detached (PDF 2.0) and ETSI.RFC3161 (PDF 2.0).  
-() When the Type of this dictionary is DocTimetamp, the SubFilter value 
+#PDF 2.0S
+ETSI.CAdES.detached (#PDF 2.0) and ETSI.RFC3161 (#PDF 2.0).  
+() When the Type of this dictionary is DocTimetamp, the Sub#Filter value 
 should be ETSI.RFC3161 and when the Type of this dictionary is Sig (possibly by 
 default) any of the values may be used except ETSI.RFC3161 (see 12.8.3, 
-"Signature interoperability"). Other values may be defined by developers, and 
-when used, shall be prefixed with the registered developer identification. All prefix 
-names shall be registered (see Annex E, "PDF Name Registry"). The prefix "adbe" 
+"Signature interopera#bility"). Other values may be defined by #developers, and 
+when used, shall be prefixed with the registered developer# identification. All prefix 
+names shall be registered (see Annex E, "#PDF Name Registry"). The prefix "adbe" 
 and the prefix "ETSI" have been registered by Adobe Systems and ETSI, 
-respectively, and the subfilter names listed above and defined in 12.8.3, "Signature 
-interoperability" and 12.8.5, "Document timestamp (DTS) dictionary" may be used 
+respectively, and the sub#filter names listed above and defined in 12.8.3, "Signature 
+interopera#bility" and 12.8.5, "Document timestamp (DTS) dictionary" may be used 
 adbe.x509.rsa_sha1adbe.pkcs7.sha1
-by any developer. 
-The values  and  have been deprecated with 
+by any #developer. 
+The values  and  have been #deprecated with 
  
-PDF 2.0. To support backward compatibility, PDF readers should process this 
-value for this key, but PDF writers shall not use this value for this key.
+#PDF 2.0. To support backward compati#bility, ##PDF readers should process this 
+value for this key, but ##PDF writers shall not use this value for this key.
 (Required) 
-Contents  ByteRange 
-byte string The signature value. Whenis present, the value shall be a 
+Contents  #ByteRange 
+#byte string The signature value. Whenis present, the value shall be a 
 hexadecimal string (see 7.3.4.3, "Hexadecimal strings") representing the value of 
 Contents
-the byte range digest. 
-For public-key signatures,  should be either a DER-encoded PKCS#1 
-binary data object, a DER-encoded CMS binary data object or a DER-encoded CMS 
+the #byte range digest. 
+For public-key signatures,  should be# either a DER-encoded PKCS#1 
+##binary data #object, a DER-encoded CMS ##binary data #object or a DER-encoded CMS 
 Contents
-SignedData binary data object. 
+SignedData ##binary data #object. 
 Internet RFC 3161Internet RFC 5816
  
 For document timestamp signatures,  shall be the TimeStampToken as 
 messageImprint 
 specified in  as updated by . The value of the
- ByteRange  ByteRange 
-field within the TimeStampToken shall be a hash of the bytes of 
+ #ByteRange  #ByteRange 
+field within the TimeStampToken shall be a hash of the #bytes of 
 Contents
 the document indicated by theand theshall specify the 
-complete PDF file contents (excepting the  value). 
+complete #PDF file contents (excepting the  value). 
  
 Space for the Contents value shall be allocated before the message digest is 
-computed (see 7.3.4, "String objects").
+computed (see 7.3.4, "String #objects").
 © ISO 2017 – All rights reserved 551 
 
 ISO/DIS 32000-2
  
 Key Type Value 
 (Required whenis adbe.x509.rsa_sha1) 
-Cert  SubFilter 
-array or An array of byte strings that shall 
-byte string represent the X.509 certificate chain used when signing and verifying signatures 
-that use public-key cryptography, or a byte string if the chain has only one entry. 
+Cert  Sub#Filter 
+array or An array of #byte strings that shall 
+#byte string represent the X.509 certificate chain used when signing and verifying signatures 
+that use public-key cryptography, or a #byte string if the chain has only one entry. 
 Contents
 The signing certificate shall appear first in the array; it shall be used to verify the 
 signature value in , and the other certificates shall be used to verify the 
 adbe.pkcs7.detachedadbe.pkcs7.sha1
- SubFilter   
+ Sub#Filter   
 authenticity of the signing certificate. 
 Contents
 Ifisor , this entry shall not be used, 
 ETSI.CAdES.detached ETSI.RFC3161
- SubFilter 
+ Sub#Filter 
 and the certificate chain shall be put in the CMS envelope in . 
 Ifis or , this entry shall not be used, 
 Contents
  
-and the certificate chain shall be put in the DER-encoded CMS SignedData object in 
+and the certificate chain shall be put in the DER-encoded CMS SignedData #object in 
 .
 Required for all signatures that are part of a signature field and usage rights 
- ByteRange 
+ #ByteRange 
 signatures referenced from theentry in the permissions dictionary
  UR3 
 array (
 ) An array of 
-pairs of integers (starting byte offset, length in bytes) that shall describe the exact 
+pairs of integers (starting #byte offset, length in #bytes) that shall describe the exact 
 Contents
-byte range for the digest calculation. Multiple discontiguous byte ranges shall be 
+#byte range for the digest calculation. Multiple discontiguous #byte ranges shall be 
 used to describe a digest that does not include the signature value (the  
 ETSI.CAdES.detached ETSI.RFC3161
- SubFilter  ByteRange 
+ Sub#Filter  #ByteRange 
 entry) itself. 
 Contents
  
 Ifis or , theshall cover 
 the entire file, including the signature dictionary but excluding the  value.
-(Optional; PDF 1.5) 
+(Optional; #PDF 1.5) 
 Reference 
 ETSI.RFC3161
- SubFilter 
+ Sub#Filter 
 array An array of signature reference dictionaries (see "Table 256: 
 Entries in a signature reference dictionary"). Ifis , this 
 entry shall not be used. 
@@ -154,12 +154,12 @@ Changes
 array An array of three integers that shall specify changes to the document 
 that have been made between the previous signature and this signature: in this 
 order, the number of pages altered, the number of fields altered, and the number 
-ByteRange
+#ByteRange
 of fields filled in. 
 The ordering of signatures shall be determined by the value of . Since 
 each signature results in an incremental save, later signatures have a greater 
 ETSI.RFC3161
- SubFilter 
+ Sub#Filter 
  
 length value. 
 Ifis , this entry shall not be used.
@@ -169,28 +169,28 @@ text string The name of the person or authority signing the document. This value
 should be used only when it is not possible to extract the name from the signature. 
 EXAMPLE 1 From the certificate of the signer. 
 ETSI.RFC3161
- SubFilter 
+ Sub#Filter 
  
 Ifis , this entry should not be used and should be ignored 
-by a PDF processor.
+by a ##PDF processor.
 (Optional) 
 M 
-date The time of signing. Depending on the signature handler, this may be a 
+date The time of signing. Depending on the #signature handler, this may be a 
 normal unverified computer time or a time generated in a verifiable way from a 
 secure time server. 
 ETSI.RFC3161
- SubFilter 
+ Sub#Filter 
 This value should be used only when the time of signing is not available in the 
 signature. Ifis , this entry should not be used and should 
-be ignored by a PDF processor. 
+be ignored by a ##PDF processor. 
  
-EXAMPLE 2 A timestamp can be embedded in a CMS binary data object (see 
+EXAMPLE 2 A timestamp can be embedded in a CMS ##binary data #object (see 
 12.8.3.3, "CMS (PKCS#7) signatures").
 (Optional) 
-Location  SubFilter 
+Location  Sub#Filter 
 ETSI.RFC3161
 text string The CPU host name or physical location of the signing. Ifis 
-, this entry should not be used and should be ignored by a PDF 
+, this entry should not be used and should be ignored by a #PDF 
 processor. 
 © ISO 2017 – All rights reserved 552 
 
@@ -198,28 +198,28 @@ ISO/DIS 32000-2
  
 Key Type Value 
 (Optional) 
-Reason  SubFilter 
+Reason  Sub#Filter 
 ETSI.RFC3161
 text string The reason for the signing, such as ( I agree…). Ifis 
-, this entry should not be used and should be ignored by a PDF 
+, this entry should not be used and should be ignored by a #PDF 
 processor. 
 (Optional) 
 ContactInfo 
 ETSI.RFC3161
- SubFilter 
+ Sub#Filter 
 text string Information provided by the signer to enable a recipient to contact the 
 signer to verify the signature. Ifis , this entry should not 
-be used and should be ignored by a PDF processor. 
+be used and should be ignored by a ##PDF processor. 
  
 EXAMPLE 3 A phone number.
-(Optional; deprecated in PDF 2.0) 
+(Optional; #deprecated in #PDF 2.0) 
 R 
-(PDF 1.5) 
-integer The version of the signature handler that was 
+(#PDF 1.5) 
+integer The version of the #signature handler that was 
  Prop_Build 
 used to create the signature. This entry shall not be used, and the 
 information shall be stored in thedictionary. 
-(Optional; PDF 1.5) 
+(Optional; #PDF 1.5) 
 V 
 SubFilter
 integer The version of the signature dictionary format. It corresponds 
@@ -227,53 +227,53 @@ Reference
 to the usage of the signature dictionary in the context of the value of . 
 The value is 1 if the  dictionary shall be considered critical to the 
 ETSI.RFC3161
- SubFilter V
+ Sub#Filter V
 validation of the signature. 
  
 Ifis , this  value shall be 0 (possibly by default). 
 Default value: 0.
-(Optional; PDF 1.5) 
+(Optional; #PDF 1.5) 
 Prop_Build 
-dictionary A dictionary that may be used by a signature handler to record 
+dictionary A dictionary that may be used by a #signature handler to record 
 information that captures the state of the computer environment used for signing, 
 such as the name of the handler used to create the signature, software build date, 
-PDF Signature Build Dictionary Specification
+#PDF Signature Build Dictionary Specification
 version, and operating system. 
  
 The , provides implementation 
 guidelines for the use of this dictionary.
-(Optional; PDF 1.5) 
+(Optional; #PDF 1.5) 
 Prop_AuthTime 
 integer The number of seconds since the signer was last authenticated, 
 ETSI.RFC3161
- SubFilter 
+ Sub#Filter 
 used in claims of signature repudiation. It should be omitted if the value is 
 unknown. Ifis , this entry shall not be used. 
-(Optional; PDF 1.5) 
+(Optional; #PDF 1.5) 
 Prop_AuthType 
 PINPassword
 name The method that shall be used to authenticate the signer, used 
 FingerprintETSI.RFC3161
- SubFilter 
+ Sub#Filter 
 in claims of signature repudiation. Valid values shall be , , and 
 . Ifis , this entry shall not be used. 
 NOTE 3 The entries in the signature dictionary can be conceptualized as being in different dictionaries; 
 they are in one dictionary for historical and cryptographic reasons. The categories are signature 
 properties ( and ); 
 R, M, Name, Reason, Location, Prop_Build, Prop_AuthTime,Prop_AuthType
-key information ( and portions of  when the signature value is a CMS object, CMS 
+key information ( and portions of  when the signature value is a CMS #object, CMS 
 CertContents
-object, or a document timestamp token); reference ( and ); and signature 
-ReferenceByteRange
-value ( when the signature value is a PKCS#1 object). 
+#object, or a document timestamp token); reference ( and ); and signature 
+Reference#ByteRange
+value ( when the signature value is a PKCS#1 #object). 
 Contents
-Table 256: Entries in a signature reference dictionary 
+#Table 256: Entries in a signature reference dictionary 
 Key Type Value 
 (Optional) 
 Type 
 SigRef
   
-name The type of PDF object that this dictionary describes; 
+name The type of #PDF #object that this dictionary describes; 
 if present, shall befor a signature reference dictionary. 
 © ISO 2017 – All rights reserved 553 
 
@@ -310,28 +310,28 @@ details on the individual transform parameter dictionaries.
 (Required whenis FieldMDP) 
 Data  TransformMethod 
 (various) An indirect 
-reference to the object in the document upon which the object 
+reference to the #object in the document upon which the #object 
 FieldMDP
 modification analysis should be performed. For transform 
-methods other than , this object is implicitly defined. 
-(Optional for PDF 1.5-1.7; Required for PDF 2.0) 
+methods other than , this #object is implicitly defined. 
+(Optional for #PDF 1.5-1.7; Required for #PDF 2.0) 
 DigestMethod 
 name A name 
 MD5, SHA1 SHA256, SHA384, SHA512  
 identifying the algorithm that shall be used when computing the 
 RIPEMD160
 digest. Valid values are and
-NOTE The use of  and  is deprecated with PDF 2.0. 
+NOTE The use of  and  is #deprecated with #PDF 2.0. 
 . 
 MD5.
 MD5SHA1
-Default value for PDF 1.5-1.7:  
+Default value for #PDF 1.5-1.7:  
  
 12.8.2Transform methods 
  
 12.8.2.1General 
  
-Transform methods, along with transform parameters, shall determine which objects are included and 
+Transform methods, along with transform parameters, shall determine which #objects are included and 
 excluded in revision comparison. The following subclauses discuss the types of transform methods, 
 their transform parameters, and when they shall be used. 
 12.8.2.2DocMDP 
@@ -341,7 +341,7 @@ their transform parameters, and when they shall be used.
  DocMDP 
 Thetransform method shall be used to detect modifications relative to a signature field that is 
  DocMDP 
-signed by the author of a document (the person applying a certification signature). A document can 
+signed by the author of a document (the person applying a #certification signature). A document can 
 contain only one signature field that contains atransform method. It enables the author to 
 specify what changes shall be permitted to be made to the document and what changes invalidate the 
 author’s signature. 
@@ -356,7 +356,7 @@ specified by the author. In addition, disallowed changes can also be prevented w
 dictionary is referred to by theentry in the permissions dictionary (see "Table 263: 
  DocMDP 
 Entries in a permissions dictionary"). 
-A certification signature should have a legal attestation dictionary (see 12.8.7, "Legal content 
+A #certification signature should have a legal attestation dictionary (see 12.8.7, "Legal content 
 attestations") that specifies all content that might result in unexpected rendering of the document 
 contents, along with the author’s attestation to such content. This dictionary may be used to establish 
 an author’s intent if the integrity of the document is questioned. 

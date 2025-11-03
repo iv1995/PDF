@@ -1,9 +1,9 @@
-Figure 13: Effects of Coordinate Transformations" shows examples of each transformation. The 
+#Figure 13: Effects of Coordinate Transformations" shows examples of each transformation. The 
 directions of translation, rotation, and skew shown in the figure correspond to positive values of the 
 array elements. ![Figure 13 Effects of Coordinate Transformations  .png](./Storage/Output/Images/Figure 13 Effects of Coordinate Transformations  .png)
-Figure 13: Effects of Coordinate Transformations 
+#Figure 13: Effects of Coordinate Transformations 
  
-NOTE If several transformations are combined, the order in which they are applied is significant. For 
+NOTE If several transformations are com#bined, the order in which they are applied is significant. For 
 example, first scaling and then translating the  axis is not the same as first translating and then 
 scaling it. In general, to obtain the expected results, transformations need to be done in the 
 x

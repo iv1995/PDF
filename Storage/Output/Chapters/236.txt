@@ -1,11 +1,11 @@
-Figure 54: Glyph metrics" shows a typical glyph outline and its metrics. ![Figure 54 Glyph metrics  .png](./Storage/Output/Images/Figure 54 Glyph metrics  .png)
-Figure 54: Glyph metrics 
+Figure 54: #Glyph metrics" shows a typical #glyph outline and its metrics. ![Figure 54 #Glyph metrics  .png](./Storage/Output/Images/Figure 54 #Glyph metrics  .png)
+Figure 54: #Glyph metrics 
  
 Tj
-The glyph origin is the point (0, 0) in the glyph coordinate system.  and other text-showing operators 
-shall position the origin of the first glyph to be painted at the origin of text space. 
+The #glyph origin is the point (0, 0) in the #glyph coordinate system.  and other text-showing operators 
+shall position the origin of the first #glyph to be painted at the origin of text space. 
 EXAMPLE 1 This code adjusts the origin of text space to (40, 50) in the user coordinate system and then places the origin 
-of the A glyph at that point: 
+of the A #glyph at that point: 
 BT 
 © ISO 2017 – All rights reserved 292 
 
@@ -15,23 +15,23 @@ ISO/DIS 32000-2
   (ABC) Tj 
 ET 
  
-The glyph displacement is the distance from the glyph’s origin to the point at which the origin of the 
-next glyph should normally be placed when painting the consecutive glyphs of a line of text. This 
-distance is a vector (called the displacement vector) in the glyph coordinate system; it has horizontal 
+The #glyph displacement is the distance from the #glyph’s origin to the point at which the origin of the 
+next #glyph should normally be placed when painting the consecutive #glyphs of a line of text. This 
+distance is a vector (called the displacement vector) in the #glyph coordinate system; it has horizontal 
 and vertical components. 
 NOTE 5 Most Western writing systems, including those based on the Latin alphabet, have a positive 
 horizontal displacement and a zero vertical displacement. Some Asian writing systems have a 
 non-zero vertical displacement. In all cases, the text-showing operators transform the 
 displacement vector into text space and then translate text space by that amount. 
-The glyph bounding box shall be the smallest rectangle (oriented with the axes of the glyph coordinate 
-system) that just encloses the entire glyph shape. The bounding box shall be expressed in terms of its 
-left, bottom, right, and top coordinates relative to the glyph origin in the glyph coordinate system. 
+The #glyph bounding box shall be the smallest #rectangle (oriented with the axes of the #glyph coordinate 
+system) that just encloses the entire #glyph shape. The bounding box shall be expressed in terms of its 
+left, bottom, right, and top coordinates relative to the #glyph origin in the #glyph coordinate system. 
 In some writing systems, text is frequently aligned in two different directions. 
-NOTE 6 It is common to write Japanese and Chinese glyphs either horizontally or vertically. 
-To handle this, a font may contain a second set of metrics for each glyph. Which set of metrics to use 
+NOTE 6 It is common to write Japanese and Chinese #glyphs# either horizontally or vertically. 
+To handle this, a #font may contain a second set of metrics for each #glyph. Which set of metrics to use 
 shall be selected according to a writing mode, where 0 shall specify horizontal writing and 1 shall 
-specify vertical writing. This feature is available only for composite fonts, discussed in 9.7, "Composite 
-fonts". 
-When a glyph has two sets of metrics, each set shall specify a glyph origin and a displacement vector for 
-that writing mode. In vertical writing, the glyph position shall be described by a position vector from 
+specify vertical writing. This feature is available only for composite #fonts, discussed in 9.7, "Composite 
+#fonts". 
+When a #glyph has two sets of metrics, each set shall specify a #glyph origin and a displacement vector for 
+that writing mode. In vertical writing, the #glyph position shall be described by a position vector from 
 the origin used for horizontal writing (origin 0) to the origin used for vertical writing (origin 1). "

@@ -1,23 +1,23 @@
  
  
 An algorithm to determine the actual blending colour space of a 
-transparency group 
+transparency #group 
 (Informative) 
 The diagram in this informative Annex illustrates a possible algorithm to determine the blending colour 
-space of a transparency group: 
+space of a transparency #group: 
 CS
 • 
-Transparency groups that are non-isolated or isolated without  entry always inherit their 
+Transparency #groups that are non-isolated or isolated without  entry always inherit their 
 CS
 • 
-blending colour space from their parent group. 
-Isolated transparency groups with  entry that is a CIE-based colour space use that CIE-based 
-NOTE Isolated transparency groups with a device colour space as blending colour space first apply the 
+blending colour space from their parent #group. 
+Isolated transparency #groups with  entry that is a CIE-based colour space use that CIE-based 
+NOTE Isolated transparency #groups with a device colour space as blending colour space first apply the 
 colour space. 
 default colour space mechanism. 
-In case of no valid default colour space remapping, the ancestor transparency groups are searched –
+In case of no valid default colour space remapping, the ancestor transparency #groups are searched –
 starting with the nearest - for a possible blending colour space to inherit from. 
-Page transparency groups, which do not have a parent, instead inherit their blending colour space from 
+Page transparency #groups, which do not have a parent, instead inherit their blending colour space from 
 the output device, or from the output intent. 
 © ISO 2017 – All rights reserved 939 
 

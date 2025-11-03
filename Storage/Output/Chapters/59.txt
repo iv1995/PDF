@@ -1,4 +1,4 @@
-running text 
+#running text 
 the body of text, as distinct from headings, footnotes, diagrams, call-outs and other non-textual material 
 4.57 
  

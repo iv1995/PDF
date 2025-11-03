@@ -1,4 +1,4 @@
-Figure 20: Colour specification 
+#Figure 20: Colour specification 
  
 © ISO 2017 – All rights reserved 176 
 

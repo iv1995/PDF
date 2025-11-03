@@ -1,13 +1,13 @@
-Table 370: List standard structure types" defines standard 
+#Table 370: List standard structure types" defines standard 
 structure types for lists. 
-Table 370: List standard structure types 
+#Table 370: List standard structure types 
 Structure Category Description 
 Type 
 L 
 Block or Inline (List) Encloses content consisting of a sequence of items that are semantically 
 CaptionL
 related with each other. 
-If a  is present, it shall be either the first or last child in the  (list) 
+If a  is present, it shall be# either the first or last child in the  (list) 
 ListNumbering
 structure element. 
 The  attribute (see 14.8.5.5, "List attribute") may be used to 
@@ -24,7 +24,7 @@ content that would use the structure element.
 LI L
 Internal to  (List) (List Item) Encloses content for an individual member of a list. Children (see 
 structure elements Annex L, "Parent-child relationships between standard structure elements") 
-of the list item may occur in any order or combination.  
+of the list item may occur in any order or com#bination.  
 LBody LI
 Internal to  (List (List Item Body) Encloses the actual content of a list item. 
 item) structure 

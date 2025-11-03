@@ -1,14 +1,14 @@
-Table 367: Sub-block level structure type" defines a structure type similar to block level types but 
+#Table 367: Sub-block level structure type" defines a structure type similar to block level types but 
 intended for use in an inline context. An example of this usage is provided in H.8.4, "Example of Sub 
 © ISO 2017 – All rights reserved 732 
 
 ISO/DIS 32000-2
  
 standard structure type". 
-Table 367: Sub-block level structure type 
+#Table 367: Sub-block level structure type 
 Structure Category Description 
 Type 
-(PDF 2.0)
+(#PDF 2.0)
 Sub 
 Inline  (Sub-division of a block level element) Encloses content typically 
 LblSub
@@ -43,9 +43,9 @@ Unless otherwise noted in 14.8.4.2, “Nesting of standard structure elements”
 element is optional. It may occur once or more than once inside its parent structure element. The other 
 children of its parent structure element, if any are present, may be other inline structure elements or 
 actual content. Inline structure elements and portions of actual content inside a parent structure 
-element may occur in any combination and in any order. 
+element may occur in any com#bination and in any order. 
 Unless restricted by their type, structure elements and portions of actual content inside a parent 
-structure element may occur in any combination and in any order. 
+structure element may occur in any com#bination and in any order. 
 14.8.4.7.2General inline level structure types 
  
 "

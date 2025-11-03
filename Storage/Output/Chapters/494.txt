@@ -1,11 +1,11 @@
 Figure 90: 
-Rotation around the centre of orbit" illustrates camera positioning when orbiting around the centre of 
-orbit. 
+Rotation around the centre of or#bit" illustrates camera positioning when or#biting around the centre of 
+or#bit. 
 © ISO 2017 – All rights reserved 634 
 
 ISO/DIS 32000-2
- ![Figure 90 Rotation around the centre of orbit  .png](./Storage/Output/Images/Figure 90 Rotation around the centre of orbit  .png)
-Figure 90: Rotation around the centre of orbit 
+ ![Figure 90 Rotation around the centre of or#bit  .png](./Storage/Output/Images/Figure 90 Rotation around the centre of or#bit  .png)
+Figure 90: Rotation around the centre of or#bit 
  
 NOTE 3 The  entry allows the lighting of the 3D artwork to be changed without changing the artwork 
 LS

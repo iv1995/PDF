@@ -1,21 +1,21 @@
-Table 248: Entries in the ECMAScript dictionary 
+#Table 248: Entries in the ECMAScript dictionary 
 Key Type Value 
 (Optional) 
 Before  
   
 text string or A text string or text stream containing an ECMAScriptscript 
-text stream that shall be executed just before theFDFfile is imported. 
+text stream that shall be executed just before the#FDFfile is imported. 
 (Optional) 
 After  
   
 text string or A text string or text stream containing an ECMAScriptscript 
-text stream that shall be executed just after theFDFfile is imported. 
-(Optional; PDF 1.6) 
+text stream that shall be executed just after the#FDFfile is imported. 
+(Optional; #PDF 1.6) 
 AfterPermsReady 
    
 text string or A text string or text stream containing an 
-text stream ECMAScriptscript that shall be executed after theFDFfile is imported 
-and the usage rights in the PDF document have been determined (see 
+text stream ECMAScriptscript that shall be executed after the#FDFfile is imported 
+and the usage rights in the #PDF document have been determined (see 
 12.8.2.3, "UR"). 
 © ISO 2017 – All rights reserved 544 
 
@@ -36,7 +36,7 @@ Before
 the name dictionary and shall then be executed before the script 
 NOTE As described in 12.6.4.17, "ECMAScript actions" these scripts 
 defined in the  entry is executed. 
-are used to defineECMAScriptfunctions for use by other 
+are used to defineECMAScript#functions for use by other 
   
 scripts in the document. 
  
@@ -44,4 +44,4 @@ scripts in the document.
  
 FDF field dictionary
    
-Each field in anFDFfile shall be described by an. "
+Each field in an#FDFfile shall be described by an. "

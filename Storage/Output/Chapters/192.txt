@@ -1,4 +1,4 @@
-Figure 39: Connecting triangles in a free-form Gouraud-shaded triangle mesh 
+#Figure 39: Connecting triangles in a free-form Gouraud-shaded triangle mesh 
  
 Complex shapes can be created by using the edge flags to control the edge on which subsequent 
 triangles are formed. 

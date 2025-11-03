@@ -1,6 +1,6 @@
 Figure Annex H.2: 
 Page tree for the following example" shows the structure of this page tree. Numbers in the figure are 
-object numbers corresponding to the objects in the example. 
+#object numbers corresponding to the #objects in the example. 
 337
 335
 336
@@ -71,7 +71,7 @@ object numbers corresponding to the objects in the example.
 288
 257
 226
-Figure Annex H.2: Page tree for the following example 
+#Figure Annex H.2: Page tree for the following example 
  
 EXAMPLE 
 337 0 obj 
@@ -271,5 +271,5 @@ endobj
 endobj 
 H.6Outline hierarchy example 
  
-This section from a PDF file illustrates the structure of an outline hierarchy with six items. Example 1 in 
+This section from a #PDF file illustrates the structure of an outline hierarchy with six items. Example 1 in 
 H.6, "Outline hierarchy example" shows the outline with all items open, as illustrated in "

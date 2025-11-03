@@ -1,4 +1,4 @@
-Extend = [true true], Background specified 
+#Extend = [true true], Background specified 
 Figure 33: Axial shading 
 8.7.4.5.4Type 3 (radial) shadings 
  

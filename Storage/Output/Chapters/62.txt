@@ -1,5 +1,5 @@
-string object 
-series of bytes (unsigned integer values in the range 0 to 255) in which the bytes are not integer objects, 
+string #object 
+series of #bytes (unsigned integer values in the range 0 to 255) in which the #bytes are not #integer #objects, 
 but are stored in a more compact form 
 4.60 
  

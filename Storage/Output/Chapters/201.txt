@@ -1,8 +1,8 @@
-Figure 44: Painted area and boundary of a Coons Patch". 
+#Figure 44: Painted area and boundary of a Coons Patch". 
 © ISO 2017 – All rights reserved 241 
 
 ISO/DIS 32000-2
  ![Figure 44 Painted area and boundary of a Coons Patch  .jpg](./Storage/Output/Images/Figure 44 Painted area and boundary of a Coons Patch  .jpg)
-Figure 44: Painted area and boundary of a Coons Patch 
+#Figure 44: Painted area and boundary of a Coons Patch 
  
 "

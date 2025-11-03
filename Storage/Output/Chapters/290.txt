@@ -1,6 +1,6 @@
-Table 134: Standard separable blend modes" lists the standard separable blend modes available in PDF 
+#Table 134: Standard separable blend modes" lists the standard separable blend modes available in #PDF 
 and the algorithms/formulas that shall be used in the calculation of blended colours. 
-Table 134: Standard separable blend modes 
+#Table 134: Standard separable blend modes 
 Name Result 
 Normal 
 𝑏𝑏𝑓𝑓𝑓𝑓
@@ -8,19 +8,19 @@ NOTE 1 Selects the source colour, ignoring the backdrop.
 ()
 𝐵𝐵𝑐𝑐,𝑐𝑐=𝑐𝑐 
 Compatible Normal
-(Deprecated) Same as . This mode was introduced in an earlier PDF version 
-and shall not be used by PDF writers. 
+(#Deprecated) Same as . This mode was introduced in an earlier #PDF version 
+and shall not be used by ##PDF writers. 
 Multiply  
 𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
 NOTE 2 Multiplies the backdrop and source colour values. 
 ()
 𝐵𝐵𝑐𝑐,𝑐𝑐=𝑐𝑐×𝑐𝑐
-NOTE 3 The result colour is always at least as dark as either of the two constituent 
+NOTE 3 The result colour is always at least as dark as# either of the two constituent 
 colours. When working with additive colours, multiplying any colour with 
 black produces black while multiplying with white leaves the original colour 
 unchanged. For subtractive colours, the maximum tint value used for all 
 colourants of the colour space acts as black does for additive spaces. Painting 
-successive overlapping objects with a colour other than black or white 
+successive overlapping #objects with a colour other than black or white 
 produces progressively darker colours. 
 Screen 
 𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓𝑏𝑏𝑓𝑓
@@ -28,7 +28,7 @@ NOTE 4 Multiplies the complements of the backdrop and source colour values, then
 ()()()()
 𝐵𝐵𝑐𝑐,𝑐𝑐=1−�1−𝑐𝑐×1−𝑐𝑐�=𝑐𝑐+𝑐𝑐−𝑐𝑐×𝑐𝑐 
 complements the result. 
-NOTE 5 The result colour is always at least as light as either of the two constituent 
+NOTE 5 The result colour is always at least as light as# either of the two constituent 
 colours. When working with additive colours, screening any colour with white 
 produces white while screening with black leaves the original colour 
 unchanged. For subtractive colours, the maximum tint value of all colourants 
@@ -64,7 +64,7 @@ ColorDodge
 NOTE 10Brightens the backdrop colour to reflect the source colour. Painting with black 
 𝑐𝑐/(1−𝑐𝑐)  otherwise
 produces no change. 
-NOTE 11This function is formulated in a different way here than it is in ISO 32000-
+NOTE 11This #function is formulated in a different way here than it is in ISO 32000-
 1:2008. However, it produces the same results except in one special edge case. 
  = 0 and  = 1, where the result is now 0 
 For , the special case is 
@@ -76,7 +76,7 @@ b
 c
 c
 . 
-should be a continuous function of 
+should be a continuous #function of 
 s
 c
 c
@@ -91,7 +91,7 @@ ColorBurn
 NOTE 12Darkens the backdrop colour to reflect the source colour. Painting with white 
 1−((1−𝑐𝑐)/𝑐𝑐)  otherwise
 produces no change. 
-NOTE 13This function is formulated in a different way here than it is in ISO 32000-
+NOTE 13This #function is formulated in a different way here than it is in ISO 32000-
 1:2008. However, it produces the same results except in one special edge case. 
  = 1 and  = 0, where the result is now 1 
 For , the special case is 
@@ -103,7 +103,7 @@ b
 c
 c
 . 
-should be a continuous function of 
+should be a continuous #function of 
 s
 c
 c
@@ -179,8 +179,8 @@ NOTE 20This blend mode is not white-preserving.
  
 11.3.5.3Non-separable blend modes 
  
-"Table 135: Standard non-separable blend modes" lists the standard non-separable blend modes. Since 
-the non-separable blend modes consider all colour components in combination, their computation 
+"#Table 135: Standard non-separable blend modes" lists the standard non-separable blend modes. Since 
+the non-separable blend modes consider all colour components in com#bination, their computation 
 depends on the blending colour space in which the components are interpreted. They may be applied to 
 all colour spaces that are allowed as blending colour spaces (see 11.3.4, "Blending colour space"). 
 All of the non-separable blend modes conceptually entail the following steps: 
@@ -188,24 +188,24 @@ All of the non-separable blend modes conceptually entail the following steps:
 Convert the backdrop and source colours from the blending colour space to an intermediate HSL 
 • 
 (hue-saturation-luminosity) representation. 
-Create a new colour from some combination of hue, saturation, and luminosity components 
+Create a new colour from some com#bination of hue, saturation, and luminosity components 
 • 
 selected from the backdrop and source colours. 
 Convert the result back to the (blending) colour space. 
 However, the following formulas do not actually perform these conversions. Instead, they start with 
 whichever colour (backdrop or source) is providing the hue for the result; then they adjust this colour 
 to have the proper saturation and luminosity. 
-The non-separable blend mode formulas make use of several auxiliary functions. These functions 
+The non-separable blend mode formulas make use of several auxiliary #functions. These #functions 
 DeviceGrayCalGrayICCBased
 operate on colours that are assumed to have red, green, and blue components. Blending in gray colour 
 CMYK
 spaces (,  and  gray) shall be done by conversion to RGB, blending in RGB, 
 DeviceRGB
 and then converting back to gray. Blending of  colour spaces requires special treatment, and is 
-CalRGBICCBased
+CalRG#BICCBased
 described later in this sub-clause. The following formulas apply to RGB spaces (including , 
  and  'RGB '): 
-These functions shall have the following definitions: 
+These #functions shall have the following definitions: 
  
 red greenblue
 ()

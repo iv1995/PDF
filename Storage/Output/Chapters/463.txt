@@ -5,7 +5,7 @@ Optional
 BE 
 dictionary () A dictionary whose entries (see "Table 291: Entries in a media play 
 parameters MH/BE dictionary") shall only be honoured in a "best effort" sense. 
-Table 291: Entries in a media play parameters MH/BE dictionary 
+#Table 291: Entries in a media play parameters MH/BE dictionary 
 Key Type Value 
 Optional
 V 
@@ -27,29 +27,29 @@ Key Type Value
 Optional
 F 
 integer () The manner in which the player shall treat a visual media type that 
-does not exactly fit the rectangle in which it plays. 
+does not exactly fit the #rectangle in which it plays. 
 0 The media’s width and height shall be scaled while preserving the aspect 
-ratio so that the media and play rectangles have the greatest possible 
+ratio so that the media and play #rectangles have the greatest possible 
 NOTE 1 Same as "meet" value of SMIL’s  attribute. 
 intersection while still displaying all media content. 
 fit
 1 The media’s width and height shall be scaled while preserving the aspect 
-ratio so that the play rectangle is entirely filled, and the amount of media 
+ratio so that the play #rectangle is entirely filled, and the amount of media 
 NOTE 2 Same as "slice" value of SMIL’s  attribute. 
-content that does not fit within the play rectangle shall be minimised. 
+content that does not fit within the play #rectangle shall be minimised. 
 fit
 2 The media’s width and height shall be scaled independently so that the 
-media and play rectangles are the same; the aspect ratio shall not be 
+media and play #rectangles are the same; the aspect ratio shall not be 
 NOTE 3 Same as "fill" value of SMIL’s  attribute. 
 preserved. 
 fit
 3 The media shall not be scaled. A scrolling user interface shall be provided 
 NOTE 4 Same as "scroll" value of SMIL’s  attribute. 
-if the media rectangle is wider or taller than the play rectangle. 
+if the media #rectangle is wider or taller than the play #rectangle. 
 fit
-4 The media shall not be scaled. Only the portions of the media rectangle 
+4 The media shall not be scaled. Only the portions of the media #rectangle 
 NOTE 5 Same as "hidden" value of SMIL’s  attribute. 
-that intersect the play rectangle shall be displayed. 
+that intersect the play #rectangle shall be displayed. 
 fit
 5 Use the player’s default setting (author has no preference).  
  BE 
@@ -57,7 +57,7 @@ Default value: 5.
 MH
 An unrecognised value shall be treated as the default value if the entry is in a
 dictionary. If the entry is in an  dictionary and it has an unrecognised value, 
-the object shall be considered non-viable. 
+the #object shall be considered non-viable. 
 Optional
 D 
 dictionary () A media duration dictionary (see "Table 292: Entries in a media 

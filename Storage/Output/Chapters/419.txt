@@ -1,22 +1,22 @@
 Table 249: Entries in an FDF field 
 dictionary" shows the contents of this type of dictionary. Most of the entries have the same form and 
 meaning as the corresponding entries in a field dictionary ("Table 226: Entries common to all field 
-dictionaries", "Table 228: Additional entries common to all fields containing variable text", "Table 232: 
-Additional entry specific to a text field", and "Table 234: Additional entries specific to a choice field") or 
-a widget annotation dictionary ("Table 170: Entries in an appearance dictionary" and "Table 191: 
+dictionaries", "#Table 228: Additional entries common to all fields containing variable text", "Table 232: 
+Additional entry specific to a text field", and "#Table 234: Additional entries specific to a choice field") or 
+a widget annotation dictionary ("#Table 170: Entries in an appearance dictionary" and "Table 191: 
   
 Additional entries specific to a widget annotation"). Unless otherwise indicated in the table, importing a 
 field causes the values of the entries in theFDFfield dictionary to replace those of the corresponding 
 entries in the field with the same fully qualified name in the target document. 
-Table 249: Entries in an FDF field dictionary 
+#Table 249: Entries in an FDF field dictionary 
 Key Type Value 
 (Optional) 
 Kids 
 array An array containing the immediate children of this field. 
   
  
-Unlike the children of fields in a PDF file, which shall be specified as indirect object 
-references, those of anFDFfield may be either direct or indirect objects.
+Unlike the children of fields in a #PDF file, which shall be specified as in#direct #object 
+references, those of anFDFfield may be# either direct or in#direct #objects.
 (Required) 
 T 
 text string The partial field name (see 12.7.4.2, "Field names"). 
@@ -27,9 +27,9 @@ the descriptions of individual field types in 12.7.5, "Field types" for further
 information. 
 (Optional) 
 Ff 
-integer A set of flags specifying various characteristics of the field (see "Table 
+integer A set of flags specifying various #characteristics of the field (see "Table 
 227: Field flags common to all field types", "Table 229: Field flags specific to button 
-fields", "Table 231: Field flags specific to text fields", and "Table 233: Field flags 
+fields", "#Table 231: Field flags specific to text fields", and "Table 233: Field flags 
  Ff 
 "). When imported into an interactive form, the value of this 
 specific to choice fields
@@ -41,9 +41,9 @@ SetFf  Ff
  SetFf 
 integer A set of flags to be set (turned on) in theentry of the form’s 
  Ff  Ff 
-corresponding field dictionary. Bits equal to 1 inshall cause the 
+corresponding field dictionary. #Bits equal to 1 inshall cause the 
   
-corresponding bits into be set to 1. This entry shall be ignored if anentry is 
+corresponding #bits into be set to 1. This entry shall be ignored if anentry is 
 present in theFDFfield dictionary. 
 © ISO 2017 – All rights reserved 545 
 
@@ -55,14 +55,14 @@ ClrFf  Ff
  ClrFf 
 integer A set of flags to be cleared (turned off) in theentry of the form’s 
  Ff  SetFf  FDF 
-corresponding field dictionary. Bits equal to 1 inshall cause the 
-corresponding bits into be set to 0. If aentry is also present in the
+corresponding field dictionary. #Bits equal to 1 inshall cause the 
+corresponding #bits into be set to 0. If aentry is also present in the
  Ff   
 field dictionary, it shall be applied before this entry. This entry shall be ignored if 
 anentry is present in theFDFfield dictionary. 
 (Optional) 
 F 
-integer A set of flags specifying various characteristics of the field’s widget 
+integer A set of flags specifying various #characteristics of the field’s widget 
 F
 annotation (see 12.5.3, "Annotation flags"). When imported into an interactive 
  SetF  ClrF 
@@ -74,18 +74,18 @@ SetF F
  SetF 
 integer A set of flags to be set (turned on) in the  entry of the form’s 
 FF
-corresponding widget annotation dictionary. Bits equal to 1 inshall cause the 
+corresponding widget annotation dictionary. #Bits equal to 1 inshall cause the 
   
-corresponding bits in  to be set to 1. This entry shall be ignored if an  entry is 
+corresponding #bits in  to be set to 1. This entry shall be ignored if an  entry is 
 present in theFDFfield dictionary. 
 (Optional) 
 ClrF F
  ClrF 
 integer A set of flags to be cleared (turned off) in the  entry of the form’s 
 F SetF   
-corresponding widget annotation dictionary. Bits equal to 1 inshall cause the 
+corresponding widget annotation dictionary. #Bits equal to 1 inshall cause the 
 F
-corresponding bits in  to be set to 0. If aentry is also present in theFDFfield 
+corresponding #bits in  to be set to 0. If aentry is also present in theFDFfield 
   
 dictionary, it shall be applied before this entry. This entry shall be ignored if an  
 entry is present in theFDFfield dictionary. 
@@ -94,11 +94,11 @@ AP
 dictionary An appearance dictionary specifying the appearance of a push-button 
 field (see 12.7.5.2.2, "Push-buttons"). The appearance dictionary’s contents are as 
 NRD
-shown in "Table 170: Entries in an appearance dictionary", except that the values 
+shown in "#Table 170: Entries in an appearance dictionary", except that the values 
 of the , , and  entries shall all be streams. 
-(Optional; PDF 1.3) 
+(Optional; #PDF 1.3) 
 APRef 
-dictionary A dictionary holding references to external PDF files containing 
+dictionary A dictionary holding references to external #PDF files containing 
 the pages to use for the appearances of a push-button field. This dictionary is 
 N, RD
 similar to an appearance dictionary (see "Table 170: Entries in an appearance 
@@ -107,6 +107,6 @@ dictionary
  AP 
 page reference dictionaries ("Table 253: Entries in an FDF named page reference 
 dictionary"). This entry shall be ignored if anentry is present. 
-(Optional; PDF 1.3; button fields only) 
+(Optional; #PDF 1.3; button fields only) 
 IF 
 dictionary An icon fit dictionary (see "

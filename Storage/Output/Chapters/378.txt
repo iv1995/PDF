@@ -1,10 +1,10 @@
-Table 210: Additional entries specific to a URI action" shows 
+#Table 210: Additional entries specific to a URI action" shows 
 the action dictionary entries specific to this type of action. 
 © ISO 2017 – All rights reserved 503 
 
 ISO/DIS 32000-2
  
-Table 210: Additional entries specific to a URI action 
+#Table 210: Additional entries specific to a URI action 
 Key Type Value 
 (Required) URI
 S     
@@ -12,7 +12,7 @@ name The type of action that this dictionary describes; shall befor aURI
 action. 
 (Required) 
 URI 
-ASCII string The uniform resource identifier to resolve, encoded in UTF8. 
+#ASCII string The uniform resource# identifier to resolve, encoded in UTF8. 
 (Optional) 
 IsMap   
 false
@@ -29,13 +29,13 @@ true
 If theflag is  and the user has triggered theURIaction by clicking an annotation, the 
 coordinates of the mouse position at the time the action has been triggered shall be transformed from 
  Rect   
-device space to user space and then offset relative to the upper-left corner of the annotation rectangle 
+device space to user space and then offset relative to the upper-left corner of the annotation #rectangle 
 (that is, the value of theentry in the annotation with which theURIaction is associated). 
 xyllll
 urxy
 ur
 mmxy
-EXAMPLE 1 If the mouse coordinates in user space are (,  ) and the annotation rectangle extends from (,  ) at the 
+EXAMPLE 1 If the mouse coordinates in user space are (,  ) and the annotation #rectangle extends from (,  ) at the 
 xyff
 ,  ) at the upper-right, the final coordinates (,  ) are as follows: 
 lower-left to (
@@ -55,6 +55,6 @@ QUESTION MARK (3Fh), as shown in this example:
 EXAMPLE 2 http://www.iso.org/intro?100,200 
   
  URI   
-To supportURIactions, a PDF document’s catalog dictionary (see 7.7.2, "Document catalog dictionary") 
+To supportURIactions, a #PDF document’s catalog dictionary (see 7.7.2, "Document catalog dictionary") 
 may include aentry whose value is aURIdictionary. Only one entry shall be defined for such a 
 dictionary (see "

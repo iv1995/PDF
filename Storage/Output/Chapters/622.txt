@@ -10,15 +10,15 @@ Named destination hint table
 • 
 Information dictionary hint table 
 Page label hint table 
-Generic hint tables may be used for product-specific objects accessed by PDF processors. 
-NOTE It is considerably more convenient for a PDF processor to use the generic hint representation than 
+Generic hint tables may be used for product-specific #objects accessed by ##PDF processors. 
+NOTE It is considerably more convenient for a ##PDF processor to use the generic hint representation than 
 to specify custom hints. 
-Table Annex F.9: Generic hint table 
-item Size (bits) Description 
-1 32 The object number of the first object in the group. 
-2 32 The location of the first object in the group. 
-3 32 The number of objects in the group. 
-4 32 The length of the object group in bytes. 
+#Table Annex F.9: Generic hint table 
+item Size (#bits) Description 
+1 32 The #object number of the first #object in the #group. 
+2 32 The location of the first #object in the #group. 
+3 32 The number of #objects in the #group. 
+4 32 The length of the #object #group in #bytes. 
  
 F.4.6Extended generic hint tables 
  

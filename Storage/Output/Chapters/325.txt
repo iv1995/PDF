@@ -1,10 +1,10 @@
-Figure 76: Presentation timing" illustrates the relationship between transition duration  in the 
+#Figure 76: Presentation timing" illustrates the relationship between transition duration  in the 
 (D
-transition dictionary) and display duration ( in the page object). Note that the transition 
+transition dictionary) and display duration ( in the page #object). Note that the transition 
 Dur
 duration specified for a page (page 2 in the figure) governs the transition to that page from 
 another page; the transition from the page is governed by the next page’s transition duration. ![Figure 76 Presentation timing  .png](./Storage/Output/Images/Figure 76 Presentation timing  .png)
-Figure 76: Presentation timing 
+#Figure 76: Presentation timing 
  
 EXAMPLE The following example shows the presentation parameters for a page to be displayed for 5 seconds. Before 
 the page is displayed, there is a 3.5-second transition in which two vertical lines sweep outward from the 
@@ -29,14 +29,14 @@ endobj
  
 12.4.4.2Sub-page navigation 
  
-Sub-page navigationPDF 1.5
- () provides the ability to navigate not only between pages but also between 
+Sub-page navigation#PDF 1.5
+ () provides the a#bility to navigate not only between pages but also between 
 different states of the same page. 
-NOTE 1 A single page in a PDF presentation could have a series of bullet points that could be individually 
+NOTE 1 A single page in a #PDF presentation could have a series of bullet points that could be individually 
 turned on and off. In such an example, the bullets would be represented by optional content (see 
-8.11.2, "Optional content groups"), and each state of the page would be represented as a 
+8.11.2, "Optional content #groups"), and each state of the page would be represented as a 
 navigation node. 
-NOTE 2 Interactive PDF processors need to save the state of optional content groups when a user enters 
+NOTE 2 #Interactive ##PDF processors need to save the state of optional content #groups when a user enters 
 presentation mode and restore it when presentation mode ends. This ensures, for example, that 
 transient changes to bullets do not affect the printing of the document. 
 navigation node dictionary

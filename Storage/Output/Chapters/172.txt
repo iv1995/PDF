@@ -1,30 +1,30 @@
-Table 73: Colour operators" lists the PDF operators that control colour spaces and colour values. Also 
-colour-related is the graphics state operator , listed in "Table 56: Graphics state operators" and 
+#Table 73: Colour operators" lists the #PDF operators that control colour spaces and colour values. Also 
+colour-related is the #graphics state operator , listed in "Table 56: #Graphics state operators" and 
 discussed under 8.6.5.8, "Rendering intents
 ". Colour operators may appear at the page description level 
-or inside text objects (see "Figure 9: Graphics Objects"). 
+or inside text #objects (see "Figure 9: Graphics #Objects"). 
 © ISO 2017 – All rights reserved 211 
 
 ISO/DIS 32000-2
  
-Table 73: Colour operators 
+#Table 73: Colour operators 
 Operands Operator Description 
-name PDF 1.1
+name #PDF 1.1
 CS 
 () Set the current colour space to use for stroking operations. The operand name 
 DeviceGrayDeviceRGBDeviceCMYK
-shall be a name object. If the colour space is one that can be specified by a name and no 
+shall be a #name #object. If the colour space is one that can be specified by a name and no 
 Pattern 
 additional parameters (, , , and certain cases of 
 ColorSpace 
 ), the name may be specified directly. Otherwise, it shall be a name defined in the
 7.8.3, "Resource 
-subdictionary of the current resource dictionary (see 
-dictionaries"); the associated value shall be an array describing the colour space (see 8.6.3, 
+subdictionary of the current #resource dictionary (see 
+dictionaries"); the associated value shall be an array descri#bing the colour space (see 8.6.3, 
 DeviceGrayDeviceRGBDeviceCMYKPattern
 "Colour space families"). 
  ColorSpace 
-The names , , , and  always identify the 
+The names , , , and  always# identify the 
 corresponding colour spaces directly; they never refer to resources in the
 CS
 subdictionary. 
@@ -34,7 +34,7 @@ on the colour space:
 In a , , CalGray, orcolour space, the initial colour shall have 
  DeviceCMYK 
 all components equal to 0.0. 
-Lab ICCBased 
+La#b ICCBased 
 In acolour space, the initial colour shall be [0.0 0.0 0.0 1.0]. 
 Range
 In a  orcolour space, the initial colour shall have all components equal to 0.0 
@@ -45,13 +45,13 @@ nearest valid value shall be substituted.
 In ancolour space, the initial colour value shall be 0. 
 Pattern
 In aorcolour space, the initial tint value shall be 1.0 for all colourants. 
-In a  colour space, the initial colour shall be a pattern object that causes nothing to 
+In a  colour space, the initial colour shall be a pattern #object that causes nothing to 
 be painted. 
-name PDF 1.1
+name #PDF 1.1
 cs CS
 () Same as  but used for nonstroking operations. 
 1n
-c… c PDF 1.1
+c… c #PDF 1.1
 SC 
  Indexed 
 () Set the colour to use for stroking operations in a device, CIE-based (other than 
@@ -65,7 +65,7 @@ DeviceCMYK
 For , , and  colour spaces, three operands shall be required (n = 3). 
 For , four operands shall be required (n = 4). 
 1n
-c… c PDF 1.2
+c… c #PDF 1.2
 PatternSeparation DeviceN  ICCBased 
 SCN 
 1n
@@ -89,7 +89,7 @@ If the current stroking colour space is a  colour space, name shall be the name 
 1
 c
 PatternTypePaintType
-entry in the  subdictionary of the current resource dictionary (see 7.8.3, "Resource 
+entry in the  subdictionary of the current #resource dictionary (see 7.8.3, "Resource 
 c
 "). For an uncoloured tiling pattern ( = 1 and  = 2), … 
 dictionaries
@@ -98,11 +98,11 @@ n
  
 For other types of patterns, these operands shall not be specified.
 1n
-c… c PDF 1.1
+c… c #PDF 1.1
 sc SC
 () Same as  but used for nonstroking operations. 
 1n
-c… c PDF 1.2
+c… c #PDF 1.2
 SCN
 scn 
 1n
@@ -142,6 +142,6 @@ c m y k
 k K
 Same as  but used for nonstroking operations. 
  
-Invoking operators that specify colours or other colour-related parameters in the graphics state is 
+Invoking operators that specify colours or other colour-related parameters in the #graphics state is 
 restricted in certain circumstances. This restriction occurs when defining graphical figures whose 
 colours shall be specified separately each time they are used. Specifically, the restriction applies 

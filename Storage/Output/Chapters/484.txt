@@ -1,13 +1,13 @@
-Table 309: Additional entries specific to a 3D annotation" shows the entries specific to a 3D annotation 
-dictionary. "Table 166: Entries common to all annotation dictionaries" describes the entries common to 
+#Table 309: Additional entries specific to a 3D annotation" shows the entries specific to a 3D annotation 
+dictionary. "#Table 166: Entries common to all annotation dictionaries" describes the entries common to 
 all annotation dictionaries. 
  AP 
 N
 In addition to these entries, a 3D annotation shall provide an appearance stream in itsentry (see 
-"Table 166: Entries common to all annotation dictionaries") that has a normal appearance (the  entry 
-in "Table 170: Entries in an appearance dictionary"). This appearance may be used by applications that 
+"#Table 166: Entries common to all annotation dictionaries") that has a normal appearance (the  entry 
+in "#Table 170: Entries in an appearance dictionary"). This appearance may be used by applications that 
 do not support 3D annotations and by all applications for the initial display of the annotation. 
-Table 309: Additional entries specific to a 3D annotation 
+#Table 309: Additional entries specific to a 3D annotation 
 Key Type Value 
 Required3D
 Subtype 
@@ -25,8 +25,8 @@ dictionary (see 13.6.3.3, "3D reference dictionaries") that specifies the 3D art
 shown. 
 Optional
 3DV 
-(various) () An object that specifies the default initial view of the 3D artwork 
-that shall be used when the annotation is activated. It may be either a 3D 
+(various) () An #object that specifies the default initial view of the 3D artwork 
+that shall be used when the annotation is activated. It may be# either a 3D 
  VA 
 view dictionary (see 13.6.4, "3D views") or one of the following types 
 specifying an element in thearray in the 3D stream (see "Table 311: 
@@ -44,7 +44,7 @@ VA
 A name that indicates the first (), last (), or default () entries in the
 3DD
 array. 
-Default value: the default view in the 3D stream object specified by . 
+Default value: the default view in the 3D stream #object specified by . 
 Optionalactivation dictionary
 3DA 
 dictionary () An  (see "

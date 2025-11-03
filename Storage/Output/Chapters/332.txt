@@ -1,6 +1,6 @@
 Table 169: Entries in a border 
 effect dictionary" that describes the entries in a border effect dictionary. 
-Table 169: Entries in a border effect dictionary 
+#Table 169: Entries in a border effect dictionary 
 Key Type Value 
 (Optional) 
 S 
@@ -18,7 +18,7 @@ No effect: the border shall be as described by the annotation dictionary’s
 entry. 
 (Optional; valid only if the value of  is C) 
 I S
-number A number describing the intensity of the 
+number A number descri#bing the intensity of the 
 effect, in the range 0 to 2. Default value: 0. 
  
 © ISO 2017 – All rights reserved 461 
@@ -27,12 +27,12 @@ ISO/DIS 32000-2
  
 12.5.5Appearance streams 
  
-Beginning with PDF 1.2, an annotation may specify one or more appearance streams as an alternative to 
-the simple border and colour characteristics available in earlier versions. Appearance streams enable 
+Beginning with #PDF 1.2, an annotation may specify one or more appearance streams as an alternative to 
+the simple border and colour #characteristics available in earlier versions. Appearance streams enable 
 the annotation to be presented visually in different ways to reflect its interactions with the user. Each 
-appearance stream is a form XObject (see 8.10, "Form XObjects"): a self-contained content stream that 
-shall be rendered inside the annotation rectangle. 
+appearance stream is a form X#Object (see 8.10, "Form X#Objects"): a self-contained #content stream that 
+shall be rendered inside the annotation #rectangle. 
 Matrix
 The algorithm outlined in this subclause shall be used to map from the coordinate system of the 
-appearance XObject (as defined by its  entry; see "Table 95: Entries in a reference dictionary") to 
-the annotation’s rectangle in default user space: 
+appearance X#Object (as defined by its  entry; see "#Table 95: Entries in a reference dictionary") to 
+the annotation’s #rectangle in default user space: 

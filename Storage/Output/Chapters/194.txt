@@ -1,5 +1,5 @@
-Figure 41: Lattice-form triangle meshes"). ![Figure 41 Lattice-form triangle meshes  .png](./Storage/Output/Images/Figure 41 Lattice-form triangle meshes  .png)
-Figure 41: Lattice-form triangle meshes 
+#Figure 41: Lattice-form triangle meshes"). ![Figure 41 Lattice-form triangle meshes  .png](./Storage/Output/Images/Figure 41 Lattice-form triangle meshes  .png)
+#Figure 41: Lattice-form triangle meshes 
  
 © ISO 2017 – All rights reserved 237 
 

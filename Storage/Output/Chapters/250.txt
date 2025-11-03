@@ -1,103 +1,103 @@
-Table 108: Font types" lists the types of fonts that are supported in ISO 32000 along with the value that 
-shall be used for the  key in the font dictionary that represents the font. No values for  
-other than those listed in the table are valid. Type 0 fonts are called composite fonts; other types of 
-fonts are called simple fonts. In addition to fonts, PDF supports two classes of font-related objects, 
-called CIDFonts and CMaps, described in 9.7.2, "CID-Keyed fonts overview". CIDFonts are listed in 
-"Table 108: Font types" because, like fonts, they are collections of glyphs; however, a CIDFont shall not 
-be used directly but only as a component of a Type 0 font. 
-Table 108: Font types 
+Table 108: #Font types" lists the types of fonts that are supported in ISO 32000 along with the value that 
+shall be used for the  key in the #font dictionary that represents the #font. No values for  
+other than those listed in the table are valid. Type 0 #fonts are called composite #fonts; other types of 
+#fonts are called simple #fonts. In addition to #fonts, #PDF supports two classes of font-related #objects, 
+called CID#Fonts and CMaps, described in 9.7.2, "CID-Keyed #fonts overview". CID#Fonts are listed in 
+"Table 108: #Font types" because, like #fonts, they are collections of #glyphs; however, a CID#Font shall not 
+be used directly but only as a component of a Type 0 #font. 
+Table 108: #Font types 
 Type Subtype Value Description 
-Type0  PDF 1.2
+Type0  #PDF 1.2
 Type 0  
-() A composite font — a font composed of glyphs from a 
-descendant CIDFont (see 9.7, "Composite fonts") 
+() A composite #font — a #font composed of #glyphs from a 
+descendant CID#Font (see 9.7, "Composite #fonts") 
 Type1 
 Type 1 
-A font that defines glyph shapes using Type 1 font technology 
-(see 9.6.2, "Type 1 fonts"). 
+A #font that defines #glyph shapes using Type 1 #font technology 
+(see 9.6.2, "Type 1 #fonts"). 
 MMType1 
-A multiple master font — an extension of the Type 1 font that 
+A multiple master #font — an extension of the Type 1 #font that 
 allows the generation of a wide variety of typeface styles from a 
-single font (see 9.6.2.3, "Multiple master fonts") 
+single #font (see 9.6.2.3, "Multiple master #fonts") 
 Type3 
 Type 3 
-A font that defines glyphs with streams of PDF graphics 
-operators (see 9.6.4, "Type 3 fonts") 
+A #font that defines #glyphs with streams of #PDF graphics 
+operators (see 9.6.4, "Type 3 #fonts") 
 TrueType  
 TrueType 
-A font based on the TrueType font format (see 9.6.3, "TrueType 
-fonts") and with glyph descriptions based on TrueType glyph 
+A #font based on the TrueType #font format (see 9.6.3, "TrueType 
+#fonts") and with #glyph descriptions based on TrueType #glyph 
 technology. 
-CIDFontType0 PDF 1.2
-CIDFont 
-() A CIDFont whose glyph descriptions are based on CFF 
-font technology (see 9.7.4, "CIDFonts") 
-CIDFontType2 PDF 1.2
-() A CIDFont whose glyph descriptions are based on 
-TrueType glyph technology (see 9.7.4, "CIDFonts") 
+CID#FontType0 #PDF 1.2
+CID#Font 
+() A CID#Font whose #glyph descriptions are based on CFF 
+#font technology (see 9.7.4, "CID#Fonts") 
+CID#FontType2 #PDF 1.2
+() A CID#Font whose #glyph descriptions are based on 
+TrueType #glyph technology (see 9.7.4, "CID#Fonts") 
  
-NOTE 2 Embedding of OpenType font programs (files) in PDF is described in "Table 124: Embedded font 
-organization for various font types" when the value of thekey is . The font 
- FontFile3 
+NOTE 2 Embedding of OpenType ##font programs (files) in #PDF is described in "Table 124: Embedded #font 
+organization for various #font types" when the value of thekey is . The #font 
+ #FontFile3 
 dictionary that refers to it can have a  of , , , or 
 Subtype
 OpenType
-, depending upon the glyph technology used in the OpenType font and other details 
-TrueTypeType1CIDFontType0
+, depending upon the #glyph technology used in the OpenType #font and other details 
+TrueTypeType1CID#FontType0
 provided in that table. 
-CIDFontType2
-For all font types, the term font dictionary refers to a PDF dictionary containing information about the 
-font; likewise, a CIDFont dictionary contains information about a CIDFont. Except for Type 3, this 
-dictionary is distinct from the font program that defines the font’s glyphs. That font program may be 
-embedded in the PDF file as a stream object or be obtained from some external source. 
+CID#FontType2
+For all #font types, the term #font dictionary refers to a #PDF dictionary containing information about the 
+#font; likewise, a CID#Font dictionary contains information about a CID#Font. Except for Type 3, this 
+dictionary is distinct from the ##font program that defines the #font’s #glyphs. That ##font program may be 
+embedded in the #PDF file as a stream #object or be obtained from some external source. 
 © ISO 2017 – All rights reserved 305 
 
 ISO/DIS 32000-2
  
-NOTE 3 This terminology differs from that used in the PostScript language. In PostScript, a font dictionary 
-is a PostScript data structure that is created as a direct result of interpreting a font program. In 
-PDF, a font program is always treated as if it were a separate file, even when its content is 
-embedded in the PDF file. The font program is interpreted by a specialised font interpreter when 
-necessary; its contents never materialize as PDF objects. 
-NOTE 4 Most font programs (and related programs, such as CIDFonts and CMaps) conform to external 
-specifications, such as the Adobe Type 1FontFormat. This part of ISO 32000 does not include 
+NOTE 3 This terminology differs from that used in the PostScript language. In PostScript, a #font dictionary 
+is a PostScript data structure that is created as a direct result of interpreting a ##font program. In 
+#PDF, a ##font program is always treated as if it were a separate file, even when its content is 
+embedded in the #PDF file. The ##font program is interpreted by a specialised #font interpreter when 
+necessary; its contents never materialize as #PDF #objects. 
+NOTE 4 Most ##font programs (and related programs, such as CID#Fonts and CMaps) conform to external 
+specifications, such as the Adobe Type 1#FontFormat. This part of ISO 32000 does not include 
   
 those specifications. See 2, "Normative references" for more information about the specifications 
 mentioned in this clause. 
-NOTE 5 The most predictable and dependable results are produced when all font programs used to show 
-text are embedded in the PDF file. See 9.9, "Embedded font programs" for the precise description 
-of how to do so. If a PDF file refers to font programs that are not embedded, the results depend on 
-the availability of fonts in the PDF processor’s environment. See 9.8, "Font descriptors" for some 
-conventions for referring to external font programs. However, some details of font naming, font 
-substitution, and glyph selection are implementation-dependent and can vary among different 
-PDF processors and operating system environments. 
-9.6Simple fonts 
+NOTE 5 The most predictable and dependable results are produced when all ##font programs used to show 
+text are embedded in the #PDF file. See 9.9, "Embedded ##font programs" for the precise description 
+of how to do so. If a #PDF file refers to ##font programs that are not embedded, the results depend on 
+the availa#bility of fonts in the ##PDF processor’s environment. See 9.8, "#Font descriptors" for some 
+conventions for referring to external ##font programs. However, some details of font naming, #font 
+substitution, and #glyph selection are implementation-dependent and can vary among different 
+##PDF processors and operating system environments. 
+9.6Simple #fonts 
  
 9.6.1General 
  
-There are several types of simple fonts, all of which have these properties: 
-Glyphs in the font shall be selected by single-byte character codes obtained from a string that is shown 
+There are several types of simple #fonts, all of which have these properties: 
+#Glyphs in the #font shall be selected by single-#byte #character codes obtained from a string that is shown 
 by the text-showing operators (see 9.4.3, "Text-showing operators"). Logically, these codes index into a 
-table of 256 glyphs; the mapping from codes to glyphs is called the font’s encoding. Under some 
-circumstances, the encoding may be altered by means described in 9.6.5, "Character encoding". 
-Each glyph shall have a single set of metrics, including a horizontal displacement or width, as described 
-in 9.2.4, "Glyph positioning and metrics"; that is, simple fonts support only horizontal writing mode. 
-Except for Type 0 fonts, Type 3 fonts in non-tagged PDF documents, and certain standard Type 1 fonts, 
-every font dictionary shall contain a subsidiary dictionary, the font descriptor, containing font-wide 
-metrics and other attributes of the font; see 9.8, "Font descriptors". Among those attributes is an 
-optional, but strongly recommended, font file stream containing the font program. 
-9.6.2Type 1 fonts 
+table of 256 #glyphs; the mapping from codes to #glyphs is called the #font’s encoding. Under some 
+circumstances, the encoding may be altered by means described in 9.6.5, "#Character encoding". 
+Each #glyph shall have a single set of metrics, including a horizontal displacement or width, as described 
+in 9.2.4, "#Glyph positioning and metrics"; that is, simple #fonts support only horizontal writing mode. 
+Except for Type 0 #fonts, Type 3 #fonts in non-tagged #PDF documents, and certain standard Type 1 #fonts, 
+every #font dictionary shall contain a subsidiary dictionary, the #font descriptor, containing #font-wide 
+metrics and other attributes of the #font; see 9.8, "#Font descriptors". Among those attributes is an 
+optional, but strongly recommended, #font file stream containing the ##font program. 
+9.6.2Type 1 #fonts 
  
 9.6.2.1General 
  
-A Type 1 font program is a stylised PostScript language program that describes glyph shapes. It uses a 
-compact encoding for the glyph descriptions, and it includes hint information that enables high-quality 
+A Type 1 ##font program is a stylised PostScript language program that describes #glyph shapes. It uses a 
+compact encoding for the #glyph descriptions, and it includes hint information that enables high-quality 
 rendering even at small sizes and low resolutions. 
 NOTE 1 Details on this format are provided in a separate specification, . An 
-alternative, more compact but functionally equivalent representation of a Type 1 font program is 
-Adobe Type 1 Font Format
+alternative, more compact but #functionally equivalent representation of a Type 1 ##font program is 
+Adobe Type 1 #Font Format
 documented in . 
-NOTE 2 Although a Type 1 font program uses PostScript language syntax, using it does not require a full 
-Adobe Technical Note #5176, The Compact Font Format Specification
-PostScript language compatible interpreter; a specialised Type 1 font interpreter suffices. 
-A Type 1 font dictionary may contain the entries listed in "
+NOTE 2 Although a Type 1 ##font program uses PostScript language syntax, using it does not require a full 
+Adobe Technical Note #5176, The Compact #Font Format Specification
+PostScript language compatible interpreter; a specialised Type 1 #font interpreter suffices. 
+A Type 1 #font dictionary may contain the entries listed in "

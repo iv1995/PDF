@@ -1,9 +1,9 @@
-Figure 99: Rendering of the 3D artwork using View4 
+#Figure 99: Rendering of the 3D artwork using View4 
  
 yz
  (cross section rotated around the  axis by -30 degrees and around the  axis by 30 degrees) 
 3DView
-"Figure 99: Rendering of the 3D artwork using View4" shows the cross section specified for the  
+"#Figure 99: Rendering of the 3D artwork using View4" shows the cross section specified for the  
 that references CrossSection4. This cross section specifies a plane that differs from the one specified in 
 CrossSection1 ("Figure 96: Rendering of the 3D artwork using View1 (cross section perpendicular to 
 the x axis)") in the following way: 
@@ -13,20 +13,20 @@ Perpendicular to the X axis, rotated -30 degrees around the Y axis, and rotated 
 13.6.4.73D node dictionaries 
  
 the  axis: /O [null -30 30] 
-3D node dictionaryPDF 1.7
+3D node dictionary#PDF 1.7
 A 3D view may specify a  (), which specifies particular areas of 3D artwork 
  NA 
-and the opacity and visibility with which individual nodes shall be displayed. The 3D artwork shall be 
-contained in the parent 3D stream object. Theentry of the 3D views dictionary may specify multiple 
+and the opacity and visi#bility with which individual nodes shall be displayed. The 3D artwork shall be 
+contained in the parent 3D stream #object. Theentry of the 3D views dictionary may specify multiple 
 © ISO 2017 – All rights reserved 650 
 
 ISO/DIS 32000-2
  
 3D node dictionaries for a particular view. 
-NOTE 1 While many PDF dictionaries reference 3D artwork in its entirety, it is often useful to reference 3D 
-artwork at a more granular level. This enables properties such as visibility, opacity, and 
+NOTE 1 While many #PDF dictionaries reference 3D artwork in its entirety, it is often useful to reference 3D 
+artwork at a more granular level. This enables properties such as visi#bility, opacity, and 
 orientation to be applied to subsets of the 3D artwork. These controls enable underlying nodes to 
 be revealed, by making the overlying nodes transparent or by moving them out of the way. 
-NOTE 2 Do not confuse nodes with view nodes. A node is a PDF dictionary that specifies an area in 3D 
+NOTE 2 Do not confuse nodes with view nodes. A node is a #PDF dictionary that specifies an area in 3D 
 artwork, while a view node is a parameter in the 3D artwork that specifies a view. 
 "

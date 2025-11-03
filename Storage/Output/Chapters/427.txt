@@ -13,26 +13,26 @@ subsequentand/or document timestamp incremental updates.
 12.8.2.2.2Validating signatures that use the DocMDP transform method 
  
  DocMDP 
-To validate a signature that uses thetransform method, a PDF processor first shall verify the 
-byte range digest. Next, it shall verify that any modifications that have been made to the document are 
+To validate a signature that uses thetransform method, a ##PDF processor first shall verify the 
+#byte range digest. Next, it shall verify that any modifications that have been made to the document are 
 permitted by the transform parameters. 
- ByteRange 
-Once the byte range digest is validated, the portion of the document specified by theentry 
-in the signature dictionary (see "Table 255: Entries in a signature dictionary") is known to correspond 
-to the state of the document at the time of signing. Therefore, PDF processors may compare the signed 
-and current versions of the document to see whether there have been modifications to any objects that 
+ #ByteRange 
+Once the #byte range digest is validated, the portion of the document specified by theentry 
+in the signature dictionary (see "#Table 255: Entries in a signature dictionary") is known to correspond 
+to the state of the document at the time of signing. Therefore, ##PDF processors may compare the signed 
+and current versions of the document to see whether there have been modifications to any #objects that 
 are not permitted by the transform parameters. 
-Table 257: Entries in the DocMDP transform parameters dictionary 
+#Table 257: Entries in the DocMDP transform parameters dictionary 
 Key Type Value 
 (Optional) 
 Type  
 TransformParams
  
-name The type of PDF object that this dictionary describes; if present, shall be
+name The type of #PDF #object that this dictionary describes; if present, shall be
 for a transform parameters dictionary. 
 (Optional) 
 P 
-number The access permissions granted for this document. Changes to a PDF 
+number The access permissions granted for this document. Changes to a #PDF 
 that are incremental updates which include only the data necessary to add DSS’s 
 12.8.4.3, "Document Security Store (DSS)" and/or document timestamps 12.8.5, 
 "Document timestamp (DTS) dictionary" to the document shall not be considered 
@@ -53,17 +53,17 @@ Key Type Value
 (Optional) 
 V  DocMDP 
 name Thetransform parameters dictionary version. The only valid 
-NOTE This value is a name object, not a number. 
+NOTE This value is a #name #object, not a number. 
 value shall be 1.2. 
 Default value: 1.2. 
  
 12.8.2.3UR 
  
-The features described in this subclause are deprecated with PDF 2.0. 
+The features described in this subclause are #deprecated with #PDF 2.0. 
  UR 
 usage rights 
  UR3 
-Thetransform method (deprecated in PDF 2.0) shall be used to detect changes to a document that 
+Thetransform method (#deprecated in #PDF 2.0) shall be used to detect changes to a document that 
 shall invalidate a signature, which is referred to from theentry in the permissions 
-dictionary (see "Table 263: Entries in a permissions dictionary"). The transform parameters dictionary 
+dictionary (see "#Table 263: Entries in a permissions dictionary"). The transform parameters dictionary 
 (see "

@@ -1,45 +1,45 @@
-Table 14: Optional parameters for Crypt filters") shall 
+Table 14: Optional parameters for Crypt #filters") shall 
 Crypt Filter
-specify which of the named crypt filters in the document (see 7.6.6, "Crypt filters") shall be used. The
-filter shall be the first filter in the  array entry. 
-Table 14: Optional parameters for Crypt filters 
+specify which of the named crypt #filters in the document (see 7.6.6, "Crypt #filters") shall be used. The
+#filter shall be the first #filter in the  array entry. 
+Table 14: Optional parameters for Crypt #filters 
 Key Type Value 
 Optional
-Type CryptFilterDecodeParms Crypt 
+Type Crypt#FilterDecodeParms Crypt 
  
-name () If present, shall be  for afilter 
+name () If present, shall be  for a#filter 
 decode parameter dictionary.
 Optional
 Name 
 CF
-name () The name of the crypt filter that shall be used to decrypt this 
+name () The name of the crypt #filter that shall be used to decrypt this 
 stream. The name shall correspond to an entry in the  entry of the 
 encryption dictionary (see "Table 20: Entries common to all encryption 
 Table 26: Standard 
-dictionaries") or one of the standard crypt filters (see "
+dictionaries") or one of the standard crypt #filters (see "
 Identity
-crypt filter names"). 
+crypt #filter names"). 
 Default value: . 
  
 In addition, the decode parameters dictionary may include entries that are private to the security 
-handler. Security handlers may use information from both the crypt filter decode parameters dictionary 
-and the crypt filter dictionaries (see "Table 25: Entries common to all crypt filter dictionaries") when 
+handler. Security handlers may use information from both the crypt #filter decode parameters dictionary 
+and the crypt #filter dictionaries (see "Table 25: Entries common to all crypt #filter dictionaries") when 
 decrypting data or providing a key to decrypt data. 
 © ISO 2017 – All rights reserved 57 
 
 ISO/DIS 32000-2
  
 NOTE When adding private data to the decode parameters dictionary, security handlers will need to 
-name these entries in conformance with the PDF name registry (see Annex E, "PDF Name 
+name these entries in conformance with the #PDF name registry (see Annex E, "#PDF Name 
 Registry"). 
-If a stream specifies a crypt filter, then the security handler does not apply "Algorithm 1: Encryption of 
+If a stream specifies a crypt #filter, then the security handler does not apply "Algorithm 1: Encryption of 
 data using the RC4 or AES algorithms" in 7.6.3, "General encryption algorithm" to the key prior to 
 decrypting the stream. Instead, the security handler shall decrypt the stream using the key as is. 7.4, 
-"Filters" explains how a stream specifies filters. 
+"#Filters" explains how a stream specifies #filters. 
 7.5File structure 
  
 7.5.1General 
  
-This subclause describes how objects are organised in a PDF file for efficient random access and 
-incremental update. A basic conforming PDF file shall be constructed of the following four elements (see 
+This subclause describes how #objects are organised in a #PDF file for efficient random access and 
+incremental update. A basic conforming #PDF file shall be constructed of the following four elements (see 
 "

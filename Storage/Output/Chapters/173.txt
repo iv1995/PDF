@@ -2,12 +2,12 @@ in these
 circumstances: 
 d1
 • 
-In any glyph description that uses the  operator (see 9.6.4, "Type 3 fonts") and to all other 
+In any #glyph description that uses the  operator (see 9.6.4, "Type 3 #fonts") and to all other 
 • 
-content streams invoked from within the same glyph description. 
-In the content stream of an uncoloured tiling pattern (see 8.7.3.3, "Uncoloured tiling patterns") 
-and to all other content streams invoked from within the uncoloured tiling pattern stream 
-In these circumstances 
+#content streams invoked from within the same #glyph description. 
+In the #content stream of an uncoloured tiling pattern (see 8.7.3.3, "Uncoloured tiling patterns") 
+and to all other #content streams invoked from within the uncoloured tiling pattern stream 
+#In these circumstances 
 • 
 CS scn K 
 All of the following operators shall be ignored: 
@@ -17,7 +17,7 @@ SCN RG sh
 sc rg  
 gs
 • 
-All of the following entries, if present in the graphics state parameter dictionary of a  operator 
+All of the following entries, if present in the #graphics state parameter dictionary of a  operator 
 TR BG UCR 
 shall be ignored: 
 TR2 BG2 UCR2 
@@ -38,13 +38,13 @@ Patterns come in two varieties:
 Tiling patterns
 • 
  consist of a small graphical figure (called a pattern cell) that is replicated at fixed 
-horizontal and vertical intervals to fill the area to be painted. The graphics objects to use for tiling 
+horizontal and vertical intervals to fill the area to be painted. The graphics #objects to use for tiling 
 Shading patterns
 • 
-shall be described by a content stream. 
+shall be described by a #content stream. 
  define a gradient fill that produces a smooth transition between colours across 
 the area. 
-The colour to use shall be specified as a function of position using any of a variety of methods. 
+The colour to use shall be specified as a #function of position using any of a variety of methods. 
 NOTE 1 When operators such as  (stroke),  (fill), and  (show text) paint an area of the page with the 
 SfTj
 current colour, they ordinarily apply a single colour that covers the area uniformly. However, it is 
@@ -55,19 +55,19 @@ colour gradient instead of a simple colour. Such a repeating figure or smooth gr
 various graphical textures, such as weaves, brick walls, sunbursts, and similar geometrical and 
 pattern
 chromatic effects. 
-NOTE 2 Older techniques such as defining a pattern by using character glyphs in a special font and 
+NOTE 2 Older techniques such as defining a pattern by using #character #glyphs in a special #font and 
 painting them repeatedly with the  operator are not recommended. Another technique, defining 
 Tj
 patterns as halftone screens, is also not recommended because the effects produced are device-
 dependent. 
 Pattern
 Patterns shall be specified in a special family of colour spaces named . These spaces shall use 
-pattern objects as the equivalent of colour values instead of the numeric component values used with 
-other spaces. A pattern object shall be a dictionary or a stream, depending on the type of pattern; the 
-term pattern dictionary is used generically throughout this subclause to refer to either a dictionary 
-object or the dictionary portion of a stream object. (Those pattern objects that are streams are 
+pattern #objects as the equivalent of colour values instead of the numeric component values used with 
+other spaces. A pattern #object shall be a dictionary or a stream, depending on the type of pattern; the 
+term pattern dictionary is used generically throughout this subclause to refer to# either a dictionary 
+#object or the dictionary portion of a stream #object. (Those pattern #objects that are streams are 
 Pattern
-specifically identified as such in the descriptions of particular pattern types; unless otherwise stated, 
+specifically# identified as such in the descriptions of particular pattern types; unless otherwise stated, 
 they are understood to be simple dictionaries instead.) This subclause describes  colour spaces 
 and the specification of colour values within them. 
 NOTE 3 See 8.6, "Colour spaces", for information about colour spaces and colour values in general and 
@@ -77,7 +77,7 @@ transparent imaging model.
  
 PatternType
 A pattern dictionary contains descriptive information defining the appearance and properties of a 
-pattern. All pattern dictionaries shall contain an entry named , whose value identifies the 
+pattern. All pattern dictionaries shall contain an entry named , whose value# identifies the 
 kind of pattern the dictionary describes: Type 1 for a tiling pattern or Type 2 for a shading pattern. The 
 remaining contents of the dictionary depend on the pattern type and are detailed in the subclauses on 
 individual pattern types. 
@@ -85,7 +85,7 @@ PatternCScs
 All patterns shall be treated as colours; a  colour space shall be established with the  or  
 SCNscn
 operator just like other colour spaces, and a particular pattern shall be installed as the current colour 
-with the  or  operator (see "Table 73: Colour operators"). 
+with the  or  operator (see "#Table 73: Colour operators"). 
 A pattern’s appearance is described with respect to its own internal coordinate system. Every pattern 
 © ISO 2017 – All rights reserved 214 
 
@@ -94,18 +94,18 @@ ISO/DIS 32000-2
 pattern matrix
 parentcontent stream
 has a , a transformation matrix that maps the pattern’s internal coordinate system to the 
-default coordinate system of the pattern’s   (the content stream in which the 
+default coordinate system of the pattern’s   (the #content stream in which the 
 pattern coordinate space
 pattern is defined as a resource). The concatenation of the pattern matrix with that of the parent 
-content stream establishes the , within which all graphics objects in the pattern 
+#content stream establishes the , within which all graphics #objects in the pattern 
 shall be interpreted. 
 NOTE 1 If a pattern is used on a page, the pattern appears in the  subdictionary of that page’s 
 Pattern
-resource dictionary, and the pattern matrix maps pattern space to the default (initial) coordinate 
+#resource dictionary, and the pattern matrix maps pattern space to the default (initial) coordinate 
 space of the page. Changes to the page’s transformation matrix that occur within the page’s 
-content stream, such as rotation and scaling, have no effect on the pattern; it maintains its 
+#content stream, such as rotation and scaling, have no effect on the pattern; it maintains its 
 original relationship to the page no matter where on the page it is used. Similarly, if a pattern is 
-used within a form XObject (see 8.10, "Form XObjects"), the pattern matrix maps pattern space to 
+used within a form X#Object (see 8.10, "Form X#Objects"), the pattern matrix maps pattern space to 
 the form’s default user space (that is, the form coordinate space at the time the form is painted 
 with the  operator). A pattern can be used within another pattern; the inner pattern’s matrix 
 Do
@@ -114,7 +114,7 @@ All patterns shall be local to the context in which they are defined.
 NOTE 2 The PostScript language allows a pattern to be defined in one context but used in another. For 
 example, a pattern might be defined on a page (that is, its pattern matrix maps the pattern 
 coordinate space to the user space of the page) but be used in a form on that page, so that its 
-relationship to the page is independent of each individual placement of the form. PDF does not 
+relationship to the page is independent of each individual placement of the form. #PDF does not 
 support this feature. 
 8.7.3Tiling patterns 
  
@@ -124,15 +124,15 @@ pattern cell
 A tiling pattern consists of a small graphical figure called a . Painting with the pattern 
 replicates the cell at fixed horizontal and vertical intervals to fill an area. The effect is as if the figure 
 tiling
-were painted on the surface of a clear glass tile, identical copies of which were then laid down in an 
+were painted on the surface of a clear glass tile,# identical copies of which were then laid down in an 
 array covering the area and trimmed to its boundaries. This process is called  the area. 
 The pattern cell can include graphical elements such as filled areas, text, and sampled images. Its shape 
 Sf
 need not be rectangular, and the spacing of tiles can differ from the dimensions of the cell itself. When 
-performing painting operations such as  (stroke) or  (fill), the PDF processor shall paint the cell on the 
+performing painting operations such as  (stroke) or  (fill), the ##PDF processor shall paint the cell on the 
 current page as many times as necessary to fill an area. The order in which individual tiles (instances of 
 the cell) are painted is unspecified and unpredictable; figures on adjacent tiles should not overlap. 
-The appearance of the pattern cell shall be defined by a content stream containing the painting 
+The appearance of the pattern cell shall be defined by a #content stream containing the painting 
 operators needed to paint one instance of the cell. Besides the usual entries common to all streams (see 
-"Table 5: Entries common to all stream dictionaries"), this stream’s dictionary may contain the 
+"#Table 5: Entries common to all stream dictionaries"), this stream’s dictionary may contain the 
 additional entries listed in "

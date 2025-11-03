@@ -1,30 +1,30 @@
-Table 234: Additional entries specific to a choice field" shows the 
+#Table 234: Additional entries specific to a choice field" shows the 
 field dictionary entries specific to choice fields. 
-Table 233: Field flags specific to choice fields 
-Bit position Name Meaning 
+#Table 233: Field flags specific to choice fields 
+#Bit position Name Meaning 
 18 Combo If set, the field is a combo box; if clear, the field is a list box. 
 19 Edit If set, the combo box shall include an editable text box as well as a 
 drop-down list; if clear, it shall include only a drop-down list. This 
 flag shall be used only if the Combo flag is set. 
 20 Sort If set, the field’s option items shall be sorted alphabetically. This 
-flag is intended for use by PDF writers, not by PDF readers. PDF 
+flag is intended for use by ##PDF writers, not by ##PDF readers. #PDF 
  Opt 
 readers shall display the options in the order in which they occur 
 in thearray (see "Table 233: Additional entries specific to a 
 choice field"). 
-(PDF 1.4) 
+(#PDF 1.4) 
 22 MultiSelect If set, more than one of the field’s option items may be 
 selected simultaneously; if clear, at most one item shall be selected. 
 © ISO 2017 – All rights reserved 526 
 
 ISO/DIS 32000-2
  
-Bit position Name Meaning 
-(PDF 1.4) 
+#Bit position Name Meaning 
+(#PDF 1.4) 
 23 DoNotSpellCheck If set, text entered in the field shall not be spell-checked. 
 This flag shall not be used unless the Combo and Edit flags are both 
 set. 
-(PDF 1.5) 
+(#PDF 1.5) 
 27 CommitOnSelChange If set, the new value shall be committed as soon as a 
 selection is made (commonly with the pointing device). In this 
 case, supplying a value for a field involves three actions: selecting 
@@ -37,12 +37,12 @@ This option enables applications to perform an action once a
 selection is made, without requiring the user to exit the field. If 
 clear, the new value is not committed until the user exits the field. 
  
-Table 234: Additional entries specific to a choice field 
+#Table 234: Additional entries specific to a choice field 
 Key Type Value 
 (Optional) 
 Opt 
 array An array of options that shall be presented to the user. Each element of the 
-array is either a text string representing one of the available options or an array 
+array is# either a text string representing one of the available options or an array 
 consisting of two text strings: the option’s export value and the text that shall be 
  
 displayed as the name of the option. 
@@ -51,7 +51,7 @@ If this entry is not present, no choices should be presented to the user.
 TI  Opt 
 integer For scrollable list boxes, the (the index in thearray of the 
 first option visible in the list). Default value: 0. 
-(Sometimes required, otherwise optional; PDF 1.4) 
+(Sometimes required, otherwise optional; #PDF 1.4) 
 I 
 array For choice fields that allow 
  Opt 
@@ -62,19 +62,19 @@ option items. This entry shall be used when two or more elements in thearray
 V
 have different names but the same export value or when the value of the choice field 
 V
-is an array. If the items identified by this entry differ from those in the  entry of the 
+is an array. If the items# identified by this entry differ from those in the  entry of the 
 field dictionary (see discussion following this Table), the  entry shall be used. 
  
  Opt 
  Opt 
 Thearray specifies the list of options in the choice field, each of which shall be represented by a 
-text string that shall be displayed on the screen. Each element of thearray contains either this text 
+text string that shall be displayed on the screen. Each element of thearray contains# either this text 
 string by itself or a two-element array, whose second element is the text string and whose first element 
 is a text string representing the export value that shall be used when exporting interactive form field 
 data from the document. 
 V
-The field dictionary’s  (value) entry (see "Table 226: Entries common to all field dictionaries") 
-PDF 1.4
+The field dictionary’s  (value) entry (see "#Table 226: Entries common to all field dictionaries") 
+#PDF 1.4
 identifies the item or items currently selected in the choice field. If the field does not allow multiple 
 V
 selection — that is, if the MultiSelect flag () is not set — or if multiple selection is supported but 
@@ -103,7 +103,7 @@ EXAMPLE The following example shows a typical choice field definition.
  
 12.7.5.5Signature fields 
  
-PDF 1.3
+#PDF 1.3
 A signature field () is a form field that contains a digital signature (see 12.8, "Digital signatures"). 
 The field dictionary representing a signature field may contain the additional entries listed in "Table 
 Sig
@@ -111,7 +111,7 @@ FTV
 235: Additional entries specific to a signature field", as well as the standard entries described in "Table 
 226: Entries common to all field dictionaries". The field type () shall be , and the field value (), if 
 present, shall be a signature dictionary containing the signature and specifying various attributes of the 
-signature field (see "Table 255: Entries in a signature dictionary"). 
+signature field (see "#Table 255: Entries in a signature dictionary"). 
 NOTE 1 This signature form field serves two primary purposes. The first is to define the form field that will 
 provide the visual signing properties for display but it also may hold information needed later 
 when the actual signing takes place, such as the signature technology to use. This carries 
@@ -125,23 +125,23 @@ andentries.
 Like any other field, a signature field may be described by a widget annotation dictionary containing 
 Rect
 entries pertaining to an annotation as well as a field (12.5.6.19, "Widget annotations"). The annotation 
-rectangle () in such a dictionary shall give the position of the field on its page. Signature fields that 
-are not intended to be visible shall have an annotation rectangle that has zero height and width. PDF 
+#rectangle () in such a dictionary shall give the position of the field on its page. Signature fields that 
+are not intended to be visible shall have an annotation #rectangle that has zero height and width. #PDF 
 true
   FF
-processors shall treat such signatures as not visible. PDF processors shall also treat signatures as not 
-visible if either the Hidden bit or theNoViewbit of the  entry is . The  entry is described in "Table 
+processors shall treat such signatures as not visible. ##PDF processors shall also treat signatures as not 
+visible if# either the Hidden #bit or theNoView#bit of the  entry is . The  entry is described in "Table 
 166: Entries common to all annotation dictionaries", and annotation flags are described in "Table 167: 
 Annotation flags". 
 The location of a signature within a document can have a bearing on its legal meaning. For this reason, 
 signature fields shall never refer to more than one annotation.  
-NOTE 3 If more than one location is associated with a signature, the meaning can become ambiguous. 
+NOTE 3 If more than one location is associated with a signature, the meaning can become am#biguous. 
 For signature fields that are visible, the appearance dictionary (AP) for the widget annotation of these 
 fields should be created at the time of signature creation. This dictionary defines the field’s visual 
 appearance on the page (see 12.5.5, "Appearance streams"), but the information included in the 
 appearance dictionary shall not be used by a signature verification handler at the time of signature 
 verification. It is there strictly for the purpose of providing a way for a human verifier to perform their 
-own verification of the visual representation. A PDF processor shall not incorporate the validation 
+own verification of the visual representation. A ##PDF processor shall not incorporate the validation 
 status of a signature (e.g. a checkmark for passed or an X for failed) into the appearance of the signature 
 field. 
 © ISO 2017 – All rights reserved 528 

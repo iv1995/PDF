@@ -1,4 +1,4 @@
-Figure 114: Simple Web Capture file structureFigure 100: Rendering of the 3D artwork using View1 
+#Figure 114: Simple Web Capture file structureFigure 100: Rendering of the 3D artwork using View1 
 (all shapes visible and opaque)" shows a simple web capture file structure. 
 © ISO 2017 – All rights reserved 772 
 
@@ -14,10 +14,10 @@ Page set
 Page
 Page
 Page
-Figure 114: Simple Web Capture file structure 
+#Figure 114: Simple Web Capture file structure 
  
 URLSIDS
-Entries in the  and  name trees may refer to an array of content sets or a single content set. If 
+Entries in the  and  #name trees may refer to an array of content sets or a single content set. If 
 the entry is an array, the content sets need not have the same subtype; the array may include both page 
 sets and image sets. 
 "

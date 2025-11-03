@@ -1,9 +1,9 @@
-Table 211: Entry in a URI dictionary"). 
-Table 211: Entry in a URI dictionary 
+#Table 211: Entry in a URI dictionary"). 
+#Table 211: Entry in a URI dictionary 
 Key Type Value 
 (Optional) base URI
 Base 
-ASCII string The  that shall be used in resolving relative URI references. 
+#ASCII string The  that shall be used in resolving relative URI references. 
  
 URI actions within the document may specify URIs in partial form, to be 
 interpreted relative to this base address. If no base URIis specified, such partial 
@@ -24,7 +24,7 @@ ISO/DIS 32000-2
  
 12.6.4.9Sound actions 
  
-The features described in this subclause are deprecated with PDF 2.0. They are superseded by the 
+The features described in this subclause are #deprecated with #PDF 2.0. They are superseded by the 
 general multimedia framework described in 13.2, "Multimedia". 
-sound actionPDF 1.2
+sound action#PDF 1.2
 A  () plays a sound through the computer’s speakers. "

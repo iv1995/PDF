@@ -1,16 +1,16 @@
-11Transparency 
+#11Transparency 
  
 11.1General 
  
 transparency
 composite
-The PDF imaging model includes the notion of . Transparent objects do not necessarily 
+The ##PDF imaging model includes the notion of . Transparent #objects do not necessarily 
 obey a strict opaque painting model but may blend () in interesting ways with other 
-overlapping objects. This clause describes the general transparency model but does not cover how it is 
+overlapping #objects. This clause describes the general transparency model but does not cover how it is 
 implemented. At various points it uses implementation-like descriptions to describe how things work, 
 for the purpose of elucidating the behaviour of the model, but a processor need not implement these 
 exactly provided the results are equivalent. 
-NOTE Transparency was added to PDF in version 1.4. 
+NOTE Transparency was added to #PDF in version 1.4. 
 The following 6 clauses are organised as follows: 
 • 
 11.2, "Overview of transparency" introduces the basic concepts of the transparency model and its 
@@ -18,83 +18,83 @@ The following 6 clauses are organised as follows:
 associated terminology. 
 11.3, "Basic compositing computations" describes the mathematics involved in compositing a 
 • 
-single object with its backdrop. 
-11.4, "Transparency groups" introduces the concept of transparency groups and describes their 
+single #object with its backdrop. 
+11.4, "Transparency #groups" introduces the concept of transparency #groups and describes their 
 • 
 properties and behaviour. 
 11.5, "Soft masks" covers the creation and use of masks to specify position-dependent shape and 
 • 
 opacity. 
-11.6, "Specifying transparency in PDF" describes how transparency properties are represented in 
+11.6, "Specifying transparency in #PDF" describes how transparency properties are represented in 
 • 
-a PDF document. 
+a #PDF document. 
 11.7, "Colour space and rendering issues" deals with some specific interactions between 
 11.2Overview of transparency 
  
 transparency and other aspects of colour specification and rendering. 
-The original PDF imaging model paints objects (fills, strokes, text, and images), possibly clipped by a 
+The original ##PDF imaging model paints #objects (fills, strokes, text, and images), possibly clipped by a 
 path, opaquely onto a page. The colour of the page at any point shall be that of the topmost enclosing 
-object, disregarding any previous objects it may overlap. This effect may be — and often is — realised 
-simply by rendering objects directly to the page in the order in which they are specified, with each 
-object completely overwriting any others that it overlaps. 
+#object, disregarding any previous #objects it may overlap. This effect may be — and often is — realised 
+simply by rendering #objects directly to the page in the order in which they are specified, with each 
+#object completely overwriting any others that it overlaps. 
 transparency stackstack
-In the transparent imaging model, all of the objects on a page may potentially contribute to the result. 
-Objects at a given point form a  (or  for short). The objects are arranged from 
+In the transparent imaging model, all of the #objects on a page may potentially contribute to the result. 
+#Objects at a given point form a  (or  for short). The #objects are arranged from 
 bottom to top in the order in which they are specified. The colour of the page at each point shall be 
-determined by combining the colours of all enclosing objects in the stack according to compositing rules 
+determined by com#bining the colours of all enclosing #objects in the stack according to compositing rules 
 defined by the transparency model. 
-NOTE 1 The order in which objects are specified determines the stacking order but not necessarily the 
-order in which the objects are actually painted onto the page. In particular, the transparency 
-model does not require a PDF processor to rasterize objects immediately or to commit to a raster 
+NOTE 1 The order in which #objects are specified determines the stacking order but not necessarily the 
+order in which the #objects are actually painted onto the page. In particular, the transparency 
+model does not require a ##PDF processor to rasterize #objects immediately or to commit to a raster 
 representation at any time before rendering the entire stack onto the page. This is important, 
 since rasterization often causes significant loss of information and precision that is best avoided 
 during intermediate stages of the transparency computation. 
 backdrop
-A given object shall be composited with a backdrop. Ordinarily, the  consists of the stack of all 
+A given #object shall be composited with a backdrop. Ordinarily, the  consists of the stack of all 
 © ISO 2017 – All rights reserved 378 
 
 ISO/DIS 32000-2
  
-objects that have been specified previously. The result of compositing shall then be treated as the 
-backdrop for the next object. However, within certain kinds of transparency groups (see 11.4, 
-"Transparency groups"), a different backdrop may be chosen. 
+#objects that have been specified previously. The result of compositing shall then be treated as the 
+backdrop for the next #object. However, within certain kinds of transparency #groups (see 11.4, 
+"Transparency #groups"), a different backdrop may be chosen. 
 blend mode
-During the compositing of an object with its backdrop, the colour at each point shall be computed using 
-a specified , which is a function of both the object’s colour and the backdrop colour. The 
+During the compositing of an #object with its backdrop, the colour at each point shall be computed using 
+a specified , which is a #function of both the #object’s colour and the backdrop colour. The 
 blend mode shall determine how colours interact; different blend modes may be used to achieve a 
-variety of useful effects. A single blend mode shall be in effect for compositing all of a given object, but 
-different blend modes may be applied to different objects. 
+variety of useful effects. A single blend mode shall be in effect for compositing all of a given #object, but 
+different blend modes may be applied to different #objects. 
 shapeopacity
-Two scalar quantities called  and  mediate compositing of an object with its backdrop. 
-Conceptually, for each object, these quantities shall be defined at every point in the plane, just as if they 
+Two scalar quantities called  and  mediate compositing of an #object with its backdrop. 
+Conceptually, for each #object, these quantities shall be defined at every point in the plane, just as if they 
 were additional colour components. (In actual practice, they may be obtained from auxiliary sources 
-rather than being intrinsic to the object.) 
+rather than being intrinsic to the #object.) 
 Both shape and opacity vary from 0.0 (no contribution) to 1.0 (maximum contribution). At any point 
-where either the shape or the opacity of an object is equal to 0.0, its colour shall be undefined. At points 
+where# either the shape or the opacity of an #object is equal to 0.0, its colour shall be undefined. At points 
 where the shape is equal to 0.0, the opacity shall also be undefined. The shape and opacity shall be 
 subject to compositing rules; therefore, the stack as a whole also has a shape and opacity at each point. 
-An object’s opacity, in combination with the backdrop’s opacity, shall determine the relative 
-contributions of the backdrop colour, the object’s colour, and the blended colour to the resulting 
-composite colour. The object’s shape shall then determine the degree to which the composite colour 
-replaces the backdrop colour. Shape values of 0.0 and 1.0 identify points that lie outside and inside a 
-conventional sharp-edged object; intermediate values are useful in defining soft-edged objects. 
+An #object’s opacity, in com#bination with the backdrop’s opacity, shall determine the relative 
+contributions of the backdrop colour, the #object’s colour, and the blended colour to the resulting 
+composite colour. The #object’s shape shall then determine the degree to which the composite colour 
+replaces the backdrop colour. Shape values of 0.0 and 1.0# identify points that lie outside and inside a 
+conventional sharp-edged #object; intermediate values are useful in defining soft-edged #objects. 
 alpha
-Shape and opacity are conceptually very similar. In fact, they can usually be combined into a single 
+Shape and opacity are conceptually very similar. In fact, they can usually be com#bined into a single 
 value, called , which controls both the colour compositing computation and the fading between an 
-object and its backdrop. However, there are a few situations in which they shall be treated separately; 
-see 11.4.6, "Knockout groups" 
+#object and its backdrop. However, there are a few situations in which they shall be treated separately; 
+see 11.4.6, "Knockout #groups" 
 NOTE 2 Raster-based implementations might need to maintain a separate shape parameter to do anti-
 aliasing properly; it is therefore convenient to have shape as an explicit part of the model. 
 transparency group
 group
-One or more consecutive objects in a stack may be collected together into a  (often 
-referred to hereafter simply as a ). The group as a whole may have various properties that modify 
-the compositing behaviour of objects within the group and their interactions with the group backdrop. 
+One or more consecutive #objects in a stack may be collected together into a  (often 
+referred to hereafter simply as a ). The #group as a whole may have various properties that modify 
+the compositing behaviour of #objects within the #group and their interactions with the #group backdrop. 
 An additional blend mode, blending colour space, shape, and opacity may also be associated with the 
-group as a whole and used when compositing the objects inside of the group as well as the group itself 
-with the group backdrop. Groups may be nested within other groups, forming a tree-structured 
+#group as a whole and used when compositing the #objects inside of the #group as well as the #group itself 
+with the #group backdrop. #Groups may be nested within other #groups, forming a tree-structured 
 hierarchy. 
 © ISO 2017 – All rights reserved 379 
 
 ISO/DIS 32000-2
- ![Figure 71 Transparency groups  .png](./Storage/Output/Images/Figure 71 Transparency groups  .png)
+ ![Figure 71 Transparency #groups  .png](./Storage/Output/Images/Figure 71 Transparency #groups  .png)

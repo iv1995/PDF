@@ -1,11 +1,11 @@
-Table 158: Entries in a collection split dictionary 
+#Table 158: Entries in a collection split dictionary 
 Key Type Value 
 Optional
 Type 
 CollectionSplit
-name () The type of PDF object that this dictionary describes; if 
+name () The type of #PDF #object that this dictionary describes; if 
 present, shall be  for a collection split dictionary. 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 Direction 
 name The orientation of the splitter bar. The following 
 H 
@@ -17,7 +17,7 @@ indicates that the window is split vertically.
  
 indicates that the window is not split. The entire window region 
 shall be dedicated to the file navigation view.
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 Position 
 number The initial position of the splitter bar, specified as a 
 N
@@ -27,8 +27,8 @@ percentage of the available window area. Values shall range from 0 to
  
 12.3.5.2Collection hierarchical folders 
  
-Beginning with PDF 2.0, a portable collection can contain a Folders object for the purpose of organizing 
+Beginning with #PDF 2.0, a portable collection can contain a Folders #object for the purpose of organizing 
 files into a hierarchical structure. The structure is represented by a tree with a single root folder acting 
 Folders
 as the common ancestor for all other folders and files in the collection. The single root folder is 
-referenced in the  entry of "Table 153: Entries in a collection dictionary". 
+referenced in the  entry of "#Table 153: Entries in a collection dictionary". 

@@ -1,4 +1,4 @@
-Table 77: Entries common to all shading dictionaries"). 
+#Table 77: Entries common to all shading dictionaries"). 
 The  entry, if present, is ignored. 
 This operator should be applied only to bounded or geometrically defined 
 shadings. If applied to an unbounded shading, it paints the shading’s gradient fill 
@@ -11,9 +11,9 @@ ShadingType
 used, the geometry of the area to be shaded, and the geometry of the gradient fill. Various shading types 
 are available, depending on the value of the dictionary’s  entry: 
 • 
-Function-based shadings (Type 1) define the colour of every point in the domain using a 
+#Function-based shadings (Type 1) define the colour of every point in the domain using a 
 • 
-mathematical function (not necessarily smooth or continuous). 
+mathematical #function (not necessarily smooth or continuous). 
 Axial shadings (Type 2) define a colour blend along a line between two points, optionally extended 
 beyond the boundary points by continuing the boundary colours. 
 © ISO 2017 – All rights reserved 224 
@@ -35,9 +35,9 @@ Lattice-form Gouraud-shaded triangle meshes (Type 5) are based on the same geome
 construct as Type 4 but with vertices specified as a pseudorectangular lattice. 
 Coons patch meshes (Type 6) construct a shading from one or more colour patches, each bounded 
 • 
-by four cubic Bézier curves. 
+by four cu#bic Bézier curves. 
 Tensor-product patch meshes (Type 7) are similar to Type 6 but with additional control points in 
-NOTE 1 "Table 77: Entries common to all shading dictionaries" shows the entries that all shading 
+NOTE 1 "#Table 77: Entries common to all shading dictionaries" shows the entries that all shading 
 each patch, affording greater control over colour mapping. 
 dictionaries share in common; entries specific to particular shading types are described in the 
 relevant subclause. 
@@ -46,12 +46,12 @@ coordinate space into which a shading is painted. For shadings used with a Type 
 dictionary, this is the pattern coordinate space, discussed in 8.7.2, "General properties of patterns". 
 For shadings used directly with the  operator, it is the current user space. 
 sh
-Table 77: Entries common to all shading dictionaries 
+#Table 77: Entries common to all shading dictionaries 
 Key Type Value 
 Required
 ShadingType 
 integer () The shading type: 
-1 Function-based shading 
+1 #Function-based shading 
 2 Axial shading 
 3 Radial shading 
 4 Free-form Gouraud-shaded triangle mesh 
@@ -70,7 +70,7 @@ array () An array of colour components appropriate to the colour space, specifyi
 single background colour value. If present, this colour shall be used, before any painting 
 operation involving the shading, to fill those portions of the area to be painted that lie 
 NOTE 1 In the opaque imaging model, the effect is as if the painting operation were 
-outside the bounds of the shading object. 
+outside the bounds of the shading #object. 
 performed twice: first with the background colour and then with the shading. 
 sh
 The background colour shall be applied only when the shading is used as part of a 
@@ -82,7 +82,7 @@ ISO/DIS 32000-2
 Key Type Value 
 Optional
 BBox 
-rectangle () An array of four numbers giving the left, bottom, right, and top coordinates, 
+#rectangle () An array of four numbers giving the left, bottom, right, and top coordinates, 
 respectively, of the shading’s bounding box. The coordinates shall be interpreted in the 
 shading’s target coordinate space. If present, this bounding box shall be applied as a 
 temporary clipping boundary when the shading is painted, in addition to the current 
@@ -91,59 +91,59 @@ clipping path and any other clipping boundaries in effect at that time.
 conversion rules"). 
 Optional
 AntiAlias 
-boolean () A flag indicating whether to filter the shading function to prevent aliasing 
-NOTE 3 The shading operators sample shading functions at a rate determined by the 
+boolean () A flag indicating whether to #filter the shading #function to prevent aliasing 
+NOTE 3 The shading operators sample shading #functions at a rate determined by the 
 artifacts. 
-resolution of the output device. Aliasing can occur if the function is not smooth 
+resolution of the output device. Aliasing can occur if the #function is not smooth 
 — that is, if it has a high spatial frequency relative to the sampling rate. Anti-
 aliasing can be computationally expensive and is usually unnecessary, since most 
-shading functions are smooth enough or are sampled at a high enough frequency 
+shading #functions are smooth enough or are sampled at a high enough frequency 
 to avoid aliasing effects. Anti-aliasing might not be implemented on some output 
 devices, in which case this flag is ignored. 
 false
 Default value: . 
  
-Shading types 4 to 7 shall be defined by a stream containing descriptive data characterising the 
+Shading types 4 to 7 shall be defined by a stream containing descriptive data #characterising the 
 shading’s gradient fill. In these cases, the shading dictionary is also a stream dictionary and may contain 
 Length
 any of the standard entries common to all streams (see "Table 5: Entries common to all stream 
 dictionaries"). In particular, the stream dictionary shall include a  entry. 
 Function
-In addition, some shading dictionaries also include a  entry whose value shall be a function 
-object (dictionary or stream) defining how colours vary across the area to be shaded. In such cases, the 
-shading dictionary usually defines the geometry of the shading, and the function defines the colour 
-transitions across that geometry. The function is required for some types of shading and optional for 
-others. Functions are described in detail in 7.10, "Functions". 
-NOTE 3 Discontinuous colour transitions, or those with high spatial frequency, might exhibit aliasing 
+In addition, some shading dictionaries also include a  entry whose value shall be a #function 
+#object (dictionary or stream) defining how colours vary across the area to be shaded. In such cases, the 
+shading dictionary usually defines the geometry of the shading, and the #function defines the colour 
+transitions across that geometry. The #function is required for some types of shading and optional for 
+others. #Functions are described in detail in 7.10, "#Functions". 
+NOTE 3 Discontinuous colour transitions, or those with high spatial frequency, might exhi#bit aliasing 
 effects when painted at low effective resolutions. 
 8.7.4.4Colour space: special considerations 
  
 Conceptually, a shading determines a colour value for each individual point within the area to be 
-painted. In practice, however, PDF processors may actually compute colour values only for some subset 
+painted. In practice, however, ##PDF processors may actually compute colour values only for some subset 
 of the points in the target area, with the colours of the intervening points determined by interpolation 
-between the ones computed. PDF processors are free to use this strategy as long as the interpolated 
+between the ones computed. ##PDF processors are free to use this strategy as long as the interpolated 
  ColorSpace 
 colour values approximate those defined by the shading to within the smoothness tolerance specified in 
-the graphics state (see 10.7.3, "Smoothness tolerance"). Theentry common to all shading 
+the #graphics state (see 10.7.3, "Smoothness tolerance"). Theentry common to all shading 
 dictionaries not only defines the colour space in which the shading specifies its colour values but also 
 determines the colour space in which colour interpolation is performed. 
 NOTE 1 Some types of shading (4 to 7) perform interpolation on a parametric value supplied as input to 
-the shading’s colour function, as described in the relevant subclause. This form of interpolation is 
+the shading’s colour #function, as described in the relevant subclause. This form of interpolation is 
 conceptually distinct from the interpolation described here, which operates on the  colour 
-values produced by the colour function and takes place within the shading’s target colour space. 
+values produced by the colour #function and takes place within the shading’s target colour space. 
 output
 Gradient fills between colours defined by most shadings may be implemented using a variety of 
 © ISO 2017 – All rights reserved 226 
 
 ISO/DIS 32000-2
  
-interpolation algorithms, and these algorithms may be sensitive to the characteristics of the colour 
+interpolation algorithms, and these algorithms may be sensitive to the #characteristics of the colour 
 space. 
 NOTE 2 Linear interpolation, for example, might have observably different results when applied in a
  
 colour space than in a  colour space, even if the starting and ending colours are 
 DeviceCMYK Lab
-perceptually identical. The difference arises because the two colour spaces are not linear relative 
+perceptually# identical. The difference arises because the two colour spaces are not linear relative 
 to each other. 
 Shadings shall be rendered according to the following rules: 
  ColorSpace 
@@ -174,7 +174,7 @@ In that case, gradient fill calculations shall be performed in the designatedor
 colour space before conversion to the alternate space. Thus, nonlinear tint transformation 
  ColorSpace  Indexed 
 • 
-functions shall be accommodated for the best possible representation of the shading. 
+#functions shall be accommodated for the best possible representation of the shading. 
 Ifis ancolour space, all colour values specified in the shading shall be 
 immediately converted to the base colour space. Depending on whether the base colour space is a 
  Indexed 
@@ -187,17 +187,17 @@ Function
 colour space shall not be used in any shading whose colour values are generated by a 
 8.7.4.5Shading types 
  
-function; this rule applies to any shading dictionary that contains a  entry. 
+#function; this rule applies to any shading dictionary that contains a  entry. 
 8.7.4.5.1General 
  
-In addition to the entries listed in "Table 77: Entries common to all shading dictionaries", all shading 
+In addition to the entries listed in "#Table 77: Entries common to all shading dictionaries", all shading 
 ShadingType
 dictionaries have entries specific to the type of shading they represent, as indicated by the value of their 
  entry. The following subclauses describe the available shading types and the dictionary 
 entries specific to each. 
-8.7.4.5.2Type 1 (function-based) shadings 
+8.7.4.5.2Type 1 (#function-based) shadings 
  
-In Type 1 (function-based) shadings, the colour at every point in the domain is defined by a specified 
-mathematical function. The function need not be smooth or continuous. This type is the most general of 
+In Type 1 (#function-based) shadings, the colour at every point in the domain is defined by a specified 
+mathematical #function. The #function need not be smooth or continuous. This type is the most general of 
 the available shading types and is useful for shadings that cannot be adequately described with any of 
 the other types. "

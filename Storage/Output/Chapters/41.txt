@@ -1,5 +1,5 @@
-job ticket 
-electronic specification of process control for print production in either a published or proprietary 
+#job ticket 
+electronic specification of process control for print production in# either a published or proprietary 
 format 
 4.39 
  

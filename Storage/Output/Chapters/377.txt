@@ -1,6 +1,6 @@
-Table 209: Additional entries specific to a thread action" shows 
+#Table 209: Additional entries specific to a thread action" shows 
 the action dictionary entries specific to this type of action. 
-Table 209: Additional entries specific to a thread action 
+#Table 209: Additional entries specific to a thread action 
 Key Type Value 
 (Required) 
 S 
@@ -44,9 +44,9 @@ thread dictionary"). If two or more threads have the same title, the one appeari
 catalog’sarray shall be used. 
 12.6.4.8URI actions 
  
-uniform resource identifier
-A  (URI) is a string that identifies (resolves to) a resource on the Internet 
-Internet RFC 3986Uniform Resource Identifiers (URI): Generic 
+uniform resource# identifier
+A  (URI) is a string that# identifies (resolves to) a resource on the Internet 
+Internet RFC 3986Uniform Resource# Identifiers (URI): Generic 
 — typically a file that is the destination of a hypertext link, although it may also resolve to a query or 
 Syntax
 other entity. (URIs are described in , 

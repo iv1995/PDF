@@ -1,7 +1,7 @@
 Table 313: 
 Animation styles" for valid values. If an animation style is encountered other 
 None
-than those described in "Table 313: Animation styles", an animation style of 
+than those described in "#Table 313: Animation styles", an animation style of 
 None
  
  shall be used. 
@@ -25,7 +25,7 @@ having to re-author the 3D artwork.
 None
 This value shall be ignored for animation styles of type . Default value: 1 
  
-The descriptions of the animation styles (see "Table 313: Animation styles") use the following variables 
+The descriptions of the animation styles (see "#Table 313: Animation styles") use the following variables 
 to represent application time or keyframe settings specified in the 3D artwork. 
 t
 • 
@@ -42,12 +42,12 @@ t
 a
 t
 • 
- is the current time of the interactive PDF processor. 
+ is the current time of the #interactive ##PDF processor. 
 0
 p
 Linear
 • 
- is the time when the interactive PDF processor starts the animation. 
+ is the time when the #interactive ##PDF processor starts the animation. 
  is the time it takes to play the keyframe animation through one cycle. In the case of the  
 Oscillating
 animation style, one cycle consists of playing the animation through once from beginning to end. In 
@@ -61,10 +61,10 @@ beginning to end and then from end to beginning.
 
 ISO/DIS 32000-2
  
-Table 313: Animation styles 
+#Table 313: Animation styles 
 Style Description 
 None 
-Keyframe animations shall not be driven directly by the interactive PDF 
+Keyframe animations shall not be driven directly by the interactive #PDF 
 processor. This value shall be used by documents that are intended to drive 
  
 animations through an alternative means, such as ECMAScript. 

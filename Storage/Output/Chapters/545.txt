@@ -1,10 +1,10 @@
-Table 350: Entries in a page-piece dictionary" shows, a page-piece dictionary may contain any 
-number of entries, each keyed by the name of a distinct PDF processor or of a well-known data type 
+#Table 350: Entries in a page-piece dictionary" shows, a page-piece dictionary may contain any 
+number of entries, each keyed by the name of a distinct ##PDF processor or of a well-known data type 
 Private
-recognised by a family of PDF processors. The value associated with each key shall be a data dictionary 
-containing the private data that shall be used by the PDF processor. The  entry may have a value 
-of any data type, but typically it is a dictionary containing all of the private data needed by the PDF 
+recognised by a family of ##PDF processors. The value associated with each key shall be a data dictionary 
+containing the private data that shall be used by the ##PDF processor. The  entry may have a value 
+of any data type, but typically it is a dictionary containing all of the private data needed by the #PDF 
 processor other than the actual content of the document, page, or form. 
-Table 350: Entries in a page-piece dictionary 
+#Table 350: Entries in a page-piece dictionary 
 Key Type Value 
 any valid second-class dictionary A data dictionary (see "

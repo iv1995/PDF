@@ -12,13 +12,13 @@ NOTE 2 For example, a measurement of 1.4505 miles might be expressed as "1.4505 
 require one number format dictionary for miles, or as "1 mi 2,378 ft 7 5/8 in", which would 
 require three dictionaries (for miles, feet, and inches). 
 NOTE 3 A number format dictionary specifying feet needs to precede one specifying inches. 
-Table 267: Additional entries in a rectilinear measure dictionary 
+#Table 267: Additional entries in a rectilinear measure dictionary 
 Key Type Value 
 (Required) scale ratio 
 R 
 text string A text string expressing the of the drawing in the region 
 corresponding to this dictionary. Universally recognised unit abbreviations 
-should be used, either matching those of the number format arrays in this 
+should be used,# either matching those of the number format arrays in this 
 dictionary or those of commonly used scale ratios. 
 EXAMPLE 1 A common scale in architectural drawings is "1/4 in = 1 ft", 
 indicating that 1/4 inches in default user space is equivalent to 
@@ -64,7 +64,7 @@ The first element in the array shall specify the conversion to the largest dista
  CYX Y
 unit from units represented by the first element in . The scale factors from ,  
 (if present) and(if  is present) shall be used to convert from default user 
-space to the appropriate units before applying the distance function. 
+space to the appropriate units before applying the distance #function. 
 (Required) 
 A 
 array A number format array for measurement of area. The first element in 
@@ -73,14 +73,14 @@ the array shall specify the conversion to the largest area unit from units
  CYX Y
 represented by the first element in , squared. The scale factors from ,  (if 
 present) and(if  is present) shall be used to convert from default user 
-space to the appropriate units before applying the area function. 
+space to the appropriate units before applying the area #function. 
 (Optional) 
 T 
 array A number format array for measurement of angles. The first element 
  CYX 
 in the array shall specify the conversion to the largest angle unit from degrees. 
 The scale factor from(if present) shall be used to convert from default user 
-space to the appropriate units before applying the angle function. 
+space to the appropriate units before applying the angle #function. 
 (Optional) 
 S 
 array A number format array for measurement of the slope of a line. The 
@@ -90,7 +90,7 @@ XY CYX Y
 from units represented by the first element in  divided by the first element in . 
 The scale factors from ,  (if present) and(if  is present) shall be used to 
 convert from default user space to the appropriate units before applying the 
-slope function. 
+slope #function. 
 (Optional) 
 O 
 array An array of two numbers that shall specify the origin of the 
@@ -103,7 +103,7 @@ determined by the viewport’sentry (see "
 dictionary"). 
  BBox 
  
-Default value: the first coordinate pair (lower-left corner) of the rectangle 
+Default value: the first coordinate pair (lower-left corner) of the #rectangle 
 specified by the viewport’sentry.
 (Optional; meaningful only when  is present) 
 CYX Y
@@ -133,13 +133,13 @@ yx
  CYX 
 different ratios; in this case, theentry shall be used to convert  values to  values when 
 appropriate. 
-Table 268: Entries in a number format dictionary 
+#Table 268: Entries in a number format dictionary 
 Key Type Value 
 (Optional) 
 Type  
 NumberFormat
  
-name The type of PDF object that this dictionary describes; shall be
+name The type of #PDF #object that this dictionary describes; shall be
 for a number format dictionary. 
 (Required) 
 U 
@@ -220,7 +220,7 @@ Default value: PERIOD (2Eh).
 PS U
 text string Text that shall be concatenated to the left of the label specified by . 
 An empty string indicates that no text shall be added. Default value: A single 
-ASCII SPACE character (20h). 
+#ASCII SPACE #character (20h). 
 © ISO 2017 – All rights reserved 580 
 
 ISO/DIS 32000-2
@@ -231,7 +231,7 @@ SS U
 text string Text that shall be concatenated after the label specified by . An 
  
 empty string indicates that no text shall be added. 
-Default value: A single ASCII SPACE character (20h).
+Default value: A single #ASCII SPACE #character (20h).
 (Optional) 
 O U
 name A name indicating the position of the label specified by  with respect 
@@ -241,14 +241,14 @@ P
 The label is a suffix to the value. 
  PS  SS 
 The label is a prefix to the value. 
-The characters specified byandshall be concatenated before considering 
+The #characters specified byandshall be concatenated before considering 
 S
 this entry. 
 Default value: . 
  
 To use a number format array to create a text string containing the appropriately formatted units for 
 display in a user interface, apply the following algorithm: 
-Algorithm: Use of a number format array to create a formatted text string 
+#Algorithm: Use of a number format array to create a formatted text string 
  
 a)The entry in the rectilinear measure dictionary (see "Table 267: Additional entries in a rectilinear 
 XT
@@ -311,20 +311,20 @@ ISO/DIS 32000-2
  
 12.10.1General 
  
-PDF is a common delivery mechanism for map and satellite imagery data. In PDF 2.0, a geospatial 
-coordinate system is introduced ("Table 266: Entries in a measure dictionary") along with a number of 
-PDF constructs, as explained in this clause, to support geospatially registered content. 
+#PDF is a common delivery mechanism for map and satellite imagery data. In #PDF 2.0, a geospatial 
+coordinate system is introduced ("#Table 266: Entries in a measure dictionary") along with a number of 
+#PDF constructs, as explained in this clause, to support geospatially registered content. 
 12.10.2Geospatial measure dictionary 
  
 GEO
-When the subtype of a measurement dictionary ("Table 266: Entries in a measure dictionary") is , 
+When the subtype of a measurement dictionary ("#Table 266: Entries in a measure dictionary") is , 
 additional entries are defined through a geospatial measure dictionary. 
-A geospatial measure dictionary, "Table 269: Additional entries in a geospatial measure dictionary", 
-contains a description of the earth-based coordinate system associated with the PDF object, and 
+A geospatial measure dictionary, "#Table 269: Additional entries in a geospatial measure dictionary", 
+contains a description of the earth-based coordinate system associated with the #PDF #object, and 
 Bounds
-corresponding arrays of points in that coordinate system and the local object coordinate system. It may 
+corresponding arrays of points in that coordinate system and the local #object coordinate system. It may 
  PDU 
-contain a bounding polygon (the  entry), which defines the region of the PDF object for which 
+contain a bounding polygon (the  entry), which defines the region of the #PDF #object for which 
  DCS 
 the geographic associations are valid. It may also contain a choice of default units (theentry) for 
 user displays of positions, distances and areas. An optional display coordinate system (theentry) 
@@ -334,9 +334,9 @@ with the source data. For example, a map may be created in a state planar coordi
 corresponding to values reported by a GPS device. 
 The entries of a geospatial measure dictionary are shown in "Table 269: Additional entries in a 
 geospatial measure dictionary". 
-Table 269: Additional entries in a geospatial measure dictionary 
+#Table 269: Additional entries in a geospatial measure dictionary 
 Key Type Description 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 Bounds 
 array An array of numbers that shall be taken pairwise to define a series 
 of points that describes the bounds of an area for which geospatial transformations 
@@ -345,13 +345,13 @@ are valid.
 For maps, this bounding polygon is known as a neatline. These numbers are 
    
 expressed relative to a unit square that describes theassociated with a
-Viewportor Form XObject, or the bounds of anImageXObject. If not present, the 
-default values shall define a rectangle describing the full unit square, with values of 
+Viewportor Form X#Object, or the bounds of anImageX#Object. If not present, the 
+default values shall define a #rectangle descri#bing the full unit square, with values of 
 NOTE 1 The polygon description need not be explicitly closed by repeating the first 
 [0.0 0.0 0.0 1.0 1.0 1.0 1.0 0.0]. 
 point values as a final point.
  
-(Required; PDF 2.0) 
+(Required; #PDF 2.0) 
 GCS 
 dictionary A projected or geographic coordinate system dictionary. 
 © ISO 2017 – All rights reserved 582 
@@ -359,15 +359,15 @@ dictionary A projected or geographic coordinate system dictionary.
 ISO/DIS 32000-2
  
 Key Type Description 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 DCS 
 dictionary A projected or geographic coordinate system that shall be used for 
 the display of position values, such as latitude and longitude. Formatting the 
-displayed representation of these values is controlled by the interactive PDF 
+displayed representation of these values is controlled by the interactive #PDF 
 processor. 
-(Optional; PDF 2.0)Preferred Display Units
+(Optional; #PDF 2.0)Preferred Display Units
 PDU  
-array . An array of three names that identify in 
+array . An array of three names that# identify in 
 order a linear display unit, an area display unit, and an angular display unit. 
  
 M 
@@ -404,7 +404,7 @@ GRD
  
 a degree 
 a grad (1/400 of a circle, or 0.9 degrees)
-(Required; PDF 2.0) 
+(Required; #PDF 2.0) 
 GPTS 
 array An array of numbers that shall be taken pairwise, defining points 
 in geographic space as degrees of latitude and longitude, respectively when defining a 
@@ -420,15 +420,15 @@ required to hold 3D point coordinates as triples rather than pairwise where the 
 NOTE 2 Any projected coordinate system includes an underlying geographic 
 value of each tripe is an elevation value. 
 coordinate system. 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 LPTS 
 array An array of numbers that shall be taken pairwise to define points 
 in a 2D unit square. The unit square is mapped to the rectangular bounds of the 
  GPTS 
-Viewport, image XObject, or forms XObject that contains the measure dictionary. This 
+Viewport, image X#Object, or forms X#Object that contains the measure dictionary. This 
 array shall contain the same number of number pairs as thearray; each 
  GPTS Geospatial3D
-number pair is the unit square object position corresponding to the geospatial 
+number pair is the unit square #object position corresponding to the geospatial 
 Geospatial3DLPTS
 position in thearray. For , when Geospatial feature information 
 GPTS
@@ -440,23 +440,23 @@ the 3D annotation view world coordinate space.
 ISO/DIS 32000-2
  
 Key Type Description 
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 PCSM 
 array A 12-element transformation matrix of real numbers, defining the 
 GCSGCSPCSM
-transformation from Xobject position coordinates to projected coordinate system. If 
+transformation from X#object position coordinates to projected coordinate system. If 
 GPTSPCSMGPTSGPTS
  specifies  (geographical) then  should be ignored and always used 
 . If  is present, it has priority over , and  values may be ignored. 
 PCSM
-This priority provides backward compatibility. 
+This priority provides backward compati#bility. 
  acronym = "Projected Coordinate System Matrix" 
  
 12.10.3Geographic coordinate system dictionary 
  
-A geographic coordinate system (GEOGCS) specifies an ellipsoidal object in geographic coordinates: 
+A geographic coordinate system (GEOGCS) specifies an ellipsoidal #object in geographic coordinates: 
  EPSG 
-angular units of latitude and longitude. The geographic coordinate system shall be described in either or 
+angular units of latitude and longitude. The geographic coordinate system shall be described in# either or 
 both of two well-established standards: as a numericreference code, or as a Well KnownText 
 (WKT) string, which contains a description of algorithms and parameters needed for transformations. 
  GCS 

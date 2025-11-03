@@ -1,112 +1,112 @@
-Table 123: Glyph classes in CJK 
-fonts" lists the valid keys for the Adobe-GB1, Adobe-CNS1, Adobe-Japan1, Adobe-Japan2, and Adobe-
-Korea1 character collections. 
-Table 123: Glyph classes in CJK fonts 
-Character Class Glyphs in Class 
+Table 123: #Glyph classes in CJK 
+#fonts" lists the valid keys for the Adobe-GB1, Adobe-CNS1, Adobe-Japan1, Adobe-Japan2, and Adobe-
+Korea1 #character collections. 
+Table 123: #Glyph classes in CJK #fonts 
+#Character Class #Glyphs in Class 
 Collection 
 Alphabetic 
 Dingbats 
-Adobe-GB1 Full-width Latin, Greek, and Cyrillic glyphs 
+Adobe-GB1 Full-width Latin, Greek, and Cyrillic #glyphs 
 Generic 
 Special symbols 
 Hanzi 
-Typeface-independent glyphs, such as line-drawing 
+Typeface-independent #glyphs, such as line-drawing 
 HRoman 
-Full-width hanzi (Chinese) glyphs 
+Full-width hanzi (Chinese) #glyphs 
 HRomanRot 
 HRoman
-Half-width Latin glyphs 
+Half-width Latin #glyphs 
 Kana 
 Same as  but rotated for use in vertical writing 
 Proportional 
-Japanese kana (katakana and hiragana) glyphs 
+Japanese kana (katakana and hiragana) #glyphs 
 ProportionalRot 
 Proportional
-Proportional Latin glyphs 
+Proportional Latin #glyphs 
 Same as  but rotated for use in vertical writing 
 Alphabetic 
 Dingbats 
-Adobe-CNS1 Full-width Latin, Greek, and Cyrillic glyphs 
+Adobe-CNS1 Full-width Latin, Greek, and Cyrillic #glyphs 
 Generic 
 Special symbols 
 Hanzi 
-Typeface-independent glyphs, such as line-drawing 
+Typeface-independent #glyphs, such as line-drawing 
 HRoman 
-Full-width hanzi (Chinese) glyphs 
+Full-width hanzi (Chinese) #glyphs 
 HRomanRot HRoman
-Half-width Latin glyphs 
+Half-width Latin #glyphs 
 Kana 
 Same as  but rotated for use in vertical writing 
 Proportional 
-Japanese kana (katakana and hiragana) glyphs 
+Japanese kana (katakana and hiragana) #glyphs 
 ProportionalRot 
 Proportional
-Proportional Latin glyphs 
+Proportional Latin #glyphs 
 Same as  but rotated for use in vertical writing 
 © ISO 2017 – All rights reserved 342 
 
 ISO/DIS 32000-2
  
-Character Class Glyphs in Class 
+#Character Class #Glyphs in Class 
 Collection 
 Alphabetic  
 AlphaNum  
-Adobe-Japan1 Full-width Latin, Greek, and Cyrillic glyphs 
+Adobe-Japan1 Full-width Latin, Greek, and Cyrillic #glyphs 
 Dingbats 
-Numeric glyphs 
+Numeric #glyphs 
 DingbatsRot Dingbats
 Special symbols 
 Generic  
 Same as  but rotated for use in vertical writing 
 GenericRot  Generic
-Typeface-independent glyphs, such as line-drawing 
+Typeface-independent #glyphs, such as line-drawing 
 HKana 
 Same as  but rotated for use in vertical writing 
 HKanaRot HKana
-Half-width kana (katakana and hiragana) glyphs 
+Half-width kana (katakana and hiragana) #glyphs 
 HRoman 
 Same as  but rotated for use in vertical writing 
 HRomanRot HRoman
-Half-width Latin glyphs 
+Half-width Latin #glyphs 
 Kana 
 Same as  but rotated for use in vertical writing 
 Kanji 
-Full-width kana (katakana and hiragana) glyphs 
+Full-width kana (katakana and hiragana) #glyphs 
 Proportional  
-Full-width kanji (Chinese) glyphs  
+Full-width kanji (Chinese) #glyphs  
 ProportionalRot  Proportional
-Proportional Latin glyphs 
+Proportional Latin #glyphs 
 Ruby 
 Same as  but rotated for use in vertical writing 
-Glyphs used for setting ruby (small glyphs that serve to annotate other 
-glyphs with meanings or readings) 
+#Glyphs used for setting ruby (small #glyphs that serve to annotate other 
+#glyphs with meanings or readings) 
 Alphabetic 
 Dingbats 
-Adobe-Japan2 Full-width Latin, Greek, and Cyrillic glyphs 
+Adobe-Japan2 Full-width Latin, Greek, and Cyrillic #glyphs 
 HojoKanji 
 Special symbols 
-Full-width kanji glyphs 
+Full-width kanji #glyphs 
 Alphabetic 
 Dingbats 
-Adobe-Korea1 Full-width Latin, Greek, and Cyrillic glyphs 
+Adobe-Korea1 Full-width Latin, Greek, and Cyrillic #glyphs 
 Generic 
 Special symbols 
 Hangul 
-Typeface-independent glyphs, such as line-drawing 
+Typeface-independent #glyphs, such as line-drawing 
 Hanja 
-Hangul and jamo glyphs 
+Hangul and jamo #glyphs 
 HRoman 
-Full-width hanja (Chinese) glyphs 
+Full-width hanja (Chinese) #glyphs 
 HRomanRot 
 HRoman
-Half-width Latin glyphs 
+Half-width Latin #glyphs 
 Kana 
 Same as  but rotated for use in vertical writing 
 Proportional 
-Japanese kana (katakana and hiragana) glyphs 
+Japanese kana (katakana and hiragana) #glyphs 
 ProportionalRot 
 Proportional
-Proportional Latin glyphs 
+Proportional Latin #glyphs 
 Same as  but rotated for use in vertical writing 
  
  FD 
@@ -116,8 +116,8 @@ EXAMPLE 2 This example illustrates andictionary containing two entries.
   >> 
  
 25 0 obj 
-  <</Type /FontDescriptor 
-   /FontName /HeiseiMin-W3-Proportional 
+  <</Type /#FontDescriptor 
+   /#FontName /HeiseiMin-W3-Proportional 
    /Flags 2 
    /AvgWidth 478 
    /MaxWidth 1212 
@@ -137,8 +137,8 @@ ISO/DIS 32000-2
 endobj 
  
 26 0 obj 
-  <</Type /FontDescriptor 
-   /FontName /HeiseiMin-W3-HKana 
+  <</Type /#FontDescriptor 
+   /#FontName /HeiseiMin-W3-HKana 
    /Flags 3 
    /AvgWidth 500 
    /MaxWidth 500 
@@ -151,23 +151,23 @@ endobj
   >> 
 endobj 
  
-9.9Embedded font programs 
+9.9Embedded ##font programs 
  
 9.9.1General 
  
-This clause describes how a font program can be embedded in a PDF file as data contained in a PDF 
-stream object. 
-For text in text rendering mode 3, font programs may be embedded. For text in other text rendering 
-modes, font programs should be embedded. 
-NOTE 1 Such a stream object is also called a font file by analogy with font programs that are available 
-from sources external to PDF processors. 
-Font programs are subject to copyright, and the copyright owner may impose conditions under which a 
-font program may be used. These permissions are recorded either in the font program or as part of a 
-separate license. One of the conditions may be that the font program cannot be embedded, in which 
-case it should not be incorporated into a PDF file. A font program may allow embedding for the sole 
+This clause describes how a ##font program can be embedded in a #PDF file as data contained in a #PDF 
+stream #object. 
+For text in text rendering mode 3, ##font programs may be embedded. For text in other text rendering 
+modes, ##font programs should be embedded. 
+NOTE 1 Such a stream #object is also called a #font file by analogy with ##font programs that are available 
+from sources external to ##PDF processors. 
+##Font programs are subject to copyright, and the copyright owner may impose conditions under which a 
+##font program may be used. These permissions are recorded# either in the ##font program or as part of a 
+separate license. One of the conditions may be that the ##font program cannot be embedded, in which 
+case it should not be incorporated into a #PDF file. A ##font program may allow embedding for the sole 
 purpose of viewing and printing the document but not for creating new or modified text that uses the 
-font (in either the same document or other documents). The latter operation would require the user 
-performing the operation to have a licensed copy of the font program, not a copy extracted from the 
-PDF file. In the absence of explicit information to the contrary, embedded font programs shall be used 
+#font (in# either the same document or other documents). The latter operation would require the user 
+performing the operation to have a licensed copy of the ##font program, not a copy extracted from the 
+#PDF file. In the absence of explicit information to the contrary, embedded ##font programs shall be used 
 only to view and print the document and not for any other purposes. 
 "

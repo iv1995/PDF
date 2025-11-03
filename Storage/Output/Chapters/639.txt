@@ -1,7 +1,7 @@
-Figure Annex H.6: Association between content and marked content identifiers" illustrates the 
+Figure Annex H.6: Association between content and marked content# identifiers" illustrates the 
 MCID
-association between marked content identifiers (MCID) and content. This illustration includes part of 
-the stream object so you can see how the  entries are associated with the content in the table of 
+association between marked content# identifiers (MCID) and content. This illustration includes part of 
+the stream #object so you can see how the  entries are associated with the content in the table of 
 contents. 
 © ISO 2017 – All rights reserved 892 
 
@@ -10,7 +10,7 @@ ISO/DIS 32000-2
 C
 onten
 t
-Associationofmarkedcontentsofthestreamobject(partial)
+Associationofmarkedcontentsofthestream#object(partial)
 identifiers(atright)tocontent
 1
 /P<</MCI
@@ -86,7 +86,7 @@ BT(.. . .. .. .)TjE
 TEMC
 /Reference<</MCID24>>/BDC
 BT(4)TjETEMC
-Figure Annex H.6: Association between content and marked content identifiers 
+Figure Annex H.6: Association between content and marked content# identifiers 
  
 TOCTOCI
 "

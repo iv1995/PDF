@@ -1,6 +1,6 @@
 Table 172: Additional entries in an annotation dictionary specific to markup 
 annotations"). These annotations have text that appears as part of the annotation and may be displayed 
-in other ways by an interactive PDF processor, such as in a comments pane. Markup annotations may be 
+in other ways by an #interactive ##PDF processor, such as in a comments pane. Markup annotations may be 
 divided into the following groups: 
 Contents
 • 
@@ -24,7 +24,7 @@ When separating text into paragraphs, a CARRIAGE RETURN (0Dh) shall be used and 
 
 ISO/DIS 32000-2
  
-LINE FEED character (0Ah). 
+LINE FEED #character (0Ah). 
 NOTE 1 A subset of markup annotations is called text markup annotations (12.5.6.10, "Text markup 
 annotations"). 
 The remaining annotation types are not considered markup annotations: 
@@ -40,31 +40,31 @@ Contents
 For all other annotation types ( and ), 
 the  entry may provide an alternative representation of the annotation’s contents in 
 human-readable form, which is useful when extracting the document’s contents in support of 
-accessibility to users with disabilities or for other purposes (see 14.9.3, "Alternate descriptions"). 
-"Table 172: Additional entries in an annotation dictionary specific to markup annotations" lists 
+accessi#bility to users with disa#bilities or for other purposes (see 14.9.3, "Alternate descriptions"). 
+"#Table 172: Additional entries in an annotation dictionary specific to markup annotations" lists 
 annotation dictionary entries that apply to all markup annotations. 
-Table 172: Additional entries in an annotation dictionary specific to markup annotations 
+#Table 172: Additional entries in an annotation dictionary specific to markup annotations 
 Key Type Value 
-(Optional; PDF 1.1) 
+(Optional; #PDF 1.1) 
 T 
 text string The text label that shall be displayed in the title bar of the 
-annotation’s popup window when open and active. This entry shall identify 
+annotation’s popup window when open and active. This entry shall# identify 
 the user who added the annotation. 
-(Optional; PDF 1.3) 
+(Optional; #PDF 1.3) 
 Popup 
 dictionary An indirect reference to a popup annotation for entering 
 or editing the text associated with this annotation. 
-(Optional; PDF 1.5) AdobeXMLArchitecture,XMLForms 
+(Optional; #PDF 1.5) AdobeXMLArchitecture,XMLForms 
 RC     
 Architecture (XFA) Specification, version 3.3
 text string or A rich text string (see 
 text stream ) that shall be displayed in the 
 popup window when the annotation is opened. 
-(Optional; PDF 1.5) 
+(Optional; #PDF 1.5) 
 CreationDate 
 date The date and time (7.9.4, "Dates") when the annotation 
 was created. 
-(Required if anentry is present, otherwise optional; PDF 1.5) 
+(Required if anentry is present, otherwise optional; #PDF 1.5) 
 IRT  RT 
 dictionary A reference to 
 the annotation that this annotation is "in reply to." Both annotations shall be 
@@ -80,7 +80,7 @@ type shall not be a dictionary but a text string containing the contents of the
  
 entry of the annotation being replied to, to allow for a situation where 
 the annotation being replied to is not in the samefile.
-(Optional; PDF 1.5) 
+(Optional; #PDF 1.5) 
 Subj 
 text string Text representing a short description of the subject being 
 addressed by the annotation. 
@@ -89,7 +89,7 @@ addressed by the annotation.
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; meaningful only ifis present; PDF 1.6) 
+(Optional; meaningful only ifis present; #PDF 1.6) 
 RT  IRT 
 name A name specifying the 
 IRT
@@ -98,28 +98,28 @@ R
 . Valid values are: 
 IRT
 The annotation is considered a reply to the annotation specified by 
-. Interactive PDF processors shall not display replies to an 
+. #Interactive ##PDF processors shall not display replies to an 
 annotation individually but together in the form of threaded 
-Group 
+#Group 
 comments. 
 IRT
-The annotation shall be grouped with the annotation specified by 
+The annotation shall be #grouped with the annotation specified by 
 R
 ; see the discussion following this Table. 
 Default value: . 
-(Optional; PDF 1.6) intent 
+(Optional; #PDF 1.6) intent 
 IT 
-name A name describing the of the markup annotation. 
-Intents allow interactive PDF processors to distinguish between different 
+name A name descri#bing the of the markup annotation. 
+Intents allow #interactive ##PDF processors to distinguish between different 
 uses and behaviours of a single markup annotation type. If this entry is not 
 present or its value is the same as the annotation type, the annotation shall 
 have no explicit intent and should behave in a generic manner in an 
-interactive PDF processor. 
+#interactive ##PDF processor. 
 Free text annotations ("Table 177: Additional entries specific to a free text 
 annotation"), line annotations ("Table 178: Additional entries specific to a 
 line annotation"), polygon annotations ("Table 181: Additional entries 
-specific to a polygon or polyline annotation"), (PDF 1.7) polyline annotations 
-("Table 181: Additional entries specific to a polygon or polyline annotation") 
+specific to a polygon or polyline annotation"), (#PDF 1.7) polyline annotations 
+("#Table 181: Additional entries specific to a polygon or polyline annotation") 
 Table 184: Additional entries specific to a rubber 
 and stamp annotations (
  

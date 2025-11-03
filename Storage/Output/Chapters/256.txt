@@ -1,4 +1,4 @@
-Table 113: Additional entries in Mac OS Roman encoding not in MacRomanEncoding  
+#Table 113: Additional entries in Mac OS Roman encoding not in MacRomanEncoding  
 Name  Code (Octal)  Code (Decimal) 
 notequal  255  173 
 infinity  260  176 
@@ -24,124 +24,124 @@ apple  360  240
  
 Encoding
 Encoding
-When the font has no  entry, or the font descriptor’s Symbolic flag is set (in which case the 
+When the #font has no  entry, or the #font descriptor’s Symbolic flag is set (in which case the 
  entry is ignored), this shall occur: 
 • 
-If the font contains a (3, 0) subtable, the range of character codes shall be one of these: 0x0000 - 
+If the #font contains a (3, 0) subtable, the range of #character codes shall be one of these: 0x0000 - 
 0x00FF, 0xF000 - 0xF0FF, 0xF100 - 0xF1FF, or 0xF200 - 0xF2FF. Depending on the range of codes, 
-each byte from the string shall be prepended with the high byte of the range, to form a two-byte 
+each #byte from the string shall be prepended with the high #byte of the range, to form a two-#byte 
 • 
-character, which shall be used to select the associated glyph description from the subtable. 
-Otherwise, if the font contains a (1, 0) subtable, single bytes from the string shall be used to look 
-up the associated glyph descriptions from the subtable. 
-If a character cannot be mapped in any of the ways described previously, a PDF processor may supply a 
+#character, which shall be used to select the associated #glyph description from the subtable. 
+Otherwise, if the #font contains a (1, 0) subtable, single #bytes from the string shall be used to look 
+up the associated #glyph descriptions from the subtable. 
+If a #character cannot be mapped in any of the ways described previously, a ##PDF processor may supply a 
 mapping of its choosing. 
-9.7Composite fonts 
+9.7Composite #fonts 
  
 9.7.1General 
  
 composite font
 Subtype
-A , also called a Type 0 font, is one whose glyphs are obtained from a font-like object 
-Type0root fontdescendant
-called a CIDFont. A composite font shall be represented by a font dictionary whose  value is 
-. The Type 0 font is known as the , and its associated CIDFont is called its . 
-NOTE 1 Composite fonts in PDF are analogous to composite fonts in PostScript but with some limitations. 
-In particular, PDF requires that the character encoding be defined by a CMap, which is only one of 
+A , also called a Type 0 #font, is one whose #glyphs are obtained from a #font-like #object 
+Type0root #fontdescendant
+called a CID#Font. A composite #font shall be represented by a #font dictionary whose  value is 
+. The Type 0 #font is known as the , and its associated CID#Font is called its . 
+NOTE 1 Composite #fonts in #PDF are analogous to composite #fonts in PostScript but with some limitations. 
+In particular, #PDF requires that the #character encoding be defined by a CMap, which is only one of 
 several encoding methods available in PostScript. Also, the PostScript language allows a Type 0 
-font to have multiple descendants, which might also be Type 0 fonts. PDF supports only a single 
-descendant, which shall be a CIDFont. 
-When the current font is composite, the text-showing operators shall behave differently than with 
-simple fonts. For simple fonts, each byte of a string to be shown selects one glyph, whereas for 
-composite fonts, a sequence of one or more bytes are decoded to select a glyph from the descendant 
-CIDFont. 
-NOTE 2 This facility supports the use of very large character sets, such as those for the Chinese, Japanese, 
+#font to have multiple descendants, which might also be Type 0 #fonts. #PDF supports only a single 
+descendant, which shall be a CID#Font. 
+When the current #font is composite, the text-showing operators shall behave differently than with 
+simple #fonts. For simple #fonts, each #byte of a string to be shown selects one #glyph, whereas for 
+composite #fonts, a sequence of one or more #bytes are decoded to select a #glyph from the descendant 
+CID#Font. 
+NOTE 2 This facility supports the use of very large ##character sets, such as those for the Chinese, Japanese, 
 and Korean languages. It also simplifies the organization of fonts that have complex encoding 
 requirements. 
 © ISO 2017 – All rights reserved 320 
 
 ISO/DIS 32000-2
  
-CID-keyed fonts
-CIDFontCMap
+CID-keyed #fonts
+CID#FontCMap
 This subclause first introduces the architecture of , which are the only kind of composite 
-font supported in PDF. Then it describes the  and  dictionaries, which are the PDF objects 
-that represent the correspondingly named components of a CID-keyed font. Finally, it describes the 
-Type 0 font dictionary, which combines a CIDFont and a CMap to produce a font whose glyphs may be 
-accessed by means of variable-length character codes in a string to be shown. 
-9.7.2CID-Keyed fonts overview 
+#font supported in #PDF. Then it describes the  and  dictionaries, which are the #PDF #objects 
+that represent the correspondingly named components of a CID-keyed #font. Finally, it describes the 
+Type 0 #font dictionary, which com#bines a CID#Font and a CMap to produce a #font whose #glyphs may be 
+accessed by means of variable-length #character codes in a string to be shown. 
+9.7.2CID-Keyed #fonts overview 
  
-CID-keyed fonts provide a convenient and efficient method for defining multiple-byte character 
-encodings and fonts with a large number of glyphs. These capabilities provide great flexibility for 
-representing text in writing systems for languages with large character sets, such as Chinese, Japanese, 
+CID-keyed #fonts provide a convenient and efficient method for defining multiple-#byte #character 
+encodings and #fonts with a large number of #glyphs. These capa#bilities provide great flexi#bility for 
+representing text in writing systems for languages with large ##character sets, such as Chinese, Japanese, 
 and Korean (CJK). 
-The CID-keyed font architecture specifies the external representation of certain font programs, called 
-CMap and CIDFont files, along with some conventions for combining and using those files. As mentioned 
-earlier, PDF does not support the entire CID-keyed font architecture, which is independent of PDF; CID-
-keyed fonts may be used in other environments. 
+The CID-keyed #font architecture specifies the external representation of certain ##font programs, called 
+CMap and CID#Font files, along with some conventions for com#bining and using those files. As mentioned 
+earlier, #PDF does not support the entire CID-keyed #font architecture, which is independent of #PDF; CID-
+keyed #fonts may be used in other environments. 
 NOTE For complete documentation on the architecture and the file formats, see Adobe Technical Note 
 #5092, , and #5014, 
-. This subclause describes only the PDF objects that represent these font programs. 
-CID-Keyed Font Technology OverviewAdobe CMap and CIDFont Files 
-CID-keyed fontCID
+. This subclause describes only the #PDF #objects that represent these ##font programs. 
+CID-Keyed #Font Technology OverviewAdobe CMap and CID#Font Files 
+CID-keyed #fontCID
 Specification
-The term  reflects the fact that  (character identifier) numbers are used to index and 
-access the glyph descriptions in the font. This method is more efficient for large fonts than the method 
-of accessing by character name, as is used for some simple fonts. CIDs range from 0 to a maximum value 
-that may be subject to implementation limits (see Annex C, "Advice on Maximising Portability"). 
-A character collection is an ordered set of glyphs. The order of the glyphs in the character collection 
-shall determine the CID number for each glyph. Each CID-keyed font shall explicitly reference the 
-character collection on which its CID numbers are based; see 9.7.3, "CIDSystemInfo dictionaries". 
-A CMap (character map) file shall specify the correspondence between character codes and the CID 
-numbers used to identify glyphs. It is equivalent to the concept of an encoding in simple fonts. Whereas 
-a simple font allows a maximum of 256 glyphs to be encoded and accessible at one time, a CMap can 
-describe a mapping from multiple-byte codes to thousands of glyphs in a large CID-keyed font. 
+The term  reflects the fact that  (#character# identifier) numbers are used to index and 
+access the #glyph descriptions in the #font. This method is more efficient for large #fonts than the method 
+of accessing by #character name, as is used for some simple #fonts. CIDs range from 0 to a maximum value 
+that may be subject to implementation limits (see Annex C, "Advice on Maximising Porta#bility"). 
+A #character collection is an ordered set of #glyphs. The order of the #glyphs in the #character collection 
+shall determine the CID number for each #glyph. Each CID-keyed #font shall explicitly reference the 
+#character collection on which its CID numbers are based; see 9.7.3, "CIDSystemInfo dictionaries". 
+A CMap (#character map) file shall specify the correspondence between #character codes and the CID 
+numbers used to# identify #glyphs. It is equivalent to the concept of an encoding in simple #fonts. Whereas 
+a simple #font allows a maximum of 256 #glyphs to be encoded and accessible at one time, a CMap can 
+describe a mapping from multiple-#byte codes to thousands of #glyphs in a large CID-keyed #font. 
 EXAMPLE A CMap can describe Shift-JIS, one of several widely used encodings for Japanese. 
-font numbercharacter selector
-A CMap file may reference an entire character collection or a subset of a character collection. The CMap 
-file’s mapping yields a  (which in PDF shall be 0) and a  (which in PDF 
+#font number#character selector
+A CMap file may reference an entire #character collection or a subset of a #character collection. The CMap 
+file’s mapping yields a  (which in #PDF shall be 0) and a  (which in #PDF 
 shall be a CID). Furthermore, a CMap file may incorporate another CMap file by reference, without 
-having to duplicate it. These features enable character collections to be combined or supplemented and 
-make all the constituent characters accessible to text-showing operations through a single encoding. 
+having to duplicate it. These features enable #character collections to be com#bined or supplemented and 
+make all the constituent #characters accessible to text-showing operations through a single encoding. 
 CIDFont
-A  contains the glyph descriptions for a character collection. The glyph descriptions themselves 
-are typically in a format similar to those used in simple fonts, such as Type 1. However, they are 
+A  contains the #glyph descriptions for a #character collection. The #glyph descriptions themselves 
+are typically in a format similar to those used in simple #fonts, such as Type 1. However, they are 
 identified by CIDs rather than by names, and they are organised differently. 
-In PDF, the data from a CMap file and CIDFont shall be represented by PDF objects as described in 9.7.4, 
-"CIDFonts" and 9.7.5, "CMaps". The CMap file and CIDFont programs themselves may be either 
-referenced by name or embedded as stream objects in the PDF file. 
+In #PDF, the data from a CMap file and CID#Font shall be represented by #PDF #objects as described in 9.7.4, 
+"CID#Fonts" and 9.7.5, "CMaps". The CMap file and CID##Font programs themselves may be# either 
+referenced by name or embedded as stream #objects in the #PDF file. 
 © ISO 2017 – All rights reserved 321 
 
 ISO/DIS 32000-2
  
 Encoding
-A CID-keyed font, then, shall be the combination of a CMap with a CIDFont containing glyph 
-DescendantFonts
-descriptions. It shall be represented as a Type 0 font. It contains an  entry whose value shall 
-be a CMap dictionary, and its  entry shall reference the CIDFont dictionary with 
-which the CMap has been combined. 
+A CID-keyed #font, then, shall be the com#bination of a CMap with a CID#Font containing glyph 
+Descendant#Fonts
+descriptions. It shall be represented as a Type 0 #font. It contains an  entry whose value shall 
+be a CMap dictionary, and its  entry shall reference the CID#Font dictionary with 
+which the CMap has been com#bined. 
 9.7.3CIDSystemInfo dictionaries 
  
 CIDSystemInfo
-CIDFont and CMap dictionaries shall contain a  entry specifying the character collection 
+CID#Font and CMap dictionaries shall contain a  entry specifying the #character collection 
 RegistryOrdering
-assumed by the CIDFont associated with the CMap — that is, the interpretation of the CID numbers 
+assumed by the CID#Font associated with the CMap — that is, the interpretation of the CID numbers 
 SupplementCIDSystemInfo
-used by the CIDFont. A character collection shall be uniquely identified by the , , and 
+used by the CID#Font. A #character collection shall be uniquely# identified by the , , and 
 Registry
  entries in the  dictionary, as described in "Table 114: Entries in a 
 Identity-HIdentity-V
 Ordering
-CIDSystemInfo dictionary". In order for a CIDFont and a CMap to be compatible, their  and 
- values shall be the same. Identity CMaps ( and ) are compatible with all 
-CIDFonts. 
+CIDSystemInfo dictionary". In order for a CID#Font and a CMap to be compatible, their  and 
+ values shall be the same.# Identity CMaps ( and ) are compatible with all 
+CID#Fonts. 
 CIDSystemInfo
-The  entry in a CIDFont is a dictionary that shall specify the CIDFont’s character 
+The  entry in a CID#Font is a dictionary that shall specify the CID#Font’s #character 
 CIDSystemInfo
-collection. The CIDFont need not contain glyph descriptions for all the CIDs in a collection; it may 
-contain a subset. The  entry in a CMap file shall be either a single dictionary or an array 
-of dictionaries, depending on whether it associates codes with a single character collection or with 
-multiple character collections; see 9.7.5, "CMaps". 
+collection. The CID#Font need not contain #glyph descriptions for all the CIDs in a collection; it may 
+contain a subset. The  entry in a CMap file shall be# either a single dictionary or an array 
+of dictionaries, depending on whether it associates codes with a single #character collection or with 
+multiple #character collections; see 9.7.5, "CMaps". 
 CIDSystemInfo
-For proper behaviour, the  entry of a CMap shall be compatible with that of the CIDFont 
-or CIDFonts with which it is used. 
+For proper behaviour, the  entry of a CMap shall be compatible with that of the CID#Font 
+or CID#Fonts with which it is used. 

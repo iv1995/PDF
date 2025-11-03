@@ -1,8 +1,8 @@
-Layer 1 
-  /OC /L1a BDC          %Sublayer A of layer 1 
+#Layer 1 
+  /OC /L1a BDC          %Sublayer A of #layer 1 
    0 0 100 100 re f 
   EMC 
-  /OC /L1b BDC          %Sublayer B of layer 1 
+  /OC /L1b BDC          %Sublayer B of #layer 1 
    0 100 100 100 re f 
   EMC 
  EMC 
@@ -11,32 +11,32 @@ Layer 1
   /L1a 2 0 R 
   /L1b 3 0 R 
  >> 
-…                %Optional content groups 
-1 0 obj <</Type /OCG /Name (Layer 1)>> endobj 
+…                %Optional content #groups 
+1 0 obj <</Type /OCG /Name (#Layer 1)>> endobj 
 2 0 obj <</Type /OCG /Name (Sublayer A)>> endobj 
 3 0 obj <</Type /OCG /Name (Sublayer B)>> endobj 
 … 
 4 0 obj              %Configuration dictionary 
   <</Order [1 0 R [2 0 R 3 0 R]]>> 
-An interactive PDF processor needs to display the optional content groups as follows: 
-Layer 1 
+An #interactive ##PDF processor needs to display the optional content #groups as follows: 
+#Layer 1 
  Sublayer A  
  Sublayer B 
 auto stateusage application dictionaries
  AS 
  
 Theentry is an  array consisting of one or more  that specify 
-how interactive PDF processors shall, and non-interactive PDF processors should, automatically set the 
-state of optional content groups based on external factors, as discussed in the following subclause. 
+how #interactive ##PDF processors shall, and non-#interactive ##PDF processors should, automatically set the 
+state of optional content #groups based on external factors, as discussed in the following subclause. 
 8.11.4.4Usage and usage application dictionaries 
  
-Optional content groups are typically constructed to control the visibility of graphics objects that are 
-related in some way. Objects can be related in several ways; for example, a group may contain content 
+Optional content #groups are typically constructed to control the visi#bility of graphics #objects that are 
+related in some way. #Objects can be related in several ways; for example, a #group may contain content 
 in a particular language or content suitable for viewing at a particular magnification. 
 usage dictionary
 Usage
-An optional content group’s  (the value of the  entry in an optional content group 
+An optional content #group’s  (the value of the  entry in an optional content #group 
 dictionary; see "
-Table 96: Entries in an optional content group dictionary") shall contain information 
-describing the nature of the content controlled by the group. This dictionary can contain any 
-combination of the entries shown in "
+#Table 96: Entries in an optional content #group dictionary") shall contain information 
+descri#bing the nature of the content controlled by the #group. This dictionary can contain any 
+com#bination of the entries shown in "

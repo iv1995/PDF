@@ -1,4 +1,4 @@
-Figure 103: 3D artwork set to CommentView1 
+#Figure 103: 3D artwork set to CommentView1 
  
-"Figure 103: 3D artwork set to CommentView1" shows another view to which a markup annotation is 
+"#Figure 103: 3D artwork set to CommentView1" shows another view to which a markup annotation is 
 applied. ![Figure 104 3D artwork set to CommentView2  .jpg](./Storage/Output/Images/Figure 104 3D artwork set to CommentView2  .jpg)

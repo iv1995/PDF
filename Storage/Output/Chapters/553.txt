@@ -1,13 +1,13 @@
-Table 359: Additional dictionary entries for structure element access"). The values of these entries 
+#Table 359: Additional dictionary entries for structure element access"). The values of these entries 
 shall be as follows: 
 • 
-For an object identified as a content item by means of an object reference (see 14.7.5.3, "PDF 
+For an #object# identified as a content item by means of an ##object reference (see 14.7.5.3, "#PDF 
 • 
-objects as content items"), the value shall be an indirect reference to the parent structure element. 
-For a content stream containing marked-content sequences that are content items, the value shall 
+#objects as content items"), the value shall be an indirect reference to the parent structure element. 
+For a #content stream containing marked-content sequences that are content items, the value shall 
 be an array of indirect references to the sequences’ parent structure elements. The array element 
-corresponding to each sequence shall be found by using the sequence’s marked-content identifier 
-NOTE Because marked-content identifiers serve as indices into an array in the structural parent tree, 
+corresponding to each sequence shall be found by using the sequence’s marked-content# identifier 
+NOTE Because marked-content# identifiers serve as indices into an array in the structural parent tree, 
 as a zero-based index into the array. 
 their assigned values need to be as small as possible to conserve space in the array. 
 ParentTreeNextKey
@@ -17,31 +17,31 @@ that is currently in use as a key in the structural parent tree. Whenever a new 
 parent tree, the current value of  shall be used as its key. The value shall be then 
 incremented to prepare for the next new entry to be added. 
 StructParentStructParents
-To locate the relevant parent tree entry, each object or content stream that is represented in the tree 
+To locate the relevant parent tree entry, each #object or #content stream that is represented in the tree 
 shall contain a special dictionary entry,  or  (see "Table 359: Additional 
 dictionary entries for structure element access"). Depending on the type of content item, this entry may 
-appear in the page object of a page containing marked-content sequences, in the stream dictionary of a 
-form or image XObject, or in an annotation dictionary. Its value shall be the integer key under which the 
-entry corresponding to the object shall be found in the structural parent tree. 
-Table 359: Additional dictionary entries for structure element access 
+appear in the page #object of a page containing marked-content sequences, in the stream dictionary of a 
+form or image X#Object, or in an annotation dictionary. Its value shall be the integer key under which the 
+entry corresponding to the #object shall be found in the structural parent tree. 
+#Table 359: Additional dictionary entries for structure element access 
 Key Type Value 
-Required for all objects that are structural content items; PDF 1.3
+Required for all #objects that are structural content items; #PDF 1.3
 StructParent 
 integer () The integer key 
-of this object’s entry in the structural parent tree. 
-Required for all content streams containing marked-content sequences that are 
+of this #object’s entry in the structural parent tree. 
+Required for all #content streams containing marked-content sequences that are 
 StructParents 
-structural content items; PDF 1.3
+structural content items; #PDF 1.3
 integer (
-) The integer key of this object’s entry in the 
+) The integer key of this #object’s entry in the 
 structural parent tree. At most one of these two entries shall be present in a given 
-object. An object may be either a content item in its entirety or a container for 
+#object. An #object may be# either a content item in its entirety or a container for 
 marked-content sequences that are content items, but not both. 
  
 StructParent
-For a content item identified by an object reference, the parent structure element may be found by 
+For a content item# identified by an ##object reference, the parent structure element may be found by 
 ParentTree
-using the value of the  entry in the item’s object dictionary as a retrieval key in the 
+using the value of the  entry in the item’s #object dictionary as a retrieval key in the 
 structural parent tree (found in the  entry of the structure tree root). The corresponding 
 value in the parent tree shall be a reference to the parent structure element (see Example 1). 
 EXAMPLE 1  
@@ -52,33 +52,33 @@ EXAMPLE 1
 ISO/DIS 32000-2
  
    … 
-   /K <</Type /OBJR       %Object reference 
-     /Pg 2 0 R       %Page containing form XObject 
-     /Obj 4 0 R       %Reference to form XObject 
+   /K <</Type /OBJR       %##Object reference 
+     /Pg 2 0 R       %Page containing form X#Object 
+     /Obj 4 0 R       %Reference to form X#Object 
     >> 
   >> 
 endobj 
  
-2 0 obj             %Page object 
+2 0 obj             %Page #object 
   <</Type /Page 
-   /Resources <</XObject  <</Fm4 4 0 R>> %Resource dictionary 
-       >>        %containing form XObject 
-   /Contents 3 0 R       %Content stream 
+   /Resources <</X#Object  <</Fm4 4 0 R>> %#Resource dictionary 
+       >>        %containing form X#Object 
+   /Contents 3 0 R       %#Content stream 
    … 
   >> 
 endobj 
  
-3 0 obj             %Page's content stream 
+3 0 obj             %Page's #content stream 
   <</Length …>> 
 stream 
   … 
-  /Fm4 Do           %Paint form XObject 
+  /Fm4 Do           %Paint form X#Object 
   … 
 endstream 
 endobj 
  
-4 0 obj             %Form XObject 
-  <</Type /XObject 
+4 0 obj             %Form X#Object 
+  <</Type /X#Object 
    /Subtype /Form 
    /Length … 
    /StructParent 6       %Parent tree key 
@@ -92,7 +92,7 @@ endobj
   <</Nums [0 101 0 R 
      1 102 0 R 
      … 
-     6 1 0 R        %Entry for page object 2; points back 
+     6 1 0 R        %Entry for page #object 2; points back 
      …          %to parent structure element 
       ] 
   >> 
@@ -100,18 +100,18 @@ endobj
  
 For a content item that is a marked-content sequence, the retrieval method is similar but slightly more 
 StructParents
-complicated. Because a marked-content sequence is not an object in its own right, its parent tree key 
-shall be found in the  entry of the page object or other content stream in which the 
+complicated. Because a marked-content sequence is not an #object in its own right, its parent tree key 
+shall be found in the  entry of the page #object or other #content stream in which the 
 sequence resides. The value retrieved from the parent tree shall not be a reference to the parent 
 structure element itself but to an array of such references — one for each marked-content sequence 
-contained within that content stream. The parent structure element for the given sequence shall be 
-found by using the sequence’s marked-content identifier as an index into this array (see Example 2). 
+contained within that #content stream. The parent structure element for the given sequence shall be 
+found by using the sequence’s marked-content# identifier as an index into this array (see Example 2). 
 EXAMPLE 2  
 1 0 obj            %Parent structure element 
   <</Type /StructElem 
    … 
    /Pg 2 0 R        %Page containing marked-content sequence 
-   /K 0          %Marked-content identifier 
+   /K 0          %Marked-content# identifier 
   >> 
 © ISO 2017 – All rights reserved 710 
 
@@ -119,15 +119,15 @@ ISO/DIS 32000-2
  
 endobj 
  
-2 0 obj            %Page object 
+2 0 obj            %Page #object 
   <</Type /Page 
-   /Contents 3 0 R      %Content stream 
+   /Contents 3 0 R      %#Content stream 
    /StructParents 6      %Parent tree key 
    … 
   >> 
 endobj 
  
-3 0 obj            %Page's content stream 
+3 0 obj            %Page's #content stream 
   <</Length …>> 
 stream 
   … 
@@ -145,7 +145,7 @@ endobj
   <</Nums [0 101 0 R 
      1 102 0 R 
      … 
-     6 [1 0 R]      %Entry for page object 2; array element at index 0 
+     6 [1 0 R]      %Entry for page #object 2; array element at index 0 
      …         %points back to parent structure element 
       ] 
   >> 
@@ -155,9 +155,9 @@ endobj
  
 14.7.6.1General 
  
-A PDF processor that processes logical structure may attach additional information, called attributes, to 
-any structure element. The attribute information shall be held in one or more attribute objects 
+A ##PDF processor that processes logical structure may attach additional information, called attributes, to 
+any structure element. The attribute information shall be held in one or more attribute #objects 
 O
-associated with the structure element. An attribute object shall be a dictionary or stream that includes 
+associated with the structure element. An attribute #object shall be a dictionary or stream that includes 
 NS
 an  entry (see "

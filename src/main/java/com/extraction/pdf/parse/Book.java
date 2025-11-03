@@ -101,7 +101,7 @@ public class Book {
 			images = addCaptions(page, images);
 		}
 		
-		save(pages, getBookTitles(pages));
+		save(pages);
 	}
 	
 	/**
@@ -112,7 +112,7 @@ public class Book {
 	 * @param pages The pages making up the PDF file
 	 * @throws IOException
 	 */
-	public void save(ArrayList<Page> pages, ArrayList<String> titles) throws IOException {
+	public void save(ArrayList<Page> pages) throws IOException {
 		StringBuilder all = new StringBuilder();
 		
 		for(Page page : pages) {	
@@ -147,34 +147,35 @@ public class Book {
 			all.append("\n");
 		}
 		
-		ArrayList<String> chpt = getBookTitles(pages);
-		ArrayList<String> unique = makeUnique(chpt);
+		ArrayList<String> title = getBookTitles(this.pages);
+		ArrayList<String> unique = makeUnique(title);
+		ArrayList<String> copy = unique;
 		
-		for(String c : unique) {
-			System.out.println(c);
-		}
-		
-		ArrayList<String> chapters = Chapters.chapters(all.toString(), unique);
+		ArrayList<String> chapters = Chapters.chapters(all.toString(), copy);
 		
 		for(int i = 0; i < chapters.size(); i++) {
 			File dest = new File("./Storage/Output/Chapters/" + i + ".txt");
 			dest.createNewFile();
 			
+			String chpt = markdown(chapters.get(i), unique);
+			
 			FileWriter writer = new FileWriter(dest);
-			writer.write(chapters.get(i));
+			writer.write(chpt);
 			writer.flush();
 			writer.close();
 		}
 		
-		String txt = markdown(all.toString(), getBookTitles(pages));
 		
-		File text = new File("./Storage/Output/Chapters/Book.txt");
-		text.createNewFile();
 		
-		FileWriter writer = new FileWriter(text);
-		writer.write(txt);
-		writer.flush();
-		writer.close();
+//		String txt = markdown(all.toString(), getBookTitles(pages));
+		
+//		File text = new File("./Storage/Output/Chapters/Book.txt");
+//		text.createNewFile();
+//		
+//		FileWriter writer = new FileWriter(text);
+//		writer.write(txt);
+//		writer.flush();
+//		writer.close();
 	}
 	
 	public ArrayList<String> makeUnique(ArrayList<String> phrases){
@@ -222,7 +223,7 @@ public class Book {
 				if(phrase.isBlank()){
 					continue;
 				}
-				line = Markdown.markdown(line, phrase, "#", true);
+				line = Markdown.markdown(line, phrase, "#", false);
 			}
 			book += (line + "\n");
 		}

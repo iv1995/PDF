@@ -1,8 +1,8 @@
-Table 117: Character collections for predefined CMaps, by PDF version" lists the character 
-collections referenced by the predefined CMaps for the different versions of PDF. A dash (—) 
-indicates that the CMap is not predefined in that PDF version. 
-Table 117: Character collections for predefined CMaps, by PDF version 
-CMAP PDF 1.2 PDF 1.3 PDF 1.4 PDF 1.5 
+Table 117: #Character collections for predefined CMaps, by #PDF version" lists the #character 
+collections referenced by the predefined CMaps for the different versions of #PDF. A dash (—) 
+indicates that the CMap is not predefined in that #PDF version. 
+Table 117: #Character collections for predefined CMaps, by #PDF version 
+CMAP PDF 1.2 #PDF 1.3 #PDF 1.4 #PDF 1.5 
 Chinese (Simplified) 
 GB-EUC-H/V Adobe-GB1-0 Adobe-GB1-0 Adobe-GB1-0 Adobe-GB1-0 
 GBpc-EUC-H Adobe-GB1-0 Adobe-GB1-0 Adobe-GB1-0 Adobe-GB1-0 
@@ -33,7 +33,7 @@ H/V Adobe-Japan1-1 Adobe-Japan1-1 Adobe-Japan1-1 Adobe-Japan1-1
 
 ISO/DIS 32000-2
  
-CMAP PDF 1.2 PDF 1.3 PDF 1.4 PDF 1.5 
+CMAP PDF 1.2 #PDF 1.3 #PDF 1.4 #PDF 1.5 
 UniJIS-UCS2-H/V — Adobe-Japan1-2 Adobe-Japan1-4 Adobe-Japan1-4 
 UniJIS-UCS2-HW-H/V — Adobe-Japan1-2 Adobe-Japan1-4 Adobe-Japan1-4 
 UniJIS-UTF16-H/V — — — Adobe-Japan1-5 
@@ -47,34 +47,34 @@ UniKS-UTF16-H/V — — — Adobe-Korea1-2
 Generic 
 Identity-H/V Adobe-Identity-0 Adobe-Identity-0 Adobe-Identity-0 Adobe-Identity-0 
  
-A PDF processor shall support all of the character collections listed in "Table 117: Character collections 
-for predefined CMaps, by PDF version". As noted in 9.7.3, "CIDSystemInfo dictionaries", a character 
-collection is identified by registry, ordering, and supplement number, and supplements are cumulative; 
+A ##PDF processor shall support all of the #character collections listed in "Table 117: #Character collections 
+for predefined CMaps, by #PDF version". As noted in 9.7.3, "CIDSystemInfo dictionaries", a #character 
+collection is# identified by registry, ordering, and supplement number, and supplements are cumulative; 
 that is, a higher-numbered supplement includes the CIDs contained in lower-numbered supplements, as 
 well as some additional CIDs. Consequently, text encoded according to the predefined CMaps for a given 
-PDF version shall be valid when interpreted by a PDF processor supporting the same or a later PDF 
-version. When interpreted by a PDF processor supporting an earlier PDF version, such text causes an 
-error if a CMap is encountered that is not predefined for that PDF version. If character codes are 
+#PDF version shall be valid when interpreted by a ##PDF processor supporting the same or a later #PDF 
+version. When interpreted by a ##PDF processor supporting an earlier #PDF version, such text causes an 
+error if a CMap is encountered that is not predefined for that #PDF version. If #character codes are 
 encountered that were added in a higher-numbered supplement than the one corresponding to the 
-supported PDF version, no characters are displayed for those codes; see 9.7.6.3, "Handling undefined 
-characters". 
+supported #PDF version, no #characters are displayed for those codes; see 9.7.6.3, "Handling undefined 
+#characters". 
 Identity-HIdentity-V
-The  and  CMaps shall not be used with a non-embedded font. Only standardized 
-character sets may be used. 
-NOTE 4 If a PDF processor producing a PDF file encounters text to be included that uses CIDs from a 
-higher-numbered supplement than the one corresponding to the PDF version being generated, the 
+The  and  CMaps shall not be used with a non-embedded #font. Only standardized 
+##character sets may be used. 
+NOTE 4 If a ##PDF processor producing a #PDF file encounters text to be included that uses CIDs from a 
+higher-numbered supplement than the one corresponding to the #PDF version being generated, the 
 application will need to embed the CMap for the higher-numbered supplement rather than refer to 
 the predefined CMap. 
 The CMap programs that define the predefined CMaps are available through a variety of online sources. 
 9.7.5.3Embedded CMap files 
  
-For character encodings that are not predefined, the PDF file shall contain a stream that defines the 
+For #character encodings that are not predefined, the #PDF file shall contain a stream that defines the 
 CMap. In addition to the standard entries for streams (listed in "Table 5: Entries common to all stream 
 dictionaries"), the CMap stream dictionary contains the entries listed in "Table 118: Additional entries 
 © ISO 2017 – All rights reserved 331 
 
 ISO/DIS 32000-2
  
-in a CMap stream dictionary". The data in the stream defines the mapping from character codes to a font 
-number and a character selector. The data shall follow the syntax defined in Adobe Technical Note 
-#5014, Adobe CMap and CIDFont Files Specification. 
+in a CMap stream dictionary". The data in the stream defines the mapping from #character codes to a #font 
+number and a #character selector. The data shall follow the syntax defined in Adobe Technical Note 
+#5014, Adobe CMap and CID#Font Files Specification. 

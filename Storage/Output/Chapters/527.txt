@@ -1,20 +1,20 @@
-Table 333: Additional entries specific to a RichMedia annotation" shows the 
+#Table 333: Additional entries specific to a RichMedia annotation" shows the 
 additional annotation entries specific to this type of annotation. 
-Table 333: Additional entries specific to a RichMedia annotation 
+#Table 333: Additional entries specific to a RichMedia annotation 
 Key Type Value 
-Required; PDF 2.0
+Required; #PDF 2.0
 Subtype 
 RichMedia
   
 name () The type of annotation that the dictionary describes. The 
 name shall befor a rich media annotation. 
-Required; PDF 2.0
+Required; #PDF 2.0
 RichMediaContent 
 dictionary () A RichMediaContent dictionary that stores the rich media 
 artwork and information as to how it should be configured and viewed. See 
-"Table 341: Entries in a RichMediaContent dictionary". 
-Optional; PDF 2.0
+"#Table 341: Entries in a RichMediaContent dictionary". 
+Optional; #PDF 2.0
 RichMediaSettings 
 dictionary () A RichMediaSettings dictionary that stores conditions and 
 responses that determine when the annotation should be activated and 
-deactivated by an interactive PDF processor and the initial state of artwork in 
+deactivated by an #interactive ##PDF processor and the initial state of artwork in 

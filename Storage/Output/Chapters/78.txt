@@ -1,4 +1,4 @@
-Table 9: PNG predictor algorithms 
+#Table 9: PNG predictor algorithms 
 PNG Predictor Algorithms Description 
 None 
 No prediction 
@@ -10,9 +10,9 @@ Average
 Predicts the average of the sample to the left and the 
 sample above 
 Paeth 
-A nonlinear function of the sample above, the sample to 
+A nonlinear #function of the sample above, the sample to 
 the left, and the sample to the upper left 
  
-The predictor algorithm to be used, if any, shall be indicated by the Predictor filter parameter (see 
-"Table 8: Optional parameters for LZWDecode and FlateDecode filters"), whose value shall be one of 
+The predictor algorithm to be used, if any, shall be indicated by the Predictor #filter parameter (see 
+"Table 8: Optional parameters for LZWDecode and FlateDecode #filters"), whose value shall be one of 
 those listed in "

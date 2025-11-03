@@ -1,14 +1,14 @@
-Table 40: Additional entries specific to a Type 2 function 
+Table 40: Additional entries specific to a Type 2 #function 
 dictionary". 
-Table 40: Additional entries specific to a Type 2 function dictionary 
+Table 40: Additional entries specific to a Type 2 #function dictionary 
 Key Type Value 
 Optionaln
 C0 
-array () An array of  numbers that shall define the function result when 𝑥𝑥 = 0.0. 
+array () An array of  numbers that shall define the #function result when 𝑥𝑥 = 0.0. 
 Default value: [0.0]. 
 Optionaln
 C1 
-array () An array of  numbers that shall define the function result when 𝑥𝑥= 1.0. 
+array () An array of  numbers that shall define the #function result when 𝑥𝑥= 1.0. 
 Default value: [1.0]. 
 Requiredxn
 N 
@@ -26,22 +26,22 @@ Values of  shall constrain  in such a way that if N is not an integer, all value
 Range
 negative, and if  is negative, no value of  will be zero. Typically,  is declared as [0.0 1.0], and  
 is a positive number. To clip the output to a specified range the  attribute shall be used. 
-NOTE When  is 1, the function performs a linear interpolation between  and ; therefore, the 
+NOTE When  is 1, the #function performs a linear interpolation between  and ; therefore, the 
 NC0C1
-function can also be expressed as a sampled function (Type 4). 
-7.10.4Type 3 (stitching) functions 
+#function can also be expressed as a sampled #function (Type 4). 
+7.10.4Type 3 (stitching) #functions 
  
-PDF 1.3
-Type 3 functions () define a stitching of the subdomains of several 1-input functions to produce 
+#PDF 1.3
+Type 3 #functions () define a stitching of the subdomains of several 1-input #functions to produce 
 © ISO 2017 – All rights reserved 128 
 
 ISO/DIS 32000-2
  
 Domain
 Domain
-a single new 1-input function. Since the resulting stitching function is a 1-input function, the domain is 
+a single new 1-input #function. Since the resulting stitching #function is a 1-input #function, the domain is 
 01
 given by a two-element array, [
  ]. 
-In addition to the entries in "Table 38: Entries common to all function dictionaries", a Type 3 function 
+In addition to the entries in "Table 38: Entries common to all #function dictionaries", a Type 3 #function 
 dictionary shall include those listed in "

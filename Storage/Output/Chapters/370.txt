@@ -1,10 +1,10 @@
-Table 202: Additional entries specific to a go-to action" shows the action dictionary entries specific to 
+#Table 202: Additional entries specific to a go-to action" shows the action dictionary entries specific to 
 this type of action. 
 © ISO 2017 – All rights reserved 496 
 
 ISO/DIS 32000-2
  
-Table 202: Additional entries specific to a go-to action 
+#Table 202: Additional entries specific to a go-to action 
 Key Type Value 
 (Required) GoTo
 S   
@@ -12,9 +12,9 @@ name The type of action that this dictionary describes; shall befor a
 go-to action. 
 (Required) 
 D 
-name, byte The destination to jump to (see 12.3.2, "Destinations"). 
+name, #byte The destination to jump to (see 12.3.2, "Destinations"). 
 string, or array 
-(Optional; PDF 2.0)
+(Optional; #PDF 2.0)
 SD 
 array  The structure destination to jump to (see 12.3.2.3, "Structure 
 D
@@ -27,7 +27,7 @@ dictionary") has the same effect as specifying the destination directly with the
 Dest
 example, the link annotation shown in the Example in 12.6.4.13, "Set-OCG-state actions" which 
 uses a go-to action, has the same effect as the one in the following Example, which specifies the 
-destination directly. However, the go-to action is less compact and is not compatible with PDF 1.0; 
+destination directly. However, the go-to action is less compact and is not compatible with #PDF 1.0; 
 therefore, using a direct destination is preferable. 
 EXAMPLE  
 93 0 obj 
@@ -44,5 +44,5 @@ endobj
  
 12.6.4.3Remote Go-To actions 
  
-A remote go-to action is similar to an ordinary go-to action but jumps to a destination in another PDF 
+A remote go-to action is similar to an ordinary go-to action but jumps to a destination in another #PDF 
 file instead of the current file. "

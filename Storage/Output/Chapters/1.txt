@@ -1,47 +1,47 @@
-1Scope 
+#1Scope 
  
-This International Standard specifies a digital form for representing electronic documents to enable 
-users to exchange and view electronic documents independent of the environment in which they were 
-created or the environment in which they are viewed or printed. It is intended for the developer of 
-software that creates PDF files (PDF writers), software that reads existing PDF files and (usually) 
-interprets their contents for display (PDF readers), software that reads and displays PDF content and 
-interacts with the computer users to possibly modify and save the PDF file (interactive PDF processors) 
-and PDF products that read and/or write PDF files for a variety of other purposes (PDF processors). 
-(PDF writers and PDF readers are more specialised classifications of interactive PDF processors and all 
-are PDF processors). 
+This International Standard specifies a digital form for representing #electronic documents to enable 
+users to exchange and view #electronic documents independent of the environment in which they were 
+created or the environment in which they are viewed or printed. It is intended for the #developer of 
+software that creates #PDF files (##PDF writers), software that reads existing #PDF files and (usually) 
+interprets their contents for display (##PDF readers), software that reads and displays #PDF content and 
+interacts with the computer users to possibly modify and save the #PDF file (#interactive ##PDF processors) 
+and #PDF products that read and/or write #PDF files for a variety of other purposes (##PDF processors). 
+(##PDF writers and ##PDF readers are more specialised classifications of #interactive ##PDF processors and all 
+are ##PDF processors). 
 This document does not specify the following: 
 • 
 • 
-specific processes for converting paper or electronic documents to the PDF file format; 
+specific processes for converting paper or #electronic documents to the #PDF file format; 
 • 
 specific technical design, user interface implementation, or operational details of rendering; 
 • 
 specific physical methods of storing these documents such as media and storage conditions; 
 • 
-methods for validating the conformance of PDF files or PDF processors; 
+methods for validating the conformance of #PDF files or ##PDF processors; 
 required computer hardware and/or operating system. 
 © ISO 2017 – All rights reserved 7 
 
 ISO/DIS 32000-2
  
-2Normative references 
+#2Normative references 
  
 The following referenced documents are indispensable for the application of this document. In order to 
-avoid confusion as to what may or may not be included within a PDF file conforming to this part of ISO 
+avoid confusion as to what may or may not be included within a #PDF file conforming to this part of ISO 
 32000, the versions of all subordinate documents are dated references. For dated references, only the 
 edition cited applies. Where dated references could not be determined, the latest edition of the 
 referenced document (including any amendments) applies. An attempt is being made to keep copies of 
-all references that do not have copyright restrictions prohibiting it available for free download on the 
-following website: https://reference.pdfa.org/iso/32000
+all references that do not have copyright restrictions prohi#biting it available for free download on the 
+following website: https://reference.#pdfa.org/iso/32000
 . 
-ISO/IEC 646, Information technology - ISO 7-bit coded character set for information interchange 
-ISO/IEC 8824-1:2008 / Cor 1:2012, Information technology – Abstract Syntax Notation One (ASN.1): 
+ISO/IEC 646, Information technology - ISO 7-#bit coded ##character set for information interchange 
+ISO/IEC 8824-1:2008 / Cor 1:2012, Information technology – Abstract Syntax Notation One (#ASN.1): 
 Specification of basic notation 
-ISO/IEC 9541-1:2012, Information technology – Font information interchange – Part 1: Architecture. 
-ISO/IEC 10646, Information technology – Universal Coded Character Set (UCS) 
+ISO/IEC 9541-1:2012, Information technology – #Font information interchange – Part 1: Architecture. 
+ISO/IEC 10646, Information technology – Universal Coded ##Character Set (UCS) 
 ISO/IEC 10918-1:1994/Cor 1: 2005, Information Technology – Digital Compression and Coding of 
-Continuous-Tone Still Images: Requirements and guidelines (informally known as the JPEG standard, for 
-the Joint Photographic Experts Group, the ISO group that developed the standard) 
+Continuous-Tone Still Images: Requirements and guidelines (informally known as the #JPEG standard, for 
+the Joint Photographic Experts #Group, the ISO #group that developed the standard) 
 ISO/IEC 10918-2:1995, Information technology – Digital compression and coding of continuous-tone still 
 images: Compliance testing 
 ISO/IEC 10918-3:1997, Information technology – Digital compression and coding of continuous-tone still 
@@ -49,20 +49,20 @@ images: Extensions
 ISO/IEC 10918-3:1997/Amd 1:1999, Provisions to allow registration of new compression types and 
 versions in the SPIFF header 
 ISO/IEC 10918-4:1999, Information technology – Digital compression and coding of continuous-tone still 
-images: Registration of JPEG profiles, SPIFF profiles, SPIFF tags, SPIFF colour spaces, APPn markers, SPIFF 
+images: Registration of #JPEG profiles, SPIFF profiles, SPIFF tags, SPIFF colour spaces, APPn markers, SPIFF 
 compression types and Registration Authorities (REGAUT) 
 ISO/IEC 10918-4:1999/Amd 1:2013, Application specific marker list 
 ISO/IEC 10918-5:2013, Information technology – Digital compression and coding of continuous-tone still 
-images: JPEG File Interchange Format (JFIF) 
+images: #JPEG File Interchange Format (JFIF) 
 ISO/IEC 10918-6:2013, Information technology – Digital compression and coding of continuous-tone still 
 images: Application to printing systems 
-ISO/IEC 14492:2001, Information technology – Lossy/lossless coding of bi-level images 
-ISO/IEC 14492:2001/Amd 1:2004 Information technology – Lossy/lossless coding of bi-level images - 
+ISO/IEC 14492:2001, Information technology – Lossy/lossless coding of #bi-level images 
+ISO/IEC 14492:2001/Amd 1:2004 Information technology – Lossy/lossless coding of #bi-level images - 
 Amendment 1: Encoder 
-ISO/IEC 14492:2001/Amd 2:2003 Information technology – Lossy/lossless coding of bi-level images - 
+ISO/IEC 14492:2001/Amd 2:2003 Information technology – Lossy/lossless coding of #bi-level images - 
 Amendment 2: Extension of adaptive templates for halftone coding 
-ISO/IEC 14496-22:2009/Cor 1: 2010, Information technology – Coding of audio-visual objects — Part 22: 
-Open Font Format 
+ISO/IEC 14496-22:2009/Cor 1: 2010, Information technology – Coding of audio-visual #objects — Part 22: 
+Open #Font Format 
 © ISO 2017 – All rights reserved 8 
 
 ISO/DIS 32000-2
@@ -73,28 +73,28 @@ ISO 14739-1:2014, Document management – 3D use of Product Representation Compa
 Part 1: PRC 10001 
 ISO 15076-1:2010, Image technology colour management – Architecture, profile format and data 
 structure - Part 1: Based on ICC.1:2010 
-ISO/IEC 15444-1:2004, Information technology — JPEG 2000 image coding system: Core coding system 
-ISO/IEC 15444-2:2004, Information technology — JPEG 2000 image coding system: Extensions 
-ISO 15930-1:2001, Graphic technology — Prepress digital data exchange — Use of PDF — Part 1: 
-Complete exchange using CMYK data (PDF/X-1 and PDF/X-1a) 
-ISO 15930-3:2002, Graphic technology — Prepress digital data exchange — Use of PDF — Part 3: 
-Complete exchange suitable for colour-managed workflows (PDF/X-3) 
-ISO 15930-4:2003, Graphic technology — Prepress digital data exchange using PDF — Part 4: Complete 
-exchange of CMYK and spot colour printing data using PDF 1.4 (PDF/X-1a) 
-ISO 15930-6:2003, Graphic technology — Prepress digital data exchange using PDF — Part 6: Complete 
-exchange of printing data suitable for colour-managed workflows using PDF 1.4 (PDF/X-3) 
-ISO 15930-7:2010, Graphic technology — Prepress digital data exchange using PDF — Part 7: Complete 
-exchange of printing data (PDF/X-4) and partial exchange of printing data with external profile reference 
-(PDF/ X-4p) using PDF 1.6 
-ISO 15930-8:2010/Cor 1:2011, Graphic technology — Prepress digital data exchange using PDF — Part 8: 
-Partial exchange of printing data using PDF 1.6 (PDF/X-5) 
+ISO/IEC 15444-1:2004, Information technology — #JPEG 2000 image coding system: Core coding system 
+ISO/IEC 15444-2:2004, Information technology — #JPEG 2000 image coding system: Extensions 
+ISO 15930-1:2001, Graphic technology — Prepress digital data exchange — Use of #PDF — Part 1: 
+Complete exchange using CMYK data (#PDF/X-1 and #PDF/X-1a) 
+ISO 15930-3:2002, Graphic technology — Prepress digital data exchange — Use of #PDF — Part 3: 
+Complete exchange suitable for colour-managed workflows (#PDF/X-3) 
+ISO 15930-4:2003, Graphic technology — Prepress digital data exchange using #PDF — Part 4: Complete 
+exchange of CMYK and spot colour printing data using #PDF 1.4 (#PDF/X-1a) 
+ISO 15930-6:2003, Graphic technology — Prepress digital data exchange using #PDF — Part 6: Complete 
+exchange of printing data suitable for colour-managed workflows using #PDF 1.4 (#PDF/X-3) 
+ISO 15930-7:2010, Graphic technology — Prepress digital data exchange using #PDF — Part 7: Complete 
+exchange of printing data (#PDF/X-4) and partial exchange of printing data with external profile reference 
+(#PDF/ X-4p) using #PDF 1.6 
+ISO 15930-8:2010/Cor 1:2011, Graphic technology — Prepress digital data exchange using #PDF — Part 8: 
+Partial exchange of printing data using #PDF 1.6 (#PDF/X-5) 
 ISO/IEC 16262:2011, Information technology — Programming languages, their environments and system 
 software interfaces — ECMAScript language specification. (ALSO KNOWN AS JavaScript. Also available as 
 ECMA Script 5.1 from ECMA) 
 ISO 16684-1:2012, Extensible metadata platform (XMP) specification — Part 1: Data model, serialization 
 and core properties 
 ISO 17972-4:2015, Graphic technology — Colour data exchange format (CxF/X) — Part 4: Spot colour 
-characterisation data (CxF/X-4) 
+#characterisation data (CxF/X-4) 
 ISO 18619, Image technology colour management – Black point compensation 
 ISO 19162, Geographic information – Well known text representation of coordinate reference systems 
 ISO/DIS 19444-1, Document management – XML Forms Data Format – Part 1: XFDF 3.0 
@@ -102,26 +102,26 @@ ISO/IEC 22537:2006, Information technology – ECMAScript for XML (E4X) specific
 IEC 61966-2-1 ed1.0 (1999-10) Multimedia systems and equipment - Colour measurement and 
 management - Part 2-1: Colour management - Default RGB colour space - sRGB (with Amendment 1 IEC 
 61966-2-1-am1 ed1.0 (2003-01)) 
-ANSI X3.4-1986, Information Systems - Coded Sets 7-Bit American National Standard Code for Information 
+ANSI X3.4-1986, Information Systems - Coded Sets 7-#Bit American National Standard Code for Information 
 © ISO 2017 – All rights reserved 9 
 
 ISO/DIS 32000-2
  
-Interchange (7-bit ASCII), American National Standards Institute 
+Interchange (7-#bit #ASCII), American National Standards Institute 
 ANSI X9.62-2005, Public Key Cryptography For The Financial Services Industry: The Elliptic Curve Digital 
 Signature Algorithm (ECDSA), American National Standards Institute 
-NOTE 1 The following documents can be found at the PDF Association at 
+NOTE 1 The following documents can be found at the #PDF Association at 
  as well as at the Adobe Systems Incorporated Web site 
-https://reference.pdfa.org/iso/32000
-http://partners.adobe.com/public/developer/pdf/index_bibliography.html. 
+https://reference.#pdfa.org/iso/32000
+http://partners.adobe.com/public/#developer/#pdf/index_#bibliography.html. 
 Adobe Acrobat 3D JavaScript Reference, Version 9.1 (August 2009), Adobe Systems Incorporated 
-Adobe Glyph List, 2015, Adobe Systems Incorporated 
-Adobe Glyph List for New Fonts, Version 1.6, (January 2006), Adobe Systems Incorporated 
+Adobe #Glyph List, 2015, Adobe Systems Incorporated 
+Adobe #Glyph List for New #Fonts, Version 1.6, (January 2006), Adobe Systems Incorporated 
 AdobeJavaScriptfor Acrobat API Reference, Version 9.1, (August 2009), Adobe Systems Incorporated 
   
-Adobe PDF Signature Build Dictionary Specification v.1.4, (March 2008), Adobe Systems Incorporated 
+Adobe #PDF Signature Build Dictionary Specification v.1.4, (March 2008), Adobe Systems Incorporated 
 Adobe TIFF Revision 6.0, Final, (June 1992), Adobe Systems Incorporated 
-Adobe Type 1FontFormat, Version 1.1, (February 1993), Addison-Wesley, ISBN 0-201-57044-0 
+Adobe Type 1#FontFormat, Version 1.1, (February 1993), Addison-Wesley, ISBN 0-201-57044-0 
   
 AdobeXMLArchitecture,XMLForms Architecture (XFA) Specification, version 3.3, (January 2012), Adobe 
     
@@ -132,42 +132,42 @@ Adobe XMP: Extensible Metadata Platform, Part 2: Standard Schemas, (July 2010), 
 Incorporated. (See ISO 16684-1 for the XMP core standard.) 
 Adobe XMP: Extensible Metadata Platform, Part 3: Storage in Files, (July 2010), Adobe Systems 
 Incorporated. (See ISO 16684-1 for the XMP core standard.) 
-NOTE 2 The following Adobe Technical Notes can be found at the PDF Association website at 
+NOTE 2 The following Adobe Technical Notes can be found at the #PDF Association website at 
  as well as at the Adobe Systems Incorporated Web Site 
-https://reference.pdfa.org/iso/32000
+https://reference.#pdfa.org/iso/32000
 (http://www.adobe.com) using the general search facility, entering the Technical Note number. 
-Adobe Technical Note #5004, Adobe Font Metrics File Format Specification, Version 4.1, (October 1998), 
+Adobe Technical Note #5004, Adobe #Font Metrics File Format Specification, Version 4.1, (October 1998), 
 Adobe Systems Incorporated 
-NOTE 3 Adobe font metrics (AFM) files are available from a variety of online sources. 
-Adobe Technical Note #5014, Adobe CMap and CID Font Files Specification, Version 1.0, (June 1993), 
+NOTE 3 Adobe #font metrics (AFM) files are available from a variety of online sources. 
+Adobe Technical Note #5014, Adobe CMap and CID #Font Files Specification, Version 1.0, (June 1993), 
 Adobe Systems Incorporated  
-Adobe Technical Note #5015, Type 1 Font Format Supplement, (May 1994), Adobe Systems Incorporated 
-Adobe Technical Note #5078, Adobe-Japan1-6 Character Collection for CID-Keyed Fonts, (February 2008), 
+Adobe Technical Note #5015, Type 1 #Font Format Supplement, (May 1994), Adobe Systems Incorporated 
+Adobe Technical Note #5078, Adobe-Japan1-6 #Character Collection for CID-Keyed #Fonts, (February 2008), 
 Adobe Systems Incorporated 
-Adobe Technical Note #5079, Adobe-GB1-5 Character Collection for CID-Keyed Fonts, (January 2012), 
+Adobe Technical Note #5079, Adobe-GB1-5 #Character Collection for CID-Keyed #Fonts, (January 2012), 
 Adobe Systems Incorporated 
-Adobe Technical Note #5080, Adobe-CNS1-6 Character Collection for CID-Keyed Fonts, (January 2012), 
+Adobe Technical Note #5080, Adobe-CNS1-6 #Character Collection for CID-Keyed #Fonts, (January 2012), 
 Adobe Systems Incorporated 
-Adobe Technical Note #5087, Multiple Master Font Programs for the Macintosh, (February 1992), Adobe 
+Adobe Technical Note #5087, Multiple Master ##Font Programs for the Macintosh, (February 1992), Adobe 
 © ISO 2017 – All rights reserved 10 
 
 ISO/DIS 32000-2
  
 Systems Incorporated 
-Adobe Technical Note #5092, CID-Keyed Font Technology Overview, (September 1994), Adobe Systems 
+Adobe Technical Note #5092, CID-Keyed #Font Technology Overview, (September 1994), Adobe Systems 
 Incorporated 
-Adobe Technical Note #5093, Adobe-Korea1-2 Character Collection for CID-Keyed Fonts, (May 2003), 
+Adobe Technical Note #5093, Adobe-Korea1-2 #Character Collection for CID-Keyed #Fonts, (May 2003), 
 Adobe Systems Incorporated 
-Adobe Technical Note #5094, Adobe CJKV Character Collections and CMaps for CID-Keyed Fonts, (February 
+Adobe Technical Note #5094, Adobe CJKV #Character Collections and CMaps for CID-Keyed #Fonts, (February 
 2007), Adobe Systems Incorporated 
-Adobe Technical Note #5097, Adobe-Japan2-0 Character Collection for CID-Keyed Fonts, (May 2003), 
+Adobe Technical Note #5097, Adobe-Japan2-0 #Character Collection for CID-Keyed #Fonts, (May 2003), 
 Adobe Systems Incorporated 
-Adobe Technical Note #5116, Supporting the DCT Filters in PostScript Level 2, (November 1992), Adobe 
+Adobe Technical Note #5116, Supporting the DCT #Filters in PostScript Level 2, (November 1992), Adobe 
 Systems Incorporated 
-Adobe Technical Note #5176, The Compact Font Format Specification, version 1.0, (December 2003), 
+Adobe Technical Note #5176, The Compact #Font Format Specification, version 1.0, (December 2003), 
 Adobe Systems Incorporated 
 Adobe Technical Note #5177, The Type 2 Charstring Format, (March 2000), Adobe Systems Incorporated 
-Adobe Technical Note #5620, Portable Job Ticket Format, Version 1.1, (April 1999), Adobe Systems 
+Adobe Technical Note #5620, Portable #Job Ticket Format, Version 1.1, (April 1999), Adobe Systems 
 Incorporated 
 Adobe Technical Note #5660, Open Prepress Interface (OPI) Specification, Version 2.0, (January 2000), 
 Adobe Systems Incorporated 
@@ -210,13 +210,13 @@ RFC 3281, An Internet Attribute Certificate Profile for Authorization, (April 20
 Task Force (IETF) 
 RFC 3454, Preparation of International Strings ("stringprep"), December 2002, Internet Engineering Task 
 Force (IETF) 
-RFC 3986, Uniform Resource Identifier (URI): Generic Syntax, (January 2005), Internet Engineering Task 
+RFC 3986, Uniform Resource# Identifier (URI): Generic Syntax, (January 2005), Internet Engineering Task 
 Force (IETF) 
-RFC 3987, Internationalized Resource Identifiers (IRIs), (January 2005), Internet Engineering Task Force 
+RFC 3987, Internationalized Resource# Identifiers (IRIs), (January 2005), Internet Engineering Task Force 
 (IETF) 
 RFC 4013, SASLprep: Stringprep Profile for User Names and Passwords, February 2005, Internet 
 Engineering Task Force (IETF) 
-RFC 4122, A Universally Unique Identifier (UUID) URN Namespace, (July 2005), Internet Engineering Task 
+RFC 4122, A Universally Unique# Identifier (UUID) URN Namespace, (July 2005), Internet Engineering Task 
 Force (IETF) 
 RFC 5035, Enhanced Security Services (ESS) Update: Adding CertID Algorithm Agility, (August 2007), 
 Internet Engineering Task Force (IETF) 
@@ -224,7 +224,7 @@ RFC 5280, Internet X.509 Public Key Infrastructure Certificate and Certificate R
 Profile, (May 2008), Internet Engineering Task Force (IETF) 
 RFC 5480, Elliptic Curve Cryptography Subject Public Key Information, (March 2009), Internet Engineering 
 Task Force (IETF) 
-BCP 47 (RFC 5646), Tags for Identifying Languages, (September 2009), Internet Engineering Task Force 
+BCP 47 (RFC 5646), Tags for# Identifying Languages, (September 2009), Internet Engineering Task Force 
 (IETF) 
 RFC 5652, Cryptographic Message Syntax (CMS), (September 2009), Internet Engineering Task Force 
 (IETF) 
@@ -239,7 +239,7 @@ ISO/DIS 32000-2
 Engineering Task Force (IETF) 
 RFC 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol – OCSP, (June 2013), 
 Internet Engineering Task Force (IETF) 
-RFC XXXX, The application/PDF Media Type, Internet Engineerting Task Force, (date 201x), Internet 
+RFC XXXX, The application/#PDF Media Type, Internet Engineerting Task Force, (date 201x), Internet 
 Engineering Task Force (IETF) 
 NOTE 6 The following documents are available from other sources: 
 ETSI EN 319 122-1 V1.1.1 (2016-04) Electronic Signatures and Infrastructures (ESI); CAdES digital 
@@ -269,7 +269,7 @@ HTML 3.20 Specification, (January 1997), http://www.w3.org/TR/REC-html32
 Cascading Style Sheets, level 1 (CSS1) Specification, http://www.w3.org/TR/REC-CSS1/
 Cascading Style Sheets, level 2 (CSS2) Specification, http://www.w3.org/TR/REC-CSS2/ 
 Cascading Style Sheets, level 3 (CSS3) Specification, https://www.w3.org/TR/css-2015/ 
-ICC Characterization Data Registry, International Color Consortium (ICC), 
+ICC #Characterization Data Registry, International Color Consortium (ICC), 
  
 http://www.color.org/registry2.xalter
 Japanese Industrial Standard (JIS) X 4051-1995 
@@ -288,7 +288,7 @@ ISO/DIS 32000-2
  
 https://www.w3.org/TR/pronunciation-lexicon/
 RDFa Core 1.1 - Third Edition, http://www.w3.org/TR/rdfa-core/ 
-Recommendations T.4 and T.6, Group 3 and Group 4 facsimile encoding, International Telecommunication 
+Recommendations T.4 and T.6, #Group 3 and #Group 4 facsimile encoding, International Telecommunication 
 Union (ITU) 
 Standard ECMA-363, Universal 3D File Format, 3rd Edition (U3D), (June 2006), Ecma International 
 Synchronized Multimedia Integration Language (SMIL 3.0), (December 2008), World Wide Web 

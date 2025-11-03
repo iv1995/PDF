@@ -1,7 +1,7 @@
-Table 191: Additional entries specific to a widget annotation" shows the annotation dictionary  
+#Table 191: Additional entries specific to a widget annotation" shows the annotation dictionary  
 entries specific to this type of annotation; interactive forms and fields are discussed at length in 12.7.4, 
 "Field dictionaries". 
-Table 191: Additional entries specific to a widget annotation 
+#Table 191: Additional entries specific to a widget annotation 
 Key Type Value 
 (Required) 
 Subtype  
@@ -23,15 +23,15 @@ I
 (None) No highlighting. 
 (Invert) Invert the colours used to display the contents of the 
 O 
-annotation rectangle. 
+annotation #rectangle. 
 (Outline) Stroke the colours used to display the annotation border. That 
 is, for each colour channel in the colour space used for display of the 
-annotation value, colour values shall be transformed by the function 𝑓𝑓 
+annotation value, colour values shall be transformed by the #function 𝑓𝑓 
 P 
 (𝑥𝑥) = 1 – 𝑥𝑥 for display. 
 (Push) Display the annotation’s down appearance, if any (see 12.5.5, 
 "Appearance streams"). If no down appearance is defined, the contents 
-of the annotation rectangle shall be offset to appear as if it were being 
+of the annotation #rectangle shall be offset to appear as if it were being 
 T P 
 pushed below the surface of the page. 
 P 
@@ -41,4 +41,4 @@ A highlighting mode other than shall override any down appearance
 defined for the annotation. Default value: . 
 (Optional) 
 MK 
-dictionary An appearance characteristics dictionary (see "
+dictionary An appearance #characteristics dictionary (see "

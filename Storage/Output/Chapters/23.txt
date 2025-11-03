@@ -1,4 +1,4 @@
-document part hierarchy 
-hierarchical data structure that specifies the organization of document parts 
+##document part hierarchy 
+hierarchical data structure that specifies the organization of #document parts 
 4.21 
  

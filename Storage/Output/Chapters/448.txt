@@ -1,53 +1,53 @@
-13Multimedia features 
+#13Multimedia features 
  
 13.1General 
  
-This clause describes those features of PDF that support embedding and playing multimedia content. It 
+This clause describes those features of #PDF that support embedding and playing multimedia content. It 
 contains the following subclauses: 
 • 
-13.2, "Multimedia" describes the comprehensive set of multimedia capabilities that were 
+13.2, "Multimedia" describes the comprehensive set of multimedia capa#bilities that were 
 • 
-introduced in PDF 1.5. 
+introduced in #PDF 1.5. 
 • 
-13.3, "Sounds" and 13.4, "Movies" describe deprecated features superceded by 13.7, "Rich media". 
-13.6, "3D Artwork" describes the capability of embedding three-dimensional graphics in a 
+13.3, "Sounds" and 13.4, "Movies" describe #deprecated features superceded by 13.7, "Rich media". 
+13.6, "3D Artwork" describes the capa#bility of embedding three-dimensional graphics in a 
 • 
-document, introduced in PDF 1.6. 
+document, introduced in #PDF 1.6. 
 13.7, "Rich media" describes rich media annotations providing a common framework for video, 
 13.2Multimedia 
  
 audio, animations and other multimedia presentations. 
 13.2.1General 
  
-PDF 1.5 introduces a comprehensive set of language constructs to enable the following capabilities: 
+#PDF 1.5 introduces a comprehensive set of language constructs to enable the following capa#bilities: 
 • 
 • 
-Arbitrary media types may be embedded in PDF files. 
-Embedded media, as well as referenced media outside a PDF file, may be played with a variety of 
-player software. (In some situations, the player software may be the interactive PDF processor 
+Ar#bitrary media types may be embedded in #PDF files. 
+Embedded media, as well as referenced media outside a #PDF file, may be played with a variety of 
+player software. (In some situations, the player software may be the #interactive ##PDF processor 
 NOTE 1 The term playing is used with a wide variety of media, and is not restricted to audio or video. For 
 itself.) 
-example, it might be applied to static images such as JPEGs. 
+example, it might be applied to static images such as #JPEGs. 
 • 
-Media objects may have multiple renditions, which may be chosen at play-time based on 
+Media #objects may have multiple renditions, which may be chosen at play-time based on 
 • 
 considerations such as available bandwidth. 
 Document authors may control play-time requirements, such as which player software should be 
 • 
-used to play a given media object. 
-Media objects may be played in various ways; for example, in a floating window as well as in a 
+used to play a given media #object. 
+Media #objects may be played in various ways; for example, in a floating window as well as in a 
 • 
 region on a page. 
 Future extensions to the media constructs may be handled in an appropriate manner by current 
-interactive PDF processors. Authors may control how old interactive PDF processors treat future 
+#interactive ##PDF processors. Authors may control how old #interactive ##PDF processors treat future 
 • 
 extensions. 
 • 
-Document authors may adapt the use of multimedia to accessibility requirements. 
-On-line media objects may be played efficiently, even when very large. 
+Document authors may adapt the use of multimedia to accessi#bility requirements. 
+On-line media #objects may be played efficiently, even when very large. 
 The following list summarises the multimedia features and indicates where each feature is discussed: 
 • 
-13.2.2, "Viability" describes the rules for determining when media objects are suitable for playing 
+13.2.2, "Via#bility" describes the rules for determining when media #objects are suitable for playing 
 • 
 on a particular system. 
 Rendition actions (see 12.6.4.14, "Rendition actions") shall be used to begin the playing of 
@@ -61,60 +61,60 @@ ISO/DIS 32000-2
  
 • 
 Renditions are of two varieties: media renditions (see 13.2.3.2, "Media renditions") that define the 
-characteristics of the media to be played, and selector renditions (see 13.2.3.3, "Selector 
+#characteristics of the media to be played, and selector renditions (see 13.2.3.3, "Selector 
 • 
 renditions") that enables choosing which of a set of media renditions should be played. 
  Media renditions contain entries that specify what should be played (see 13.2.4, "Media clip 
-objects"), how it should be played (see 13.2.5, "Media play parameters"), and where it should be 
+#objects"), how it should be played (see 13.2.5, "Media play parameters"), and where it should be 
 • 
 played (see 13.2.6, "Media screen parameters"). 
-13.2.7, "Other multimedia objects" describes several PDF objects that are referenced by the 
+13.2.7, "Other multimedia #objects" describes several #PDF #objects that are referenced by the 
 NOTE 2 Some of the features described in the following subclauses have references to corresponding 
-preceding major objects. 
+preceding major #objects. 
 elements in the Synchronized Multimedia Integration Language (SMIL 2.0) standard. 
-13.2.2Viability 
+13.2.2Via#bility 
  
-When playing multimedia content, the interactive PDF processor shall often make decisions such as 
+When playing multimedia content, the #interactive ##PDF processor shall often make decisions such as 
 which player software and which options, such as volume and duration, to use. 
-In making these decisions, the viewer shall determine the viability of the objects used. If an object is 
-considered non-viable, the media should not be played. If the object is viable, the media should be 
+In making these decisions, the viewer shall determine the via#bility of the #objects used. If an #object is 
+considered non-viable, the media should not be played. If the #object is viable, the media should be 
 played, though possibly under less than optimum conditions. 
-There are several entries in the multimedia object dictionaries whose values shall have an effect on 
-viability. In particular, some of the object dictionaries define two entries that divide options into one of 
+There are several entries in the multimedia #object dictionaries whose values shall have an effect on 
+via#bility. In particular, some of the #object dictionaries define two entries that divide options into one of 
 two categories: 
 MH
 • 
  ("must honour"): The options specified by this entry shall be honoured; otherwise, the 
 BE
 • 
-containing object shall be considered non-viable. 
+containing #object shall be considered non-viable. 
  ("best effort"): An attempt should be made to honour the options; however, if they cannot be 
 MH BE 
-honoured, the containing object is still considered viable. 
+honoured, the containing #object is still considered viable. 
  andare both dictionaries, and the same entries shall be defined for both of them. In any 
 dictionary where these entries are allowed, both entries may be present, or only one, or neither. 
 VMH BE 
-EXAMPLE The media play parameters dictionary (see "Table 293: Entries in a media screen parameters dictionary") 
+EXAMPLE The media play parameters dictionary (see "#Table 293: Entries in a media screen parameters dictionary") 
 allows the playback volume to be set by means of the  entry in its  anddictionaries (see "Table 294: 
 Entries in a media screen parameters MH/BE dictionary"). 
 VMH
 V BE MH
-If the specified volume cannot be honoured, the object shall be considered non-viable if  is in the  
+If the specified volume cannot be honoured, the #object shall be considered non-viable if  is in the  
 dictionary, and playback shall not occur. If  is in thedictionary (and not also in the  dictionary), 
 playback should still occur: the playing software attempts to honour the specified option as best it can. 
 MHBE
 Using this mechanism, authors may specify minimum requirements () and preferred options (). 
 They may also specify how entries that are added in the future to the multimedia dictionaries shall be 
 MH BE 
-interpreted by old interactive PDF processors. If an entry that is unrecognised by the viewer is in the 
- dictionary, the object shall be considered non-viable. If an unrecognised entry is in adictionary, 
+interpreted by old #interactive ##PDF processors. If an entry that is unrecognised by the viewer is in the 
+ dictionary, the #object shall be considered non-viable. If an unrecognised entry is in adictionary, 
 MH
-the entry shall be ignored and viability shall be unaffected. Unless otherwise stated, an object shall be 
+the entry shall be ignored and via#bility shall be unaffected. Unless otherwise stated, an #object shall be 
 considered non-viable if its  dictionary contains an unrecognised key or an unrecognised value for a 
 recognised key. 
 MH BE 
 The following rules apply to the entries in  anddictionaries, which behave somewhat differently 
-from other PDF dictionaries: 
+from other #PDF dictionaries: 
 © ISO 2017 – All rights reserved 594 
 
 ISO/DIS 32000-2
@@ -122,11 +122,11 @@ ISO/DIS 32000-2
 MH
 • 
  BE 
-If an entry is required, the requirement is met if the entry is present in either the  dictionary or 
+If an entry is required, the requirement is met if the entry is present in# either the  dictionary or 
 • 
 thedictionary. 
  BE 
-If an optional entry is not present in either dictionary, it shall be considered to be present with its 
+If an optional entry is not present in# either dictionary, it shall be considered to be present with its 
 MHBE BE 
 • 
 default value (if one is defined) in thedictionary. 
@@ -135,37 +135,37 @@ MH BE
 • 
 shall be ignored unless otherwise specified. 
 If the value of an entry in an  or adictionary is a dictionary or array, it shall be treated as an 
-atomic unit when determining viability. That is, all entries within the dictionary or array shall be 
+atomic unit when determining via#bility. That is, all entries within the dictionary or array shall be 
 NOTE When determining whether entries can be honoured, it is not required that each one be evaluated 
-honoured for the containing object to be viable. 
-independently, since they can be dependent on one another. That is, an interactive PDF processor 
+honoured for the containing #object to be viable. 
+independently, since they can be dependent on one another. That is, an #interactive ##PDF processor 
 or player can examine multiple entries at once (even within different dictionaries) to determine 
 whether their values can be honoured. 
 MH BE 
-The following media objects may have  anddictionaries. They function as described previously, 
+The following media #objects may have  anddictionaries. They #function as described previously, 
 except where noted in the individual subclauses: 
 • 
 • 
-Rendition ("Table 278: Entries in a rendition MH/BE dictionary") 
+Rendition ("#Table 278: Entries in a rendition MH/BE dictionary") 
 • 
-Media clip data ("Table 287: Entries in a media clip data MH/BE dictionary") 
+Media clip data ("#Table 287: Entries in a media clip data MH/BE dictionary") 
 • 
-Media clip section ("Table 289: Entries in a media clip section MH/BE dictionary") 
+Media clip section ("#Table 289: Entries in a media clip section MH/BE dictionary") 
 • 
-Media play parameters ("Table 291: Entries in a media play parameters MH/BE dictionary") 
+Media play parameters ("#Table 291: Entries in a media play parameters MH/BE dictionary") 
 13.2.3Renditions 
  
-Media screen parameters ("Table 294: Entries in a media screen parameters MH/BE dictionary") 
+Media screen parameters ("#Table 294: Entries in a media screen parameters MH/BE dictionary") 
 13.2.3.1General 
  
-There are two types of rendition objects: 
+There are two types of rendition #objects: 
 media rendition
 • 
-A  (see 13.2.3.2, "Media renditions") is a basic media object that specifies what to 
+A  (see 13.2.3.2, "Media renditions") is a basic media #object that specifies what to 
 selector rendition
 • 
 play, how to play it, and where to play it. 
 A  (see 13.2.3.3, "Selector renditions") contains an ordered list of renditions. This 
 list may include other selector renditions, resulting in a tree whose leaves are media renditions. 
-The interactive PDF processor should play the first viable media rendition it encounters in the tree 
+The #interactive ##PDF processor should play the first viable media rendition it encounters in the tree 
 NOTE 1 "

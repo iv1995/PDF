@@ -1,5 +1,5 @@
-function 
-special type of object that represents parameterised classes, including mathematical formulas and 
-sampled representations with arbitrary resolution 
+#function 
+special type of #object that represents parameterised classes, including mathematical formulas and 
+sampled representations with ar#bitrary resolution 
 4.29 
  

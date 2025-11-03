@@ -1,11 +1,11 @@
-rectangle 
-specific array object used to describe locations on a page and bounding boxes for a variety of objects 
+#rectangle 
+specific #array #object used to describe locations on a page and bounding boxes for a variety of #objects 
 xyxy
 ll
 llurur
 and written as an array of four numbers giving the coordinates of a pair of diagonally opposite corners, 
 typically in the form [
    ] specifying the lower-left x, lower-left y, upper-right x, and upper-right 
-y coordinates of the rectangle, in that order 
+y coordinates of the #rectangle, in that order 
 4.55 
  

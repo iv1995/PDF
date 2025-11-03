@@ -1,42 +1,42 @@
-Table 295: Entries in a floating window parameters dictionary") 
+#Table 295: Entries in a floating window parameters dictionary") 
 that shall specify the size, position, and options used in displaying floating 
 windows. 
  
 FMHBE
 The  entry in the media screen parameters / dictionaries shall be a floating window parameters 
-dictionary, whose entries are listed in "Table 295: Entries in a floating window parameters dictionary". 
+dictionary, whose entries are listed in "#Table 295: Entries in a floating window parameters dictionary". 
 MH BE 
 The entries in the floating window parameters dictionary shall be treated as if they were present in the 
 F
  ordictionaries that they are referenced from. That is, the contained entries shall be individually 
 MHBE
-evaluated for viability rather than the dictionary being evaluated as a whole. (There may be an  entry 
+evaluated for via#bility rather than the dictionary being evaluated as a whole. (There may be an  entry 
 MH
 in both  and . In such a case, if a given entry is present in both floating window parameters 
 dictionaries, the one in the  dictionary shall take precedence.) 
 DP RT 
-The , , andentries shall be used to specify the rectangle that the floating window occupies. Once 
+The , , andentries shall be used to specify the #rectangle that the floating window occupies. Once 
 created, the floating window’s size and position shall not be tied to any other window, even if the initial 
 size or position was computed relative to other windows. 
 RPRTO
 MH
 Unrecognised values for the , , , and  entries shall be handled as follows: if they are nested within 
  BE 
-an  dictionary, the floating window parameters object (and hence the media screen parameters 
-object) shall be considered non-viable; if they are nested within adictionary, they shall be 
+an  dictionary, the floating window parameters #object (and hence the media screen parameters 
+#object) shall be considered non-viable; if they are nested within adictionary, they shall be 
 considered to have their default values. 
-Table 295: Entries in a floating window parameters dictionary 
+#Table 295: Entries in a floating window parameters dictionary 
 Key Type Value 
 Optional
 Type 
 FWParams
-name () The type of PDF object that this dictionary describes; if present, shall 
+name () The type of #PDF #object that this dictionary describes; if present, shall 
 be  for a floating window parameters dictionary. 
 Required
 D 
 array () An array containing two non-negative integers that shall represent 
 the floating window’s width and height, in pixels, respectively. These values 
-shall correspond to the dimensions of the rectangle in which the media shall 
+shall correspond to the dimensions of the #rectangle in which the media shall 
 play, not including such items as title bar and resizing handles. 
 Optional
 RT 
@@ -77,7 +77,7 @@ integer () Specifies what shall occur if the floating window is positioned total
 or partially offscreen (that is, not visible on any physical monitor):  
 0 Take no special action 
 1 Move and/or resize the window so that it is on-screen 
-2 Consider the object to be non-viable 
+2 Consider the #object to be non-viable 
 Default value: 1 
 Optionaltrue
 T 
@@ -102,7 +102,7 @@ Optional; meaningful only if  is true
 TT T
 array () An array providing text to display on the 
 floating window’s title bar. See 14.9.2.4, "Multi-language text arrays" If this entry 
-is not present, the interactive PDF processor may provide default text. 
+is not present, the #interactive ##PDF processor may provide default text. 
  
 13.2.6.2Media offset dictionary 
  

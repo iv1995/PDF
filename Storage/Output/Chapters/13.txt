@@ -1,7 +1,7 @@
-character 
-numeric code representing an abstract symbol according to some defined character encoding rule 
-NOTE 1 There are three manifestations of characters in PDF, depending on context: 
+#character 
+numeric code representing an abstract symbol according to some defined #character encoding rule 
+NOTE 1 There are three manifestations of #characters in #PDF, depending on context: 
 •
-A PDF file is represented as a sequence of 8-bit bytes, some of which are interpreted as 
+A #PDF file is represented as a sequence of 8-#bit #bytes, some of which are interpreted as 
  
-character codes in the ASCII 
+#character codes in the #ASCII 

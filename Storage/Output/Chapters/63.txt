@@ -1,7 +1,7 @@
-white-space character 
-characters that separate PDF syntactic constructs such as names and numbers from each other; white-
-space characters are HORIZONTAL TABULATION (09h), LINE FEED (0Ah), FORM FEED (0Ch), 
-CARRIAGE RETURN (0Dh), SPACE (20h), NULL (00h); (see "Table 1: White-space characters" in 7.2.3, 
-"Character set") 
+white-space #character 
+#characters that separate #PDF syntactic constructs such as names and numbers from each other; white-
+space #characters are HORIZONTAL TABULATION (09h), LINE FEED (0Ah), FORM FEED (0Ch), 
+CARRIAGE RETURN (0Dh), SPACE (20h), NULL (00h); (see "Table 1: White-space #characters" in 7.2.3, 
+"##Character set") 
 4.61 
  

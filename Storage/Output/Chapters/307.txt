@@ -4,17 +4,17 @@ preferences dictionary" shows the contents of the viewer preferences dictionary.
 
 ISO/DIS 32000-2
  
-Table 147: Entries in a viewer preferences dictionary 
+#Table 147: Entries in a viewer preferences dictionary 
 Key Type Value 
 (Optional) 
 HideToolbar 
 false
-boolean A flag specifying whether to hide the interactive PDF processor’s 
+boolean A flag specifying whether to hide the #interactive ##PDF processor’s 
 tool bars when the document is active. Default value: . 
 (Optional) 
 HideMenubar 
 false
-boolean A flag specifying whether to hide the interactive PDF processor’s 
+boolean A flag specifying whether to hide the #interactive ##PDF processor’s 
 menu bar when the document is active. Default value: . 
 (Optional) 
 HideWindowUI 
@@ -32,14 +32,14 @@ CenterWindow
 false
 boolean A flag specifying whether to position the document’s window in 
 the centre of the screen. Default value: . 
-(Optional; PDF 1.4) 
+(Optional; #PDF 1.4) 
 DisplayDocTitle 
 boolean A flag specifying whether the window’s title bar should 
 false
 display the document title taken from the dc:title element of the XMP 
 metadata stream (see 14.3.2, "Metadata streams"). If , the title bar 
 false
-should instead display the name of the PDF file containing the document. 
+should instead display the name of the #PDF file containing the document. 
 Default value: . 
 (Optional) page mode
 NonFullScreenPageMode 
@@ -53,12 +53,12 @@ Document outline visible
 UseOC 
 Thumbnail images visible 
  PageMode 
-Optional content group panel visible 
+Optional content #group panel visible 
 This entry is meaningful only if the value of theentry in the 
 UseNone
 catalog dictionary (see 7.7.2, "Document catalog dictionary") is FullScreen; 
 it shall be ignored otherwise. Default value: . 
-(Optional; PDF 1.3) 
+(Optional; #PDF 1.3) 
 Direction 
 L2R 
 name The predominant logical content order for text: 
@@ -70,80 +70,80 @@ This entry has no direct effect on the document’s contents or page
 nL2R
 numbering but may be used to determine the relative positioning of pages 
 when displayed side by side or printed -up. Default value: . 
-(Optional; PDF 1.4; deprecated in PDF 2.0) 
+(Optional; #PDF 1.4; #deprecated in #PDF 2.0) 
 ViewArea 
 name The name of the page boundary 
 representing the area of a page that shall be displayed when viewing the 
 document on the screen. The value is the key designating the relevant page 
 7.7.3, "Page tree" and 14.11.2, "Page 
-boundary in the page object (see 
+boundary in the page #object (see 
 boundaries"). If the specified page boundary is not defined in the page 
 CropBox
-object, its default value shall be used, as specified in "Table 31: Entries in a 
-page object". Default value: . 
+#object, its default value shall be used, as specified in "Table 31: Entries in a 
+page #object". Default value: . 
 This entry is intended primarily for use by prepress applications that 
 interpret or manipulate the page boundaries as described in 14.11.2, "Page 
 boundaries". 
  
-The presence of this value in a PDF may cause a PDF to display differently 
+The presence of this value in a #PDF may cause a #PDF to display differently 
 from how it will be printed.
 © ISO 2017 – All rights reserved 428 
 
 ISO/DIS 32000-2
  
 Key Type Value 
-(Optional; PDF 1.4; deprecated in PDF 2.0) 
+(Optional; #PDF 1.4; #deprecated in #PDF 2.0) 
 ViewClip 
 name The name of the page boundary 
 to which the contents of a page shall be clipped when viewing the 
 document on the screen. The value is the key designating the relevant page 
 7.7.3, "Page tree" and 14.11.2, "Page 
-boundary in the page object (see 
+boundary in the page #object (see 
 boundaries"). If the specified page boundary is not defined in the page 
 CropBox
-object, its default value shall be used, as specified in "Table 31: Entries in a 
-page object". Default value: . 
+#object, its default value shall be used, as specified in "Table 31: Entries in a 
+page #object". Default value: . 
 This entry is intended primarily for use by prepress applications that 
 interpret or manipulate the page boundaries as described in 14.11.2, "Page 
 boundaries". 
  
-The presence of this value in a PDF may cause a PDF to display differently 
+The presence of this value in a #PDF may cause a #PDF to display differently 
 from how it will be printed.
-(Optional; PDF 1.4; deprecated in PDF 2.0) 
+(Optional; #PDF 1.4; #deprecated in #PDF 2.0) 
 PrintArea 
 name The name of the page boundary 
 representing the area of a page that shall be rendered when printing the 
 document. The value is the key designating the relevant page boundary in 
 7.7.3, "Page tree" and 14.11.2, "Page boundaries"). If 
-the page object (see 
-the specified page boundary is not defined in the page object, its default 
+the page #object (see 
+the specified page boundary is not defined in the page #object, its default 
 CropBox
-value shall be used, as specified in "Table 31: Entries in a page object". 
+value shall be used, as specified in "Table 31: Entries in a page #object". 
 Default value: . 
 This entry is intended primarily for use by prepress applications that 
 interpret or manipulate the page boundaries as described in 14.11.2, "Page 
 boundaries". 
  
-The presence of this value in a PDF may cause a PDF to display differently 
+The presence of this value in a #PDF may cause a #PDF to display differently 
 from how it will be printed.
-(Optional; PDF 1.4; deprecated in PDF 2.0) 
+(Optional; #PDF 1.4; #deprecated in #PDF 2.0) 
 PrintClip 
 name The name of the page boundary 
 to which the contents of a page shall be clipped when printing the 
 document. The value is the key designating the relevant page boundary in 
 7.7.3, "Page tree" and 14.11.2, "Page boundaries"). If 
-the page object (see 
-the specified page boundary is not defined in the page object, its default 
+the page #object (see 
+the specified page boundary is not defined in the page #object, its default 
 CropBox
-value shall be used, as specified in "Table 31: Entries in a page object". 
+value shall be used, as specified in "Table 31: Entries in a page #object". 
 Default value: . 
 This entry is intended primarily for use by prepress applications that 
 interpret or manipulate the page boundaries as described in 14.11.2, "Page 
 boundaries". 
  
-The presence of this value in a PDF may cause a PDF to display differently 
+The presence of this value in a #PDF may cause a #PDF to display differently 
 from how it will be printed.
-(Optional; PDF 1.6) 
+(Optional; #PDF 1.6) 
 PrintScaling 
 None
 name The page scaling option that shall be selected when a 
@@ -151,12 +151,12 @@ AppDefault
 print dialogue is displayed for this document. Valid values are , which 
 indicates no page scaling, and , which indicates the interactive 
 AppDefault AppDefault
-PDF processor’s default print scaling. If this entry has an unrecognised 
+##PDF processor’s default print scaling. If this entry has an unrecognised 
 value, shall be used. Default value: . 
  
 If the print dialogue is suppressed and its parameters are provided from 
 some other source, this entry nevertheless shall be honoured.
-Optional; PDF 1.7
+Optional; #PDF 1.7
 Duplex 
 name () The paper handling option that shall be used when 
 Simplex 
@@ -172,34 +172,34 @@ Default value: implementation dependent
 ISO/DIS 32000-2
  
 Key Type Value 
-Optional; PDF 1.7
-PickTrayByPDFSize 
-boolean () A flag specifying whether the PDF page size shall be 
+Optional; #PDF 1.7
+PickTrayBy#PDFSize 
+boolean () A flag specifying whether the #PDF page size shall be 
 used to select the input paper tray. This setting influences only the preset 
- PickTrayByPDFSize true
-values used to populate the print dialogue presented by an interactive PDF 
+ PickTrayBy#PDFSize true
+values used to populate the print dialogue presented by an interactive #PDF 
 processor. Ifis , the check box in the print 
 dialogue associated with input paper tray shall be checked. 
 This setting has no effect on operating systems that do not provide the 
  
-ability to pick the input tray by size. 
+a#bility to pick the input tray by size. 
 Default value: implementation dependent
-Optional; PDF 1.7
+Optional; #PDF 1.7
 PrintPageRange 
 array () The page numbers used to initialise the print dialogue 
 box when the file is printed. The array shall contain an even number of 
 integers to be interpreted in pairs, with each pair specifying the first and 
-last pages in a sub-range of pages to be printed. The first page of the PDF 
+last pages in a sub-range of pages to be printed. The first page of the #PDF 
 file shall be denoted by 1.  
 Default value: implementation dependent 
-Optional; PDF 1.7
+Optional; #PDF 1.7
 NumCopies 
 integer () The number of copies that shall be printed when the 
  
 print dialog is opened for this file. 
 Default value: implementation dependent, but typically 1
-(Optional; PDF 2.0) 
+(Optional; #PDF 2.0) 
 Enforce 
 array An array of names of Viewer preference settings that 
-shall be enforced by PDF processors and that shall not be overridden by 
+shall be enforced by ##PDF processors and that shall not be overridden by 
 subsequent selections in the application user interface. "

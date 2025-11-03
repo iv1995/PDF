@@ -1,15 +1,15 @@
-Figure 6: Inheritance of attributes" illustrates the inheritance of attributes. In the page tree shown, 
+#Figure 6: Inheritance of attributes" illustrates the inheritance of attributes. In the page tree shown, 
 pages 1, 2, and 4 are rotated clockwise by 90 degrees, page 3 by 270 degrees, page 6 by 180 degrees, 
 and pages 5 and 7 not at all (0 degrees). ![Figure 6 Inheritance of attributes  .png](./Storage/Output/Images/Figure 6 Inheritance of attributes  .png)
-Figure 6: Inheritance of attributes 
+#Figure 6: Inheritance of attributes 
  
 7.7.4Name dictionary 
  
-PDF 
-Some categories of objects in a PDF file can be referred to by name rather than by object reference. The 
+#PDF 
+Some categories of #objects in a #PDF file can be referred to by name rather than by ##object reference. The 
 1.2
 Names
-correspondence between names and objects is established by the document’s name dictionary (
+correspondence between names and #objects is established by the document’s name dictionary (
 ), located by means of the  entry in the document’s catalog dictionary (see 7.7.2, "Document 
-catalog dictionary"). Each entry in this dictionary designates the root of a name tree (see 7.9.6, "Name 
-trees") defining names for a particular category of objects. "
+catalog dictionary"). Each entry in this dictionary designates the root of a #name tree (see 7.9.6, "Name 
+trees") defining names for a particular category of #objects. "

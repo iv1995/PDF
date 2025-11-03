@@ -4,7 +4,7 @@ sequence".
 
 ISO/DIS 32000-2
  
-Table 7: Typical LZW encoding sequence 
+#Table 7: Typical LZW encoding sequence 
 Input Output code Code added Sequence 
 sequence to table represented by 
 new code 
@@ -17,22 +17,22 @@ new code
 66 66 – – 
 – 257 (EOD) – – 
  
-Codes shall be packed into a continuous bit stream, high-order bit first. This stream shall then be 
-divided into bytes, high-order bit first. Thus, codes may straddle byte boundaries arbitrarily. After the 
-EOD marker (code value 257), any leftover bits in the final byte shall be set to 0. 
-In the example above, all the output codes are 9 bits long; they would pack into bytes as follows 
+Codes shall be packed into a continuous #bit stream, high-order #bit first. This stream shall then be 
+divided into #bytes, high-order #bit first. Thus, codes may straddle #byte boundaries ar#bitrarily. After the 
+EOD marker (code value 257), any leftover #bits in the final #byte shall be set to 0. 
+In the example above, all the output codes are 9 #bits long; they would pack into #bytes as follows 
 (represented in hexadecimal): 
 EXAMPLE 2 
 80 0B 60 50 22 0C 0C 85 01 
  
 To adapt to changing input sequences, the encoder may at any point issue a clear-table code, which 
-causes both the encoder and the decoder to restart with initial tables and a 9-bit code length. The 
+causes both the encoder and the decoder to restart with initial tables and a 9-#bit code length. The 
 encoder shall begin by issuing a clear-table code. It shall issue a clear-table code when the table 
 becomes full; it may do so sooner. 
 7.4.4.3LZWDecode and FlateDecode parameters 
  
  LZWDecode  FlateDecode 
-Theandfilters shall accept optional parameters to control the decoding 
+Theand#filters shall accept optional parameters to control the decoding 
 process. 
 NOTE Most of these parameters are related to techniques that reduce the size of compressed sampled 
 images (rectangular arrays of colour values, described in 8.9, "Images"). For example, image data 

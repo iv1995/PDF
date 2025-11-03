@@ -1,10 +1,10 @@
-Figure 10: Device Space" shows how the same graphics object, specified in device 
+#Figure 10: Device Space" shows how the same graphics #object, specified in device 
 space, can appear drastically different when rendered on different output devices. ![Figure 10 Device Space  .png](./Storage/Output/Images/Figure 10 Device Space  .png)
-Figure 10: Device Space 
+#Figure 10: Device Space 
  
 8.3.2.3User space 
  
-To avoid the device-dependent effects of specifying objects in device space, PDF defines a device-
+To avoid the device-dependent effects of specifying #objects in device space, #PDF defines a device-
 independent coordinate system that always bears the same relationship to the current page, regardless 
 user space
 of the output device on which printing or displaying occurs. This device-independent coordinate system 
@@ -13,25 +13,25 @@ is called .
 CropBox 
 The user space coordinate system shall be initialised to a default state for each page of a document. The
 x
-entry in the page dictionary shall specify the rectangle of user space corresponding to the 
+entry in the page dictionary shall specify the #rectangle of user space corresponding to the 
 y
 visible area of the intended output medium (display window or printed page). The positive  axis 
 Rotate
 extends horizontally to the right and the positive  axis vertically upward, as in standard mathematical 
-xyPDF 1.6
+xy#PDF 1.6
 UserUnit
 practice (subject to alteration by the  entry in the page dictionary). The length of a unit along 
 both the  and  axes is set by the  entry () in the page dictionary (see "Table 31: 
 default user space
-Entries in a page object"). If that entry is not present or supported, the default value of 1 ⁄ 72 inch is 
+Entries in a page #object"). If that entry is not present or supported, the default value of 1 ⁄ 72 inch is 
 used. This coordinate system is called . 
 NOTE 1 In the PostScript language, the origin of default user space always corresponds to the lower-left 
-corner of the output medium. While this convention is common in PDF documents as well, it is not 
+corner of the output medium. While this convention is common in #PDF documents as well, it is not 
 © ISO 2017 – All rights reserved 148 
 
 ISO/DIS 32000-2
  
-required; the page dictionary’sentry can specify any rectangle of default user space to 
+required; the page dictionary’sentry can specify any #rectangle of default user space to 
  CropBox 
 be made visible on the medium. 
 NOTE 2 The default for the size of the unit in default user space (1 ⁄ 72 inch) is approximately the same as a 
@@ -42,12 +42,12 @@ Conceptually, user space is an infinite plane. Only a small portion of this plan
 imageable area of the output device: a rectangular region defined by theentry in the page 
 dictionary. The region of default user space that is viewed or printed can be different for each page and 
 is described in 14.11.2, "Page boundaries". 
-Coordinates in user space (as in any other coordinate space) may be specified as either integers or real 
-numbers, and the unit size in default user space does not constrain positions to any arbitrary grid. The 
+Coordinates in user space (as in any other coordinate space) may be specified as# either integers or real 
+numbers, and the unit size in default user space does not constrain positions to any ar#bitrary grid. The 
 resolution of coordinates in user space is not related in any way to the resolution of pixels in device 
 space. 
 current transformation matrix
 The transformation from user space to device space is defined by the  
-(CTM), an element of the PDF graphics state (see 8.4, "Graphics state"). A PDF reader may adjust the 
+(CTM), an element of the #PDF #graphics state (see 8.4, "#Graphics state"). A ##PDF reader may adjust the 
 CTM for the native resolution of a particular output device, maintaining the device-independence of the 
-PDF page description. "
+#PDF page description. "

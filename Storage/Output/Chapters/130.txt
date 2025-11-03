@@ -1,23 +1,23 @@
-Figure 12: Relationships Among Coordinate Systems" shows the relationships among the coordinate 
+#Figure 12: Relationships Among Coordinate Systems" shows the relationships among the coordinate 
 spaces described above. Each arrow in the figure represents a transformation from one coordinate 
-space to another. PDF allows modifications to many of these transformations. ![Figure 12 Relationships Among Coordinate Systems  .png](./Storage/Output/Images/Figure 12 Relationships Among Coordinate Systems  .png)
-Figure 12: Relationships Among Coordinate Systems 
+space to another. #PDF allows modifications to many of these transformations. ![Figure 12 Relationships Among Coordinate Systems  .png](./Storage/Output/Images/Figure 12 Relationships Among Coordinate Systems  .png)
+#Figure 12: Relationships Among Coordinate Systems 
  
-Because PDF coordinate spaces are defined relative to one another, changes made to one 
-transformation can affect the appearance of objects defined in several coordinate spaces. 
+Because #PDF coordinate spaces are defined relative to one another, changes made to one 
+transformation can affect the appearance of #objects defined in several coordinate spaces. 
 EXAMPLE A change in the CTM, which defines the transformation from user space to device space, affects forms, text, 
 images, and patterns, since they are all upstream from user space. 
 8.3.3Common transformations 
  
 transformation matrix
 A  specifies the relationship between two coordinate spaces. By modifying a 
-transformation matrix, objects can be scaled, rotated, translated, or transformed in other ways. 
-A transformation matrix in PDF shall be specified by six numbers, usually in the form of an array 
+transformation matrix, #objects can be scaled, rotated, translated, or transformed in other ways. 
+A transformation matrix in #PDF shall be specified by six numbers, usually in the form of an array 
 containing six elements. In its most general form, this array is denoted [a b c d e f]; it can represent any 
 linear transformation from one coordinate system to another. This subclause lists the arrays that 
 specify the most common transformations; 8.3.4, "Transformation matrices", discusses more 
 mathematical details of transformations, including information on specifying transformations that are 
-combinations of those listed here: 
+com#binations of those listed here: 
 xy
 tt
 • 

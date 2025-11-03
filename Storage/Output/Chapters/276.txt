@@ -1,7 +1,7 @@
-Figure 65: Halftone cell with a non-zero angle" shows a halftone cell with a frequency of 38.4 
+#Figure 65: Halftone cell with a non-zero angle" shows a halftone cell with a frequency of 38.4 
 cells per inch and an angle of 50.2 degrees, represented graphically in device space at a resolution 
 of 300 dots per inch. Each asterisk in the figure represents a location in device space that is 
 mapped to a specific location in the threshold array. ![Figure 65 Halftone cell with a non-zero angle  .png](./Storage/Output/Images/Figure 65 Halftone cell with a non-zero angle  .png)
-Figure 65: Halftone cell with a non-zero angle 
+#Figure 65: Halftone cell with a non-zero angle 
  
 NOTE 2 "

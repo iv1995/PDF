@@ -1,57 +1,57 @@
-Figure 60: Text rise" 
+#Figure 60: Text rise" 
 illustrates the effect of the text rise. Text rise shall apply to the vertical coordinate in text space, 
 regardless of the writing mode. 
 NOTE Adjustments to the baseline are useful for drawing superscripts or subscripts. The default location 
 of the baseline can be restored by setting the text rise to 0. ![Figure 60 Text rise  .png](./Storage/Output/Images/Figure 60 Text rise  .png)
-Figure 60: Text rise 
+#Figure 60: Text rise 
  
 9.3.8Text knockout 
  
 T
 k
-The text knockout parameter,  (PDF 1.4), shall be a boolean value that determines what text elements 
-shall be considered elementary objects for purposes of colour compositing in the transparent imaging 
+The text knockout parameter,  (#PDF 1.4), shall be a boolean value that determines what text elements 
+shall be considered elementary #objects for purposes of colour compositing in the transparent imaging 
 TKgs
 model. Unlike other text state parameters, there is no specific operator for setting this parameter; it 
-may be set only through the  entry in a graphics state parameter dictionary by using the  operator 
+may be set only through the  entry in a #graphics state parameter dictionary by using the  operator 
 TKgs
-(see 8.4.5, "Graphics state parameter dictionaries"). The text knockout parameter shall apply only to 
+(see 8.4.5, "#Graphics state parameter dictionaries"). The text knockout parameter shall apply only to 
 BTET
-entire text objects. Any  value in a graphics state parameter dictionary installed using the  
-operator shall be ignored between the  and  operators delimiting a text object. The text knockout 
+entire text #objects. Any  value in a #graphics state parameter dictionary installed using the  
+operator shall be ignored between the  and  operators delimiting a text #object. The text knockout 
 truefalse
-parameter controls the behaviour of glyphs obtained from any font type, including Type 3. Its initial 
-value shall be . If the parameter is , each glyph in a text object shall be treated as a separate 
-elementary object; when glyphs overlap, they shall composite with one another. 
+parameter controls the behaviour of #glyphs obtained from any #font type, including Type 3. Its initial 
+value shall be . If the parameter is , each #glyph in a text #object shall be treated as a separate 
+elementary #object; when #glyphs overlap, they shall composite with one another. 
 true
-If the parameter is , the behaviour shall be equivalent to treating the entire text object as if it were a 
+If the parameter is , the behaviour shall be equivalent to treating the entire text #object as if it were a 
 © ISO 2017 – All rights reserved 299 
 
 ISO/DIS 32000-2
  
-non-isolated knockout transparency group; see 11.4.6, "Knockout groups" where each glyph is an 
-individual element in that group’s transparency stack. When glyphs overlap, later glyphs shall overwrite 
+non-isolated knockout transparency #group; see 11.4.6, "Knockout #groups" where each #glyph is an 
+individual element in that #group’s transparency stack. When #glyphs overlap, later #glyphs shall overwrite 
 ("knock out") earlier ones in the area of overlap. The following additional rules shall apply: 
 • 
-Graphics state parameters, including transparency parameters, shall be inherited from the context 
-in which the text object appears. They shall not be saved and restored. The transparency 
-parameters shall not be reset at the beginning of the transparency group (as they are when a 
-transparency group XObject is explicitly invoked). Changes made to graphics state parameters 
+#Graphics state parameters, including transparency parameters, shall be inherited from the context 
+in which the text #object appears. They shall not be saved and restored. The transparency 
+parameters shall not be reset at the beginning of the transparency #group (as they are when a 
+transparency #group X#Object is explicitly invoked). Changes made to #graphics state parameters 
 • 
-within the text object shall persist beyond the end of the text object. 
+within the text #object shall persist beyond the end of the text #object. 
 Normal
-After the implicit transparency group for the text object has been completely evaluated, the group 
+After the implicit transparency #group for the text #object has been completely evaluated, the #group 
 results shall be composited with the backdrop, using the  blend mode and alpha and soft 
-NOTE With the above listed exceptions, the compositing described in 11.4.6, "Knockout groups" applies 
+NOTE With the above listed exceptions, the compositing described in 11.4.6, "Knockout #groups" applies 
 mask values of 1.0. 
 when the text knockout graphics parameter is true including the handling of masks. 
-9.4Text objects 
+9.4Text #objects 
  
 9.4.1General 
  
-A PDF text object consists of operators that may show text strings, move the text position, and set text 
+A #PDF text #object consists of operators that may show text strings, move the text position, and set text 
 state and certain other parameters. In addition, three parameters may be specified only within a text 
-object and shall not persist from one text object to the next: 
+#object and shall not persist from one text #object to the next: 
 T
 • 
 m
@@ -64,10 +64,10 @@ T
 , the text line matrix. 
 rm
 T
-, the text rendering matrix, which is actually just an intermediate result that combines the 
+, the text rendering matrix, which is actually just an intermediate result that com#bines the 
 m
 BTET
 ), and the current transformation matrix. 
 effects of text state parameters, the text matrix (
-A text object begins with the  operator and ends with the  operator, as shown in the Example, and 
+A text #object begins with the  operator and ends with the  operator, as shown in the Example, and 
 described in "

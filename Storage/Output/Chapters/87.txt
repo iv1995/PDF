@@ -1,102 +1,102 @@
-Table 16: Additional entries specific to an object stream dictionary 
+Table 16: Additional entries specific to an ##object stream dictionary 
 Key Type Value 
 RequiredObjStm
 Type 
-name () The type of PDF object that this dictionary describes; shall be  
-for an object stream. 
+name () The type of #PDF #object that this dictionary describes; shall be  
+for an ##object stream. 
 Required
 N 
-integer () The number of indirect objects stored in the stream. 
+integer () The number of in#direct #objects stored in the stream. 
 Required
 First 
-integer () The byte offset in the decoded stream of the first compressed object. 
+integer () The #byte offset in the decoded stream of the first compressed #object. 
 Optional
 Extends 
-stream () A reference to another object stream, of which the current object 
-stream is an extension. Both streams are considered part of a collection of object 
+stream () A reference to another ##object stream, of which the current #object 
+stream is an extension. Both streams are considered part of a collection of #object 
 Extends
 streams (see below). A given collection consists of a set of streams whose 
  links form a directed acyclic graph. 
  
-A PDF writer determines which objects, if any, to store in object streams. 
-EXAMPLE 1 It can be useful to store objects having common characteristics together, such as "fonts on page 1" or 
-"Comments for draft #3." These objects are known as a collection. 
+A ##PDF writer determines which #objects, if any, to store in ##object streams. 
+EXAMPLE 1 It can be useful to store #objects having common #characteristics together, such as "#fonts on page 1" or 
+"Comments for draft #3." These #objects are known as a collection. 
 NOTE 4 To avoid a degradation of performance, such as would occur when downloading and 
-decompressing a large object stream to access a single compressed object, the number of objects 
-in an individual object stream needs to be limited. This may require a group of object streams to 
-be linked as a collection, which can be done by means of the  entry in the object stream 
+decompressing a large ##object stream to access a single compressed #object, the number of #objects 
+in an individual ##object stream needs to be limited. This may require a #group of ##object streams to 
+be linked as a collection, which can be done by means of the  entry in the ##object stream 
 Extends
 dictionary. 
-NOTE 5  may also be used when a collection is being updated to include new objects. Rather than 
+NOTE 5  may also be used when a collection is being updated to include new #objects. Rather than 
 Extends
-modifying the original object stream, which could entail duplicating much of the stream data, the 
-new objects can be stored in a separate object stream. This is particularly important when adding 
+modifying the original ##object stream, which could entail duplicating much of the stream data, the 
+new #objects can be stored in a separate ##object stream. This is particularly important when adding 
 an update section to a document. 
-The stream data in an object stream shall contain the following items: 
+The stream data in an ##object stream shall contain the following items: 
 N
 • 
  pairs of integers separated by white-space, where the first integer in each pair shall represent 
-the object number of a compressed object and the second integer shall represent the byte offset in 
+the #object number of a compressed #object and the second integer shall represent the #byte offset in 
 First
-the decoded stream of that object, relative to the first object stored in the object stream, the offset 
+the decoded stream of that #object, relative to the first #object stored in the ##object stream, the offset 
 for which is the value of the stream's  entry. The offsets shall be in increasing order. The pairs, 
-NOTE 6 There is no restriction on the order of objects in the object stream; in particular, the objects need 
+NOTE 6 There is no restriction on the order of #objects in the ##object stream; in particular, the #objects need 
 themselves, shall also be separated by white-space. 
-not be stored in object-number order. 
+not be stored in #object-number order. 
 First
 • 
-The value of the  entry in the stream dictionary shall be the byte offset in the decoded stream 
+The value of the  entry in the stream dictionary shall be the #byte offset in the decoded stream 
 NN
 • 
-of the first object. 
+of the first #object. 
 objendobj
-Following the  pairs of integers, the  objects are stored consecutively. Only the object values are 
+Following the  pairs of integers, the  #objects are stored consecutively. Only the #object values are 
 stored in the stream; the  and  keywords shall not be used. The resulting decompressed 
-stream of objects shall be delimited with white-space, where needed, in order to enable the 
-standard PDF parsing rules for tokenization and object recognition to be performed as specified in 
+stream of #objects shall be delimited with white-space, where needed, in order to enable the 
+standard #PDF parsing rules for tokenization and #object recognition to be performed as specified in 
 © ISO 2017 – All rights reserved 66 
 
 ISO/DIS 32000-2
  
 NOTE 7 A compressed dictionary or array may contain indirect references. 
 7.2, "Lexical conventions". 
-An object in an object stream shall not consist solely of an object reference. 
+An #object in an ##object stream shall not consist solely of an ##object reference. 
 EXAMPLE 2  
 3 0 R 
  
-In an encrypted file (i.e., entire object stream is encrypted), strings occurring anywhere in an object 
+In an encrypted file (i.e., entire ##object stream is encrypted), strings occurring anywhere in an #object 
 stream shall not be separately encrypted. 
 First
-A PDF writer shall store the first object immediately after the last byte offset separated by white-space. 
-A PDF processor shall rely on the  entry in the stream dictionary to locate the first object. 
-An object stream itself, like any stream, shall be an indirect object, and therefore, there shall be an entry 
+A ##PDF writer shall store the first #object immediately after the last #byte offset separated by white-space. 
+A ##PDF processor shall rely on the  entry in the stream dictionary to locate the first #object. 
+An ##object stream itself, like any stream, shall be an in#direct #object, and therefore, there shall be an entry 
 for it in a cross-reference table or cross-reference stream (see 7.5.8, "Cross-reference streams"), 
 although there might not be any references to it (of the form 243 0 R). 
-The generation number of an object stream and of any compressed object shall be zero. If either an 
-object stream or a compressed object is deleted and the object number is freed, that object number shall 
-be reused only for an ordinary (uncompressed) object other than an object stream. When new object 
-streams and compressed objects are created, they shall always be assigned new object numbers, not old 
+The generation number of an ##object stream and of any compressed #object shall be zero. If# either an 
+##object stream or a compressed #object is deleted and the #object number is freed, that #object number shall 
+be reused only for an ordinary (uncompressed) #object other than an ##object stream. When new #object 
+streams and compressed #objects are created, they shall always be assigned new #object numbers, not old 
 ones taken from the free list. 
-EXAMPLE 3 The following shows three objects (two fonts and a font descriptor) as they would be represented in a PDF 1.4 
+EXAMPLE 3 The following shows three #objects (two #fonts and a #font descriptor) as they would be represented in a #PDF 1.4 
 or earlier file, along with a cross-reference table. 
 11 0 obj 
-   <</Type /Font 
+   <</Type /#Font 
    /Subtype /TrueType 
    … other entries … 
-   /FontDescriptor 12 0 R 
+   /#FontDescriptor 12 0 R 
   >> 
 endobj 
  
 12 0 obj 
-   <</Type /FontDescriptor 
+   <</Type /#FontDescriptor 
    /Ascent 891 
    … other entries … 
-   /FontFile2 22 0 R 
+   /#FontFile2 22 0 R 
   >> 
 endobj 
  
 13 0 obj 
-   <</Type /Font 
+   <</Type /#Font 
    /Subtype /Type0 
    … other entries … 
    /ToUnicode 10 0 R 
@@ -108,7 +108,7 @@ endobj
 xref 
 0 32 
 0000000000 65535 f 
-… cross-reference entries for objects 1 through 10 … 
+… cross-reference entries for #objects 1 through 10 … 
 0000001434 00000 n 
 0000001735 00000 n 
 © ISO 2017 – All rights reserved 67 
@@ -116,43 +116,43 @@ xref
 ISO/DIS 32000-2
  
 0000002155 00000 n 
-… cross-reference entries for objects 14 and on … 
+… cross-reference entries for #objects 14 and on … 
 trailer 
    <</Size 32 
   /Root … 
   >> 
-NOTE 8 For readability, the object stream has been shown unencoded. In a PDF 2.0 file, Flate encoding 
+NOTE 8 For reada#bility, the ##object stream has been shown unencoded. In a #PDF 2.0 file, Flate encoding 
 would typically be used to gain the benefits of compression. 
-EXAMPLE 4 The following shows the same objects from the previous example stored in an object stream in a PDF 1.5 file, 
+EXAMPLE 4 The following shows the same #objects from the previous example stored in an ##object stream in a #PDF 1.5 file, 
 along with a cross-reference stream. 
- The cross-reference stream (see 7.5.8, "Cross-reference streams") contains entries for the fonts (objects 11 
-and 13) and the descriptor (object 12), which are compressed objects in an object stream. The first field of, 
-along with a cross-reference table field is the number of the object stream (15), and the third field is the 
-position within the sequence of objects in the object stream (0, 1, and 2). The cross-reference stream also 
-contains a Type 1 entry for the object stream itself. 
-15 0 obj          %The object stream 
+ The cross-reference stream (see 7.5.8, "Cross-reference streams") contains entries for the #fonts (#objects 11 
+and 13) and the descriptor (#object 12), which are compressed #objects in an ##object stream. The first field of, 
+along with a cross-reference table field is the number of the ##object stream (15), and the third field is the 
+position within the sequence of #objects in the ##object stream (0, 1, and 2). The cross-reference stream also 
+contains a Type 1 entry for the ##object stream itself. 
+15 0 obj          %The ##object stream 
    <</Type /ObjStm 
    /Length 1856 
-   /N 3        %The number of objects in the stream 
-   /First 24      %The byte offset in the decoded stream of the first object 
-            %The object numbers and offsets of the objects,  
+   /N 3        %The number of #objects in the stream 
+   /First 24      %The #byte offset in the decoded stream of the first #object 
+            %The #object numbers and offsets of the #objects,  
             %relative to the first are shown on the first line of 
             %the stream (i.e., 11 0 12 547 13 665). 
   >> 
 stream 
   11 0 12 547 13 665 
-   <</Type /Font 
+   <</Type /#Font 
    /Subtype /TrueType 
    … other keys … 
-   /FontDescriptor 12 0 R 
+   /#FontDescriptor 12 0 R 
   >> 
  
-   <</Type /FontDescriptor 
+   <</Type /#FontDescriptor 
    /Ascent 891 
    …other keys… 
-   /FontFile2 22 0 R 
+   /#FontFile2 22 0 R 
   >> 
-   <</Type /Font 
+   <</Type /#Font 
    /Subtype /Type0 
    … other keys … 
    /ToUnicode 10 0 R 
@@ -163,20 +163,20 @@ endobj
  
 99 0 obj          %The cross-reference stream 
    <</Type /XRef 
-   /Index [0 32]     %This section has one subsection with 32 objects 
-   /W [1 2 2]      %Each entry has 3 fields: 1, 2 & 2 bytes in width respectively 
-   /Filter /ASCIIHexDecode  %For readability in this example 
+   /Index [0 32]     %This section has one subsection with 32 #objects 
+   /W [1 2 2]      %Each entry has 3 fields: 1, 2 & 2 #bytes in width respectively 
+   /#Filter /#ASCIIHexDecode  %For reada#bility in this example 
    /Size 32 
    … 
   >> 
 stream 
   00 0000 FFFF 
-   cross-references for objects 1 through 10  
+   cross-references for #objects 1 through 10  
 ……
   02 000F 0000 
   02 000F 0001 
   02 000F 0002 
-   cross-reference for object 14  
+   cross-reference for #object 14  
 ……
   01 BA5E 0000 
 © ISO 2017 – All rights reserved 68 
@@ -190,24 +190,24 @@ endobj
 startxref 
 54321 
 %%EOF 
-NOTE 9 The number 54321 in Example 4 is the offset for object 99 0. 
+NOTE 9 The number 54321 in Example 4 is the offset for #object 99 0. 
 7.5.8Cross-reference streams 
  
 7.5.8.1General 
  
-Beginning with PDF 1.5, cross-reference information may be stored in a cross-reference stream instead 
+Beginning with #PDF 1.5, cross-reference information may be stored in a cross-reference stream instead 
 of in a cross-reference table. Cross-reference streams provide the following advantages: 
 • 
 • 
 A more compact representation of cross-reference information 
-The ability to access compressed objects that are stored in object streams (see 7.5.7, "Object 
+The a#bility to access compressed #objects that are stored in ##object streams (see 7.5.7, "#Object 
 streams") and to allow new cross-reference entry types to be added in the future. 
-Cross-reference streams are stream objects (see 7.3.8, "Stream objects"), and contain a dictionary and a 
+Cross-reference streams are stream #objects (see 7.3.8, "Stream #objects"), and contain a dictionary and a 
 data stream. Each cross-reference stream contains the information equivalent to the cross-reference 
 table (see 7.5.4, "Cross-reference table" and trailer (7.5.5, "File trailer") for one cross-reference section. 
 EXAMPLE In this example, the trailer dictionary entries are stored in the stream dictionary, and the cross-reference table 
 entries are stored as the stream data. 
-… objects … 
+… #objects … 
  
 12 0 obj          %Cross-reference stream 
    <</Type /XRef      %Cross-reference stream dictionary 
@@ -220,11 +220,11 @@ stream
 endstream 
 endobj 
  
-more objects  
+more #objects  
 … …
  
 startxref 
-byte_offset_of_cross-reference_stream (points to object 12) 
+#byte_offset_of_cross-reference_stream (points to object 12) 
 %%EOF 
  
 startxref
@@ -232,12 +232,12 @@ xref
 The value following the  keyword shall be the offset of the cross-reference stream rather than 
 the  keyword. For files that use cross-reference streams entirely (that is, files that are not hybrid-
 xreftrailer
-reference files; see 7.5.8.4, "Compatibility with applications that do not support compressed reference 
+reference files; see 7.5.8.4, "Compati#bility with applications that do not support compressed reference 
 startxref
 streams"), the keywords  and  shall no longer be used. Therefore, with the exception of the 
- address %%EOF segment and comments, a file may be entirely a sequence of objects. 
-In linearized files (see Annex F.3, "Linearized PDF document structure"), the document catalog 
-dictionary, the linearization dictionary, and page objects shall not appear in an object stream. 
+ address %%EOF segment and comments, a file may be entirely a sequence of #objects. 
+In linearized files (see Annex F.3, "Linearized #PDF document structure"), the document catalog 
+dictionary, the linearization dictionary, and page #objects shall not appear in an ##object stream. 
 7.5.8.2Cross-reference stream dictionary 
  
 Cross-reference streams may contain the entries shown in "Table 17: Additional entries specific to a 
@@ -247,18 +247,18 @@ ISO/DIS 32000-2
  
 cross-reference stream dictionary" in addition to the entries common to all streams ("Table 5: Entries 
 common to all stream dictionaries") and trailer dictionaries ("Table 15: Entries in the file trailer 
-dictionary"). Since some of the information in the cross-reference stream is needed by the PDF 
+dictionary"). Since some of the information in the cross-reference stream is needed by the #PDF 
 processor to construct the index that allows indirect references to be resolved, the entries in cross-
 reference streams shall be subject to the following restrictions: 
 • 
 Index
 The values of all entries shown in "Table 17: Additional entries specific to a cross-reference stream 
 W
-dictionary" shall be direct objects; indirect references shall not be permitted. For arrays (the  
-Filter DecodeParms 
-and  entries), all of their elements shall be direct objects as well. If the stream is encoded, the 
- andentries in "Table 5: Entries common to all stream dictionaries" shall also 
+dictionary" shall be #direct #objects; indirect references shall not be permitted. For arrays (the  
+#Filter DecodeParms 
+and  entries), all of their elements shall be #direct #objects as well. If the stream is encoded, the 
+ andentries in "#Table 5: Entries common to all stream dictionaries" shall also 
 • 
-be direct objects. 
+be #direct #objects. 
 Root
 Other cross-reference stream entries not listed in "

@@ -1,36 +1,36 @@
-Table 231: Field flags specific to text fields" 
-shows the flags pertaining to this type of field. A text field shall have a field type of . A conforming PDF 
-file, and an interactive PDF processor shall obey the usage guidelines in "Table 231: Field flags specific 
+#Table 231: Field flags specific to text fields" 
+shows the flags pertaining to this type of field. A text field shall have a field type of . A conforming #PDF 
+file, and an #interactive ##PDF processor shall obey the usage guidelines in "Table 231: Field flags specific 
 to text fields". 
-Table 231: Field flags specific to text fields 
-Bit position Name Meaning 
+#Table 231: Field flags specific to text fields 
+#Bit position Name Meaning 
 13 Multiline If set, the field may contain multiple lines of text; if clear, the field’s text 
 shall be restricted to a single line. 
 14 Password If set, the field is intended for entering a secure password that should not 
-be echoed visibly to the screen. Characters typed from the keyboard shall 
+be echoed visibly to the screen. #Characters typed from the keyboard shall 
 instead be echoed in some unreadable form, such as asterisks or bullet 
-NOTE To protect password confidentiality, it is imperative that PDF 
-characters. 
-processors never store the value of the text field in the PDF file if 
+NOTE To protect password confidentiality, it is imperative that #PDF 
+#characters. 
+processors never store the value of the text field in the #PDF file if 
 this flag is set. 
-(PDF 1.4) 
+(#PDF 1.4) 
 21 FileSelect If set, the text entered in the field represents the pathname of a 
 file whose contents shall be submitted as the value of the field. 
-(PDF 1.4) 
+(#PDF 1.4) 
 23 DoNotSpellCheck If set, text entered in the field shall not be spell-checked. 
-(PDF 1.4) 
+(#PDF 1.4) 
 24 DoNotScroll If set, the field shall not scroll (horizontally for single-line 
 fields, vertically for multiple-line fields) to accommodate more text than 
-fits within its annotation rectangle. Once the field is full, no further text 
+fits within its annotation #rectangle. Once the field is full, no further text 
 shall be accepted for interactive form filling; for non-interactive form 
-filling, the filler should take care not to add more character than will 
+filling, the filler should take care not to add more #character than will 
 visibly fit in the defined area. 
 © ISO 2017 – All rights reserved 524 
 
 ISO/DIS 32000-2
  
-Bit position Name Meaning 
-(PDF 1.5) 
+#Bit position Name Meaning 
+(#PDF 1.5) 
  MaxLen 
 25 Comb May be set only if theentry is present in the text field 
 dictionary (see "

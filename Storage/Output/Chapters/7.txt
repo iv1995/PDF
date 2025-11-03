@@ -1,5 +1,5 @@
-ASCII 
+#ASCII 
 American Standard Code for Information Interchange, a widely used convention for encoding a specific 
-set of 128 characters as binary numbers defined in ANSI X3.4-1986 
+set of 128 #characters as #binary numbers defined in ANSI X3.4-1986 
 4.5 
  

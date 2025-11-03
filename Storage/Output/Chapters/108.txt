@@ -1,77 +1,77 @@
-Table 35: PDF data types" summarises the basic and higher-level data types that are used 
-throughout this part of ISO 32000 to describe the values of dictionary entries and other PDF data 
+Table 35: #PDF data types" summarises the basic and higher-level data types that are used 
+throughout this part of ISO 32000 to describe the values of dictionary entries and other #PDF data 
 values. 
-Table 35: PDF data types 
+Table 35: #PDF data types 
 Type Description Subclause 
-ASCII string 
-Bytes containing ASCII characters 7.9.2 
+#ASCII string 
+#Bytes containing #ASCII #characters 7.9.2 
 array 
-Array object 7.3.6 
+#Array #object 7.3.6 
 boolean 
 Boolean value 7.3.2 
-byte string 
-A series of bytes that shall represent 7.9.2 
-characters or other binary data. If such a 
+#byte string 
+A series of #bytes that shall represent 7.9.2 
+#characters or other ##binary data. If such a 
 7.9.2.4 
-type represents characters, the encoding 
+type represents #characters, the encoding 
 shall be determined by the context. 
 date 
-Date (ASCII string) 7.9.4 
+Date (#ASCII string) 7.9.4 
 dictionary 
-Dictionary object 7.3.7 
+#Dictionary #object 7.3.7 
 file specification 
 File specification (string or dictionary) 7.11 
-function 
-Function (dictionary or stream) 7.10 
+#function 
+#Function (dictionary or stream) 7.10 
 integer 
 Integer number 7.3.3 
 name 
-Name object 7.3.5 
-name tree 
-Name tree (dictionary) 7.9.6 
+#Name #object 7.3.5 
+#name tree 
+#Name tree (dictionary) 7.9.6 
 null 
-Null object 7.3.9 
+#Null #object 7.3.9 
 number 
 Number (integer or real) 7.3.3 
-number tree 
-Number tree (dictionary) 7.9.7 
-PDFDocEncoded string 
-Bytes containing a string that shall be 7.9.2 
-encoded using PDFDocEncoding 
+#number tree 
+#Number tree (dictionary) 7.9.7 
+#PDFDocEncoded string 
+#Bytes containing a string that shall be 7.9.2 
+encoded using #PDFDocEncoding 
 7.9.2.3 
 © ISO 2017 – All rights reserved 115 
 
 ISO/DIS 32000-2
  
 Type Description Subclause 
-rectangle 
-Rectangle (array) 7.9.5 
+#rectangle 
+#Rectangle (array) 7.9.5 
 stream 
-Stream object 7.3.8 
+Stream #object 7.3.8 
 string 
 Any string that is not a text string. 7.9.2 
-Beginning with PDF 1.7, this type is 
+Beginning with #PDF 1.7, this type is 
  
 further qualified as the types: 
-ASCII string and byte string.
+#ASCII string and #byte string.
 text string 
  
-Bytes that represent characters that shall 7.9.2 
+#Bytes that represent #characters that shall 7.9.2 
  
-be encoded using either
+be encoded using# either
  
 7.9.2.2 
-PDFDocEncoding,UTF-16BE or UTF-8 
+#PDFDocEncoding,UTF-16BE or UTF-8 
 (as defined in 7.9.2.2, "Text string type".) 
 text stream 
 Text stream 7.9.3 
  
-7.9.2String object types 
+7.9.2String #object types 
  
 7.9.2.1General 
  
-PDF supports one fundamental string object (see 7.3.4, "String objects"). The string object shall be 
-further qualified as a text string, a PDFDocEncoded string, ASCII string, or byte string. The further 
-qualification reflects the encoding used to represent the characters or glyphs described by the string. 
-The string types described in "Table 35: PDF data types" specify increasingly specific encoding schemes, 
+#PDF supports one fundamental string #object (see 7.3.4, "String #objects"). The string #object shall be 
+further qualified as a text string, a #PDFDocEncoded string, #ASCII string, or #byte string. The further 
+qualification reflects the encoding used to represent the #characters or #glyphs described by the string. 
+The string types described in "Table 35: #PDF data types" specify increasingly specific encoding schemes, 
 as shown in "

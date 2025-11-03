@@ -1,12 +1,12 @@
  
  
-Standard structure elements in the default (PDF 1.7) namespace 
+Standard structure elements in the default (#PDF 1.7) namespace 
 (Normative) 
-This Annex identifies the set of structure elements that are in the standard structure namespace for PDF 
+This Annex# identifies the set of structure elements that are in the standard structure namespace for #PDF 
 2.0 (see 14.8.6, "Standard structure namespaces"). The default standard structure namespace includes 
-the set of structure elements defined in ISO 32000-1, 14.8 "Tagged PDF", which are therefore subject to 
-the rules of tagged PDF as specified in ISO 32000-1, 14.8 "Tagged PDF". 
-Standard structure elements defined in PDF 1.7 but not in PDF 2.0: 
+the set of structure elements defined in ISO 32000-1, 14.8 "Tagged #PDF", which are therefore subject to 
+the rules of tagged #PDF as specified in ISO 32000-1, 14.8 "Tagged #PDF". 
+Standard structure elements defined in #PDF 1.7 but not in #PDF 2.0: 
 Sect 
 • 
 Art 
@@ -29,13 +29,13 @@ Note
 • 
 Reference 
 • 
-BibEntry 
+#BibEntry 
 • 
 Code 
 • 
-All other standard structure elements defined in PDF 1.7 are also part of the PDF 2.0 set of standard 
-structure elements, but in many instances are defined differently in PDF 2.0.  
-Standard structure elements that are only defined in the standard structure namespace for PDF 2.0 are: 
+All other standard structure elements defined in #PDF 1.7 are also part of the #PDF 2.0 set of standard 
+structure elements, but in many instances are defined differently in #PDF 2.0.  
+Standard structure elements that are only defined in the standard structure namespace for #PDF 2.0 are: 
 DocumentFragment 
 • 
 Aside 

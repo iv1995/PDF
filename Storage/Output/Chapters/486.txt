@@ -1,17 +1,17 @@
-Table 311: Entries in a 3D stream dictionary"). 
+#Table 311: Entries in a 3D stream dictionary"). 
 3DA
-The  entry shall be an activation dictionary (see "Table 310: Entries in a 3D activation dictionary") 
+The  entry shall be an activation dictionary (see "#Table 310: Entries in a 3D activation dictionary") 
 that determines how the state of the annotation and its associated artwork may change. 
 NOTE 2 These states serve to delay the processing or display of 3D artwork until a user chooses to interact 
 with it. Such delays in activating 3D artwork can be advantageous to performance. 
 At any given moment, a 3D annotation shall be in one of two states: 
 • 
-NOTE 3 It is typical, though not required, for the normal appearance to be a pre-rendered bitmap of the 
+NOTE 3 It is typical, though not required, for the normal appearance to be a pre-rendered #bitmap of the 
 Inactive (the default initial state): the annotation displays the annotation’s normal appearance. 
-default view of the 3D artwork. PDF writers need to provide bitmaps of appropriate resolution for 
-all intended uses of the document; for example, a high-resolution bitmap for high-quality printing 
-and a screen-resolution bitmap for on-screen viewing. Optional content (see 8.11, "Optional 
-content") can be used to select the appropriate bitmap for each situation. 
+default view of the 3D artwork. ##PDF writers need to provide #bitmaps of appropriate resolution for 
+all intended uses of the document; for example, a high-resolution #bitmap for high-quality printing 
+and a screen-resolution #bitmap for on-screen viewing. Optional content (see 8.11, "Optional 
+content") can be used to select the appropriate #bitmap for each situation. 
 • 
 3DV
 Active: the annotation displays a rendering of the 3D artwork. This rendering shall be specified by 
@@ -20,7 +20,7 @@ the annotation’s  entry.
 
 ISO/DIS 32000-2
  
-Table 310: Entries in a 3D activation dictionary 
+#Table 310: Entries in a 3D activation dictionary 
 Key Type Value 
 Optional
 A 
@@ -35,7 +35,7 @@ XA
 annotation becomes visible. 
  The annotation shall remain inactive until explicitly activated by a script or user 
 action. 
-At any one time, only a single page shall be considered open in an interactive PDF 
+At any one time, only a single page shall be considered open in an interactive #PDF 
 processor, even though more than one page might be visible, depending on the page 
 XA
 layout. 
@@ -45,7 +45,7 @@ For performance reasons, documents intended for viewing in a web browser should
 POPV
 use explicit activation (). In non-interactive applications, such as printing systems 
 XA
-or aggregating interactive PDF processors,  and  indicate that the annotation shall 
+or aggregating #interactive ##PDF processors,  and  indicate that the annotation shall 
 be activated when the page is printed or placed;  indicates that the annotation shall 
 never be activated and the normal appearance shall be used. 
 Optional
@@ -60,7 +60,7 @@ disabled.
 L
 shall be instantiated. 
 Default value: . 
-In non-interactive PDF processors, the artwork shall be instantiated and scripts shall 
+In non-#interactive ##PDF processors, the artwork shall be instantiated and scripts shall 
 be disabled. 
 Optional
 D 
@@ -74,7 +74,7 @@ XD
 annotation becomes invisible. 
  The annotation shall remain active until explicitly deactivated by a script or user 
 action. 
-At any one time, only a single page shall be considered open in an interactive PDF 
+At any one time, only a single page shall be considered open in an interactive #PDF 
 processor, even though more than one page might be visible, depending on the page 
 PI
 layout. 
@@ -90,8 +90,8 @@ NOTE 1 If the value of this entry is , uninstantiation of instantiated artwork i
 value: . 
 necessary unless it has been modified. Uninstantiation is never required in 
 L
-non-interactive PDF processors. 
-Optional; PDF 1.7
+non-#interactive ##PDF processors. 
+Optional; #PDF 1.7
 TB 
 true
 boolean () A flag indicating the default behavior of an interactive toolbar 
@@ -107,12 +107,12 @@ Default value:
 ISO/DIS 32000-2
  
 Key Type Value 
-Optional; PDF 1.7
+Optional; #PDF 1.7
 NP 
 boolean () A flag indicating the default behavior of the user interface for 
 viewing or managing information about the 3D artwork. Such user interfaces can 
 true
-enable navigation to different views or can depict the hierarchy of the objects in the 
+enable navigation to different views or can depict the hierarchy of the #objects in the 
 false
 artwork (the model tree). If , the user interface should be made visible when the 
 annotation is activated. If , the user interface should not be made visible by 
@@ -120,25 +120,25 @@ false
  
 default. 
 Default value: 
-Optional; PDF 2.0EmbeddedWindowed
+Optional; #PDF 2.0EmbeddedWindowed
 Style 
 EmbeddedWindowed
-name () The value shall be either  or . An interactive 
+name () The value shall be# either  or . An interactive 
 Embedded
  
-PDF processor shall support both  and . 
+##PDF processor shall support both  and . 
 Default value: 
-Optional; PDF 2.0
+Optional; #PDF 2.0
 Window 
 Style
 dictionary () A RichMediaWindow Dictionary that describes the size and 
 Windowed
 position of the floating user interface window when the value for  is set to 
-. See "Table 339: Entries in a RichMediaWindow dictionary" for a detailed 
+. See "#Table 339: Entries in a RichMediaWindow dictionary" for a detailed 
 description. 
-Optional; PDF 2.0
+Optional; #PDF 2.0
 Transparent 
-boolean () A flag that indicates whether the interactive PDF processor shall 
+boolean () A flag that indicates whether the #interactive ##PDF processor shall 
 display the underlying page content through the transparent areas of the rich media 
 false
 content (where the alpha value is less than 1.0). 
@@ -161,7 +161,7 @@ Live
 is, animations) shall be disabled. 
 : the artwork has been instantiated, and it is being modified in real time to achieve some 
 animation effect. In the case of keyframe animation, the artwork shall be live while it is playing and 
-NOTE 4 The live state is valid only for keyframe animations or in interactive PDF processors that have
+NOTE 4 The live state is valid only for keyframe animations or in interactive ##PDF processors that have
  
 then shall revert to an instantiated state when playing completes or is stopped. 
 ECMAScriptsupport. 
@@ -196,7 +196,7 @@ referring to the artwork are inactive, the artwork nevertheless may be uninstant
 live 3D streams. 
 StyleWindow
   
-The  and  entries describe the mechanism that an interactive PDF processor shall use to 
+The  and  entries describe the mechanism that an #interactive ##PDF processor shall use to 
 present the3D contentin a floating window. 
 Transparent
 true
@@ -205,30 +205,30 @@ The  entry provides a flag for specifying whether the background of a 3D view sh
 rendered using transparency. If  has the value of , then some area of the page may be 
 Transparent
 visible through the background if the resulting alpha value at that location is less than 1.0. See also the 
- entry of "Table 310: Entries in a 3D activation dictionary". 
+ entry of "#Table 310: Entries in a 3D activation dictionary". 
 13.6.33D streams 
  
 13.6.3.1General 
  
 3D stream
 The specification of 3D artwork shall be contained in a . 3D stream dictionaries, whose entries 
-(in addition to the regular stream dictionary's entries; see 7.3.7, "Dictionary objects") are shown in 
-"Table 311: Entries in a 3D stream dictionary", may provide a set of predefined views of the artwork, as 
+(in addition to the regular stream dictionary's entries; see 7.3.7, "#Dictionary #objects") are shown in 
+"#Table 311: Entries in a 3D stream dictionary", may provide a set of predefined views of the artwork, as 
 well as a default view. They may also provide scripts and resources for providing customised 
 behaviours or presentations. 
-Table 311: Entries in a 3D stream dictionary 
+#Table 311: Entries in a 3D stream dictionary 
 Key Type Value 
 Optional
 Type 
 3D
-name () The type of PDF object that this dictionary describes; if present, shall be 
+name () The type of #PDF #object that this dictionary describes; if present, shall be 
  for a 3D stream. 
 Required
 Subtype 
 name () A name specifying the format of the 3D data contained in the stream. 
 U3D
 The following are the only valid values:  
-PRCPDF 2.0
+PRC#PDF 2.0
  
  which specifies the Universal 3D file format. 
  which specifies the PRC file format. ()
@@ -238,7 +238,7 @@ array () An array of , each of which specifies a named preset
 view of this 3D artwork (see 13.6.4, "3D views"). 
 Optional
 DV 
-(various) () An object that specifies the default (initial) view of the 3D artwork. It 
+(various) () An #object that specifies the default (initial) view of the 3D artwork. It 
  VA 
 • 
 may be a 3D view dictionary (see 13.6.4, "3D views") or one of the following types:  
@@ -260,25 +260,25 @@ ISO/DIS 32000-2
 Key Type Value 
 Optional
 Resources 
-name tree () A name tree that maps name strings to objects that may be used by 
+#name tree () A #name tree that maps name strings to objects that may be used by 
 applications or scripts to modify the default view of the 3D artwork. 
  
-The names in this name tree shall be text strings so as to be encoded in a way that 
+The names in this #name tree shall be text strings so as to be encoded in a way that 
 will be accessible from ECMAScript.
 Optional
 OnInstantiate   
 stream () AnECMAScriptscript that shall be executed when the 3D stream is 
 instantiated. 
-Optional; PDF 1.7
+Optional; #PDF 1.7
 AN 
 dictionary () An animation style dictionary indicating the method that 
-interactive PDF processors should use to drive keyframe animations present in 
+#interactive ##PDF processors should use to drive keyframe animations present in 
 Subtype
 this artwork (see 13.6.3.2, "3D animation style dictionaries"). 
 None
 Default value: an animation style dictionary whose  entry has a value of 
 . 
-Optional, PDF 2.0
+Optional, #PDF 2.0
 ColorSpace 
 DeviceRGB
 name or () The RGB colour space in which the 3D artwork’s colour values 
@@ -289,15 +289,15 @@ color space (see 8.6.5.3 "CalRGB colour spaces"), or an array specifying a
 "). If 
 valid RGB-based  color space (see 8.6.5.5 "ICCBased colour spaces
 this key is not present, the colour space for the 3D artwork colour values are 
-considered undefined and a PDF processor may choose any appropriate RGB-
+considered undefined and a ##PDF processor may choose any appropriate RGB-
 based colourspace, such as sRGB or Adobe RGB. 
  
 Subtype
 Subtype
-The  entry specifies the format of the 3D stream data. PDF processors shall be prepared to 
+The  entry specifies the format of the 3D stream data. ##PDF processors shall be prepared to 
 encounter unknown values for  and recover appropriately, which usually means leaving the 
 annotation in its inactive state, displaying its normal appearance. 
-NOTE PDF processors need to follow the approach of falling back to the normal appearance with regard 
+NOTE ##PDF processors need to follow the approach of falling back to the normal appearance with regard 
 to entries in other dictionaries that can take different types or values than the ones specified here. 
  VA 
 If present, theentry shall be an array containing a list of named present views of the 3D artwork. 
@@ -308,19 +308,19 @@ determines the order in which the views shall be presented in a user interface. 
 the view that shall be used as the initial view of the 3D artwork. 
 Default views shall be determined in the following order of precedence: in the annotation dictionary, in 
 the 3D stream dictionary, or in the 3D artwork contained in the 3D stream. 
-3D streams contain information that may be used by interactive PDF processors and by scripts to 
+3D streams contain information that may be used by #interactive ##PDF processors and by scripts to 
 OnInstantiate
 perform animations and other programmatically-defined behaviours, such as changing the viewing 
    
 orientation or moving individual components of the artwork. If present, the  entry shall 
  Resources 
 contain an ECMAScriptscript that shall be executed by applications that supportECMAScriptwhenever 
-a 3D stream is read to create an instance of the 3D artwork. Theentry shall be a name tree 
-that contains objects that may be used to modify the initial appearance of the 3D artwork. 
+a 3D stream is read to create an instance of the 3D artwork. Theentry shall be a #name tree 
+that contains #objects that may be used to modify the initial appearance of the 3D artwork. 
 13.6.3.23D animation style dictionaries 
  
-3D animation style dictionaryPDF 1.7
-A  () specifies the method that interactive PDF processors should 
+3D animation style dictionary#PDF 1.7
+A  () specifies the method that #interactive ##PDF processors should 
  AN 
 use to apply timeline scaling to keyframe animations. It may also specify that keyframe animations be 
 played repeatedly. Theentry of the 3D stream shall specify a 3D animation style dictionary. 
@@ -332,5 +332,5 @@ A keyframe animation may be provided as the content of a 3D stream dictionary. A
 animation timeline
 provides key frames and specifies the mapping for the position of geometry over a set period of time 
 (). Keyframe animation is an interactive feature that is highly dependent on the 
-behaviour and controls provided by the interactive PDF processor. 
+behaviour and controls provided by the #interactive ##PDF processor. 
 The following table shows the entries in an animation style dictionary. 

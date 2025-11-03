@@ -1,6 +1,6 @@
-Figure 100: Rendering of the 3D artwork using View1 (all shapes visible and opaque) 
+#Figure 100: Rendering of the 3D artwork using View1 (all shapes visible and opaque) 
  
-"Figure 100: Rendering of the 3D artwork using View1 (all shapes visible and opaque)" shows a view 
+"#Figure 100: Rendering of the 3D artwork using View1 (all shapes visible and opaque)" shows a view 
 whose node array includes three nodes, all of which shall be rendered with the appearance opaque (/O 
 1) and visible (/V true). 
 © ISO 2017 – All rights reserved 653 
@@ -13,7 +13,7 @@ transparent)
 "Figure 101: Rendering of the 3D artwork using View2 (the cone is hidden and the sphere is semi-
 transparent)" shows a view with a node array that specifies the same three nodes used in "Figure 100: 
 Rendering of the 3D artwork using View1 (all shapes visible and opaque)". These nodes have the 
-following display characteristics: 
+following display #characteristics: 
 • 
 • 
 The node named Sphere is partially transparent (/O 0.5) and visible (/V true) 
@@ -22,7 +22,7 @@ The node named Cone is opaque (/O 1) and invisible (/V false)
 13.6.5Coordinate systems for 3D 
  
 The node named Cube is opaque (/O 1) and visible (/V true) 
-3D artwork is a collection of objects whose positions and geometry shall be specified using three-
+3D artwork is a collection of #objects whose positions and geometry shall be specified using three-
 dimensional coordinates. 8.3, "Coordinate systems" discusses the concepts of two-dimensional 
 coordinate systems, their geometry and transformations. This subclause extends those concepts to 
 include the third dimension. 
@@ -35,8 +35,8 @@ z
 to the right and  values increase upward. For three-dimensional graphics, a third axis, the  axis, shall 
 be used. The origin shall be at (0, 0, 0); positive  values increase going into the page. 
 In two-dimensional graphics, the transformation matrix transforms the position, size, and orientation of 
-objects in a plane. It is a 3-by-3 matrix, where only six of the elements may be changed; therefore, the 
-matrix shall be expressed in PDF as an array of six numbers: 
+#objects in a plane. It is a 3-by-3 matrix, where only six of the elements may be changed; therefore, the 
+matrix shall be expressed in #PDF as an array of six numbers: 
  
 𝐷𝐷𝑏𝑏0
 𝑐𝑐𝐵𝐵0
@@ -44,9 +44,9 @@ matrix shall be expressed in PDF as an array of six numbers:
 �
 �=
 𝑡𝑡𝑥𝑥𝑡𝑡𝑦𝑦1
-In 3D graphics, a 4-by-4 matrix shall be used to transform the position, size, and orientations of objects 
+In 3D graphics, a 4-by-4 matrix shall be used to transform the position, size, and orientations of #objects 
 in a three-dimensional coordinate system. Only the first three columns of the matrix may be changed; 
-therefore, the matrix shall be expressed in PDF as an array of 12 numbers: 
+therefore, the matrix shall be expressed in #PDF as an array of 12 numbers: 
 𝐷𝐷𝑏𝑏𝑐𝑐0
 𝐵𝐵𝑚𝑚𝑓𝑓0
 [𝐷𝐷𝑏𝑏𝑐𝑐𝐵𝐵𝑚𝑚𝑓𝑓𝑔𝑔ℎ𝐷𝐷𝑡𝑡𝑥𝑥𝑡𝑡𝑦𝑦𝑡𝑡𝑧𝑧]
@@ -93,7 +93,7 @@ The 3D artwork is in a fixed position and orientation, and the camera moves to d
 and orientations. 
 The camera is in a fixed location, and the 3D artwork is translated and rotated. 
 Both approaches may achieve the same visual effects; in practice, 3D systems typically use a 
-combination of both. Conceptually, there are three distinct coordinate systems: 
+com#bination of both. Conceptually, there are three distinct coordinate systems: 
 artwork coordinatesystem
 • 
 camera coordinate system
@@ -114,7 +114,7 @@ camera-to-world matrix
 coordinate system. This matrix shall be contained in the 3D stream. 
 C2WU3DPath
 The  specifies the position and orientation of the camera in the world 
-coordinate system. This matrix shall be specified by either the  or  entries of the 3D 
+coordinate system. This matrix shall be specified by# either the  or  entries of the 3D 
 view dictionary. 
 When drawing 3D artwork in a 3D annotation’s target coordinate system, the following transformations 
 take place: 
@@ -154,7 +154,7 @@ Finally, the camera coordinates shall be projected into two dimensions, eliminat
 then scaled and positioned within the annotation’s target coordinate system. 
 13.6.63D markup 
  
-Beginning with PDF 1.7, users may comment on specific views of 3D artwork by using markup 
+Beginning with #PDF 1.7, users may comment on specific views of 3D artwork by using markup 
 annotations (see 12.5.6.2, "Markup annotations"). Markup annotations (as other annotations) are 
  ExData 
 normally associated with a location on a page. To associate the markup with a specific view of a 3D 

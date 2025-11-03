@@ -1,13 +1,13 @@
-Figure 67: Halftone cell and two squares tiled across device space"). The last row in the 
+#Figure 67: Halftone cell and two squares tiled across device space"). The last row in the 
 first square is immediately adjacent to the first row in the second square and starts in the same 
 column. ![Figure 66 Angled halftone cell divided into two squares  .png](./Storage/Output/Images/Figure 66 Angled halftone cell divided into two squares  .png)
-Figure 66: Angled halftone cell divided into two squares 
+#Figure 66: Angled halftone cell divided into two squares 
  
 © ISO 2017 – All rights reserved 368 
 
 ISO/DIS 32000-2
  ![Figure 67 Halftone cell and two squares tiled across device space  .png](./Storage/Output/Images/Figure 67 Halftone cell and two squares tiled across device space  .png)
-Figure 67: Halftone cell and two squares tiled across device space 
+#Figure 67: Halftone cell and two squares tiled across device space 
  
 NOTE 3 Any halftone cell can be divided in this way. The side of the upper square (X) is equal to the 
 horizontal displacement from a point in one halftone cell to the corresponding point in the 
