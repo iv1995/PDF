@@ -74,6 +74,11 @@
 		</dependency>
 		
 		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		
+		<dependency>
 	    	<groupId>com.itextpdf</groupId>
 	    	<artifactId>itext-core</artifactId>
 	   		<version>9.1.0</version>
@@ -128,12 +133,6 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		
-		<dependency>
     		<groupId>org.eclipse.jdt.core.compiler</groupId>
     		<artifactId>ecj</artifactId>
     		<version>4.5.1</version>
@@ -144,24 +143,6 @@
     		<artifactId>guava</artifactId>
     		<version>33.5.0-jre</version>
 		</dependency>
-		
-		<dependency>
-		    <groupId>ch.qos.logback</groupId>
-    		<artifactId>logback-core</artifactId>
-		</dependency>
-		
-		<!--
-		<dependency>
-		    <groupId>org.slf4j</groupId>
-    		<artifactId>slf4j-api</artifactId>
-    		<scope>test</scope>
-		</dependency>
-		
-		<dependency>
-		    <groupId>ch.qos.logback</groupId>
-    		<artifactId>logback-classic</artifactId>
-		</dependency>
-		-->
 		
 		<dependency>
     		<groupId>org.apache.commons</groupId>
@@ -219,12 +200,23 @@
 				</configuration>
 			</plugin>
 			
-			<plugin>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.14.1</version>
-          <configuration>
-            <compilerId>eclipse</compilerId>
-          </configuration>
+          
+          <executions>
+	        <execution>
+	         	 <id>default-compile</id>
+	        	 <configuration>
+	             <annotationProcessorPaths>
+	             	<path>
+		                 <groupId>org.projectlombok</groupId>
+		                 <artifactId>lombok</artifactId>
+	            	 </path>
+	        	 </annotationProcessorPaths>
+	         	</configuration>
+		  	  </execution>
+	      </executions>
           <dependencies>
             <dependency>
               <groupId>org.codehaus.plexus</groupId>
